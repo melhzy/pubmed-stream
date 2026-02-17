@@ -10,7 +10,10 @@ readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.8"
 authors = [
-    { name = "Haran Lab, Bucci Lab, and Microbiology & Microbiome Dynamics AI HUB", email = "Contact via GitHub" }
+    { name = "Haran Lab, Bucci Lab, and Microbiology & Microbiome Dynamics AI HUB" }
+]
+maintainers = [
+    { name = "University of Massachusetts" }
 ]
 keywords = ["pubmed", "pmc", "ncbi", "e-utilities", "literature", "download", "biomedical", "research"]
 classifiers = [
