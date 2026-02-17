@@ -1,0 +1,26 @@
+Keyword,Category,Priority,Rationale,Expected_Articles
+"topic modeling differential abundance microbiome",Feature Integration,Critical,"Direct combination of LDA with DA analysis. Core to formula validation.",10-30
+"LDA supervised learning microbiome",Feature Integration,Critical,"Combining unsupervised LDA with supervised classification.",5-20
+"feature weighting microbiome machine learning",Feature Engineering,Critical,"Feature weighting schemes in microbiome ML. May describe multiplicative approaches.",15-40
+"beta coefficients topic modeling",Topic Modeling Methods,High,"Beta probability usage from LDA. How beta values are utilized downstream.",10-30
+"log fold change machine learning",Differential Analysis,High,"Log2FC as ML features. Integration with other data types.",15-30
+"feature combination strategies microbiome",Feature Engineering,High,"How different feature types are combined (additive vs multiplicative).",10-25
+"unsupervised supervised integration microbiome",Hybrid Approaches,High,"Papers combining unsupervised and supervised methods.",10-25
+"multiplicative feature interaction ML",Feature Engineering,Medium,"Multiplicative vs additive feature combinations in ML.",5-15
+"significance weighting biomarkers",Statistical Methods,Medium,"Using statistical significance to weight features.",10-20
+"topic modeling supervised classification",Hybrid Approaches,High,"Topic models as input to supervised classifiers.",15-30
+"latent features differential expression",Feature Engineering,High,"Using latent features with differential expression results.",10-25
+"ensemble feature microbiome",Feature Engineering,Medium,"Combining multiple feature types for microbiome analysis.",10-20
+"meta-features microbiome",Feature Engineering,Medium,"Higher-level features derived from base features.",5-15
+"topic beta differential abundance",Topic Analysis,Critical,"Direct combination of topic beta with differential abundance.",5-15
+"weighted feature importance microbiome",Feature Engineering,High,"Feature importance weighting schemes.",10-20
+"compositional supervised learning",Statistical Methods,High,"Supervised learning with compositional data (CLR + classification).",15-30
+"topic abundance association",Topic Analysis,Medium,"Associations between topic distributions and abundance changes.",5-15
+"LDA biomarker discovery",Discovery Methods,High,"Using LDA for biomarker identification - may discuss downstream use of beta.",10-20
+"probabilistic topic model disease prediction",Clinical ML,High,"Using probabilistic topic models for disease classification.",10-25
+"species topic differential analysis",Species Analysis,Medium,"Species-level topic assignments with differential analysis.",5-15
+"meta-topic supervised learning",Meta-Analysis,Medium,"Meta-topics (aggregated topics) in supervised models.",5-10
+"consensus topic modeling classification",Topic Modeling Methods,Medium,"Consensus/multi-seed approaches with classification.",5-15
+"topic weight disease association",Clinical Association,Medium,"How topic weights/probabilities are associated with disease.",10-20
+"feature transformation microbiome ML",Feature Engineering,High,"Feature transformation strategies before ML.",10-25
+"hybrid feature microbiome",Feature Engineering,Medium,"Hybrid features combining multiple data modalities.",8-18

@@ -1,0 +1,21 @@
+Keyword,Category,Priority
+"Alzheimer's disease machine learning microbiome classification",alzheimers_ml_microbiome,Critical
+"Alzheimer gut microbiome prediction features",alzheimers_ml_microbiome,Critical
+"dementia microbiome machine learning biomarkers",alzheimers_ml_microbiome,Critical
+"cognitive impairment microbiome supervised learning",alzheimers_ml_microbiome,High
+"Alzheimer's disease feature engineering microbiome",alzheimers_feature_engineering,Critical
+"multi-modal Alzheimer prediction microbiome clinical",alzheimers_multimodal,Critical
+"topic modeling Alzheimer's disease microbiome",alzheimers_topic_modeling,High
+"differential abundance Alzheimer microbiome machine learning",alzheimers_daa_ml,Critical
+"LDA topic modeling Alzheimer microbiome",alzheimers_topic_modeling,High
+"microbiome signatures Alzheimer classification XGBoost",alzheimers_ml_microbiome,High
+"compositional data Alzheimer prediction neural network",alzheimers_compositional,High
+"gut-brain axis machine learning dementia",alzheimers_ml_microbiome,High
+"multiple feature types Alzheimer classification",alzheimers_feature_integration,Critical
+"heterogeneous features dementia prediction",alzheimers_feature_integration,Critical
+"beta values machine learning microbiome disease",feature_integration_methods,High
+"log fold change feature weighting classification",feature_integration_methods,Critical
+"combining supervised unsupervised features classification",feature_integration_methods,Critical
+"statistical significance feature engineering ML",feature_integration_methods,High
+"differential expression machine learning integration",feature_integration_methods,High
+"multi-source biomarker Alzheimer ensemble",alzheimers_multimodal,High

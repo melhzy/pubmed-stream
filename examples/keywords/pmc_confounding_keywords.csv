@@ -1,0 +1,21 @@
+Keyword,Category,Priority,Rationale,Expected_Articles
+"confounding variables microbiome Alzheimer's disease",Confounding - General,Critical,"General methodology for identifying confounders in microbiome-AD studies",20-40
+"covariates adjustment microbiome differential abundance",Confounding - Statistics,Critical,"Statistical adjustment methods for microbiome differential abundance analysis",15-30
+"age sex microbiome Alzheimer's disease",Confounding - Demographics,Critical,"Age and sex as fundamental confounders in AD microbiome studies",30-50
+"medication microbiome elderly",Confounding - Medications,Critical,"Medication effects on elderly microbiome composition",25-40
+"antibiotics microbiome long-term effects",Confounding - Antibiotics,Critical,"Long-term antibiotic effects on microbiome. Major confounder",30-50
+"proton pump inhibitors microbiome",Confounding - PPI,High,"PPI effects on gut and oral microbiome",25-40
+"SSRI antidepressants microbiome",Confounding - SSRI,High,"SSRI effects on microbiome composition",15-25
+"statins microbiome gut",Confounding - Statins,High,"Statin effects on gut microbiome",15-25
+"polypharmacy microbiome elderly",Confounding - Polypharmacy,High,"Cumulative medication effects on microbiome",15-30
+"diabetes microbiome Alzheimer's",Confounding - Comorbidities,High,"Diabetes as confounder in AD microbiome studies",20-35
+"hypertension microbiome",Confounding - Comorbidities,Medium,"Hypertension effects on microbiome",10-20
+"BMI obesity microbiome Alzheimer's",Confounding - BMI,High,"BMI and obesity as confounders in microbiome studies",20-35
+"diet microbiome Alzheimer's disease",Confounding - Diet,Critical,"Dietary effects on microbiome. Major unmeasured confounder",30-50
+"smoking microbiome oral gut",Confounding - Lifestyle,Medium,"Smoking effects on oral and gut microbiome",15-25
+"physical activity microbiome elderly",Confounding - Lifestyle,Medium,"Physical activity effects on microbiome in elderly",10-20
+"comorbidities microbiome elderly",Confounding - Comorbidities,High,"Multiple comorbidities as confounders",15-25
+"frailty microbiome confounding",Confounding - Frailty,High,"Frailty as confounder vs mediator in microbiome-AD studies",15-25
+"propensity score microbiome analysis",Methodology - Statistics,High,"Propensity score methods for microbiome confounder adjustment",10-20
+"multivariate adjustment microbiome",Methodology - Statistics,High,"Multivariate statistical adjustment in microbiome studies",15-25
+"repeated measures microbiome confounding",Methodology - Statistics,High,"Handling repeated measures and patient-level confounding",10-20

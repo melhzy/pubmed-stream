@@ -1,0 +1,54 @@
+Keyword,Category,Priority,Rationale,Expected_Articles
+"machine learning Alzheimer's disease microbiome",Core - ML+AD+Microbiome,Critical,"Direct intersection of ML, AD, and microbiome. Primary research area.",30-60
+"gut microbiome machine learning dementia",Core - ML+AD+Microbiome,Critical,"ML methods specifically applied to gut microbiome in dementia.",20-40
+"XGBoost Alzheimer's disease classification",ML Method - Gradient Boosting,Critical,"Current method (XGBoost). Looking for optimizations and best practices.",15-30
+"gradient boosting microbiome classification",ML Method - Gradient Boosting,High,"Gradient boosting applications in microbiome studies.",20-40
+"ensemble learning Alzheimer's disease",ML Method - Ensemble,Critical,"Ensemble methods for AD classification to improve on single XGBoost.",25-50
+"random forest microbiome classification",ML Method - Ensemble,High,"Random forest as alternative/complementary approach.",30-60
+"deep learning microbiome Alzheimer's",ML Method - Deep Learning,High,"Neural network approaches for microbiome-AD classification.",15-30
+"class imbalance machine learning medical",Data Challenge - Imbalance,Critical,"Methods for 4.7:1 class imbalance (227 controls, 48 AD cases).",40-80
+"SMOTE oversampling medical data",Data Challenge - Imbalance,Critical,"SMOTE variants for handling imbalance in small medical datasets.",30-60
+"cost-sensitive learning healthcare",Data Challenge - Imbalance,High,"Cost-sensitive approaches as alternative to oversampling.",20-40
+"focal loss imbalanced classification",Data Challenge - Imbalance,High,"Focal loss for addressing class imbalance in medical ML.",15-30
+"small sample machine learning medical",Data Challenge - Small N,Critical,"ML methods for small sample sizes (275 samples, 119 patients).",30-60
+"nested cross-validation medical prediction",Data Challenge - Validation,Critical,"Proper validation to avoid overfitting with small N.",20-40
+"repeated measures machine learning",Data Challenge - Repeated Measures,Critical,"Handling repeated measures (275 samples, 119 patients). Group-level splitting.",15-30
+"group cross-validation machine learning",Data Challenge - Repeated Measures,High,"GroupKFold strategies to prevent patient-level leakage.",10-20
+"feature selection microbiome",Feature Engineering - Selection,Critical,"Feature selection methods for high-dimensional microbiome data.",40-80
+"SHAP feature importance microbiome",Feature Engineering - Interpretation,Critical,"Current method (SHAP). Looking for best practices and alternatives.",25-50
+"compositional data machine learning",Feature Engineering - Compositional,Critical,"ML methods that respect compositional nature of microbiome data (CLR, TSS).",20-40
+"centered log-ratio machine learning microbiome",Feature Engineering - Compositional,High,"CLR transformation (current method) with ML applications.",15-30
+"interaction terms feature engineering",Feature Engineering - Interactions,High,"Feature interactions for microbiome communities (meta-topics).",20-40
+"biological feature engineering microbiome",Feature Engineering - Domain Knowledge,High,"Domain-informed features (dysbiosis index, SCFA capacity, etc.).",15-30
+"hyperparameter optimization medical ML",ML Optimization - Hyperparameters,High,"Hyperparameter tuning strategies for medical ML (current: Optuna).",30-60
+"Optuna hyperparameter tuning",ML Optimization - Hyperparameters,High,"Optuna best practices and optimization strategies.",15-30
+"Bayesian optimization small sample",ML Optimization - Hyperparameters,Medium,"Bayesian optimization for hyperparameter search with small N.",15-30
+"early stopping regularization medical ML",ML Optimization - Regularization,Medium,"Regularization to prevent overfitting in medical datasets.",20-40
+"interpretable machine learning medical",ML Interpretation - Explainability,Critical,"Model interpretability for clinical acceptance and biological insight.",40-80
+"explainable AI healthcare",ML Interpretation - Explainability,High,"XAI methods for healthcare applications.",30-60
+"LIME SHAP comparison medical",ML Interpretation - Explainability,Medium,"Comparison of explainability methods (LIME vs SHAP).",15-30
+"ensemble feature importance aggregation",ML Interpretation - Ensemble,Medium,"Feature importance in ensemble models.",10-20
+"differential abundance microbiome machine learning",Microbiome Analysis - DAA,High,"Integrating DAA results (LinDA) with ML models.",20-40
+"topic modeling microbiome machine learning",Microbiome Analysis - Topic Modeling,High,"LDA topics (meta-topics) as ML features.",10-20
+"microbial community features ML",Microbiome Analysis - Community,High,"Community-level features vs individual species in ML.",15-30
+"species-level microbiome prediction",Microbiome Analysis - Resolution,Medium,"Species-level features (current) vs genus-level for ML.",15-30
+"microbiome biomarker discovery machine learning",Clinical Application - Biomarkers,Critical,"ML for identifying microbial biomarkers of AD.",30-60
+"diagnostic prediction Alzheimer's microbiome",Clinical Application - Diagnosis,High,"Microbiome-based diagnostic models for AD.",20-40
+"prognosis machine learning dementia",Clinical Application - Prognosis,Medium,"Prognostic models for dementia progression.",20-40
+"multi-omics machine learning Alzheimer's",Clinical Application - Multi-omics,Medium,"Integrating microbiome with clinical covariates (current approach).",25-50
+"clinical covariates machine learning integration",Clinical Application - Covariates,High,"Incorporating clinical variables (age, sex, medications, etc.).",30-60
+"confounding adjustment machine learning",Statistical Challenge - Confounding,High,"Handling confounders (frailty, polypharmacy) in ML models.",20-40
+"batch effects microbiome machine learning",Statistical Challenge - Batch Effects,Medium,"Batch effect correction in microbiome ML studies.",15-30
+"missing data imputation microbiome",Statistical Challenge - Missing Data,Medium,"Handling missing values in microbiome datasets.",15-30
+"calibration medical prediction models",Model Validation - Calibration,High,"Model calibration for reliable probability estimates.",20-40
+"external validation machine learning medical",Model Validation - Validation,High,"External validation strategies for medical ML models.",30-60
+"reproducibility machine learning microbiome",Model Validation - Reproducibility,High,"Reproducibility challenges and solutions in microbiome ML.",15-30
+"software reproducibility computational biology",Model Validation - Reproducibility,Medium,"Computational reproducibility best practices.",20-40
+"performance metrics imbalanced classification",Model Evaluation - Metrics,Critical,"Appropriate metrics for imbalanced datasets (F1, AUC, precision-recall).",30-60
+"precision-recall curve medical classification",Model Evaluation - Metrics,High,"PR curves for imbalanced medical classification (current target).",20-40
+"confidence intervals machine learning medical",Model Evaluation - Uncertainty,Medium,"Uncertainty quantification in medical ML predictions.",15-30
+"bootstrapping confidence intervals ML",Model Evaluation - Uncertainty,Medium,"Bootstrap methods for ML model uncertainty.",15-30
+"AutoML medical applications",Advanced Methods - AutoML,Medium,"Automated ML for medical datasets as alternative to manual tuning.",15-30
+"transfer learning microbiome",Advanced Methods - Transfer Learning,Medium,"Transfer learning approaches for microbiome studies.",10-20
+"meta-learning few-shot medical",Advanced Methods - Meta-learning,Low,"Meta-learning for small medical datasets.",5-15
+"federated learning medical data",Advanced Methods - Federated,Low,"Federated learning for multi-center microbiome studies.",10-20

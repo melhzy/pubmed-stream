@@ -1,0 +1,16 @@
+Keyword,Category,Priority
+"Alzheimer microbiome relative abundance machine learning",ad_microbiome_abundance_ml,Critical
+"compositional data Alzheimer microbiome classification",ad_compositional_ml,Critical
+"MetaPhlAn Alzheimer machine learning",ad_metaphlan_ml,Critical
+"relative abundance features Alzheimer prediction",ad_abundance_features,Critical
+"CLR transformation Alzheimer microbiome ML",ad_clr_ml,Critical
+"microbiome abundance Alzheimer XGBoost random forest",ad_abundance_classifiers,Critical
+"gut microbiome composition Alzheimer machine learning",ad_composition_ml,Critical
+"differential abundance machine learning integration microbiome",daa_ml_integration,Critical
+"LinDA microbiome Alzheimer",linda_ad,Critical
+"DESeq2 Alzheimer microbiome machine learning",deseq2_ad_ml,High
+"compositional features disease classification microbiome",compositional_disease_ml,High
+"abundance-based biomarkers Alzheimer microbiome",abundance_biomarkers_ad,High
+"shotgun metagenomics Alzheimer classification",shotgun_ad_ml,High
+"16S rRNA Alzheimer machine learning relative abundance",16s_ad_abundance_ml,High
+"microbiome feature engineering compositional data",microbiome_compositional_features,High

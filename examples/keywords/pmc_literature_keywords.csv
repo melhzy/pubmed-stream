@@ -1,0 +1,55 @@
+Keyword,Category,Priority,Rationale,Expected_Articles
+"interleukin-7 T-cell aging",Core Biomarker - IL-7,Critical,"IL-7 is the dominant SHAP feature (0.376) and central hub in feature interactions. Therapeutic target for immune reconstitution. Broadened from 'frailty interleukin-7 T-cell' (0 results).",50-100
+"IL-7 aging immune dysfunction",Core Biomarker - IL-7,Critical,"IL-7's role in T-cell homeostasis and age-related immune decline. Sign flip feature between frail/non-frail cohorts. Broadened from 'frailty IL-7 immunosenescence' (0 results).",30-60
+"GM-CSF elderly myeloid function",Core Biomarker - GM-CSF,Critical,"GM-CSF is 2nd most stable feature (SHAP 0.283). Represents myeloid axis of immune dysregulation. Broadened from 'frailty GM-CSF myeloid' (0 results).",20-50
+"frailty interleukin-2 T-cell activation",Core Biomarker - IL-2,High,"IL-2 shows largest effect size (d=0.809) in correlation analysis. Key T-cell proliferation marker.",30-50
+"frailty interleukin-6 inflammation",Core Biomarker - IL-6,High,"IL-6 is classic inflammaging marker with 90% elevation in frail patients. Widely studied.",100-200
+"interleukin-17 aging inflammation",Core Biomarker - IL-17,High,"IL-17 represents Th17 pathway. Medium effect size (d=0.711). Autoimmunity link. Broadened from 'frailty interleukin-17 Th17' (0 results).",20-40
+"inflammaging frailty cytokines",Paradigm - Inflammaging,Critical,"Core theoretical framework. Most cytokines elevated in frail (IL-6 +90%, IL-2 +281%).",50-100
+"immunosenescence frailty elderly",Paradigm - Immunosenescence,Critical,"Competing paradigm. Partial evidence for depleted immune capacity (GM-CSF -14%, IL-1ra -7%).",40-80
+"frailty T-cell homeostasis aging",Immune Pathway - T-cell,High,"T-cell Homeostasis pathway has highest SHAP importance (0.737). IL-7/IL-2/IL-9/IL-15 cluster.",30-60
+"frailty CD4 CD8 ratio",Immune Pathway - T-cell,High,"Expected downstream effect of IL-7 depletion. Inverted CD4/CD8 ratio marker of immunosenescence.",20-40
+"naive T-cells aging CD45RA",Immune Pathway - T-cell,High,"Mechanistic validation for IL-7 findings. Thymic involution and reduced naive T-cell reserves. Broadened from 'frailty naive T-cells CD45RA' (0 results).",15-30
+"frailty monocyte macrophage activation",Immune Pathway - Myeloid,High,"GM-CSF axis validation. Impaired myeloid responses in inflammaging.",25-50
+"frailty neutrophil function IL-8",Immune Pathway - Myeloid,Medium,"IL-8 shows 19% elevation in frail. Neutrophil chemotaxis marker.",15-30
+"eotaxin aging eosinophil",Immune Pathway - Eosinophil,Medium,"Eotaxin is 4th most important feature (SHAP 0.221). Type 2 immunity pathway. Broadened from 'frailty eosinophil eotaxin' (0 results).",10-25
+"frailty IL-1 receptor antagonist",Anti-inflammatory,Medium,"IL-1ra shows genuinely lower levels in frail (-7%). Anti-inflammatory capacity marker.",15-30
+"interleukin-9 aging Th9",T-cell/Allergic,Medium,"IL-9 is protective feature (SHAP 0.208). Th2/mast cell pathway. Broadened from 'frailty interleukin-9 mast cell' (0 results).",10-20
+"frailty TNF-alpha elderly",Pro-inflammatory,High,"TNF-α elevated in frail (+2%). Central pro-inflammatory cytokine.",50-100
+"interferon-gamma elderly inflammation",Pro-inflammatory,Medium,"IFN-γ elevated +34% in frail. Th1 cytokine and macrophage activator. Broadened from 'frailty interferon-gamma Th1' (0 results).",20-40
+"IL-1beta NLRP3 aging",Pro-inflammatory,Medium,"IL-1β inflammasome activation marker. Medium effect size. Broadened from 'frailty interleukin-1beta NLRP3' (0 results).",20-40
+"frailty interleukin-10 regulation",Anti-inflammatory,Medium,"IL-10 elevated +29% in frail (compensatory). Anti-inflammatory cytokine.",25-50
+"frailty PDGF growth factor",Growth/Repair,Medium,"PDGFbb shows protective SHAP (0.181). Tissue repair capacity.",10-20
+"FGF elderly vascular",Growth/Repair,Low,"FGF basic growth factor. Elevated in frail (inflammaging). Broadened from 'frailty FGF angiogenesis' (0 results).",10-20
+"MCP-1 IP-10 elderly inflammation",Chemokines,Medium,"MCP1 and IP10 elevated in frail. Monocyte/lymphocyte recruitment. Broadened from 'frailty chemokines MCP-1 IP-10' (0 results).",20-40
+"RANTES CCL5 aging",Chemokines,Low,"RANTES and MIP1b slightly lower in frail. Chemokine signaling. Broadened from 'frailty RANTES MIP-1' (0 results).",10-20
+"frailty Charlson comorbidity index",Comorbidity,High,"CCI_total is 2nd discriminating biomarker (SHAP 0.313). Multimorbidity burden.",40-80
+"frailty hypertension cardiovascular",Comorbidity,Medium,"HTN shows counterintuitive protective effect. Cardiovascular-immune interface.",30-60
+"frailty statin anti-inflammatory",Medication,Medium,"Statin shows protective SHAP (0.182). Pleiotropic anti-inflammatory effects.",20-40
+"frailty polypharmacy medication",Medication,Medium,"Polypharmacy counterintuitively protective. Healthcare engagement marker.",15-30
+"frailty Alzheimer's disease inflammation",Clinical Context,High,"Cohort includes dementia patients. AD-frailty-inflammation overlap.",30-60
+"frailty diabetes metabolic inflammation",Clinical Context,Medium,"Diabetic patients in cohort. Metabolic-immune connection.",25-50
+"frailty COPD systemic inflammation",Clinical Context,Medium,"COPD patients in cohort. Pulmonary-systemic inflammation link.",20-40
+"frailty chronic kidney disease",Clinical Context,Medium,"CKD patients in cohort. Uremic inflammation.",15-30
+"recombinant IL-7 elderly immune reconstitution",Therapeutic - IL-7,Critical,"CYT107 (recombinant IL-7) FDA-approved for sepsis lymphopenia. Frailty as new indication.",10-25
+"low-dose IL-2 therapy Treg",Therapeutic - IL-2,High,"Low-dose IL-2 expands regulatory T-cells. Immune tolerance restoration.",15-30
+"GM-CSF therapy neutropenia",Therapeutic - GM-CSF,Medium,"G-CSF/GM-CSF used in neutropenia. Potential frailty application.",10-20
+"exercise frailty cytokines",Therapeutic - Lifestyle,High,"Physical interventions restore inflammatory biomarkers and frailty status.",30-60
+"anti-inflammatory therapy frailty",Therapeutic - General,Medium,"Therapeutic strategies targeting chronic inflammation.",20-40
+"frailty biomarkers meta-analysis",Methodology - Review,High,"Systematic reviews and meta-analyses of frailty biomarkers for comparison.",20-40
+"frailty machine learning prediction",Methodology - ML,High,"ML studies on frailty prediction for methodological comparison.",15-30
+"frailty nested cross-validation",Methodology - ML,Low,"Studies addressing repeated-measures leakage in frailty ML.",5-10
+"SHAP explainable AI frailty",Methodology - XAI,Low,"XAI applications in frailty prediction models.",5-10
+"frailty flow cytometry immune phenotyping",Methodology - Immunology,Medium,"Immune cell profiling in frailty. Validation approach for cytokine findings.",10-20
+"frailty senescent T-cells CD28",Mechanism - Immunosenescence,High,"CD8+CD28- senescent T-cell accumulation in frailty.",15-30
+"frailty thymic involution T-cell",Mechanism - Immunosenescence,Medium,"Thymic output decline as mechanism for IL-7/IL-2 findings.",10-20
+"inflammasome activation frailty",Mechanism - Inflammaging,Medium,"NLRP3 inflammasome as driver of IL-1β/IL-18 elevation.",15-30
+"cytokine storm elderly",Mechanism - Acute Inflammation,Low,"Acute vs chronic inflammation in frailty. Broadened from 'frailty cytokine storm sepsis' (0 results).",10-20
+"frailty mitochondrial dysfunction inflammation",Mechanism - Cellular,Medium,"Mitochondrial DAMP release as inflammaging driver.",10-20
+"autophagy aging immune senescence",Mechanism - Cellular,Low,"Autophagy decline and immune cell senescence. Broadened from 'frailty autophagy immunosenescence' (0 results).",10-20
+"precision medicine elderly immunophenotyping",Clinical Application,Medium,"Stratification of frail patients by immune phenotype for targeted interventions. Broadened from 'frailty precision medicine immune subtypes' (0 results).",10-20
+"frailty screening biomarker panel",Clinical Application,High,"Clinical validation of cytokine-based frailty screening.",15-30
+"frailty intervention trial cytokines",Clinical Application,Medium,"Intervention studies measuring cytokine changes with frailty improvement.",15-30
+"frailty longitudinal cytokine trajectory",Study Design,High,"Prospective studies of cytokine changes preceding frailty onset.",10-20
+"frailty cross-sectional cytokines",Study Design,High,"Cross-sectional studies for comparison with current design.",30-60
+"frailty sample size power analysis cytokines",Study Design,Low,"Statistical power considerations for frailty biomarker studies.",5-10

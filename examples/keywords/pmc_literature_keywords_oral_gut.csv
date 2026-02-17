@@ -1,0 +1,53 @@
+Keyword,Category,Priority,Rationale,Expected_Articles
+"oral microbiome Alzheimer's disease",Core - Oral Microbiome,Critical,"Primary research focus: oral microbiome alterations in AD. Central to oral-brain axis hypothesis.",50-100
+"gut microbiome Alzheimer's disease",Core - Gut Microbiome,Critical,"Primary research focus: gut microbiome alterations in AD. Central to gut-brain axis hypothesis.",50-100
+"oral gut microbiome Alzheimer's disease",Core - Oral-Gut Axis,Critical,"Unique aspect of this study: paired oral-gut analysis in AD. Minimal taxonomic overlap finding.",20-50
+"oral-brain axis Alzheimer's disease",Paradigm - Oral-Brain Axis,Critical,"Theoretical framework: oral microbiome directly affects brain. Alternative to gut-brain axis.",30-60
+"gut-brain axis Alzheimer's disease",Paradigm - Gut-Brain Axis,Critical,"Established paradigm: gut microbiome affects brain. Compare with oral-brain axis findings.",50-100
+"microbial translocation oral gut",Mechanism - Translocation,High,"Mechanism: oral bacteria translocate to gut. Contradicts our minimal overlap finding.",20-40
+"bacterial translocation Alzheimer's disease",Mechanism - Translocation,High,"Oral bacteria reach brain via bloodstream. Supports oral-brain axis.",15-30
+"Porphyromonas gingivalis Alzheimer's disease",Pathogen - P. gingivalis,High,"Key oral pathogen linked to AD. Periodontal disease connection.",30-60
+"Neisseria sicca oral microbiome",Species - N. sicca,High,"Top AD-associated species in our study (+3.6 FC). Strongest oral signal.",10-20
+"Actinomyces graevenitzii oral microbiome",Species - A. graevenitzii,High,"Top protective species in our study (-2.9 FC). Beneficial oral bacteria.",10-20
+"Prevotella melaninogenica oral microbiome",Species - P. melaninogenica,High,"Dominant species in Meta-Topic_7 (51.91%). Beneficial community marker.",10-20
+"MetaPhlAn whole-genome shotgun metagenomics",Methodology - WGS,High,"Our sequencing technology: WGS metagenomics with MetaPhlAn 4 profiling.",20-40
+"latent Dirichlet allocation microbiome",Methodology - LDA,High,"Our community detection method: LDA topic modeling for microbiome communities.",15-30
+"topic modeling microbiome communities",Methodology - LDA,High,"Community-level analysis approach. Multi-seed LDA framework.",15-30
+"multi-seed LDA reproducibility",Methodology - LDA,Medium,"Our novel approach: multiple random seeds for robust community detection.",5-15
+"compositional data analysis microbiome",Methodology - Statistics,High,"CLR transformation and compositional data handling. Our statistical approach.",20-40
+"generalized linear mixed models microbiome",Methodology - Statistics,High,"Our primary statistical model: GLMM for repeated measures.",15-30
+"frailty microbiome Alzheimer's disease",Confounding - Frailty,High,"Critical confounder in our study. Clinical Frailty Scale association.",20-40
+"polypharmacy microbiome elderly",Confounding - Medications,High,"Critical confounder: 60% AD vs 26% controls. Medication-microbiome interactions.",15-30
+"SSRI microbiome gut",Confounding - Medications,High,"3.2-fold higher in AD (40% vs 12.5%). Known microbiome effects.",20-40
+"PPI microbiome gut",Confounding - Medications,Medium,"Proton pump inhibitors affect gut microbiome. Potential confounder.",15-30
+"malnutrition microbiome elderly",Confounding - Nutrition,Medium,"MNA score significantly different. Nutrition-microbiome interactions.",15-30
+"Streptococcus salivarius oral gut",Shared Species,High,"Only shared species between oral and gut in our study. Minimal overlap finding.",10-20
+"oral gut taxonomic overlap",Shared Species,High,"Minimal overlap finding (1 species, 0.6-1.3%). Contradicts translocation reports.",10-20
+"periodontal disease Alzheimer's disease",Clinical - Periodontal,High,"Epidemiological link: periodontal disease increases AD risk.",30-60
+"dental health cognitive decline",Clinical - Periodontal,Medium,"Oral health and cognitive function. Supporting evidence.",20-40
+"butyrate Alzheimer's disease microbiome",Mechanism - SCFA,High,"SCFA production by gut bacteria. Neuroprotective effects.",20-40
+"short-chain fatty acids gut-brain axis",Mechanism - SCFA,High,"SCFA as mediators of gut-brain communication.",25-50
+"inflammation microbiome Alzheimer's disease",Mechanism - Inflammation,High,"Systemic inflammation link. Inflammaging and neuroinflammation.",30-60
+"neuroinflammation microbiome",Mechanism - Inflammation,High,"Microbiome-induced neuroinflammation in AD.",25-50
+"LPS lipopolysaccharide Alzheimer's disease",Mechanism - LPS,Medium,"Bacterial endotoxin translocation. Leaky gut hypothesis.",15-30
+"leaky gut Alzheimer's disease",Mechanism - Barrier,Medium,"Intestinal barrier dysfunction in AD.",15-30
+"probiotics Alzheimer's disease",Therapeutic - Probiotics,High,"Therapeutic interventions: probiotics for AD.",20-40
+"prebiotics Alzheimer's disease microbiome",Therapeutic - Prebiotics,Medium,"Prebiotic interventions for AD microbiome.",10-20
+"fecal microbiota transplantation Alzheimer's",Therapeutic - FMT,Low,"FMT as potential AD treatment. Experimental.",5-10
+"microbiome biomarkers Alzheimer's disease",Clinical Application,High,"Microbiome as diagnostic/prognostic biomarkers for AD.",20-40
+"microbiome early detection Alzheimer's",Clinical Application,Medium,"Microbiome changes precede AD diagnosis. Early detection potential.",15-30
+"repeated measures microbiome analysis",Methodology - Statistics,Medium,"Longitudinal microbiome studies. Our repeated measures design.",10-20
+"species-level microbiome analysis",Methodology - Resolution,Medium,"Species-level vs genus-level resolution. WGS advantage.",15-30
+"differential abundance microbiome",Methodology - Statistics,High,"Differential abundance testing methods. Our statistical approach.",20-40
+"false discovery rate microbiome",Methodology - Statistics,Medium,"Multiple testing correction. FDR adjustment in microbiome studies.",10-20
+"enterotypes microbiome Alzheimer's",Community - Enterotypes,Medium,"Gut enterotypes in AD. Compare with LDA topics.",10-20
+"co-occurrence networks microbiome",Community - Networks,Medium,"Microbial co-occurrence patterns. Compare with LDA communities.",10-20
+"microbiome diversity Alzheimer's disease",Alpha Diversity,Medium,"Alpha and beta diversity measures in AD.",20-40
+"beta diversity microbiome Alzheimer's",Beta Diversity,Medium,"Community structure differences. PCoA, PERMANOVA.",15-30
+"16S rRNA microbiome Alzheimer's",Methodology - 16S,Medium,"16S sequencing studies. Compare with WGS findings.",30-60
+"whole-genome shotgun microbiome",Methodology - WGS,High,"WGS metagenomics advantages. Higher resolution than 16S.",20-40
+"microbiome longitudinal Alzheimer's",Study Design - Longitudinal,High,"Longitudinal microbiome changes in AD progression.",15-30
+"microbiome cross-sectional Alzheimer's",Study Design - Cross-sectional,High,"Cross-sectional AD microbiome studies for comparison.",30-60
+"microbiome meta-analysis Alzheimer's",Methodology - Review,High,"Systematic reviews and meta-analyses of AD microbiome studies.",15-30
+"microbiome review Alzheimer's disease",Methodology - Review,High,"Narrative reviews of AD microbiome research.",20-40
+
