@@ -1,5 +1,9 @@
 # pubmed-stream
 
+[![PyPI version](https://badge.fury.io/py/pubmed-stream.svg)](https://pypi.org/project/pubmed-stream/)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A Python library for downloading PubMed Central (PMC) full-text articles with support for concurrent downloads, automatic rate limiting, metadata extraction, and multiple output formats.
 
 **Built on NCBI E-utilities API** for reliable, standards-compliant access to biomedical literature.
@@ -52,7 +56,13 @@ print(f"Downloaded {stats.successful} articles in {stats.duration_seconds:.1f}s"
 
 ## Installation
 
-### From Local Clone
+### From PyPI (Recommended)
+
+```bash
+pip install pubmed-stream
+```
+
+### From Source
 
 ```bash
 # Clone the repository
