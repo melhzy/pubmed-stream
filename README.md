@@ -786,4 +786,5 @@ SOFTWARE.
 
 **Contact**: For questions or support, please open an issue on GitHub.
 
-**Repository**: https://github.com/melhzy/pubmed-stream
+**Repository**: https://github.com/melhzy/pubmed-stream  
+**PyPI Package**: https://pypi.org/project/pubmed-stream/
