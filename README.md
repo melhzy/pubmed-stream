@@ -2,9 +2,11 @@
 
 A Python library for downloading PubMed Central (PMC) full-text articles with support for concurrent downloads, automatic rate limiting, metadata extraction, and multiple output formats.
 
+**Built on NCBI E-utilities API** for reliable, standards-compliant access to biomedical literature.
+
 ## Overview
 
-`pubmed-stream` simplifies the process of downloading scientific literature from PubMed Central by:
+`pubmed-stream` simplifies the process of downloading scientific literature from PubMed Central by leveraging the **NCBI E-utilities API** (ESearch and EFetch):
 - **Searching PMC directly** for guaranteed full-text availability
 - **Extracting structured metadata** from JATS XML (title, authors, abstract, keywords, DOI, etc.)
 - **Supporting multiple formats**: plain text, raw XML, or both in a single JSON file
@@ -77,15 +79,15 @@ Development dependencies (optional):
 
 ### Architecture
 
-The library follows a modular design with three main components:
+The library follows a modular design with three main components, all built on **NCBI E-utilities**:
 
 1. **Search Module** (`esearch_pmc`)
-   - Queries PMC database directly using NCBI E-utilities API
+   - Uses NCBI E-utilities **ESearch** to query PMC database directly
    - Returns PMC IDs for articles with guaranteed full-text availability
    - Handles pagination and result limiting
 
 2. **Download Module** (`efetch_pmc`)
-   - Fetches full XML article data from PMC
+   - Uses NCBI E-utilities **EFetch** to retrieve full XML article data from PMC
    - Extracts structured metadata using JATS XML parsing
    - Converts XML to plain text (optional)
    - Saves in requested format(s)
@@ -688,7 +690,7 @@ A: Yes, under the MIT license. However, respect NCBI's usage policies and rate l
 A: Register at https://www.ncbi.nlm.nih.gov/account/ and generate an API key in your account settings. It's free.
 
 **Q: Does this violate NCBI terms of service?**  
-A: No - this library respects NCBI rate limits, includes proper user-agent headers, and uses official E-utilities APIs.
+A: No - this library is built on official NCBI E-utilities APIs (ESearch and EFetch), respects rate limits, and includes proper user-agent headers in compliance with NCBI usage policies.
 
 **Q: Can I resume interrupted downloads?**  
 A: Yes - already-downloaded files are automatically skipped (shown in `stats.skipped`).
@@ -721,10 +723,13 @@ pubmed-stream/
 
 ## Acknowledgments
 
-This library was developed to support biomedical research at the **University of Massachusetts, Haran Lab**.
+This library was developed to support biomedical research at the **University of Massachusetts** by:
+- **Haran Lab**
+- **Bucci Lab**
+- **Microbiology & Microbiome Dynamics AI HUB**
 
 Special thanks to:
-- NCBI for providing open access to PubMed Central
+- **NCBI** for providing the E-utilities API and open access to PubMed Central
 - The open-source community for Python ecosystem tools
 
 ## Citation
@@ -733,11 +738,12 @@ If you use this library in your research, please cite:
 
 ```bibtex
 @software{pubmed_stream_2026,
-  title = {pubmed-stream: Python Library for PMC Article Downloads},
-  author = {Haran Lab},
+  title = {pubmed-stream: Python Library for PMC Article Downloads via NCBI E-utilities},
+  author = {Haran Lab and Bucci Lab and Microbiology \& Microbiome Dynamics AI HUB},
   organization = {University of Massachusetts},
   year = {2026},
-  url = {https://github.com/melhzy/pubmed-stream}
+  url = {https://github.com/melhzy/pubmed-stream},
+  note = {Built on NCBI E-utilities API}
 }
 ```
 
@@ -745,7 +751,8 @@ If you use this library in your research, please cite:
 
 MIT License
 
-Copyright (c) 2026 University of Massachusetts, Haran Lab
+Copyright (c) 2026 University of Massachusetts  
+Haran Lab, Bucci Lab, and Microbiology & Microbiome Dynamics AI HUB
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
