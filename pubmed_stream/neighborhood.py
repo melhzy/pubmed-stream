@@ -322,6 +322,11 @@ def get_neighborhood(
         requests.RequestException: NCBI could not be reached after retries.
     """
     pmid = str(pmid).strip()
+    if pmid.upper().startswith("PMC"):
+        raise ValueError(
+            f"{pmid!r} is a PMC ID; pass the article's PubMed ID instead "
+            "(metadata['pmid'] in downloaded files)"
+        )
     if not re.fullmatch(r"[0-9]+", pmid):
         raise ValueError(f"PMID must be numeric, got {pmid!r}")
     if max_per_relation < 0:

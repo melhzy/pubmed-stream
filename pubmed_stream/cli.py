@@ -101,6 +101,13 @@ def build_parser() -> argparse.ArgumentParser:
         "download",
         parents=[common, fetch],
         help="Search PMC and download full-text articles",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""examples:
+  pubmed-stream download "gut microbiome" --max-results 50
+  pubmed-stream download "frailty cytokines" --format both -o ./papers
+
+Articles are saved as <output-dir>/<query>/PMC*.json; re-running skips
+files that already exist.""",
     )
     download.add_argument(
         "keyword",
@@ -118,6 +125,16 @@ def build_parser() -> argparse.ArgumentParser:
         parents=[common, fetch],
         help="Show similar, citing and cited articles of a PubMed article "
              "(like NLM Linked Discoveries)",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""examples:
+  pubmed-stream neighborhood 29096998
+  pubmed-stream neighborhood 29096998 --max-per-relation 20 --download
+
+The PMID is the number in a PubMed URL (pubmed.ncbi.nlm.nih.gov/<PMID>/),
+not a PMC ID. Results are saved as <output-dir>/neighborhood_<PMID>/
+neighborhood.json; --download adds PMC*.json full-text files there.
+"100 of 489" means 100 of 489 linked articles were fetched in detail;
+the review/retracted/NIH-funded/PMC counts always cover all 489.""",
     )
     neighborhood.add_argument(
         "pmid",

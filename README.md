@@ -25,19 +25,23 @@ Built for researchers and data scientists who need efficient, reliable access to
 
 ```bash
 # Install
-pip install .
+pip install pubmed-stream
 
-# Download articles (CLI)
+# Download full-text articles for a query
 pubmed-stream download "gut microbiome" --max-results 50
 
-# Python API
-from pubmed_stream import search_and_download
-stats = search_and_download(
-    keyword="CRISPR gene editing",
-    max_results=100,
-    fmt="text"
-)
+# Map the evidence around one article: similar, citing and cited papers, retractions flagged
+pubmed-stream neighborhood 9500320
+```
+
+```python
+from pubmed_stream import get_neighborhood, search_and_download
+
+stats = search_and_download(keyword="CRISPR gene editing", max_results=100, fmt="text")
 print(f"Downloaded {stats.successful} articles in {stats.duration_seconds:.1f}s")
+
+hood = get_neighborhood("9500320")
+print(hood.totals, [a.pmid for a in hood.articles() if a.is_retracted])
 ```
 
 ## Table of Contents
@@ -214,6 +218,9 @@ pubmed-stream download "Alzheimer microbiome" -o ./my_papers
 # Verbose logging
 pubmed-stream download "frailty" -v --max-results 5
 
+# Evidence neighborhood of an article (see Evidence Neighborhood)
+pubmed-stream neighborhood 9500320
+
 # Show version
 pubmed-stream --version
 ```
@@ -380,30 +387,64 @@ NLM's [Linked Discoveries](https://linkeddiscoveries.ncbi.nlm.nih.gov/userguide/
 
 One neighborhood costs two requests (one ELink, plus one EFetch per 200 articles), plus five for each relation cut short by `--max-per-relation`.
 
-### CLI
+### Step by step
+
+1. **Install pubmed-stream** ([Installation](#installation)). Optionally set `NCBI_API_KEY` and `NCBI_EMAIL` ([Configuration](#configuration-optional)); an API key raises NCBI's limit from 3 to 10 requests per second.
+
+2. **Find the article's PMID.** It is the number in the PubMed URL (`https://pubmed.ncbi.nlm.nih.gov/9500320/` → `9500320`), or the `metadata.pmid` field of an article saved by `pubmed-stream download`. PMC IDs (`PMC…`) are not accepted.
+
+3. **Run the command:**
+
+   ```bash
+   pubmed-stream neighborhood 9500320
+   ```
+
+4. **Read the summary:**
+
+   ```
+   Seed: PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
+   Similar       100            (4 reviews, 0 retracted, 0 NIH-funded, 18 in PMC)
+   Cited by      100 of 489     (145 reviews, 0 retracted, 52 NIH-funded, 421 in PMC)
+   References      0            (0 reviews, 0 retracted, 0 NIH-funded, 0 in PMC)
+   Neighborhood  200 unique articles fetched
+   [RETRACTED] PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
+   Saved: publications/neighborhood_9500320/neighborhood.json
+   Explore the graph: https://linkeddiscoveries.ncbi.nlm.nih.gov/9500320/
+   ```
+
+   - **Seed**: the article you asked about.
+   - **Similar / Cited by / References**: how many articles were fetched in detail. `100 of 489` means 489 PubMed articles cite the seed and the newest 100 were fetched. Similar articles are ordered most similar first.
+   - **The counts in brackets always cover all linked articles** (all 489 here). When a list is cut short, they are counted with PubMed search (one EPost plus four ESearch requests) rather than by downloading every record.
+   - **Neighborhood**: distinct articles fetched across the three lists (an article can be both similar and citing).
+   - **[RETRACTED]**: every retracted article among the seed and the fetched neighbors. Check these before citing or building on them.
+   - **Saved / Explore the graph**: where the results were written, and the article's Linked Discoveries page for graph and timeline views and condition/gene/chemical filters.
+
+5. **Work with the results** in `neighborhood.json` (fields [below](#python)). For example, the NIH-funded reviews that cite the seed:
+
+   ```python
+   import json
+
+   hood = json.load(open("publications/neighborhood_9500320/neighborhood.json", encoding="utf-8"))
+   for article in hood["cited_by"]:
+       if article["is_review"] and article["nih_funded"]:
+           print(article["year"], article["pmid"], article["title"])
+   ```
+
+6. **Get the full text (optional).** `--download` saves the PMC full text of the seed and every fetched neighbor that has one, as `PMC*.json` files next to `neighborhood.json`, in the same format as `pubmed-stream download`. Articles without PMC full text, or whose publisher withholds the XML, are counted as unavailable. Re-running skips files that already exist.
+
+   ```bash
+   pubmed-stream neighborhood 9500320 --download
+   ```
+
+7. **Fetch more or fewer articles.** `--max-per-relation N` sets how many articles per list are fetched in detail (default 100). Raise it to fetch more citing articles or references; similar articles never exceed 100, which is NCBI's limit.
+
+### CLI reference
 
 ```bash
-# Summarize and save the neighborhood of an article
-pubmed-stream neighborhood 29096998
-
-# Smaller neighborhood, and also download PMC full text of the seed and its neighbors
-pubmed-stream neighborhood 29096998 --max-per-relation 20 --download
+pubmed-stream neighborhood PMID [--max-per-relation N] [--download] [options]
 ```
 
-```
-Seed: PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
-Similar       100            (4 reviews, 0 retracted, 0 NIH-funded, 18 in PMC)
-Cited by      100 of 489     (145 reviews, 0 retracted, 52 NIH-funded, 421 in PMC)
-References      0            (0 reviews, 0 retracted, 0 NIH-funded, 0 in PMC)
-Neighborhood  200 unique articles fetched
-[RETRACTED] PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
-Saved: publications/neighborhood_9500320/neighborhood.json
-Explore the graph: https://linkeddiscoveries.ncbi.nlm.nih.gov/9500320/
-```
-
-"100 of 489" means the article is cited by 489 PubMed articles and the first 100 (newest) were fetched in detail. The flag counts in parentheses always cover all 489: when a list is cut short, pubmed-stream counts them with PubMed search (one EPost plus four ESearch requests) instead of downloading every record. Raise `--max-per-relation` to fetch more articles in detail.
-
-`neighborhood` accepts `--max-per-relation` (default 100; PubMed returns at most 100 similar articles, citing articles come newest first), `--download`, the download options (`--format`, `--workers`, `--sequential`, `--exclude-text`) and the common options (`--api-key`, `--email`, `-o`, `--rate-limit`, `-v`). Full-text downloads go to the same `neighborhood_<pmid>/` folder as `PMC*.json` files.
+`neighborhood` accepts `--max-per-relation` (default 100), `--download`, the download options (`--format`, `--workers`, `--sequential`, `--exclude-text`) and the common options (`--api-key`, `--email`, `-o`, `--rate-limit`, `-v`). Results go to `<output-dir>/neighborhood_<PMID>/` (default `./publications`). `pubmed-stream neighborhood --help` shows examples.
 
 Exit codes: `0` success, `1` invalid PMID or not found in PubMed, `2` NCBI could not be reached.
 
@@ -412,7 +453,7 @@ Exit codes: `0` success, `1` invalid PMID or not found in PubMed, `2` NCBI could
 ```python
 from pubmed_stream import download_neighborhood, get_neighborhood, save_neighborhood
 
-hood = get_neighborhood("29096998", max_per_relation=50)
+hood = get_neighborhood("9500320")
 print(hood.seed.title, hood.linked_discoveries_url)
 print(hood.totals)  # {"similar": 100, "cited_by": 489, "references": 0}, uncapped counts
 print(hood.flag_counts["cited_by"])  # {"reviews": 145, "retracted": 0, "nih_funded": 52, "in_pmc": 421}, all 489
@@ -423,7 +464,7 @@ for article in hood.cited_by:
 
 retracted = [a for a in hood.articles() if a.is_retracted]  # seed + neighbors, deduplicated
 
-save_neighborhood(hood)              # publications/neighborhood_29096998/neighborhood.json
+save_neighborhood(hood)              # publications/neighborhood_9500320/neighborhood.json
 stats = download_neighborhood(hood)  # PMC full text of seed + neighbors (DownloadStats)
 ```
 
@@ -452,6 +493,48 @@ stats = download_neighborhood(hood)  # PMC full text of seed + neighbors (Downlo
 - There are no condition/gene/chemical filters and no graph or timeline view; `linked_discoveries_url` links each seed to its page in the web tool.
 - Citation links come from PubMed/PMC citation data and are incomplete for articles without deposited reference lists.
 - Like the web tool, the flags describe connections; they do not judge whether a study is credible or has been replicated.
+
+### Common workflows
+
+**Check whether a key paper cites retracted work:**
+
+```python
+from pubmed_stream import get_neighborhood
+
+hood = get_neighborhood("29096998")
+for article in hood.references:
+    if article.is_retracted:
+        print("Cites retracted article:", article.pmid, article.title)
+```
+
+**Expand a literature search from one paper.** Download the full text of its similar and citing articles, then process the `PMC*.json` files like any keyword download:
+
+```bash
+pubmed-stream neighborhood 29096998 --max-per-relation 50 --download
+```
+
+**Build neighborhoods for articles you already downloaded:**
+
+```python
+import json
+from pathlib import Path
+from pubmed_stream import get_neighborhood, save_neighborhood
+
+for path in Path("publications/gut_microbiome").glob("PMC*.json"):
+    pmid = json.loads(path.read_text(encoding="utf-8"))["metadata"].get("pmid")
+    if pmid:
+        save_neighborhood(get_neighborhood(pmid, max_per_relation=20))
+```
+
+Each neighborhood takes 2 to about 17 requests, so set `NCBI_API_KEY` for batches like this.
+
+### Troubleshooting
+
+- **`'PMC…' is a PMC ID`**: pass the PubMed ID. Downloaded files have it in `metadata.pmid`.
+- **`PMID … not found in PubMed`** (exit 1): check the number. Deleted or merged records are not found.
+- **`could not reach NCBI`** (exit 2): each request is retried three times. Try again later, or slow down with `--rate-limit 0.5`.
+- **Few or no references or citations**: NCBI only has citation links where reference lists were deposited, mostly for PMC articles. Older or paywalled articles often show 0 references, as PMID 9500320 does.
+- **Slow**: set `NCBI_API_KEY`.
 
 ## Output Format
 

@@ -185,6 +185,11 @@ def test_invalid_pmid(pmid, make_session):
     assert sent(session) == []
 
 
+def test_pmc_id_gets_a_helpful_error(make_session):
+    with pytest.raises(ValueError, match="is a PMC ID; pass the article's PubMed ID"):
+        get_neighborhood("PMC5866166", session=make_session())
+
+
 def test_ncbi_failure_raises_without_api_key(make_session, caplog):
     session = make_session(status=500)
 
