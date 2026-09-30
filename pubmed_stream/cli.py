@@ -8,8 +8,6 @@ import argparse
 import logging
 import sys
 from pathlib import Path
-from typing import List
-
 import requests
 
 from . import __version__
@@ -20,7 +18,7 @@ from .downloader import (
     search_and_download,
 )
 from .neighborhood import (
-    RelatedArticle,
+    Neighborhood,
     download_neighborhood,
     get_neighborhood,
     save_neighborhood,
@@ -140,15 +138,15 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def _relation_summary(label: str, articles: List[RelatedArticle], total: int) -> str:
-    # "10 of 489" when --max-per-relation cut the list short
-    count = f"{len(articles):>5}" + (f" of {total:<6}" if total > len(articles) else " " * 10)
+def _relation_summary(label: str, hood: Neighborhood, relation: str) -> str:
+    fetched, total = len(getattr(hood, relation)), hood.totals[relation]
+    flags = hood.flag_counts[relation]
+    # "100 of 489" when --max-per-relation cut the list short; flags cover all 489
+    count = f"{fetched:>5}" + (f" of {total:<6}" if total > fetched else " " * 10)
     return (
         f"{label:<12}{count}  ("
-        f"{sum(a.is_review for a in articles)} reviews, "
-        f"{sum(a.is_retracted for a in articles)} retracted, "
-        f"{sum(a.nih_funded for a in articles)} NIH-funded, "
-        f"{sum(a.pmcid is not None for a in articles)} in PMC)"
+        f"{flags['reviews']} reviews, {flags['retracted']} retracted, "
+        f"{flags['nih_funded']} NIH-funded, {flags['in_pmc']} in PMC)"
     )
 
 
@@ -176,9 +174,9 @@ def _run_neighborhood(args: argparse.Namespace) -> int:
 
     path = save_neighborhood(hood, output_dir)
     print(f"\nSeed: PMID {hood.pmid} ({hood.seed.year or 'n.d.'}) {hood.seed.title or ''}")
-    print(_relation_summary("Similar", hood.similar, hood.totals["similar"]))
-    print(_relation_summary("Cited by", hood.cited_by, hood.totals["cited_by"]))
-    print(_relation_summary("References", hood.references, hood.totals["references"]))
+    print(_relation_summary("Similar", hood, "similar"))
+    print(_relation_summary("Cited by", hood, "cited_by"))
+    print(_relation_summary("References", hood, "references"))
     # The seed is always first in articles(); ELink never lists it as its own neighbor
     print(f"{'Neighborhood':<12}{len(hood.articles()) - 1:>5} unique articles fetched")
     for article in hood.articles():

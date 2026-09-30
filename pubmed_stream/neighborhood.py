@@ -37,7 +37,7 @@ from .downloader import (
     DownloadStats,
     RateLimiter,
     _download_pmcids,
-    _eutils_get,
+    _eutils_request,
     _prepare_client,
     linked_discoveries_url,
 )
@@ -49,7 +49,17 @@ _LINKNAMES = {
     "pubmed_pubmed_refs": "references",
 }
 EFETCH_BATCH_SIZE = 200  # PMIDs per EFetch request (GET URL length stays safe)
-_REVIEW_TYPES = {"Review", "Systematic Review"}
+# PubMed's review[pt] also covers these child publication types
+_REVIEW_TYPES = {"Review", "Systematic Review", "Scoping Review"}
+# PubMed search filters equivalent to the RelatedArticle flags, used to count
+# flags across relations that max_per_relation cut short
+_FLAG_FILTERS = {
+    "reviews": "(review[pt] OR systematic review[pt] OR scoping review[pt])",
+    "retracted": "retracted publication[pt]",
+    "nih_funded": '(nih[gr] OR "research support, n.i.h., extramural"[pt]'
+                  ' OR "research support, n.i.h., intramural"[pt])',
+    "in_pmc": "pubmed pmc[sb]",
+}
 
 logger = logging.getLogger(__name__)
 
@@ -77,7 +87,9 @@ class Neighborhood:
 
     ``totals`` counts every article PubMed links per relation (``'similar'``,
     ``'cited_by'``, ``'references'``), including those beyond
-    ``max_per_relation`` that are not in the lists.
+    ``max_per_relation`` that are not in the lists.  ``flag_counts`` counts
+    ``reviews``, ``retracted``, ``nih_funded`` and ``in_pmc`` across all of
+    them, too.
     """
     pmid: str
     seed: Optional[RelatedArticle]
@@ -85,6 +97,7 @@ class Neighborhood:
     cited_by: List[RelatedArticle]
     references: List[RelatedArticle]
     totals: Dict[str, int]
+    flag_counts: Dict[str, Dict[str, int]]
     linked_discoveries_url: str
     retrieved: str
 
@@ -183,7 +196,7 @@ def _elink_neighbors(
 ) -> Dict[str, List[Tuple[str, Optional[int]]]]:
     """Return ``(pmid, score)`` pairs per relation, in ELink order."""
     # Without a linkname, one ELink call returns all pubmed->pubmed link sets
-    resp = _eutils_get(
+    resp = _eutils_request(
         "elink.fcgi",
         {"dbfrom": "pubmed", "db": "pubmed", "id": pmid, "cmd": "neighbor_score", "retmode": "json"},
         api_key,
@@ -214,7 +227,7 @@ def _efetch_pubmed(
     details: Dict[str, RelatedArticle] = {}
     for start in range(0, len(pmids), EFETCH_BATCH_SIZE):
         batch = pmids[start:start + EFETCH_BATCH_SIZE]
-        resp = _eutils_get(
+        resp = _eutils_request(
             "efetch.fcgi",
             {"db": "pubmed", "id": ",".join(batch), "retmode": "xml"},
             api_key,
@@ -223,6 +236,57 @@ def _efetch_pubmed(
         )
         details.update(_parse_pubmed_articles(resp.text))
     return details
+
+
+def _count_flags(articles: List[RelatedArticle]) -> Dict[str, int]:
+    return {
+        "reviews": sum(a.is_review for a in articles),
+        "retracted": sum(a.is_retracted for a in articles),
+        "nih_funded": sum(a.nih_funded for a in articles),
+        "in_pmc": sum(a.pmcid is not None for a in articles),
+    }
+
+
+def _search_flag_counts(
+    pmids: List[str],
+    api_key: Optional[str],
+    session: requests.Session,
+    rate_limiter: RateLimiter,
+) -> Dict[str, int]:
+    """Count flags across *pmids* with PubMed search instead of fetching every record."""
+    # POST keeps long ID lists out of the URL
+    resp = _eutils_request(
+        "epost.fcgi", {"db": "pubmed", "id": ",".join(pmids)}, api_key, session, rate_limiter, post=True
+    )
+    try:
+        root = ET.fromstring(resp.text)
+    except ET.ParseError as e:
+        raise ValueError(f"Unparseable EPost response: {e}") from None
+    webenv, query_key = root.findtext("WebEnv"), root.findtext("QueryKey")
+    if not webenv or not query_key:
+        raise ValueError(f"EPost failed: {root.findtext('ERROR') or 'no WebEnv returned'}")
+
+    counts = {}
+    for flag, search_filter in _FLAG_FILTERS.items():
+        resp = _eutils_request(
+            "esearch.fcgi",
+            {
+                "db": "pubmed",
+                "term": f"#{query_key} AND {search_filter}",
+                "WebEnv": webenv,
+                "usehistory": "y",
+                "retmax": 0,
+                "retmode": "json",
+            },
+            api_key,
+            session,
+            rate_limiter,
+        )
+        result = resp.json().get("esearchresult", {})
+        if "count" not in result:
+            raise ValueError(f"ESearch returned no count: {result.get('ERROR') or 'unknown error'}")
+        counts[flag] = int(result["count"])
+    return counts
 
 
 def get_neighborhood(
@@ -240,7 +304,9 @@ def get_neighborhood(
         pmid: PubMed ID of the seed article.
         max_per_relation: Cap on similar, citing and cited articles each
             (default 100).  PubMed returns at most 100 similar articles;
-            citing articles come newest first.
+            citing articles come newest first.  Flags of a relation cut
+            short are still counted across all its articles, with five
+            extra requests (EPost plus four ESearch counts).
         api_key: NCBI API key.  Falls back to ``NCBI_API_KEY`` env var.
         user_agent: Custom ``User-Agent`` header.
         email: Contact e-mail sent to NCBI in the ``User-Agent`` header.
@@ -258,6 +324,8 @@ def get_neighborhood(
     pmid = str(pmid).strip()
     if not re.fullmatch(r"[0-9]+", pmid):
         raise ValueError(f"PMID must be numeric, got {pmid!r}")
+    if max_per_relation < 0:
+        raise ValueError(f"max_per_relation must be >= 0, got {max_per_relation}")
 
     api_key, rate_limiter, session, owned_session = _prepare_client(
         api_key, rate_limit, user_agent, email, session
@@ -267,6 +335,11 @@ def get_neighborhood(
         links = {name: pairs[:max_per_relation] for name, pairs in all_links.items()}
         pmids = list(dict.fromkeys([pmid] + [i for pairs in links.values() for i, _ in pairs]))
         details = _efetch_pubmed(pmids, api_key, session, rate_limiter)
+        search_counts = {
+            name: _search_flag_counts([i for i, _ in pairs], api_key, session, rate_limiter)
+            for name, pairs in all_links.items()
+            if len(pairs) > len(links[name])
+        }
     finally:
         if owned_session:
             session.close()
@@ -275,13 +348,18 @@ def get_neighborhood(
         # Deleted or unindexed records keep their PMID but no details
         return [replace(details.get(i) or RelatedArticle(pmid=i), score=score) for i, score in pairs]
 
+    relations = {name: related(pairs) for name, pairs in links.items()}
     return Neighborhood(
         pmid=pmid,
         seed=details.get(pmid),
-        similar=related(links["similar"]),
-        cited_by=related(links["cited_by"]),
-        references=related(links["references"]),
+        similar=relations["similar"],
+        cited_by=relations["cited_by"],
+        references=relations["references"],
         totals={name: len(pairs) for name, pairs in all_links.items()},
+        flag_counts={
+            name: search_counts[name] if name in search_counts else _count_flags(articles)
+            for name, articles in relations.items()
+        },
         linked_discoveries_url=linked_discoveries_url(pmid),
         retrieved=datetime.now().isoformat(timespec="seconds"),
     )

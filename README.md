@@ -378,7 +378,7 @@ NLM's [Linked Discoveries](https://linkeddiscoveries.ncbi.nlm.nih.gov/userguide/
 | References | ELink `pubmed_pubmed_refs` |
 | Review, retracted, NIH-funded, PMC ID | EFetch PubMed XML (publication types, retraction notices, grant list) |
 
-One neighborhood costs two requests (one ELink, plus one EFetch per 200 articles).
+One neighborhood costs two requests (one ELink, plus one EFetch per 200 articles), plus five for each relation cut short by `--max-per-relation`.
 
 ### CLI
 
@@ -393,7 +393,7 @@ pubmed-stream neighborhood 29096998 --max-per-relation 20 --download
 ```
 Seed: PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
 Similar       100            (4 reviews, 0 retracted, 0 NIH-funded, 18 in PMC)
-Cited by      100 of 489     (27 reviews, 0 retracted, 7 NIH-funded, 95 in PMC)
+Cited by      100 of 489     (145 reviews, 0 retracted, 52 NIH-funded, 421 in PMC)
 References      0            (0 reviews, 0 retracted, 0 NIH-funded, 0 in PMC)
 Neighborhood  200 unique articles fetched
 [RETRACTED] PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
@@ -401,7 +401,7 @@ Saved: publications/neighborhood_9500320/neighborhood.json
 Explore the graph: https://linkeddiscoveries.ncbi.nlm.nih.gov/9500320/
 ```
 
-"100 of 489" means the article is cited by 489 PubMed articles and the first 100 (newest) were fetched; the flag counts in parentheses cover the fetched articles. Raise `--max-per-relation` to fetch more.
+"100 of 489" means the article is cited by 489 PubMed articles and the first 100 (newest) were fetched in detail. The flag counts in parentheses always cover all 489: when a list is cut short, pubmed-stream counts them with PubMed search (one EPost plus four ESearch requests) instead of downloading every record. Raise `--max-per-relation` to fetch more articles in detail.
 
 `neighborhood` accepts `--max-per-relation` (default 100; PubMed returns at most 100 similar articles, citing articles come newest first), `--download`, the download options (`--format`, `--workers`, `--sequential`, `--exclude-text`) and the common options (`--api-key`, `--email`, `-o`, `--rate-limit`, `-v`). Full-text downloads go to the same `neighborhood_<pmid>/` folder as `PMC*.json` files.
 
@@ -415,6 +415,7 @@ from pubmed_stream import download_neighborhood, get_neighborhood, save_neighbor
 hood = get_neighborhood("29096998", max_per_relation=50)
 print(hood.seed.title, hood.linked_discoveries_url)
 print(hood.totals)  # {"similar": 100, "cited_by": 489, "references": 0}, uncapped counts
+print(hood.flag_counts["cited_by"])  # {"reviews": 145, "retracted": 0, "nih_funded": 52, "in_pmc": 421}, all 489
 
 for article in hood.cited_by:
     print(article.pmid, article.year, article.title,
@@ -426,7 +427,7 @@ save_neighborhood(hood)              # publications/neighborhood_29096998/neighb
 stats = download_neighborhood(hood)  # PMC full text of seed + neighbors (DownloadStats)
 ```
 
-`neighborhood.json` holds `pmid`, `seed`, `similar`, `cited_by`, `references`, `totals` (uncapped count per relation), `linked_discoveries_url` and `retrieved`; each article looks like:
+`neighborhood.json` holds `pmid`, `seed`, `similar`, `cited_by`, `references`, `totals` (uncapped count per relation), `flag_counts` (review/retracted/NIH-funded/in-PMC counts across all of them), `linked_discoveries_url` and `retrieved`; each article looks like:
 
 ```json
 {

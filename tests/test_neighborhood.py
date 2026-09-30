@@ -1,5 +1,6 @@
 import json
 import logging
+import re
 import sys
 from urllib.parse import parse_qs, urlparse
 
@@ -13,17 +14,57 @@ from pubmed_stream import (
     save_neighborhood,
 )
 from pubmed_stream import cli
+from pubmed_stream.neighborhood import _parse_pubmed_articles
 
 API_KEY = "SECRET_KEY_123"
 
+# Fixture articles matched by each PubMed search filter
+SEARCH_FLAGS = {
+    "review[pt]": {"201", "401"},
+    "retracted publication[pt]": {"202", "301"},
+    "nih[gr]": {"100", "202"},
+    "pubmed pmc[sb]": {"100", "202", "301"},
+}
+# Flag counts per relation of the fixture neighborhood
+FLAG_COUNTS = {
+    "similar": {"reviews": 1, "retracted": 1, "nih_funded": 1, "in_pmc": 1},
+    "cited_by": {"reviews": 0, "retracted": 2, "nih_funded": 1, "in_pmc": 2},
+    "references": {"reviews": 1, "retracted": 0, "nih_funded": 0, "in_pmc": 0},
+}
+
+
+class FakeHistory:
+    """EPost/ESearch stand-in: stores posted ID sets and counts flags within them."""
+
+    def __init__(self):
+        self.posted = {}
+
+    def epost(self, request):
+        key = str(len(self.posted) + 1)
+        self.posted[key] = parse_qs(request.body)["id"][0].split(",")
+        return f"<ePostResult><QueryKey>{key}</QueryKey><WebEnv>MCID_test</WebEnv></ePostResult>"
+
+    def esearch(self, request):
+        term = parse_qs(urlparse(request.url).query)["term"][0]
+        key, search_filter = re.fullmatch(r"#(\d+) AND (.+)", term).groups()
+        flagged = next(ids for marker, ids in SEARCH_FLAGS.items() if marker in search_filter)
+        return json.dumps({"esearchresult": {"count": str(sum(i in flagged for i in self.posted[key]))}})
+
 
 @pytest.fixture
-def ncbi(make_session, elink_json, pubmed_xml, full_xml):
-    """Session answering ELink, PubMed EFetch and PMC EFetch requests."""
+def history():
+    return FakeHistory()
+
+
+@pytest.fixture
+def ncbi(make_session, elink_json, pubmed_xml, full_xml, history):
+    """Session answering ELink, EFetch (PubMed and PMC), EPost and ESearch requests."""
     return make_session(routes={
         "elink.fcgi": elink_json,
         "efetch.fcgi?db=pubmed": pubmed_xml,
         "efetch.fcgi?db=pmc": full_xml,
+        "epost.fcgi": history.epost,
+        "esearch.fcgi": history.esearch,
     })
 
 
@@ -90,6 +131,40 @@ def test_max_per_relation(ncbi):
     assert parse_qs(urlparse(sent(ncbi)[1].url).query)["id"] == ["100,201,301,401"]
 
 
+def test_flag_counts_from_fetched_articles(ncbi):
+    hood = neighborhood(ncbi)
+
+    assert hood.flag_counts == FLAG_COUNTS
+    assert len(sent(ncbi)) == 2  # nothing was cut short, so no search requests
+
+
+def test_flag_counts_cover_articles_beyond_cap(ncbi, history):
+    hood = neighborhood(ncbi, max_per_relation=1)
+
+    # Same counts as without a cap: EPost + ESearch count all linked articles
+    assert hood.flag_counts == FLAG_COUNTS
+    assert history.posted == {"1": ["201", "202"], "2": ["301", "202"], "3": ["401", "999"]}
+    epost = next(r for r in sent(ncbi) if "epost.fcgi" in r.url)
+    assert epost.method == "POST" and "id=" not in epost.url
+    assert len(sent(ncbi)) == 2 + 3 * 5
+
+
+def test_scoping_review_is_a_review():
+    xml = (
+        "<PubmedArticleSet><PubmedArticle><MedlineCitation><PMID>1</PMID><Article>"
+        "<ArticleTitle>T</ArticleTitle><PublicationTypeList>"
+        "<PublicationType>Scoping Review</PublicationType></PublicationTypeList>"
+        "</Article></MedlineCitation></PubmedArticle></PubmedArticleSet>"
+    )
+
+    assert _parse_pubmed_articles(xml)["1"].is_review
+
+
+def test_negative_max_per_relation(ncbi):
+    with pytest.raises(ValueError):
+        neighborhood(ncbi, max_per_relation=-1)
+
+
 def test_unknown_pmid_has_no_seed(make_session):
     session = make_session(routes={
         "elink.fcgi": json.dumps({"linksets": [{"dbfrom": "pubmed", "ids": ["1"]}]}),
@@ -132,6 +207,7 @@ def test_save_neighborhood(ncbi, tmp_path):
     assert [a["pmid"] for a in data["similar"]] == ["201", "202"]
     assert data["cited_by"][0]["is_retracted"] is True
     assert data["totals"] == {"similar": 2, "cited_by": 2, "references": 2}
+    assert data["flag_counts"] == FLAG_COUNTS
 
 
 def test_download_neighborhood(ncbi, tmp_path):
@@ -178,8 +254,9 @@ def test_cli_neighborhood_shows_totals_when_capped(ncbi, tmp_path, monkeypatch, 
 
     assert cli.main() == 0
     out = capsys.readouterr().out
-    assert "Similar         1 of 2       (1 reviews, 0 retracted, 0 NIH-funded, 0 in PMC)" in out
-    assert "Cited by        1 of 2       (0 reviews, 1 retracted, 0 NIH-funded, 1 in PMC)" in out
+    # Flag counts still cover both articles of each relation
+    assert "Similar         1 of 2       (1 reviews, 1 retracted, 1 NIH-funded, 1 in PMC)" in out
+    assert "Cited by        1 of 2       (0 reviews, 2 retracted, 1 NIH-funded, 2 in PMC)" in out
     assert "Neighborhood    3 unique articles fetched" in out
 
 

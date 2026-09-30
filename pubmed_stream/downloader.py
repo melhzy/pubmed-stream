@@ -237,15 +237,18 @@ def esearch_pmc(
     return [], 0
 
 
-def _eutils_get(
+def _eutils_request(
     endpoint: str,
     params: Dict[str, Any],
     api_key: Optional[str],
     session: requests.Session,
     rate_limiter: RateLimiter,
     retries: int = MAX_RETRIES,
+    post: bool = False,
 ) -> requests.Response:
-    """GET an E-utilities endpoint (e.g. ``'elink.fcgi'``), retrying on failure.
+    """Call an E-utilities endpoint (e.g. ``'elink.fcgi'``), retrying on failure.
+
+    With *post*, parameters go in the request body (for long ID lists).
 
     Raises:
         requests.RequestException: all attempts failed.  The message has the
@@ -260,7 +263,10 @@ def _eutils_get(
     for attempt in range(retries):
         try:
             rate_limiter.wait()
-            resp = session.get(url, params=params, timeout=REQUEST_TIMEOUT)
+            if post:
+                resp = session.post(url, data=params, timeout=REQUEST_TIMEOUT)
+            else:
+                resp = session.get(url, params=params, timeout=REQUEST_TIMEOUT)
             resp.raise_for_status()
             return resp
         except requests.RequestException as e:

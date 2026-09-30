@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Callable, Dict, Optional, Union
 
 import pytest
 import requests
@@ -35,8 +35,8 @@ def pubmed_xml() -> str:
 class FakeAdapter(BaseAdapter):
     """Answers every request with a canned response, or raises *error*.
 
-    With *routes* ({url substring: body}), the first matching route answers
-    with 200 and unmatched URLs get 404.
+    With *routes* ({url substring: body, or callable(request) -> body}), the
+    first matching route answers with 200 and unmatched URLs get 404.
     """
 
     def __init__(
@@ -44,7 +44,7 @@ class FakeAdapter(BaseAdapter):
         status: int = 200,
         body: str = "",
         error: Optional[Exception] = None,
-        routes: Optional[Dict[str, str]] = None,
+        routes: Optional[Dict[str, Union[str, Callable]]] = None,
     ) -> None:
         super().__init__()
         self.status = status
@@ -60,6 +60,8 @@ class FakeAdapter(BaseAdapter):
         status, body = self.status, self.body
         if self.routes is not None:
             body = next((b for key, b in self.routes.items() if key in request.url), None)
+            if callable(body):
+                body = body(request)
             status, body = (200, body) if body is not None else (404, "")
         resp = requests.Response()
         resp.status_code = status
