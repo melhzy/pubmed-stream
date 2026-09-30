@@ -9,6 +9,7 @@ from .downloader import (
     efetch_pmc,
     esearch_pmc,
     extract_metadata_from_pmc_xml,
+    extract_text_from_pmc_xml,
     search_and_download,
     strip_xml_tags,
 )
@@ -20,6 +21,7 @@ __all__ = [
     "efetch_pmc",
     "esearch_pmc",
     "extract_metadata_from_pmc_xml",
+    "extract_text_from_pmc_xml",
     "search_and_download",
     "strip_xml_tags",
 ]

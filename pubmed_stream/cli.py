@@ -106,14 +106,16 @@ def main() -> int:
     parser = build_parser()
     args = parser.parse_args()
 
-    # Configure logging
-    log_level = logging.DEBUG if getattr(args, "verbose", False) else logging.INFO
+    # Configure logging.  --verbose enables DEBUG for this package only:
+    # urllib3's DEBUG output includes request URLs, and with them the API key.
     logging.basicConfig(
-        level=log_level,
+        level=logging.INFO,
         format="%(asctime)s %(levelname)s %(name)s: %(message)s",
         datefmt="%H:%M:%S",
         stream=sys.stderr,
     )
+    if getattr(args, "verbose", False):
+        logging.getLogger("pubmed_stream").setLevel(logging.DEBUG)
 
     if args.command == "download":
         stats = search_and_download(

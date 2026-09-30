@@ -11,7 +11,7 @@ A Python library for downloading PubMed Central (PMC) full-text articles with su
 ## Overview
 
 `pubmed-stream` simplifies the process of downloading scientific literature from PubMed Central by leveraging the **NCBI E-utilities API** (ESearch and EFetch):
-- **Searching PMC directly** for guaranteed full-text availability
+- **Searching PMC directly** and skipping articles whose publishers withhold the XML full text
 - **Extracting structured metadata** from JATS XML (title, authors, abstract, keywords, DOI, etc.)
 - **Supporting multiple formats**: plain text, raw XML, or both in a single JSON file
 - **Handling concurrent downloads** with configurable thread pools
@@ -93,13 +93,14 @@ The library follows a modular design with three main components, all built on **
 
 1. **Search Module** (`esearch_pmc`)
    - Uses NCBI E-utilities **ESearch** to query PMC database directly
-   - Returns PMC IDs for articles with guaranteed full-text availability
+   - Returns PMC IDs for matching articles
    - Handles pagination and result limiting
 
 2. **Download Module** (`efetch_pmc`)
    - Uses NCBI E-utilities **EFetch** to retrieve full XML article data from PMC
    - Extracts structured metadata using JATS XML parsing
-   - Converts XML to plain text (optional)
+   - Converts XML to readable plain text: title, abstract and body, one paragraph per line (optional)
+   - Reports articles without XML full text (publisher restriction or PDF-only) as unavailable instead of saving them
    - Saves in requested format(s)
 
 3. **Orchestration Layer** (`search_and_download`)
@@ -111,8 +112,8 @@ The library follows a modular design with three main components, all built on **
 ### Search Strategy
 
 **Direct PMC Search**: Unlike some tools that search PubMed and then try to find PMC links, this library searches PMC directly. This ensures:
-- All results have full-text available
-- No broken links or paywalled content
+- Every result is a PMC article, so no broken PubMed→PMC links
+- Articles whose publishers withhold the XML full text are detected and reported as unavailable
 - Faster, more reliable downloads
 - Better results for generic queries like "microbiome" or "CRISPR"
 
@@ -343,11 +344,12 @@ session.close()
 The library automatically extracts metadata from JATS XML:
 
 ```python
-from pubmed_stream import extract_metadata_from_pmc_xml
+from pubmed_stream import extract_metadata_from_pmc_xml, extract_text_from_pmc_xml
 
 xml_content = """<article>...</article>"""  # Your PMC XML
 
 metadata = extract_metadata_from_pmc_xml(xml_content)
+text = extract_text_from_pmc_xml(xml_content)  # Same as the "text" field
 
 # Available metadata fields
 print(metadata.get("title"))          # Article title
@@ -429,7 +431,7 @@ Each JSON file contains:
 - `source`: Always "PMC"
 - `download_date`: ISO 8601 timestamp
 - `metadata`: Structured article information
-- `text`: Plain-text content (if `fmt="text"` or `fmt="both"`)
+- `text`: Plain text of the title, abstract and body, one paragraph per line; identifiers and references are excluded (if `fmt="text"` or `fmt="both"`)
 - `xml`: Raw JATS XML string (if `fmt="xml"` or `fmt="both"`)
 
 ### Format Comparison
@@ -568,8 +570,8 @@ for _, row in keywords_df.iterrows():
   - The library automatically retries with backoff
 
 **3. "Unavailable" articles**
-- **Cause**: Article not in PMC or embargoed
-- **Solution**: Normal - not all PubMed articles have PMC full-text. The library only returns available articles.
+- **Cause**: The publisher does not allow downloading the full text in XML form (common outside the open-access subset), the article is PDF-only, or it is not available in PMC
+- **Solution**: Normal - these articles are counted as unavailable and not saved. Add `AND "open access"[filter]` to your query to search only the open-access subset.
 
 **4. Network timeouts**
 - **Cause**: Unstable internet connection
@@ -589,7 +591,9 @@ pubmed-stream download "microbiome" -v --max-results 10
 
 ```python
 import logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
+# Only this package: urllib3's DEBUG output would log request URLs, including your API key
+logging.getLogger("pubmed_stream").setLevel(logging.DEBUG)
 
 from pubmed_stream import search_and_download
 stats = search_and_download(keyword="test", max_results=5)
@@ -655,8 +659,8 @@ The notebook demonstrates:
 # Install development dependencies
 pip install -e ".[dev]"
 
-# Run tests (if available)
-pytest tests/
+# Run the unit tests (offline; NCBI responses are mocked)
+pytest
 ```
 
 ## Contributing
@@ -725,6 +729,7 @@ pubmed-stream/
 │   └── utils/                 # Helper scripts
 │       ├── manage_text_field.py
 │       └── test_pmc_availability.py
+├── tests/                     # pytest suite with small JATS XML fixtures
 ├── test_download.ipynb        # Comprehensive test notebook
 ├── pyproject.toml            # Project metadata and dependencies
 ├── README.md                 # This file
