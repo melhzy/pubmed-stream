@@ -48,6 +48,8 @@ DEFAULT_USER_AGENT = "pubmed-stream/1.0"
 
 # NCBI E-utilities endpoints
 EUTILS_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+# NLM Linked Discoveries (web UI only, no public API)
+LINKED_DISCOVERIES_BASE = "https://linkeddiscoveries.ncbi.nlm.nih.gov"
 
 # Rate limiting and retry configuration
 RATE_LIMIT_WITH_API_KEY = 0.1  # 10 requests/second with API key
@@ -97,6 +99,36 @@ def create_session(user_agent: str) -> requests.Session:
     session = requests.Session()
     session.headers.update({"User-Agent": user_agent})
     return session
+
+
+def linked_discoveries_url(pmid: str) -> str:
+    """Link to the NLM Linked Discoveries page (evidence graph) of a PubMed article."""
+    return f"{LINKED_DISCOVERIES_BASE}/{pmid}/"
+
+
+def _prepare_client(
+    api_key: Optional[str],
+    rate_limit: Optional[float],
+    user_agent: Optional[str],
+    email: Optional[str],
+    session: Optional[requests.Session],
+) -> Tuple[Optional[str], RateLimiter, requests.Session, bool]:
+    """Resolve the API key, rate limiter and session for a high-level call.
+
+    Returns ``(api_key, rate_limiter, session, owned_session)``; the caller
+    closes the session when *owned_session* is true.
+    """
+    api_key = api_key or os.getenv(NCBI_API_KEY_ENV)
+
+    # Auto-detect rate limit based on API key presence if not explicitly specified
+    if rate_limit is None:
+        rate_limit = RATE_LIMIT_WITH_API_KEY if api_key else RATE_LIMIT_NO_API_KEY
+        logger.debug("Auto-detected rate limit: %.2fs (%s API key)",
+                     rate_limit, "with" if api_key else "without")
+
+    owned_session = session is None
+    session = session or create_session(build_user_agent(user_agent, email))
+    return api_key, RateLimiter(rate_limit), session, owned_session
 
 
 @dataclass
@@ -203,6 +235,45 @@ def esearch_pmc(
                 return [], 0
     
     return [], 0
+
+
+def _eutils_get(
+    endpoint: str,
+    params: Dict[str, Any],
+    api_key: Optional[str],
+    session: requests.Session,
+    rate_limiter: RateLimiter,
+    retries: int = MAX_RETRIES,
+) -> requests.Response:
+    """GET an E-utilities endpoint (e.g. ``'elink.fcgi'``), retrying on failure.
+
+    Raises:
+        requests.RequestException: all attempts failed.  The message has the
+            API key redacted.
+    """
+    params = dict(params)
+    if api_key:
+        params["api_key"] = api_key
+    url = f"{EUTILS_BASE}/{endpoint}"
+
+    error = None
+    for attempt in range(retries):
+        try:
+            rate_limiter.wait()
+            resp = session.get(url, params=params, timeout=REQUEST_TIMEOUT)
+            resp.raise_for_status()
+            return resp
+        except requests.RequestException as e:
+            error = _redact_api_key(e)
+            logger.warning("%s attempt %d/%d failed: %s", endpoint, attempt + 1, retries, error)
+            if attempt < retries - 1:
+                time.sleep(RETRY_DELAY * (attempt + 1))
+
+    if error is None:
+        raise ValueError("retries must be at least 1")
+    # Raised outside the except block so the original exception, whose
+    # message contains the API key, is not chained as __context__
+    raise requests.RequestException(f"{endpoint} failed: {error}")
 
 
 def strip_xml_tags(xml_text: str) -> str:
@@ -365,6 +436,8 @@ def extract_metadata_from_pmc_xml(xml_text: str) -> Dict[str, Any]:
             metadata["pmcid"] = value
         elif id_type == "doi":
             metadata["doi"] = value
+    if metadata.get("pmid"):
+        metadata["linked_discoveries_url"] = linked_discoveries_url(metadata["pmid"])
 
     # Title
     title_group = article_meta.find("title-group")
@@ -620,116 +693,22 @@ def efetch_pmc(
     return False, "error"
 
 
-def search_and_download(
-    keyword: str,
-    max_results: int,
-    fmt: str = "text",
-    api_key: Optional[str] = None,
-    use_concurrent: bool = True,
-    max_workers: int = MAX_WORKERS,
-    include_text: bool = True,
-    output_dir: Optional[Path] = None,
-    user_agent: Optional[str] = None,
-    email: Optional[str] = None,
-    rate_limit: Optional[float] = None,
-    session: Optional[requests.Session] = None,
-) -> DownloadStats:
-    """Search PMC for *keyword* and download up to *max_results* articles.
-
-    All articles are saved as JSON files: ``<output_dir>/<keyword_slug>/PMC*.json``
-
-    Args:
-        keyword: PubMed search query.
-        max_results: Cap on the number of articles to fetch.
-        fmt: Output format – ``'text'`` (default, JSON with metadata+text field), 
-             ``'xml'`` (JSON with metadata+xml field), ``'both'`` (JSON with both xml and text fields), or 
-             legacy ``'json'``/``'txt'`` (mapped to 'text').
-        api_key: NCBI API key.  Falls back to ``NCBI_API_KEY`` env var.
-        use_concurrent: Use a thread pool for downloads (default ``True``).
-        max_workers: Thread pool size (default 5).
-        include_text: Embed a plain-text copy in JSON output (default ``True``).
-        output_dir: Base directory for downloads (default ``./publications``).
-        user_agent: Custom ``User-Agent`` header.
-        email: Contact e-mail sent to NCBI in the ``User-Agent`` header.
-        rate_limit: Minimum seconds between HTTP requests. Auto-detected based on
-                   API key presence: 0.1s with key (10 req/s), 0.34s without (3 req/s).
-        session: Optional ``requests.Session`` to reuse across calls.
+def _download_pmcids(
+    pmcids: List[str],
+    out_dir: Path,
+    fmt: str,
+    api_key: Optional[str],
+    session: requests.Session,
+    rate_limiter: RateLimiter,
+    use_concurrent: bool,
+    max_workers: int,
+    include_text: bool,
+) -> Tuple[int, int, int, int]:
+    """Download *pmcids* into *out_dir*.
 
     Returns:
-        A :class:`DownloadStats` instance with counts and timing.
+        Tuple of (successful, unavailable, errors, skipped) counts.
     """
-    start_time = time.time()
-    
-    api_key = api_key or os.getenv(NCBI_API_KEY_ENV)
-    
-    # Auto-detect rate limit based on API key presence if not explicitly specified
-    if rate_limit is None:
-        rate_limit = RATE_LIMIT_WITH_API_KEY if api_key else RATE_LIMIT_NO_API_KEY
-        logger.debug("Auto-detected rate limit: %.2fs (%s API key)", 
-                     rate_limit, "with" if api_key else "without")
-    
-    rate_limiter = RateLimiter(rate_limit)
-
-    user_agent = build_user_agent(user_agent, email)
-    owned_session = session is None
-    session = session or create_session(user_agent)
-
-    output_dir = Path(output_dir) if output_dir else DEFAULT_OUTPUT_DIR
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    try:
-        pmcids, total_found = esearch_pmc(
-            keyword,
-            max_results=max_results,
-            api_key=api_key,
-            session=session,
-            rate_limiter=rate_limiter,
-        )
-    except Exception as e:
-        logger.error("Search failed: %s", e)
-        if owned_session:
-            session.close()
-        return DownloadStats(
-            keyword=keyword,
-            total_found=0,
-            requested=0,
-            successful=0,
-            failed=0,
-            skipped=0,
-            unavailable=0,
-            errors=0,
-            duration_seconds=time.time() - start_time,
-            output_dir=output_dir
-        )
-
-    if not pmcids:
-        logger.warning("No PMC articles found for: %s", keyword)
-        print(f"No results found for '{keyword}'")
-        if owned_session:
-            session.close()
-        return DownloadStats(
-            keyword=keyword,
-            total_found=total_found,
-            requested=0,
-            successful=0,
-            failed=0,
-            skipped=0,
-            unavailable=0,
-            errors=0,
-            duration_seconds=time.time() - start_time,
-            output_dir=output_dir
-        )
-
-    # Create keyword-based output directory
-    keyword_slug = re.sub(r"[^A-Za-z0-9._-]+", "_", keyword.strip()).strip("_") or "keyword"
-    out_dir = output_dir / keyword_slug
-
-    print(
-        f"\nFound {len(pmcids)} PMC IDs for '{keyword}' "
-        f"(total PubMed results: {total_found})\n"
-        f"Output directory: {out_dir}\n"
-    )
-
     # Counters
     successful = 0
     unavailable = 0
@@ -815,6 +794,121 @@ def search_and_download(
                 errors += 1
         
         print()  # New line after progress
+
+    return successful, unavailable, errors, skipped
+
+
+def search_and_download(
+    keyword: str,
+    max_results: int,
+    fmt: str = "text",
+    api_key: Optional[str] = None,
+    use_concurrent: bool = True,
+    max_workers: int = MAX_WORKERS,
+    include_text: bool = True,
+    output_dir: Optional[Path] = None,
+    user_agent: Optional[str] = None,
+    email: Optional[str] = None,
+    rate_limit: Optional[float] = None,
+    session: Optional[requests.Session] = None,
+) -> DownloadStats:
+    """Search PMC for *keyword* and download up to *max_results* articles.
+
+    All articles are saved as JSON files: ``<output_dir>/<keyword_slug>/PMC*.json``
+
+    Args:
+        keyword: PubMed search query.
+        max_results: Cap on the number of articles to fetch.
+        fmt: Output format – ``'text'`` (default, JSON with metadata+text field), 
+             ``'xml'`` (JSON with metadata+xml field), ``'both'`` (JSON with both xml and text fields), or 
+             legacy ``'json'``/``'txt'`` (mapped to 'text').
+        api_key: NCBI API key.  Falls back to ``NCBI_API_KEY`` env var.
+        use_concurrent: Use a thread pool for downloads (default ``True``).
+        max_workers: Thread pool size (default 5).
+        include_text: Embed a plain-text copy in JSON output (default ``True``).
+        output_dir: Base directory for downloads (default ``./publications``).
+        user_agent: Custom ``User-Agent`` header.
+        email: Contact e-mail sent to NCBI in the ``User-Agent`` header.
+        rate_limit: Minimum seconds between HTTP requests. Auto-detected based on
+                   API key presence: 0.1s with key (10 req/s), 0.34s without (3 req/s).
+        session: Optional ``requests.Session`` to reuse across calls.
+
+    Returns:
+        A :class:`DownloadStats` instance with counts and timing.
+    """
+    start_time = time.time()
+
+    api_key, rate_limiter, session, owned_session = _prepare_client(
+        api_key, rate_limit, user_agent, email, session
+    )
+
+    output_dir = Path(output_dir) if output_dir else DEFAULT_OUTPUT_DIR
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        pmcids, total_found = esearch_pmc(
+            keyword,
+            max_results=max_results,
+            api_key=api_key,
+            session=session,
+            rate_limiter=rate_limiter,
+        )
+    except Exception as e:
+        logger.error("Search failed: %s", e)
+        if owned_session:
+            session.close()
+        return DownloadStats(
+            keyword=keyword,
+            total_found=0,
+            requested=0,
+            successful=0,
+            failed=0,
+            skipped=0,
+            unavailable=0,
+            errors=0,
+            duration_seconds=time.time() - start_time,
+            output_dir=output_dir
+        )
+
+    if not pmcids:
+        logger.warning("No PMC articles found for: %s", keyword)
+        print(f"No results found for '{keyword}'")
+        if owned_session:
+            session.close()
+        return DownloadStats(
+            keyword=keyword,
+            total_found=total_found,
+            requested=0,
+            successful=0,
+            failed=0,
+            skipped=0,
+            unavailable=0,
+            errors=0,
+            duration_seconds=time.time() - start_time,
+            output_dir=output_dir
+        )
+
+    # Create keyword-based output directory
+    keyword_slug = re.sub(r"[^A-Za-z0-9._-]+", "_", keyword.strip()).strip("_") or "keyword"
+    out_dir = output_dir / keyword_slug
+
+    print(
+        f"\nFound {len(pmcids)} PMC IDs for '{keyword}' "
+        f"(total PubMed results: {total_found})\n"
+        f"Output directory: {out_dir}\n"
+    )
+
+    successful, unavailable, errors, skipped = _download_pmcids(
+        pmcids,
+        out_dir,
+        fmt=fmt,
+        api_key=api_key,
+        session=session,
+        rate_limiter=rate_limiter,
+        use_concurrent=use_concurrent,
+        max_workers=max_workers,
+        include_text=include_text,
+    )
 
     duration = time.time() - start_time
     stats = DownloadStats(

@@ -3,7 +3,7 @@ import logging
 
 import requests
 
-from pubmed_stream import RateLimiter, efetch_pmc, esearch_pmc
+from pubmed_stream import RateLimiter, efetch_pmc, esearch_pmc, search_and_download
 
 API_KEY = "SECRET_KEY_123"
 
@@ -85,3 +85,21 @@ def test_esearch_returns_ids_and_count(make_session):
     body = json.dumps({"esearchresult": {"count": "42", "idlist": ["1", "2"]}})
 
     assert esearch_pmc("microbiome", 2, None, make_session(body=body), RateLimiter(0)) == (["1", "2"], 42)
+
+
+def test_search_and_download(make_session, tmp_path, full_xml, no_body_xml):
+    search = json.dumps({"esearchresult": {"count": "3", "idlist": ["1", "2", "3"]}})
+    session = make_session(routes={
+        "esearch.fcgi": search,
+        "db=pmc&id=1&": full_xml,
+        "db=pmc&id=2&": no_body_xml,
+        "db=pmc&id=3&": full_xml,
+    })
+    (tmp_path / "gut_microbiome").mkdir()
+    (tmp_path / "gut_microbiome" / "PMC3.json").write_text("{}", encoding="utf-8")
+
+    stats = search_and_download("gut microbiome", 3, output_dir=tmp_path, session=session, rate_limit=0)
+
+    assert (stats.total_found, stats.requested) == (3, 3)
+    assert (stats.successful, stats.unavailable, stats.skipped, stats.errors) == (1, 1, 1, 0)
+    assert stats.output_dir == tmp_path / "gut_microbiome"

@@ -17,6 +17,7 @@ A Python library for downloading PubMed Central (PMC) full-text articles with su
 - **Handling concurrent downloads** with configurable thread pools
 - **Respecting NCBI rate limits** with automatic detection and retry logic
 - **Providing both CLI and Python API** for flexible integration
+- **Mapping the evidence around an article**: similar, citing and cited papers flagged as reviews, retractions or NIH-funded (a programmatic take on NLM's Linked Discoveries)
 
 Built for researchers and data scientists who need efficient, reliable access to biomedical literature.
 
@@ -46,6 +47,7 @@ print(f"Downloaded {stats.successful} articles in {stats.duration_seconds:.1f}s"
 - [Configuration](#configuration-optional)
 - [CLI Usage](#cli-usage)
 - [Python API](#python-api)
+- [Evidence Neighborhood](#evidence-neighborhood)
 - [Output Format](#output-format)
 - [Use Cases](#use-cases)
 - [Troubleshooting](#troubleshooting)
@@ -239,7 +241,7 @@ python -m pubmed_stream download "frailty cytokines" --max-results 50
 | `--user-agent` | Custom HTTP `User-Agent` | `pubmed-stream/<ver>` |
 | `--verbose`, `-v` | DEBUG-level logging | INFO |
 
-### Exit codes
+### Exit codes (`download`)
 
 | Code | Meaning |
 |------|---------|
@@ -362,7 +364,89 @@ print(metadata.get("abstract"))       # Abstract text
 print(metadata.get("keywords"))       # Keywords list
 print(metadata.get("year"))           # Publication year
 print(metadata.get("pub_date"))       # Full publication date
+print(metadata.get("linked_discoveries_url"))  # NLM Linked Discoveries page (when a PMID exists)
 ```
+
+## Evidence Neighborhood
+
+NLM's [Linked Discoveries](https://linkeddiscoveries.ncbi.nlm.nih.gov/userguide/) shows the "neighborhood" of a PubMed article: related publications, citation links, reviews, retractions and NIH-funded work. It is a web tool without a public API, so pubmed-stream builds a comparable neighborhood from documented NCBI E-utilities:
+
+| Relation / flag | Source |
+|-----------------|--------|
+| Similar articles, ranked by score | ELink `pubmed_pubmed` |
+| Cited by | ELink `pubmed_pubmed_citedin` |
+| References | ELink `pubmed_pubmed_refs` |
+| Review, retracted, NIH-funded, PMC ID | EFetch PubMed XML (publication types, retraction notices, grant list) |
+
+One neighborhood costs two requests (one ELink, plus one EFetch per 200 articles).
+
+### CLI
+
+```bash
+# Summarize and save the neighborhood of an article
+pubmed-stream neighborhood 29096998
+
+# Smaller neighborhood, and also download PMC full text of the seed and its neighbors
+pubmed-stream neighborhood 29096998 --max-per-relation 20 --download
+```
+
+```
+Seed: PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
+Similar         5  (0 reviews, 0 retracted, 0 NIH-funded, 0 in PMC)
+Cited by        5  (2 reviews, 0 retracted, 0 NIH-funded, 4 in PMC)
+References      0  (0 reviews, 0 retracted, 0 NIH-funded, 0 in PMC)
+[RETRACTED] PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
+Saved: publications/neighborhood_9500320/neighborhood.json
+Explore the graph: https://linkeddiscoveries.ncbi.nlm.nih.gov/9500320/
+```
+
+`neighborhood` accepts `--max-per-relation` (default 100; PubMed returns at most 100 similar articles, citing articles come newest first), `--download`, the download options (`--format`, `--workers`, `--sequential`, `--exclude-text`) and the common options (`--api-key`, `--email`, `-o`, `--rate-limit`, `-v`). Full-text downloads go to the same `neighborhood_<pmid>/` folder as `PMC*.json` files.
+
+Exit codes: `0` success, `1` invalid PMID or not found in PubMed, `2` NCBI could not be reached.
+
+### Python
+
+```python
+from pubmed_stream import download_neighborhood, get_neighborhood, save_neighborhood
+
+hood = get_neighborhood("29096998", max_per_relation=50)
+print(hood.seed.title, hood.linked_discoveries_url)
+
+for article in hood.cited_by:
+    print(article.pmid, article.year, article.title,
+          article.is_review, article.is_retracted, article.nih_funded, article.pmcid)
+
+retracted = [a for a in hood.articles() if a.is_retracted]  # seed + neighbors, deduplicated
+
+save_neighborhood(hood)              # publications/neighborhood_29096998/neighborhood.json
+stats = download_neighborhood(hood)  # PMC full text of seed + neighbors (DownloadStats)
+```
+
+`neighborhood.json` holds `pmid`, `seed`, `similar`, `cited_by`, `references`, `linked_discoveries_url` and `retrieved`; each article looks like:
+
+```json
+{
+  "pmid": "31358387",
+  "title": "No CFH or ARMS2 Interaction with Omega-3 Fatty Acids, ...",
+  "journal": "Ophthalmology",
+  "year": "2019",
+  "authors": ["van Asten Freekje", "Chiu Chi-Yang", "..."],
+  "pub_types": ["Comparative Study", "Journal Article", "Randomized Controlled Trial",
+                "Research Support, N.I.H., Intramural", "Research Support, Non-U.S. Gov't"],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC6810822",
+  "doi": "10.1016/j.ophtha.2019.06.004",
+  "score": 69336037
+}
+```
+
+**How it differs from Linked Discoveries**
+- Similarity comes from PubMed's Similar Articles algorithm, not the BiomedBERT model Linked Discoveries uses, so the neighbors can differ.
+- There are no condition/gene/chemical filters and no graph or timeline view; `linked_discoveries_url` links each seed to its page in the web tool.
+- Citation links come from PubMed/PMC citation data and are incomplete for articles without deposited reference lists.
+- Like the web tool, the flags describe connections; they do not judge whether a study is credible or has been replicated.
 
 ## Output Format
 
@@ -401,6 +485,7 @@ Each JSON file contains:
     "doi": "10.1038/s41591-024-12345-6",
     "pmid": "38123456",
     "pmcid": "PMC12345678",
+    "linked_discoveries_url": "https://linkeddiscoveries.ncbi.nlm.nih.gov/38123456/",
     "year": "2024",
     "month": "11",
     "day": "15",
@@ -721,6 +806,7 @@ pubmed-stream/
 │   ├── __main__.py            # python -m pubmed_stream entry point
 │   ├── cli.py                 # Command-line interface
 │   ├── downloader.py          # Core download logic
+│   ├── neighborhood.py        # Evidence neighborhood (similar, citing, cited articles)
 │   └── py.typed               # Type hint marker
 ├── examples/
 │   ├── keywords/              # Sample keyword CSV files

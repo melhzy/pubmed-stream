@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle>
+  <MedlineCitation Status="MEDLINE" Owner="NLM">
+    <PMID Version="1">100</PMID>
+    <Article PubModel="Print-Electronic">
+      <Journal>
+        <JournalIssue CitedMedium="Internet"><PubDate><Year>2018</Year><Month>Jan</Month></PubDate></JournalIssue>
+        <Title>Journal of Seeds</Title>
+      </Journal>
+      <ArticleTitle>The seed article on <i>gut</i> microbiome.</ArticleTitle>
+      <AuthorList CompleteYN="Y">
+        <Author ValidYN="Y"><LastName>Smith</LastName><ForeName>John A</ForeName><Initials>JA</Initials></Author>
+      </AuthorList>
+      <PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList>
+      <GrantList CompleteYN="Y"><Grant><GrantID>R01 EY000001</GrantID><Agency>NEI NIH HHS</Agency><Country>United States</Country></Grant></GrantList>
+      <ArticleDate DateType="Electronic"><Year>2017</Year><Month>12</Month><Day>01</Day></ArticleDate>
+    </Article>
+  </MedlineCitation>
+  <PubmedData>
+    <ArticleIdList>
+      <ArticleId IdType="pubmed">100</ArticleId>
+      <ArticleId IdType="pmc">PMC100</ArticleId>
+      <ArticleId IdType="doi">10.1000/seed</ArticleId>
+    </ArticleIdList>
+    <ReferenceList><Reference><Citation>A reference.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC777</ArticleId></ArticleIdList></Reference></ReferenceList>
+  </PubmedData>
+</PubmedArticle>
+<PubmedArticle>
+  <MedlineCitation Status="MEDLINE" Owner="NLM">
+    <PMID Version="1">201</PMID>
+    <Article PubModel="Print">
+      <Journal>
+        <JournalIssue CitedMedium="Print"><PubDate><MedlineDate>2019 Jan-Feb</MedlineDate></PubDate></JournalIssue>
+        <Title>Reviews Journal</Title>
+      </Journal>
+      <ArticleTitle>A review of the field.</ArticleTitle>
+      <PublicationTypeList>
+        <PublicationType UI="D016428">Journal Article</PublicationType>
+        <PublicationType UI="D016454">Review</PublicationType>
+      </PublicationTypeList>
+    </Article>
+  </MedlineCitation>
+  <PubmedData><ArticleIdList><ArticleId IdType="pubmed">201</ArticleId></ArticleIdList></PubmedData>
+</PubmedArticle>
+<PubmedArticle>
+  <MedlineCitation Status="MEDLINE" Owner="NLM">
+    <PMID Version="1">202</PMID>
+    <Article PubModel="Print">
+      <Journal>
+        <JournalIssue CitedMedium="Print"><PubDate><Year>2020</Year></PubDate></JournalIssue>
+        <Title>Journal of Retractions</Title>
+      </Journal>
+      <ArticleTitle>A retracted study.</ArticleTitle>
+      <PublicationTypeList>
+        <PublicationType UI="D016428">Journal Article</PublicationType>
+        <PublicationType UI="D016441">Retracted Publication</PublicationType>
+        <PublicationType UI="D052061">Research Support, N.I.H., Extramural</PublicationType>
+      </PublicationTypeList>
+    </Article>
+    <CommentsCorrectionsList>
+      <CommentsCorrections RefType="RetractionIn"><RefSource>J Retract. 2021</RefSource><PMID Version="1">203</PMID></CommentsCorrections>
+    </CommentsCorrectionsList>
+  </MedlineCitation>
+  <PubmedData><ArticleIdList><ArticleId IdType="pubmed">202</ArticleId><ArticleId IdType="pmc">PMC202</ArticleId></ArticleIdList></PubmedData>
+</PubmedArticle>
+<PubmedArticle>
+  <MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM">
+    <PMID Version="1">301</PMID>
+    <Article PubModel="Electronic">
+      <Journal>
+        <JournalIssue CitedMedium="Internet"><PubDate><Year>2023</Year></PubDate></JournalIssue>
+        <Title>Consortium Journal</Title>
+      </Journal>
+      <ArticleTitle>A consortium paper later retracted.</ArticleTitle>
+      <AuthorList CompleteYN="Y">
+        <Author ValidYN="Y"><CollectiveName>Microbiome Study Group</CollectiveName></Author>
+        <Author ValidYN="Y"><LastName>Doe</LastName><ForeName>Jane</ForeName></Author>
+      </AuthorList>
+      <PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList>
+    </Article>
+    <CommentsCorrectionsList>
+      <CommentsCorrections RefType="CommentIn"><RefSource>Other. 2024</RefSource></CommentsCorrections>
+      <CommentsCorrections RefType="RetractionIn"><RefSource>Consortium J. 2025</RefSource></CommentsCorrections>
+    </CommentsCorrectionsList>
+  </MedlineCitation>
+  <PubmedData><ArticleIdList><ArticleId IdType="pubmed">301</ArticleId><ArticleId IdType="pmc">PMC301</ArticleId></ArticleIdList></PubmedData>
+</PubmedArticle>
+<PubmedArticle>
+  <MedlineCitation Status="MEDLINE" Owner="NLM">
+    <PMID Version="1">401</PMID>
+    <Article PubModel="Print">
+      <Journal>
+        <JournalIssue CitedMedium="Print"><PubDate><Year>2010</Year></PubDate></JournalIssue>
+        <Title>Evidence Journal</Title>
+      </Journal>
+      <ArticleTitle>A systematic review funded elsewhere.</ArticleTitle>
+      <PublicationTypeList><PublicationType UI="D000078182">Systematic Review</PublicationType></PublicationTypeList>
+      <GrantList CompleteYN="Y"><Grant><Agency>Wellcome Trust</Agency><Country>United Kingdom</Country></Grant></GrantList>
+    </Article>
+  </MedlineCitation>
+  <PubmedData><ArticleIdList><ArticleId IdType="pubmed">401</ArticleId><ArticleId IdType="doi">10.1000/sr</ArticleId></ArticleIdList></PubmedData>
+</PubmedArticle>
+</PubmedArticleSet>
