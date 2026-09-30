@@ -140,9 +140,11 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def _relation_summary(label: str, articles: List[RelatedArticle]) -> str:
+def _relation_summary(label: str, articles: List[RelatedArticle], total: int) -> str:
+    # "10 of 489" when --max-per-relation cut the list short
+    count = f"{len(articles):>5}" + (f" of {total:<6}" if total > len(articles) else " " * 10)
     return (
-        f"{label:<12}{len(articles):>5}  ("
+        f"{label:<12}{count}  ("
         f"{sum(a.is_review for a in articles)} reviews, "
         f"{sum(a.is_retracted for a in articles)} retracted, "
         f"{sum(a.nih_funded for a in articles)} NIH-funded, "
@@ -174,9 +176,11 @@ def _run_neighborhood(args: argparse.Namespace) -> int:
 
     path = save_neighborhood(hood, output_dir)
     print(f"\nSeed: PMID {hood.pmid} ({hood.seed.year or 'n.d.'}) {hood.seed.title or ''}")
-    print(_relation_summary("Similar", hood.similar))
-    print(_relation_summary("Cited by", hood.cited_by))
-    print(_relation_summary("References", hood.references))
+    print(_relation_summary("Similar", hood.similar, hood.totals["similar"]))
+    print(_relation_summary("Cited by", hood.cited_by, hood.totals["cited_by"]))
+    print(_relation_summary("References", hood.references, hood.totals["references"]))
+    # The seed is always first in articles(); ELink never lists it as its own neighbor
+    print(f"{'Neighborhood':<12}{len(hood.articles()) - 1:>5} unique articles fetched")
     for article in hood.articles():
         if article.is_retracted:
             print(f"[RETRACTED] PMID {article.pmid} ({article.year or 'n.d.'}) {article.title or ''}")

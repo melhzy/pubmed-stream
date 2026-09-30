@@ -42,6 +42,7 @@ def test_relations_in_elink_order_with_scores(ncbi):
     assert [(a.pmid, a.score) for a in hood.cited_by] == [("301", None), ("202", None)]
     assert [a.pmid for a in hood.references] == ["401", "999"]
     assert hood.seed.title == "The seed article on gut microbiome."
+    assert hood.totals == {"similar": 2, "cited_by": 2, "references": 2}
     assert hood.linked_discoveries_url == "https://linkeddiscoveries.ncbi.nlm.nih.gov/100/"
 
 
@@ -84,6 +85,8 @@ def test_max_per_relation(ncbi):
     hood = neighborhood(ncbi, max_per_relation=1)
 
     assert [len(hood.similar), len(hood.cited_by), len(hood.references)] == [1, 1, 1]
+    # Totals still count every linked article
+    assert hood.totals == {"similar": 2, "cited_by": 2, "references": 2}
     assert parse_qs(urlparse(sent(ncbi)[1].url).query)["id"] == ["100,201,301,401"]
 
 
@@ -128,6 +131,7 @@ def test_save_neighborhood(ncbi, tmp_path):
     assert data["seed"]["pmid"] == "100"
     assert [a["pmid"] for a in data["similar"]] == ["201", "202"]
     assert data["cited_by"][0]["is_retracted"] is True
+    assert data["totals"] == {"similar": 2, "cited_by": 2, "references": 2}
 
 
 def test_download_neighborhood(ncbi, tmp_path):
@@ -155,12 +159,28 @@ def test_cli_neighborhood(ncbi, tmp_path, monkeypatch, capsys):
 
     assert cli.main() == 0
     out = capsys.readouterr().out
-    assert "Similar         2  (1 reviews, 1 retracted, 1 NIH-funded, 1 in PMC)" in out
+    assert "Similar         2            (1 reviews, 1 retracted, 1 NIH-funded, 1 in PMC)" in out
+    assert "Neighborhood    5 unique articles fetched" in out
     assert "[RETRACTED] PMID 202 (2020) A retracted study." in out
     assert "[RETRACTED] PMID 301 (2023)" in out
     assert "https://linkeddiscoveries.ncbi.nlm.nih.gov/100/" in out
     assert (tmp_path / "neighborhood_100" / "neighborhood.json").exists()
     assert (tmp_path / "neighborhood_100" / "PMC202.json").exists()
+
+
+
+def test_cli_neighborhood_shows_totals_when_capped(ncbi, tmp_path, monkeypatch, capsys):
+    monkeypatch.setattr("pubmed_stream.downloader.create_session", lambda user_agent: ncbi)
+    monkeypatch.setattr(sys, "argv", [
+        "pubmed-stream", "neighborhood", "100", "-o", str(tmp_path), "--rate-limit", "0",
+        "--max-per-relation", "1",
+    ])
+
+    assert cli.main() == 0
+    out = capsys.readouterr().out
+    assert "Similar         1 of 2       (1 reviews, 0 retracted, 0 NIH-funded, 0 in PMC)" in out
+    assert "Cited by        1 of 2       (0 reviews, 1 retracted, 0 NIH-funded, 1 in PMC)" in out
+    assert "Neighborhood    3 unique articles fetched" in out
 
 
 def test_cli_neighborhood_not_found(make_session, tmp_path, monkeypatch, capsys):

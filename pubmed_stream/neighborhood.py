@@ -73,12 +73,18 @@ class RelatedArticle:
 
 @dataclass
 class Neighborhood:
-    """Similar, citing and cited articles around a seed PubMed article."""
+    """Similar, citing and cited articles around a seed PubMed article.
+
+    ``totals`` counts every article PubMed links per relation (``'similar'``,
+    ``'cited_by'``, ``'references'``), including those beyond
+    ``max_per_relation`` that are not in the lists.
+    """
     pmid: str
     seed: Optional[RelatedArticle]
     similar: List[RelatedArticle]
     cited_by: List[RelatedArticle]
     references: List[RelatedArticle]
+    totals: Dict[str, int]
     linked_discoveries_url: str
     retrieved: str
 
@@ -243,7 +249,7 @@ def get_neighborhood(
 
     Returns:
         A :class:`Neighborhood`.  Its ``seed`` is ``None`` if PubMed has no
-        record for *pmid*.
+        record for *pmid*; ``totals`` has the uncapped count per relation.
 
     Raises:
         ValueError: *pmid* is not numeric, or NCBI returned unparseable data.
@@ -257,10 +263,8 @@ def get_neighborhood(
         api_key, rate_limit, user_agent, email, session
     )
     try:
-        links = {
-            name: pairs[:max_per_relation]
-            for name, pairs in _elink_neighbors(pmid, api_key, session, rate_limiter).items()
-        }
+        all_links = _elink_neighbors(pmid, api_key, session, rate_limiter)
+        links = {name: pairs[:max_per_relation] for name, pairs in all_links.items()}
         pmids = list(dict.fromkeys([pmid] + [i for pairs in links.values() for i, _ in pairs]))
         details = _efetch_pubmed(pmids, api_key, session, rate_limiter)
     finally:
@@ -277,6 +281,7 @@ def get_neighborhood(
         similar=related(links["similar"]),
         cited_by=related(links["cited_by"]),
         references=related(links["references"]),
+        totals={name: len(pairs) for name, pairs in all_links.items()},
         linked_discoveries_url=linked_discoveries_url(pmid),
         retrieved=datetime.now().isoformat(timespec="seconds"),
     )
