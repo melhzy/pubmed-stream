@@ -1,0 +1,43 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd">
+<pmc-articleset><article xmlns:mml="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" article-type="research-article" dtd-version="1.0">
+<front>
+<journal-meta>
+<journal-id journal-id-type="nlm-ta">Test J</journal-id>
+<journal-id journal-id-type="iso-abbrev">Test J.</journal-id>
+<journal-id journal-id-type="pmc-domain-id">9999</journal-id>
+<journal-title-group><journal-title>Journal of Testing</journal-title></journal-title-group>
+<issn pub-type="epub">1234-5678</issn>
+</journal-meta>
+<article-meta>
+<article-id pub-id-type="pmcid">PMC1000001</article-id>
+<article-id pub-id-type="pmid">30000001</article-id>
+<article-id pub-id-type="doi">10.1000/test.1</article-id>
+<title-group><article-title>Gut microbiome &amp; frailty</article-title></title-group>
+<contrib-group>
+<contrib contrib-type="author"><name><surname>Smith</surname><given-names>John A</given-names></name></contrib>
+<contrib contrib-type="author"><name><surname>Doe</surname><given-names>Jane</given-names></name></contrib>
+</contrib-group>
+<pub-date pub-type="collection"><year>2023</year></pub-date>
+<pub-date pub-type="epub"><day>5</day><month>3</month><year>2024</year></pub-date>
+<abstract>
+<sec><title>Background</title><p>Frailty is
+common in older adults.</p></sec>
+<sec><title>Results</title><p>Diversity was lower (p &lt; 0.01).</p></sec>
+</abstract>
+<kwd-group><kwd>microbiome</kwd><kwd>frailty</kwd></kwd-group>
+</article-meta>
+</front>
+<body>
+<sec><title>Introduction</title>
+<p>Levels of H<sub>2</sub>O were significant (p &lt; 0.05) in the &#x003b1; group <xref ref-type="bibr" rid="r1">[1]</xref>.</p>
+<p>A second paragraph with an <inline-formula><alternatives><tex-math id="M1">\documentclass[12pt]{minimal}\begin{document}$x$\end{document}</tex-math><mml:math><mml:mi>x</mml:mi></mml:math></alternatives></inline-formula> inline formula.</p>
+<table-wrap id="t1"><label>Table 1</label><caption><p>Cohort summary</p></caption>
+<table><thead><tr><th>Group</th><th>n</th></tr></thead><tbody><tr><td>Frail</td><td>12</td></tr></tbody></table>
+</table-wrap>
+</sec>
+</body>
+<back>
+<ack><p>We thank the funders.</p></ack>
+<ref-list><ref id="r1"><mixed-citation>Roe R. An unrelated reference. 2020.</mixed-citation></ref></ref-list>
+</back>
+</article></pmc-articleset>
