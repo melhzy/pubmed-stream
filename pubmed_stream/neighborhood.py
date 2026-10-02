@@ -49,12 +49,12 @@ _LINKNAMES = {
     "pubmed_pubmed_refs": "references",
 }
 EFETCH_BATCH_SIZE = 200  # PMIDs per EFetch request (GET URL length stays safe)
-# PubMed's review[pt] also covers these child publication types
 _REVIEW_TYPES = {"Review", "Systematic Review", "Scoping Review"}
 # PubMed search filters equivalent to the RelatedArticle flags, used to count
-# flags across relations that max_per_relation cut short
+# flags across relations that max_per_relation cut short.  :noexp stops
+# review[pt] from also matching guidelines and meta-analyses.
 _FLAG_FILTERS = {
-    "reviews": "(review[pt] OR systematic review[pt] OR scoping review[pt])",
+    "reviews": '(review[pt:noexp] OR "systematic review"[pt:noexp] OR "scoping review"[pt:noexp])',
     "retracted": "retracted publication[pt]",
     "nih_funded": '(nih[gr] OR "research support, n.i.h., extramural"[pt]'
                   ' OR "research support, n.i.h., intramural"[pt])',

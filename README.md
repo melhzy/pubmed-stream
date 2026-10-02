@@ -387,6 +387,12 @@ NLM's [Linked Discoveries](https://linkeddiscoveries.ncbi.nlm.nih.gov/userguide/
 
 One neighborhood costs two requests (one ELink, plus one EFetch per 200 articles), plus five for each relation cut short by `--max-per-relation`.
 
+What the flags mean:
+- **review**: publication type Review, Systematic Review or Scoping Review. This is narrower than PubMed's Review filter, which also counts guidelines and meta-analyses.
+- **retracted**: publication type Retracted Publication, or a retraction notice linked to the article.
+- **NIH-funded**: an NIH grant in the grant list, or an N.I.H. research-support publication type.
+- **in PMC**: the article has a PMC ID; its full text may still be withheld by the publisher.
+
 ### Step by step
 
 1. **Install pubmed-stream** ([Installation](#installation)). Optionally set `NCBI_API_KEY` and `NCBI_EMAIL` ([Configuration](#configuration-optional)); an API key raises NCBI's limit from 3 to 10 requests per second.

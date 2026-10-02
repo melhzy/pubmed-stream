@@ -20,7 +20,7 @@ API_KEY = "SECRET_KEY_123"
 
 # Fixture articles matched by each PubMed search filter
 SEARCH_FLAGS = {
-    "review[pt]": {"201", "401"},
+    "review[pt:noexp]": {"201", "401"},
     "retracted publication[pt]": {"202", "301"},
     "nih[gr]": {"100", "202"},
     "pubmed pmc[sb]": {"100", "202", "301"},
