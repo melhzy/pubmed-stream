@@ -18,6 +18,7 @@ A Python library for downloading PubMed Central (PMC) full-text articles with su
 - **Respecting NCBI rate limits** with automatic detection and retry logic
 - **Providing both CLI and Python API** for flexible integration
 - **Mapping the evidence around an article**: similar, citing and cited papers flagged as reviews, retractions or NIH-funded (a programmatic take on NLM's Linked Discoveries)
+- **Building an Obsidian knowledge graph**: papers linked by citations, similarity and MeSH concepts, ready to explore in Obsidian's graph view
 
 Built for researchers and data scientists who need efficient, reliable access to biomedical literature.
 
@@ -32,6 +33,9 @@ pubmed-stream download "gut microbiome" --max-results 50
 
 # Map the evidence around one article: similar, citing and cited papers, retractions flagged
 pubmed-stream neighborhood 9500320
+
+# Turn the downloads into an Obsidian knowledge graph
+pubmed-stream graph ./publications --vault ./vault
 ```
 
 ```python
@@ -52,6 +56,7 @@ print(hood.totals, [a.pmid for a in hood.articles() if a.is_retracted])
 - [CLI Usage](#cli-usage)
 - [Python API](#python-api)
 - [Evidence Neighborhood](#evidence-neighborhood)
+- [Obsidian Knowledge Graph](#obsidian-knowledge-graph)
 - [Output Format](#output-format)
 - [Use Cases](#use-cases)
 - [Troubleshooting](#troubleshooting)
@@ -220,6 +225,9 @@ pubmed-stream download "frailty" -v --max-results 5
 
 # Evidence neighborhood of an article (see Evidence Neighborhood)
 pubmed-stream neighborhood 9500320
+
+# Obsidian knowledge graph of the downloads (see Obsidian Knowledge Graph)
+pubmed-stream graph ./publications --vault ./vault
 
 # Show version
 pubmed-stream --version
@@ -542,6 +550,95 @@ Each neighborhood takes 2 to about 17 requests, so set `NCBI_API_KEY` for batche
 - **Few or no references or citations**: NCBI only has citation links where reference lists were deposited, mostly for PMC articles. Older or paywalled articles often show 0 references, as PMID 9500320 does.
 - **Slow**: set `NCBI_API_KEY`.
 
+## Obsidian Knowledge Graph
+
+`pubmed-stream graph` turns downloaded articles into an [Obsidian](https://obsidian.md) vault: a folder of linked Markdown notes. Open the folder in Obsidian with **Open folder as vault**, then use the graph view to see which papers cite each other and which topics they share.
+
+### Step by step
+
+1. **Download articles** for a topic:
+
+   ```bash
+   pubmed-stream download '"knowledge graph"[Title] AND literature[Title/Abstract]' --max-results 50
+   ```
+
+2. **Add an evidence neighborhood (optional).** It brings in similar, citing and cited papers of one key article:
+
+   ```bash
+   pubmed-stream neighborhood 35803947 --max-per-relation 30
+   ```
+
+3. **Build the vault** from the download folder:
+
+   ```bash
+   pubmed-stream graph ./publications --vault ./vault
+   ```
+
+4. **Open `./vault` in Obsidian.** Start at the `PubMed Stream` home note, which lists the collections, the most connected concepts and any retracted papers.
+
+5. **Keep it growing.** Add `--vault ./vault` to later `download` or `neighborhood` runs to update the vault straight away. The vault remembers its sources, so `pubmed-stream graph --vault ./vault` alone rebuilds from all of them.
+
+### What the vault contains
+
+| Note | Location | Links to |
+|------|----------|----------|
+| Paper | `papers/PMID<id>.md` | Papers it cites, papers citing it, similar papers, its MeSH concepts and collections |
+| Concept | `concepts/<MeSH heading>.md` | Papers indexed with that MeSH heading |
+| Collection | `collections/Search - <query>.md` or `collections/Neighborhood - PMID <id>.md` | Its papers and top concepts |
+| Home | `PubMed Stream.md` | Collections, most connected concepts, retracted papers |
+
+Paper notes carry Obsidian properties: `pmid`, `pmcid`, `doi`, `year`, `journal`, `authors`, `publication_types`, `mesh`, `keywords`, `status` and `tags`. They work in Obsidian search, Bases and the Dataview plugin. Tags mark the kind of note and its flags: `pubmed/paper`, `pubmed/stub`, `pubmed/review`, `pubmed/retracted`, `pubmed/nih-funded`, `pubmed/concept` and `pubmed/collection`. On the first build, the graph view gets colour groups for retracted papers, reviews, stubs, concepts and collections, unless the vault already has its own graph settings.
+
+### Where the links come from
+
+- **Citations** come from the reference lists of downloaded full text, for references with a PMID, and from neighborhood citing and cited papers. References with only a DOI are listed under *Other references* with a link.
+- **Similarity** comes from neighborhood similar articles, with PubMed's similarity score.
+- **Concepts** are MeSH headings from PubMed. They are fetched once per 200 papers and cached in `.pubmed-stream/pubmed_records.json` inside the vault. Check tags such as *Humans*, *Male* or *Aged* stay in the `mesh` property but get no concept note, because they would link almost every paper.
+- **Stubs** are neighborhood papers that were not downloaded. They get a short note tagged `pubmed/stub` with their PubMed details. Cited papers with no known details stay as unresolved links, which Obsidian can turn into notes on click.
+
+### Editing notes safely
+
+Each note keeps its generated content between two markers:
+
+```markdown
+%% pubmed-stream:start - generated; edits inside this block are overwritten %%
+...
+%% pubmed-stream:end %%
+
+## Notes
+```
+
+Write your own notes below the block or anywhere outside it; rebuilds never touch that text. In the frontmatter, the tool replaces only the keys it writes. Your own properties are kept, and so are your own tags and aliases. Notes whose content did not change are not rewritten, which keeps sync tools quiet.
+
+Do not rename or move generated notes. A rebuild would create the note again at its original path; link to the note instead.
+
+### CLI reference
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `SOURCE ...` | Download folders or files to add; folders are searched recursively | The vault's remembered sources, else `--output-dir` or `./publications` |
+| `--vault DIR` | Vault folder | `./vault` |
+| `--fulltext` | Put each article's full text into its note | Abstract only |
+| `--offline` | Do not query PubMed; use only cached MeSH terms | Fetch missing MeSH terms |
+
+`download` and `neighborhood` accept `--vault DIR`, `--fulltext` and `--offline` too.
+
+### Python
+
+```python
+from pubmed_stream import build_vault
+
+stats = build_vault(["publications"], "vault")
+print(stats)  # papers, stubs, concepts, collections, notes created/updated/unchanged
+```
+
+### Limitations
+
+- **Recent papers often lack MeSH terms.** Indexing takes months, and journals outside MEDLINE are never indexed. In a test with 2025 and 2026 papers, about half had no MeSH terms, so they have no concept links yet. Rebuild later to pick them up.
+- **Older downloads have no reference lists.** Files downloaded with pubmed-stream 0.1.1 or earlier carry no `references`, unless they were saved with `--format xml` or `both`. Download them again into a new folder to add citation links.
+- **Many references have no PMID.** Conference papers, preprints and books appear under *Other references*, not in the graph.
+- **Notes are never deleted.** Removing a source folder leaves its notes in the vault.
+
 ## Output Format
 
 ### Directory Structure
@@ -551,6 +648,7 @@ Articles are organized by search query:
 ```
 publications/
   gut_microbiome_inflammation/
+    query.json          # the original search query
     PMC12345678.json
     PMC12345679.json
     PMC12345680.json
@@ -598,6 +696,9 @@ Each JSON file contains:
       "microbiome",
       "inflammation",
       "gut health"
+    ],
+    "references": [
+      {"pmid": "31234567", "doi": "10.1000/xyz123", "title": "A cited article", "year": "2019"}
     ]
   },
   "text": "Introduction\nThe human gut microbiome comprises...",
@@ -609,7 +710,7 @@ Each JSON file contains:
 - `pmcid`: PubMed Central identifier
 - `source`: Always "PMC"
 - `download_date`: ISO 8601 timestamp
-- `metadata`: Structured article information
+- `metadata`: Structured article information. `references` lists the cited works that have a PMID or DOI, with title and year when the citation is structured.
 - `text`: Plain text of the title, abstract and body, one paragraph per line; identifiers and references are excluded (if `fmt="text"` or `fmt="both"`)
 - `xml`: Raw JATS XML string (if `fmt="xml"` or `fmt="both"`)
 
@@ -963,6 +1064,7 @@ pubmed-stream/
 │   ├── cli.py                 # Command-line interface
 │   ├── downloader.py          # Core download logic
 │   ├── neighborhood.py        # Evidence neighborhood (similar, citing, cited articles)
+│   ├── vault.py               # Obsidian knowledge-graph vault builder
 │   └── py.typed               # Type hint marker
 ├── examples/
 │   ├── keywords/              # Sample keyword CSV files

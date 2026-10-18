@@ -23,6 +23,7 @@ from .neighborhood import (
     get_neighborhood,
     save_neighborhood,
 )
+from .vault import build_vault
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -95,11 +96,30 @@ def build_parser() -> argparse.ArgumentParser:
         help="Exclude plain-text field in JSON output to save space",
     )
 
+    # Options for building an Obsidian vault
+    vault = argparse.ArgumentParser(add_help=False)
+    vault.add_argument(
+        "--fulltext",
+        action="store_true",
+        help="Vault: put each article's full text into its note (default: abstract only)",
+    )
+    vault.add_argument(
+        "--offline",
+        action="store_true",
+        help="Vault: do not fetch MeSH terms from PubMed; use only the vault's cache",
+    )
+    vault_dir = argparse.ArgumentParser(add_help=False)
+    vault_dir.add_argument(
+        "--vault",
+        metavar="DIR",
+        help="Also add the results to the Obsidian vault in DIR (see 'pubmed-stream graph')",
+    )
+
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     download = subparsers.add_parser(
         "download",
-        parents=[common, fetch],
+        parents=[common, fetch, vault_dir, vault],
         help="Search PMC and download full-text articles",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""examples:
@@ -122,7 +142,7 @@ files that already exist.""",
 
     neighborhood = subparsers.add_parser(
         "neighborhood",
-        parents=[common, fetch],
+        parents=[common, fetch, vault_dir, vault],
         help="Show similar, citing and cited articles of a PubMed article "
              "(like NLM Linked Discoveries)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -152,7 +172,67 @@ the review/retracted/NIH-funded/PMC counts always cover all 489.""",
         help="Also download PMC full text of the seed and its neighbors",
     )
 
+    graph = subparsers.add_parser(
+        "graph",
+        parents=[common, vault],
+        help="Build an Obsidian knowledge-graph vault from downloaded articles",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""examples:
+  pubmed-stream graph ./publications --vault ./vault
+  pubmed-stream graph ./publications/neighborhood_29096998 --vault ./vault
+  pubmed-stream graph --vault ./vault --offline
+
+Writes one note per paper, MeSH concept and collection, linked by citations,
+similarity and topic; open the vault folder in Obsidian. The vault remembers
+its sources, so with no SOURCE it rebuilds from them. Rebuilding keeps
+anything written outside the generated %% pubmed-stream %% block.""",
+    )
+    graph.add_argument(
+        "sources",
+        nargs="*",
+        metavar="SOURCE",
+        help="Download folders or files to add (default: the vault's sources, "
+             "else --output-dir or ./publications)",
+    )
+    graph.add_argument(
+        "--vault",
+        metavar="DIR",
+        default="vault",
+        help="Vault folder (default: ./vault)",
+    )
+
     return parser
+
+
+def _update_vault(args: argparse.Namespace, sources) -> int:
+    """Build the vault in args.vault from *sources*; returns an exit code."""
+    try:
+        stats = build_vault(
+            sources,
+            args.vault,
+            fulltext=args.fulltext,
+            offline=args.offline,
+            api_key=args.api_key,
+            user_agent=args.user_agent,
+            email=args.email,
+            rate_limit=args.rate_limit,
+        )
+    except (FileNotFoundError, ValueError) as e:
+        print(f"Error: {e}", file=sys.stderr)
+        return 1
+    except OSError as e:
+        print(f"Error: could not write the vault: {e}", file=sys.stderr)
+        return 2
+    print(stats)
+    return 0
+
+
+def _run_graph(args: argparse.Namespace) -> int:
+    sources = args.sources or None
+    registry = Path(args.vault) / ".pubmed-stream" / "sources.json"
+    if sources is None and not registry.is_file():
+        sources = [args.output_dir or "publications"]
+    return _update_vault(args, sources)
 
 
 def _relation_summary(label: str, hood: Neighborhood, relation: str) -> str:
@@ -217,6 +297,8 @@ def _run_neighborhood(args: argparse.Namespace) -> int:
         )
         print(stats)
 
+    if args.vault:
+        return _update_vault(args, [path.parent])
     return 0
 
 
@@ -250,9 +332,9 @@ def main() -> int:
             rate_limit=args.rate_limit,
         )
 
-        if stats.successful > 0:
-            return 0
-        if stats.skipped > 0 and stats.errors == 0:
+        if stats.successful > 0 or (stats.skipped > 0 and stats.errors == 0):
+            if args.vault:
+                return _update_vault(args, [stats.output_dir])
             return 0
         if stats.requested == 0:
             return 1
@@ -260,6 +342,9 @@ def main() -> int:
 
     if args.command == "neighborhood":
         return _run_neighborhood(args)
+
+    if args.command == "graph":
+        return _run_graph(args)
 
     return 1
 

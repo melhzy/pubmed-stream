@@ -108,3 +108,28 @@ def test_text_falls_back_to_tag_stripping():
 
 def test_strip_xml_tags_decodes_entities():
     assert strip_xml_tags("<p>p &lt; 0.05 &amp; &#x003b1;</p>") == "p < 0.05 & α"
+
+
+def test_references_with_pmid_or_doi():
+    xml = (
+        "<pmc-articleset><article><front><article-meta/></front><back><ref-list>"
+        # citation-alternatives repeats the same IDs; each is kept once
+        '<ref id="r1"><citation-alternatives>'
+        '<element-citation><article-title>Gut <i>flora</i>  study</article-title><year>2019</year>'
+        '<pub-id pub-id-type="pmid">111</pub-id><pub-id pub-id-type="doi">10.1/a</pub-id></element-citation>'
+        '<mixed-citation><pub-id pub-id-type="pmid">111</pub-id></mixed-citation>'
+        "</citation-alternatives></ref>"
+        '<ref id="r2"><mixed-citation>Doe J. Book. <pub-id pub-id-type="doi">10.1/b</pub-id></mixed-citation></ref>'
+        '<ref id="r3"><mixed-citation>No identifiers. 2020.</mixed-citation></ref>'
+        "</ref-list></back></article></pmc-articleset>"
+    )
+
+    assert extract_metadata_from_pmc_xml(xml)["references"] == [
+        {"pmid": "111", "doi": "10.1/a", "title": "Gut flora study", "year": "2019"},
+        {"doi": "10.1/b"},
+    ]
+
+
+def test_no_references_key_without_identified_references(full_xml):
+    # The fixture's only reference has no PMID or DOI
+    assert "references" not in extract_metadata_from_pmc_xml(full_xml)

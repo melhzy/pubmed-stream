@@ -17,6 +17,11 @@
       <GrantList CompleteYN="Y"><Grant><GrantID>R01 EY000001</GrantID><Agency>NEI NIH HHS</Agency><Country>United States</Country></Grant></GrantList>
       <ArticleDate DateType="Electronic"><Year>2017</Year><Month>12</Month><Day>01</Day></ArticleDate>
     </Article>
+    <MeshHeadingList>
+      <MeshHeading><DescriptorName UI="D000069196" MajorTopicYN="Y">Gastrointestinal Microbiome</DescriptorName></MeshHeading>
+      <MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading>
+      <MeshHeading><DescriptorName UI="D000073496" MajorTopicYN="N">Frailty</DescriptorName><QualifierName UI="Q000453" MajorTopicYN="Y">epidemiology</QualifierName></MeshHeading>
+    </MeshHeadingList>
   </MedlineCitation>
   <PubmedData>
     <ArticleIdList>

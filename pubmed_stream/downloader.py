@@ -537,7 +537,43 @@ def extract_metadata_from_pmc_xml(xml_text: str) -> Dict[str, Any]:
     if keywords:
         metadata["keywords"] = keywords
 
+    references = _extract_references(article)
+    if references:
+        metadata["references"] = references
+
     return metadata
+
+
+def _extract_references(article: ET.Element) -> List[Dict[str, str]]:
+    """Return the cited works in *article*'s reference list that carry a PMID or DOI.
+
+    Each entry has ``pmid`` and/or ``doi``, plus ``title`` and ``year`` when
+    the citation is structured.  A ``<citation-alternatives>`` element can
+    repeat a citation, so each ID is taken once per ``<ref>``.
+    """
+    references: List[Dict[str, str]] = []
+    back = article.find("back")
+    if back is None:
+        return references
+    for ref in back.iter("ref"):
+        entry: Dict[str, str] = {}
+        for pub_id in ref.iter("pub-id"):
+            id_type = pub_id.get("pub-id-type", "")
+            value = "".join(pub_id.itertext()).strip()
+            if id_type in ("pmid", "doi") and value and id_type not in entry:
+                entry[id_type] = value
+        if not entry:
+            continue
+        title_el = next(ref.iter("article-title"), None)
+        if title_el is not None:
+            title = " ".join("".join(title_el.itertext()).split())
+            if title:
+                entry["title"] = title
+        year_el = next(ref.iter("year"), None)
+        if year_el is not None and (year_el.text or "").strip():
+            entry["year"] = year_el.text.strip()
+        references.append(entry)
+    return references
 
 
 def efetch_pmc(
@@ -804,6 +840,19 @@ def _download_pmcids(
     return successful, unavailable, errors, skipped
 
 
+QUERY_FILE = "query.json"
+
+
+def _write_query_file(out_dir: Path, keyword: str) -> None:
+    """Record the search query next to its articles, for tools like the vault builder."""
+    try:
+        out_dir.mkdir(parents=True, exist_ok=True)
+        payload = {"query": keyword, "retrieved": datetime.now().isoformat(timespec="seconds")}
+        (out_dir / QUERY_FILE).write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    except OSError as e:
+        logger.warning("Could not write %s: %s", out_dir / QUERY_FILE, e)
+
+
 def search_and_download(
     keyword: str,
     max_results: int,
@@ -897,6 +946,7 @@ def search_and_download(
     # Create keyword-based output directory
     keyword_slug = re.sub(r"[^A-Za-z0-9._-]+", "_", keyword.strip()).strip("_") or "keyword"
     out_dir = output_dir / keyword_slug
+    _write_query_file(out_dir, keyword)
 
     print(
         f"\nFound {len(pmcids)} PMC IDs for '{keyword}' "

@@ -103,3 +103,13 @@ def test_search_and_download(make_session, tmp_path, full_xml, no_body_xml):
     assert (stats.total_found, stats.requested) == (3, 3)
     assert (stats.successful, stats.unavailable, stats.skipped, stats.errors) == (1, 1, 1, 0)
     assert stats.output_dir == tmp_path / "gut_microbiome"
+
+
+def test_search_and_download_records_the_query(make_session, tmp_path, full_xml):
+    search = json.dumps({"esearchresult": {"count": "1", "idlist": ["1"]}})
+    session = make_session(routes={"esearch.fcgi": search, "db=pmc&id=1&": full_xml})
+
+    stats = search_and_download('"gut microbiome"[Title]', 1, output_dir=tmp_path, session=session, rate_limit=0)
+
+    query = json.loads((stats.output_dir / "query.json").read_text(encoding="utf-8"))
+    assert query["query"] == '"gut microbiome"[Title]'

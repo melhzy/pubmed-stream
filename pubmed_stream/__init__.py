@@ -21,14 +21,17 @@ from .neighborhood import (
     get_neighborhood,
     save_neighborhood,
 )
+from .vault import VaultStats, build_vault
 
 __all__ = [
     "DownloadStats",
     "Neighborhood",
     "RateLimiter",
     "RelatedArticle",
+    "VaultStats",
     "create_session",
     "download_neighborhood",
+    "build_vault",
     "efetch_pmc",
     "esearch_pmc",
     "extract_metadata_from_pmc_xml",
