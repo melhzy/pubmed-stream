@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=64"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,7 +7,8 @@ name = "pubmed-stream"
 version = "0.2.0"
 description = "Download PubMed Central full-text articles via NCBI E-utilities API. Built for biomedical research."
 readme = "README.md"
-license = {text = "MIT"}
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.8"
 authors = [
     { name = "Haran Lab, Bucci Lab, and Microbiology & Microbiome Dynamics AI HUB" }
@@ -19,7 +20,6 @@ keywords = ["pubmed", "pmc", "ncbi", "e-utilities", "literature", "download", "b
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",

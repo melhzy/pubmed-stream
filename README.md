@@ -67,7 +67,7 @@ The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/mai
 | # | Tutorial | Use case |
 |---|----------|----------|
 | 0 | [**Start here: a new research topic in an afternoon**](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/00_new_topic.ipynb) | From a question to a map of its literature: size the field, find the paper everyone cites, build a knowledge graph, read its themes, evidence and gaps, export a reading list |
-| 1 | [Getting started](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/01_getting_started.ipynb) | Download a search, read the files, choose a format, resume |
+| 1 | [Getting started](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/01_getting_started.ipynb) | Download a search, read the files, choose a format, resume, fetch one known article, rescue a search that finds nothing |
 | 2 | [Designing searches](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/02_search_strategies.ipynb) | Measure the size, precision and availability of five versions of one search, and combine words with MeSH headings |
 | 3 | [A literature-review corpus](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/03_literature_review.ipynb) | Run a keyword list, deduplicate, screen by theme, export to CSV and BibTeX |
 | 4 | [The evidence around one paper](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/04_evidence_neighborhood.ipynb) | Map a paper's neighborhood and screen it for retractions |
@@ -439,7 +439,10 @@ pubmed-stream/
 ├── tests/              86 offline tests; NCBI is faked with canned responses
 ├── tutorials/          seven notebooks, guides, kg_study.py, keyword lists, tools
 ├── docs/               the architecture guide and its figures
-└── pyproject.toml
+├── pyproject.toml      package metadata and dependencies
+├── CHANGELOG.md        changes in each version
+├── CITATION.cff        how to cite pubmed-stream
+└── LICENSE             MIT
 ```
 
 ## Contributing
@@ -457,7 +460,7 @@ Ideas on the roadmap: PubMed abstracts for articles outside PMC, a search query 
 
 Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 
-1. **Bump the version** in `pyproject.toml` (`version = "X.Y.Z"`) and `pubmed_stream/__init__.py` (`__version__ = "X.Y.Z"`), keeping them identical.
+1. **Bump the version** in `pyproject.toml` (`version = "X.Y.Z"`), `pubmed_stream/__init__.py` (`__version__ = "X.Y.Z"`) and `CITATION.cff` (`version` and `date-released`), keeping them identical, and turn the changelog's *Unreleased* heading into `X.Y.Z - YYYY-MM-DD`.
 2. **Run the tests**: `pytest`.
 3. **Build and check the distributions**; `dist/` is git-ignored:
 
@@ -484,7 +487,7 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 
    If the tag already exists on the wrong commit, move it and force-push only that tag, never `main`: `git tag -f X.Y.Z <commit>`, then `git push --force origin refs/tags/X.Y.Z`.
 
-6. **Create the GitHub release.** In the web interface, open `https://github.com/melhzy/pubmed-stream/releases/new?tag=X.Y.Z`, set the title to `X.Y.Z`, click **Generate release notes**, attach the two files from `dist/`, and publish. With the [GitHub CLI](https://cli.github.com/), after a one-time `gh auth login`: `gh release create X.Y.Z --title "X.Y.Z" --generate-notes dist/*`.
+6. **Create the GitHub release.** In the web interface, open `https://github.com/melhzy/pubmed-stream/releases/new?tag=X.Y.Z`, set the title to `X.Y.Z`, paste the version's section of `CHANGELOG.md` as the description, attach the two files from `dist/`, and publish. With the [GitHub CLI](https://cli.github.com/), after a one-time `gh auth login`: `gh release create X.Y.Z --title "X.Y.Z" --notes "<the changelog section>" dist/*`.
 7. **Verify**: `pip install --upgrade pubmed-stream`, then `pubmed-stream --version`.
 
 ## FAQ
@@ -507,7 +510,7 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 
 ## Citation, acknowledgments and license
 
-pubmed-stream was developed to support biomedical research at the **University of Massachusetts** by the **Haran Lab**, the **Bucci Lab** and the **Microbiology & Microbiome Dynamics AI HUB**. Thanks to NCBI for the E-utilities and open access to PubMed Central. If you use it in your research, please cite:
+pubmed-stream was developed to support biomedical research at the **University of Massachusetts** by the **Haran Lab**, the **Bucci Lab** and the **Microbiology & Microbiome Dynamics AI HUB**. Thanks to NCBI for the E-utilities and open access to PubMed Central. If you use it in your research, please cite it. GitHub's **Cite this repository** button, on the repository's main page, gives the citation in APA and BibTeX from [`CITATION.cff`](https://github.com/melhzy/pubmed-stream/blob/main/CITATION.cff):
 
 ```bibtex
 @software{pubmed_stream_2026,
@@ -520,30 +523,6 @@ pubmed-stream was developed to support biomedical research at the **University o
 }
 ```
 
-<details>
-<summary>MIT License</summary>
-
-Copyright (c) 2026 University of Massachusetts
-Haran Lab, Bucci Lab, and Microbiology & Microbiome Dynamics AI HUB
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-</details>
+pubmed-stream is free software under the [MIT License](https://github.com/melhzy/pubmed-stream/blob/main/LICENSE). Changes in each version are listed in the [changelog](https://github.com/melhzy/pubmed-stream/blob/main/CHANGELOG.md).
 
 Questions and bug reports: [open an issue](https://github.com/melhzy/pubmed-stream/issues). Package: [pypi.org/project/pubmed-stream](https://pypi.org/project/pubmed-stream/).

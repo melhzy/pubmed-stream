@@ -55,7 +55,11 @@ pubmed-stream/
 │   └── kg.py              studies: topic, searches and seeds, refresh
 ├── tests/                 86 offline tests; NCBI is faked with canned responses
 ├── tutorials/             seven notebooks, guides, kg_study.py, keyword lists, tools
-└── docs/                  this guide and its figures
+├── docs/                  this guide and its figures
+├── pyproject.toml         package metadata, dependencies and the tutorials extra
+├── CHANGELOG.md           changes in each version
+├── CITATION.cff           citation metadata for GitHub's Cite this repository
+└── LICENSE                MIT
 ```
 
 | Module | Lines | Responsibility | Main public functions |
