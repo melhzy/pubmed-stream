@@ -21,7 +21,7 @@ Find the message or symptom you see. Most problems happen during setup and are f
 |---|---|
 | `NameError: name 'QUERY' is not defined` (or another setting) | The cells were run out of order, or the settings cell was skipped. Run the whole notebook from the top: **Run > Run All Cells**. |
 | Changed settings, but the results did not change | Earlier results were still in memory. Choose **Kernel > Restart Kernel and Run All Cells** (in Colab, **Runtime > Restart session and run all**). |
-| A cell shows `[*]` for many minutes | It is waiting for NCBI. Large downloads take a few minutes; an [API key](setup.md#getting-a-free-ncbi-api-key) makes them three times faster. If nothing changes for ten minutes, choose **Kernel > Interrupt** and run the cell again. |
+| A cell shows `[*]` for many minutes | It is waiting for NCBI. Large downloads take a few minutes; an [API key](setup.md#getting-a-free-ncbi-api-key) makes them three times faster. If nothing changes for ten minutes, choose **Kernel > Interrupt Kernel** and run the cell again. |
 | Pink boxes with `429 Client Error: Too Many Requests` | NCBI asked pubmed-stream to slow down, and it waited and retried. This is normal and harmless unless the cell fails. To avoid it, add an API key, and don't run several notebooks at once. |
 | `SyntaxError` in the settings cell | A quote or bracket is missing. Text goes between straight quotes, `"like this"`. A search that contains double quotes goes between single quotes: `'"gut microbiota"[Title]'`. |
 | `ConnectionError`, `SSLError` or `Max retries exceeded` | The computer cannot reach NCBI. Check the internet connection. On a university or hospital network, a firewall may block it: try another network, or ask IT whether a proxy is needed. They can tell you the value to put in an `HTTPS_PROXY` environment variable. |
@@ -49,7 +49,7 @@ Find the message or symptom you see. Most problems happen during setup and are f
 | You see | What it means and what to do |
 |---|---|
 | The vault opens, but there are no notes | You opened the folder above the graph. Open the `kg_<topic>` folder itself, the one that holds `PubMed Stream.md`. |
-| The graph view is a crowded ball of dots | Filter it, for example `path:papers` to show only papers, and spread it with the *Forces* sliders. See the [Obsidian guide](obsidian.md#the-graph-view). |
+| The graph view is a crowded ball of dots | Most dots are cited papers without a note. Switch on **Existing files only** under *Filters* in the graph settings, filter further with `path:papers`, and spread it with the *Forces* sliders. See the [Obsidian guide](obsidian.md#the-graph-view). |
 | The graph has no colours | Colours are set when the graph is first built, and only if the vault has none yet. Add them yourself under **Groups** in the graph settings. |
 | Clicking a link creates an empty note | The paper is cited but was not downloaded or added as a stub. Its PubMed ID is in the link's name. Delete the empty note if you don't need it. |
 | Notes I wrote disappeared after a rebuild | They were inside the generated block, between the `%% pubmed-stream:start` and `%% pubmed-stream:end` lines. Write below the end line; see [write your own notes](obsidian.md#write-your-own-notes). |

@@ -1,6 +1,6 @@
 # Reading a knowledge graph in Obsidian
 
-pubmed-stream builds a knowledge graph as a folder of linked notes, `kg_<topic>`. [Obsidian](https://obsidian.md) is a free note-taking app that turns such a folder into a browsable, searchable map of your study, where you can also write your own notes. This guide shows how to open the graph, find your way around it, and make it your own.
+pubmed-stream builds a knowledge graph as a folder of linked notes, `kg_<topic>`. [Obsidian](https://obsidian.md) is a free note-taking app that turns such a folder into a browsable, searchable map of your study, where you can also write your own notes. This guide shows how to open the graph, find your way around it, and make it your own. The screenshots show the graph that [tutorial 0](../00_new_topic.ipynb) builds, on the gut microbiome in Parkinson's disease.
 
 - [Install Obsidian and open the graph](#install-obsidian-and-open-the-graph)
 - [The home note](#the-home-note)
@@ -24,6 +24,8 @@ Obsidian calls a folder of notes a **vault**. Your knowledge graph is now one.
 
 Open **PubMed Stream** in the file list on the left. It is the graph's front page: how many papers and concepts it holds, a link to each collection, and the most connected concepts. Click any link to follow it.
 
+![The home note, with the file list on the left and the note's counts, collections and concepts on the right](images/obsidian-home.png)
+
 Links work like a web page: click to open, and Ctrl+click (Cmd+click on a Mac) to open in a new tab. The arrows at the top left go back and forward.
 
 ## Paper, concept and collection notes
@@ -37,17 +39,35 @@ The graph has three kinds of notes, in three folders.
 - **MeSH concepts**, each a link to its concept note, marked *(major topic)* when it is a main point of the paper.
 - **Cites**, **Cited by** and **Similar articles**: links to other papers in the graph.
 
+![A paper note's properties: title, identifiers, year, journal, authors, publication type, MeSH headings, keywords, status and tags](images/obsidian-paper-properties.png)
+
+Further down, the links connect the paper to the rest of the graph. Links in full colour lead to notes; the paler ones are explained below.
+
+![A paper note's MeSH concepts, marked as major topics or not, its keywords, and the papers it cites](images/obsidian-paper-links.png)
+
 A note that starts with a **Stub** box is a paper from a key paper's evidence neighborhood that was not downloaded. It has PubMed's details and links, but no abstract or full text.
 
-A cited paper that is neither downloaded nor in a neighborhood has no note. Its link still works as a placeholder: Obsidian shows it in a fainter colour, and clicking it creates an empty note. Its PubMed ID is in the link, so you can look it up.
+![The note of a stub paper, the 2016 Cell paper that tutorial 0 uses as its key paper, with its Stub box, details and MeSH concepts](images/obsidian-stub.png)
 
-**Concepts** (`concepts/`) have one note per MeSH heading, listing every paper indexed with it. Open *Sarcopenia* to see all the sarcopenia papers in your study, with the ones where it is a major topic marked.
+A cited paper that is neither downloaded nor in a neighborhood has no note. Its link is a placeholder: Obsidian shows it in a paler colour, and clicking it creates an empty note. Its PubMed ID is in the link, so you can look it up.
+
+**Concepts** (`concepts/`) have one note per MeSH heading, listing every paper indexed with it. Open one to see every paper in your study about that concept, with the ones where it is a major topic marked.
+
+![The concept note for alpha-Synuclein, listing 29 papers, newest first](images/obsidian-concept.png)
 
 **Collections** (`collections/`) have one note per search or evidence neighborhood, listing the papers it brought in and its top concepts.
 
 ## The graph view
 
-Open it with the **graph icon** in the left toolbar, or with Ctrl+G (Cmd+G on a Mac). Every note is a dot and every link a line. Hover over a dot to highlight its links and see its name; click it to open the note.
+Open it with the **graph icon** in the left toolbar, or with Ctrl+G (Cmd+G on a Mac). Every note is a dot and every link a line. Hover over a dot to highlight its links and see its name; click it to open the note. Scroll to zoom, and drag the background to move around.
+
+![The full graph view: large dots for papers and concepts, each downloaded paper surrounded by a burst of small pale dots](images/obsidian-graph.png)
+
+At first the graph is crowded. Each burst of small pale dots is a downloaded paper and the papers it cites that have no note. Switch them off with **Existing files only**, under **Filters** in the settings panel, which opens from the gear at the top right. What remains is your study's structure:
+
+![The same graph with Existing files only switched on: two connected clusters of papers and concepts, with the Filters panel open](images/obsidian-graph-existing-files.png)
+
+Here the key paper's neighborhood, mostly stubs, forms the cluster on the left, and the papers the searches downloaded, with their reviews, the cluster on the right. Shared MeSH concepts tie the two together.
 
 The dots have colours:
 
@@ -56,13 +76,14 @@ The dots have colours:
 | Red | Retracted papers |
 | Purple | Collections: your searches and neighborhoods |
 | Teal | MeSH concepts |
-| Grey | Stub papers |
+| Light grey | Stub papers |
 | Orange | Reviews |
-| Obsidian's default colour | Other downloaded papers |
+| Dark grey, Obsidian's default | Other downloaded papers |
+| Small pale dots | Cited papers without a note |
 
-A paper that matches several rows takes the first, so a retracted review is red. To change the colours, open the settings panel with the gear at the top right of the graph and expand **Groups**.
+A paper that matches several rows takes the first, so a retracted review is red. To change the colours, expand **Groups** in the settings panel.
 
-The settings panel also has **Filters**, which help most on a large graph. Type into its search box:
+**Filters** can also narrow the graph down. Type into its search box:
 
 | Filter | Shows |
 |---|---|
@@ -79,13 +100,21 @@ Under **Display**, *Arrows* shows which paper cites which, and *Node size* makes
 
 The full graph shows everything. The **local graph** shows only what links to one note, which is the best way to explore a single paper or concept.
 
-Open a paper note, press Ctrl+P (Cmd+P) to open the command palette, type `local graph`, and choose **Graph view: Open local graph**. It opens beside the note and follows you as you move between notes. In its settings, **Depth** sets how many links away it reaches: 1 shows direct neighbors, 2 their neighbors too.
+Open a paper note, press Ctrl+P (Cmd+P) to open the command palette, type `local graph`, and choose **Graph view: Open local graph**. It opens beside the note and follows you as you move between notes. In its settings, **Depth** sets how many links away it reaches: 1 shows direct neighbors, 2 their neighbors too. Switch on **Existing files only** here as well, so that only notes are shown.
+
+![A paper note beside its local graph, which shows the paper linked to its MeSH concepts, its collection, and the papers it cites](images/obsidian-local-graph.png)
+
+The local graph has its own settings, so it does not use the full graph's colours. Add the same groups under **Groups** if you want them.
 
 The **Backlinks** panel in the right sidebar lists every note that links to the open one. On a concept note, that is every paper about the concept; on a paper, every paper that cites it.
 
 ## Search
 
-Press Ctrl+Shift+F (Cmd+Shift+F) to search every note. Plain words search titles, abstracts and your own notes. Some useful searches:
+Press Ctrl+Shift+F (Cmd+Shift+F) to search every note. Plain words search titles, abstracts and your own notes. Each result shows the matching lines; click one to open the note.
+
+![Search results for reviews that mention alpha-synuclein, with one result open](images/obsidian-search.png)
+
+Some useful searches, which can be combined, such as `tag:#pubmed/review alpha-synuclein`:
 
 | Search | Finds |
 |---|---|
@@ -109,6 +138,10 @@ The graph is meant to be written in. Each generated note has a block between two
 - **Tag papers for yourself**, for example `#to-read`, `#key-paper` or `#method`, anywhere in the note.
 - **Add your own properties**, such as `reading: done` or `rating: 4`. Use names the tool does not use; it owns `type`, `title`, `aliases`, `pmid`, `pmcid`, `doi`, `year`, `journal`, `authors`, `publication_types`, `mesh`, `keywords`, `status`, `retracted`, `url` and `tags`. Tags and aliases you add are kept.
 - **Create notes of your own**, such as a synthesis note or a draft introduction, anywhere in the vault, linking to the papers they discuss.
+
+In editing view, the end line is visible, and everything you write below it is yours:
+
+![A paper note in editing view: the pubmed-stream end line, then the reader's own summary with a to-read tag and links to the key paper and a concept](images/obsidian-your-notes.png)
 
 Do not rename or move the generated notes: a rebuild would recreate them under their original names. Edits inside the generated block are overwritten.
 
