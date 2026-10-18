@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pubmed-stream"
-version = "0.1.1"
+version = "0.2.0"
 description = "Download PubMed Central full-text articles via NCBI E-utilities API. Built for biomedical research."
 readme = "README.md"
 license = {text = "MIT"}
@@ -15,7 +15,7 @@ authors = [
 maintainers = [
     { name = "University of Massachusetts" }
 ]
-keywords = ["pubmed", "pmc", "ncbi", "e-utilities", "literature", "download", "biomedical", "research"]
+keywords = ["pubmed", "pmc", "ncbi", "e-utilities", "literature", "download", "biomedical", "research", "knowledge-graph", "obsidian", "mesh", "citation-network"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Science/Research",

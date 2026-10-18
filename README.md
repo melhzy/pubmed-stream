@@ -65,7 +65,7 @@ print(hood.totals, [a.pmid for a in hood.articles() if a.is_retracted])
 - [Contributing](#contributing)
 - [License](#license)
 
-New to the code? Start with the [architecture guide](docs/ARCHITECTURE.md).
+New to the code? Start with the [architecture guide](https://github.com/melhzy/pubmed-stream/blob/main/docs/ARCHITECTURE.md).
 
 ## Installation
 
@@ -100,7 +100,7 @@ Development dependencies (optional):
 
 ## How It Works
 
-> **The full picture:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) explains the whole repository with diagrams, tables, code and figures. It covers the module map, every NCBI request, the download and neighborhood flows, how knowledge graphs are built and safely rebuilt, the data model, the tests, and where to extend the code.
+> **The full picture:** [`docs/ARCHITECTURE.md`](https://github.com/melhzy/pubmed-stream/blob/main/docs/ARCHITECTURE.md) explains the whole repository with diagrams, tables, code and figures. It covers the module map, every NCBI request, the download and neighborhood flows, how knowledge graphs are built and safely rebuilt, the data model, the tests, and where to extend the code.
 
 ### Architecture
 
@@ -560,7 +560,7 @@ Each neighborhood takes 2 to about 17 requests, so set `NCBI_API_KEY` for batche
 
 **One knowledge graph per study topic.** Obsidian links notes only inside one vault, so everything a study collects goes into the same `kg_<topic>` folder, created in the current folder next to `publications/`. There, shared citations and MeSH concepts connect the searches and neighborhoods into one graph.
 
-> **New to this?** The tutorial notebook [`examples/kg_tutorial.ipynb`](examples/kg_tutorial.ipynb) builds a real study step by step and shows every note it produces, with outputs saved. [`examples/kg_study.py`](examples/kg_study.py) is the same study as a script to copy and adapt.
+> **New to this?** The tutorial notebook [`examples/kg_tutorial.ipynb`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_tutorial.ipynb) builds a real study step by step and shows every note it produces, with outputs saved. [`examples/kg_study.py`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_study.py) is the same study as a script to copy and adapt.
 
 ### How it works
 
@@ -627,7 +627,7 @@ flowchart LR
 | Collection | `collections/Search - <query>.md` or `collections/Neighborhood - PMID <id>.md` | Its papers and top concepts |
 | Home | `PubMed Stream.md` | Collections, most connected concepts, retracted papers |
 
-A slice of the graph built by [`examples/kg_study.py`](examples/kg_study.py) shows how the notes connect. Every link below is real. Purple notes are collections, white ones papers with full text, grey ones stubs, and teal ones MeSH concepts, as in Obsidian's graph view:
+A slice of the graph built by [`examples/kg_study.py`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_study.py) shows how the notes connect. Every link below is real. Purple notes are collections, white ones papers with full text, grey ones stubs, and teal ones MeSH concepts, as in Obsidian's graph view:
 
 ```mermaid
 flowchart LR
@@ -783,8 +783,8 @@ create_kg("gut microbiome frailty", refresh=True)  # later: pick up new papers
 
 | File | What it shows |
 |------|---------------|
-| [`examples/kg_tutorial.ipynb`](examples/kg_tutorial.ipynb) | A guided study on the gut microbiome and frailty, with saved outputs: one search, the folder layout, a paper note, a concept note, the home note, a key article's neighborhood, citation links, editing notes safely, and refreshing |
-| [`examples/kg_study.py`](examples/kg_study.py) | The same study as a short script. Edit its `STUDY` settings, run it, and run it again with `--refresh` later |
+| [`examples/kg_tutorial.ipynb`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_tutorial.ipynb) | A guided study on the gut microbiome and frailty, with saved outputs: one search, the folder layout, a paper note, a concept note, the home note, a key article's neighborhood, citation links, editing notes safely, and refreshing |
+| [`examples/kg_study.py`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_study.py) | The same study as a short script. Edit its `STUDY` settings, run it, and run it again with `--refresh` later |
 
 Run the tutorial from the `examples` folder; it works in `examples/kg_tutorial_workspace/`, which git ignores:
 
