@@ -4,6 +4,7 @@ import logging
 import requests
 
 from pubmed_stream import RateLimiter, efetch_pmc, esearch_pmc, search_and_download
+from pubmed_stream.downloader import slugify
 
 API_KEY = "SECRET_KEY_123"
 
@@ -113,3 +114,17 @@ def test_search_and_download_records_the_query(make_session, tmp_path, full_xml)
 
     query = json.loads((stats.output_dir / "query.json").read_text(encoding="utf-8"))
     assert query["query"] == '"gut microbiome"[Title]'
+
+
+def test_slugify_keeps_short_names():
+    assert (slugify('"gut microbiota"[Title] AND frailty[Title/Abstract]')
+            == "gut_microbiota_Title_AND_frailty_Title_Abstract")
+
+
+def test_slugify_shortens_long_names_uniquely():
+    base = '("fecal microbiota transplantation"[Title] OR "faecal microbiota transplantation"[Title]) AND '
+    first, second = slugify(base + "parkinson[Title/Abstract]"), slugify(base + "alzheimer[Title/Abstract]")
+
+    assert len(first) <= 100 and len(second) <= 100
+    assert first != second and first[:60] == second[:60]
+    assert first == slugify(base + "parkinson[Title/Abstract]")
