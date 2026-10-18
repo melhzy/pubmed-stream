@@ -65,6 +65,8 @@ print(hood.totals, [a.pmid for a in hood.articles() if a.is_retracted])
 - [Contributing](#contributing)
 - [License](#license)
 
+New to the code? Start with the [architecture guide](docs/ARCHITECTURE.md).
+
 ## Installation
 
 ### From PyPI (Recommended)
@@ -97,6 +99,8 @@ Development dependencies (optional):
 - ruff (for linting)
 
 ## How It Works
+
+> **The full picture:** [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) explains the whole repository with diagrams, tables, code and figures. It covers the module map, every NCBI request, the download and neighborhood flows, how knowledge graphs are built and safely rebuilt, the data model, the tests, and where to extend the code.
 
 ### Architecture
 
@@ -1237,6 +1241,9 @@ pubmed-stream/
 │       ├── manage_text_field.py
 │       └── test_pmc_availability.py
 ├── tests/                     # pytest suite with small JATS XML fixtures
+├── docs/
+│   ├── ARCHITECTURE.md        # How the repository works: diagrams, tables, figures
+│   └── figures/               # Figures of the example study, and make_figures.py
 ├── test_download.ipynb        # Comprehensive test notebook
 ├── pyproject.toml            # Project metadata and dependencies
 ├── README.md                 # This file
