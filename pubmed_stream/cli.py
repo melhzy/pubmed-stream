@@ -23,6 +23,7 @@ from .neighborhood import (
     get_neighborhood,
     save_neighborhood,
 )
+from .kg import create_kg, record_study
 from .vault import build_vault, topic_vault_dir
 
 # --vault given without a folder: name the vault after the run's topic
@@ -99,39 +100,39 @@ def build_parser() -> argparse.ArgumentParser:
         help="Exclude plain-text field in JSON output to save space",
     )
 
-    # Options for building an Obsidian vault
+    # Options for building a knowledge graph (an Obsidian vault)
     vault = argparse.ArgumentParser(add_help=False)
-    vault.add_argument(
-        "--topic",
-        help="Study topic; its knowledge graph is the vault ./kg_<topic> "
-             "(example: --topic 'gut microbiome frailty')",
-    )
     vault.add_argument(
         "--fulltext",
         action="store_true",
-        help="Vault: put each article's full text into its note (default: abstract only)",
+        help="Knowledge graph: put each article's full text into its note (default: abstract only)",
     )
     vault.add_argument(
         "--offline",
         action="store_true",
-        help="Vault: do not fetch MeSH terms from PubMed; use only the vault's cache",
+        help="Knowledge graph: do not fetch MeSH terms from PubMed; use only the cache",
     )
-    vault_dir = argparse.ArgumentParser(add_help=False)
-    vault_dir.add_argument(
+    # How download and neighborhood runs join a study's knowledge graph
+    study = argparse.ArgumentParser(add_help=False)
+    study.add_argument(
+        "--topic",
+        help="Add the results to the knowledge graph of this study topic, ./kg_<topic> "
+             "(example: --topic 'gut microbiome frailty'; see 'pubmed-stream kg')",
+    )
+    study.add_argument(
         "--vault",
         metavar="DIR",
         nargs="?",
         const=_AUTO_VAULT,
-        help="Also add the results to an Obsidian knowledge-graph vault: DIR, the "
-             "--topic vault, or with no DIR ./kg_<download folder name> "
-             "(see 'pubmed-stream graph')",
+        help="Add the results to the knowledge graph in DIR, or with no DIR to "
+             "./kg_<download folder name>",
     )
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     download = subparsers.add_parser(
         "download",
-        parents=[common, fetch, vault_dir, vault],
+        parents=[common, fetch, study, vault],
         help="Search PMC and download full-text articles",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""examples:
@@ -154,7 +155,7 @@ files that already exist.""",
 
     neighborhood = subparsers.add_parser(
         "neighborhood",
-        parents=[common, fetch, vault_dir, vault],
+        parents=[common, fetch, study, vault],
         help="Show similar, citing and cited articles of a PubMed article "
              "(like NLM Linked Discoveries)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -184,35 +185,79 @@ the review/retracted/NIH-funded/PMC counts always cover all 489.""",
         help="Also download PMC full text of the seed and its neighbors",
     )
 
-    graph = subparsers.add_parser(
-        "graph",
-        parents=[common, vault],
-        help="Build an Obsidian knowledge-graph vault from downloaded articles",
+    kg = subparsers.add_parser(
+        "kg",
+        parents=[common, fetch, vault],
+        help="Build the knowledge graph of a study: searches, neighborhoods and "
+             "downloads linked in an Obsidian vault",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""examples:
-  pubmed-stream graph ./publications/gut_microbiome
-  pubmed-stream graph ./publications/gut_microbiome ./publications/frailty --topic "gut microbiome frailty"
-  pubmed-stream graph --topic "gut microbiome frailty" --offline
+  pubmed-stream kg "gut microbiome frailty" -q "gut microbiome frailty" -q "microbiome sarcopenia"
+  pubmed-stream kg "gut microbiome frailty" --seed 35803947 --max-per-relation 30
+  pubmed-stream kg "gut microbiome frailty" --add ./publications/old_query
+  pubmed-stream kg "gut microbiome frailty" --refresh
+  pubmed-stream kg "gut microbiome frailty"
 
-Each study topic gets its own vault, ./kg_<topic>. With one SOURCE the topic
-is the source folder's name (kg_gut_microbiome); with several, name the study
-with --topic, or pick any folder with --vault DIR.
-
-Writes one note per paper, MeSH concept and collection, linked by citations,
-similarity and topic; open the vault folder in Obsidian. The vault remembers
-its sources, so with no SOURCE it rebuilds from them. Rebuilding keeps
-anything written outside the generated %% pubmed-stream %% block.""",
+The graph is the folder ./kg_<topic>; open it in Obsidian as a vault. It has
+one note per paper, MeSH concept and collection, linked by citations,
+similarity and topic. The study's searches and seeds are remembered:
+--refresh runs them all again to pick up new papers, and with no options the
+graph is rebuilt from what the study already has. Rebuilding keeps anything
+written outside the generated %% pubmed-stream %% block.""",
     )
-    graph.add_argument(
-        "sources",
-        nargs="*",
-        metavar="SOURCE",
-        help="Download folders or files to add (default: the vault's remembered sources)",
+    kg.add_argument(
+        "topic",
+        help="Study topic (example: 'gut microbiome frailty'); names the graph ./kg_<topic>",
     )
-    graph.add_argument(
-        "--vault",
+    kg.add_argument(
+        "--query",
+        "-q",
+        action="append",
+        default=[],
+        metavar="QUERY",
+        help="PubMed search to download into the study (repeatable)",
+    )
+    kg.add_argument(
+        "--seed",
+        "-s",
+        action="append",
+        default=[],
+        metavar="PMID",
+        help="Key article whose evidence neighborhood joins the study (repeatable)",
+    )
+    kg.add_argument(
+        "--add",
+        action="append",
+        default=[],
         metavar="DIR",
-        help="Vault folder, overriding the kg_<topic> name",
+        help="Folder or file downloaded earlier to add to the study (repeatable)",
+    )
+    kg.add_argument(
+        "--refresh",
+        action="store_true",
+        help="Run every search and neighborhood of the study again to pick up new papers",
+    )
+    kg.add_argument(
+        "--max-results",
+        type=int,
+        default=100,
+        help="Maximum articles per search (default: 100)",
+    )
+    kg.add_argument(
+        "--max-per-relation",
+        type=int,
+        default=100,
+        help="Maximum similar, citing and cited articles per seed (default: 100)",
+    )
+    kg.add_argument(
+        "--download-neighbors",
+        action="store_true",
+        help="Download PMC full text of neighborhood articles too (default: stub notes)",
+    )
+    kg.add_argument(
+        "--kg-dir",
+        metavar="DIR",
+        help="Graph folder, instead of ./kg_<topic>",
     )
 
     return parser
@@ -229,9 +274,11 @@ def _vault_dir(args: argparse.Namespace, default_topic: str):
     return None
 
 
-def _update_vault(args: argparse.Namespace, vault_dir: Path, sources) -> int:
-    """Build the vault in *vault_dir* from *sources*; returns an exit code."""
+def _update_vault(args: argparse.Namespace, vault_dir: Path, sources, queries=(), seeds=()) -> int:
+    """Add a run to the knowledge graph in *vault_dir*; returns an exit code."""
     try:
+        # Recorded in the study, so 'kg --refresh' runs them again
+        record_study(vault_dir, args.topic, queries=queries, seeds=seeds)
         stats = build_vault(
             sources,
             vault_dir,
@@ -252,24 +299,38 @@ def _update_vault(args: argparse.Namespace, vault_dir: Path, sources) -> int:
     return 0
 
 
-def _run_graph(args: argparse.Namespace) -> int:
-    sources = args.sources or None
-    if args.vault:
-        vault_dir = Path(args.vault)
-    elif args.topic:
-        vault_dir = topic_vault_dir(args.topic)
-    elif sources and len(sources) == 1:
-        # One download folder: its name is the topic (a file's folder for a file)
-        source = Path(sources[0])
-        vault_dir = topic_vault_dir((source.parent if source.is_file() else source).resolve().name)
-    else:
-        print(
-            "Error: name the study with --topic (its vault is ./kg_<topic>), or pass --vault DIR"
-            + (" when combining several sources" if sources else ""),
-            file=sys.stderr,
+def _run_kg(args: argparse.Namespace) -> int:
+    try:
+        result = create_kg(
+            args.topic,
+            queries=args.query,
+            seeds=args.seed,
+            sources=args.add,
+            refresh=args.refresh,
+            max_results=args.max_results,
+            max_per_relation=args.max_per_relation,
+            download_neighbors=args.download_neighbors,
+            kg_dir=args.kg_dir,
+            output_dir=args.output_dir,
+            fmt=args.format,
+            include_text=not args.exclude_text,
+            use_concurrent=not args.sequential,
+            max_workers=args.workers,
+            fulltext=args.fulltext,
+            offline=args.offline,
+            api_key=args.api_key,
+            user_agent=args.user_agent,
+            email=args.email,
+            rate_limit=args.rate_limit,
         )
+    except (FileNotFoundError, ValueError) as e:
+        print(f"Error: {e}", file=sys.stderr)
         return 1
-    return _update_vault(args, vault_dir, sources)
+    except OSError as e:
+        print(f"Error: could not write the knowledge graph: {e}", file=sys.stderr)
+        return 2
+    print(result)
+    return 2 if result.errors else 0
 
 
 def _relation_summary(label: str, hood: Neighborhood, relation: str) -> str:
@@ -336,7 +397,7 @@ def _run_neighborhood(args: argparse.Namespace) -> int:
 
     vault_dir = _vault_dir(args, path.parent.name)
     if vault_dir is not None:
-        return _update_vault(args, vault_dir, [path.parent])
+        return _update_vault(args, vault_dir, [path.parent], seeds=[hood.pmid])
     return 0
 
 
@@ -373,7 +434,7 @@ def main() -> int:
         if stats.successful > 0 or (stats.skipped > 0 and stats.errors == 0):
             vault_dir = _vault_dir(args, stats.output_dir.name)
             if vault_dir is not None:
-                return _update_vault(args, vault_dir, [stats.output_dir])
+                return _update_vault(args, vault_dir, [stats.output_dir], queries=[args.keyword])
             return 0
         if stats.requested == 0:
             return 1
@@ -382,8 +443,8 @@ def main() -> int:
     if args.command == "neighborhood":
         return _run_neighborhood(args)
 
-    if args.command == "graph":
-        return _run_graph(args)
+    if args.command == "kg":
+        return _run_kg(args)
 
     return 1
 

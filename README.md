@@ -34,8 +34,8 @@ pubmed-stream download "gut microbiome" --max-results 50
 # Map the evidence around one article: similar, citing and cited papers, retractions flagged
 pubmed-stream neighborhood 9500320
 
-# Turn the downloads into an Obsidian knowledge graph
-pubmed-stream graph ./publications/gut_microbiome   # vault: ./kg_gut_microbiome
+# Build a study's knowledge graph in ./kg_gut_microbiome_frailty, ready for Obsidian
+pubmed-stream kg "gut microbiome frailty" -q "gut microbiome frailty" --seed 35803947
 ```
 
 ```python
@@ -226,8 +226,8 @@ pubmed-stream download "frailty" -v --max-results 5
 # Evidence neighborhood of an article (see Evidence Neighborhood)
 pubmed-stream neighborhood 9500320
 
-# Obsidian knowledge graph of the downloads (see Obsidian Knowledge Graph)
-pubmed-stream graph ./publications/gut_microbiome   # vault: ./kg_gut_microbiome
+# Knowledge graph of a study (see Obsidian Knowledge Graph)
+pubmed-stream kg "gut microbiome frailty" -q "gut microbiome frailty" -q "microbiome sarcopenia"
 
 # Show version
 pubmed-stream --version
@@ -552,45 +552,46 @@ Each neighborhood takes 2 to about 17 requests, so set `NCBI_API_KEY` for batche
 
 ## Obsidian Knowledge Graph
 
-`pubmed-stream graph` turns downloaded articles into an [Obsidian](https://obsidian.md) vault: a folder of linked Markdown notes. Open the folder in Obsidian with **Open folder as vault**, then use the graph view to see which papers cite each other and which topics they share.
+`pubmed-stream kg` builds the knowledge graph of a scientific study. It runs the study's PubMed searches and evidence neighborhoods, then links everything in an [Obsidian](https://obsidian.md) vault: a folder of Markdown notes named `kg_<topic>`. Open the folder in Obsidian with **Open folder as vault**, then use the graph view to see which papers cite each other and which topics they share.
 
-**One knowledge graph per study topic.** Each vault is named `kg_<topic>` and created in the current folder, next to `publications/`:
-
-| You run | Vault |
-|---------|-------|
-| `graph ./publications/gut_microbiome` | `kg_gut_microbiome`, named after the single source folder |
-| `graph <several folders> --topic "gut microbiome frailty"` | `kg_gut_microbiome_frailty` |
-| `download "gut microbiome" --vault` | `kg_gut_microbiome`, named after the query |
-| `neighborhood 35803947 --vault` | `kg_neighborhood_35803947` |
-| any of these with `--topic "frailty study"` | `kg_frailty_study` |
-| any of these with `--vault DIR` | `DIR`, for a different name or location |
-
-Obsidian links notes only inside one vault. Use the same `--topic` for every search and neighborhood of a study, so shared citations and concepts connect in one graph.
+**One knowledge graph per study topic.** Obsidian links notes only inside one vault, so everything a study collects goes into the same `kg_<topic>` folder, created in the current folder next to `publications/`. There, shared citations and MeSH concepts connect the searches and neighborhoods into one graph.
 
 ### Step by step
 
-1. **Download articles** for each question in the study, adding them to the study's graph:
+1. **Start the study** with its topic, its searches and, optionally, key articles whose similar, citing and cited papers belong in it:
 
    ```bash
-   pubmed-stream download "gut microbiome frailty" --max-results 50 --topic "gut microbiome frailty"
-   pubmed-stream download "microbiome sarcopenia" --max-results 50 --topic "gut microbiome frailty"
+   pubmed-stream kg "gut microbiome frailty" \
+       -q "gut microbiome frailty" -q "microbiome sarcopenia" \
+       --seed 35803947 --max-results 50 --max-per-relation 30
    ```
 
-2. **Add an evidence neighborhood (optional).** It brings in similar, citing and cited papers of one key article:
+2. **Open `kg_gut_microbiome_frailty` in Obsidian.** Start at the `PubMed Stream` home note, which lists the collections, the most connected concepts and any retracted papers.
+
+3. **Grow the study.** Later runs with the same topic add to its graph:
 
    ```bash
-   pubmed-stream neighborhood 35803947 --max-per-relation 30 --topic "gut microbiome frailty"
+   pubmed-stream kg "gut microbiome frailty" -q "microbiome inflammaging"
+   pubmed-stream kg "gut microbiome frailty" --add ./publications/old_query   # folders downloaded earlier
    ```
 
-3. **Open `kg_gut_microbiome_frailty` in Obsidian.** Start at the `PubMed Stream` home note, which lists the collections, the most connected concepts and any retracted papers.
-
-4. **Rebuild any time.** The vault remembers its sources, so this rebuilds from all of them, for example after PubMed has indexed new MeSH terms:
+4. **Keep it current.** The study remembers its searches and seeds. `--refresh` runs them all again and adds newly published papers; articles already downloaded are skipped:
 
    ```bash
-   pubmed-stream graph --topic "gut microbiome frailty"
+   pubmed-stream kg "gut microbiome frailty" --refresh
    ```
 
-Folders downloaded earlier can be added the same way: `pubmed-stream graph ./publications/old_query --topic "gut microbiome frailty"`.
+   With no options, `pubmed-stream kg "gut microbiome frailty"` only rebuilds the notes, for example to pick up MeSH terms PubMed has indexed since.
+
+`download` and `neighborhood` can join a study too: add `--topic "gut microbiome frailty"`. Their search or seed is then recorded in the study like one made with `kg`.
+
+| Run | Knowledge graph folder |
+|-----|------------------------|
+| `kg "gut microbiome frailty" ...` | `kg_gut_microbiome_frailty` |
+| `download "gut microbiome" --topic "frailty study"` | `kg_frailty_study` |
+| `download "gut microbiome" --vault` | `kg_gut_microbiome`, named after the query |
+| `neighborhood 35803947 --vault` | `kg_neighborhood_35803947` |
+| `kg ... --kg-dir DIR`, or `download`/`neighborhood` with `--vault DIR` | `DIR`, for a different name or location |
 
 ### What the vault contains
 
@@ -628,24 +629,49 @@ Do not rename or move generated notes. A rebuild would create the note again at 
 
 ### CLI reference
 
+`pubmed-stream kg TOPIC` takes these options, plus the download options of `download` such as `--format`, `--workers` and `-o`:
+
 | Flag | Description | Default |
 |------|-------------|---------|
-| `SOURCE ...` | Download folders or files to add; folders are searched recursively | The vault's remembered sources |
-| `--topic TEXT` | Study topic; the vault is `./kg_<topic>` | The single SOURCE folder's name |
-| `--vault DIR` | Vault folder, overriding the `kg_<topic>` name | None |
+| `TOPIC` | Study topic; the graph is `./kg_<topic>` | required |
+| `--query`, `-q` | PubMed search to download into the study; repeatable | None |
+| `--seed`, `-s` | PMID of a key article whose evidence neighborhood joins the study; repeatable | None |
+| `--add DIR` | Folder or file downloaded earlier; repeatable | None |
+| `--refresh` | Run every remembered search and seed again | Only new ones |
+| `--max-results` | Articles per search | 100 |
+| `--max-per-relation` | Similar, citing and cited articles per seed | 100 |
+| `--download-neighbors` | Download PMC full text of neighborhood articles too | Stub notes |
+| `--kg-dir DIR` | Graph folder, instead of `./kg_<topic>` | `./kg_<topic>` |
 | `--fulltext` | Put each article's full text into its note | Abstract only |
-| `--offline` | Do not query PubMed; use only cached MeSH terms | Fetch missing MeSH terms |
+| `--offline` | Do not query PubMed for MeSH terms; use the cache | Fetch missing MeSH terms |
 
-`download` and `neighborhood` accept `--topic`, `--fulltext` and `--offline` too, and `--vault` with or without a folder. They build a vault only when given `--topic` or `--vault`. Put a bare `--vault` after the search query, so it is not read as the folder name.
+Exit codes: 0 when everything worked, 1 when there is nothing to build or an option is invalid, 2 when a search or neighborhood failed. The graph is still built from everything else.
+
+`download` and `neighborhood` accept `--topic`, `--fulltext` and `--offline` too, and `--vault` with or without a folder. They add to a knowledge graph only when given `--topic` or `--vault`. Put a bare `--vault` after the search query, so it is not read as the folder name.
 
 ### Python
 
 ```python
-from pubmed_stream import build_vault, topic_vault_dir
+from pubmed_stream import create_kg
 
-stats = build_vault(["publications/gut_microbiome"], topic_vault_dir("gut microbiome"))
-print(stats)  # papers, stubs, concepts, collections, notes created/updated/unchanged
+result = create_kg(
+    "gut microbiome frailty",
+    queries=["gut microbiome frailty", "microbiome sarcopenia"],
+    seeds=["35803947"],
+    max_results=50,
+)
+print(result)               # searches, seeds, errors and the graph's notes
+print(result.kg_dir)        # .../kg_gut_microbiome_frailty
+create_kg("gut microbiome frailty", refresh=True)  # later: pick up new papers
 ```
+
+| Function | Purpose |
+|----------|---------|
+| `create_kg(topic, queries, seeds, sources, refresh, ...)` | Run a study's searches and neighborhoods and build its graph; returns a `KGResult` |
+| `load_study(kg_dir)` | The topic, searches and seeds recorded in a graph |
+| `record_study(kg_dir, topic, queries, seeds)` | Record searches or seeds run elsewhere, so `refresh` repeats them |
+| `build_vault(sources, vault_dir, ...)` | Lower level: build the notes from download folders only; returns `VaultStats` |
+| `topic_vault_dir(topic)` | The `kg_<topic>` folder for a topic |
 
 ### Limitations
 
@@ -1079,7 +1105,8 @@ pubmed-stream/
 │   ├── cli.py                 # Command-line interface
 │   ├── downloader.py          # Core download logic
 │   ├── neighborhood.py        # Evidence neighborhood (similar, citing, cited articles)
-│   ├── vault.py               # Obsidian knowledge-graph vault builder
+│   ├── kg.py                  # Study knowledge graphs: searches, neighborhoods, refresh
+│   ├── vault.py               # Obsidian vault notes for the knowledge graph
 │   └── py.typed               # Type hint marker
 ├── examples/
 │   ├── keywords/              # Sample keyword CSV files

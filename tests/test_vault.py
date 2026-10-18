@@ -1,5 +1,4 @@
 import json
-import sys
 from pathlib import Path
 
 import pytest
@@ -245,28 +244,6 @@ def test_safe_name(name, expected):
     assert _safe_name(name) == expected
 
 
-def test_cli_graph(search_dir, tmp_path, monkeypatch, capsys):
-    vault = tmp_path / "vault"
-    monkeypatch.setattr(sys, "argv", [
-        "pubmed-stream", "graph", str(search_dir), "--vault", str(vault), "--offline",
-    ])
-
-    assert cli.main() == 0
-    assert (vault / "papers" / "PMID1.md").exists()
-    assert "Obsidian vault" in capsys.readouterr().out
-
-    # With no SOURCE the vault's remembered sources are used
-    monkeypatch.setattr(sys, "argv", ["pubmed-stream", "graph", "--vault", str(vault), "--offline"])
-    assert cli.main() == 0
-
-
-def test_cli_graph_missing_source(tmp_path, monkeypatch, capsys):
-    monkeypatch.setattr(sys, "argv", [
-        "pubmed-stream", "graph", str(tmp_path / "nope"), "--vault", str(tmp_path / "vault"),
-    ])
-
-    assert cli.main() == 1
-    assert "Source not found" in capsys.readouterr().err
 
 
 @pytest.mark.parametrize("topic, expected", [
@@ -280,29 +257,6 @@ def test_topic_vault_dir(topic, expected, tmp_path):
     assert topic_vault_dir(topic, tmp_path) == tmp_path / expected
 
 
-def test_cli_graph_names_vault_after_single_source(search_dir, tmp_path, monkeypatch):
-    monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(sys, "argv", ["pubmed-stream", "graph", str(search_dir), "--offline"])
-
-    assert cli.main() == 0
-    assert (tmp_path / "kg_gut_microbiome" / "papers" / "PMID1.md").exists()
-
-
-def test_cli_graph_topic_for_several_sources(search_dir, hood_dir, tmp_path, monkeypatch, capsys):
-    monkeypatch.chdir(tmp_path)
-    monkeypatch.setattr(sys, "argv", ["pubmed-stream", "graph", str(search_dir), str(hood_dir), "--offline"])
-    assert cli.main() == 1
-    assert "--topic" in capsys.readouterr().err
-
-    monkeypatch.setattr(sys, "argv", [
-        "pubmed-stream", "graph", str(search_dir), str(hood_dir), "--topic", "gut microbiome study", "--offline",
-    ])
-    assert cli.main() == 0
-    assert (tmp_path / "kg_gut_microbiome_study" / "collections" / "Neighborhood - PMID 1.md").exists()
-
-    # The topic alone rebuilds from the remembered sources
-    monkeypatch.setattr(sys, "argv", ["pubmed-stream", "graph", "--topic", "gut microbiome study", "--offline"])
-    assert cli.main() == 0
 
 
 @pytest.mark.parametrize("argv, expected", [

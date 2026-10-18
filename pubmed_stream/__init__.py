@@ -21,14 +21,17 @@ from .neighborhood import (
     get_neighborhood,
     save_neighborhood,
 )
+from .kg import KGResult, create_kg, load_study, record_study
 from .vault import VaultStats, build_vault, topic_vault_dir
 
 __all__ = [
     "DownloadStats",
+    "KGResult",
     "Neighborhood",
     "RateLimiter",
     "RelatedArticle",
     "VaultStats",
+    "create_kg",
     "create_session",
     "download_neighborhood",
     "build_vault",
@@ -38,6 +41,8 @@ __all__ = [
     "extract_text_from_pmc_xml",
     "get_neighborhood",
     "linked_discoveries_url",
+    "load_study",
+    "record_study",
     "save_neighborhood",
     "search_and_download",
     "strip_xml_tags",
