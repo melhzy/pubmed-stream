@@ -860,6 +860,47 @@ Contributions are welcome! Please:
 - Add docstrings for public functions
 - Keep functions focused and modular
 
+### Releasing to PyPI
+
+Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
+
+1. **Bump the version** in both places that declare it, and keep them identical:
+   - `pyproject.toml`: `version = "X.Y.Z"`
+   - `pubmed_stream/__init__.py`: `__version__ = "X.Y.Z"`
+2. **Run the tests** and make sure they pass: `pytest`
+3. **Build and check the distributions** (the `dist/` folder is git-ignored):
+
+   ```bash
+   pip install --upgrade build twine
+   rm -rf dist build *.egg-info
+   python -m build
+   python -m twine check dist/*
+   ```
+
+4. **Upload to PyPI** with an API token. Create one at
+   <https://pypi.org/manage/account/token/>, scoped to the `pubmed-stream` project.
+   The username is literally `__token__`; your PyPI password will not work.
+
+   ```bash
+   python -m twine upload -u __token__ -p pypi-... dist/*
+   ```
+
+   A `403 Forbidden` means the token is wrong, expired, or not scoped to this project.
+   PyPI never lets you re-upload a version, so if a release is broken, bump to a new
+   patch version instead of trying to overwrite it.
+
+5. **Commit, tag, and publish the release** on GitHub:
+
+   ```bash
+   git commit -am "chore: Bump version to X.Y.Z"
+   git tag X.Y.Z
+   git push origin main X.Y.Z
+   gh release create X.Y.Z --title "X.Y.Z" --generate-notes
+   ```
+
+6. **Verify** the new version installs cleanly: `pip install --upgrade pubmed-stream` and
+   `pubmed-stream --version`.
+
 ## Development Roadmap
 
 Future enhancements being considered:
