@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use pubmed-stream in your research, please cite it as below."
+type: software
+title: "pubmed-stream: From PubMed Searches to Knowledge Graphs of the Biomedical Literature"
+authors:
+  - name: "Haran Lab, University of Massachusetts"
+  - name: "Bucci Lab, University of Massachusetts"
+  - name: "Microbiology & Microbiome Dynamics AI HUB, University of Massachusetts"
+version: "0.2.0"
+date-released: "2026-10-18"
+license: MIT
+repository-code: "https://github.com/melhzy/pubmed-stream"
+url: "https://pypi.org/project/pubmed-stream/"
+abstract: >-
+  pubmed-stream downloads full-text articles from PubMed Central, maps the
+  evidence around key papers through PubMed's similar, citing and cited
+  links, and links everything a study collects into an Obsidian knowledge
+  graph of papers, MeSH concepts and searches. It is built on NCBI's
+  E-utilities.
+keywords:
+  - PubMed
+  - PubMed Central
+  - literature review
+  - knowledge graph
+  - MeSH
+  - Obsidian
+  - citation network

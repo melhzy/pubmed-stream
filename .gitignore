@@ -13,3 +13,4 @@ publications/
 .pytest_cache/
 tutorials/workspace/
 kg_*/
+.ipynb_checkpoints/
