@@ -889,16 +889,37 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
    PyPI never lets you re-upload a version, so if a release is broken, bump to a new
    patch version instead of trying to overwrite it.
 
-5. **Commit, tag, and publish the release** on GitHub:
+5. **Commit and tag** the release, then push both:
 
    ```bash
    git commit -am "chore: Bump version to X.Y.Z"
    git tag X.Y.Z
    git push origin main X.Y.Z
-   gh release create X.Y.Z --title "X.Y.Z" --generate-notes
    ```
 
-6. **Verify** the new version installs cleanly: `pip install --upgrade pubmed-stream` and
+   If the tag already exists but points at the wrong commit, move it and force-push
+   only that tag (never force-push `main`):
+
+   ```bash
+   git tag -f X.Y.Z <commit>
+   git push --force origin refs/tags/X.Y.Z
+   ```
+
+6. **Create the GitHub release** for the tag. Either way, generate the notes from the
+   merged pull requests and attach the two files from `dist/`.
+
+   - **Web UI:** open `https://github.com/melhzy/pubmed-stream/releases/new?tag=X.Y.Z`,
+     set the title to `X.Y.Z`, click **Generate release notes**, drag in
+     `dist/pubmed_stream-X.Y.Z-py3-none-any.whl` and `dist/pubmed_stream-X.Y.Z.tar.gz`,
+     then **Publish release**.
+   - **GitHub CLI:** requires the [`gh`](https://cli.github.com/) tool
+     (`winget install GitHub.cli` on Windows) and a one-time `gh auth login`.
+
+     ```bash
+     gh release create X.Y.Z --title "X.Y.Z" --generate-notes dist/*
+     ```
+
+7. **Verify** the new version installs cleanly: `pip install --upgrade pubmed-stream` and
    `pubmed-stream --version`.
 
 ## Development Roadmap
