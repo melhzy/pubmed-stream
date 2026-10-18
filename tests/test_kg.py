@@ -133,6 +133,7 @@ def test_kg_dir_and_sources(study, tmp_path, make_session):
     assert result.kg_dir == tmp_path / "custom"
     assert (tmp_path / "custom" / "papers" / "PMID7.md").exists()
     assert load_study(tmp_path / "custom")["topic"] == TOPIC
+    assert "(1 paper)" in (tmp_path / "custom" / "PubMed Stream.md").read_text(encoding="utf-8")
 
 
 def test_record_study_merges(tmp_path):

@@ -489,6 +489,10 @@ def _escape(text: str) -> str:
     return re.sub(r"(^|\s)#(?=[^\s#])", r"\1\\#", text)
 
 
+def _count(n: int, noun: str) -> str:
+    return f"{n} {noun}" if n == 1 else f"{n} {noun}s"
+
+
 def _tag(name: str) -> str:
     return TAG_PREFIX + name
 
@@ -788,11 +792,12 @@ def _render_collection(graph: _Graph, collection: Collection) -> Tuple[Dict[str,
     if collection.kind == "search":
         heading = f"Search: {_escape(collection.query or '')}"
     elif collection.kind == "neighborhood":
-        heading = f"Evidence neighborhood of {collection.seed}"
+        seed = graph.papers.get(collection.seed or "")
+        heading = f"Evidence neighborhood of PMID {seed.pmid if seed and seed.pmid else collection.seed}"
     else:
         heading = f"Folder: {collection.name}"
     full = sum(graph.papers[k].downloaded for k in keys)
-    lines = [f"# {heading}", "", f"{len(keys)} papers, {full} with full text.", ""]
+    lines = [f"# {heading}", "", f"{_count(len(keys), 'paper')}, {full} with full text.", ""]
     if collection.seed:
         lines += [f"**Seed:** {_link(collection.seed, _paper_label(graph, collection.seed))}", ""]
     top = _top_concepts(graph, keys, TOP_CONCEPTS)
@@ -823,11 +828,11 @@ def _render_home(graph: _Graph, concept_papers: Dict[str, List[Tuple[str, bool]]
     ]
     for collection in sorted(graph.collections.values(), key=lambda c: c.name.lower()):
         count = sum(graph.papers[k].has_note for k in collection.papers)
-        lines.append(f"- {_link(collection.name)} ({count} papers)")
+        lines.append(f"- {_link(collection.name)} ({_count(count, 'paper')})")
     ranked = sorted(concept_papers.items(), key=lambda item: (-len(item[1]), item[0]))[:20]
     if ranked:
         lines += ["", "## Most connected concepts", ""]
-        lines += [f"- {_link(name, terms[name]['name'])} ({len(papers)} papers)" for name, papers in ranked]
+        lines += [f"- {_link(name, terms[name]['name'])} ({_count(len(papers), 'paper')})" for name, papers in ranked]
     retracted = [p.key for p in noted if p.is_retracted]
     if retracted:
         lines += ["", f"## Retracted papers ({len(retracted)})", ""] + _paper_list(graph, _year_sort(graph, retracted))

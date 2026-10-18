@@ -11,3 +11,5 @@ build/
 publications/
 .ruff_cache/
 .pytest_cache/
+examples/kg_tutorial_workspace/
+kg_*/

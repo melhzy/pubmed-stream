@@ -556,6 +556,27 @@ Each neighborhood takes 2 to about 17 requests, so set `NCBI_API_KEY` for batche
 
 **One knowledge graph per study topic.** Obsidian links notes only inside one vault, so everything a study collects goes into the same `kg_<topic>` folder, created in the current folder next to `publications/`. There, shared citations and MeSH concepts connect the searches and neighborhoods into one graph.
 
+> **New to this?** The tutorial notebook [`examples/kg_tutorial.ipynb`](examples/kg_tutorial.ipynb) builds a real study step by step and shows every note it produces, with outputs saved. [`examples/kg_study.py`](examples/kg_study.py) is the same study as a script to copy and adapt.
+
+### How it works
+
+```mermaid
+flowchart LR
+    T["Study topic<br/>gut microbiome frailty"] --> Q["PubMed searches<br/>-q / queries"]
+    T --> S["Key articles<br/>--seed / seeds"]
+    Q -->|"ESearch + EFetch, PMC"| D["publications/ query folders<br/>full text + reference lists"]
+    S -->|"ELink + EFetch, PubMed"| N["publications/ neighborhood folders<br/>similar, citing, cited papers"]
+    D --> B["Build notes<br/>+ MeSH terms from PubMed"]
+    N --> B
+    B --> V["kg_gut_microbiome_frailty<br/>Obsidian vault"]
+    V --> O["Obsidian<br/>graph view, search, backlinks"]
+```
+
+1. **Collect.** Each search downloads PMC full text, including the article's reference list. Each seed fetches its evidence neighborhood from PubMed.
+2. **Enrich.** MeSH headings and publication types come from PubMed, once per 200 papers, and are cached in the graph folder.
+3. **Link.** Every paper, MeSH concept and collection becomes a Markdown note. Citations, similarity and topics become wikilinks, which Obsidian draws as the graph.
+4. **Remember.** The study's searches and seeds are saved in the graph, so it can be rebuilt or refreshed with only its topic.
+
 ### Step by step
 
 1. **Start the study** with its topic, its searches and, optionally, key articles whose similar, citing and cited papers belong in it:
@@ -601,6 +622,87 @@ Each neighborhood takes 2 to about 17 requests, so set `NCBI_API_KEY` for batche
 | Concept | `concepts/<MeSH heading>.md` | Papers indexed with that MeSH heading |
 | Collection | `collections/Search - <query>.md` or `collections/Neighborhood - PMID <id>.md` | Its papers and top concepts |
 | Home | `PubMed Stream.md` | Collections, most connected concepts, retracted papers |
+
+A slice of the graph built by [`examples/kg_study.py`](examples/kg_study.py) shows how the notes connect. Every link below is real. Purple notes are collections, white ones papers with full text, grey ones stubs, and teal ones MeSH concepts, as in Obsidian's graph view:
+
+```mermaid
+flowchart LR
+    C1["Search -<br/>gut microbiota AND sarcopenia"] --> P1["PMID 42060019<br/>gut microbiota and sarcopenia<br/>in older adults, 2026"]
+    C2["Search -<br/>gut microbiota AND frailty"] --> P4["PMID 41601864<br/>gut microbiota and<br/>cognitive frailty, 2026"]
+    C3["Neighborhood -<br/>PMID 31319564"] --> P2["PMID 31319564<br/>seed review, 2019"]
+    C3 --> P3["PMID 33633246<br/>microbiota in patients<br/>with sarcopenia, 2021"]
+    P1 -->|cites| P3
+    P4 -->|cites| P3
+    P2 -.->|similar| P3
+    P1 --> M1(["Sarcopenia"])
+    P1 --> M2(["Gastrointestinal Microbiome"])
+    P3 --> M1
+    P3 --> M2
+    P2 --> M1
+    classDef collection fill:#8E4EC6,stroke:#8E4EC6,color:#fff
+    classDef stub fill:#8B8D98,stroke:#8B8D98,color:#fff
+    classDef concept fill:#12A594,stroke:#12A594,color:#fff
+    class C1,C2,C3 collection
+    class P2,P3 stub
+    class M1,M2 concept
+```
+
+The two 2026 studies came from different searches, yet both cite the same 2021 study, which PubMed also rates as similar to the seed review. In the graph they sit next to each other, a connection a list of search results hides.
+
+Here is a paper note from that graph, shortened. Obsidian shows the part between the `---` lines as editable properties:
+
+```markdown
+---
+type: "paper"
+title: "Association between gut microbiota and sarcopenia in older adults: a cross-sectional analysis ..."
+pmid: "42060019"
+pmcid: "PMC13279599"
+doi: "10.1007/s40520-026-03403-6"
+year: 2026
+journal: "Aging Clinical and Experimental Research"
+authors:
+  - "Ramezani Kashal Fatemeh"
+  - ...
+mesh:
+  - "Sarcopenia"
+  - "Gastrointestinal Microbiome"
+  - ...
+status: "full-text"
+tags:
+  - "pubmed/paper"
+---
+%% pubmed-stream:start - generated; edits inside this block are overwritten %%
+# Association between gut microbiota and sarcopenia in older adults: ...
+
+**Published:** *Aging Clinical and Experimental Research* · 2026 · [PubMed](...) · [PMC](...) · [DOI](...)
+**Collections:** [[Search - gut microbiota(Title) AND sarcopenia(Title-Abstract)]]
+
+## Abstract
+
+Introduction Investigating gut microbiota has emerged as a novel approach to exploring the gut-muscle axis ...
+
+## MeSH concepts
+
+- [[Sarcopenia]] (major topic)
+- [[Gastrointestinal Microbiome]] (major topic)
+- [[Hand Strength]]
+- ...
+
+## Cites (39)
+
+- [[PMID32033882|Asian Working Group for Sarcopenia: 2019 Consensus Update on Sarcopenia Diagnosis and Treatment (2020)]]
+- [[PMID33633246|Alterations in intestinal microbiota diversity, composition, and function in patients with sarcop... (2021)]]
+- ...
+
+## Cited by (1)
+
+- [[PMID42875678|Correspondence for the article: “Association between gut microbiota and sarcopenia in older adult... (2026)]]
+%% pubmed-stream:end %%
+
+## Notes
+
+Your own notes go here and survive every rebuild.
+```
 
 Paper notes carry Obsidian properties: `pmid`, `pmcid`, `doi`, `year`, `journal`, `authors`, `publication_types`, `mesh`, `keywords`, `status` and `tags`. They work in Obsidian search, Bases and the Dataview plugin. Tags mark the kind of note and its flags: `pubmed/paper`, `pubmed/stub`, `pubmed/review`, `pubmed/retracted`, `pubmed/nih-funded`, `pubmed/concept` and `pubmed/collection`. On the first build, the graph view gets colour groups for retracted papers, reviews, stubs, concepts and collections, unless the vault already has its own graph settings.
 
@@ -672,6 +774,21 @@ create_kg("gut microbiome frailty", refresh=True)  # later: pick up new papers
 | `record_study(kg_dir, topic, queries, seeds)` | Record searches or seeds run elsewhere, so `refresh` repeats them |
 | `build_vault(sources, vault_dir, ...)` | Lower level: build the notes from download folders only; returns `VaultStats` |
 | `topic_vault_dir(topic)` | The `kg_<topic>` folder for a topic |
+
+### Tutorial and examples
+
+| File | What it shows |
+|------|---------------|
+| [`examples/kg_tutorial.ipynb`](examples/kg_tutorial.ipynb) | A guided study on the gut microbiome and frailty, with saved outputs: one search, the folder layout, a paper note, a concept note, the home note, a key article's neighborhood, citation links, editing notes safely, and refreshing |
+| [`examples/kg_study.py`](examples/kg_study.py) | The same study as a short script. Edit its `STUDY` settings, run it, and run it again with `--refresh` later |
+
+Run the tutorial from the `examples` folder; it works in `examples/kg_tutorial_workspace/`, which git ignores:
+
+```bash
+pip install jupyter
+cd examples
+jupyter notebook kg_tutorial.ipynb
+```
 
 ### Limitations
 
@@ -966,7 +1083,9 @@ pip install jupyter
 jupyter notebook test_download.ipynb
 ```
 
-The notebook demonstrates:
+For the knowledge graph, see the tutorial notebook `examples/kg_tutorial.ipynb` described under [Obsidian Knowledge Graph](#obsidian-knowledge-graph).
+
+The test notebook demonstrates:
 - Basic and advanced download scenarios
 - All format options (text, xml, both)
 - Concurrent vs sequential modes
@@ -1109,6 +1228,8 @@ pubmed-stream/
 │   ├── vault.py               # Obsidian vault notes for the knowledge graph
 │   └── py.typed               # Type hint marker
 ├── examples/
+│   ├── kg_tutorial.ipynb      # Knowledge graph tutorial, with outputs
+│   ├── kg_study.py            # Knowledge graph example script
 │   ├── keywords/              # Sample keyword CSV files
 │   │   ├── pmc_literature_keywords.csv
 │   │   └── ...

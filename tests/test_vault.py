@@ -122,6 +122,7 @@ def test_concepts_collections_and_home(search_dir, hood_dir, tmp_path):
     search = note(vault, "collections/Search - gut microbiome")
     assert 'query: "gut microbiome"' in search and "## Papers (2)" in search
     hood = note(vault, "collections/Neighborhood - PMID 1")
+    assert "# Evidence neighborhood of PMID 1\n" in hood
     assert "**Seed:** [[PMID1|Paper One (2020)]]" in hood
     assert "- [[Gastrointestinal Microbiome]] (2)" in hood
 
