@@ -33,6 +33,7 @@ dependencies = ["requests>=2.25"]
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff"]
+tutorials = ["jupyter", "matplotlib", "networkx", "pandas"]
 
 [project.scripts]
 pubmed-stream = "pubmed_stream.cli:main"

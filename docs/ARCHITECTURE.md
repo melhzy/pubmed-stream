@@ -54,7 +54,7 @@ pubmed-stream/
 │   ├── vault.py           Obsidian notes: graph model, merging, rendering, safe rewrites
 │   └── kg.py              studies: topic, searches and seeds, refresh
 ├── tests/                 86 offline tests; NCBI is faked with canned responses
-├── examples/              kg_tutorial.ipynb, kg_study.py, keyword lists, utilities
+├── tutorials/             seven notebooks, guides, kg_study.py, keyword lists, tools
 └── docs/                  this guide and its figures
 ```
 
@@ -322,7 +322,7 @@ kg_gut_microbiome_frailty/                    one study = one Obsidian vault
 
 ## 7. The example study in figures
 
-The figures below are drawn from the notes of the study in [`examples/kg_study.py`](../examples/kg_study.py): two searches on the gut microbiome with frailty and with sarcopenia, plus the neighborhood of a 2019 review, PMID 31319564. [`docs/figures/make_figures.py`](figures/make_figures.py) regenerates them from any knowledge graph.
+The figures below are drawn from the notes of the study in [`tutorials/kg_study.py`](../tutorials/kg_study.py): two searches on the gut microbiome with frailty and with sarcopenia, plus the neighborhood of a 2019 review, PMID 31319564. [`docs/figures/make_figures.py`](figures/make_figures.py) regenerates them from any knowledge graph.
 
 | Part of the graph | Count |
 |-------------------|------:|

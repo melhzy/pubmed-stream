@@ -4,630 +4,276 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A Python library for downloading PubMed Central (PMC) full-text articles with support for concurrent downloads, automatic rate limiting, metadata extraction, and multiple output formats.
+**From a PubMed search to a knowledge graph of the literature.** pubmed-stream downloads full-text articles from PubMed Central, maps the evidence around key papers, and links everything a study collects into an [Obsidian](https://obsidian.md) knowledge graph, where papers connect through citations, similarity and MeSH topics. It is built on NCBI's official E-utilities, works from the command line or Python, and needs nothing beyond `requests`.
 
-**Built on NCBI E-utilities API** for reliable, standards-compliant access to biomedical literature.
-
-## Overview
-
-`pubmed-stream` simplifies the process of downloading scientific literature from PubMed Central by leveraging the **NCBI E-utilities API** (ESearch and EFetch):
-- **Searching PMC directly** and skipping articles whose publishers withhold the XML full text
-- **Extracting structured metadata** from JATS XML (title, authors, abstract, keywords, DOI, etc.)
-- **Supporting multiple formats**: plain text, raw XML, or both in a single JSON file
-- **Handling concurrent downloads** with configurable thread pools
-- **Respecting NCBI rate limits** with automatic detection and retry logic
-- **Providing both CLI and Python API** for flexible integration
-- **Mapping the evidence around an article**: similar, citing and cited papers flagged as reviews, retractions or NIH-funded (a programmatic take on NLM's Linked Discoveries)
-- **Building an Obsidian knowledge graph**: papers linked by citations, similarity and MeSH concepts, ready to explore in Obsidian's graph view
-
-Built for researchers and data scientists who need efficient, reliable access to biomedical literature.
-
-## Quick Start
-
-```bash
-# Install
-pip install pubmed-stream
-
-# Download full-text articles for a query
-pubmed-stream download "gut microbiome" --max-results 50
-
-# Map the evidence around one article: similar, citing and cited papers, retractions flagged
-pubmed-stream neighborhood 9500320
-
-# Build a study's knowledge graph in ./kg_gut_microbiome_frailty, ready for Obsidian
-pubmed-stream kg "gut microbiome frailty" -q "gut microbiome frailty" --seed 35803947
-```
-
-```python
-from pubmed_stream import get_neighborhood, search_and_download
-
-stats = search_and_download(keyword="CRISPR gene editing", max_results=100, fmt="text")
-print(f"Downloaded {stats.successful} articles in {stats.duration_seconds:.1f}s")
-
-hood = get_neighborhood("9500320")
-print(hood.totals, [a.pmid for a in hood.articles() if a.is_retracted])
-```
-
-## Table of Contents
-
-- [Installation](#installation)
-- [How It Works](#how-it-works)
-- [Configuration](#configuration-optional)
-- [CLI Usage](#cli-usage)
-- [Python API](#python-api)
-- [Evidence Neighborhood](#evidence-neighborhood)
-- [Obsidian Knowledge Graph](#obsidian-knowledge-graph)
-- [Output Format](#output-format)
-- [Use Cases](#use-cases)
-- [Troubleshooting](#troubleshooting)
-- [Performance Tuning](#performance-tuning)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
-
-New to the code? Start with the [architecture guide](https://github.com/melhzy/pubmed-stream/blob/main/docs/ARCHITECTURE.md).
-
-## Installation
-
-### From PyPI (Recommended)
-
-```bash
-pip install pubmed-stream
-```
-
-### From Source
-
-```bash
-# Clone the repository
-git clone https://github.com/melhzy/pubmed-stream.git
-cd pubmed-stream
-
-# Install in standard mode
-pip install .
-
-# Or install in development mode (editable install)
-pip install -e ".[dev]"
-```
-
-### Requirements
-
-- Python 3.8+
-- [requests](https://pypi.org/project/requests/) (only runtime dependency)
-
-Development dependencies (optional):
-- pytest (for testing)
-- ruff (for linting)
-
-## How It Works
-
-> **The full picture:** [`docs/ARCHITECTURE.md`](https://github.com/melhzy/pubmed-stream/blob/main/docs/ARCHITECTURE.md) explains the whole repository with diagrams, tables, code and figures. It covers the module map, every NCBI request, the download and neighborhood flows, how knowledge graphs are built and safely rebuilt, the data model, the tests, and where to extend the code.
-
-### Architecture
-
-The library follows a modular design with three main components, all built on **NCBI E-utilities**:
-
-1. **Search Module** (`esearch_pmc`)
-   - Uses NCBI E-utilities **ESearch** to query PMC database directly
-   - Returns PMC IDs for matching articles
-   - Handles pagination and result limiting
-
-2. **Download Module** (`efetch_pmc`)
-   - Uses NCBI E-utilities **EFetch** to retrieve full XML article data from PMC
-   - Extracts structured metadata using JATS XML parsing
-   - Converts XML to readable plain text: title, abstract and body, one paragraph per line (optional)
-   - Reports articles without XML full text (publisher restriction or PDF-only) as unavailable instead of saving them
-   - Saves in requested format(s)
-
-3. **Orchestration Layer** (`search_and_download`)
-   - Combines search and download operations
-   - Manages concurrent downloads with thread pools
-   - Handles rate limiting, retries, and error recovery
-   - Tracks statistics (success/failure/skipped counts)
-
-### Search Strategy
-
-**Direct PMC Search**: Unlike some tools that search PubMed and then try to find PMC links, this library searches PMC directly. This ensures:
-- Every result is a PMC article, so no broken PubMed→PMC links
-- Articles whose publishers withhold the XML full text are detected and reported as unavailable
-- Faster, more reliable downloads
-- Better results for generic queries like "microbiome" or "CRISPR"
-
-### Data Flow
-
-```
-User Query → PMC Search → PMC IDs → Concurrent Downloads → Parse XML → Extract Metadata → Save JSON
-     ↓            ↓            ↓             ↓                  ↓              ↓            ↓
- "microbiome"  E-Search   [123, 456]    Thread Pool      JATS Parser    {title, authors}  PMC*.json
-```
-
-### Output Format Options
-
-All formats save as `.json` files with different content:
-
-**`"text"` (default)**: JSON with plain-text content
-```json
-{
-  "pmcid": "PMC12345678",
-  "metadata": {"title": "...", "authors": [...]},
-  "text": "Introduction\nThis study examines..."
-}
-```
-
-**`"xml"`**: JSON with raw JATS XML string
-```json
-{
-  "pmcid": "PMC12345678",
-  "metadata": {"title": "...", "authors": [...]},
-  "xml": "<article>...</article>"
-}
-```
-
-**`"both"`**: JSON with both XML and text
-```json
-{
-  "pmcid": "PMC12345678",
-  "metadata": {"title": "...", "authors": [...]},
-  "xml": "<article>...</article>",
-  "text": "Introduction\nThis study examines..."
-}
-```
-
-**Why unified JSON?**
-- Consistent file handling (always `.json`)
-- Metadata always included
-- Easy to query and filter
-- Smaller storage (text-only is ~50% smaller than XML)
-- Backward compatible with existing pipelines
-
-## Configuration (optional)
-
-Set these environment variables for best results:
-
-```bash
-# PowerShell
-$env:NCBI_API_KEY = "YOUR_KEY"   # raises rate limit from 3→10 req/s
-$env:NCBI_EMAIL   = "you@example.com"
-
-# Bash / Zsh
-export NCBI_API_KEY="YOUR_KEY"
-export NCBI_EMAIL="you@example.com"
-```
-
-You can also pass `--api-key` / `--email` on the command line.
-
-### Rate Limits
-
-NCBI enforces rate limits on API requests:
-
-- **Without API key**: 3 requests/second
-- **With API key**: 10 requests/second
-
-The library **automatically detects** whether you have an API key and adjusts the rate limit accordingly:
-- With API key: 0.1s between requests (10 req/s)
-- Without API key: 0.34s between requests (3 req/s)
-
-You can override this with `--rate-limit` if needed, but the auto-detection works well for most cases.
-
-**Recommendation**: Get a free API key to download ~3x faster. Without a key, the library still works but is slower.
-
-## CLI usage
-
-After installation the `pubmed-stream` command is available:
-
-```bash
-# Download up to 50 articles as JSON (default, concurrent)
-pubmed-stream download "frailty cytokines" --max-results 50
-
-# Sequential mode for unstable networks
-pubmed-stream download "gut microbiome" --sequential
-
-# Custom output directory
-pubmed-stream download "Alzheimer microbiome" -o ./my_papers
-
-# Verbose logging
-pubmed-stream download "frailty" -v --max-results 5
-
-# Evidence neighborhood of an article (see Evidence Neighborhood)
-pubmed-stream neighborhood 9500320
-
-# Knowledge graph of a study (see Obsidian Knowledge Graph)
-pubmed-stream kg "gut microbiome frailty" -q "gut microbiome frailty" -q "microbiome sarcopenia"
-
-# Show version
-pubmed-stream --version
-```
-
-The same interface is available via `python -m pubmed_stream`:
-
-```bash
-python -m pubmed_stream download "frailty cytokines" --max-results 50
-```
-
-### CLI options
-
-| Flag | Description | Default |
-|------|-------------|---------|
-| `keyword` | PubMed search query (positional) | required |
-| `--max-results` | Maximum articles to download | 100 |
-| `--format` | Output format: `text`, `xml`, `both` (all save as `.json`) | `text` |
-| `--output-dir`, `-o` | Base output directory | `./publications` |
-| `--api-key` | NCBI API key | `NCBI_API_KEY` env var |
-| `--email` | Contact email for NCBI | `NCBI_EMAIL` env var |
-| `--sequential` | Disable concurrent downloads | concurrent |
-| `--workers` | Concurrent thread count | 5 |
-| `--exclude-text` | Omit `text` field in JSON (~30% smaller) | included |
-| `--rate-limit` | Min seconds between requests | auto: 0.1 with key, 0.34 without |
-| `--user-agent` | Custom HTTP `User-Agent` | `pubmed-stream/<ver>` |
-| `--verbose`, `-v` | DEBUG-level logging | INFO |
-
-### Exit codes (`download`)
-
-| Code | Meaning |
-|------|---------|
-| 0 | At least one article downloaded (or all already cached) |
-| 1 | No results found for the query |
-| 2 | All download attempts failed |
-
-## Python API
-
-### Basic Usage
-
-```python
-from pubmed_stream import search_and_download
-
-# Download articles with default settings
-stats = search_and_download(
-    keyword="gut microbiome inflammation",
-    max_results=50,
-    fmt="text",  # or "xml", "both"
-    output_dir="publications",
-)
-
-print(f"Downloaded: {stats.successful}")
-print(f"Skipped (already exist): {stats.skipped}")
-print(f"Failed: {stats.failed}")
-print(f"Success rate: {stats.success_rate:.1f}%")
-print(f"Duration: {stats.duration_seconds:.1f}s")
-```
-
-### Advanced Usage
-
-```python
-from pubmed_stream import search_and_download
-from pathlib import Path
-
-# Full control over all parameters
-stats = search_and_download(
-    keyword="CRISPR gene editing",
-    max_results=100,
-    fmt="both",              # Save both XML and text
-    api_key="your_api_key",  # Or use NCBI_API_KEY env var
-    use_concurrent=True,     # Enable parallel downloads
-    max_workers=10,          # Use 10 threads
-    include_text=True,       # Include plain-text field
-    output_dir=Path("./research/crispr"),
-    user_agent="MyResearchBot/1.0",
-    email="researcher@university.edu",
-    rate_limit=0.15,         # Custom rate limit
-)
-
-# Access detailed statistics
-print(f"Total found in PMC: {stats.total_found}")
-print(f"Requested: {stats.requested}")
-print(f"Output: {stats.output_dir}")
-```
-
-### Low-Level API
-
-For more control, use the underlying functions:
-
-```python
-from pubmed_stream import esearch_pmc, efetch_pmc, create_session, RateLimiter
-from pathlib import Path
-
-# Create session and rate limiter
-session = create_session("MyApp/1.0")
-rate_limiter = RateLimiter(0.1)  # 10 req/s
-
-# Search for PMC IDs
-pmcids, total_found = esearch_pmc(
-    term="microbiome AND aging",
-    max_results=20,
-    api_key="your_key",
-    session=session,
-    rate_limiter=rate_limiter
-)
-
-print(f"Found {len(pmcids)} PMC IDs (total: {total_found})")
-
-# Download individual articles
-for pmcid in pmcids:
-    success, status = efetch_pmc(
-        pmcid=pmcid,
-        out_dir=Path("downloads"),
-        fmt="text",
-        api_key="your_key",
-        session=session,
-        rate_limiter=rate_limiter,
-        include_text=True
-    )
-    
-    if success:
-        print(f"✓ Downloaded PMC{pmcid}")
-    else:
-        print(f"✗ Failed PMC{pmcid}: {status}")
-
-session.close()
-```
-
-### Metadata Extraction
-
-The library automatically extracts metadata from JATS XML:
-
-```python
-from pubmed_stream import extract_metadata_from_pmc_xml, extract_text_from_pmc_xml
-
-xml_content = """<article>...</article>"""  # Your PMC XML
-
-metadata = extract_metadata_from_pmc_xml(xml_content)
-text = extract_text_from_pmc_xml(xml_content)  # Same as the "text" field
-
-# Available metadata fields
-print(metadata.get("title"))          # Article title
-print(metadata.get("journal"))        # Journal name
-print(metadata.get("doi"))            # DOI
-print(metadata.get("pmid"))           # PubMed ID
-print(metadata.get("pmcid"))          # PMC ID
-print(metadata.get("authors"))        # List of authors
-print(metadata.get("abstract"))       # Abstract text
-print(metadata.get("keywords"))       # Keywords list
-print(metadata.get("year"))           # Publication year
-print(metadata.get("pub_date"))       # Full publication date
-print(metadata.get("linked_discoveries_url"))  # NLM Linked Discoveries page (when a PMID exists)
-```
-
-## Evidence Neighborhood
-
-NLM's [Linked Discoveries](https://linkeddiscoveries.ncbi.nlm.nih.gov/userguide/) shows the "neighborhood" of a PubMed article: related publications, citation links, reviews, retractions and NIH-funded work. It is a web tool without a public API, so pubmed-stream builds a comparable neighborhood from documented NCBI E-utilities:
-
-| Relation / flag | Source |
-|-----------------|--------|
-| Similar articles, ranked by score | ELink `pubmed_pubmed` |
-| Cited by | ELink `pubmed_pubmed_citedin` |
-| References | ELink `pubmed_pubmed_refs` |
-| Review, retracted, NIH-funded, PMC ID | EFetch PubMed XML (publication types, retraction notices, grant list) |
-
-One neighborhood costs two requests (one ELink, plus one EFetch per 200 articles), plus five for each relation cut short by `--max-per-relation`.
-
-What the flags mean:
-- **review**: publication type Review, Systematic Review or Scoping Review. This is narrower than PubMed's Review filter, which also counts guidelines and meta-analyses.
-- **retracted**: publication type Retracted Publication, or a retraction notice linked to the article.
-- **NIH-funded**: an NIH grant in the grant list, or an N.I.H. research-support publication type.
-- **in PMC**: the article has a PMC ID; its full text may still be withheld by the publisher.
-
-### Step by step
-
-1. **Install pubmed-stream** ([Installation](#installation)). Optionally set `NCBI_API_KEY` and `NCBI_EMAIL` ([Configuration](#configuration-optional)); an API key raises NCBI's limit from 3 to 10 requests per second.
-
-2. **Find the article's PMID.** It is the number in the PubMed URL (`https://pubmed.ncbi.nlm.nih.gov/9500320/` → `9500320`), or the `metadata.pmid` field of an article saved by `pubmed-stream download`. PMC IDs (`PMC…`) are not accepted.
-
-3. **Run the command:**
-
-   ```bash
-   pubmed-stream neighborhood 9500320
-   ```
-
-4. **Read the summary:**
-
-   ```
-   Seed: PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
-   Similar       100            (4 reviews, 0 retracted, 0 NIH-funded, 18 in PMC)
-   Cited by      100 of 489     (145 reviews, 0 retracted, 52 NIH-funded, 421 in PMC)
-   References      0            (0 reviews, 0 retracted, 0 NIH-funded, 0 in PMC)
-   Neighborhood  200 unique articles fetched
-   [RETRACTED] PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
-   Saved: publications/neighborhood_9500320/neighborhood.json
-   Explore the graph: https://linkeddiscoveries.ncbi.nlm.nih.gov/9500320/
-   ```
-
-   - **Seed**: the article you asked about.
-   - **Similar / Cited by / References**: how many articles were fetched in detail. `100 of 489` means 489 PubMed articles cite the seed and the newest 100 were fetched. Similar articles are ordered most similar first.
-   - **The counts in brackets always cover all linked articles** (all 489 here). When a list is cut short, they are counted with PubMed search (one EPost plus four ESearch requests) rather than by downloading every record.
-   - **Neighborhood**: distinct articles fetched across the three lists (an article can be both similar and citing).
-   - **[RETRACTED]**: every retracted article among the seed and the fetched neighbors. Check these before citing or building on them.
-   - **Saved / Explore the graph**: where the results were written, and the article's Linked Discoveries page for graph and timeline views and condition/gene/chemical filters.
-
-5. **Work with the results** in `neighborhood.json` (fields [below](#python)). For example, the NIH-funded reviews that cite the seed:
-
-   ```python
-   import json
-
-   hood = json.load(open("publications/neighborhood_9500320/neighborhood.json", encoding="utf-8"))
-   for article in hood["cited_by"]:
-       if article["is_review"] and article["nih_funded"]:
-           print(article["year"], article["pmid"], article["title"])
-   ```
-
-6. **Get the full text (optional).** `--download` saves the PMC full text of the seed and every fetched neighbor that has one, as `PMC*.json` files next to `neighborhood.json`, in the same format as `pubmed-stream download`. Articles without PMC full text, or whose publisher withholds the XML, are counted as unavailable. Re-running skips files that already exist.
-
-   ```bash
-   pubmed-stream neighborhood 9500320 --download
-   ```
-
-7. **Fetch more or fewer articles.** `--max-per-relation N` sets how many articles per list are fetched in detail (default 100). Raise it to fetch more citing articles or references; similar articles never exceed 100, which is NCBI's limit.
-
-### CLI reference
-
-```bash
-pubmed-stream neighborhood PMID [--max-per-relation N] [--download] [options]
-```
-
-`neighborhood` accepts `--max-per-relation` (default 100), `--download`, the download options (`--format`, `--workers`, `--sequential`, `--exclude-text`) and the common options (`--api-key`, `--email`, `-o`, `--rate-limit`, `-v`). Results go to `<output-dir>/neighborhood_<PMID>/` (default `./publications`). `pubmed-stream neighborhood --help` shows examples.
-
-Exit codes: `0` success, `1` invalid PMID or not found in PubMed, `2` NCBI could not be reached.
-
-### Python
-
-```python
-from pubmed_stream import download_neighborhood, get_neighborhood, save_neighborhood
-
-hood = get_neighborhood("9500320")
-print(hood.seed.title, hood.linked_discoveries_url)
-print(hood.totals)  # {"similar": 100, "cited_by": 489, "references": 0}, uncapped counts
-print(hood.flag_counts["cited_by"])  # {"reviews": 145, "retracted": 0, "nih_funded": 52, "in_pmc": 421}, all 489
-
-for article in hood.cited_by:
-    print(article.pmid, article.year, article.title,
-          article.is_review, article.is_retracted, article.nih_funded, article.pmcid)
-
-retracted = [a for a in hood.articles() if a.is_retracted]  # seed + neighbors, deduplicated
-
-save_neighborhood(hood)              # publications/neighborhood_9500320/neighborhood.json
-stats = download_neighborhood(hood)  # PMC full text of seed + neighbors (DownloadStats)
-```
-
-`neighborhood.json` holds `pmid`, `seed`, `similar`, `cited_by`, `references`, `totals` (uncapped count per relation), `flag_counts` (review/retracted/NIH-funded/in-PMC counts across all of them), `linked_discoveries_url` and `retrieved`; each article looks like:
-
-```json
-{
-  "pmid": "31358387",
-  "title": "No CFH or ARMS2 Interaction with Omega-3 Fatty Acids, ...",
-  "journal": "Ophthalmology",
-  "year": "2019",
-  "authors": ["van Asten Freekje", "Chiu Chi-Yang", "..."],
-  "pub_types": ["Comparative Study", "Journal Article", "Randomized Controlled Trial",
-                "Research Support, N.I.H., Intramural", "Research Support, Non-U.S. Gov't"],
-  "is_review": false,
-  "is_retracted": false,
-  "nih_funded": true,
-  "pmcid": "PMC6810822",
-  "doi": "10.1016/j.ophtha.2019.06.004",
-  "score": 69336037
-}
-```
-
-**How it differs from Linked Discoveries**
-- Similarity comes from PubMed's Similar Articles algorithm, not the BiomedBERT model Linked Discoveries uses, so the neighbors can differ.
-- There are no condition/gene/chemical filters and no graph or timeline view; `linked_discoveries_url` links each seed to its page in the web tool.
-- Citation links come from PubMed/PMC citation data and are incomplete for articles without deposited reference lists.
-- Like the web tool, the flags describe connections; they do not judge whether a study is credible or has been replicated.
-
-### Common workflows
-
-**Check whether a key paper cites retracted work:**
-
-```python
-from pubmed_stream import get_neighborhood
-
-hood = get_neighborhood("29096998")
-for article in hood.references:
-    if article.is_retracted:
-        print("Cites retracted article:", article.pmid, article.title)
-```
-
-**Expand a literature search from one paper.** Download the full text of its similar and citing articles, then process the `PMC*.json` files like any keyword download:
-
-```bash
-pubmed-stream neighborhood 29096998 --max-per-relation 50 --download
-```
-
-**Build neighborhoods for articles you already downloaded:**
-
-```python
-import json
-from pathlib import Path
-from pubmed_stream import get_neighborhood, save_neighborhood
-
-for path in Path("publications/gut_microbiome").glob("PMC*.json"):
-    pmid = json.loads(path.read_text(encoding="utf-8"))["metadata"].get("pmid")
-    if pmid:
-        save_neighborhood(get_neighborhood(pmid, max_per_relation=20))
-```
-
-Each neighborhood takes 2 to about 17 requests, so set `NCBI_API_KEY` for batches like this.
-
-### Troubleshooting
-
-- **`'PMC…' is a PMC ID`**: pass the PubMed ID. Downloaded files have it in `metadata.pmid`.
-- **`PMID … not found in PubMed`** (exit 1): check the number. Deleted or merged records are not found.
-- **`could not reach NCBI`** (exit 2): each request is retried three times. Try again later, or slow down with `--rate-limit 0.5`.
-- **Few or no references or citations**: NCBI only has citation links where reference lists were deposited, mostly for PMC articles. Older or paywalled articles often show 0 references, as PMID 9500320 does.
-- **Slow**: set `NCBI_API_KEY`.
-
-## Obsidian Knowledge Graph
-
-`pubmed-stream kg` builds the knowledge graph of a scientific study. It runs the study's PubMed searches and evidence neighborhoods, then links everything in an [Obsidian](https://obsidian.md) vault: a folder of Markdown notes named `kg_<topic>`. Open the folder in Obsidian with **Open folder as vault**, then use the graph view to see which papers cite each other and which topics they share.
-
-**One knowledge graph per study topic.** Obsidian links notes only inside one vault, so everything a study collects goes into the same `kg_<topic>` folder, created in the current folder next to `publications/`. There, shared citations and MeSH concepts connect the searches and neighborhoods into one graph.
-
-> **New to this?** The tutorial notebook [`examples/kg_tutorial.ipynb`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_tutorial.ipynb) builds a real study step by step and shows every note it produces, with outputs saved. [`examples/kg_study.py`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_study.py) is the same study as a script to copy and adapt.
-
-### How it works
+> **New to programming?** Start with [tutorial 0](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/00_new_topic.ipynb), which takes a research question to a map of its literature in an afternoon. Click [Open in Colab](https://colab.research.google.com/github/melhzy/pubmed-stream/blob/main/tutorials/00_new_topic.ipynb) to run it in your web browser, with nothing to install; you only type your question into one settings cell.
 
 ```mermaid
 flowchart LR
-    T["Study topic<br/>gut microbiome frailty"] --> Q["PubMed searches<br/>-q / queries"]
-    T --> S["Key articles<br/>--seed / seeds"]
-    Q -->|"ESearch + EFetch, PMC"| D["publications/ query folders<br/>full text + reference lists"]
-    S -->|"ELink + EFetch, PubMed"| N["publications/ neighborhood folders<br/>similar, citing, cited papers"]
-    D --> B["Build notes<br/>+ MeSH terms from PubMed"]
-    N --> B
-    B --> V["kg_gut_microbiome_frailty<br/>Obsidian vault"]
-    V --> O["Obsidian<br/>graph view, search, backlinks"]
+    S["PubMed searches"] -->|"download"| D["Full-text articles<br/>metadata, references, text"]
+    K["Key papers"] -->|"neighborhood"| N["Similar, citing and cited papers<br/>flagged reviews, retractions, NIH funding"]
+    D --> G["Knowledge graph<br/>kg_topic, an Obsidian vault"]
+    N --> G
+    G --> O["Explore, write, refresh"]
 ```
 
-1. **Collect.** Each search downloads PMC full text, including the article's reference list. Each seed fetches its evidence neighborhood from PubMed.
-2. **Enrich.** MeSH headings and publication types come from PubMed, once per 200 papers, and are cached in the graph folder.
-3. **Link.** Every paper, MeSH concept and collection becomes a Markdown note. Citations, similarity and topics become wikilinks, which Obsidian draws as the graph.
-4. **Remember.** The study's searches and seeds are saved in the graph, so it can be rebuilt or refreshed with only its topic.
+## Contents
 
-### Step by step
+- [Quick start](#quick-start)
+- [Tutorials](#tutorials)
+- [Installation and configuration](#installation-and-configuration)
+- [1. Download full-text articles](#1-download-full-text-articles)
+- [2. Write searches that find the right papers](#2-write-searches-that-find-the-right-papers)
+- [3. Map the evidence around a paper](#3-map-the-evidence-around-a-paper)
+- [4. Build the knowledge graph of a study](#4-build-the-knowledge-graph-of-a-study)
+- [Python API](#python-api)
+- [Troubleshooting](#troubleshooting)
+- [How it works](#how-it-works)
+- [Contributing](#contributing)
+- [FAQ](#faq)
+- [Citation, acknowledgments and license](#citation-acknowledgments-and-license)
 
-1. **Start the study** with its topic, its searches and, optionally, key articles whose similar, citing and cited papers belong in it:
+## Quick start
 
-   ```bash
-   pubmed-stream kg "gut microbiome frailty" \
-       -q "gut microbiome frailty" -q "microbiome sarcopenia" \
-       --seed 35803947 --max-results 50 --max-per-relation 30
-   ```
+```bash
+pip install pubmed-stream
 
-2. **Open `kg_gut_microbiome_frailty` in Obsidian.** Start at the `PubMed Stream` home note, which lists the collections, the most connected concepts and any retracted papers.
+# Download the full text of up to 50 articles
+pubmed-stream download '"gut microbiota"[Title] AND frailty[Title/Abstract]' --max-results 50
 
-3. **Grow the study.** Later runs with the same topic add to its graph:
+# Map the evidence around one paper: similar, citing and cited papers, with retractions flagged
+pubmed-stream neighborhood 31319564
 
-   ```bash
-   pubmed-stream kg "gut microbiome frailty" -q "microbiome inflammaging"
-   pubmed-stream kg "gut microbiome frailty" --add ./publications/old_query   # folders downloaded earlier
-   ```
+# Build a study's knowledge graph in ./kg_gut_microbiome_frailty, then open it in Obsidian
+pubmed-stream kg "gut microbiome frailty" -q '"gut microbiota"[Title] AND frailty[Title/Abstract]' --seed 31319564
+```
 
-4. **Keep it current.** The study remembers its searches and seeds. `--refresh` runs them all again and adds newly published papers; articles already downloaded are skipped:
+The same in Python:
 
-   ```bash
-   pubmed-stream kg "gut microbiome frailty" --refresh
-   ```
+```python
+from pubmed_stream import create_kg, get_neighborhood, search_and_download
 
-   With no options, `pubmed-stream kg "gut microbiome frailty"` only rebuilds the notes, for example to pick up MeSH terms PubMed has indexed since.
+stats = search_and_download('"gut microbiota"[Title] AND frailty[Title/Abstract]', max_results=50)
+hood = get_neighborhood("31319564")
+result = create_kg("gut microbiome frailty", queries=['"gut microbiota"[Title] AND frailty[Title/Abstract]'],
+                   seeds=["31319564"])
+print(stats.successful, hood.totals, result.kg_dir)
+```
 
-`download` and `neighborhood` can join a study too: add `--topic "gut microbiome frailty"`. Their search or seed is then recorded in the study like one made with `kg`.
+## Tutorials
 
-| Run | Knowledge graph folder |
-|-----|------------------------|
-| `kg "gut microbiome frailty" ...` | `kg_gut_microbiome_frailty` |
-| `download "gut microbiome" --topic "frailty study"` | `kg_frailty_study` |
-| `download "gut microbiome" --vault` | `kg_gut_microbiome`, named after the query |
-| `neighborhood 35803947 --vault` | `kg_neighborhood_35803947` |
-| `kg ... --kg-dir DIR`, or `download`/`neighborhood` with `--vault DIR` | `DIR`, for a different name or location |
+The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/main/tutorials) are written for researchers, not programmers. Each one follows a real research question, has a single **Your settings** cell for your own question, runs in Google Colab with nothing to install, and is saved with its results so you can read it on GitHub first.
 
-### What the vault contains
+| # | Tutorial | Use case |
+|---|----------|----------|
+| 0 | [**Start here: a new research topic in an afternoon**](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/00_new_topic.ipynb) | From a question to a map of its literature: size the field, find the paper everyone cites, build a knowledge graph, read its themes, evidence and gaps, export a reading list |
+| 1 | [Getting started](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/01_getting_started.ipynb) | Download a search, read the files, choose a format, resume |
+| 2 | [Designing searches](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/02_search_strategies.ipynb) | Measure the size, precision and availability of five versions of one search, and combine words with MeSH headings |
+| 3 | [A literature-review corpus](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/03_literature_review.ipynb) | Run a keyword list, deduplicate, screen by theme, export to CSV and BibTeX |
+| 4 | [The evidence around one paper](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/04_evidence_neighborhood.ipynb) | Map a paper's neighborhood and screen it for retractions |
+| 5 | [The knowledge graph of a study](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) | Build a graph and explain it with twelve charts and tables |
+| 6 | [Text mining and RAG preparation](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/06_text_mining.ipynb) | Split articles into sections and chunk them for embeddings |
+
+Five short guides support them:
+
+| Guide | For |
+|---|---|
+| [How to run the tutorials](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/setup.md) | Colab, installing Python on Windows or Mac, running a notebook, a free NCBI API key |
+| [Reading a knowledge graph in Obsidian](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/obsidian.md) | Opening, exploring, searching and writing in a graph |
+| [Glossary](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/glossary.md) | MeSH, PMC, stub, seed and every other term, in plain language |
+| [What pubmed-stream can and cannot do](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/limitations.md) | Coverage, blind spots, and why it is not a systematic review |
+| [Troubleshooting for beginners](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/troubleshooting.md) | Setup, notebook, Colab and Obsidian problems |
+
+The [tutorials README](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/README.md) lists everything, including how programmers can run the notebooks locally.
+
+## Installation and configuration
+
+```bash
+pip install pubmed-stream                  # the library and the pubmed-stream command
+pip install "pubmed-stream[tutorials]"     # plus jupyter, matplotlib, networkx and pandas for the tutorials
+```
+
+From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.8 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
+
+**Set an NCBI API key.** NCBI allows 3 requests per second without a key and 10 with one, so a key makes everything about three times faster. Keys are free: create one in the settings of an [NCBI account](https://www.ncbi.nlm.nih.gov/account/). pubmed-stream reads it, and an optional contact email, from the environment:
+
+```bash
+export NCBI_API_KEY="your-key"        # PowerShell: $env:NCBI_API_KEY = "your-key"
+export NCBI_EMAIL="you@example.org"   # PowerShell: $env:NCBI_EMAIL = "you@example.org"
+```
+
+Every command also accepts `--api-key` and `--email`. pubmed-stream sets its request rate from the key automatically, retries failed requests three times with back-off, and never writes the key to its logs. `--rate-limit SECONDS` slows it down further if needed.
+
+## 1. Download full-text articles
+
+`pubmed-stream download` searches PubMed Central directly, so every result is an article with a PMC record, then fetches each one's full-text XML in parallel and saves it as one JSON file. Some publishers do not allow their articles to be downloaded as XML; those are reported as **unavailable** and skipped, rather than saved half-empty.
+
+```bash
+pubmed-stream download "gut microbiome" --max-results 50
+```
+
+```python
+from pubmed_stream import search_and_download
+
+stats = search_and_download("gut microbiome", max_results=50)
+print(f"{stats.successful} saved, {stats.skipped} already there, {stats.unavailable} unavailable "
+      f"of {stats.total_found} matches, in {stats.duration_seconds:.0f} s")
+```
+
+Each search gets its own folder, named after the query. Running a search again skips the files that already exist, so an interrupted download resumes and a repeated search only fetches what is new.
+
+```
+publications/
+└── gut_microbiome/
+    ├── query.json          the original search, recorded for later tools
+    ├── PMC12345678.json
+    └── PMC12345679.json
+```
+
+Every article file has the same shape. `metadata.references` lists the cited works that have a PubMed ID or DOI; those become citation links in a knowledge graph.
+
+```json
+{
+  "pmcid": "PMC13279599",
+  "source": "PMC",
+  "download_date": "2026-10-18T13:20:45",
+  "metadata": {
+    "pmid": "42060019",
+    "pmcid": "PMC13279599",
+    "doi": "10.1007/s40520-026-03403-6",
+    "title": "Association between gut microbiota and sarcopenia in older adults: ...",
+    "journal": "Aging Clinical and Experimental Research",
+    "year": "2026", "month": "4", "day": "30",
+    "authors": ["Ramezani Kashal Fatemeh", "Sharifi Farshad", "..."],
+    "abstract": "Introduction Investigating gut microbiota has emerged as a novel approach ...",
+    "keywords": ["Sarcopenia", "Gut microbiota", "Aging", "Muscle metabolism"],
+    "references": [
+      {"pmid": "32033882", "doi": "10.1016/j.jamda.2019.12.012",
+       "title": "Asian Working Group for Sarcopenia: 2019 Consensus Update ...", "year": "2020"}
+    ],
+    "linked_discoveries_url": "https://linkeddiscoveries.ncbi.nlm.nih.gov/42060019/"
+  },
+  "text": "Association between gut microbiota and sarcopenia ...\nAbstract\nIntroduction ..."
+}
+```
+
+The format decides what is kept beside the metadata:
+
+| `--format` | Adds | Best for |
+|------------|------|----------|
+| `text` (default) | `text`: title, abstract and body, one paragraph per line | Reading, search, embeddings, most NLP |
+| `xml` | `xml`: the raw JATS XML | Section-level parsing, tables, figures |
+| `both` | `text` and `xml` | Keeping every option open |
+
+| Option | Meaning | Default |
+|--------|---------|---------|
+| `QUERY` | PubMed search; field tags such as `[Title]` work | required |
+| `--max-results N` | Articles to download, newest first | 100 |
+| `--format` | `text`, `xml` or `both` | `text` |
+| `--exclude-text` | Leave out the `text` field to save space | included |
+| `--output-dir`, `-o` | Base folder | `./publications` |
+| `--workers N`, `--sequential` | Parallel downloads, or one at a time for unstable networks | 5 workers |
+| `--topic`, `--vault` | Also add the results to a knowledge graph, see [section 4](#4-build-the-knowledge-graph-of-a-study) | off |
+| `--api-key`, `--email`, `--rate-limit`, `--user-agent`, `-v` | NCBI settings and verbose logging | environment |
+
+`download` exits with 0 when articles were saved or already present, 1 when the search found nothing, and 2 when every download failed.
+
+## 2. Write searches that find the right papers
+
+PMC searches the **full text** of every article, including its reference list, so a plain search such as `gut microbiome frailty` matches thousands of articles that only mention the words in passing. Field tags fix this. In [tutorial 2](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/02_search_strategies.ipynb), five versions of one question range from 7,587 matches with almost no relevant recent results to 66 matches where most are on topic.
+
+| Technique | Example | Effect |
+|-----------|---------|--------|
+| Put the core concept in the title | `"gut microbiota"[Title]` | The largest gain in precision |
+| Restrict the rest to title and abstract | `frailty[Title/Abstract]` | Drops passing mentions in the body |
+| Quote multi-word terms, and cover synonyms with `OR` | `("gut microbiome" OR "gut microbiota")` | Keeps phrases together without losing recall |
+| Restrict to open access | `AND "open access"[filter]` | Every result can be downloaded |
+| Limit the years | `AND 2020:2026[pdat]` | Reaches past the newest results, or focuses on them |
+
+PMC returns the newest matches first, so `--max-results` takes the most recent articles. Check a search's size with `esearch_pmc` before downloading, and read a sample of titles before trusting it.
+
+## 3. Map the evidence around a paper
+
+A search finds papers by their words. An **evidence neighborhood** starts from one key paper and follows PubMed's links instead: the papers PubMed rates as similar, the papers citing it, and the papers it cites. Each is flagged as a review, retracted or NIH-funded. NLM's [Linked Discoveries](https://linkeddiscoveries.ncbi.nlm.nih.gov/userguide/) web tool shows the same kind of neighborhood but has no API; pubmed-stream builds one from documented E-utilities.
+
+```bash
+pubmed-stream neighborhood 9500320
+```
+
+```
+Seed: PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
+Similar       100            (4 reviews, 0 retracted, 0 NIH-funded, 18 in PMC)
+Cited by      100 of 489     (145 reviews, 0 retracted, 52 NIH-funded, 421 in PMC)
+References      0            (0 reviews, 0 retracted, 0 NIH-funded, 0 in PMC)
+Neighborhood  200 unique articles fetched
+[RETRACTED] PMID 9500320 (1998) Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and ...
+Saved: publications/neighborhood_9500320/neighborhood.json
+Explore the graph: https://linkeddiscoveries.ncbi.nlm.nih.gov/9500320/
+```
+
+`100 of 489` means 489 PubMed articles cite the seed and the newest 100 were fetched in detail; `--max-per-relation` changes that cap. The counts in brackets always cover all 489, counted with PubMed searches rather than by downloading every record. `[RETRACTED]` lists every retracted article among those fetched, so check them before citing or building on them.
+
+| Flag | Meaning |
+|------|---------|
+| review | Publication type Review, Systematic Review or Scoping Review; narrower than PubMed's Review filter, which also counts guidelines and meta-analyses |
+| retracted | Publication type Retracted Publication, or a linked retraction notice |
+| NIH-funded | An NIH grant in the grant list, or an N.I.H. research-support publication type |
+| in PMC | The article has a PMC ID, so its full text may be downloadable |
+
+The neighborhood is saved as `publications/neighborhood_<PMID>/neighborhood.json`. `--download` also saves the PMC full text of the seed and every neighbor that has one, beside it. In Python:
+
+```python
+from pubmed_stream import get_neighborhood, save_neighborhood, download_neighborhood
+
+hood = get_neighborhood("31319564", max_per_relation=50)
+print(hood.totals)                      # {"similar": 384, "cited_by": 239, "references": 139}
+print(hood.flag_counts["cited_by"])     # reviews, retracted, NIH-funded and in-PMC counts across all of them
+
+retracted = [a for a in hood.articles() if a.is_retracted]          # seed and neighbors
+cites_retracted = [a for a in hood.references if a.is_retracted]    # does the paper cite retracted work?
+
+save_neighborhood(hood)                 # publications/neighborhood_31319564/neighborhood.json
+download_neighborhood(hood)             # PMC full text of the seed and its neighbors
+```
+
+Each neighbor is a `RelatedArticle` with `pmid`, `title`, `journal`, `year`, `authors`, `pub_types`, `is_review`, `is_retracted`, `nih_funded`, `pmcid`, `doi`, `mesh_terms`, and, for similar articles, a similarity `score`. A neighborhood costs two requests for up to 200 articles, plus five for each relation cut short by the cap.
+
+Compared with Linked Discoveries: similarity comes from PubMed's Similar Articles algorithm rather than a BiomedBERT model, so the neighbors can differ; there are no condition, gene or chemical filters; and citation links exist only where reference lists were deposited, mostly for PMC articles. Like the web tool, the flags describe connections; they do not judge whether a study is sound. [Tutorial 4](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/04_evidence_neighborhood.ipynb) charts a neighborhood and walks through retraction screening.
+
+`neighborhood` exits with 0 on success, 1 when the PMID is invalid or not in PubMed, and 2 when NCBI could not be reached. It takes a PubMed ID, the number in a `pubmed.ncbi.nlm.nih.gov/<PMID>/` link or a downloaded article's `metadata.pmid`, not a PMC ID.
+
+## 4. Build the knowledge graph of a study
+
+Downloads and neighborhoods come together in a **knowledge graph**. A study has a topic, the searches that collect its literature, and optionally key papers whose neighborhoods belong in it. `pubmed-stream kg` runs them all and links the results in an Obsidian vault named `kg_<topic>`: a folder of Markdown notes, one per paper, MeSH concept and collection. Open it in Obsidian with **Open folder as vault**, and the graph view shows which papers cite each other and which topics they share.
+
+```bash
+pubmed-stream kg "gut microbiome frailty" \
+    -q '"gut microbiota"[Title] AND frailty[Title/Abstract]' \
+    -q '"gut microbiota"[Title] AND sarcopenia[Title/Abstract]' \
+    --seed 31319564 --max-results 25 --max-per-relation 30
+```
+
+That study gives a graph of 127 papers, 42 with full text and 85 from the seed's neighborhood, linked to 309 MeSH concepts: 440 notes in all. The study is remembered, so it keeps growing and stays current with only its topic:
+
+```bash
+pubmed-stream kg "gut microbiome frailty" -q "microbiome inflammaging"   # add a search
+pubmed-stream kg "gut microbiome frailty" --add ./publications/old_query # add earlier downloads
+pubmed-stream kg "gut microbiome frailty" --refresh                      # rerun everything, add new papers
+pubmed-stream kg "gut microbiome frailty"                                # rebuild the notes only
+```
+
+`download` and `neighborhood` can join a study too: with `--topic "gut microbiome frailty"`, their search or seed is recorded like one made with `kg`. A bare `--vault` names the graph after the query or the neighborhood instead, and `--vault DIR` or `--kg-dir DIR` picks any folder. Obsidian links notes only inside one vault, so give every search of a study the same topic.
+
+### What the graph contains
 
 | Note | Location | Links to |
 |------|----------|----------|
 | Paper | `papers/PMID<id>.md` | Papers it cites, papers citing it, similar papers, its MeSH concepts and collections |
-| Concept | `concepts/<MeSH heading>.md` | Papers indexed with that MeSH heading |
-| Collection | `collections/Search - <query>.md` or `collections/Neighborhood - PMID <id>.md` | Its papers and top concepts |
+| Concept | `concepts/<MeSH heading>.md` | Papers indexed with that heading |
+| Collection | `collections/Search - <query>.md`, `collections/Neighborhood - PMID <id>.md` | Its papers and top concepts |
 | Home | `PubMed Stream.md` | Collections, most connected concepts, retracted papers |
 
-A slice of the graph built by [`examples/kg_study.py`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_study.py) shows how the notes connect. Every link below is real. Purple notes are collections, white ones papers with full text, grey ones stubs, and teal ones MeSH concepts, as in Obsidian's graph view:
+Here is a slice of the example study's graph. Every link in it is real: two 2026 studies from different searches cite the same 2021 study, which PubMed also rates as similar to the seed review. Connections like this are what a list of search results hides.
 
 ```mermaid
 flowchart LR
@@ -651,26 +297,25 @@ flowchart LR
     class M1,M2 concept
 ```
 
-The two 2026 studies came from different searches, yet both cite the same 2021 study, which PubMed also rates as similar to the seed review. In the graph they sit next to each other, a connection a list of search results hides.
+Where the links come from:
 
-Here is a paper note from that graph, shortened. Obsidian shows the part between the `---` lines as editable properties:
+- **Citations** come from the reference lists of downloaded articles, for references with a PMID, and from neighborhood citing and cited papers. References with only a DOI are listed under *Other references*.
+- **Similarity** comes from neighborhood similar articles, with PubMed's score.
+- **Concepts** are MeSH headings fetched from PubMed, once per 200 papers, and cached in the graph. Check tags such as *Humans* or *Aged* stay in the paper's properties but get no note, because they would link almost every paper.
+- **Stubs** are neighborhood papers that were not downloaded. Their notes carry PubMed details and links, and are tagged `pubmed/stub`.
+
+A paper note holds Obsidian properties, then a generated block, then space for your own notes:
 
 ```markdown
 ---
 type: "paper"
-title: "Association between gut microbiota and sarcopenia in older adults: a cross-sectional analysis ..."
+title: "Association between gut microbiota and sarcopenia in older adults: ..."
 pmid: "42060019"
-pmcid: "PMC13279599"
-doi: "10.1007/s40520-026-03403-6"
 year: 2026
 journal: "Aging Clinical and Experimental Research"
-authors:
-  - "Ramezani Kashal Fatemeh"
-  - ...
 mesh:
   - "Sarcopenia"
   - "Gastrointestinal Microbiome"
-  - ...
 status: "full-text"
 tags:
   - "pubmed/paper"
@@ -679,28 +324,13 @@ tags:
 # Association between gut microbiota and sarcopenia in older adults: ...
 
 **Published:** *Aging Clinical and Experimental Research* · 2026 · [PubMed](...) · [PMC](...) · [DOI](...)
-**Collections:** [[Search - gut microbiota(Title) AND sarcopenia(Title-Abstract)]]
 
 ## Abstract
-
-Introduction Investigating gut microbiota has emerged as a novel approach to exploring the gut-muscle axis ...
-
 ## MeSH concepts
-
 - [[Sarcopenia]] (major topic)
-- [[Gastrointestinal Microbiome]] (major topic)
-- [[Hand Strength]]
-- ...
-
 ## Cites (39)
-
-- [[PMID32033882|Asian Working Group for Sarcopenia: 2019 Consensus Update on Sarcopenia Diagnosis and Treatment (2020)]]
 - [[PMID33633246|Alterations in intestinal microbiota diversity, composition, and function in patients with sarcop... (2021)]]
-- ...
-
 ## Cited by (1)
-
-- [[PMID42875678|Correspondence for the article: “Association between gut microbiota and sarcopenia in older adult... (2026)]]
 %% pubmed-stream:end %%
 
 ## Notes
@@ -708,432 +338,128 @@ Introduction Investigating gut microbiota has emerged as a novel approach to exp
 Your own notes go here and survive every rebuild.
 ```
 
-Paper notes carry Obsidian properties: `pmid`, `pmcid`, `doi`, `year`, `journal`, `authors`, `publication_types`, `mesh`, `keywords`, `status` and `tags`. They work in Obsidian search, Bases and the Dataview plugin. Tags mark the kind of note and its flags: `pubmed/paper`, `pubmed/stub`, `pubmed/review`, `pubmed/retracted`, `pubmed/nih-funded`, `pubmed/concept` and `pubmed/collection`. On the first build, the graph view gets colour groups for retracted papers, reviews, stubs, concepts and collections, unless the vault already has its own graph settings.
+**Rebuilding is safe.** A rebuild replaces only the generated block and the properties the tool owns. Text outside the block, and properties, tags and aliases you add in Obsidian, are kept; unchanged notes are not rewritten. Do not rename or move generated notes, or a rebuild will recreate them. Properties work in Obsidian search, Bases and the Dataview plugin, and on the first build the graph view gets colours for retracted papers, reviews, stubs, concepts and collections.
 
-### Where the links come from
+[Tutorial 5](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) builds this study and explains the graph with charts: where the papers came from, which concepts travel together, which papers the study relies on most, and which ones bridge its parts.
 
-- **Citations** come from the reference lists of downloaded full text, for references with a PMID, and from neighborhood citing and cited papers. References with only a DOI are listed under *Other references* with a link.
-- **Similarity** comes from neighborhood similar articles, with PubMed's similarity score.
-- **Concepts** are MeSH headings from PubMed. They are fetched once per 200 papers and cached in `.pubmed-stream/pubmed_records.json` inside the vault. Check tags such as *Humans*, *Male* or *Aged* stay in the `mesh` property but get no concept note, because they would link almost every paper.
-- **Stubs** are neighborhood papers that were not downloaded. They get a short note tagged `pubmed/stub` with their PubMed details. Cited papers with no known details stay as unresolved links, which Obsidian can turn into notes on click.
-
-### Editing notes safely
-
-Each note keeps its generated content between two markers:
-
-```markdown
-%% pubmed-stream:start - generated; edits inside this block are overwritten %%
-...
-%% pubmed-stream:end %%
-
-## Notes
-```
-
-Write your own notes below the block or anywhere outside it; rebuilds never touch that text. In the frontmatter, the tool replaces only the keys it writes. Your own properties are kept, and so are your own tags and aliases. Notes whose content did not change are not rewritten, which keeps sync tools quiet.
-
-Do not rename or move generated notes. A rebuild would create the note again at its original path; link to the note instead.
-
-### CLI reference
-
-`pubmed-stream kg TOPIC` takes these options, plus the download options of `download` such as `--format`, `--workers` and `-o`:
-
-| Flag | Description | Default |
-|------|-------------|---------|
+| `kg` option | Meaning | Default |
+|-------------|---------|---------|
 | `TOPIC` | Study topic; the graph is `./kg_<topic>` | required |
-| `--query`, `-q` | PubMed search to download into the study; repeatable | None |
-| `--seed`, `-s` | PMID of a key article whose evidence neighborhood joins the study; repeatable | None |
-| `--add DIR` | Folder or file downloaded earlier; repeatable | None |
-| `--refresh` | Run every remembered search and seed again | Only new ones |
-| `--max-results` | Articles per search | 100 |
-| `--max-per-relation` | Similar, citing and cited articles per seed | 100 |
-| `--download-neighbors` | Download PMC full text of neighborhood articles too | Stub notes |
-| `--kg-dir DIR` | Graph folder, instead of `./kg_<topic>` | `./kg_<topic>` |
-| `--fulltext` | Put each article's full text into its note | Abstract only |
-| `--offline` | Do not query PubMed for MeSH terms; use the cache | Fetch missing MeSH terms |
+| `--query`, `-q` | Search to download into the study; repeatable | none |
+| `--seed`, `-s` | PMID whose neighborhood joins the study; repeatable | none |
+| `--add DIR` | Folder or file downloaded earlier; repeatable | none |
+| `--refresh` | Run every remembered search and seed again | only new ones |
+| `--max-results`, `--max-per-relation` | Articles per search; neighbors per relation | 100, 100 |
+| `--download-neighbors` | Download neighbors' full text instead of stub notes | stubs |
+| `--fulltext` | Put each article's full text into its note | abstract only |
+| `--offline` | Use cached MeSH terms only | fetch missing ones |
+| `--kg-dir DIR` | Graph folder instead of `./kg_<topic>` | `./kg_<topic>` |
 
-Exit codes: 0 when everything worked, 1 when there is nothing to build or an option is invalid, 2 when a search or neighborhood failed. The graph is still built from everything else.
+`kg` exits with 0 when everything worked, 1 when there is nothing to build or an option is invalid, and 2 when a search or neighborhood failed; the graph is still built from everything else.
 
-`download` and `neighborhood` accept `--topic`, `--fulltext` and `--offline` too, and `--vault` with or without a folder. They add to a knowledge graph only when given `--topic` or `--vault`. Put a bare `--vault` after the search query, so it is not read as the folder name.
+Limitations to know about:
 
-### Python
-
-```python
-from pubmed_stream import create_kg
-
-result = create_kg(
-    "gut microbiome frailty",
-    queries=["gut microbiome frailty", "microbiome sarcopenia"],
-    seeds=["35803947"],
-    max_results=50,
-)
-print(result)               # searches, seeds, errors and the graph's notes
-print(result.kg_dir)        # .../kg_gut_microbiome_frailty
-create_kg("gut microbiome frailty", refresh=True)  # later: pick up new papers
-```
-
-| Function | Purpose |
-|----------|---------|
-| `create_kg(topic, queries, seeds, sources, refresh, ...)` | Run a study's searches and neighborhoods and build its graph; returns a `KGResult` |
-| `load_study(kg_dir)` | The topic, searches and seeds recorded in a graph |
-| `record_study(kg_dir, topic, queries, seeds)` | Record searches or seeds run elsewhere, so `refresh` repeats them |
-| `build_vault(sources, vault_dir, ...)` | Lower level: build the notes from download folders only; returns `VaultStats` |
-| `topic_vault_dir(topic)` | The `kg_<topic>` folder for a topic |
-
-### Tutorial and examples
-
-| File | What it shows |
-|------|---------------|
-| [`examples/kg_tutorial.ipynb`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_tutorial.ipynb) | A guided study on the gut microbiome and frailty, with saved outputs: one search, the folder layout, a paper note, a concept note, the home note, a key article's neighborhood, citation links, editing notes safely, and refreshing |
-| [`examples/kg_study.py`](https://github.com/melhzy/pubmed-stream/blob/main/examples/kg_study.py) | The same study as a short script. Edit its `STUDY` settings, run it, and run it again with `--refresh` later |
-
-Run the tutorial from the `examples` folder; it works in `examples/kg_tutorial_workspace/`, which git ignores:
-
-```bash
-pip install jupyter
-cd examples
-jupyter notebook kg_tutorial.ipynb
-```
-
-### Limitations
-
-- **Recent papers often lack MeSH terms.** Indexing takes months, and journals outside MEDLINE are never indexed. In a test with 2025 and 2026 papers, about half had no MeSH terms, so they have no concept links yet. Rebuild later to pick them up.
-- **Older downloads have no reference lists.** Files downloaded with pubmed-stream 0.1.1 or earlier carry no `references`, unless they were saved with `--format xml` or `both`. Download them again into a new folder to add citation links.
+- **Recent papers often lack MeSH terms.** Indexing takes months and journals outside MEDLINE are never indexed, so such papers have no concept links yet. Rebuild later to pick them up.
+- **Downloads from pubmed-stream 0.1.1 or earlier have no reference lists**, unless saved with `--format xml` or `both`. Download them again to add citation links.
 - **Many references have no PMID.** Conference papers, preprints and books appear under *Other references*, not in the graph.
-- **Notes are never deleted.** Removing a source folder leaves its notes in the vault.
+- **Notes are never deleted.** Removing a source leaves its notes in the graph.
 
-## Output Format
+## Python API
 
-### Directory Structure
+Everything the commands do is available from `pubmed_stream`:
 
-Articles are organized by search query:
+| Function | Purpose | Returns |
+|----------|---------|---------|
+| `search_and_download(query, max_results, fmt="text", ...)` | Search PMC and download full text | `DownloadStats` |
+| `get_neighborhood(pmid, max_per_relation=100, ...)` | Similar, citing and cited papers with flags | `Neighborhood` |
+| `save_neighborhood(hood, output_dir=None)` | Write `neighborhood.json` | path |
+| `download_neighborhood(hood, ...)` | Full text of the seed and neighbors | `DownloadStats` |
+| `create_kg(topic, queries, seeds, sources, refresh=False, ...)` | Run a study and build its knowledge graph | `KGResult` |
+| `load_study(kg_dir)`, `record_study(kg_dir, topic, queries, seeds)` | Read, or add to, a graph's recorded study | dict |
+| `build_vault(sources, vault_dir, ...)` | Build graph notes from download folders only | `VaultStats` |
+| `topic_vault_dir(topic)` | The `kg_<topic>` folder of a topic | path |
+| `esearch_pmc(term, max_results, api_key, session, rate_limiter)` | One PMC search: IDs and total count | `(ids, total)` |
+| `efetch_pmc(pmcid, out_dir, fmt, api_key, session, rate_limiter)` | Download one article | `(ok, status)` |
+| `extract_metadata_from_pmc_xml(xml)`, `extract_text_from_pmc_xml(xml)` | Parse JATS XML you already have | dict, str |
+| `create_session(user_agent)`, `RateLimiter(seconds)` | Building blocks for the low-level functions | |
 
-```
-publications/
-  gut_microbiome_inflammation/
-    query.json          # the original search query
-    PMC12345678.json
-    PMC12345679.json
-    PMC12345680.json
-  alzheimer_disease/
-    PMC11111111.json
-    PMC22222222.json
-```
-
-Query strings are slugified (spaces→underscores, special characters removed) for clean directory names.
-
-### JSON Schema
-
-Each JSON file contains:
-
-```json
-{
-  "pmcid": "PMC12345678",
-  "source": "PMC",
-  "download_date": "2026-02-17T12:30:45.123456",
-  "metadata": {
-    "title": "The Role of Gut Microbiome in Inflammation",
-    "journal": "Nature Medicine",
-    "journal_title": "Nature Medicine",
-    "journal_nlm_ta": "Nat Med",
-    "journal_iso_abbrev": "Nat. Med.",
-    "doi": "10.1038/s41591-024-12345-6",
-    "pmid": "38123456",
-    "pmcid": "PMC12345678",
-    "linked_discoveries_url": "https://linkeddiscoveries.ncbi.nlm.nih.gov/38123456/",
-    "year": "2024",
-    "month": "11",
-    "day": "15",
-    "pub_date": {
-      "year": "2024",
-      "month": "11",
-      "day": "15"
-    },
-    "authors": [
-      "Smith, John A.",
-      "Johnson, Mary B.",
-      "Williams, Robert C."
-    ],
-    "abstract": "Background: The gut microbiome plays a crucial role...",
-    "keywords": [
-      "microbiome",
-      "inflammation",
-      "gut health"
-    ],
-    "references": [
-      {"pmid": "31234567", "doi": "10.1000/xyz123", "title": "A cited article", "year": "2019"}
-    ]
-  },
-  "text": "Introduction\nThe human gut microbiome comprises...",
-  "xml": "<article>...</article>"
-}
-```
-
-**Field descriptions:**
-- `pmcid`: PubMed Central identifier
-- `source`: Always "PMC"
-- `download_date`: ISO 8601 timestamp
-- `metadata`: Structured article information. `references` lists the cited works that have a PMID or DOI, with title and year when the citation is structured.
-- `text`: Plain text of the title, abstract and body, one paragraph per line; identifiers and references are excluded (if `fmt="text"` or `fmt="both"`)
-- `xml`: Raw JATS XML string (if `fmt="xml"` or `fmt="both"`)
-
-### Format Comparison
-
-| Format | File Type | Contains | Use Case | Size |
-|--------|-----------|----------|----------|------|
-| `text` | `.json` | metadata + text | Vector DBs, search, NLP | Smallest (~50% of XML) |
-| `xml` | `.json` | metadata + xml | Section parsing, structure analysis | Medium |
-| `both` | `.json` | metadata + xml + text | Comprehensive analysis | Largest |
-
-## Use Cases
-
-### 1. Literature Review & Meta-Analysis
+Functions that call NCBI accept `api_key`, `email`, `user_agent`, `rate_limit` and a `session` to reuse, and fall back to the environment variables. The low-level functions take an explicit session and rate limiter:
 
 ```python
-# Download recent papers on a specific topic
-stats = search_and_download(
-    keyword="COVID-19 vaccine efficacy",
-    max_results=200,
-    fmt="text",
-    output_dir="covid19_review"
-)
-
-# Process downloaded articles
-import json
 from pathlib import Path
+from pubmed_stream import RateLimiter, create_session, efetch_pmc, esearch_pmc
 
-for json_file in Path("covid19_review/covid_19_vaccine_efficacy").glob("*.json"):
-    with open(json_file) as f:
-        article = json.load(f)
-    
-    print(f"Title: {article['metadata']['title']}")
-    print(f"Year: {article['metadata']['year']}")
-    print(f"Abstract: {article['metadata']['abstract'][:200]}...")
-```
-
-### 2. Vector Database Embedding
-
-```python
-# Download for embedding into vector database
-stats = search_and_download(
-    keyword="machine learning healthcare",
-    max_results=1000,
-    fmt="text",  # Plain text is ideal for embeddings
-    include_text=True
-)
-
-# Example: Embed into ChromaDB
-import chromadb
-from pathlib import Path
-import json
-
-client = chromadb.Client()
-collection = client.create_collection("medical_papers")
-
-for json_file in Path("publications/machine_learning_healthcare").glob("*.json"):
-    with open(json_file) as f:
-        article = json.load(f)
-    
-    collection.add(
-        documents=[article["text"]],
-        metadatas=[{
-            "title": article["metadata"]["title"],
-            "year": article["metadata"]["year"],
-            "doi": article["metadata"].get("doi", ""),
-        }],
-        ids=[article["pmcid"]]
-    )
-```
-
-### 3. Section-Level Analysis
-
-```python
-# Download with XML for detailed structure parsing
-stats = search_and_download(
-    keyword="CRISPR therapy clinical trials",
-    max_results=50,
-    fmt="xml"  # Get raw XML for section extraction
-)
-
-# Parse sections from XML
-import xml.etree.ElementTree as ET
-import json
-from pathlib import Path
-
-for json_file in Path("publications/crispr_therapy_clinical_trials").glob("*.json"):
-    with open(json_file) as f:
-        article = json.load(f)
-    
-    # Parse XML to extract sections
-    root = ET.fromstring(article["xml"])
-    
-    # Find all sections with sec-type attribute
-    for sec in root.findall(".//sec[@sec-type]"):
-        sec_type = sec.get("sec-type")
-        title = sec.find("title")
-        
-        if title is not None:
-            print(f"Section: {sec_type} - {title.text}")
-```
-
-### 4. Batch Processing with Keywords
-
-```python
-# Process multiple queries from CSV
-import pandas as pd
-
-keywords_df = pd.read_csv("research_keywords.csv")
-
-for _, row in keywords_df.iterrows():
-    print(f"Processing: {row['keyword']}")
-    
-    stats = search_and_download(
-        keyword=row['keyword'],
-        max_results=row['max_articles'],
-        fmt="both",  # Get both formats for flexibility
-        output_dir="batch_download"
-    )
-    
-    print(f"  Downloaded: {stats.successful}, Success rate: {stats.success_rate:.1f}%")
+session, limiter = create_session("my-project/1.0"), RateLimiter(0.34)
+ids, total = esearch_pmc('"gut microbiota"[Title] AND frailty[Title/Abstract]', 20, None, session, limiter)
+for pmc_id in ids:
+    ok, status = efetch_pmc(pmc_id, Path("downloads"), "both", None, session, limiter)   # success, unavailable, exists or error
 ```
 
 ## Troubleshooting
 
-### Common Issues
+| Symptom | Cause and fix |
+|---------|---------------|
+| A quoted phrase is ignored on Windows | Windows PowerShell 5.1 drops inner double quotes, and Command Prompt does not understand single quotes. In PowerShell write `'\"gut microbiota\"[Title] AND frailty[Title/Abstract]'`; in Command Prompt, `"\"gut microbiota\"[Title] AND frailty[Title/Abstract]"`. PowerShell 7.3 and later, macOS and Linux take the examples as written |
+| `0` saved but many matches | The files already exist and were skipped, which counts as success; `stats.skipped` shows them |
+| Many *unavailable* articles | Their publishers do not allow XML download. Add `AND "open access"[filter]` to the search |
+| HTTP 429, *Too Many Requests* | Requests are retried automatically. Set `NCBI_API_KEY`, or slow down with `--rate-limit 0.5` |
+| Timeouts or a flaky network | Use `--sequential`, or fewer `--workers` |
+| Results unrelated to the question | The search matched text anywhere in the article; see [section 2](#2-write-searches-that-find-the-right-papers) |
+| `'PMC…' is a PMC ID` | `neighborhood` and `--seed` need the PubMed ID, which downloaded files have in `metadata.pmid` |
+| Few references or citations in a neighborhood | NCBI has citation links only where reference lists were deposited, mostly for PMC articles |
+| Papers without concept links in a graph | PubMed has not indexed them with MeSH yet; rebuild later |
 
-**1. "0 downloads" but high PMC result count**
-- **Cause**: Files already downloaded (skipped)
-- **Solution**: Check `stats.skipped` - this is actually success! Delete folder to re-download.
+Problems with installing Python, Jupyter, Colab or Obsidian are covered in the [troubleshooting guide for beginners](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/troubleshooting.md).
 
-**2. Rate limiting (HTTP 429)**
-- **Cause**: Exceeding NCBI rate limits
-- **Solution**: 
-  - Get a free API key (increases limit from 3→10 req/s)
-  - Use `--rate-limit` to slow down: `--rate-limit 0.5`
-  - The library automatically retries with backoff
-
-**3. "Unavailable" articles**
-- **Cause**: The publisher does not allow downloading the full text in XML form (common outside the open-access subset), the article is PDF-only, or it is not available in PMC
-- **Solution**: Normal - these articles are counted as unavailable and not saved. Add `AND "open access"[filter]` to your query to search only the open-access subset.
-
-**4. Network timeouts**
-- **Cause**: Unstable internet connection
-- **Solution**: Use `--sequential` mode: `pubmed-stream download "query" --sequential`
-
-**5. Memory issues with large downloads**
-- **Cause**: Processing too many articles concurrently
-- **Solution**: Reduce workers: `--workers 2` or use `--sequential`
-
-### Debugging
-
-Enable verbose logging to see detailed information:
-
-```bash
-pubmed-stream download "microbiome" -v --max-results 10
-```
+For details, add `-v` to any command, or enable debug logging for this package only, since the HTTP library's debug output would log request URLs with your API key:
 
 ```python
 import logging
 logging.basicConfig(level=logging.INFO)
-# Only this package: urllib3's DEBUG output would log request URLs, including your API key
 logging.getLogger("pubmed_stream").setLevel(logging.DEBUG)
-
-from pubmed_stream import search_and_download
-stats = search_and_download(keyword="test", max_results=5)
 ```
 
-## Performance Tuning
+## How it works
 
-### Concurrent vs Sequential
+pubmed-stream is a stack of five small modules. Each one uses only those below it, from the command line down to the HTTP client:
 
-**Concurrent (default)**: Faster for stable networks
-```bash
-pubmed-stream download "query" --workers 10  # 10 parallel downloads
+| Module | Role |
+|--------|------|
+| `cli.py` | The `pubmed-stream` command: `download`, `neighborhood` and `kg` |
+| `kg.py` | Studies: run searches and seeds, record them, refresh them |
+| `vault.py` | Knowledge-graph notes: merge every source, render notes, rebuild safely |
+| `neighborhood.py` | Similar, citing and cited papers, with flags and MeSH terms |
+| `downloader.py` | The E-utilities client, PMC search and download, JATS parsing |
+
+The [architecture guide](https://github.com/melhzy/pubmed-stream/blob/main/docs/ARCHITECTURE.md) explains the whole repository with diagrams, tables and figures: every NCBI request, the request flows, how knowledge graphs are merged and safely rebuilt, the data model, and where to extend the code.
+
 ```
-
-**Sequential**: More reliable for unstable networks
-```bash
-pubmed-stream download "query" --sequential
-```
-
-### Optimal Settings by Network
-
-| Network Quality | Mode | Workers | Rate Limit |
-|----------------|------|---------|------------|
-| Excellent | Concurrent | 10 | 0.1 (with API key) |
-| Good | Concurrent | 5 | 0.1 |
-| Fair | Concurrent | 2-3 | 0.2 |
-| Poor | Sequential | 1 | 0.34 |
-
-### Performance Benchmarks
-
-Typical download speeds (with API key, 5 workers):
-- **Small articles** (~50KB): 2-5 articles/second
-- **Medium articles** (~200KB): 1-3 articles/second
-- **Large articles** (~1MB): 0.5-1 articles/second
-
-Example: 100 medium-sized articles ≈ 45-60 seconds
-
-Note: The raw XML is not included in JSON format to save storage. Use `--format xml` if you need the raw XML.
-
-## Testing
-
-The repository includes a comprehensive Jupyter notebook for testing all features:
-
-```bash
-# Install Jupyter
-pip install jupyter
-
-# Launch test notebook
-jupyter notebook test_download.ipynb
-```
-
-For the knowledge graph, see the tutorial notebook `examples/kg_tutorial.ipynb` described under [Obsidian Knowledge Graph](#obsidian-knowledge-graph).
-
-The test notebook demonstrates:
-- Basic and advanced download scenarios
-- All format options (text, xml, both)
-- Concurrent vs sequential modes
-- Error handling and edge cases
-- Performance comparisons
-- Low-level API usage
-
-### Running Tests
-
-```bash
-# Install development dependencies
-pip install -e ".[dev]"
-
-# Run the unit tests (offline; NCBI responses are mocked)
-pytest
+pubmed-stream/
+├── pubmed_stream/      the package
+├── tests/              86 offline tests; NCBI is faked with canned responses
+├── tutorials/          seven notebooks, guides, kg_study.py, keyword lists, tools
+├── docs/               the architecture guide and its figures
+└── pyproject.toml
 ```
 
 ## Contributing
 
-Contributions are welcome! Please:
+Contributions are welcome. Fork the repository, create a feature branch, and open a pull request. Add tests for new behaviour, and make sure `pytest` and `ruff check .` pass. The tests run offline in a few seconds:
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes with clear commit messages
-4. Add tests if applicable
-5. Ensure code passes linting: `ruff check .`
-6. Submit a pull request
+```bash
+pip install -e ".[dev]"
+pytest
+```
 
-### Code Style
-
-- Follow PEP 8
-- Use type hints where appropriate
-- Add docstrings for public functions
-- Keep functions focused and modular
+Ideas on the roadmap: PubMed abstracts for articles outside PMC, a search query builder, progress bars, and export to BibTeX or RIS from the command line.
 
 ### Releasing to PyPI
 
 Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 
-1. **Bump the version** in both places that declare it, and keep them identical:
-   - `pyproject.toml`: `version = "X.Y.Z"`
-   - `pubmed_stream/__init__.py`: `__version__ = "X.Y.Z"`
-2. **Run the tests** and make sure they pass: `pytest`
-3. **Build and check the distributions** (the `dist/` folder is git-ignored):
+1. **Bump the version** in `pyproject.toml` (`version = "X.Y.Z"`) and `pubmed_stream/__init__.py` (`__version__ = "X.Y.Z"`), keeping them identical.
+2. **Run the tests**: `pytest`.
+3. **Build and check the distributions**; `dist/` is git-ignored:
 
    ```bash
    pip install --upgrade build twine
@@ -1142,145 +468,62 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
    python -m twine check dist/*
    ```
 
-4. **Upload to PyPI** with an API token. Create one at
-   <https://pypi.org/manage/account/token/>, scoped to the `pubmed-stream` project.
-   The username is literally `__token__`; your PyPI password will not work.
+4. **Upload to PyPI** with an API token from <https://pypi.org/manage/account/token/>, scoped to the `pubmed-stream` project. The username is literally `__token__`; a PyPI password will not work. A `403 Forbidden` means the token is wrong, expired or not scoped to this project. PyPI never accepts the same version twice, so fix a broken release with a new patch version.
 
    ```bash
    python -m twine upload -u __token__ -p pypi-... dist/*
    ```
 
-   A `403 Forbidden` means the token is wrong, expired, or not scoped to this project.
-   PyPI never lets you re-upload a version, so if a release is broken, bump to a new
-   patch version instead of trying to overwrite it.
-
-5. **Commit and tag** the release, then push both:
+5. **Commit, tag and push** the release:
 
    ```bash
-   git commit -am "chore: Bump version to X.Y.Z"
+   git commit -am "chore: Release X.Y.Z"
    git tag X.Y.Z
    git push origin main X.Y.Z
    ```
 
-   If the tag already exists but points at the wrong commit, move it and force-push
-   only that tag (never force-push `main`):
+   If the tag already exists on the wrong commit, move it and force-push only that tag, never `main`: `git tag -f X.Y.Z <commit>`, then `git push --force origin refs/tags/X.Y.Z`.
 
-   ```bash
-   git tag -f X.Y.Z <commit>
-   git push --force origin refs/tags/X.Y.Z
-   ```
-
-6. **Create the GitHub release** for the tag. Either way, generate the notes from the
-   merged pull requests and attach the two files from `dist/`.
-
-   - **Web UI:** open `https://github.com/melhzy/pubmed-stream/releases/new?tag=X.Y.Z`,
-     set the title to `X.Y.Z`, click **Generate release notes**, drag in
-     `dist/pubmed_stream-X.Y.Z-py3-none-any.whl` and `dist/pubmed_stream-X.Y.Z.tar.gz`,
-     then **Publish release**.
-   - **GitHub CLI:** requires the [`gh`](https://cli.github.com/) tool
-     (`winget install GitHub.cli` on Windows) and a one-time `gh auth login`.
-
-     ```bash
-     gh release create X.Y.Z --title "X.Y.Z" --generate-notes dist/*
-     ```
-
-7. **Verify** the new version installs cleanly: `pip install --upgrade pubmed-stream` and
-   `pubmed-stream --version`.
-
-## Development Roadmap
-
-Future enhancements being considered:
-- [ ] Support for PubMed (non-PMC) abstracts
-- [ ] Advanced search query builder
-- [ ] Automatic deduplication
-- [ ] Progress bars for CLI
-- [ ] Export to BibTeX/RIS formats
-- [ ] Integration with citation managers
-- [ ] Parallel processing for metadata extraction
+6. **Create the GitHub release.** In the web interface, open `https://github.com/melhzy/pubmed-stream/releases/new?tag=X.Y.Z`, set the title to `X.Y.Z`, click **Generate release notes**, attach the two files from `dist/`, and publish. With the [GitHub CLI](https://cli.github.com/), after a one-time `gh auth login`: `gh release create X.Y.Z --title "X.Y.Z" --generate-notes dist/*`.
+7. **Verify**: `pip install --upgrade pubmed-stream`, then `pubmed-stream --version`.
 
 ## FAQ
 
-**Q: Why JSON instead of separate XML/TXT files?**  
-A: Unified JSON format provides consistent structure, always includes metadata, and simplifies file operations. You can still get raw XML (as a string field) if needed.
+**What is the difference between PubMed and PMC?** PubMed indexes the citations and abstracts of over 35 million articles. PubMed Central (PMC) is NCBI's archive of full-text articles, a subset of them. pubmed-stream downloads full text from PMC and uses PubMed for neighborhoods and MeSH terms.
 
-**Q: Can I use this for commercial purposes?**  
-A: Yes, under the MIT license. However, respect NCBI's usage policies and rate limits.
+**Does it comply with NCBI's terms?** Yes. It uses the official E-utilities, keeps within NCBI's rate limits, identifies itself with a User-Agent, and sends your contact email when you set one.
 
-**Q: How do I get an NCBI API key?**  
-A: Register at https://www.ncbi.nlm.nih.gov/account/ and generate an API key in your account settings. It's free.
+**Why one JSON file per article?** One file keeps an article's metadata, references and text together, in every format, and makes corpora easy to filter, merge and resume.
 
-**Q: Does this violate NCBI terms of service?**  
-A: No - this library is built on official NCBI E-utilities APIs (ESearch and EFetch), respects rate limits, and includes proper user-agent headers in compliance with NCBI usage policies.
+**Can I resume an interrupted download?** Yes. Run the same command again; existing files are skipped.
 
-**Q: Can I resume interrupted downloads?**  
-A: Yes - already-downloaded files are automatically skipped (shown in `stats.skipped`).
+**Can I use it for a systematic review?** For the first steps: scoping the field, testing and recording searches, and finding key papers. A systematic review also needs other databases, screening by two reviewers and risk-of-bias assessment; see [what pubmed-stream can and cannot do](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/limitations.md).
 
-**Q: What's the difference between PMC and PubMed?**  
-A: PubMed contains citation abstracts for millions of papers. PMC (PubMed Central) is a subset with full-text articles. This library accesses PMC for complete article text.
+**Why are some important papers missing?** Full text comes only from PMC, and searches return the newest matches first. Older and subscription-only papers enter a knowledge graph through key papers' neighborhoods, as stubs, or as links from the papers that cite them.
 
-## Project Structure
+**Do I need Obsidian?** Only to explore a knowledge graph visually. The notes are plain Markdown, and [tutorial 5](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) analyses one in Python.
 
-```
-pubmed-stream/
-├── pubmed_stream/              # Main package
-│   ├── __init__.py            # Public API exports
-│   ├── __main__.py            # python -m pubmed_stream entry point
-│   ├── cli.py                 # Command-line interface
-│   ├── downloader.py          # Core download logic
-│   ├── neighborhood.py        # Evidence neighborhood (similar, citing, cited articles)
-│   ├── kg.py                  # Study knowledge graphs: searches, neighborhoods, refresh
-│   ├── vault.py               # Obsidian vault notes for the knowledge graph
-│   └── py.typed               # Type hint marker
-├── examples/
-│   ├── kg_tutorial.ipynb      # Knowledge graph tutorial, with outputs
-│   ├── kg_study.py            # Knowledge graph example script
-│   ├── keywords/              # Sample keyword CSV files
-│   │   ├── pmc_literature_keywords.csv
-│   │   └── ...
-│   └── utils/                 # Helper scripts
-│       ├── manage_text_field.py
-│       └── test_pmc_availability.py
-├── tests/                     # pytest suite with small JATS XML fixtures
-├── docs/
-│   ├── ARCHITECTURE.md        # How the repository works: diagrams, tables, figures
-│   └── figures/               # Figures of the example study, and make_figures.py
-├── test_download.ipynb        # Comprehensive test notebook
-├── pyproject.toml            # Project metadata and dependencies
-├── README.md                 # This file
-└── .gitignore               # Git ignore rules
-```
+**Can I use it commercially?** Yes, under the MIT license, while respecting NCBI's usage policies.
 
-## Acknowledgments
+## Citation, acknowledgments and license
 
-This library was developed to support biomedical research at the **University of Massachusetts** by:
-- **Haran Lab**
-- **Bucci Lab**
-- **Microbiology & Microbiome Dynamics AI HUB**
-
-Special thanks to:
-- **NCBI** for providing the E-utilities API and open access to PubMed Central
-- The open-source community for Python ecosystem tools
-
-## Citation
-
-If you use this library in your research, please cite:
+pubmed-stream was developed to support biomedical research at the **University of Massachusetts** by the **Haran Lab**, the **Bucci Lab** and the **Microbiology & Microbiome Dynamics AI HUB**. Thanks to NCBI for the E-utilities and open access to PubMed Central. If you use it in your research, please cite:
 
 ```bibtex
 @software{pubmed_stream_2026,
-  title = {pubmed-stream: Python Library for PMC Article Downloads via NCBI E-utilities},
+  title = {pubmed-stream: From PubMed Searches to Knowledge Graphs of the Biomedical Literature},
   author = {Haran Lab and Bucci Lab and Microbiology \& Microbiome Dynamics AI HUB},
   organization = {University of Massachusetts},
   year = {2026},
   url = {https://github.com/melhzy/pubmed-stream},
-  note = {Built on NCBI E-utilities API}
+  note = {Built on NCBI E-utilities}
 }
 ```
 
-## License
+<details>
+<summary>MIT License</summary>
 
-MIT License
-
-Copyright (c) 2026 University of Massachusetts  
+Copyright (c) 2026 University of Massachusetts
 Haran Lab, Bucci Lab, and Microbiology & Microbiome Dynamics AI HUB
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1301,9 +544,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+</details>
 
-**Contact**: For questions or support, please open an issue on GitHub.
-
-**Repository**: https://github.com/melhzy/pubmed-stream  
-**PyPI Package**: https://pypi.org/project/pubmed-stream/
+Questions and bug reports: [open an issue](https://github.com/melhzy/pubmed-stream/issues). Package: [pypi.org/project/pubmed-stream](https://pypi.org/project/pubmed-stream/).
