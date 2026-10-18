@@ -843,6 +843,11 @@ def _download_pmcids(
 QUERY_FILE = "query.json"
 
 
+def slugify(text: str, default: str = "keyword") -> str:
+    """File-system-safe name for *text*, as used for download folders."""
+    return re.sub(r"[^A-Za-z0-9._-]+", "_", text.strip()).strip("_") or default
+
+
 def _write_query_file(out_dir: Path, keyword: str) -> None:
     """Record the search query next to its articles, for tools like the vault builder."""
     try:
@@ -944,7 +949,7 @@ def search_and_download(
         )
 
     # Create keyword-based output directory
-    keyword_slug = re.sub(r"[^A-Za-z0-9._-]+", "_", keyword.strip()).strip("_") or "keyword"
+    keyword_slug = slugify(keyword)
     out_dir = output_dir / keyword_slug
     _write_query_file(out_dir, keyword)
 

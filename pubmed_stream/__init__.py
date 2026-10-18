@@ -21,7 +21,7 @@ from .neighborhood import (
     get_neighborhood,
     save_neighborhood,
 )
-from .vault import VaultStats, build_vault
+from .vault import VaultStats, build_vault, topic_vault_dir
 
 __all__ = [
     "DownloadStats",
@@ -41,4 +41,5 @@ __all__ = [
     "save_neighborhood",
     "search_and_download",
     "strip_xml_tags",
+    "topic_vault_dir",
 ]

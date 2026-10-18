@@ -41,11 +41,13 @@ from .downloader import (
     _prepare_client,
     extract_metadata_from_pmc_xml,
     extract_text_from_pmc_xml,
+    slugify,
 )
 from .neighborhood import _efetch_pubmed
 
 logger = logging.getLogger(__name__)
 
+VAULT_PREFIX = "kg_"
 STATE_DIR = ".pubmed-stream"
 SOURCES_FILE = "sources.json"
 CACHE_FILE = "pubmed_records.json"
@@ -853,6 +855,19 @@ def _write_graph_settings(vault: Path) -> None:
 # Public API
 # ---------------------------------------------------------------------------
 
+def topic_vault_dir(topic: str, parent: PathLike = ".") -> Path:
+    """The vault folder of a study topic: ``<parent>/kg_<topic slug>``.
+
+    The slug follows download folder names, so the topic
+    ``"gut microbiome"`` gives ``kg_gut_microbiome`` next to
+    ``publications/gut_microbiome``.
+    """
+    slug = slugify(topic, default="topic")
+    if slug.lower().startswith(VAULT_PREFIX):
+        slug = slug[len(VAULT_PREFIX):] or "topic"
+    return Path(parent) / f"{VAULT_PREFIX}{slug}"
+
+
 def _registered_sources(vault: Path, sources: Optional[Iterable[PathLike]]) -> List[Path]:
     registry = vault / STATE_DIR / SOURCES_FILE
     known = [Path(p) for p in ((_read_json(registry) or {}).get("sources", []) if registry.is_file() else [])]
@@ -890,7 +905,8 @@ def build_vault(
         sources: Download folders or files (``PMC*.json``, ``neighborhood.json``)
             to add.  Folders are searched recursively.  Sources of earlier builds
             are remembered and always included; pass ``None`` to rebuild from them.
-        vault_dir: The vault folder; created if missing.
+        vault_dir: The vault folder; created if missing.  Use
+            :func:`topic_vault_dir` for the ``kg_<topic>`` naming convention.
         fulltext: Put each article's full text into its note (default: abstract only).
         offline: Do not query PubMed; use only cached MeSH terms.
         api_key, user_agent, email, rate_limit, session: NCBI client settings,

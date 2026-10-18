@@ -1,10 +1,11 @@
 import json
 import sys
+from pathlib import Path
 
 import pytest
 import requests
 
-from pubmed_stream import build_vault, cli
+from pubmed_stream import build_vault, cli, topic_vault_dir
 from pubmed_stream.vault import BLOCK_END, _merge_frontmatter, _safe_name
 
 
@@ -266,3 +267,53 @@ def test_cli_graph_missing_source(tmp_path, monkeypatch, capsys):
 
     assert cli.main() == 1
     assert "Source not found" in capsys.readouterr().err
+
+
+@pytest.mark.parametrize("topic, expected", [
+    ("gut microbiome", "kg_gut_microbiome"),
+    ('"knowledge graph"[Title]', "kg_knowledge_graph_Title"),
+    ("kg_frailty", "kg_frailty"),  # no kg_kg_ prefix
+    ("???", "kg_topic"),
+])
+def test_topic_vault_dir(topic, expected, tmp_path):
+    assert topic_vault_dir(topic) == Path(expected)
+    assert topic_vault_dir(topic, tmp_path) == tmp_path / expected
+
+
+def test_cli_graph_names_vault_after_single_source(search_dir, tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(sys, "argv", ["pubmed-stream", "graph", str(search_dir), "--offline"])
+
+    assert cli.main() == 0
+    assert (tmp_path / "kg_gut_microbiome" / "papers" / "PMID1.md").exists()
+
+
+def test_cli_graph_topic_for_several_sources(search_dir, hood_dir, tmp_path, monkeypatch, capsys):
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(sys, "argv", ["pubmed-stream", "graph", str(search_dir), str(hood_dir), "--offline"])
+    assert cli.main() == 1
+    assert "--topic" in capsys.readouterr().err
+
+    monkeypatch.setattr(sys, "argv", [
+        "pubmed-stream", "graph", str(search_dir), str(hood_dir), "--topic", "gut microbiome study", "--offline",
+    ])
+    assert cli.main() == 0
+    assert (tmp_path / "kg_gut_microbiome_study" / "collections" / "Neighborhood - PMID 1.md").exists()
+
+    # The topic alone rebuilds from the remembered sources
+    monkeypatch.setattr(sys, "argv", ["pubmed-stream", "graph", "--topic", "gut microbiome study", "--offline"])
+    assert cli.main() == 0
+
+
+@pytest.mark.parametrize("argv, expected", [
+    ([], None),  # no vault requested
+    (["--vault"], Path("kg_gut_microbiome")),
+    (["--vault", "my_vault"], Path("my_vault")),
+    (["--topic", "frailty"], Path("kg_frailty")),
+    (["--vault", "--topic", "frailty"], Path("kg_frailty")),
+    (["--vault", "my_vault", "--topic", "frailty"], Path("my_vault")),
+])
+def test_download_vault_naming(argv, expected):
+    args = cli.build_parser().parse_args(["download", "gut microbiome"] + argv)
+
+    assert cli._vault_dir(args, "gut_microbiome") == expected
