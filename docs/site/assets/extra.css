@@ -1,0 +1,6 @@
+/* Images and charts in the tutorials: never wider than the text, on a light card in dark mode */
+.md-typeset img { max-width: 100%; height: auto; }
+[data-md-color-scheme="slate"] .md-typeset p > img,
+[data-md-color-scheme="slate"] .jp-RenderedImage img { background: #fcfcfb; border-radius: 4px; }
+/* Notebook pages use the theme's width and font */
+.jupyter-wrapper .jp-Cell { padding-left: 0; padding-right: 0; }

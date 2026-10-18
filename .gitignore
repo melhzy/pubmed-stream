@@ -14,3 +14,5 @@ publications/
 tutorials/workspace/
 kg_*/
 .ipynb_checkpoints/
+/.cache/
+/site/
