@@ -112,6 +112,17 @@ def test_article_details_and_flags(ncbi):
     assert not any([articles["201"].is_retracted, articles["401"].is_retracted, articles["100"].is_review])
 
 
+def test_mesh_terms_with_major_topics(ncbi):
+    seed = neighborhood(ncbi).seed
+
+    assert seed.mesh_terms == [
+        {"ui": "D000069196", "name": "Gastrointestinal Microbiome", "major": True},
+        {"ui": "D006801", "name": "Humans", "major": False},
+        # Major through its qualifier
+        {"ui": "D000073496", "name": "Frailty", "major": True},
+    ]
+
+
 def test_missing_record_keeps_pmid(ncbi):
     missing = neighborhood(ncbi).references[1]
 

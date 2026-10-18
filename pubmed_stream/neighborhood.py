@@ -79,6 +79,8 @@ class RelatedArticle:
     pmcid: Optional[str] = None
     doi: Optional[str] = None
     score: Optional[int] = None  # PubMed similarity score (similar articles only)
+    # MeSH descriptors indexed for the article: {"ui", "name", "major"}
+    mesh_terms: List[Dict[str, Any]] = field(default_factory=list)
 
 
 @dataclass
@@ -154,6 +156,18 @@ def _parse_pubmed_article(record: ET.Element) -> Optional[RelatedArticle]:
         for aid in record.findall("PubmedData/ArticleIdList/ArticleId")
     }
 
+    mesh_terms = []
+    for heading in citation.findall("MeshHeadingList/MeshHeading"):
+        descriptor = heading.find("DescriptorName")
+        name = "".join(descriptor.itertext()).strip() if descriptor is not None else ""
+        if not name:
+            continue
+        # A heading is a major topic if its descriptor or any qualifier is starred
+        major = any(
+            el.get("MajorTopicYN") == "Y" for el in [descriptor] + heading.findall("QualifierName")
+        )
+        mesh_terms.append({"ui": descriptor.get("UI", ""), "name": name, "major": major})
+
     return RelatedArticle(
         pmid=pmid,
         title=title or None,
@@ -170,6 +184,7 @@ def _parse_pubmed_article(record: ET.Element) -> Optional[RelatedArticle]:
         ),
         pmcid=ids.get("pmc") or None,
         doi=ids.get("doi") or None,
+        mesh_terms=mesh_terms,
     )
 
 
