@@ -1,7 +1,7 @@
 """Draw the figures of docs/ARCHITECTURE.md from a pubmed-stream knowledge graph.
 
     pip install matplotlib networkx
-    python examples/kg_study.py                      # builds ./kg_gut_microbiome_frailty
+    python tutorials/kg_study.py                      # builds ./kg_gut_microbiome_frailty
     python docs/figures/make_figures.py kg_gut_microbiome_frailty docs/figures
 
 The figures are drawn from the notes themselves (properties and wikilinks), so

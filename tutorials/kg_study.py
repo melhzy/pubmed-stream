@@ -2,8 +2,8 @@
 
 Edit STUDY below, then run from the repository root:
 
-    python examples/kg_study.py            # start or grow the study
-    python examples/kg_study.py --refresh  # later: add newly published papers
+    python tutorials/kg_study.py            # start or grow the study
+    python tutorials/kg_study.py --refresh  # later: add newly published papers
 
 The graph is written to ./kg_<topic>; open that folder in Obsidian with
 "Open folder as vault".  Downloads go to ./publications.  The same study
