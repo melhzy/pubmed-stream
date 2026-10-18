@@ -1,7 +1,11 @@
 """Helpers shared by the pubmed-stream tutorials.
 
-- ``setup(name)`` makes the repository's package importable when running from a
-  clone, and moves into ``tutorials/workspace/`` so downloads stay out of the way.
+- ``setup(name, api_key)`` makes the repository's package importable when running
+  from a clone, uses the NCBI API key if one is given, and moves into
+  ``tutorials/workspace/`` so downloads stay out of the way.
+- ``quiet()`` hides download progress inside a ``with`` block.
+- ``download(folder)`` zips a folder; in Google Colab it also saves the zip to
+  your computer, so a knowledge graph can be opened in Obsidian.
 - ``read_kg(kg_dir)`` reads a knowledge graph's Obsidian notes into plain Python
   data; ``to_networkx(kg)`` turns it into a networkx graph.
 - ``style()`` and the colour constants give every chart the same look: papers
@@ -15,6 +19,7 @@ import os
 import re
 import sys
 from collections import defaultdict
+from contextlib import contextmanager, redirect_stdout
 from pathlib import Path
 
 TUTORIALS = Path(__file__).resolve().parent
@@ -33,15 +38,52 @@ EDGE = "#c9c8c2"
 BLUES = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#2a78d6", "#1c5cab", "#104281", "#0d366b"]
 
 
-def setup(name: str = "") -> Path:
+def in_colab() -> bool:
+    """True when running in Google Colab."""
+    return "google.colab" in sys.modules
+
+
+def setup(name: str = "", api_key: str = "") -> Path:
     """Import the repository's package when run from a clone; work in tutorials/workspace."""
     repo = TUTORIALS.parent
     if (repo / "pubmed_stream").is_dir() and str(repo) not in sys.path:
         sys.path.insert(0, str(repo))
+    if api_key.strip():
+        os.environ["NCBI_API_KEY"] = api_key.strip()
     folder = WORKSPACE / name if name else WORKSPACE
     folder.mkdir(parents=True, exist_ok=True)
     os.chdir(folder)
     return folder
+
+
+@contextmanager
+def quiet():
+    """Hide download progress and retry messages inside the block; show results after it."""
+    import io
+    import logging
+
+    log = logging.getLogger("pubmed_stream")
+    level = log.level
+    log.setLevel(logging.ERROR)
+    try:
+        with redirect_stdout(io.StringIO()):
+            yield
+    finally:
+        log.setLevel(level)
+
+
+def download(path) -> Path:
+    """Zip a folder next to it; in Google Colab, also save the zip, or a single file, to your computer."""
+    import shutil
+
+    path = Path(path).resolve()
+    archive = path if path.is_file() else Path(shutil.make_archive(str(path), "zip", path.parent, path.name))
+    if in_colab():
+        from google.colab import files
+
+        files.download(str(archive))
+    print(f"Saved {archive.name}, {archive.stat().st_size / 1e6:.1f} MB")
+    return archive
 
 
 def style() -> None:
@@ -118,7 +160,7 @@ def read_kg(kg_dir) -> dict:
     """Read a knowledge graph's notes.
 
     Returns ``{"papers": {...}, "concepts": {...}, "collections": {...}}``.  Each
-    paper has its properties (``title``, ``year``, ``journal``, ``authors``,
+    paper has its properties (``title``, ``pmid``, ``pmcid``, ``doi``, ``url``, ``year``, ``journal``, ``authors``,
     ``publication_types``, ``mesh``, ``status``, ``tags``) and its links:
     ``cites``, ``similar`` (target to score), ``concepts`` (name to major
     topic) and ``collections``.
@@ -131,6 +173,10 @@ def read_kg(kg_dir) -> dict:
         paper = {
             "key": path.stem,
             "title": props.get("title", path.stem),
+            "pmid": props.get("pmid"),
+            "pmcid": props.get("pmcid"),
+            "doi": props.get("doi"),
+            "url": props.get("url"),
             "year": int(year) if str(year).isdigit() else None,
             "journal": props.get("journal"),
             "authors": props.get("authors", []),

@@ -6,6 +6,8 @@
 
 **From a PubMed search to a knowledge graph of the literature.** pubmed-stream downloads full-text articles from PubMed Central, maps the evidence around key papers, and links everything a study collects into an [Obsidian](https://obsidian.md) knowledge graph, where papers connect through citations, similarity and MeSH topics. It is built on NCBI's official E-utilities, works from the command line or Python, and needs nothing beyond `requests`.
 
+> **New to programming?** Start with [tutorial 0](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/00_new_topic.ipynb), which takes a research question to a map of its literature in an afternoon. Click [Open in Colab](https://colab.research.google.com/github/melhzy/pubmed-stream/blob/main/tutorials/00_new_topic.ipynb) to run it in your web browser, with nothing to install; you only type your question into one settings cell.
+
 ```mermaid
 flowchart LR
     S["PubMed searches"] -->|"download"| D["Full-text articles<br/>metadata, references, text"]
@@ -60,18 +62,29 @@ print(stats.successful, hood.totals, result.kg_dir)
 
 ## Tutorials
 
-Six notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/main/tutorials) walk through real research questions, each saved with its outputs so you can read them without running anything:
+The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/main/tutorials) are written for researchers, not programmers. Each one follows a real research question, has a single **Your settings** cell for your own question, runs in Google Colab with nothing to install, and is saved with its results so you can read it on GitHub first.
 
 | # | Tutorial | Use case |
 |---|----------|----------|
+| 0 | [**Start here: a new research topic in an afternoon**](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/00_new_topic.ipynb) | From a question to a map of its literature: size the field, find the paper everyone cites, build a knowledge graph, read its themes, evidence and gaps, export a reading list |
 | 1 | [Getting started](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/01_getting_started.ipynb) | Download a search, read the files, choose a format, resume |
-| 2 | [Designing searches](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/02_search_strategies.ipynb) | Measure the size, precision and availability of five versions of one search |
+| 2 | [Designing searches](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/02_search_strategies.ipynb) | Measure the size, precision and availability of five versions of one search, and combine words with MeSH headings |
 | 3 | [A literature-review corpus](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/03_literature_review.ipynb) | Run a keyword list, deduplicate, screen by theme, export to CSV and BibTeX |
 | 4 | [The evidence around one paper](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/04_evidence_neighborhood.ipynb) | Map a paper's neighborhood and screen it for retractions |
 | 5 | [The knowledge graph of a study](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) | Build a graph and explain it with twelve charts and tables |
 | 6 | [Text mining and RAG preparation](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/06_text_mining.ipynb) | Split articles into sections and chunk them for embeddings |
 
-To run them: `pip install "pubmed-stream[tutorials]"`, clone the repository, and open the notebooks with Jupyter. The [tutorials README](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/README.md) has the details.
+Five short guides support them:
+
+| Guide | For |
+|---|---|
+| [How to run the tutorials](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/setup.md) | Colab, installing Python on Windows or Mac, running a notebook, a free NCBI API key |
+| [Reading a knowledge graph in Obsidian](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/obsidian.md) | Opening, exploring, searching and writing in a graph |
+| [Glossary](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/glossary.md) | MeSH, PMC, stub, seed and every other term, in plain language |
+| [What pubmed-stream can and cannot do](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/limitations.md) | Coverage, blind spots, and why it is not a systematic review |
+| [Troubleshooting for beginners](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/troubleshooting.md) | Setup, notebook, Colab and Obsidian problems |
+
+The [tutorials README](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/README.md) lists everything, including how programmers can run the notebooks locally.
 
 ## Installation and configuration
 
@@ -386,6 +399,7 @@ for pmc_id in ids:
 
 | Symptom | Cause and fix |
 |---------|---------------|
+| A quoted phrase is ignored on Windows | Windows PowerShell 5.1 drops inner double quotes, and Command Prompt does not understand single quotes. In PowerShell write `'\"gut microbiota\"[Title] AND frailty[Title/Abstract]'`; in Command Prompt, `"\"gut microbiota\"[Title] AND frailty[Title/Abstract]"`. PowerShell 7.3 and later, macOS and Linux take the examples as written |
 | `0` saved but many matches | The files already exist and were skipped, which counts as success; `stats.skipped` shows them |
 | Many *unavailable* articles | Their publishers do not allow XML download. Add `AND "open access"[filter]` to the search |
 | HTTP 429, *Too Many Requests* | Requests are retried automatically. Set `NCBI_API_KEY`, or slow down with `--rate-limit 0.5` |
@@ -394,6 +408,8 @@ for pmc_id in ids:
 | `'PMC…' is a PMC ID` | `neighborhood` and `--seed` need the PubMed ID, which downloaded files have in `metadata.pmid` |
 | Few references or citations in a neighborhood | NCBI has citation links only where reference lists were deposited, mostly for PMC articles |
 | Papers without concept links in a graph | PubMed has not indexed them with MeSH yet; rebuild later |
+
+Problems with installing Python, Jupyter, Colab or Obsidian are covered in the [troubleshooting guide for beginners](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/troubleshooting.md).
 
 For details, add `-v` to any command, or enable debug logging for this package only, since the HTTP library's debug output would log request URLs with your API key:
 
@@ -421,7 +437,7 @@ The [architecture guide](https://github.com/melhzy/pubmed-stream/blob/main/docs/
 pubmed-stream/
 ├── pubmed_stream/      the package
 ├── tests/              86 offline tests; NCBI is faked with canned responses
-├── tutorials/          six notebooks, kg_study.py, keyword lists, tools
+├── tutorials/          seven notebooks, guides, kg_study.py, keyword lists, tools
 ├── docs/               the architecture guide and its figures
 └── pyproject.toml
 ```
@@ -480,6 +496,10 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 **Why one JSON file per article?** One file keeps an article's metadata, references and text together, in every format, and makes corpora easy to filter, merge and resume.
 
 **Can I resume an interrupted download?** Yes. Run the same command again; existing files are skipped.
+
+**Can I use it for a systematic review?** For the first steps: scoping the field, testing and recording searches, and finding key papers. A systematic review also needs other databases, screening by two reviewers and risk-of-bias assessment; see [what pubmed-stream can and cannot do](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/limitations.md).
+
+**Why are some important papers missing?** Full text comes only from PMC, and searches return the newest matches first. Older and subscription-only papers enter a knowledge graph through key papers' neighborhoods, as stubs, or as links from the papers that cite them.
 
 **Do I need Obsidian?** Only to explore a knowledge graph visually. The notes are plain Markdown, and [tutorial 5](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) analyses one in Python.
 

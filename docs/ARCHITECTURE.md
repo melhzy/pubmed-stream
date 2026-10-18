@@ -54,7 +54,7 @@ pubmed-stream/
 │   ├── vault.py           Obsidian notes: graph model, merging, rendering, safe rewrites
 │   └── kg.py              studies: topic, searches and seeds, refresh
 ├── tests/                 86 offline tests; NCBI is faked with canned responses
-├── tutorials/             six notebooks, kg_study.py, keyword lists, tools
+├── tutorials/             seven notebooks, guides, kg_study.py, keyword lists, tools
 └── docs/                  this guide and its figures
 ```
 
