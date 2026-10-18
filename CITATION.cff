@@ -6,7 +6,7 @@ authors:
   - name: "Haran Lab, University of Massachusetts"
   - name: "Bucci Lab, University of Massachusetts"
   - name: "Microbiology & Microbiome Dynamics AI HUB, University of Massachusetts"
-version: "0.2.0"
+version: "0.3.0"
 date-released: "2026-10-18"
 license: MIT
 repository-code: "https://github.com/melhzy/pubmed-stream"

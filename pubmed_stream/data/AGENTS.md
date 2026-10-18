@@ -14,10 +14,10 @@ You are helping a researcher study the biomedical literature. Search, download a
 
 If the **pubmed-stream MCP tools** are available, use them: `search_pmc`, `download`, `list_articles`, `most_cited`, `read_article`, `neighborhood` and `build_knowledge_graph`. They return compact text and need no shell. Otherwise use the `pubmed-stream` command line below; each step names both.
 
-If neither works, install or upgrade pubmed-stream, then restart the session so the tools load:
+If neither works, or `pubmed-stream --version` is older than 0.3.0, install or upgrade pubmed-stream, then restart the session so the tools load:
 
 ```bash
-python -m pip install --upgrade "pubmed-stream @ git+https://github.com/melhzy/pubmed-stream"
+python -m pip install --upgrade pubmed-stream
 ```
 
 An NCBI API key in the `NCBI_API_KEY` environment variable makes everything about three times faster. Never print it.

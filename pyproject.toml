@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pubmed-stream"
-version = "0.2.0"
+version = "0.3.0"
 description = "Download PubMed Central full-text articles via NCBI E-utilities API. Built for biomedical research."
 readme = "README.md"
 license = "MIT"

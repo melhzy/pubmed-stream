@@ -103,7 +103,7 @@ pip install pubmed-stream                  # the library and the pubmed-stream c
 pip install "pubmed-stream[tutorials]"     # plus jupyter, matplotlib, networkx and pandas for the tutorials
 ```
 
-The AI-assistant, local-model and Obsidian features described in [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) arrive on PyPI with the next release; until then, install the latest version from GitHub: `pip install "pubmed-stream @ git+https://github.com/melhzy/pubmed-stream"`. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.8 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
+The AI-assistant, local-model and Obsidian features of [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.8 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
 
 **Set an NCBI API key.** NCBI allows 3 requests per second without a key and 10 with one, so a key makes everything about three times faster. Keys are free: create one in the settings of an [NCBI account](https://www.ncbi.nlm.nih.gov/account/). pubmed-stream reads it, and an optional contact email, from the environment:
 

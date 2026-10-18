@@ -77,12 +77,12 @@ A window opens with a line ending in `>` (Windows) or `%` (Mac). That is where y
 Follow steps 1 and 2 of [how to run the tutorials](guides/setup.md#option-2-your-own-computer) to install Python, then install pubmed-stream:
 
 ```bash
-python -m pip install "pubmed-stream @ git+https://github.com/melhzy/pubmed-stream"
+python -m pip install --upgrade pubmed-stream
 ```
 
 On a Mac, type `python3` instead of `python`, here and below. The command prints many lines and ends with `Successfully installed`.
 
-> **Check:** `pubmed-stream --version` prints a version number.
+> **Check:** `pubmed-stream --version` prints 0.3.0 or later.
 
 ### 2.3 Install your assistant
 
