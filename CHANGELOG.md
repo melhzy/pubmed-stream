@@ -2,6 +2,12 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
+## Unreleased
+
+### Added
+
+- A documentation site, https://melhzy.github.io/pubmed-stream/, built from the README, the tutorials, the guides and the changelog, with the notebooks shown with their results. GitHub Actions publishes it on every push to `main`.
+
 ## 0.3.0 - 2026-10-18
 
 ### Added

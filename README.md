@@ -1,8 +1,9 @@
 # pubmed-stream
 
-[![PyPI version](https://badge.fury.io/py/pubmed-stream.svg)](https://pypi.org/project/pubmed-stream/)
+[![PyPI version](https://img.shields.io/pypi/v/pubmed-stream.svg)](https://pypi.org/project/pubmed-stream/)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Documentation](https://img.shields.io/badge/docs-melhzy.github.io-2a78d6.svg)](https://melhzy.github.io/pubmed-stream/)
 
 **From a PubMed search to a knowledge graph of the literature.** pubmed-stream downloads full-text articles from PubMed Central, maps the evidence around key papers, and links everything a study collects into an [Obsidian](https://obsidian.md) knowledge graph, where papers connect through citations, similarity and MeSH topics. It is built on NCBI's official E-utilities, works from the command line or Python, and needs nothing beyond `requests`.
 
@@ -71,7 +72,7 @@ print(stats.successful, hood.totals, result.kg_dir)
 
 ## Tutorials
 
-The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/main/tutorials) are written for researchers, not programmers. Each follows a real research question. The notebooks have a single **Your settings** cell for your own question, run in Google Colab with nothing to install, and are saved with their results so you can read them on GitHub first; tutorial 7 happens in a terminal, with an AI assistant.
+The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/main/tutorials) are written for researchers, not programmers. Each follows a real research question. The notebooks have a single **Your settings** cell for your own question, run in Google Colab with nothing to install, and are saved with their results so you can read them first, on GitHub or on the [documentation site](https://melhzy.github.io/pubmed-stream/); tutorial 7 happens in a terminal, with an AI assistant.
 
 | # | Tutorial | Use case |
 |---|----------|----------|
@@ -526,6 +527,13 @@ Contributions are welcome. Fork the repository, create a feature branch, and ope
 ```bash
 pip install -e ".[dev]"
 pytest
+```
+
+The [documentation site](https://melhzy.github.io/pubmed-stream/) is built from the README, `tutorials/`, `docs/` and the changelog, and published by GitHub Actions on every push to `main`. Preview it at http://127.0.0.1:8000 with:
+
+```bash
+pip install -r docs/requirements.txt
+mkdocs serve
 ```
 
 Ideas on the roadmap: PubMed abstracts for articles outside PMC, a search query builder, progress bars, and export to BibTeX or RIS from the command line.

@@ -1,0 +1,111 @@
+# The documentation site, https://melhzy.github.io/pubmed-stream/
+#
+# The pages are the repository's own Markdown files and notebooks, read in
+# place by docs/hooks.py, so the site and GitHub always show the same text.
+# Preview it with:
+#   python -m pip install -r docs/requirements.txt
+#   python -m mkdocs serve
+site_name: pubmed-stream
+site_description: From a PubMed search to a knowledge graph of the literature
+site_url: https://melhzy.github.io/pubmed-stream/
+repo_url: https://github.com/melhzy/pubmed-stream
+repo_name: melhzy/pubmed-stream
+edit_uri: edit/main/
+copyright: pubmed-stream is released under the MIT License.
+
+docs_dir: docs/site
+use_directory_urls: false
+hooks:
+  - docs/hooks.py
+
+nav:
+  - Home: index.md
+  - Get started:
+      - How to run the tutorials: tutorials/guides/setup.md
+      - All tutorials: tutorials/README.md
+  - Tutorials:
+      - 0. A new topic in an afternoon: tutorials/00_new_topic.ipynb
+      - 1. Getting started: tutorials/01_getting_started.ipynb
+      - 2. Designing searches: tutorials/02_search_strategies.ipynb
+      - 3. A literature-review corpus: tutorials/03_literature_review.ipynb
+      - 4. The evidence around one paper: tutorials/04_evidence_neighborhood.ipynb
+      - 5. The knowledge graph of a study: tutorials/05_knowledge_graph.ipynb
+      - 6. Text mining and RAG preparation: tutorials/06_text_mining.ipynb
+      - 7. Research with an AI assistant: tutorials/07_ai_assistant.md
+  - Guides:
+      - Reading a knowledge graph in Obsidian: tutorials/guides/obsidian.md
+      - What it can and cannot do: tutorials/guides/limitations.md
+      - Troubleshooting: tutorials/guides/troubleshooting.md
+      - Glossary: tutorials/guides/glossary.md
+  - Reference:
+      - How pubmed-stream works: docs/ARCHITECTURE.md
+      - Changelog: CHANGELOG.md
+
+theme:
+  name: material
+  icon:
+    logo: material/book-search-outline
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.action.view
+    - toc.follow
+
+extra_css:
+  - assets/extra.css
+
+plugins:
+  - search
+  - mkdocs-jupyter:
+      execute: false
+      include_source: true
+      ignore_h1_titles: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+not_in_nav: |
+  /tutorials/guides/images/
+  /docs/figures/
