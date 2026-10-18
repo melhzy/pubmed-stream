@@ -22,6 +22,8 @@ You need a Google account.
 4. Colab warns that *this notebook was not authored by Google*. Choose **Run anyway**: the notebook comes from the pubmed-stream repository on GitHub.
 5. Results appear under each cell, in about five minutes.
 
+![Tutorial 0 open in Google Colab, with the Runtime menu open on Run all](images/colab-run-all.png)
+
 To use your own question, edit the **Your settings** cell and choose **Runtime > Run all** again.
 
 **Colab forgets everything** when you close the tab or leave it idle for a while. The tutorials that build a knowledge graph end with a cell that saves it to your computer as a zip file. Save anything else you want to keep with **File > Download**, or copy it to Google Drive.
@@ -70,7 +72,7 @@ Then install pubmed-stream with the tools the tutorials use (Jupyter, pandas, ma
 python -m pip install -e ".[tutorials]"
 ```
 
-This takes a minute or two and prints many lines; the last one starts with `Successfully installed`.
+This takes a minute or two and prints many lines; the last one starts with `Successfully installed`. A notice that *a new release of pip is available* is harmless and can be ignored.
 
 ### 5. Start Jupyter
 
@@ -88,14 +90,22 @@ Everything the tutorials download or build goes into `tutorials/workspace/`. Del
 
 ## Running a notebook
 
-A notebook is a document made of **cells**. Text cells explain; code cells, shown in grey, do the work and show their results underneath.
+A notebook is a document made of **cells**. Text cells explain; code cells, shown in grey, do the work and show their results underneath. Near the top of every tutorial is the **Your settings** cell, the only one you edit:
+
+![Tutorial 0 in Jupyter, showing the Your settings cell with the question, topic, concepts and other settings](images/jupyter-settings-cell.png)
+
+Then run the whole notebook from the **Run** menu:
+
+![The Run menu in Jupyter, with Run All Cells highlighted](images/jupyter-run-all.png)
+
+Jupyter labels a notebook you have not run yet as *Not Trusted*, at the top right. That is normal for a downloaded notebook: it only means the saved results were not produced on your computer, and the notebook runs as usual.
 
 | To | In Jupyter | In Colab |
 |---|---|---|
 | Run the whole notebook | **Run > Run All Cells** | **Runtime > Run all** |
 | Run one cell | Click it, then Shift+Enter | Click it, then Shift+Enter |
 | Start over after changing settings | **Kernel > Restart Kernel and Run All Cells** | **Runtime > Restart session and run all** |
-| Stop a cell that takes too long | **Kernel > Interrupt** | **Runtime > Interrupt execution** |
+| Stop a cell that takes too long | **Kernel > Interrupt Kernel** | **Runtime > Interrupt execution** |
 
 While a cell runs, Jupyter shows `[*]` beside it, and Colab a spinning circle. When it finishes, a number appears.
 
