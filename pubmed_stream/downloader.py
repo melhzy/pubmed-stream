@@ -18,6 +18,7 @@ not provided:
 - ``NCBI_EMAIL``   – included in the User-Agent header per NCBI guidelines.
 """
 
+import hashlib
 import html
 import logging
 import json
@@ -43,6 +44,8 @@ DEFAULT_OUTPUT_DIR = Path("publications")
 
 # Environment variables for configuration
 NCBI_API_KEY_ENV = "NCBI_API_KEY"
+# Longest download folder name; longer search strings are shortened with a hash
+MAX_SLUG_LENGTH = 100
 NCBI_EMAIL_ENV = "NCBI_EMAIL"
 DEFAULT_USER_AGENT = "pubmed-stream/1.0"
 
@@ -280,6 +283,58 @@ def _eutils_request(
     # Raised outside the except block so the original exception, whose
     # message contains the API key, is not chained as __context__
     raise requests.RequestException(f"{endpoint} failed: {error}")
+
+
+def esummary_pmc(
+    pmcids: List[str],
+    api_key: Optional[str],
+    session: requests.Session,
+    rate_limiter: RateLimiter,
+    retries: int = MAX_RETRIES,
+) -> List[Dict[str, Optional[str]]]:
+    """Titles, journals, years and identifiers of PMC articles, without downloading them.
+
+    Accepts PMC IDs with or without the ``PMC`` prefix.  Returns one dict per
+    article found, in the order given, with ``pmcid``, ``pmid``, ``doi``,
+    ``year``, ``journal``, ``title`` and ``first_author``.
+
+    Raises:
+        requests.RequestException: NCBI did not answer after all retries.
+    """
+    ids = [re.sub(r"^PMC", "", str(i).strip(), flags=re.I) for i in pmcids]
+    if not ids:
+        return []
+    params = {"db": "pmc", "id": ",".join(ids), "retmode": "json"}
+    for attempt in range(retries):
+        resp = _eutils_request("esummary.fcgi", params, api_key, session, rate_limiter, post=len(ids) > 200)
+        try:
+            result = resp.json()["result"]
+            break
+        except (ValueError, KeyError):
+            # NCBI answers a burst of requests with HTTP 200 and an error message
+            logger.warning("esummary.fcgi attempt %d/%d returned no result", attempt + 1, retries)
+            if attempt == retries - 1:
+                raise requests.RequestException("esummary.fcgi failed: no result in the response")
+            time.sleep(RETRY_DELAY * (attempt + 1))
+
+    articles = []
+    for uid in ids:
+        record = result.get(uid)
+        if not record or "error" in record:
+            continue
+        idmap = {a.get("idtype"): a.get("value") for a in record.get("articleids", [])}
+        date = record.get("pubdate") or record.get("epubdate") or ""
+        authors = record.get("authors") or []
+        articles.append({
+            "pmcid": f"PMC{uid}",
+            "pmid": idmap.get("pmid") if idmap.get("pmid") not in (None, "", "0") else None,
+            "doi": idmap.get("doi") or None,
+            "year": date[:4] if date[:4].isdigit() else None,
+            "journal": record.get("fulljournalname") or record.get("source") or None,
+            "title": " ".join((record.get("title") or "").split()) or None,
+            "first_author": authors[0].get("name") if authors else None,
+        })
+    return articles
 
 
 def strip_xml_tags(xml_text: str) -> str:
@@ -843,9 +898,18 @@ def _download_pmcids(
 QUERY_FILE = "query.json"
 
 
-def slugify(text: str, default: str = "keyword") -> str:
-    """File-system-safe name for *text*, as used for download folders."""
-    return re.sub(r"[^A-Za-z0-9._-]+", "_", text.strip()).strip("_") or default
+def slugify(text: str, default: str = "keyword", max_length: int = MAX_SLUG_LENGTH) -> str:
+    """File-system-safe name for *text*, as used for download folders.
+
+    A name longer than *max_length* is cut short and ends with a hash of the
+    full text, so it stays unique and keeps paths within the 260 characters
+    Windows allows by default.
+    """
+    slug = re.sub(r"[^A-Za-z0-9._-]+", "_", text.strip()).strip("_") or default
+    if len(slug) > max_length:
+        digest = hashlib.sha1(text.strip().encode("utf-8")).hexdigest()[:8]
+        slug = f"{slug[:max_length - len(digest) - 1].rstrip('_.')}_{digest}"
+    return slug
 
 
 def _write_query_file(out_dir: Path, keyword: str) -> None:
@@ -999,3 +1063,47 @@ def search_and_download(
     return stats
 
 
+
+
+@dataclass
+class SearchResult:
+    """The size of a PMC search and its newest matches, without downloading them."""
+    query: str
+    total_found: int
+    articles: List[Dict[str, Optional[str]]]
+
+    def __str__(self) -> str:
+        lines = [f"{self.total_found:,} articles in PMC for: {self.query}"]
+        if self.articles:
+            lines.append(f"Newest {len(self.articles)}:")
+        for a in self.articles:
+            pmid = f"PMID {a['pmid']}" if a["pmid"] else "no PMID"
+            journal = f" ({a['journal']})" if a["journal"] else ""
+            lines.append(f"  {a['year'] or 'n.d.'}  {a['pmcid']:<12} {pmid:<14} {a['title'] or ''}{journal}")
+        return "\n".join(lines)
+
+
+def search_pmc(
+    query: str,
+    max_results: int = 10,
+    api_key: Optional[str] = None,
+    user_agent: Optional[str] = None,
+    email: Optional[str] = None,
+    rate_limit: Optional[float] = None,
+    session: Optional[requests.Session] = None,
+) -> SearchResult:
+    """Count a PMC search and list its newest *max_results* matches, without downloading.
+
+    Use it to check a search's size and precision before ``search_and_download``.
+
+    Raises:
+        requests.RequestException: NCBI did not answer the summary request.
+    """
+    api_key, rate_limiter, session, owned_session = _prepare_client(api_key, rate_limit, user_agent, email, session)
+    try:
+        pmcids, total_found = esearch_pmc(query, max_results, api_key, session, rate_limiter)
+        articles = esummary_pmc(pmcids, api_key, session, rate_limiter) if pmcids else []
+    finally:
+        if owned_session:
+            session.close()
+    return SearchResult(query=query, total_found=total_found, articles=articles)

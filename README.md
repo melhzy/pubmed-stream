@@ -26,6 +26,7 @@ flowchart LR
 - [2. Write searches that find the right papers](#2-write-searches-that-find-the-right-papers)
 - [3. Map the evidence around a paper](#3-map-the-evidence-around-a-paper)
 - [4. Build the knowledge graph of a study](#4-build-the-knowledge-graph-of-a-study)
+- [5. Work with AI assistants, local models and Obsidian](#5-work-with-ai-assistants-local-models-and-obsidian)
 - [Python API](#python-api)
 - [Troubleshooting](#troubleshooting)
 - [How it works](#how-it-works)
@@ -38,14 +39,22 @@ flowchart LR
 ```bash
 pip install pubmed-stream
 
-# Download the full text of up to 50 articles
+# Size a search and preview its newest titles, without downloading
+pubmed-stream search '"gut microbiota"[Title] AND frailty[Title/Abstract]'
+
+# Download the full text of up to 50 articles, then read them compactly
 pubmed-stream download '"gut microbiota"[Title] AND frailty[Title/Abstract]' --max-results 50
+pubmed-stream list publications --abstracts
 
 # Map the evidence around one paper: similar, citing and cited papers, with retractions flagged
 pubmed-stream neighborhood 31319564
 
 # Build a study's knowledge graph in ./kg_gut_microbiome_frailty, then open it in Obsidian
 pubmed-stream kg "gut microbiome frailty" -q '"gut microbiota"[Title] AND frailty[Title/Abstract]' --seed 31319564
+pubmed-stream open kg_gut_microbiome_frailty
+
+# Let Claude Code, Codex or Gemini CLI do all of this: set up a folder, then start the assistant there
+pubmed-stream init
 ```
 
 The same in Python:
@@ -62,17 +71,18 @@ print(stats.successful, hood.totals, result.kg_dir)
 
 ## Tutorials
 
-The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/main/tutorials) are written for researchers, not programmers. Each one follows a real research question, has a single **Your settings** cell for your own question, runs in Google Colab with nothing to install, and is saved with its results so you can read it on GitHub first.
+The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/main/tutorials) are written for researchers, not programmers. Each follows a real research question. The notebooks have a single **Your settings** cell for your own question, run in Google Colab with nothing to install, and are saved with their results so you can read them on GitHub first; tutorial 7 happens in a terminal, with an AI assistant.
 
 | # | Tutorial | Use case |
 |---|----------|----------|
 | 0 | [**Start here: a new research topic in an afternoon**](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/00_new_topic.ipynb) | From a question to a map of its literature: size the field, find the paper everyone cites, build a knowledge graph, read its themes, evidence and gaps, export a reading list |
-| 1 | [Getting started](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/01_getting_started.ipynb) | Download a search, read the files, choose a format, resume, fetch one known article, rescue a search that finds nothing |
+| 1 | [Getting started](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/01_getting_started.ipynb) | Download a search, read the files, choose a format, resume, fetch one known article, rescue a search that finds nothing, read downloads compactly |
 | 2 | [Designing searches](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/02_search_strategies.ipynb) | Measure the size, precision and availability of five versions of one search, and combine words with MeSH headings |
 | 3 | [A literature-review corpus](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/03_literature_review.ipynb) | Run a keyword list, deduplicate, screen by theme, export to CSV and BibTeX |
 | 4 | [The evidence around one paper](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/04_evidence_neighborhood.ipynb) | Map a paper's neighborhood and screen it for retractions |
 | 5 | [The knowledge graph of a study](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) | Build a graph and explain it with twelve charts and tables |
 | 6 | [Text mining and RAG preparation](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/06_text_mining.ipynb) | Split articles into sections and chunk them for embeddings |
+| 7 | [Your literature search with an AI assistant](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) | For medical students and biologists: install Claude Code or Codex, choose a model, ask in plain English, check the evidence, keep it in Obsidian, or use a local model through Ollama |
 
 Five short guides support them:
 
@@ -93,7 +103,7 @@ pip install pubmed-stream                  # the library and the pubmed-stream c
 pip install "pubmed-stream[tutorials]"     # plus jupyter, matplotlib, networkx and pandas for the tutorials
 ```
 
-From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.8 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
+The AI-assistant, local-model and Obsidian features described in [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) arrive on PyPI with the next release; until then, install the latest version from GitHub: `pip install "pubmed-stream @ git+https://github.com/melhzy/pubmed-stream"`. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.8 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
 
 **Set an NCBI API key.** NCBI allows 3 requests per second without a key and 10 with one, so a key makes everything about three times faster. Keys are free: create one in the settings of an [NCBI account](https://www.ncbi.nlm.nih.gov/account/). pubmed-stream reads it, and an optional contact email, from the environment:
 
@@ -120,7 +130,16 @@ print(f"{stats.successful} saved, {stats.skipped} already there, {stats.unavaila
       f"of {stats.total_found} matches, in {stats.duration_seconds:.0f} s")
 ```
 
-Each search gets its own folder, named after the query. Running a search again skips the files that already exist, so an interrupted download resumes and a repeated search only fetches what is new.
+Each search gets its own folder, named after the query; a name longer than 100 characters is shortened and ends with a short hash of the query. Running a search again skips the files that already exist, so an interrupted download resumes and a repeated search only fetches what is new.
+
+To see what you downloaded without opening every file, `list` prints one line per article, newest first, and each article once however many searches found it:
+
+```bash
+pubmed-stream list publications                       # identifiers, year, title, journal, length
+pubmed-stream list publications --id 31319564 --abstracts   # the abstracts of chosen articles
+pubmed-stream list publications --cited               # the works the downloads cite most
+pubmed-stream list publications --json --abstracts > corpus.jsonl
+```
 
 ```
 publications/
@@ -175,6 +194,7 @@ The format decides what is kept beside the metadata:
 | `--workers N`, `--sequential` | Parallel downloads, or one at a time for unstable networks | 5 workers |
 | `--topic`, `--vault` | Also add the results to a knowledge graph, see [section 4](#4-build-the-knowledge-graph-of-a-study) | off |
 | `--api-key`, `--email`, `--rate-limit`, `--user-agent`, `-v` | NCBI settings and verbose logging | environment |
+| `--quiet` | Print only the summary, without progress | progress shown |
 
 `download` exits with 0 when articles were saved or already present, 1 when the search found nothing, and 2 when every download failed.
 
@@ -190,7 +210,15 @@ PMC searches the **full text** of every article, including its reference list, s
 | Restrict to open access | `AND "open access"[filter]` | Every result can be downloaded |
 | Limit the years | `AND 2020:2026[pdat]` | Reaches past the newest results, or focuses on them |
 
-PMC returns the newest matches first, so `--max-results` takes the most recent articles. Check a search's size with `esearch_pmc` before downloading, and read a sample of titles before trusting it.
+PMC returns the newest matches first, so `--max-results` takes the most recent articles. Check a search before downloading: `pubmed-stream search QUERY` prints its size and newest titles without downloading anything, and `--show 0` prints the count only.
+
+```
+$ pubmed-stream search '"gut microbiota"[Title] AND sarcopenia[Title/Abstract]' --show 2
+80 articles in PMC for: "gut microbiota"[Title] AND sarcopenia[Title/Abstract]
+Newest 2:
+  2026  PMC13668947  PMID 42875678  Correspondence for the article: "Association between gut microbiota and sarcopenia ...
+  2026  PMC13641649  PMID 41879259  Alterations in the Gut Microbiota of Cirrhotic Patients With Sarcopenia and PH After TIPS. ...
+```
 
 ## 3. Map the evidence around a paper
 
@@ -359,10 +387,45 @@ Your own notes go here and survive every rebuild.
 
 Limitations to know about:
 
-- **Recent papers often lack MeSH terms.** Indexing takes months and journals outside MEDLINE are never indexed, so such papers have no concept links yet. Rebuild later to pick them up.
+- **Some papers lack MeSH terms.** Indexing takes months, and papers in journals outside MEDLINE are never indexed, so such papers have no concept links. Rebuild later to pick up newly indexed papers; the others stay unlinked to concepts but keep their citation links.
 - **Downloads from pubmed-stream 0.1.1 or earlier have no reference lists**, unless saved with `--format xml` or `both`. Download them again to add citation links.
 - **Many references have no PMID.** Conference papers, preprints and books appear under *Other references*, not in the graph.
 - **Notes are never deleted.** Removing a source leaves its notes in the graph.
+
+## 5. Work with AI assistants, local models and Obsidian
+
+pubmed-stream connects to the tools researchers now work with: AI assistants that run in a terminal, local models that keep everything on your computer, and Obsidian, where the knowledge graph lives.
+
+```mermaid
+flowchart LR
+    A["Claude Code, Codex,<br/>Gemini CLI"] -->|"MCP tools"| P["pubmed-stream"]
+    P --> K["kg_topic<br/>Obsidian vault"]
+    P -->|"pubmed-stream review"| O["Ollama<br/>local model"]
+    O -->|"review notes"| K
+    A -->|"obsidian CLI"| K
+```
+
+**AI assistants.** In a research folder, `pubmed-stream init` writes the instructions and settings for Claude Code, Codex and Gemini CLI. The assistant then calls pubmed-stream directly through its **MCP server**, as the tools `search_pmc`, `download`, `list_articles`, `most_cited`, `read_article`, `neighborhood` and `build_knowledge_graph`. Ask it a research question in plain language:
+
+```bash
+pubmed-stream init
+claude        # or: codex, gemini
+```
+
+> *Does fecal microbiota transplantation help people with Parkinson's disease? Find the clinical evidence and summarize it, with PMIDs.*
+
+The instructions make the assistant size searches before downloading, cite only papers it downloaded and read in the session, say what kind of evidence each is, report its searches with their counts, and name what it could not read. Every tool returns compact text, so the assistant can scan 64 papers in about 3,000 tokens instead of reading 4.3 MB of full text. `init --claude-model opus` and `init --review-model <ollama model>` also choose the models for the folder. To give an assistant the tools in every folder, register the server once instead: `claude mcp add pubmed-stream -- pubmed-stream mcp`, or the same with `codex mcp add`.
+
+**Local models.** `pubmed-stream review` has a model running in [Ollama](https://ollama.com) on your own computer summarize the abstracts you chose, one at a time, at temperature 0. pubmed-stream attaches each PubMed ID itself and flags numbers and citations the abstracts do not support:
+
+```bash
+ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
+pubmed-stream review "Does FMT help people with Parkinson's disease?" --id 38686220 41826284 41113141 --vault kg_fmt_parkinson
+```
+
+**Obsidian.** Every knowledge graph has property types for Obsidian and `Papers.base`, a Bases table of all papers with views for full texts, reviews, retracted papers and your `#to-read` list. `pubmed-stream open kg_<topic>` opens it, and with Obsidian's [command line](https://obsidian.md/help/cli) switched on, an assistant can query it: `obsidian vault=kg_<topic> base:query path=Papers.base view="Reading list"`.
+
+[Tutorial 7](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) walks through real sessions: an assistant going from 4,863 search results to a cited report, Claude Code and Codex using the MCP tools, and what a 1-billion-parameter local model gets right and wrong. A model that small summarizes well but cannot run the searches itself.
 
 ## Python API
 
@@ -378,7 +441,14 @@ Everything the commands do is available from `pubmed_stream`:
 | `load_study(kg_dir)`, `record_study(kg_dir, topic, queries, seeds)` | Read, or add to, a graph's recorded study | dict |
 | `build_vault(sources, vault_dir, ...)` | Build graph notes from download folders only | `VaultStats` |
 | `topic_vault_dir(topic)` | The `kg_<topic>` folder of a topic | path |
+| `search_pmc(query, max_results=10, ...)` | Count a search and list its newest matches, without downloading | `SearchResult` |
+| `list_articles(path)` | Compact records of downloaded articles, newest first, each once | list of dicts |
+| `most_cited(path, n=10)` | The works the downloaded articles cite most | list of dicts |
+| `review(question, path, ids, model, answer=False, ...)` | Summaries by a local model through Ollama, with checks | `Review` |
+| `init_folder(folder)` | Instructions and MCP settings for Claude Code, Codex and Gemini CLI | list of actions |
+| `open_vault(kg_dir)` | Open a knowledge graph in Obsidian | `(opened, message)` |
 | `esearch_pmc(term, max_results, api_key, session, rate_limiter)` | One PMC search: IDs and total count | `(ids, total)` |
+| `esummary_pmc(pmcids, api_key, session, rate_limiter)` | Titles, journals, years and identifiers of PMC articles | list of dicts |
 | `efetch_pmc(pmcid, out_dir, fmt, api_key, session, rate_limiter)` | Download one article | `(ok, status)` |
 | `extract_metadata_from_pmc_xml(xml)`, `extract_text_from_pmc_xml(xml)` | Parse JATS XML you already have | dict, str |
 | `create_session(user_agent)`, `RateLimiter(seconds)` | Building blocks for the low-level functions | |
@@ -425,7 +495,11 @@ pubmed-stream is a stack of five small modules. Each one uses only those below i
 
 | Module | Role |
 |--------|------|
-| `cli.py` | The `pubmed-stream` command: `download`, `neighborhood` and `kg` |
+| `cli.py` | The `pubmed-stream` command: `init`, `search`, `download`, `list`, `neighborhood`, `kg`, `review`, `open` and `mcp` |
+| `corpus.py` | Reads downloaded articles back as compact records, and finds the works they cite most |
+| `mcp_server.py` | The MCP server that gives AI assistants pubmed-stream's tools |
+| `review.py` | Summaries by a local model through Ollama, with number and citation checks |
+| `obsidian.py`, `assistants.py` | Opening graphs in Obsidian; setting up folders for AI assistants |
 | `kg.py` | Studies: run searches and seeds, record them, refresh them |
 | `vault.py` | Knowledge-graph notes: merge every source, render notes, rebuild safely |
 | `neighborhood.py` | Similar, citing and cited papers, with flags and MeSH terms |
@@ -436,8 +510,8 @@ The [architecture guide](https://github.com/melhzy/pubmed-stream/blob/main/docs/
 ```
 pubmed-stream/
 ├── pubmed_stream/      the package
-├── tests/              86 offline tests; NCBI is faked with canned responses
-├── tutorials/          seven notebooks, guides, kg_study.py, keyword lists, tools
+├── tests/              117 offline tests; NCBI is faked with canned responses
+├── tutorials/          seven notebooks, the AI assistant tutorial and instructions, guides, kg_study.py, keyword lists, tools
 ├── docs/               the architecture guide and its figures
 ├── pyproject.toml      package metadata and dependencies
 ├── CHANGELOG.md        changes in each version

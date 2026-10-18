@@ -4,7 +4,11 @@ The words used in pubmed-stream's tutorials and output, in plain language.
 
 **Abstract.** The summary at the start of a paper. Paper notes include it for downloaded papers.
 
+**AI assistant.** Here, an AI that can run commands in a terminal, such as Claude Code, Codex or Gemini CLI. It can drive pubmed-stream for you; see [tutorial 7](../07_ai_assistant.md).
+
 **API key.** A free personal code from NCBI that raises its speed limit from 3 to 10 requests per second. See [getting a key](setup.md#getting-a-free-ncbi-api-key).
+
+**Bases.** An Obsidian core plugin that shows notes as a table, filtered and sorted by their properties. Every knowledge graph has one, `Papers.base`; see the [Obsidian guide](obsidian.md#a-table-of-all-papers).
 
 **Boolean operators.** `AND`, `OR` and `NOT`, written in capitals, combine search terms. `A AND B` needs both, `A OR B` either, `A NOT B` excludes B. Brackets group them: `(A OR B) AND C`.
 
@@ -36,6 +40,8 @@ The words used in pubmed-stream's tutorials and output, in plain language.
 
 **Graph view.** Obsidian's map of a vault: every note a dot, every link a line. See the [Obsidian guide](obsidian.md#the-graph-view).
 
+**Instructions file.** A text file, such as `AGENTS.md` or `CLAUDE.md`, that an AI assistant reads when it starts in a folder. pubmed-stream's tells it how to search and to cite only papers it has read.
+
 **JATS XML.** The standard format in which PMC stores papers, with every section, figure caption and reference marked up. pubmed-stream can keep it for text mining (`fmt="both"`).
 
 **JSON.** A plain-text file format for structured data. pubmed-stream saves each paper as one JSON file, `PMC<number>.json`, readable by any programming language.
@@ -44,9 +50,15 @@ The words used in pubmed-stream's tutorials and output, in plain language.
 
 **Knowledge graph.** A network of linked facts. Here, an Obsidian vault in which papers, MeSH concepts and searches are notes, linked by citation, similarity and topic. pubmed-stream names it `kg_<topic>`.
 
+**Local model.** An AI model that runs on your own computer, so nothing you give it leaves the machine. [Ollama](https://ollama.com) runs them; small ones summarize text but cannot run commands reliably. See [tutorial 7](../07_ai_assistant.md#8-private-questions-a-model-on-your-own-computer).
+
 **Major topic.** A MeSH heading that NLM's indexers mark as a main point of a paper, as opposed to one that is only discussed. Search for it with `[majr]`.
 
-**MeSH.** Medical Subject Headings, NLM's controlled vocabulary of about 30,000 biomedical concepts. Indexers tag each PubMed paper with MeSH **headings**, so a MeSH search finds papers about a concept whatever words the authors used. Look up headings in the [MeSH browser](https://www.ncbi.nlm.nih.gov/mesh); search with `[mh]`. New papers take weeks to months to be indexed.
+**MCP.** The Model Context Protocol, an open standard by which AI assistants such as Claude Code and Codex call tools directly. `pubmed-stream mcp` is pubmed-stream's MCP server; `pubmed-stream init` sets it up. See [tutorial 7](../07_ai_assistant.md#3-set-up-a-folder-for-your-question).
+
+**MeSH.** Medical Subject Headings, NLM's controlled vocabulary of about 30,000 biomedical concepts. Indexers tag each paper in **MEDLINE**, PubMed's curated core of journals, with MeSH **headings**, so a MeSH search finds papers about a concept whatever words the authors used. Look up headings in the [MeSH browser](https://www.ncbi.nlm.nih.gov/mesh); search with `[mh]`. New papers take weeks to months to be indexed, and papers in journals outside MEDLINE never are.
+
+**Model.** The AI that an assistant runs on. Each assistant offers several, from fast to most capable; see [choosing a model](../07_ai_assistant.md#4-choose-a-model).
 
 **Metadata.** Information about a paper rather than its text: title, authors, journal, year, identifiers, keywords and references.
 
@@ -55,6 +67,8 @@ The words used in pubmed-stream's tutorials and output, in plain language.
 **Notebook.** A document that mixes explanations, code and results, such as the tutorials. Jupyter and Colab run them.
 
 **Obsidian.** A free note-taking app that shows linked notes as a graph. See the [Obsidian guide](obsidian.md).
+
+**Ollama.** A free program that runs AI models on your own computer. `pubmed-stream review` uses it to summarize abstracts locally.
 
 **Open access.** Papers whose license allows free reading and reuse. In PMC, `"open access"[filter]` keeps only papers that pubmed-stream can always download.
 

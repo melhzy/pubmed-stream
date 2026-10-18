@@ -10,10 +10,25 @@ Notable changes to pubmed-stream. Versions follow [semantic versioning](https://
 - Guides: setting up from zero, reading a knowledge graph in Obsidian, a glossary, what pubmed-stream can and cannot do, and troubleshooting.
 - The `tutorials` install extra: `pip install "pubmed-stream[tutorials]"`.
 - `LICENSE`, `CITATION.cff` and this changelog.
+- `pubmed-stream search` counts a search and lists its newest matches without downloading (`search_pmc`, `esummary_pmc`).
+- `pubmed-stream list` prints downloaded articles compactly, each once, with `--abstracts`, `--id`, `--limit` and `--json`; `--cited` lists the works they cite most (`list_articles`, `most_cited`).
+- `--quiet` prints only results and errors, not progress.
+- `pubmed-stream mcp`, an MCP server that gives Claude Code, Codex and other AI assistants seven tools: `search_pmc`, `download`, `list_articles`, `most_cited`, `read_article`, `neighborhood` and `build_knowledge_graph`.
+- `pubmed-stream init` prepares a research folder for Claude Code, Codex and Gemini CLI: instructions in `AGENTS.md`, imported by `CLAUDE.md` and `GEMINI.md`, and MCP settings in `.mcp.json` and `.codex/config.toml` (`init_folder`). `--claude-model` and `--review-model` choose Claude Code's model and the local review model for the folder; `review` uses the folder's model when `--model` is not given.
+- `pubmed-stream review` summarizes chosen abstracts with a local model through Ollama, at temperature 0, attaches each PubMed ID itself, flags numbers the abstracts do not contain and citations of articles not read, and can save the review as a note in a knowledge graph (`review`, `save_to_vault`).
+- Knowledge graphs get Obsidian property types (`.obsidian/types.json`) and `Papers.base`, a Bases table with views for all papers, full texts, reviews, retracted papers and the `#to-read` list, embedded in the home note. Existing types and an edited base are kept.
+- `pubmed-stream open`, and `kg --open`, open a knowledge graph in Obsidian (`open_vault`).
+- `tutorials/tools/session_figures.py` charts a research folder's session: its searches, papers by year, most cited works, kinds of evidence and the key paper's neighborhood.
+- Tutorial 7, a step-by-step guide for medical students and biologists who have never programmed: installing Claude Code or Codex, choosing a model, asking questions, checking the evidence, Obsidian and private local models, built on real sessions with Claude Code, Codex and a local Llama 3.2 1B model.
 
 ### Changed
 
 - The README is rewritten as one guide, from downloading to building a knowledge graph.
+
+### Fixed
+
+- Commands no longer stop with a `UnicodeEncodeError` on Windows when their output is piped or redirected: they write UTF-8.
+- Download folder names longer than 100 characters are shortened and end with a hash of the search, so paths stay within Windows' default limit. A search that long downloads into a new folder the next time it runs.
 
 ### Removed
 

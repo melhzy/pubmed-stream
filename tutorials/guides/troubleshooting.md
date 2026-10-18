@@ -54,4 +54,27 @@ Find the message or symptom you see. Most problems happen during setup and are f
 | Clicking a link creates an empty note | The paper is cited but was not downloaded or added as a stub. Its PubMed ID is in the link's name. Delete the empty note if you don't need it. |
 | Notes I wrote disappeared after a rebuild | They were inside the generated block, between the `%% pubmed-stream:start` and `%% pubmed-stream:end` lines. Write below the end line; see [write your own notes](obsidian.md#write-your-own-notes). |
 
+| `Command line interface is not enabled` from `obsidian` | Obsidian's own command line is off. In Obsidian, open **Settings > General**, switch on *Command line interface*, follow the prompt, and open a new terminal. |
+| `pubmed-stream open` says Obsidian does not know the graph | Obsidian opens only folders it already knows. Add the `kg_<topic>` folder once with **Open folder as vault**; after that, `open` works. |
+
+## AI assistants
+
+| You see | What it means and what to do |
+|---|---|
+| The assistant says it has no pubmed-stream tools | The MCP server did not start. Run `pubmed-stream init` in the folder and start the assistant there again. In Claude Code, `/mcp` shows the server and any error; approve it if asked. In Codex, `/mcp` lists the tools. |
+| `init` works, but the server fails to start later | The settings point to the Python that ran `init`. If you moved or removed that Python environment, run `pubmed-stream init` again from the one you use now. |
+| Codex ignores the model I set in the research folder | Codex 0.163 does not read a folder's model setting. Choose it with `/model` during the session, start with `codex -m <model>`, or set `model` in the `config.toml` of the `.codex` folder in your home folder. |
+| Codex stops at `download` or `build_knowledge_graph` | Tools that save files need your approval. Approve them when asked; in `codex exec`, add `--approve-for-me`. |
+| The assistant cites a paper you cannot find | Ask which tool output it read the paper in. Open `https://pubmed.ncbi.nlm.nih.gov/<PMID>/`; if the PMID is not among the downloads (`pubmed-stream list publications --id <PMID>`), do not rely on the claim. |
+
+## Local models with Ollama
+
+| You see | What it means and what to do |
+|---|---|
+| `Ollama is not running` | Start Ollama from its icon or with `ollama serve`, or install it from [ollama.com](https://ollama.com). |
+| `Ollama does not have the model` | Download it once: `ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M`, or name a model you have with `--model`; `ollama list` shows them. |
+| A summary ends with `[cut at 300 tokens]` | The model started repeating itself and was stopped. Read the abstract instead, or try a larger model. |
+| A warning that the prompt filled the model's context | The abstract was too long for the model's working memory and was cut. Add `--num-ctx 16384`. |
+| Reviews are very slow | Without a graphics card, a model reads a few hundred words a second. Review fewer papers at a time with `--id`. |
+
 Still stuck? Open an [issue on GitHub](https://github.com/melhzy/pubmed-stream/issues) with the message you see and what you were doing.

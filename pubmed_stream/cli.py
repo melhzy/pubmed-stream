@@ -5,8 +5,12 @@ Installed as the ``pubmed-stream`` console script, or runnable via
 """
 
 import argparse
+import contextlib
+import io
+import json
 import logging
 import sys
+import textwrap
 from pathlib import Path
 import requests
 
@@ -16,7 +20,9 @@ from .downloader import (
     RATE_LIMIT_WITH_API_KEY,
     RATE_LIMIT_NO_API_KEY,
     search_and_download,
+    search_pmc,
 )
+from .corpus import list_articles, most_cited
 from .neighborhood import (
     Neighborhood,
     download_neighborhood,
@@ -33,7 +39,16 @@ _AUTO_VAULT = object()
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="pubmed-stream",
-        description="Download PubMed Central full-text articles.",
+        description="Search PubMed Central, download full-text articles, map the evidence around "
+                    "key papers, and build a study's knowledge graph.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""a typical literature search:
+  pubmed-stream search '"gut microbiota"[Title] AND frailty[Title/Abstract]'   # size it first
+  pubmed-stream download '"gut microbiota"[Title] AND frailty[Title/Abstract]' --max-results 30
+  pubmed-stream list publications --abstracts                                 # read compactly
+  pubmed-stream kg "gut microbiome frailty" -q '...' --seed 31319564          # link it all
+
+Run 'pubmed-stream <command> --help' for each command's options.""",
     )
     parser.add_argument(
         "--version",
@@ -41,7 +56,7 @@ def build_parser() -> argparse.ArgumentParser:
         version=f"%(prog)s {__version__}",
     )
 
-    # Options shared by all subcommands
+    # Options shared by every subcommand that talks to NCBI
     common = argparse.ArgumentParser(add_help=False)
     common.add_argument(
         "--api-key",
@@ -54,9 +69,9 @@ def build_parser() -> argparse.ArgumentParser:
         help="Enable verbose (DEBUG) logging",
     )
     common.add_argument(
-        "--output-dir",
-        "-o",
-        help="Base output directory for downloads (default: ./publications)",
+        "--quiet",
+        action="store_true",
+        help="Print only results and errors, not progress (useful for scripts and AI assistants)",
     )
     common.add_argument(
         "--user-agent",
@@ -75,6 +90,11 @@ def build_parser() -> argparse.ArgumentParser:
 
     # Options controlling how full-text articles are downloaded and saved
     fetch = argparse.ArgumentParser(add_help=False)
+    fetch.add_argument(
+        "--output-dir",
+        "-o",
+        help="Base output directory for downloads (default: ./publications)",
+    )
     fetch.add_argument(
         "--format",
         choices=["text", "xml", "both", "json", "txt"],
@@ -130,6 +150,29 @@ def build_parser() -> argparse.ArgumentParser:
 
     subparsers = parser.add_subparsers(dest="command", required=True)
 
+    search = subparsers.add_parser(
+        "search",
+        parents=[common],
+        help="Count a PMC search and list its newest matches, without downloading",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""examples:
+  pubmed-stream search '"gut microbiota"[Title] AND frailty[Title/Abstract]'
+  pubmed-stream search 'gut microbiome frailty' --show 0      # size only
+  pubmed-stream search '"gut microbiota"[Title]' --json
+
+Check a search's size and read a sample of titles before downloading it.
+Exits with 1 when the search finds nothing.""",
+    )
+    search.add_argument("query", help="PMC search query, with PubMed field tags such as [Title]")
+    search.add_argument(
+        "--show",
+        type=int,
+        default=10,
+        metavar="N",
+        help="How many of the newest matches to list (default: 10; 0 for the count only)",
+    )
+    search.add_argument("--json", action="store_true", help="Print the result as JSON")
+
     download = subparsers.add_parser(
         "download",
         parents=[common, fetch, study, vault],
@@ -152,6 +195,113 @@ files that already exist.""",
         default=100,
         help="Maximum number of articles to download (default: 100)",
     )
+
+    listing = subparsers.add_parser(
+        "list",
+        help="List downloaded articles compactly: identifiers, year, journal, title, abstract",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""examples:
+  pubmed-stream list publications/gut_microbiota_Title_AND_frailty_Title_Abstract
+  pubmed-stream list publications --abstracts
+  pubmed-stream list publications --json --abstracts > corpus.jsonl
+  pubmed-stream list publications --cited               # the works cited most
+  pubmed-stream list publications --id 38686220 PMC10841011 --abstracts
+
+Each article appears once, newest first, however many searches found it.
+An article's full text is in the "text" field of its file.""",
+    )
+    listing.add_argument(
+        "path",
+        nargs="?",
+        default="publications",
+        help="A download folder, a folder of them, or one PMC*.json file (default: ./publications)",
+    )
+    listing.add_argument("--abstracts", action="store_true", help="Include each article's abstract")
+    listing.add_argument("--limit", type=int, metavar="N", help="List only the newest N articles")
+    listing.add_argument(
+        "--id",
+        nargs="+",
+        metavar="ID",
+        help="List only these articles, by PubMed ID or PMC ID",
+    )
+    listing.add_argument(
+        "--cited",
+        type=int,
+        nargs="?",
+        const=10,
+        metavar="N",
+        help="Instead, list the N works the articles cite most (default N: 10): the corpus's "
+             "foundations, and good key papers for 'neighborhood' or 'kg --seed'",
+    )
+    listing.add_argument("--json", action="store_true", help="Print one JSON object per line")
+
+    review_p = subparsers.add_parser(
+        "review",
+        help="Summarize downloaded abstracts with a local model through Ollama, and check its numbers and citations",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""examples:
+  pubmed-stream review "Does FMT help Parkinson's disease?" --id 38686220 41826284 38057970
+  pubmed-stream review "What is known about X?" --limit 10 --answer --vault kg_x
+
+Needs Ollama (https://ollama.com) with the model downloaded:
+  ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
+The model reads one abstract at a time; pubmed-stream attaches each PubMed
+ID itself and flags numbers a summary adds. Exits with 1 when the answer
+cites an article that was not read, 2 when Ollama fails.""",
+    )
+    review_p.add_argument("question", help="The research question, in plain language")
+    review_p.add_argument("--path", default="publications", help="Downloaded articles (default: ./publications)")
+    review_p.add_argument("--id", nargs="+", metavar="ID", help="Summarize these articles, by PubMed ID or PMC ID")
+    review_p.add_argument("--limit", type=int, default=10, help="Without --id, the newest N articles (default: 10)")
+    review_p.add_argument("--model", help="Ollama model (default: the folder's review model from 'init "
+                                         "--review-model', else Llama 3.2 1B Instruct, Unsloth's 4-bit GGUF)")
+    review_p.add_argument("--answer", action="store_true",
+                          help="Also write one answer from all the summaries (experimental with small models)")
+    review_p.add_argument("--out", help="Also save the review as this Markdown file")
+    review_p.add_argument("--vault", metavar="DIR",
+                          help="Also save it as a note in this knowledge graph's reviews folder")
+    review_p.add_argument("--num-ctx", type=int, default=8192,
+                          help="The model's working memory in tokens (default: 8192)")
+    review_p.add_argument("--ollama-host", help="Ollama's address (default: OLLAMA_HOST, or http://127.0.0.1:11434)")
+
+    init = subparsers.add_parser(
+        "init",
+        help="Prepare a research folder for Claude Code, Codex and Gemini CLI",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Writes AGENTS.md (the instructions; CLAUDE.md and GEMINI.md import it),
+.mcp.json (Claude Code) and .codex/config.toml (Codex), which start
+pubmed-stream's MCP server. Existing files are kept, and settings are added
+to them. Then start your assistant in the folder: claude, codex or gemini.""",
+    )
+    init.add_argument("folder", nargs="?", default=".", help="The research folder (default: the current folder)")
+    init.add_argument("--force", action="store_true", help="Rewrite AGENTS.md with the current instructions")
+    init.add_argument("--claude-model", metavar="MODEL",
+                      help="Claude Code's model in this folder, such as opus or sonnet (.claude/settings.json)")
+    init.add_argument("--review-model", metavar="MODEL",
+                      help="The Ollama model 'pubmed-stream review' uses in this folder (.pubmed-stream.json)")
+
+    open_p = subparsers.add_parser(
+        "open",
+        help="Open a knowledge graph in Obsidian",
+        description="Open a knowledge graph's home note in Obsidian. Obsidian must know the folder as a "
+                    "vault: add it once with Open folder as vault.",
+    )
+    open_p.add_argument("kg_dir", nargs="?", help="The kg_<topic> folder (default: the only one here)")
+
+    mcp = subparsers.add_parser(
+        "mcp",
+        help="Run as an MCP server, so Claude Code, Codex and other AI assistants can call pubmed-stream's tools",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""Started by the AI assistant, not by you. Register it once:
+  claude mcp add pubmed-stream -- pubmed-stream mcp
+  codex mcp add pubmed-stream -- pubmed-stream mcp
+or run 'pubmed-stream init' in a research folder.
+
+Tools: search_pmc, download, list_articles, most_cited, read_article,
+neighborhood, build_knowledge_graph. Messages are JSON-RPC on standard
+input and output; logs go to standard error.""",
+    )
+    mcp.add_argument("--root", help="Folder that relative paths refer to (default: the current folder)")
 
     neighborhood = subparsers.add_parser(
         "neighborhood",
@@ -238,6 +388,11 @@ written outside the generated %% pubmed-stream %% block.""",
         help="Run every search and neighborhood of the study again to pick up new papers",
     )
     kg.add_argument(
+        "--open",
+        action="store_true",
+        help="Open the knowledge graph in Obsidian afterwards (Obsidian must know it as a vault)",
+    )
+    kg.add_argument(
         "--max-results",
         type=int,
         default=100,
@@ -301,28 +456,29 @@ def _update_vault(args: argparse.Namespace, vault_dir: Path, sources, queries=()
 
 def _run_kg(args: argparse.Namespace) -> int:
     try:
-        result = create_kg(
-            args.topic,
-            queries=args.query,
-            seeds=args.seed,
-            sources=args.add,
-            refresh=args.refresh,
-            max_results=args.max_results,
-            max_per_relation=args.max_per_relation,
-            download_neighbors=args.download_neighbors,
-            kg_dir=args.kg_dir,
-            output_dir=args.output_dir,
-            fmt=args.format,
-            include_text=not args.exclude_text,
-            use_concurrent=not args.sequential,
-            max_workers=args.workers,
-            fulltext=args.fulltext,
-            offline=args.offline,
-            api_key=args.api_key,
-            user_agent=args.user_agent,
-            email=args.email,
-            rate_limit=args.rate_limit,
-        )
+        with _progress(args):
+            result = create_kg(
+                args.topic,
+                queries=args.query,
+                seeds=args.seed,
+                sources=args.add,
+                refresh=args.refresh,
+                max_results=args.max_results,
+                max_per_relation=args.max_per_relation,
+                download_neighbors=args.download_neighbors,
+                kg_dir=args.kg_dir,
+                output_dir=args.output_dir,
+                fmt=args.format,
+                include_text=not args.exclude_text,
+                use_concurrent=not args.sequential,
+                max_workers=args.workers,
+                fulltext=args.fulltext,
+                offline=args.offline,
+                api_key=args.api_key,
+                user_agent=args.user_agent,
+                email=args.email,
+                rate_limit=args.rate_limit,
+            )
     except (FileNotFoundError, ValueError) as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1
@@ -330,7 +486,121 @@ def _run_kg(args: argparse.Namespace) -> int:
         print(f"Error: could not write the knowledge graph: {e}", file=sys.stderr)
         return 2
     print(result)
+    if args.open and result.kg_dir is not None:
+        _run_open(result.kg_dir)
     return 2 if result.errors else 0
+
+
+def _progress(args: argparse.Namespace):
+    """Hide the download progress the library prints, under --quiet."""
+    if getattr(args, "quiet", False):
+        return contextlib.redirect_stdout(io.StringIO())
+    return contextlib.nullcontext()
+
+
+def _run_search(args: argparse.Namespace) -> int:
+    try:
+        result = search_pmc(
+            args.query,
+            max_results=max(args.show, 0),
+            api_key=args.api_key,
+            user_agent=args.user_agent,
+            email=args.email,
+            rate_limit=args.rate_limit,
+        )
+    except requests.RequestException as e:
+        print(f"Error: could not reach NCBI: {e}", file=sys.stderr)
+        return 2
+    if args.json:
+        print(json.dumps({"query": result.query, "total_found": result.total_found,
+                          "articles": result.articles}, ensure_ascii=False, indent=1))
+    else:
+        print(result)
+    return 0 if result.total_found else 1
+
+
+def _run_list(args: argparse.Namespace) -> int:
+    path = Path(args.path)
+    if not path.exists():
+        print(f"Error: {path} does not exist", file=sys.stderr)
+        return 1
+    records = list_articles(path)
+    if not records:
+        print(f"No downloaded articles in {path}", file=sys.stderr)
+        return 1
+    if args.cited is not None:
+        works = most_cited(path, args.cited)
+        if args.json:
+            for work in works:
+                print(json.dumps(work, ensure_ascii=False))
+            return 0
+        print(f"Works cited most by the {len(records)} articles in {path}:")
+        for w in works:
+            ref = f"PMID {w['pmid']}" if w["pmid"] else f"DOI {w['doi']}"
+            print(f"  cited by {w['cited_by']:<3} {ref:<14} {w['year'] or 'n.d.'}  {w['title'] or ''}")
+        return 0
+    if args.id:
+        wanted = {i.strip().upper() for i in args.id}
+        records = [r for r in records if str(r["pmid"]) in wanted or r["pmcid"].upper() in wanted]
+        missing = wanted - {str(r["pmid"]) for r in records} - {r["pmcid"].upper() for r in records}
+        if missing:
+            print(f"Not downloaded under {path}: {', '.join(sorted(missing))}", file=sys.stderr)
+        if not records:
+            return 1
+    shown = records[:args.limit] if args.limit is not None else records
+    if args.json:
+        for record in shown:
+            if not args.abstracts:
+                record = {k: v for k, v in record.items() if k != "abstract"}
+            print(json.dumps(record, ensure_ascii=False))
+        return 0
+    count = f"newest {len(shown)} of {len(records)}" if len(shown) < len(records) else str(len(records))
+    print(f"{count} articles in {path}")
+    for r in shown:
+        pmid = f"PMID {r['pmid']}" if r["pmid"] else "no PMID"
+        journal = f" ({r['journal']})" if r["journal"] else ""
+        print(f"{r['year'] or 'n.d.'}  {r['pmcid']:<12} {pmid:<14} {r['title'] or ''}{journal} [{r['words']:,} words]")
+        if args.abstracts and r["abstract"]:
+            print(textwrap.fill(r["abstract"], width=100, initial_indent="      ", subsequent_indent="      "))
+    return 0
+
+
+def _run_open(kg_dir) -> int:
+    from .obsidian import open_vault
+
+    if kg_dir is None:
+        found = sorted(p for p in Path.cwd().glob("kg_*") if p.is_dir())
+        if len(found) != 1:
+            print("Error: name the knowledge graph folder: " + (", ".join(p.name for p in found) or "none here"),
+                  file=sys.stderr)
+            return 1
+        kg_dir = found[0]
+    opened, message = open_vault(kg_dir)
+    print(message, file=sys.stdout if opened else sys.stderr)
+    return 0 if opened else 1
+
+
+def _run_review(args: argparse.Namespace) -> int:
+    from .assistants import review_model
+    from .review import DEFAULT_MODEL, OllamaError, review, save_to_vault
+
+    try:
+        result = review(args.question, path=args.path, ids=args.id, limit=args.limit,
+                        model=args.model or review_model() or DEFAULT_MODEL, answer=args.answer, host=args.ollama_host,
+                        num_ctx=args.num_ctx)
+    except ValueError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        return 1
+    except OllamaError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        return 2
+    print(result)
+    if args.out:
+        Path(args.out).write_text(str(result) + "\n", encoding="utf-8")
+        print(f"\nSaved {args.out}", file=sys.stderr)
+    if args.vault:
+        print(f"Saved {save_to_vault(result, args.vault)}", file=sys.stderr)
+    return 1 if result.not_read else 0
 
 
 def _relation_summary(label: str, hood: Neighborhood, relation: str) -> str:
@@ -381,18 +651,19 @@ def _run_neighborhood(args: argparse.Namespace) -> int:
     print(f"Explore the graph: {hood.linked_discoveries_url}")
 
     if args.download:
-        stats = download_neighborhood(
-            hood,
-            output_dir=output_dir,
-            fmt=args.format,
-            api_key=args.api_key,
-            use_concurrent=not args.sequential,
-            max_workers=args.workers,
-            include_text=not args.exclude_text,
-            user_agent=args.user_agent,
-            email=args.email,
-            rate_limit=args.rate_limit,
-        )
+        with _progress(args):
+            stats = download_neighborhood(
+                hood,
+                output_dir=output_dir,
+                fmt=args.format,
+                api_key=args.api_key,
+                use_concurrent=not args.sequential,
+                max_workers=args.workers,
+                include_text=not args.exclude_text,
+                user_agent=args.user_agent,
+                email=args.email,
+                rate_limit=args.rate_limit,
+            )
         print(stats)
 
     vault_dir = _vault_dir(args, path.parent.name)
@@ -401,7 +672,23 @@ def _run_neighborhood(args: argparse.Namespace) -> int:
     return 0
 
 
+def _utf8_output() -> None:
+    """Write UTF-8 when output is piped or redirected.
+
+    Article titles hold Greek letters and accents that Windows' default
+    encoding for pipes cannot represent, which would stop the command.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        if not hasattr(stream, "reconfigure"):
+            continue
+        if stream.isatty():
+            stream.reconfigure(errors="replace")
+        else:
+            stream.reconfigure(encoding="utf-8")
+
+
 def main() -> int:
+    _utf8_output()
     parser = build_parser()
     args = parser.parse_args()
 
@@ -415,21 +702,55 @@ def main() -> int:
     )
     if getattr(args, "verbose", False):
         logging.getLogger("pubmed_stream").setLevel(logging.DEBUG)
+    elif getattr(args, "quiet", False):
+        logging.getLogger("pubmed_stream").setLevel(logging.ERROR)
+
+    if args.command == "mcp":
+        from .mcp_server import serve
+
+        logging.getLogger("pubmed_stream").setLevel(logging.WARNING)
+        serve(Path(args.root) if args.root else None)
+        return 0
+
+    if args.command == "search":
+        return _run_search(args)
+
+    if args.command == "open":
+        return _run_open(args.kg_dir)
+
+    if args.command == "init":
+        from .assistants import init_folder
+
+        for name, action in init_folder(args.folder, force=args.force, claude_model=args.claude_model,
+                                        review_model=args.review_model):
+            print(f"{action:>8}  {Path(args.folder) / name}")
+        print("\nStart your assistant in this folder: claude, codex or gemini. Claude Code asks once to "
+              "approve the pubmed-stream server; in Codex, /mcp lists its tools.")
+        return 0
+
+    if args.command == "review":
+        return _run_review(args)
+
+    if args.command == "list":
+        return _run_list(args)
 
     if args.command == "download":
-        stats = search_and_download(
-            keyword=args.keyword,
-            max_results=args.max_results,
-            fmt=args.format,
-            api_key=args.api_key,
-            use_concurrent=not args.sequential,
-            max_workers=args.workers,
-            include_text=not args.exclude_text,
-            output_dir=Path(args.output_dir) if args.output_dir else None,
-            user_agent=args.user_agent,
-            email=args.email,
-            rate_limit=args.rate_limit,
-        )
+        with _progress(args):
+            stats = search_and_download(
+                keyword=args.keyword,
+                max_results=args.max_results,
+                fmt=args.format,
+                api_key=args.api_key,
+                use_concurrent=not args.sequential,
+                max_workers=args.workers,
+                include_text=not args.exclude_text,
+                output_dir=Path(args.output_dir) if args.output_dir else None,
+                user_agent=args.user_agent,
+                email=args.email,
+                rate_limit=args.rate_limit,
+            )
+        if args.quiet:
+            print(stats)
 
         if stats.successful > 0 or (stats.skipped > 0 and stats.errors == 0):
             vault_dir = _vault_dir(args, stats.output_dir.name)

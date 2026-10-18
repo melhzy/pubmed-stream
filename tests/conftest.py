@@ -1,3 +1,4 @@
+import logging
 from pathlib import Path
 from typing import Callable, Dict, Optional, Union
 
@@ -81,7 +82,9 @@ def make_session():
 
     def factory(**kwargs) -> requests.Session:
         session = requests.Session()
-        session.mount("https://", FakeAdapter(**kwargs))
+        adapter = FakeAdapter(**kwargs)
+        session.mount("https://", adapter)
+        session.mount("http://", adapter)   # local services such as Ollama
         sessions.append(session)
         return session
 
@@ -93,3 +96,12 @@ def make_session():
 @pytest.fixture(autouse=True)
 def no_retry_delay(monkeypatch):
     monkeypatch.setattr("pubmed_stream.downloader.RETRY_DELAY", 0)
+
+
+@pytest.fixture(autouse=True)
+def restore_log_level():
+    """CLI tests set the package's log level (--quiet, --verbose); keep it per test."""
+    logger = logging.getLogger("pubmed_stream")
+    level = logger.level
+    yield
+    logger.setLevel(level)

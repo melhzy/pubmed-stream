@@ -1,0 +1,357 @@
+"""pubmed-stream as an MCP server, for Claude Code, Codex and other AI assistants.
+
+The Model Context Protocol (https://modelcontextprotocol.io) lets an AI
+assistant call tools directly instead of typing shell commands.  This server
+speaks it over standard input and output with no extra dependencies:
+
+    claude mcp add pubmed-stream -- pubmed-stream mcp
+    codex mcp add pubmed-stream -- pubmed-stream mcp
+
+Each tool returns compact text, so the assistant reads abstracts and
+counts rather than whole article files.  Relative paths are resolved
+against the folder the server started in, or ``--root``.
+"""
+
+import contextlib
+import io
+import json
+import logging
+import sys
+from pathlib import Path
+from typing import Any, Callable, Dict, List, Optional
+
+import requests
+
+from . import __version__
+from .corpus import list_articles, most_cited
+from .downloader import search_and_download, search_pmc
+
+logger = logging.getLogger(__name__)
+
+SUPPORTED_VERSIONS = ("2025-11-25", "2025-06-18", "2025-03-26", "2024-11-05")
+
+INSTRUCTIONS = """pubmed-stream searches PubMed Central, downloads open full texts and reads them back compactly.
+Work in this order: search_pmc to size and refine a search (aim for 50-300 on-topic matches), download,
+list_articles to scan titles, list_articles with ids and abstracts=true to read chosen abstracts,
+read_article to search inside one full text. Cite only articles whose abstract or text you read here,
+by PubMed ID; never cite from memory. Say what kind of evidence each is, and what could not be downloaded."""
+
+PATH_PARAM = {"type": "string", "description": "Folder of downloads, relative to the project",
+              "default": "publications"}
+
+TOOLS: List[Dict[str, Any]] = [
+    {
+        "name": "search_pmc",
+        "title": "Size a PMC search",
+        "description": "Count a PubMed Central search and list its newest matches, without downloading. "
+                       "Use PubMed field tags: [Title], [Title/Abstract], [mh] for MeSH, \"open access\"[filter]. "
+                       "Plain words match anywhere in the full text, so most results are off topic.",
+        "inputSchema": {"type": "object", "properties": {
+            "query": {"type": "string",
+                      "description": "PMC search, e.g. \"gut microbiota\"[Title] AND parkinson[Title]"},
+            "show": {"type": "integer", "description": "How many of the newest matches to list (0 for the count)",
+                     "default": 10, "minimum": 0, "maximum": 100},
+        }, "required": ["query"]},
+        "annotations": {"readOnlyHint": True, "openWorldHint": True},
+    },
+    {
+        "name": "download",
+        "title": "Download full texts",
+        "description": "Download the newest matches of a PMC search as JSON files, one per article, into "
+                       "<output_dir>/<folder named after the search>. Existing files are skipped. Articles "
+                       "whose publishers forbid downloading are counted as unavailable.",
+        "inputSchema": {"type": "object", "properties": {
+            "query": {"type": "string", "description": "PMC search, checked first with search_pmc"},
+            "max_results": {"type": "integer", "default": 30, "minimum": 1, "maximum": 500},
+            "output_dir": PATH_PARAM,
+        }, "required": ["query"]},
+        "annotations": {"readOnlyHint": False, "destructiveHint": False, "idempotentHint": True, "openWorldHint": True},
+    },
+    {
+        "name": "list_articles",
+        "title": "List downloaded articles",
+        "description": "Downloaded articles, newest first, each once: identifiers, year, journal, title and "
+                       "length. With ids, only those articles; with abstracts, their abstracts too. Scan "
+                       "titles first, then read the abstracts of the articles that bear on the question.",
+        "inputSchema": {"type": "object", "properties": {
+            "path": PATH_PARAM,
+            "ids": {"type": "array", "items": {"type": "string"}, "description": "PubMed IDs or PMC IDs"},
+            "abstracts": {"type": "boolean", "default": False},
+            "limit": {"type": "integer", "minimum": 1, "description": "Only the newest N articles"},
+        }},
+        "annotations": {"readOnlyHint": True, "openWorldHint": False},
+    },
+    {
+        "name": "most_cited",
+        "title": "Most cited works",
+        "description": "The works the downloaded articles cite most: the field's foundations, and good key "
+                       "papers for the neighborhood tool.",
+        "inputSchema": {"type": "object", "properties": {
+            "path": PATH_PARAM,
+            "n": {"type": "integer", "default": 10, "minimum": 1, "maximum": 100},
+        }},
+        "annotations": {"readOnlyHint": True, "openWorldHint": False},
+    },
+    {
+        "name": "read_article",
+        "title": "Read one article's full text",
+        "description": "The full text of one downloaded article. With find, only the paragraphs that contain "
+                       "the term, numbered, which is usually enough; without it, the text up to max_chars.",
+        "inputSchema": {"type": "object", "properties": {
+            "id": {"type": "string", "description": "PubMed ID or PMC ID of a downloaded article"},
+            "find": {"type": "string", "description": "Term to search for, case-insensitive"},
+            "path": PATH_PARAM,
+            "max_chars": {"type": "integer", "default": 6000, "minimum": 500, "maximum": 50000},
+        }, "required": ["id"]},
+        "annotations": {"readOnlyHint": True, "openWorldHint": False},
+    },
+    {
+        "name": "neighborhood",
+        "title": "Evidence around one paper",
+        "description": "Similar, citing and cited papers of one PubMed article, with counts of reviews, "
+                       "retractions and NIH funding, and the retracted papers named. Saved as "
+                       "<output_dir>/neighborhood_<pmid>/neighborhood.json.",
+        "inputSchema": {"type": "object", "properties": {
+            "pmid": {"type": "string", "description": "PubMed ID, not a PMC ID"},
+            "max_per_relation": {"type": "integer", "default": 30, "minimum": 1, "maximum": 500},
+            "output_dir": PATH_PARAM,
+        }, "required": ["pmid"]},
+        "annotations": {"readOnlyHint": False, "destructiveHint": False, "idempotentHint": True, "openWorldHint": True},
+    },
+    {
+        "name": "build_knowledge_graph",
+        "title": "Build or refresh a knowledge graph",
+        "description": "Link a study's searches and key papers into an Obsidian vault, kg_<topic>, with notes for "
+                       "papers, MeSH concepts and searches. Later calls with the same topic add to it; "
+                       "refresh reruns every recorded search and key paper.",
+        "inputSchema": {"type": "object", "properties": {
+            "topic": {"type": "string", "description": "Short study name, e.g. gut microbiome parkinson"},
+            "queries": {"type": "array", "items": {"type": "string"}},
+            "seeds": {"type": "array", "items": {"type": "string"}, "description": "PubMed IDs of key papers"},
+            "max_results": {"type": "integer", "default": 30, "minimum": 1, "maximum": 500},
+            "max_per_relation": {"type": "integer", "default": 30, "minimum": 1, "maximum": 500},
+            "refresh": {"type": "boolean", "default": False},
+        }, "required": ["topic"]},
+        "annotations": {"readOnlyHint": False, "destructiveHint": False, "idempotentHint": True, "openWorldHint": True},
+    },
+]
+
+
+class ToolError(Exception):
+    """A problem to report to the assistant as a tool result, not a protocol error."""
+
+
+def _line(r: Dict[str, Any]) -> str:
+    pmid = f"PMID {r['pmid']}" if r.get("pmid") else "no PMID"
+    journal = f" ({r['journal']})" if r.get("journal") else ""
+    return f"{r.get('year') or 'n.d.'}  {r['pmcid']}  {pmid}  {r.get('title') or ''}{journal}"
+
+
+class Server:
+    """Answers MCP requests; one instance per connection."""
+
+    def __init__(self, root: Path) -> None:
+        self.root = root
+        self.handlers: Dict[str, Callable[[Dict[str, Any]], str]] = {
+            "search_pmc": self.search_pmc,
+            "download": self.download,
+            "list_articles": self.list_articles,
+            "most_cited": self.most_cited,
+            "read_article": self.read_article,
+            "neighborhood": self.neighborhood,
+            "build_knowledge_graph": self.build_knowledge_graph,
+        }
+
+    def path(self, value: Optional[str]) -> Path:
+        path = Path(value or "publications")
+        return path if path.is_absolute() else self.root / path
+
+    # -- tools ---------------------------------------------------------------
+
+    def search_pmc(self, args: Dict[str, Any]) -> str:
+        return str(search_pmc(args["query"], max_results=int(args.get("show", 10))))
+
+    def download(self, args: Dict[str, Any]) -> str:
+        stats = search_and_download(args["query"], max_results=int(args.get("max_results", 30)),
+                                    output_dir=self.path(args.get("output_dir")))
+        folder = stats.output_dir.resolve()
+        return (f"{stats.total_found:,} articles found; {stats.requested} requested: {stats.successful} downloaded, "
+                f"{stats.skipped} already there, {stats.unavailable} unavailable (publisher does not allow "
+                f"downloading), {stats.errors} errors.\nFolder: {folder}")
+
+    def records(self, path: Path) -> List[Dict[str, Any]]:
+        if not path.exists():
+            raise ToolError(f"{path} does not exist; download a search first")
+        records = list_articles(path)
+        if not records:
+            raise ToolError(f"No downloaded articles in {path}")
+        return records
+
+    def list_articles(self, args: Dict[str, Any]) -> str:
+        path = self.path(args.get("path"))
+        records = self.records(path)
+        lines = []
+        if args.get("ids"):
+            wanted = {str(i).strip().upper() for i in args["ids"]}
+            records = [r for r in records if str(r["pmid"]) in wanted or r["pmcid"].upper() in wanted]
+            missing = wanted - {str(r["pmid"]) for r in records} - {r["pmcid"].upper() for r in records}
+            if missing:
+                lines.append(f"Not downloaded: {', '.join(sorted(missing))}")
+        total = len(records)
+        if args.get("limit"):
+            records = records[:int(args["limit"])]
+        lines.insert(0, f"{len(records)} of {total} articles in {path.name}")
+        for r in records:
+            lines.append(_line(r) + f" [{r['words']:,} words]")
+            if args.get("abstracts"):
+                lines.append(f"    {r['abstract'] or '(no abstract)'}")
+        return "\n".join(lines)
+
+    def most_cited(self, args: Dict[str, Any]) -> str:
+        path = self.path(args.get("path"))
+        count = len(self.records(path))
+        lines = [f"Works cited most by the {count} articles in {path.name}:"]
+        for w in most_cited(path, int(args.get("n", 10))):
+            ref = f"PMID {w['pmid']}" if w["pmid"] else f"DOI {w['doi']}"
+            lines.append(f"cited by {w['cited_by']}  {ref}  {w['year'] or 'n.d.'}  {w['title'] or ''}")
+        return "\n".join(lines)
+
+    def read_article(self, args: Dict[str, Any]) -> str:
+        wanted = str(args["id"]).strip().upper()
+        record = next((r for r in self.records(self.path(args.get("path")))
+                       if str(r["pmid"]) == wanted or r["pmcid"].upper() == wanted), None)
+        if record is None:
+            raise ToolError(f"{args['id']} is not among the downloaded articles")
+        data = json.loads(Path(record["file"]).read_text(encoding="utf-8"))
+        text = data.get("text") or ""
+        if not text:
+            raise ToolError(f"{record['pmcid']} was saved without its text field")
+        header = _line(record)
+        term = (args.get("find") or "").strip()
+        limit = int(args.get("max_chars", 6000))
+        if term:
+            hits = [f"[{i}] {p}" for i, p in enumerate(text.splitlines(), 1) if term.lower() in p.lower()]
+            body = "\n".join(hits) if hits else f'No paragraph mentions "{term}".'
+            note = f'{len(hits)} paragraphs mention "{term}":'
+        else:
+            body, note = text, f"{len(text.split()):,} words:"
+        if len(body) > limit:
+            body = body[:limit] + f"\n... (cut at {limit:,} characters; use find, or raise max_chars)"
+        return f"{header}\n{note}\n{body}"
+
+    def neighborhood(self, args: Dict[str, Any]) -> str:
+        from .neighborhood import get_neighborhood, save_neighborhood
+
+        try:
+            hood = get_neighborhood(str(args["pmid"]), max_per_relation=int(args.get("max_per_relation", 30)))
+        except ValueError as e:
+            raise ToolError(str(e)) from None
+        if hood.seed is None:
+            raise ToolError(f"PMID {hood.pmid} not found in PubMed")
+        saved = save_neighborhood(hood, self.path(args.get("output_dir")))
+        lines = [f"Seed: PMID {hood.pmid} ({hood.seed.year or 'n.d.'}) {hood.seed.title or ''}"]
+        for label, relation in (("Similar", "similar"), ("Cited by", "cited_by"), ("References", "references")):
+            flags = hood.flag_counts[relation]
+            lines.append(f"{label}: {len(getattr(hood, relation))} fetched of {hood.totals[relation]} "
+                         f"({flags['reviews']} reviews, {flags['retracted']} retracted, "
+                         f"{flags['nih_funded']} NIH-funded, {flags['in_pmc']} in PMC)")
+        for article in hood.articles():
+            if article.is_retracted:
+                lines.append(f"RETRACTED: PMID {article.pmid} ({article.year or 'n.d.'}) {article.title or ''}")
+        for label, relation in (("Most similar", "similar"), ("Newest citing", "cited_by")):
+            lines.append(f"{label}:")
+            for a in getattr(hood, relation)[:10]:
+                kind = " [review]" if a.is_review else ""
+                lines.append(f"  PMID {a.pmid} ({a.year or 'n.d.'}) {a.title or ''}{kind}")
+        lines.append(f"Saved: {saved}")
+        return "\n".join(lines)
+
+    def build_knowledge_graph(self, args: Dict[str, Any]) -> str:
+        from .kg import create_kg
+        from .vault import topic_vault_dir
+
+        try:
+            result = create_kg(
+                args["topic"], queries=args.get("queries") or (), seeds=args.get("seeds") or (),
+                refresh=bool(args.get("refresh")), max_results=int(args.get("max_results", 30)),
+                max_per_relation=int(args.get("max_per_relation", 30)),
+                kg_dir=topic_vault_dir(args["topic"], parent=self.root), output_dir=self.root / "publications",
+            )
+        except (FileNotFoundError, ValueError) as e:
+            raise ToolError(str(e)) from None
+        return str(result)
+
+    # -- protocol ------------------------------------------------------------
+
+    def call_tool(self, name: str, args: Dict[str, Any]) -> Dict[str, Any]:
+        handler = self.handlers.get(name)
+        if handler is None:
+            raise KeyError(name)
+        try:
+            # The library prints download progress; stdout belongs to the protocol
+            with contextlib.redirect_stdout(io.StringIO()):
+                text = handler(args)
+            return {"content": [{"type": "text", "text": text}], "isError": False}
+        except ToolError as e:
+            return {"content": [{"type": "text", "text": f"Error: {e}"}], "isError": True}
+        except requests.RequestException as e:
+            return {"content": [{"type": "text", "text": f"Error: could not reach NCBI: {e}"}], "isError": True}
+        except (KeyError, TypeError, ValueError, OSError) as e:
+            return {"content": [{"type": "text", "text": f"Error: {type(e).__name__}: {e}"}], "isError": True}
+
+    def handle(self, message: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+        """The response to one JSON-RPC message, or None for a notification."""
+        method, msg_id = message.get("method"), message.get("id")
+        if msg_id is None:
+            return None   # notifications, such as notifications/initialized
+        params = message.get("params") or {}
+        try:
+            if method == "initialize":
+                requested = params.get("protocolVersion")
+                result: Dict[str, Any] = {
+                    "protocolVersion": requested if requested in SUPPORTED_VERSIONS else SUPPORTED_VERSIONS[0],
+                    "capabilities": {"tools": {"listChanged": False}},
+                    "serverInfo": {"name": "pubmed-stream", "title": "pubmed-stream", "version": __version__},
+                    "instructions": INSTRUCTIONS,
+                }
+            elif method == "ping":
+                result = {}
+            elif method == "tools/list":
+                result = {"tools": TOOLS}
+            elif method == "tools/call":
+                try:
+                    result = self.call_tool(params.get("name"), params.get("arguments") or {})
+                except KeyError:
+                    return _error(msg_id, -32602, f"Unknown tool: {params.get('name')}")
+            else:
+                return _error(msg_id, -32601, f"Method not found: {method}")
+        except Exception as e:   # never let one request end the session
+            logger.exception("Request %s failed", method)
+            return _error(msg_id, -32603, f"Internal error: {e}")
+        return {"jsonrpc": "2.0", "id": msg_id, "result": result}
+
+
+def _error(msg_id: Any, code: int, message: str) -> Dict[str, Any]:
+    return {"jsonrpc": "2.0", "id": msg_id, "error": {"code": code, "message": message}}
+
+
+def serve(root: Optional[Path] = None, stdin=None, stdout=None) -> None:
+    """Answer MCP messages, one JSON object per line, until standard input closes."""
+    server = Server(Path(root or Path.cwd()).resolve())
+    logger.warning("pubmed-stream MCP server %s: files are read and saved under %s", __version__, server.root)
+    stdin = stdin or sys.stdin.buffer
+    stdout = stdout or sys.stdout.buffer
+    for raw in stdin:
+        raw = raw.strip()
+        if not raw:
+            continue
+        try:
+            message = json.loads(raw)
+        except ValueError:
+            responses = [_error(None, -32700, "Parse error")]
+        else:
+            batch = message if isinstance(message, list) else [message]
+            responses = [r for r in (server.handle(m) for m in batch if isinstance(m, dict)) if r is not None]
+        for response in responses:
+            stdout.write(json.dumps(response, ensure_ascii=False).encode("utf-8") + b"\n")
+            stdout.flush()

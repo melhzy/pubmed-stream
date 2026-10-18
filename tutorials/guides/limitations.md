@@ -14,7 +14,7 @@ pubmed-stream is a fast way to **map** a literature: to find what exists, see ho
 
 **"Most cited" means most cited inside your graph.** It measures how much your study's literature relies on a paper, which is useful for orientation but is not the paper's overall citation count or impact.
 
-**MeSH indexing lags.** NLM indexes new papers weeks to months after publication, and the newest papers in a graph often have no MeSH headings yet. They are missing from concept notes and from MeSH searches until then. Combine word and MeSH searches with `OR`, as tutorial 2 shows.
+**MeSH indexing lags, and is not universal.** NLM indexes new papers weeks to months after publication, and only papers in MEDLINE journals at all; papers in other journals, which PubMed lists as *PubMed-not-MEDLINE*, never get MeSH headings or detailed publication types. Such papers are missing from concept notes, from MeSH searches and from evidence-type labels, however important they are: in tutorial 7, two of the four randomized trials are among them. Combine word and MeSH searches with `OR`, as tutorial 2 shows.
 
 **Similarity is PubMed's.** *Similar articles* come from PubMed's word-and-MeSH algorithm. Its scores rank papers within one list and do not compare across lists.
 
@@ -29,6 +29,14 @@ pubmed-stream is a fast way to **map** a literature: to find what exists, see ho
 **Not a judge of quality.** A paper in the graph, however connected, may be small, biased or wrong. Read the paper itself before citing it, never only its metadata or abstract.
 
 **A snapshot in time.** PubMed and PMC change every day. The same search returns different papers next month, which is why the knowledge graph can be refreshed.
+
+## AI assistants and local models
+
+**An assistant can still be wrong.** pubmed-stream's instructions make Claude Code, Codex and other assistants cite only papers they downloaded and read in the session, and the tools give them abstracts rather than memory. That prevents invented citations, not misreadings: an assistant can still summarize a paper wrongly or draw too strong a conclusion. Check the claims you rely on against the papers.
+
+**A small local model is a reader, not a reviewer.** `pubmed-stream review` attaches PubMed IDs itself and flags numbers and citations the abstracts do not support, but it cannot catch a misread finding. In testing, a 1-billion-parameter model summarized single abstracts mostly well, and wrote unreliable answers across papers.
+
+**Cloud assistants see what you send them.** Claude Code and Codex send your questions, and the abstracts they read, to their providers. For unpublished or sensitive work, use a local model through Ollama, which keeps everything on your computer.
 
 ## Using the downloads responsibly
 

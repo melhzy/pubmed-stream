@@ -7,9 +7,12 @@ pubmed-stream builds a knowledge graph as a folder of linked notes, `kg_<topic>`
 - [Paper, concept and collection notes](#paper-concept-and-collection-notes)
 - [The graph view](#the-graph-view)
 - [One paper's neighborhood: the local graph](#one-papers-neighborhood-the-local-graph)
+- [A table of all papers](#a-table-of-all-papers)
 - [Search](#search)
 - [Write your own notes](#write-your-own-notes)
 - [Keep the graph current](#keep-the-graph-current)
+- [Reviews by a local model](#reviews-by-a-local-model)
+- [From the command line and AI assistants](#from-the-command-line-and-ai-assistants)
 
 ## Install Obsidian and open the graph
 
@@ -18,7 +21,7 @@ pubmed-stream builds a knowledge graph as a folder of linked notes, `kg_<topic>`
 3. Start Obsidian and choose **Open folder as vault**. On later visits, choose **Open another vault** from the vault menu at the bottom left.
 4. Select the `kg_<topic>` folder itself, the one that holds `PubMed Stream.md` and the `papers`, `concepts` and `collections` folders, and click **Open**.
 
-Obsidian calls a folder of notes a **vault**. Your knowledge graph is now one.
+Obsidian calls a folder of notes a **vault**. Your knowledge graph is now one. From now on, `pubmed-stream open kg_<topic>` opens it from the terminal, and `pubmed-stream kg ... --open` opens it right after a build.
 
 ## The home note
 
@@ -108,6 +111,24 @@ The local graph has its own settings, so it does not use the full graph's colour
 
 The **Backlinks** panel in the right sidebar lists every note that links to the open one. On a concept note, that is every paper about the concept; on a paper, every paper that cites it.
 
+## A table of all papers
+
+Every knowledge graph has `Papers.base`, a table made with Obsidian's core **Bases** plugin. It is embedded at the bottom of the home note, and opens on its own from the file list. Click a column heading to sort, and a note name to open the paper.
+
+![The home note's table of all papers: note name, title, year and journal, newest first](images/obsidian-papers-base.png)
+
+Switch views with the menu at the table's top left:
+
+| View | Shows |
+|---|---|
+| All papers | Every paper, newest first, with its journal, status and publication type |
+| Full text | Papers whose full text was downloaded |
+| Reviews | Papers PubMed lists as reviews |
+| Retracted | Retracted papers |
+| Reading list | Papers you tagged `#to-read` |
+
+The table is yours to change: add columns, filters or views with the buttons above it, and pubmed-stream never overwrites it. pubmed-stream also tells Obsidian what each property holds, so `year` sorts as a number, `retracted` shows as a checkbox, and `authors`, `mesh` and `keywords` are lists. Property types you set yourself are kept.
+
 ## Search
 
 Press Ctrl+Shift+F (Cmd+Shift+F) to search every note. Plain words search titles, abstracts and your own notes. Each result shows the matching lines; click one to open the note.
@@ -127,7 +148,7 @@ Some useful searches, which can be combined, such as `tag:#pubmed/review alpha-s
 | `[status:full-text]` | Papers whose full text was downloaded |
 | `"Randomized Controlled Trial"` | Papers of that publication type |
 
-Properties can also be shown as a sortable table, with the core **Bases** plugin in recent versions of Obsidian, or with the community **Dataview** plugin.
+For a sortable table of properties, use the [papers table](#a-table-of-all-papers).
 
 ## Write your own notes
 
@@ -154,3 +175,29 @@ pubmed-stream kg "gut microbiome frailty" --refresh
 ```
 
 This reruns the study's searches and key papers, downloads only what is new, and updates the notes. Obsidian shows the changes immediately, and your own writing stays where it was.
+
+## Reviews by a local model
+
+`pubmed-stream review` summarizes chosen abstracts with a local model through Ollama, so nothing leaves your computer; [tutorial 7](../07_ai_assistant.md#8-private-questions-a-model-on-your-own-computer) explains it. With `--vault kg_<topic>`, the review is saved in the graph's `reviews` folder, with each summary linked to its paper's note, and listed on the home note:
+
+```bash
+pubmed-stream review "Does FMT help people with Parkinson's disease?" --id 38686220 41826284 --vault kg_fmt_parkinson
+```
+
+![A review note: the question, a note that a small model wrote it, and each article's summary under its title and PubMed link](images/obsidian-local-review.png)
+
+A small model makes mistakes: check each summary against its paper before you rely on it.
+
+## From the command line and AI assistants
+
+Obsidian has its own [command line interface](https://obsidian.md/help/cli), which works while Obsidian is running. Switch it on in **Settings > General**, under *Command line interface*, and follow the prompt. Then you, or an AI assistant such as Claude Code or Codex, can query an open graph by its folder name:
+
+| Command | Answers |
+|---|---|
+| `obsidian vault=kg_fmt_parkinson search query=butyrate path=papers total` | How many papers mention butyrate |
+| `obsidian vault=kg_fmt_parkinson search:context query=GUT-PARFECT path=papers` | The lines that mention it |
+| `obsidian vault=kg_fmt_parkinson backlinks file=PMID38686220` | The notes that link to a paper |
+| `obsidian vault=kg_fmt_parkinson base:query path=Papers.base view="Reading list" format=paths` | The papers you tagged `#to-read` |
+| `obsidian vault=kg_fmt_parkinson unresolved total` | How many cited papers have no note |
+
+The instructions that `pubmed-stream init` gives AI assistants include these commands, so an assistant can read your reading list or check which papers cite a trial.

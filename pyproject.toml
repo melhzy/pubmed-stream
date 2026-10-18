@@ -46,5 +46,8 @@ Homepage = "https://github.com/melhzy/pubmed-stream"
 [tool.setuptools.packages.find]
 include = ["pubmed_stream*"]
 
+[tool.setuptools.package-data]
+pubmed_stream = ["py.typed", "data/*.md"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

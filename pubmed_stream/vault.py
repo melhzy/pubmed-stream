@@ -55,6 +55,96 @@ PAPERS_DIR = "papers"
 CONCEPTS_DIR = "concepts"
 COLLECTIONS_DIR = "collections"
 HOME_NOTE = "PubMed Stream"
+PAPERS_BASE = "Papers.base"
+
+# Obsidian property types for the keys the notes use, written to
+# .obsidian/types.json for keys the vault has no type for yet
+PROPERTY_TYPES = {
+    "year": "number", "retracted": "checkbox", "authors": "multitext", "publication_types": "multitext",
+    "mesh": "multitext", "keywords": "multitext", "pmid": "text", "pmcid": "text", "doi": "text",
+    "journal": "text", "status": "text", "url": "text", "papers": "multitext",
+}
+
+# An Obsidian Bases table of the papers, written once; the user may edit it
+PAPERS_BASE_TEXT = """filters:
+  and:
+    - file.inFolder("papers")
+properties:
+  file.name:
+    displayName: Note
+  note.title:
+    displayName: Title
+  note.year:
+    displayName: Year
+  note.journal:
+    displayName: Journal
+  note.status:
+    displayName: Status
+  note.publication_types:
+    displayName: Publication type
+views:
+  - type: table
+    name: All papers
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+      - status
+      - publication_types
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: Full text
+    filters:
+      and:
+        - 'status == "full-text"'
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: Reviews
+    filters:
+      and:
+        - file.hasTag("pubmed/review")
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: Retracted
+    filters:
+      and:
+        - retracted == true
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+  - type: table
+    name: Reading list
+    filters:
+      and:
+        - file.hasTag("to-read")
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+    sort:
+      - property: year
+        direction: DESC
+"""
 TAG_PREFIX = "pubmed/"
 
 BLOCK_START = "%% pubmed-stream:start - generated; edits inside this block are overwritten %%"
@@ -185,7 +275,7 @@ class VaultStats:
         ]
         if self.pubmed_missing:
             lines.append(
-                f"  - Without MeSH:  {self.pubmed_missing} (offline, or not yet indexed in PubMed)"
+                f"  - Without MeSH:  {self.pubmed_missing} (offline, too new, or a journal outside MEDLINE)"
             )
         lines.append("=" * 60)
         return "\n".join(lines)
@@ -809,7 +899,8 @@ def _render_collection(graph: _Graph, collection: Collection) -> Tuple[Dict[str,
     return frontmatter, "\n".join(lines)
 
 
-def _render_home(graph: _Graph, concept_papers: Dict[str, List[Tuple[str, bool]]], terms: Dict[str, Dict]) -> str:
+def _render_home(graph: _Graph, concept_papers: Dict[str, List[Tuple[str, bool]]], terms: Dict[str, Dict],
+                 vault: Optional[Path] = None) -> str:
     noted = [p for p in graph.papers.values() if p.has_note]
     lines = [
         "# PubMed Stream",
@@ -836,7 +927,33 @@ def _render_home(graph: _Graph, concept_papers: Dict[str, List[Tuple[str, bool]]
     retracted = [p.key for p in noted if p.is_retracted]
     if retracted:
         lines += ["", f"## Retracted papers ({len(retracted)})", ""] + _paper_list(graph, _year_sort(graph, retracted))
+    if vault is not None and (vault / PAPERS_BASE).exists():
+        lines += ["", "## All papers", "",
+                  "A table of every paper. Switch views at its top left: full text, reviews, retracted papers, "
+                  "and your reading list, the papers you tag `#to-read`.", "", f"![[{PAPERS_BASE}]]"]
+    if vault is not None and (vault / "reviews").is_dir():
+        reviews = sorted(p.stem for p in (vault / "reviews").glob("*.md"))
+        if reviews:
+            lines += ["", "## Reviews by a local model", ""] + [f"- {_link(name)}" for name in reviews]
     return "\n".join(lines)
+
+
+def _write_obsidian_files(vault: Path) -> None:
+    """Property types, and the Papers base, without overwriting the user's own."""
+    types_path = vault / ".obsidian" / "types.json"
+    try:
+        current = json.loads(types_path.read_text(encoding="utf-8")) if types_path.exists() else {}
+        types = current.setdefault("types", {})
+        missing = {k: v for k, v in PROPERTY_TYPES.items() if k not in types}
+        if missing:
+            types.update(missing)
+            types_path.parent.mkdir(parents=True, exist_ok=True)
+            types_path.write_text(json.dumps(current, indent=2), encoding="utf-8")
+        base_path = vault / PAPERS_BASE
+        if not base_path.exists():
+            base_path.write_text(PAPERS_BASE_TEXT, encoding="utf-8")
+    except (OSError, ValueError) as e:
+        logger.warning("Could not write Obsidian settings in %s: %s", vault, e)
 
 
 def _write_graph_settings(vault: Path) -> None:
@@ -965,10 +1082,11 @@ def build_vault(
         frontmatter, body = _render_collection(graph, collection)
         path = vault / COLLECTIONS_DIR / f"{collection.name}.md"
         outcomes[_write_note(path, frontmatter, body, _COLLECTION_KEYS)] += 1
+    _write_obsidian_files(vault)
     outcomes[_write_note(
         vault / f"{HOME_NOTE}.md",
         {"type": "home", "tags": [_tag("home")]},
-        _render_home(graph, concept_papers, concept_terms),
+        _render_home(graph, concept_papers, concept_terms, vault),
         _HOME_KEYS,
     )] += 1
     _write_graph_settings(vault)
