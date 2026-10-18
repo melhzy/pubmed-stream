@@ -10,16 +10,17 @@ This guide explains the repository: what each part does, how data moves from NCB
 4. [Downloading full text](#4-downloading-full-text)
 5. [Evidence neighborhoods](#5-evidence-neighborhoods)
 6. [Knowledge graphs](#6-knowledge-graphs)
-7. [The example study in figures](#7-the-example-study-in-figures)
-8. [Data model](#8-data-model)
-9. [Testing](#9-testing)
-10. [Extending pubmed-stream](#10-extending-pubmed-stream)
+7. [AI assistants, local models and Obsidian](#7-ai-assistants-local-models-and-obsidian)
+8. [The example study in figures](#8-the-example-study-in-figures)
+9. [Data model](#9-data-model)
+10. [Testing](#10-testing)
+11. [Extending pubmed-stream](#11-extending-pubmed-stream)
 
 ---
 
 ## 1. At a glance
 
-pubmed-stream does three jobs. Each one builds on the one before it.
+pubmed-stream does three jobs. Each one builds on the one before it, and all three connect to AI assistants, local models and Obsidian ([section 7](#7-ai-assistants-local-models-and-obsidian)).
 
 | Job | Command | Python | NCBI services | Writes |
 |-----|---------|--------|---------------|--------|
@@ -33,8 +34,10 @@ flowchart LR
     PS <-->|"E-utilities over HTTPS"| NCBI[("NCBI<br/>PubMed and PMC")]
     PS -->|"JSON per article"| PUB["publications/"]
     PS -->|"Markdown notes"| KG["kg_topic/"]
-    KG -->|"Open folder as vault"| OBS["Obsidian<br/>graph view, search, backlinks"]
+    KG -->|"Open folder as vault"| OBS["Obsidian<br/>graph view, Bases, search"]
     PUB -->|"read when building"| PS
+    AI(["AI assistant"]) <-->|"MCP tools"| PS
+    PS <-->|"review"| OL["Ollama<br/>local model"]
 ```
 
 The only runtime dependency is `requests`. Everything else, including the XML parsing, the YAML frontmatter and the Markdown rendering, uses the Python standard library.
@@ -48,13 +51,19 @@ pubmed-stream/
 ├── pubmed_stream/
 │   ├── __init__.py        public API: everything importable from pubmed_stream
 │   ├── __main__.py        python -m pubmed_stream
-│   ├── cli.py             argparse front end: download, neighborhood, kg
+│   ├── cli.py             argparse front end: init, search, download, list, neighborhood, kg, review, open, mcp
+│   ├── corpus.py          compact records of downloaded articles, most-cited works
+│   ├── mcp_server.py      MCP server: pubmed-stream's tools for AI assistants
+│   ├── review.py          summaries by a local model through Ollama, with checks
+│   ├── obsidian.py        opening knowledge graphs in Obsidian
+│   ├── assistants.py      init: instructions and MCP settings for Claude Code, Codex, Gemini CLI
+│   ├── data/AGENTS.md     the instructions for AI assistants
 │   ├── downloader.py      E-utilities client, PMC search and download, JATS parsing
 │   ├── neighborhood.py    similar, citing and cited articles of a PubMed article
 │   ├── vault.py           Obsidian notes: graph model, merging, rendering, safe rewrites
 │   └── kg.py              studies: topic, searches and seeds, refresh
-├── tests/                 86 offline tests; NCBI is faked with canned responses
-├── tutorials/             seven notebooks, guides, kg_study.py, keyword lists, tools
+├── tests/                 117 offline tests; NCBI and Ollama are faked with canned responses
+├── tutorials/             seven notebooks, the AI assistant tutorial, guides, kg_study.py, keyword lists, tools
 ├── docs/                  this guide and its figures
 ├── pyproject.toml         package metadata, dependencies and the tutorials extra
 ├── CHANGELOG.md           changes in each version
@@ -64,17 +73,31 @@ pubmed-stream/
 
 | Module | Lines | Responsibility | Main public functions |
 |--------|------:|----------------|-----------------------|
-| `downloader.py` | 1001 | HTTP client with rate limiting and retries; PMC search; full-text download; metadata, reference and text extraction from JATS XML | `search_and_download`, `esearch_pmc`, `efetch_pmc`, `extract_metadata_from_pmc_xml` |
+| `downloader.py` | 1109 | HTTP client with rate limiting and retries; PMC search and summaries; full-text download; metadata, reference and text extraction from JATS XML | `search_and_download`, `search_pmc`, `esearch_pmc`, `esummary_pmc`, `efetch_pmc`, `extract_metadata_from_pmc_xml` |
 | `neighborhood.py` | 457 | ELink relations, PubMed records with flags and MeSH terms, flag counts beyond the cap | `get_neighborhood`, `save_neighborhood`, `download_neighborhood` |
-| `vault.py` | 981 | Merges every source into one graph of papers, concepts and collections, then writes notes without losing user edits | `build_vault`, `topic_vault_dir` |
+| `vault.py` | 1099 | Merges every source into one graph of papers, concepts and collections, then writes notes without losing user edits, with Obsidian property types and a Bases table | `build_vault`, `topic_vault_dir` |
 | `kg.py` | 247 | The study layer: runs searches and seeds, records them, refreshes them | `create_kg`, `load_study`, `record_study` |
-| `cli.py` | 453 | Parses arguments and maps them onto the functions above; sets exit codes | `main` |
+| `corpus.py` | 95 | Reads downloaded articles back as compact records, each once; counts the works they cite | `list_articles`, `most_cited` |
+| `review.py` | 249 | Summaries by a local model through Ollama's API, at temperature 0, with number and citation checks | `review`, `save_to_vault` |
+| `mcp_server.py` | 357 | The Model Context Protocol over standard input and output, with seven tools; library output kept off the protocol | `serve` |
+| `obsidian.py`, `assistants.py` | 166 | Opening graphs through Obsidian URIs; writing instructions and MCP settings into a research folder | `open_vault`, `init_folder` |
+| `cli.py` | 767 | Parses arguments and maps them onto the functions above; sets exit codes; writes UTF-8 to pipes | `main` |
 
 The modules form a strict stack. Each one imports only from the modules below it, so the download layer never knows about vaults, and the vault never calls the CLI:
 
 ```mermaid
 flowchart TB
-    CLI["cli.py<br/>download / neighborhood / kg"] --> KG["kg.py<br/>create_kg, studies"]
+    M["mcp_server.py<br/>tools for AI assistants"] --> C
+    M --> KG
+    M --> V
+    M --> N
+    M --> D
+    CLI["cli.py<br/>init / search / download / list /<br/>neighborhood / kg / review / open / mcp"] --> KG["kg.py<br/>create_kg, studies"]
+    CLI --> M
+    CLI --> RV["review.py<br/>Ollama summaries"]
+    RV --> C
+    RV --> V
+    CLI --> C["corpus.py<br/>list_articles, most_cited"]
     CLI --> V
     CLI --> N
     CLI --> D
@@ -96,10 +119,12 @@ Every request goes through one of two paths in `downloader.py`. Both share a thr
 | Endpoint | Database | Used for | Called by |
 |----------|----------|----------|-----------|
 | `esearch.fcgi` | `pmc` | Find PMC articles for a search, up to `max_results` | `esearch_pmc` |
+| `esummary.fcgi` | `pmc` | Titles, journals, years and identifiers, to preview a search without downloading | `esummary_pmc`, `search_pmc` |
 | `efetch.fcgi` | `pmc` | Full-text JATS XML, one article per request | `efetch_pmc` |
 | `elink.fcgi` | `pubmed` | Similar, citing and cited articles, in one call with `cmd=neighbor_score` | `get_neighborhood` |
 | `efetch.fcgi` | `pubmed` | PubMed records: titles, publication types, grants, MeSH terms; 200 PMIDs per request | `get_neighborhood`, `build_vault` |
 | `epost.fcgi` + `esearch.fcgi` | `pubmed` | Count reviews, retractions, NIH funding and PMC coverage across links beyond the cap | `get_neighborhood` |
+| Ollama `/api/generate` | local | One summary per abstract, at temperature 0 with a length cap; not NCBI, and only when you run `review` | `review` |
 
 | Setting | Value | Why |
 |---------|-------|-----|
@@ -315,7 +340,10 @@ kg_gut_microbiome_frailty/                    one study = one Obsidian vault
 ├── papers/PMID42060019.md ...                one note per paper
 ├── concepts/Sarcopenia.md ...                one note per MeSH heading
 ├── collections/Search - ... .md              one note per search or neighborhood
+├── reviews/<question> (date).md ...         summaries by a local model, from 'review --vault'
+├── Papers.base                              a Bases table of the papers, first build only
 ├── .obsidian/graph.json                      graph-view colour groups, first build only
+├── .obsidian/types.json                      property types, added for missing keys only
 └── .pubmed-stream/
     ├── study.json                            topic, searches, seeds
     ├── sources.json                          download folders the graph is built from
@@ -324,7 +352,107 @@ kg_gut_microbiome_frailty/                    one study = one Obsidian vault
 
 ---
 
-## 7. The example study in figures
+## 7. AI assistants, local models and Obsidian
+
+The three jobs above are also reachable from the tools researchers work in. None of these adds a dependency: they use the standard library, `requests`, and programs the researcher installs separately.
+
+| Connection | Module | Talks to | How |
+|------------|--------|----------|-----|
+| AI assistants call pubmed-stream's tools | `mcp_server.py` | Claude Code, Codex and other MCP clients | JSON-RPC over standard input and output |
+| A research folder is set up for them | `assistants.py` | Claude Code, Codex, Gemini CLI | Instruction and settings files |
+| A local model summarizes abstracts | `review.py` | Ollama | HTTP to `127.0.0.1:11434` |
+| A graph opens in Obsidian | `obsidian.py` | Obsidian | The `obsidian://` URI scheme |
+
+### 7.1 The MCP server
+
+`pubmed-stream mcp` implements the Model Context Protocol's tool features directly: `initialize`, `ping`, `tools/list` and `tools/call`, one JSON object per line. It answers the protocol versions from 2024-11-05 to 2025-11-25. Messages are handled one at a time, so an assistant that calls tools in parallel still sends NCBI one request at a time.
+
+```mermaid
+sequenceDiagram
+    participant A as AI assistant
+    participant M as pubmed-stream mcp
+    participant L as pubmed-stream library
+    participant N as NCBI
+    A->>M: initialize
+    M-->>A: tools capability and instructions
+    A->>M: tools/list
+    M-->>A: seven tools with JSON schemas
+    A->>M: tools/call search_pmc
+    M->>L: search_pmc(query)
+    L->>N: ESearch, ESummary
+    N-->>L: count, titles
+    Note over M,L: progress printed by the library is captured,<br/>so standard output carries only the protocol
+    L-->>M: SearchResult
+    M-->>A: compact text result
+```
+
+| Tool | Read-only | Wraps |
+|------|:---------:|-------|
+| `search_pmc` | yes | `search_pmc` |
+| `download` | no | `search_and_download` |
+| `list_articles` | yes | `list_articles`, filtered by IDs |
+| `most_cited` | yes | `most_cited` |
+| `read_article` | yes | The `text` field of one download, or only its paragraphs that contain a term |
+| `neighborhood` | no | `get_neighborhood` and `save_neighborhood` |
+| `build_knowledge_graph` | no | `create_kg` |
+
+Each tool is marked read-only or not, so clients can run read-only tools without asking; Codex does. Problems a user can fix, such as a missing folder or NCBI being unreachable, come back as tool results with `isError` set, so the assistant reads and explains them; only unknown tools and methods are protocol errors. Paths are relative to the folder the server starts in, which assistants set to the project folder, or to `--root`.
+
+### 7.2 Setting up a folder
+
+`pubmed-stream init` writes what each assistant reads when it starts in a folder:
+
+| File | Read by | Contents |
+|------|---------|----------|
+| `AGENTS.md` | Codex, and through imports the others | The instructions, shipped in the package as `pubmed_stream/data/AGENTS.md` |
+| `CLAUDE.md`, `GEMINI.md` | Claude Code, Gemini CLI | `@AGENTS.md`, which imports the instructions |
+| `.mcp.json` | Claude Code | The MCP server, started with the Python that has pubmed-stream installed |
+| `.codex/config.toml` | Codex | The same server, with start-up and call timeouts |
+| `.claude/settings.json` | Claude Code | The folder's model, with `--claude-model` |
+| `.pubmed-stream.json` | `pubmed-stream review` | The folder's local model, with `--review-model` |
+
+Files that exist are kept: the import line and the server entries are added to them if missing, and `AGENTS.md` is rewritten only with `--force`. There is no Codex model option: Codex 0.163 reads a folder's MCP servers but ignores its `model`, as tested, so Codex's model is chosen with `codex -m` or `/model`.
+
+### 7.3 Local reviews
+
+A 1-billion-parameter model cannot design searches or call tools reliably, so `review` keeps it to reading, and keeps everything it cannot be trusted with in code:
+
+```mermaid
+flowchart TB
+    R["Downloaded articles<br/>chosen by ID"] --> S["One prompt per abstract"]
+    S --> O["Ollama<br/>temperature 0, capped length"]
+    O --> T["Summary"]
+    T --> ID["PMID attached by pubmed-stream"]
+    T --> NUM{"Every number<br/>in the abstract?"}
+    NUM -->|no| FLAG["Flagged under the summary"]
+    ID --> ANS["Optional answer from all summaries"]
+    ANS --> CIT{"Every cited PMID<br/>among those read?"}
+    CIT -->|no| FLAG2["Listed in bold"]
+```
+
+| Choice | Why |
+|--------|-----|
+| One abstract per request | Fits the model's working memory, and a summary cannot mix two papers |
+| Temperature 0 | The same articles give the same summaries |
+| `num_predict` 300, or 500 for the answer, and a repeat penalty | At temperature 0 a small model can repeat itself until its context is full; a capped reply is marked as cut |
+| `num_ctx` 8192, with a warning when a prompt fills it | `ollama run` uses 4,096 tokens and drops the overflow silently |
+| Numbers checked as digits and as words below 100 | Abstracts write "Seventy-two patients"; summaries write "72" |
+
+### 7.4 Obsidian
+
+`build_vault` writes three files for Obsidian, each without overwriting the user's version:
+
+| File | Written | Purpose |
+|------|---------|---------|
+| `.obsidian/graph.json` | Once, if missing | Colour groups for the graph view |
+| `.obsidian/types.json` | Missing keys only | Property types: `year` a number, `retracted` a checkbox, `authors`, `mesh` and `keywords` lists |
+| `Papers.base` | Once, if missing | A Bases table of `papers/`, with views for all papers, full text, reviews, retracted papers and `#to-read` |
+
+The home note embeds `Papers.base` and lists the notes in `reviews/`. `open_vault` opens the home note with `obsidian://open?path=...`, but only for folders listed as vaults in Obsidian's own settings file, since Obsidian ignores the URI for folders it does not know.
+
+---
+
+## 8. The example study in figures
 
 The figures below are drawn from the notes of the study in [`tutorials/kg_study.py`](../tutorials/kg_study.py): two searches on the gut microbiome with frailty and with sarcopenia, plus the neighborhood of a 2019 review, PMID 31319564. [`docs/figures/make_figures.py`](figures/make_figures.py) regenerates them from any knowledge graph.
 
@@ -357,7 +485,7 @@ The figures below are drawn from the notes of the study in [`tutorials/kg_study.
 
 ---
 
-## 8. Data model
+## 9. Data model
 
 ```mermaid
 classDiagram
@@ -432,7 +560,7 @@ classDiagram
 
 ---
 
-## 9. Testing
+## 10. Testing
 
 All tests run offline in about two seconds. NCBI is replaced by a fake HTTP adapter that answers by URL, so tests exercise the real request and parsing code:
 
@@ -450,7 +578,9 @@ result = create_kg("gut microbiome study", queries=["gut microbiome"], seeds=["1
 | Test file | Tests | Covers |
 |-----------|------:|--------|
 | `test_parsing.py` | 13 | JATS metadata, dates, references and text extraction |
-| `test_download.py` | 10 | Search, download, skipping, unavailable articles, API key redaction, query files |
+| `test_download.py` | 12 | Search, download, skipping, unavailable articles, API key redaction, query files, folder names |
+| `test_integrations.py` | 15 | MCP protocol and tools, keeping output off the protocol, Ollama reviews and their checks, vault notes, Obsidian property types and the papers base, opening vaults, init |
+| `test_search_list.py` | 14 | Search previews, summaries and retries, listing and deduplication, most-cited works, CLI output, quiet mode, UTF-8 pipes |
 | `test_neighborhood.py` | 24 | Relations, flags, MeSH terms, capped counts, saving, CLI |
 | `test_vault.py` | 25 | Citation links, stubs, concepts, escaping, safe rebuilds, sources, MeSH cache, naming |
 | `test_kg.py` | 14 | Studies, refresh, failure reporting, validation, CLI |
@@ -462,7 +592,7 @@ pytest
 
 ---
 
-## 10. Extending pubmed-stream
+## 11. Extending pubmed-stream
 
 | To add | Change | Keep in mind |
 |--------|--------|--------------|

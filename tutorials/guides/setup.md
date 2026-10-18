@@ -130,4 +130,4 @@ Once pubmed-stream is installed, every step also works as a single terminal comm
 pubmed-stream kg "gut microbiome parkinson" -q "parkinson[Title] AND microbiota[Title]" --seed 27912057
 ```
 
-Run `pubmed-stream --help`, or see the [main README](../../README.md), for every command.
+Run `pubmed-stream --help`, or see the [main README](../../README.md), for every command. An AI assistant such as Claude Code or Codex can also run them for you: `pubmed-stream init` prepares a folder, as [tutorial 7](../07_ai_assistant.md) explains.
