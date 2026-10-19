@@ -179,7 +179,7 @@ def create_kg(
             raise ValueError(f"Seed must be a numeric PubMed ID, got {seed!r}")
     new_queries = [" ".join(q.split()) for q in queries or []]
 
-    directory = (Path(kg_dir) if kg_dir else topic_vault_dir(topic)).resolve()
+    directory = (Path(kg_dir) if kg_dir else topic_vault_dir(topic)).absolute().resolve()
     study = load_study(directory)
     all_queries = _unique(study["queries"] + new_queries)
     all_seeds = _unique(study["seeds"] + new_seeds)
