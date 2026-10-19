@@ -703,7 +703,7 @@ def efetch_pmc(
                         logger.warning("Rate limit exceeded for %s after %d attempts", pmcid_display, retries)
                 else:
                     logger.warning("HTTP %s error for %s%s", resp.status_code, pmcid_display, 
-                                   f", retrying..." if attempt < retries - 1 else " (max retries reached)")
+                                   ", retrying..." if attempt < retries - 1 else " (max retries reached)")
                 if attempt < retries - 1:
                     time.sleep(RETRY_DELAY)
                     continue

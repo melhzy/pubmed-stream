@@ -1041,7 +1041,7 @@ def build_vault(
         FileNotFoundError: A source does not exist.
         ValueError: There are no sources to build from.
     """
-    vault = Path(vault_dir).resolve()
+    vault = Path(vault_dir).absolute().resolve()
     vault.mkdir(parents=True, exist_ok=True)
     source_paths = _registered_sources(vault, sources)
 

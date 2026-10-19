@@ -525,7 +525,7 @@ pubmed-stream/
 
 ## Contributing
 
-Contributions are welcome. Fork the repository, create a feature branch, and open a pull request. Add tests for new behaviour, and make sure `pytest` and `ruff check .` pass. The tests run offline in a few seconds:
+Contributions are welcome. Fork the repository, create a feature branch, and open a pull request. Add tests for new behaviour, and make sure `pytest` and `ruff check .` pass; GitHub Actions runs both on every pull request. The tests run offline in a few seconds:
 
 ```bash
 pip install -e ".[dev]"

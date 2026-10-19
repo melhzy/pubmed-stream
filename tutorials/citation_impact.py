@@ -286,7 +286,8 @@ def annotate(kg_dir, properties: Dict[str, Dict[str, object]]) -> int:
         frontmatter, body = _split_frontmatter(old)
         new = f"---\n{_merge_frontmatter(frontmatter, props, props.keys())}\n---\n{body}"
         if new != old:
-            path.write_text(new, encoding="utf-8", newline="\n")
+            with open(path, "w", encoding="utf-8", newline="\n") as f:
+                f.write(new)
             changed += 1
     return changed
 
@@ -317,7 +318,8 @@ def write_base(kg_dir, name: str = "Citation impact") -> Path:
             "    displayName: How it cites the paper\n  note.title:\n    displayName: Title\n"
             "  note.year:\n    displayName: Year\nviews:\n" + views)
     path = Path(kg_dir) / f"{name}.base"
-    path.write_text(text, encoding="utf-8", newline="\n")
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
+        f.write(text)
     return path
 
 

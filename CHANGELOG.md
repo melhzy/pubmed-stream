@@ -2,6 +2,18 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
+## Unreleased
+
+### Added
+
+- A GitHub Actions workflow that runs the tests on Python 3.8 to 3.13, on Linux and Windows, and the linter on every push and pull request. The linter's rules are now set in `pyproject.toml`, so `ruff check .` checks the same rules everywhere.
+
+### Fixed
+
+- On Windows with Python 3.8 or 3.9, `pubmed-stream kg` and `pubmed-stream vault` given a folder that did not exist yet kept a relative path for it.
+- Tutorial 8's helpers failed on Python 3.8 and 3.9 when writing notes and the table of citing papers.
+- Removed unused imports from tutorials 3 and 6.
+
 ## 0.3.1 - 2026-10-19
 
 ### Added
