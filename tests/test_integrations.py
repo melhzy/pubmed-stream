@@ -216,12 +216,14 @@ def test_init_folder_writes_and_merges(tmp_path):
     actions = dict(init_folder(tmp_path))
 
     assert actions == {"AGENTS.md": "created", "CLAUDE.md": "updated", "GEMINI.md": "created",
-                       ".mcp.json": "updated", ".codex/config.toml": "created"}
+                       ".mcp.json": "updated", ".codex/config.toml": "created", ".gemini/settings.json": "created"}
     assert (tmp_path / "AGENTS.md").read_text(encoding="utf-8") == instructions()
     assert (tmp_path / "CLAUDE.md").read_text(encoding="utf-8") == "# My notes\n\n@AGENTS.md\n"
     servers = json.loads((tmp_path / ".mcp.json").read_text())["mcpServers"]
     assert set(servers) == {"other", "pubmed-stream"} and servers["pubmed-stream"]["args"][-1] == "mcp"
     assert '[mcp_servers.pubmed-stream]\ncommand = "' in (tmp_path / ".codex" / "config.toml").read_text()
+    gemini = json.loads((tmp_path / ".gemini" / "settings.json").read_text())["mcpServers"]["pubmed-stream"]
+    assert gemini["args"][-1] == "mcp" and gemini["timeout"] == 600000
     assert set(dict(init_folder(tmp_path)).values()) == {"kept"}
 
 

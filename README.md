@@ -62,9 +62,25 @@ pubmed-stream open kg_gut_microbiome_frailty
 ollama pull qwen3.5:4b
 pubmed-stream review "Is the gut microbiota linked to frailty?" --limit 10 --model qwen3.5:4b --vault kg_gut_microbiome_frailty
 
-# Let Claude Code, Codex or Gemini CLI do all of this: set up a folder, then start the assistant there
-pubmed-stream init
 ```
+
+Or let an AI assistant do all of this for you. Install one: Claude Code needs a paid Claude plan, Codex a paid ChatGPT plan, and Gemini CLI only a Google account. These commands need [Node.js](https://nodejs.org) 22 or later; [tutorial 7](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) shows the other installers and walks through a session.
+
+```bash
+npm install -g @anthropic-ai/claude-code   # Claude Code
+npm install -g @openai/codex               # Codex
+npm install -g @google/gemini-cli          # Gemini CLI
+
+# Set up a research folder for all three, then start your assistant in it
+mkdir gut_frailty
+cd gut_frailty
+pubmed-stream init
+claude        # or: codex, or: gemini
+```
+
+The first time, the assistant asks you to sign in. Claude Code then asks to approve the pubmed-stream server, and Gemini CLI asks whether you trust the folder: say yes to both, or the assistant will not have pubmed-stream's tools. Then ask in plain language:
+
+> *Is the gut microbiota linked to frailty? Size the search first, download the clinical studies, and summarize the evidence with PMIDs.*
 
 The same in Python:
 

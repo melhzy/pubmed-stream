@@ -3,7 +3,8 @@
 ``init_folder`` writes what Claude Code, Codex and Gemini CLI need to work
 with pubmed-stream in a folder: the instructions (``AGENTS.md``, imported by
 ``CLAUDE.md`` and ``GEMINI.md``) and the settings that start pubmed-stream's
-MCP server (``.mcp.json`` for Claude Code, ``.codex/config.toml`` for Codex).
+MCP server (``.mcp.json`` for Claude Code, ``.codex/config.toml`` for Codex,
+``.gemini/settings.json`` for Gemini CLI).
 Existing files are kept, and settings are added to them rather than replaced.
 
 It can also choose models for the folder: Claude Code's in
@@ -15,7 +16,7 @@ so its model is chosen with ``codex -m`` or ``/model`` instead.
 import json
 import sys
 from pathlib import Path
-from typing import List, Optional, Tuple, Union
+from typing import Any, List, Optional, Tuple, Union
 
 PathLike = Union[str, Path]
 
@@ -56,15 +57,16 @@ def _import_instructions(path: Path) -> str:
     return "updated"
 
 
-def _claude_settings(folder: Path) -> str:
-    path = folder / ".mcp.json"
+def _json_settings(path: Path, **extra: Any) -> str:
+    """Add the server to the ``mcpServers`` of a JSON settings file, as Claude Code and Gemini CLI read them."""
     data = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     servers = data.setdefault("mcpServers", {})
     if SERVER_NAME in servers:
         return "kept"
     command, args = server_command()
-    servers[SERVER_NAME] = {"command": command, "args": args}
+    servers[SERVER_NAME] = {"command": command, "args": args, **extra}
     action = "updated" if path.exists() else "created"
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
     return action
 
@@ -121,8 +123,10 @@ def init_folder(
         ("AGENTS.md", _write_instructions(folder, force)),
         ("CLAUDE.md", _import_instructions(folder / "CLAUDE.md")),
         ("GEMINI.md", _import_instructions(folder / "GEMINI.md")),
-        (".mcp.json", _claude_settings(folder)),
+        (".mcp.json", _json_settings(folder / ".mcp.json")),
         (".codex/config.toml", _codex_settings(folder)),
+        # Gemini CLI's timeout is in milliseconds; downloads can take minutes
+        (".gemini/settings.json", _json_settings(folder / ".gemini" / "settings.json", timeout=600000)),
     ]
     if claude_model:
         actions.append((".claude/settings.json", _set_json_key(folder / ".claude" / "settings.json",

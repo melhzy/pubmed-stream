@@ -2,6 +2,16 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
+## Unreleased
+
+### Added
+
+- The README's quick start shows how to install Claude Code, Codex or Gemini CLI, set up a research folder and ask a first question.
+
+### Fixed
+
+- `pubmed-stream init` did not give Gemini CLI pubmed-stream's tools: it wrote Gemini's instructions but not its MCP settings. It now writes `.gemini/settings.json` too.
+
 ## 0.3.2 - 2026-10-19
 
 ### Added
