@@ -1,6 +1,6 @@
 """pubmed-stream – Download PubMed Central full-text articles."""
 
-__version__ = "0.3.0"
+__version__ = "0.3.1"
 
 from .downloader import (
     DownloadStats,
