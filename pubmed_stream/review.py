@@ -4,7 +4,8 @@ A small local model cannot run pubmed-stream itself, so the work is split:
 pubmed-stream collects the articles, the model summarizes one abstract at a
 time through Ollama's local server (https://ollama.com), and ``review``
 attaches each article's PubMed ID itself, so a summary is never credited to
-the wrong paper.  Every number in a summary must appear in its abstract;
+the wrong paper.  The model does not see the question while it summarizes,
+so it cannot present the question as a finding.  Every number in a summary must appear in its abstract;
 others are flagged.
 
 With ``answer=True`` the model also writes one answer from all the
@@ -34,14 +35,12 @@ DEFAULT_MODEL = "hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M"
 DEFAULT_HOST = "http://127.0.0.1:11434"
 DEFAULT_CONTEXT = 8192
 
-PAPER_PROMPT = """Question: {question}
-
-Article: {title} ({year}, {journal})
+# The question is left out on purpose: given it, small models open with it restated as a finding
+# ("The gut microbiota is linked to frailty.") even when the article did not test it.
+PAPER_PROMPT = """Article: {title} ({year}, {journal})
 Abstract: {abstract}
 
-In two or three sentences, say what this article found that bears on the question: the kind of study, \
-who or what was studied, and the main result. Copy numbers exactly as written in the abstract. Use only \
-the abstract above. Start directly with the finding, without an introduction."""
+Summarize this abstract in at most three sentences. First say what kind of study it is and who or what it studied. Then give its main result in the abstract's own words, keeping the direction of every effect as the abstract states it. Copy numbers exactly as written and add no others. Do not repeat the title, and write nothing but the summary."""
 
 ANSWER_PROMPT = """Question: {question}
 
@@ -152,13 +151,14 @@ def generate(prompt: str, model: str = DEFAULT_MODEL, host: Optional[str] = None
 
     At temperature 0 a small model can repeat itself without end, so the
     answer is capped, and repetition is discouraged; a capped answer ends
-    with a note saying so.
+    with a note saying so.  Models that think before answering, such as
+    Qwen3, are asked not to, so the cap is not spent on thinking.
 
     Raises:
         OllamaError: Ollama is not running at *host*, or does not have *model*.
     """
     url = f"{_host(host)}/api/generate"
-    payload = {"model": model, "prompt": prompt, "stream": False,
+    payload = {"model": model, "prompt": prompt, "stream": False, "think": False,
                "options": {"temperature": 0, "num_ctx": num_ctx, "num_predict": max_tokens,
                            "repeat_penalty": 1.15}}
     try:
@@ -213,8 +213,9 @@ def review(
     summaries = []
     for i, r in enumerate(records, 1):
         logger.info("Summarizing %d of %d: PMID %s", i, len(records), r["pmid"])
-        text = tidy(generate(PAPER_PROMPT.format(question=question, **r), model, host, num_ctx, session))
-        unsupported = sorted(numbers(text) - numbers(f"{r['abstract']} {r['title']}") - {str(r["year"])})
+        text = tidy(generate(PAPER_PROMPT.format(**r), model, host, num_ctx, session))
+        summary = re.sub(r" \[cut at \d+ tokens\]$", "", text)   # without the note on a cut reply
+        unsupported = sorted(numbers(summary) - numbers(f"{r['abstract']} {r['title']}") - {str(r["year"])})
         summaries.append(Summary(r, text, unsupported))
 
     result = Review(question, model, summaries)

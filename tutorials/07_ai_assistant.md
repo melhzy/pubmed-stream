@@ -204,7 +204,7 @@ Codex 0.163 ignores a model setting inside a research folder, so pubmed-stream d
 | Make it this folder's default | `pubmed-stream init --review-model llama3.2:3b` |
 | See and get models | `ollama list` shows what you have; `ollama pull llama3.2:3b` downloads one |
 
-Larger local models summarize better but need more memory: a 1-billion-parameter model runs on almost any laptop, while models of 7 billion or more want a recent computer with plenty of memory or a graphics card.
+Larger local models summarize better but need more memory: a 1-billion-parameter model runs on almost any laptop, while models of 7 billion or more want a recent computer with plenty of memory or a graphics card. The [README](../README.md#5-work-with-ai-assistants-local-models-and-obsidian) suggests models for each size of computer.
 
 ---
 
@@ -374,7 +374,9 @@ It summarizes each paper separately and prints the summaries. pubmed-stream, not
 
 ![The review note in Obsidian: the question, a note that a small local model wrote it, and each summary under its paper's title and PubMed link](guides/images/obsidian-local-review.png)
 
-**How well did it do?** On the seven papers above, six of seven summaries were accurate, with the details copied correctly. The seventh described a meta-analysis of all gut-targeted treatments as a result for FMT alone. With `--answer`, the model also writes one answer from all the summaries, but at this size that answer is unreliable: it invented contradictions and credited findings to the wrong papers. Use the summaries as a fast first reading, check them against the abstracts, and draw conclusions yourself.
+The model sees only one abstract at a time, never your question: given the question, small models tend to open with it restated as a finding ("The gut microbiota is linked to frailty.") even when the paper did not test it.
+
+**How well did it do?** On the seven papers above, six of seven summaries were accurate, with the details copied correctly. The seventh called a review of eleven studies a randomized controlled trial, although it reported the review's results correctly. With `--answer`, the model also writes one answer from all the summaries, but at this size that answer is unreliable: it invented contradictions and credited findings to the wrong papers. Use the summaries as a fast first reading, check them against the abstracts, and draw conclusions yourself.
 
 The model gives the same summaries every time for the same papers. On a laptop with a graphics card, seven papers took about 5 seconds; without one, allow a few seconds to a minute per paper. [Section 4](#4-choose-a-model) shows how to use a larger model.
 

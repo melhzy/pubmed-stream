@@ -130,6 +130,9 @@ def test_review_attaches_ids_and_checks_numbers(make_session, tmp_path):
     assert result.summaries[0].unsupported_numbers == [] and result.summaries[1].unsupported_numbers == ["13"]
     assert (result.not_read, result.not_cited) == (["333"], [])
     assert prompts[0]["options"]["temperature"] == 0 and prompts[0]["options"]["num_predict"] == 300
+    assert prompts[0]["think"] is False
+    # Summaries are written without the question, so it cannot be restated as a finding; the answer uses it
+    assert "Does FMT help?" not in prompts[0]["prompt"] and "Does FMT help?" in prompts[2]["prompt"]
     assert "[PMID 111](https://pubmed.ncbi.nlm.nih.gov/111/)" in result.markdown()
 
 
@@ -137,7 +140,8 @@ def test_review_marks_a_reply_cut_at_its_length_limit(make_session, tmp_path):
     write_article(tmp_path / "a", "111", "2024", "Trial one")
     session, _ = ollama(make_session, [("The study found the same thing again and", "length")])
 
-    assert review("Q?", tmp_path, session=session).summaries[0].text.endswith("[cut at 300 tokens]")
+    summary = review("Q?", tmp_path, session=session).summaries[0]
+    assert summary.text.endswith("[cut at 300 tokens]") and summary.unsupported_numbers == []
 
 
 def test_review_explains_ollama_problems(make_session, tmp_path):
