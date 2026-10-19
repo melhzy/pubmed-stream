@@ -57,6 +57,7 @@ Setting the `NCBI_API_KEY` environment variable makes every notebook about three
 | [`keywords/`](keywords/) | Keyword lists from real projects, with categories, priorities and rationales; tutorial 3 uses one |
 | [`knowledge_graphs/`](knowledge_graphs/README.md) | Knowledge graphs saved from the tutorials' runs, to open in Obsidian without running anything; tutorial 8's graph of the retracted Aβ\*56 paper is there |
 | [`citation_impact.py`](citation_impact.py) | Tutorial 8's helpers: the citing papers of many papers at once, counts by year and flag, the sentences that cite a paper in full text, and their classification |
+| [`impact_charts.py`](impact_charts.py) | Tutorial 8's charts: each states its finding in the title and says how to read it, so a chart can be pasted into a report as it is |
 | [`tools/session_figures.py`](tools/session_figures.py) | Charts a research folder's session: searches, papers by year, most cited works, kinds of evidence, the key paper's neighborhood; tutorial 7 shows them |
 | [`tools/manage_text_field.py`](tools/manage_text_field.py) | Add, remove or check the `text` field of downloaded files, to save space or restore it from the XML |
 
