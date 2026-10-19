@@ -86,6 +86,7 @@ The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/mai
 | 5 | [The knowledge graph of a study](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) | Build a graph and explain it with twelve charts and tables |
 | 6 | [Text mining and RAG preparation](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/06_text_mining.ipynb) | Split articles into sections and chunk them for embeddings |
 | 7 | [Your literature search with an AI assistant](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) | For medical students and biologists: install Claude Code or Codex, choose a model, ask in plain English, check the evidence, keep it in Obsidian, or use a local model through Ollama |
+| 8 | [Measuring the impact of a retracted paper](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/08_retraction_impact.ipynb) | Follow the retracted 2006 *Nature* paper on Aβ\*56 through the papers citing it and the papers citing those: when and how they cite it, who still cites it after the retraction, and a knowledge graph of its impact |
 
 Five short guides support them:
 

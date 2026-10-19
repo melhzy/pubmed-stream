@@ -7,6 +7,7 @@ Notable changes to pubmed-stream. Versions follow [semantic versioning](https://
 ### Added
 
 - A documentation site, https://melhzy.github.io/pubmed-stream/, built from the README, the tutorials, the guides and the changelog, with the notebooks shown with their results. GitHub Actions publishes it on every push to `main`.
+- Tutorial 8, measuring the impact of a retracted paper: the 2006 *Nature* paper on Aβ\*56, retracted in 2024, followed through the papers citing it and the papers citing those, with the sentence in which each citing paper cites it, read from the full text, and a knowledge graph with a table of the citing papers by kind of citation. Its helpers are in `tutorials/citation_impact.py`.
 
 ## 0.3.0 - 2026-10-18
 

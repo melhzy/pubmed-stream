@@ -32,6 +32,7 @@ nav:
       - 5. The knowledge graph of a study: tutorials/05_knowledge_graph.ipynb
       - 6. Text mining and RAG preparation: tutorials/06_text_mining.ipynb
       - 7. Research with an AI assistant: tutorials/07_ai_assistant.md
+      - 8. The impact of a retracted paper: tutorials/08_retraction_impact.ipynb
   - Guides:
       - Reading a knowledge graph in Obsidian: tutorials/guides/obsidian.md
       - What it can and cannot do: tutorials/guides/limitations.md

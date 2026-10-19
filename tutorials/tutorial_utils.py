@@ -48,6 +48,8 @@ def setup(name: str = "", api_key: str = "") -> Path:
     repo = TUTORIALS.parent
     if (repo / "pubmed_stream").is_dir() and str(repo) not in sys.path:
         sys.path.insert(0, str(repo))
+    if str(TUTORIALS) not in sys.path:   # helper modules beside this one, after the move to the workspace
+        sys.path.insert(0, str(TUTORIALS))
     if api_key.strip():
         os.environ["NCBI_API_KEY"] = api_key.strip()
     folder = WORKSPACE / name if name else WORKSPACE
