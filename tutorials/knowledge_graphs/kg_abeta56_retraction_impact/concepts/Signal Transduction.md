@@ -11,14 +11,14 @@ tags:
 
 MeSH descriptor D015398 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D015398)
 
-## Papers (106)
+## Papers (112)
 
-- [[PMID41935181|Baicalein alleviates Alzheimer's disease pathology in AD models by activating the PI3K/AKT/GSK3β... (2026)]] (major topic)
+- [[PMID41611904|A structural overview of G-protein-coupled receptors in neurological disorders. (2026)]]
 - [[PMID42410183|Chronic Lithium Exposure Reshapes PI3K-mTOR-linked Proteostatic Networks in the Hippocampus of an... (2026)]]
-- [[PMID42292389|Neuroinflammation in Alzheimer's disease: glial crosstalk, pathological modulation, and therapeut... (2026)]]
-- [[PMID41628337|PTP1B inhibition promotes microglial phagocytosis in Alzheimer's disease models by enhancing SYK... (2026)]]
+- [[PMID42816892|Fyn kinase: a key mechanistic regulator and therapeutic target in tauopathy and neurodegenerative... (2026)]]
 - [[PMID41284210|USP10 in Neurological Disorders: Mechanistic Insights and Emerging Therapeutic Strategies. (2026)]]
 - [[PMID38890236|Fyn Kinase in Alzheimer's Disease: Unraveling Molecular Mechanisms and Therapeutic Implications. (2025)]]
+- [[PMID40302031|Inhibition of hippocampal mossy fiber plasticity and episodic memory by human Aβ oligomers is pre... (2025)]]
 - [[PMID38561558|Oligomeric Amyloid-β and Tau Alter Cell Adhesion Properties and Induce Inflammatory Responses in... (2024)]] (major topic)
 - [[PMID35275221|Deciphering therapeutic options for neurodegenerative diseases: insights from SIRT1. (2022)]]
 - [[PMID32180217|A mechanistic hypothesis for the impairment of synaptic plasticity by soluble Aβ oligomers from A... (2020)]]
@@ -47,7 +47,6 @@ MeSH descriptor D015398 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26293123|Human neural stem cells alleviate Alzheimer-like pathology in a mouse model. (2015)]]
 - [[PMID26224839|Na, K-ATPase α3 is a death target of Alzheimer patient amyloid-β assembly. (2015)]]
 - [[PMID25475876|Neuromodulatory signaling in hippocampus-dependent memory retrieval. (2015)]] (major topic)
-- [[PMID25933020|Passive immunization with phospho-tau antibodies reduces tau pathology and functional deficits in... (2015)]]
 - [[PMID26468204|Reducing Ribosomal Protein S6 Kinase 1 Expression Improves Spatial Memory and Synaptic Plasticity... (2015)]]
 - [[PMID26314631|The keystone of Alzheimer pathogenesis might be sought in Aβ physiology. (2015)]]
 - [[PMID25888276|Tong Luo Jiu Nao ameliorates Aβ1-40-induced cognitive impairment on adaptive behavior learning by... (2015)]]
@@ -99,6 +98,7 @@ MeSH descriptor D015398 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19123954|Beta amyloid oligomers and fibrils stimulate differential activation of primary microglia. (2009)]]
 - [[PMID19605645|Beta-amyloid oligomers induce phosphorylation of tau and inactivation of insulin receptor substra... (2009)]] (major topic)
 - [[PMID19547699|Disassembly of shank and homer synaptic clusters is driven by soluble beta-amyloid(1-40) through... (2009)]] (major topic)
+- [[PMID19587451|Introducing intermediate filaments: from discovery to disease. (2009)]]
 - [[PMID20008932|Neuronal SIRT1 regulates endocrine and behavioral responses to calorie restriction. (2009)]]
 - [[PMID19293145|Nicotinic acetylcholine receptor signalling: roles in Alzheimer's disease and amyloid neuroprotec... (2009)]]
 - [[PMID19188609|Protection of synapses against Alzheimer's-linked toxins: insulin signaling prevents the pathogen... (2009)]]
@@ -112,13 +112,19 @@ MeSH descriptor D015398 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18842893|The Reelin signaling pathway promotes dendritic spine development in hippocampal neurons. (2008)]] (major topic)
 - [[PMID17314289|Apolipoprotein E-containing lipoproteins protect neurons from apoptosis via a signaling pathway i... (2007)]] (major topic)
 - [[PMID17519504|Cofilin-mediated neurodegeneration in Alzheimer's disease and other amyloidopathies. (2007)]]
+- [[PMID17360908|Natural oligomers of the Alzheimer amyloid-beta protein induce reversible synapse loss by modulat... (2007)]] (major topic)
 - [[PMID17360894|Reelin depletion in the entorhinal cortex of human amyloid precursor protein transgenic mice and... (2007)]]
+- [[PMID17855343|Soluble Abeta inhibits specific signal transduction cascades common to the insulin receptor pathway. (2007)]] (major topic)
 - [[PMID17080189|Dysfunction of TGF-beta signaling in Alzheimer's disease. (2006)]] (major topic)
 - [[PMID17001693|Retinoid receptors, transporters, and metabolizers as therapeutic targets in late onset Alzheimer... (2006)]] (major topic)
 - [[PMID17015224|Sorting through the cell biology of Alzheimer's disease: intracellular pathways to pathogenesis. (2006)]] (major topic)
 - [[PMID15917835|Notch signaling in the mammalian central nervous system: insights from mouse mutants. (2005)]]
 - [[PMID15922461|Notch to remember. (2005)]] (major topic)
+- [[PMID16025111|Regulation of NMDA receptor trafficking by amyloid-beta. (2005)]]
+- [[PMID15572107|Shrinkage of dendritic spines associated with long-term depression of hippocampal synapses. (2004)]]
+- [[PMID11756483|Rapid tyrosine phosphorylation of neuronal proteins including tau and focal adhesion kinase in re... (2002)]]
 - [[PMID11447826|Apolipoprotein E and Alzheimer's disease: signal transduction mechanisms. (2001)]]
+- [[PMID11250006|Targeting small Abeta oligomers: the solution to an Alzheimer's disease conundrum? (2001)]] (major topic)
 %% pubmed-stream:end %%
 
 ## Notes

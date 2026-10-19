@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D019086 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D019086)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID29672680|Cognitive correlates of α4β2 nicotinic acetylcholine receptors in mild Alzheimer's dementia. (2018)]]
+- [[PMID19828813|Activated actin-depolymerizing factor/cofilin sequesters phosphorylated microtubule-associated pr... (2009)]]
 %% pubmed-stream:end %%
 
 ## Notes

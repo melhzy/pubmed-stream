@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D050053 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D050053)
 
-## Papers (2)
+## Papers (1)
 
-- [[PMID42720842|Brain-derived neurotrophic factor via TRPM2 inhibition reduces amyloid-beta-mediated increases of... (2026)]] (major topic)
 - [[PMID26558786|The Transient Receptor Potential Melastatin 2 (TRPM2) Channel Contributes to β-Amyloid Oligomer-R... (2015)]] (major topic)
 %% pubmed-stream:end %%
 

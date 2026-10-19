@@ -13,8 +13,8 @@ MeSH descriptor D002463 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (2)
 
-- [[PMID24614900|Plasma membrane injury depends on bilayer lipid composition in Alzheimer's disease. (2014)]] (major topic)
 - [[PMID21281583|Biphasic effects of insulin on islet amyloid polypeptide membrane disruption. (2011)]]
+- [[PMID12124613|Neurodegenerative disease: amyloid pores from pathogenic mutations. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

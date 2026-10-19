@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D008856 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008856)
 
-## Papers (10)
+## Papers (12)
 
 - [[PMID26080426|Activation of peroxisome proliferator-activated receptor α stimulates ADAM10-mediated proteolysis... (2015)]]
 - [[PMID26637371|The participation of insulin-like growth factor-binding protein 3 released by astrocytes in the p... (2015)]]
@@ -20,8 +20,10 @@ MeSH descriptor D008856 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23138650|Presenilin-1 adopts pathogenic conformation in normal aging and in sporadic Alzheimer's disease. (2013)]]
 - [[PMID23386614|Prion protein-mediated toxicity of amyloid-β oligomers requires lipid rafts and the transmembrane... (2013)]]
 - [[PMID22129303|Aβ(39-42) modulates Aβ oligomerization but not fibril formation. (2012)]]
+- [[PMID22419736|Neuropathogenic role of adenylate kinase-1 in Aβ-mediated tau phosphorylation via AMPK and GSK3β. (2012)]]
 - [[PMID20858443|Measurement of the attachment and assembly of small amyloid-β oligomers on live cell membranes at... (2010)]] (major topic)
 - [[PMID18374273|Visualizing interaction of proteins relevant to Alzheimer's disease in intact cells. (2008)]]
+- [[PMID17328689|Calcium and neurodegeneration. (2007)]]
 - [[PMID17101697|Tau-dependent microtubule disassembly initiated by prefibrillar beta-amyloid. (2006)]]
 %% pubmed-stream:end %%
 

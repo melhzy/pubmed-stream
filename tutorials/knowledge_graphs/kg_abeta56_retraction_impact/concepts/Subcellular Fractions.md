@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D013347 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D013347)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID23447589|Reversible pathologic and cognitive phenotypes in an inducible model of Alzheimer-amyloidosis. (2013)]]
+- [[PMID20164348|Amyloid beta induces the morphological neurodegenerative triad of spine loss, dendritic simplific... (2010)]]
 %% pubmed-stream:end %%
 
 ## Notes

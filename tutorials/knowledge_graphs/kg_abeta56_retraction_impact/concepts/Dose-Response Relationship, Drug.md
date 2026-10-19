@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D004305 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D004305)
 
-## Papers (48)
+## Papers (50)
 
 - [[PMID29962345|Berberine Alleviates Amyloid-Beta Pathology in the Brain of APP/PS1 Transgenic Mice via Inhibitin... (2018)]]
 - [[PMID30297750|Inhibiting amyloid-β cytotoxicity through its interaction with the cell surface receptor LilrB2 b... (2018)]]
@@ -19,8 +19,9 @@ MeSH descriptor D004305 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28900141|Dianxianning improved amyloid β-induced pathological characteristics partially through DAF-2/DAF-... (2017)]]
 - [[PMID26429731|Double-Edged Roles of Nitric Oxide Signaling on APP Processing and Amyloid-β Production In Vitro:... (2016)]]
 - [[PMID26649780|Effect of Zhuang Jing Decoction on Learning and Memory Ability in Aging Rats. (2016)]]
-- [[PMID25096615|The murine version of BAN2401 (mAb158) selectively reduces amyloid-β protofibrils in brain and ce... (2015)]]
-- [[PMID24796668|6-Shogaol, an active constituent of ginger, attenuates neuroinflammation and cognitive deficits i... (2014)]]
+- [[PMID25589714|Amyloid-β Modulates Both AβPP and Tau Phosphorylation. (2015)]]
+- [[PMID26293809|Intracellular amyloid β oligomers impair organelle transport and induce dendritic spine loss in p... (2015)]]
+- [[PMID24150104|Rosiglitazone prevents amyloid-β oligomer-induced impairment of synapse formation and plasticity... (2014)]]
 - [[PMID24685176|Soluble Aβ oligomers are rapidly sequestered from brain ISF in vivo and bind GM1 ganglioside on c... (2014)]]
 - [[PMID23843949|Amyloid-β protofibrils: size, morphology and synaptotoxicity of an engineered mimic. (2013)]]
 - [[PMID23560952|Multi-target action of the novel anti-Alzheimer compound CHF5074: in vivo study of long term trea... (2013)]]
@@ -61,6 +62,7 @@ MeSH descriptor D004305 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15778881|Acetylcholinesterase inhibitors ameliorate behavioral deficits in the Tg2576 mouse model of Alzhe... (2005)]]
 - [[PMID15591046|beta-Synuclein reduces proteasomal inhibition by alpha-synuclein but not gamma-synuclein. (2005)]]
 - [[PMID15056716|Block of long-term potentiation by naturally secreted and synthetic amyloid beta-peptide in hippo... (2004)]]
+- [[PMID11941374|Immunization reverses memory deficits without reducing brain Abeta burden in Alzheimer's disease... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

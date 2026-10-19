@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D002460 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002460)
 
-## Papers (55)
+## Papers (58)
 
-- [[PMID41766859|Carnosine protects human microglia against Aβ oligomers through a multimodal mechanism of action:... (2026)]]
 - [[PMID42413147|Exposure to oligomeric and fibrillar species of amyloid-β induces toxicity and impairs extravillo... (2026)]]
 - [[PMID34376696|NEK1-mediated retromer trafficking promotes blood-brain barrier integrity by regulating glucose m... (2021)]]
 - [[PMID34644262|Nmnat2 attenuates amyloidogenesis and up-regulates ADAM10 in AMPK activity-dependent manner. (2021)]]
@@ -58,9 +57,12 @@ MeSH descriptor D002460 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19864413|Alcadein cleavages by amyloid beta-precursor protein (APP) alpha- and gamma-secretases generate s... (2009)]]
 - [[PMID19745811|Pre-fibrillar alpha-synuclein variants with impaired beta-structure increase neurotoxicity in Par... (2009)]]
 - [[PMID19164507|The E693Delta mutation in amyloid precursor protein increases intracellular accumulation of amylo... (2009)]]
+- [[PMID19135897|The mechanism of Ca2+ -dependent regulation of kinesin-mediated mitochondrial motility. (2009)]]
 - [[PMID19144697|Up-regulation of the alpha-secretase ADAM10 by retinoic acid receptors and acitretin. (2009)]]
+- [[PMID18326489|Calmodulin binding and Cdk5 phosphorylation of p35 regulate its effect on microtubules. (2008)]]
 - [[PMID18848351|Lrp4 is a receptor for Agrin and forms a complex with MuSK. (2008)]]
 - [[PMID17157826|Combining the rapid MTT formazan exocytosis assay and the MC65 protection assay led to the discov... (2007)]]
+- [[PMID17360912|Missorting of tau in neurons causes degeneration of synapses that can be rescued by the kinase MA... (2007)]]
 - [[PMID18046409|Small molecule activators of SIRT1 as therapeutics for the treatment of type 2 diabetes. (2007)]]
 - [[PMID15984012|Amyloid-beta oligomers are inefficiently measured by enzyme-linked immunosorbent assay. (2005)]]
 - [[PMID15591046|beta-Synuclein reduces proteasomal inhibition by alpha-synuclein but not gamma-synuclein. (2005)]]
@@ -68,6 +70,7 @@ MeSH descriptor D002460 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15976091|Intravesicular localization and exocytosis of alpha-synuclein and its aggregates. (2005)]]
 - [[PMID15765523|Lysosomal pathology associated with alpha-synuclein accumulation in transgenic models using an eG... (2005)]]
 - [[PMID15310905|Increased nuclear NAD biosynthesis and SIRT1 activation prevent axonal degeneration. (2004)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

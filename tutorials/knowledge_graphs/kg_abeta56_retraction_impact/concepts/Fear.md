@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D005239 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D005239)
 
-## Papers (17)
+## Papers (18)
 
 - [[PMID39885298|Synaptic vulnerability to amyloid-β and tau pathologies differentially disrupts emotional and mem... (2025)]]
 - [[PMID33441593|Early β adrenoceptor dependent time window for fear memory persistence in APPswe/PS1dE9 mice. (2021)]] (major topic)
@@ -24,6 +24,7 @@ MeSH descriptor D005239 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23595760|MER5101, a novel Aβ1-15:DT conjugate vaccine, generates a robust anti-Aβ antibody response and at... (2013)]]
 - [[PMID22045495|Corticotrophin releasing factor accelerates neuropathology and cognitive decline in a mouse model... (2012)]]
 - [[PMID22238679|Natural amyloid-β oligomers acutely impair the formation of a contextual fear memory in mice. (2012)]] (major topic)
+- [[PMID22357853|Neutralization of soluble, synaptotoxic amyloid β species by antibodies is epitope specific. (2012)]]
 - [[PMID21487307|Brain oligomeric β-amyloid but not total amyloid plaque burden correlates with neuronal loss and... (2011)]]
 - [[PMID21186265|Reversal of autophagy dysfunction in the TgCRND8 mouse model of Alzheimer's disease ameliorates a... (2011)]]
 - [[PMID20544830|Amyloid-beta oligomers impair fear conditioned memory in a calcineurin-dependent fashion in mice. (2010)]] (major topic)

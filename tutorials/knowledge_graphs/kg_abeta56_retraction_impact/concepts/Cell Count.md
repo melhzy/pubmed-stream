@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D002452 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002452)
 
-## Papers (9)
+## Papers (10)
 
 - [[PMID25761889|Scanning ultrasound removes amyloid-β and restores memory in an Alzheimer's disease mouse model. (2015)]]
 - [[PMID24178831|Maternal choline supplementation differentially alters the basal forebrain cholinergic system of... (2014)]]
@@ -22,6 +22,7 @@ MeSH descriptor D002452 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17251419|Abeta oligomer-induced aberrations in synapse composition, shape, and density provide a molecular... (2007)]]
 - [[PMID17021169|Intraneuronal beta-amyloid aggregates, neurodegeneration, and neuron loss in transgenic mice with... (2006)]]
 - [[PMID16291936|Age-dependent neurofibrillary tangle formation, neuron loss, and memory impairment in a mouse mod... (2005)]]
+- [[PMID15787694|Effects of Abeta1-42 fibrils and of the tetrapeptide Pr-IIGL on the phosphorylation state of the... (2005)]]
 %% pubmed-stream:end %%
 
 ## Notes

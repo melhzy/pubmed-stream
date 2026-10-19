@@ -11,24 +11,33 @@ tags:
 
 MeSH descriptor D017774 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D017774)
 
-## Papers (59)
+## Papers (78)
 
+- [[PMID41892301|Neurophysiological In Vitro Model of Amyloid-β-Induced Deficits of Hippocampal LTP Involving Neur... (2026)]] (major topic)
 - [[PMID41965896|Pyrazole-derived TRPC3 antagonist ameliorates synaptic dysfunctions and memory deficits in Alzhei... (2026)]]
+- [[PMID40302031|Inhibition of hippocampal mossy fiber plasticity and episodic memory by human Aβ oligomers is pre... (2025)]]
+- [[PMID37491315|Tau and Amyloid β Protein in Patient-Derived Aqueous Brain Extracts Act Concomitantly to Disrupt... (2023)]]
+- [[PMID35820646|Aβ oligomers from human brain impair mossy fiber LTP in CA3 of hippocampus, but activating cAMP-P... (2022)]] (major topic)
 - [[PMID35379353|Differential vulnerability of hippocampal CA3-CA1 synapses to Aβ. (2022)]]
+- [[PMID35628602|The Small Molecule GAL-201 Efficiently Detoxifies Soluble Amyloid β Oligomers: New Approach towar... (2022)]]
 - [[PMID33573114|Impairment of Spike-Timing-Dependent Plasticity at Schaffer Collateral-CA1 Synapses in Adult APP/... (2021)]] (major topic)
 - [[PMID34684684|Oat Extract Avenanthramide-C Reverses Hippocampal Long-Term Potentiation Decline in Tg2576 Mice. (2021)]] (major topic)
 - [[PMID33230138|TDP-43 interacts with amyloid-β, inhibits fibrillization, and worsens pathology in a model of Alz... (2020)]]
+- [[PMID31200742|Hippocampal stem cells promotes synaptic resistance to the dysfunctional impact of amyloid beta o... (2019)]]
 - [[PMID29066369|Astrocytic glutamatergic transporters are involved in Aβ-induced synaptic dysfunction. (2018)]]
 - [[PMID29898386|CaMKII Metaplasticity Drives Aβ Oligomer-Mediated Synaptotoxicity. (2018)]]
 - [[PMID30409172|Decoding the synaptic dysfunction of bioactive human AD brain soluble Aβ to inspire novel therape... (2018)]]
-- [[PMID29555950|Zinc ion rapidly induces toxic, off-pathway amyloid-β oligomers distinct from amyloid-β derived d... (2018)]]
+- [[PMID29660932|Neuroprotective Effects of Ferruginol, Jatrophone, and Junicedric Acid Against Amyloid-β Injury i... (2018)]]
 - [[PMID28665013|Epigenetic regulation by G9a/GLP complex ameliorates amyloid-beta 1-42 induced deficits in long-t... (2017)]]
 - [[PMID28053038|Large Soluble Oligomers of Amyloid β-Protein from Alzheimer Brain Are Far Less Neuroactive Than t... (2017)]]
 - [[PMID27708157|Amyloid-β effects on synapses and memory require AMPA receptor subunit GluA3. (2016)]]
+- [[PMID26957206|Inhibition of the Motor Protein Eg5/Kinesin-5 in Amyloid β-Mediated Impairment of Hippocampal Lon... (2016)]]
 - [[PMID27023127|Intracerebroventricular Injection of Amyloid-β Peptides in Normal Mice to Acutely Induce Alzheime... (2016)]]
 - [[PMID26202697|MT5-MMP is a new pro-amyloidogenic proteinase that promotes amyloid pathology and cognitive decli... (2016)]]
 - [[PMID26733416|RPS23RG1 reduces Aβ oligomer-induced synaptic and cognitive deficits. (2016)]]
+- [[PMID26949218|Soluble prion protein and its N-terminal fragment prevent impairment of synaptic plasticity by Aβ... (2016)]] (major topic)
 - [[PMID27246855|The CaMKII/GluN2B Protein Interaction Maintains Synaptic Strength. (2016)]] (major topic)
+- [[PMID27233830|The flavonoid baicalein rescues synaptic plasticity and memory deficits in a mouse model of Alzhe... (2016)]] (major topic)
 - [[PMID25637092|MRZ-99030 - A novel modulator of Aβ aggregation: II - Reversal of Aβ oligomer-induced deficits in... (2015)]] (major topic)
 - [[PMID26468204|Reducing Ribosomal Protein S6 Kinase 1 Expression Improves Spatial Memory and Synaptic Plasticity... (2015)]]
 - [[PMID26322584|η-Secretase processing of APP inhibits neuronal activity in the hippocampus. (2015)]]
@@ -37,6 +46,7 @@ MeSH descriptor D017774 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID25540024|Longitudinal testing of hippocampal plasticity reveals the onset and maintenance of endogenous hu... (2014)]] (major topic)
 - [[PMID25393479|Neuritin can normalize neural deficits of Alzheimer's disease. (2014)]]
 - [[PMID24725347|Oligomer-targeting with a conformational antibody fragment promotes toxicity in Aβ-expressing flies. (2014)]]
+- [[PMID24150104|Rosiglitazone prevents amyloid-β oligomer-induced impairment of synapse formation and plasticity... (2014)]]
 - [[PMID24840308|Secreted amyloid β-proteins in a cell culture model include N-terminally extended peptides that i... (2014)]]
 - [[PMID22987042|Amyloid-β induced signaling by cellular prion protein and Fyn kinase in Alzheimer disease. (2013)]]
 - [[PMID23668663|Deregulation of excitatory neurotransmission underlying synapse failure in Alzheimer's disease. (2013)]]
@@ -66,12 +76,21 @@ MeSH descriptor D017774 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18397883|Transglutaminase induces protofibril-like amyloid beta-protein assemblies that are protease-resis... (2008)]] (major topic)
 - [[PMID17634359|Abeta oligomer-mediated long-term potentiation impairment involves protein phosphatase 1-dependen... (2007)]] (major topic)
 - [[PMID17470798|Involvement of beta-site APP cleaving enzyme 1 (BACE1) in amyloid precursor protein-mediated enha... (2007)]]
+- [[PMID17855343|Soluble Abeta inhibits specific signal transduction cascades common to the insulin receptor pathway. (2007)]]
 - [[PMID16765515|Amyloid-beta1-42 reduces neuronal excitability in mouse dentate gyrus. (2006)]]
 - [[PMID16469784|Effects of secreted oligomers of amyloid beta-protein on hippocampal synaptic plasticity: a poten... (2006)]]
 - [[PMID17192927|Orally available compound prevents deficits in memory caused by the Alzheimer amyloid-beta oligom... (2006)]]
+- [[PMID15834427|Amyloid beta protein immunotherapy neutralizes Abeta oligomers that disrupt synaptic plasticity i... (2005)]]
 - [[PMID15649697|ApoE isoform-specific effects on LTP: blockade by oligomeric amyloid-beta1-42. (2005)]] (major topic)
+- [[PMID15758153|Certain inhibitors of synthetic amyloid beta-peptide (Abeta) fibrillogenesis block oligomerizatio... (2005)]] (major topic)
 - [[PMID15056716|Block of long-term potentiation by naturally secreted and synthetic amyloid beta-peptide in hippo... (2004)]] (major topic)
+- [[PMID15450156|LTP and LTD: an embarrassment of riches. (2004)]] (major topic)
+- [[PMID15190253|Structural basis of long-term potentiation in single dendritic spines. (2004)]] (major topic)
+- [[PMID12925731|Alzheimer's disease-affected brain: presence of oligomeric A beta ligands (ADDLs) suggests a mole... (2003)]]
+- [[PMID14627649|Calcium/calmodulin-dependent protein kinase II contributes to activity-dependent filopodia growth... (2003)]]
+- [[PMID12399581|Alzheimer's disease is a synaptic failure. (2002)]]
 - [[PMID11932745|Naturally secreted oligomers of amyloid beta protein potently inhibit hippocampal long-term poten... (2002)]] (major topic)
+- [[PMID11250006|Targeting small Abeta oligomers: the solution to an Alzheimer's disease conundrum? (2001)]]
 %% pubmed-stream:end %%
 
 ## Notes

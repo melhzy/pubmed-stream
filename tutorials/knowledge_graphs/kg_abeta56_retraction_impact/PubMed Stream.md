@@ -11,46 +11,46 @@ Knowledge graph of the papers downloaded with pubmed-stream. Open the graph view
 | Notes | Count |
 |---|---|
 | Papers with full text | 0 |
-| Stub papers | 2008 |
-| MeSH concepts | 2389 |
+| Stub papers | 2023 |
+| MeSH concepts | 2426 |
 | Collections | 11 |
 
 ## Collections
 
 - [[Neighborhood - PMID 16541076]] (1329 papers)
+- [[Neighborhood - PMID 18359102]] (89 papers)
 - [[Neighborhood - PMID 19339974]] (91 papers)
 - [[Neighborhood - PMID 20031278]] (87 papers)
 - [[Neighborhood - PMID 20655472]] (90 papers)
+- [[Neighborhood - PMID 20826658]] (90 papers)
 - [[Neighborhood - PMID 22836259]] (90 papers)
 - [[Neighborhood - PMID 23175838]] (84 papers)
-- [[Neighborhood - PMID 25604547]] (90 papers)
-- [[Neighborhood - PMID 27211547]] (91 papers)
 - [[Neighborhood - PMID 28487416]] (88 papers)
 - [[Neighborhood - PMID 29843241]] (90 papers)
 - [[Neighborhood - PMID 32246090]] (60 papers)
 
 ## Most connected concepts
 
-- [[Amyloid beta-Peptides]] (1194 papers)
-- [[Alzheimer Disease]] (1185 papers)
-- [[Mice, Transgenic]] (520 papers)
-- [[Brain]] (453 papers)
-- [[Disease Models, Animal]] (449 papers)
-- [[Peptide Fragments]] (429 papers)
-- [[Amyloid beta-Protein Precursor]] (367 papers)
-- [[Neurons]] (331 papers)
-- [[Plaque, Amyloid]] (259 papers)
-- [[Mice, Inbred C57BL]] (234 papers)
-- [[tau Proteins]] (229 papers)
-- [[Hippocampus]] (190 papers)
-- [[Cells, Cultured]] (164 papers)
-- [[Synapses]] (152 papers)
-- [[Amyloid]] (150 papers)
-- [[Amyloid Precursor Protein Secretases]] (145 papers)
-- [[Maze Learning]] (143 papers)
-- [[Mutation]] (128 papers)
-- [[Protein Multimerization]] (128 papers)
-- [[Phosphorylation]] (106 papers)
+- [[Amyloid beta-Peptides]] (1180 papers)
+- [[Alzheimer Disease]] (1170 papers)
+- [[Mice, Transgenic]] (517 papers)
+- [[Disease Models, Animal]] (448 papers)
+- [[Brain]] (445 papers)
+- [[Peptide Fragments]] (424 papers)
+- [[Amyloid beta-Protein Precursor]] (378 papers)
+- [[Neurons]] (351 papers)
+- [[tau Proteins]] (262 papers)
+- [[Plaque, Amyloid]] (257 papers)
+- [[Mice, Inbred C57BL]] (235 papers)
+- [[Hippocampus]] (222 papers)
+- [[Cells, Cultured]] (195 papers)
+- [[Synapses]] (177 papers)
+- [[Amyloid Precursor Protein Secretases]] (146 papers)
+- [[Amyloid]] (142 papers)
+- [[Maze Learning]] (142 papers)
+- [[Mutation]] (133 papers)
+- [[Phosphorylation]] (132 papers)
+- [[Protein Multimerization]] (116 papers)
 
 ## Retracted papers (9)
 

@@ -11,13 +11,12 @@ tags:
 
 MeSH descriptor D009682 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D009682)
 
-## Papers (14)
+## Papers (13)
 
 - [[PMID30258312|The Role of α-sheet in Amyloid Oligomer Aggregation and Toxicity. (2018)]]
 - [[PMID27481836|Molecular Structure of Aggregated Amyloid-β: Insights from Solid-State Nuclear Magnetic Resonance. (2016)]] (major topic)
 - [[PMID26780756|Monomeric Aβ(1-40) and Aβ(1-42) Peptides in Solution Adopt Very Similar Ramachandran Map Distribu... (2016)]]
 - [[PMID24397771|Rational design of a structural framework with potential use to develop chemical reagents that ta... (2014)]]
-- [[PMID24756858|Significant structural differences between transient amyloid-β oligomers and less-toxic fibrils i... (2014)]]
 - [[PMID23583777|The Alzheimer's amyloid-β(1-42) peptide forms off-pathway oligomers and fibrils that are distingu... (2013)]]
 - [[PMID22859942|A foldamer-dendrimer conjugate neutralizes synaptotoxic β-amyloid oligomers. (2012)]]
 - [[PMID21056574|Atomic-level characterization of the ensemble of the Aβ(1-42) monomer in water using unbiased mol... (2011)]] (major topic)

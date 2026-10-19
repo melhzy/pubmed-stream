@@ -14,10 +14,10 @@ MeSH descriptor D057180 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 ## Papers (6)
 
 - [[PMID41701639|Vulnerability of anterior cingulate Von Economo neurons to FTLD-tauopathies in behavioral variant... (2026)]] (major topic)
+- [[PMID40387258|Alzheimer's Disease and Frontotemporal Dementia: A Review of Pathophysiology and Therapeutic Appr... (2025)]] (major topic)
 - [[PMID37841575|Uncovering Critical Roles for RNA in Neurodegeneration. (2023)]] (major topic)
 - [[PMID32665013|Fyn depletion ameliorates tauP301L-induced neuropathology. (2020)]]
 - [[PMID28062555|Antibody Therapeutics Targeting Aβ and Tau. (2017)]] (major topic)
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]] (major topic)
 - [[PMID22766739|Postmortem Pittsburgh Compound B (PiB) binding increases with Alzheimer's disease progression. (2012)]]
 %% pubmed-stream:end %%
 

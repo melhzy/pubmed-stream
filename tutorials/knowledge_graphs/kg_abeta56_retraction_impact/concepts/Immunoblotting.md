@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D015151 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D015151)
 
-## Papers (20)
+## Papers (22)
 
 - [[PMID31004062|α-Sheet secondary structure in amyloid β-peptide drives aggregation and toxicity in Alzheimer's d... (2019)]]
 - [[PMID26080426|Activation of peroxisome proliferator-activated receptor α stimulates ADAM10-mediated proteolysis... (2015)]]
@@ -31,7 +31,9 @@ MeSH descriptor D015151 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19631677|Alzheimer's-associated Abeta oligomers show altered structure, immunoreactivity and synaptotoxici... (2009)]]
 - [[PMID19523517|Soluble fibrillar oligomer levels are elevated in Alzheimer's disease brain and correlate with co... (2009)]]
 - [[PMID18504134|A transgenic rat that develops Alzheimer's disease-like amyloid pathology, deficits in synaptic p... (2008)]]
+- [[PMID17145504|AMPAR removal underlies Abeta-induced synaptic depression and dendritic spine loss. (2006)]]
 - [[PMID15591046|beta-Synuclein reduces proteasomal inhibition by alpha-synuclein but not gamma-synuclein. (2005)]]
+- [[PMID12925731|Alzheimer's disease-affected brain: presence of oligomeric A beta ligands (ADDLs) suggests a mole... (2003)]]
 - [[PMID11160418|Age-dependent changes in brain, CSF, and plasma amyloid (beta) protein in the Tg2576 transgenic m... (2001)]]
 %% pubmed-stream:end %%
 

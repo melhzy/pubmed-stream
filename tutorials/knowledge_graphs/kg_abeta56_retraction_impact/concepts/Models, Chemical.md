@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D008956 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008956)
 
-## Papers (9)
+## Papers (8)
 
 - [[PMID29791461|A discrete mathematical model for the aggregation of β-Amyloid. (2018)]]
-- [[PMID27852777|Amyloid-β Peptide Nitrotyrosination Stabilizes Oligomers and Enhances NMDAR-Mediated Toxicity. (2016)]] (major topic)
 - [[PMID22748062|Aggregation, impaired degradation and immunization targeting of amyloid-beta dimers in Alzheimer'... (2012)]]
 - [[PMID21209907|Aβ40 oligomers identified as a potential biomarker for the diagnosis of Alzheimer's disease. (2010)]]
 - [[PMID18815129|Effects of grape seed-derived polyphenols on amyloid beta-protein self-assembly and cytotoxicity. (2008)]]

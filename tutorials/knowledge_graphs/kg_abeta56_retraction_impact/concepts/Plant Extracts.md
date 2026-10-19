@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D010936 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D010936)
 
-## Papers (13)
+## Papers (12)
 
 - [[PMID41991786|Aristotelia chilensis Fruit Extracts Exhibit Neuroprotective Properties Against Alzheimer's Disea... (2026)]] (major topic)
 - [[PMID34684684|Oat Extract Avenanthramide-C Reverses Hippocampal Long-Term Potentiation Decline in Tg2576 Mice. (2021)]]
@@ -20,7 +20,6 @@ MeSH descriptor D010936 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID31227651|Tyrosol Reduces Amyloid-β Oligomer Neurotoxicity and Alleviates Synaptic, Oxidative, and Cognitiv... (2019)]]
 - [[PMID28480424|COGNITIVE-ENHANCING PROPERTIES OF MORINDA LUCIDA (RUBIACEAE) AND PELTOPHORUM PTEROCARPUM (FABACEA... (2017)]] (major topic)
 - [[PMID27258424|Sideritis spp. Extracts Enhance Memory and Learning in Alzheimer's β-Amyloidosis Mouse Models and... (2016)]] (major topic)
-- [[PMID24796668|6-Shogaol, an active constituent of ginger, attenuates neuroinflammation and cognitive deficits i... (2014)]]
 - [[PMID25180067|The effects of sesquiterpenes-rich extract of Alpinia oxyphylla Miq. on amyloid-β-induced cogniti... (2014)]]
 - [[PMID23257508|Carnosic acid suppresses the production of amyloid-β 1-42 by inducing the metalloprotease gene TA... (2013)]] (major topic)
 - [[PMID21706234|Protective effects of walnut extract against amyloid beta peptide-induced cell death and oxidativ... (2011)]] (major topic)

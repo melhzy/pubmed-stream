@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D018094 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018094)
 
-## Papers (8)
+## Papers (9)
 
 - [[PMID40329311|Assessment of the relationship between synaptic density and metabotropic glutamate receptors in e... (2025)]] (major topic)
 - [[PMID35257837|Amyloid-β oligomers interact with NMDA receptors containing GluN2B subunits and metabotropic glut... (2022)]]
@@ -20,6 +20,7 @@ MeSH descriptor D018094 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID20547131|Deleterious effects of amyloid beta oligomers acting as an extracellular scaffold for mGluR5. (2010)]] (major topic)
 - [[PMID19547699|Disassembly of shank and homer synaptic clusters is driven by soluble beta-amyloid(1-40) through... (2009)]]
 - [[PMID19759000|Isolation and characterization of patient-derived, toxic, high mass amyloid beta-protein (Abeta)... (2009)]]
+- [[PMID17145504|AMPAR removal underlies Abeta-induced synaptic depression and dendritic spine loss. (2006)]]
 - [[PMID15056716|Block of long-term potentiation by naturally secreted and synthetic amyloid beta-peptide in hippo... (2004)]] (major topic)
 %% pubmed-stream:end %%
 

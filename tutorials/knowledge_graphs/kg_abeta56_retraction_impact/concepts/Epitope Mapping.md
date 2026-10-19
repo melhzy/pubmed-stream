@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D018604 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018604)
 
-## Papers (6)
+## Papers (5)
 
-- [[PMID26945100|Peripherally administered sera antibodies recognizing amyloid-β oligomers mitigate Alzheimer's di... (2016)]]
 - [[PMID23595760|MER5101, a novel Aβ1-15:DT conjugate vaccine, generates a robust anti-Aβ antibody response and at... (2013)]]
 - [[PMID24252153|N-truncated Abeta starting with position four: early intraneuronal accumulation and rescue of tox... (2013)]]
 - [[PMID21085663|Amyloid-β oligomer specificity mediated by the IgM isotype--implications for a specific protectiv... (2010)]]

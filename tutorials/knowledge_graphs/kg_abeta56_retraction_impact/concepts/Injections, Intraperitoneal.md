@@ -13,7 +13,7 @@ MeSH descriptor D007274 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (1)
 
-- [[PMID25085784|Combined treatment of amyloid-β₁₋₄₂-stimulated bone marrow-derived dendritic cells plus splenocyt... (2015)]]
+- [[PMID12151510|Reversible memory loss in a mouse transgenic model of Alzheimer's disease. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

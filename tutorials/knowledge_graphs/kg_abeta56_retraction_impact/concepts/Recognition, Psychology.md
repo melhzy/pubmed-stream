@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D021641 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D021641)
 
-## Papers (12)
+## Papers (13)
 
 - [[PMID31997558|Lipopolysaccharide exposure during late embryogenesis triggers and drives Alzheimer-like behavior... (2020)]]
 - [[PMID25637092|MRZ-99030 - A novel modulator of Aβ aggregation: II - Reversal of Aβ oligomer-induced deficits in... (2015)]]
@@ -25,6 +25,7 @@ MeSH descriptor D021641 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID22915123|Ryanodine receptor blockade reduces amyloid-β load and memory impairments in Tg2576 mouse model o... (2012)]]
 - [[PMID20685980|Generation and therapeutic efficacy of highly oligomer-specific beta-amyloid antibodies. (2010)]]
 - [[PMID20336061|Rosiglitazone rescues memory impairment in Alzheimer's transgenic mice: mechanisms involving a re... (2010)]]
+- [[PMID11941374|Immunization reverses memory deficits without reducing brain Abeta burden in Alzheimer's disease... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

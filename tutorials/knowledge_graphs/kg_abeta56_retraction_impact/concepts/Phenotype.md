@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D010641 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D010641)
 
-## Papers (22)
+## Papers (23)
 
 - [[PMID39863324|Distinct CSF α-synuclein aggregation profiles associated with Alzheimer's disease phenotypes and... (2025)]]
 - [[PMID38894518|Skeletal phenotypes and molecular mechanisms in aging mice. (2024)]]
@@ -35,6 +35,7 @@ MeSH descriptor D010641 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18562603|Complement C3 deficiency leads to accelerated amyloid beta plaque deposition and neurodegeneratio... (2008)]] (major topic)
 - [[PMID18987201|Inflammatory response in the hippocampus of PS1M146L/APP751SL mouse model of Alzheimer's disease:... (2008)]]
 - [[PMID17877786|SIRT1 transgenic mice show phenotypes resembling calorie restriction. (2007)]]
+- [[PMID16767098|Cyclohexanehexol inhibitors of Abeta aggregation prevent and reverse Alzheimer phenotype in a mou... (2006)]]
 %% pubmed-stream:end %%
 
 ## Notes

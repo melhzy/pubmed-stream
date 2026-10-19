@@ -11,14 +11,12 @@ tags:
 
 MeSH descriptor D016896 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D016896)
 
-## Papers (14)
+## Papers (12)
 
 - [[PMID29394903|Impact of amyloid-beta changes on cognitive outcomes in Alzheimer's disease: analysis of clinical... (2018)]]
 - [[PMID29154277|Potential of Low Dose Leuco-Methylthioninium Bis(Hydromethanesulphonate) (LMTM) Monotherapy for T... (2018)]] (major topic)
 - [[PMID28592267|A vaccine with Aβ oligomer-specific mimotope attenuates cognitive deficits and brain pathologies... (2017)]]
 - [[PMID28045051|Randomized trial on the effects of a combined physical/cognitive training in aged MCI subjects: t... (2017)]]
-- [[PMID25933020|Passive immunization with phospho-tau antibodies reduces tau pathology and functional deficits in... (2015)]]
-- [[PMID24796668|6-Shogaol, an active constituent of ginger, attenuates neuroinflammation and cognitive deficits i... (2014)]]
 - [[PMID24021662|Active and passive immunization strategies based on the SDPM1 peptide demonstrate pre-clinical ef... (2014)]]
 - [[PMID24671215|Molecular topology as novel strategy for discovery of drugs with aβ lowering and anti-aggregation... (2014)]]
 - [[PMID22122681|Developing β-secretase inhibitors for treatment of Alzheimer's disease. (2012)]]

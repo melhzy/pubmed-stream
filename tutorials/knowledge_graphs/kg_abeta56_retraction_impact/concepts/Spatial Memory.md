@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D065852 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D065852)
 
-## Papers (20)
+## Papers (19)
 
 - [[PMID32867800|Benzo(a)pyrene exposure induced neuronal loss, plaque deposition, and cognitive decline in APP/PS... (2020)]]
 - [[PMID31915254|Neuronal Protein Tyrosine Phosphatase 1B Hastens Amyloid β-Associated Alzheimer's Disease in Mice. (2020)]] (major topic)
@@ -29,7 +29,6 @@ MeSH descriptor D065852 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28403230|Isoflurane anesthesia promotes cognitive impairment by inducing expression of β-amyloid protein-r... (2017)]]
 - [[PMID29293211|Microglia-derived ASC specks cross-seed amyloid-β in Alzheimer's disease. (2017)]]
 - [[PMID27563885|Assessing the Effects of Acute Amyloid β Oligomer Exposure in the Rat. (2016)]]
-- [[PMID26215784|Anti-Aβ antibodies incapable of reducing cerebral Aβ oligomers fail to attenuate spatial referenc... (2015)]]
 - [[PMID26293123|Human neural stem cells alleviate Alzheimer-like pathology in a mouse model. (2015)]]
 - [[PMID26079110|Icariin decreases both APP and Aβ levels and increases neurogenesis in the brain of Tg2576 mice. (2015)]]
 - [[PMID25917310|Treadmill exercise enhances synaptic plasticity, but does not alter β-amyloid deposition in hippo... (2015)]]

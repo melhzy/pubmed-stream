@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D015870 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D015870)
 
-## Papers (20)
+## Papers (19)
 
 - [[PMID36517890|SNCA genetic lowering reveals differential cognitive function of alpha-synuclein dependent on sex. (2022)]]
 - [[PMID30103547|A Bifunctional Anti-Amyloid Blocks Oxidative Stress and the Accumulation of Intraneuronal Amyloid... (2018)]]
@@ -24,7 +24,6 @@ MeSH descriptor D015870 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26080426|Activation of peroxisome proliferator-activated receptor α stimulates ADAM10-mediated proteolysis... (2015)]]
 - [[PMID26410307|Brain-derived neurotrophic factor and TrkB expression in the "oldest-old," the 90+ Study: correla... (2015)]]
 - [[PMID26123100|Melatonin regulates the transcription of βAPP-cleaving secretases mediated through melatonin rece... (2015)]]
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]]
 - [[PMID25393479|Neuritin can normalize neural deficits of Alzheimer's disease. (2014)]]
 - [[PMID23372648|Accumulation of intraneuronal β-amyloid 42 peptides is associated with early changes in microtubu... (2013)]]
 - [[PMID23365075|IFN-γ Production by amyloid β-specific Th1 cells promotes microglial activation and increases pla... (2013)]]

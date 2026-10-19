@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D007263 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D007263)
 
-## Papers (2)
+## Papers (1)
 
-- [[PMID26215784|Anti-Aβ antibodies incapable of reducing cerebral Aβ oligomers fail to attenuate spatial referenc... (2015)]]
 - [[PMID22816379|Multiple low-dose infusions of human umbilical cord blood cells improve cognitive impairments and... (2013)]]
 %% pubmed-stream:end %%
 

@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D020836 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D020836)
 
-## Papers (50)
+## Papers (49)
 
 - [[PMID32469918|Molecular interactions between monoclonal oligomer-specific antibody 5E3 and its amyloid beta cog... (2020)]]
 - [[PMID32543725|The biogenesis and biology of amyloid β oligomers in the brain. (2020)]]
@@ -19,7 +19,6 @@ MeSH descriptor D020836 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID30557391|Small-molecule induction of Aβ-42 peptide production in human cerebral organoids to model Alzheim... (2018)]]
 - [[PMID29590593|Toxic HypF-N Oligomers Selectively Bind the Plasma Membrane to Impair Cell Adhesion Capability. (2018)]]
 - [[PMID28533388|Selective lowering of synapsins induced by oligomeric α-synuclein exacerbates memory deficits. (2017)]]
-- [[PMID28294556|Unmodified and pyroglutamylated amyloid β peptides form hypertoxic hetero-oligomers of unique sec... (2017)]]
 - [[PMID27901087|Polymorphism of fibrillar structures depending on the size of assembled Aβ17-42 peptides. (2016)]]
 - [[PMID26868929|Structure of ring-shaped Aβ₄₂ oligomers determined by conformational selection. (2016)]]
 - [[PMID25713928|A Cyclic Peptide Mimic of the β-Amyloid Binding Domain on Transthyretin. (2015)]]
@@ -29,7 +28,6 @@ MeSH descriptor D020836 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23695685|Mechanistic and environmental control of the prevalence and lifetime of amyloid oligomers. (2013)]]
 - [[PMID23431156|Metabotropic NMDA receptor function is required for β-amyloid-induced synaptic depression. (2013)]]
 - [[PMID23771815|Nonhuman amyloid oligomer epitope reduces Alzheimer's-like neuropathology in 3xTg-AD transgenic m... (2013)]]
-- [[PMID23335053|The cellular prion protein traps Alzheimer's Aβ in an oligomeric form and disassembles amyloid fi... (2013)]]
 - [[PMID23679559|Tranilast binds to aβ monomers and promotes aβ fibrillation. (2013)]]
 - [[PMID22102410|Binding with nucleic acids or glycosaminoglycans converts soluble protein oligomers to amyloid. (2012)]]
 - [[PMID22814377|Molecular basis of β-amyloid oligomer recognition with a conformational antibody fragment. (2012)]]
@@ -63,6 +61,7 @@ MeSH descriptor D020836 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17052343|Autoinsertion of soluble oligomers of Alzheimer's Abeta(1-42) peptide into cholesterol-containing... (2006)]]
 - [[PMID17101697|Tau-dependent microtubule disassembly initiated by prefibrillar beta-amyloid. (2006)]]
 - [[PMID15590663|Curcumin inhibits formation of amyloid beta oligomers and fibrils, binds plaques, and reduces amy... (2005)]]
+- [[PMID12124613|Neurodegenerative disease: amyloid pores from pathogenic mutations. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

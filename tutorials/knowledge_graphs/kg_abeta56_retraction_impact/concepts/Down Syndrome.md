@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D004314 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D004314)
 
-## Papers (7)
+## Papers (6)
 
-- [[PMID25534024|Differential induction and spread of tau pathology in young PS19 tau transgenic mice following in... (2015)]]
 - [[PMID24178831|Maternal choline supplementation differentially alters the basal forebrain cholinergic system of... (2014)]] (major topic)
 - [[PMID22009041|Association between frontal cortex oxidative damage and beta-amyloid as a function of age in Down... (2012)]] (major topic)
 - [[PMID20437209|Why pleiotropic interventions are needed for Alzheimer's disease. (2010)]]

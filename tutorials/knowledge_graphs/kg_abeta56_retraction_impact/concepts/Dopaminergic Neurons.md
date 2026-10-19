@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D059290 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D059290)
 
-## Papers (1)
+## Papers (2)
 
+- [[PMID40407976|Amyloid neuropathy, tauopathy, decreased cholinergic and dopaminergic neurons, long-term memory a... (2026)]] (major topic)
 - [[PMID28796251|Differential spatial expression of peripheral olfactory neuron-derived BACE1 induces olfactory im... (2017)]]
 %% pubmed-stream:end %%
 

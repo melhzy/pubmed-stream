@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D002479 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002479)
 
-## Papers (6)
+## Papers (5)
 
-- [[PMID25399729|Invited review: Prion-like transmission and spreading of tau pathology. (2015)]]
 - [[PMID19084066|In vivo suppression of polyglutamine neurotoxicity by C-terminus of Hsp70-interacting protein (CH... (2009)]]
 - [[PMID18414880|Characterization of antibodies that selectively detect alpha-synuclein in pathological inclusions. (2008)]] (major topic)
 - [[PMID18157656|Studies on the role of amino acid stereospecificity in amyloid beta aggregation. (2008)]]

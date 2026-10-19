@@ -11,11 +11,10 @@ tags:
 
 MeSH descriptor D050356 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D050356)
 
-## Papers (10)
+## Papers (9)
 
-- [[PMID41740736|High-Fat Diet and a High Amyloid Load Interact to Induce PKC-α Dependent Synaptic Insulin Resista... (2026)]]
 - [[PMID41892340|Inherent Lipid Composition Abnormalities in Astrocytes Associated with Late-Onset Alzheimer's Dis... (2026)]] (major topic)
-- [[PMID41863579|The metabolic roots of memory loss: interlinking the Diabetes-Alzheimer's hypothesis. (2026)]]
+- [[PMID41832772|Regulation of Lipid Dysmetabolism and Neuroinflammation Progression Linked With Alzheimer's Disea... (2026)]] (major topic)
 - [[PMID41102453|Interaction of sortilin with apolipoprotein E3 enables neurons to use long-chain fatty acids as a... (2025)]]
 - [[PMID27030769|ABCA7 Deficiency Accelerates Amyloid-β Generation and Alzheimer's Neuronal Pathology. (2016)]]
 - [[PMID24870034|Genome-wide analysis of Saccharomyces cerevisiae identifies cellular processes affecting intracel... (2014)]] (major topic)

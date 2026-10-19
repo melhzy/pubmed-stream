@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D007536 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D007536)
 
-## Papers (4)
+## Papers (3)
 
-- [[PMID23747423|Non-toxic conformer of amyloid β may suppress amyloid β-induced toxicity in rat primary neurons:... (2013)]]
 - [[PMID22129351|Dihydroxybenzoic acid isomers differentially dissociate soluble biotinyl-Aβ(1-42) oligomers. (2012)]]
 - [[PMID22674261|Neurotoxicity and memory deficits induced by soluble low-molecular-weight amyloid-β1-42 oligomers... (2012)]]
 - [[PMID18320241|Cleavage agents for soluble oligomers of human islet amyloid polypeptide. (2008)]]

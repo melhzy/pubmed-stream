@@ -11,16 +11,14 @@ tags:
 
 MeSH descriptor D015153 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D015153)
 
-## Papers (64)
+## Papers (66)
 
 - [[PMID41677387|Morpho-Functional Characterization and miRNA Profiling of the Retina in the 5xFAD Murine Model of... (2026)]]
 - [[PMID27723722|Caspase-2 cleavage of tau reversibly impairs memory. (2016)]]
 - [[PMID27566602|Revisiting rodent models: Octodon degus as Alzheimer's disease model? (2016)]]
 - [[PMID25988806|A native interactor scaffolds and stabilizes toxic ATAXIN-1 oligomers in SCA1. (2015)]]
-- [[PMID25534024|Differential induction and spread of tau pathology in young PS19 tau transgenic mice following in... (2015)]]
 - [[PMID25925093|Herpes simplex virus type 1 infection in neurons leads to production and nuclear localization of... (2015)]]
 - [[PMID25558816|Pseudophosphorylation of Tau at distinct epitopes or the presence of the P301L mutation targets t... (2015)]]
-- [[PMID25846299|The aqueous phase of Alzheimer's disease brain contains assemblies built from ∼4 and ∼7 kDa Aβ sp... (2015)]]
 - [[PMID26637371|The participation of insulin-like growth factor-binding protein 3 released by astrocytes in the p... (2015)]]
 - [[PMID24587111|RNA aptamer probes as optical imaging agents for the detection of amyloid plaques. (2014)]]
 - [[PMID23620083|AβP1-42 incorporation and channel formation in planar lipid membranes: the role of cholesterol an... (2013)]]
@@ -34,6 +32,7 @@ MeSH descriptor D015153 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23019586|Epidermal growth factor receptor is a preferred target for treating amyloid-β-induced memory loss. (2012)]]
 - [[PMID22796588|Increased β-amyloid deposition in Tg-SWDI transgenic mouse brain following in vivo lead exposure. (2012)]]
 - [[PMID21861096|Late-onset intermittent fasting dietary restriction as a potential intervention to retard age-ass... (2012)]]
+- [[PMID22419736|Neuropathogenic role of adenylate kinase-1 in Aβ-mediated tau phosphorylation via AMPK and GSK3β. (2012)]]
 - [[PMID22674261|Neurotoxicity and memory deficits induced by soluble low-molecular-weight amyloid-β1-42 oligomers... (2012)]]
 - [[PMID23173076|Synapse-binding subpopulations of Aβ oligomers sensitive to peptide assembly blockers and scFv an... (2012)]]
 - [[PMID23175838|The complex PrP(c)-Fyn couples human oligomeric Aβ with pathological tau changes in Alzheimer's d... (2012)]]
@@ -65,6 +64,7 @@ MeSH descriptor D015153 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19660551|Biochemical and immunohistochemical analysis of an Alzheimer's disease mouse model reveals the pr... (2009)]]
 - [[PMID19593388|CCL2 accelerates microglia-mediated Abeta oligomer formation and progression of neurocognitive dy... (2009)]]
 - [[PMID19625522|Decreased brain-derived neurotrophic factor depends on amyloid aggregation state in transgenic mo... (2009)]]
+- [[PMID19503072|Transmission and spreading of tauopathy in transgenic mouse brain. (2009)]]
 - [[PMID18429966|Transthyretin accelerates vascular Abeta deposition in a mouse model of Alzheimer's disease. (2009)]]
 - [[PMID18414880|Characterization of antibodies that selectively detect alpha-synuclein in pathological inclusions. (2008)]]
 - [[PMID18585407|Oligomers of the amyloid-beta protein disrupt working memory: confirmation with two behavioral pr... (2008)]]
@@ -75,8 +75,10 @@ MeSH descriptor D015153 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID16469784|Effects of secreted oligomers of amyloid beta-protein on hippocampal synaptic plasticity: a poten... (2006)]]
 - [[PMID16738486|Increased tau phosphorylation at the Ser396 epitope after amyloid beta-exposure in organotypic cu... (2006)]]
 - [[PMID15984012|Amyloid-beta oligomers are inefficiently measured by enzyme-linked immunosorbent assay. (2005)]]
+- [[PMID15787694|Effects of Abeta1-42 fibrils and of the tetrapeptide Pr-IIGL on the phosphorylation state of the... (2005)]]
 - [[PMID16027115|High beta-secretase activity elicits neurodegeneration in transgenic mice despite reductions in a... (2005)]]
 - [[PMID12499373|In vitro characterization of conditions for amyloid-beta peptide oligomerization and fibrillogene... (2003)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

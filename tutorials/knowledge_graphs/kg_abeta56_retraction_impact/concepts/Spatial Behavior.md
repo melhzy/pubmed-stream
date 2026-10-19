@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D013037 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D013037)
 
-## Papers (8)
+## Papers (9)
 
 - [[PMID31472195|Age-related changes in hippocampal AD pathology, actin remodeling proteins and spatial memory beh... (2019)]]
 - [[PMID25100603|Knock-in of human BACE1 cleaves murine APP and reiterates Alzheimer-like phenotypes. (2014)]]
@@ -20,6 +20,7 @@ MeSH descriptor D013037 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18772249|Faster forgetting contributes to impaired spatial memory in the PDAPP mouse: deficit in memory re... (2008)]] (major topic)
 - [[PMID17233641|Impaired spatial learning in the APPSwe + PSEN1DeltaE9 bigenic mouse model of Alzheimer's disease. (2007)]] (major topic)
 - [[PMID15778881|Acetylcholinesterase inhibitors ameliorate behavioral deficits in the Tg2576 mouse model of Alzhe... (2005)]]
+- [[PMID12151510|Reversible memory loss in a mouse transgenic model of Alzheimer's disease. (2002)]]
 - [[PMID11724968|Specific spatial learning deficits become severe with age in beta -amyloid precursor protein tran... (2001)]]
 %% pubmed-stream:end %%
 

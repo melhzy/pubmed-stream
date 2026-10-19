@@ -11,10 +11,11 @@ tags:
 
 MeSH descriptor D019636 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D019636)
 
-## Papers (63)
+## Papers (66)
 
+- [[PMID41611904|A structural overview of G-protein-coupled receptors in neurological disorders. (2026)]]
 - [[PMID41803335|Astrocyte States in Brain Aging and Neurodegeneration: At the Crossroads of Senescence and Reacti... (2026)]] (major topic)
-- [[PMID42604981|Written in the Stars: Astrocyte Biology From Evolution to Disease. (2026)]] (major topic)
+- [[PMID42816892|Fyn kinase: a key mechanistic regulator and therapeutic target in tauopathy and neurodegenerative... (2026)]] (major topic)
 - [[PMID39934896|AMPA receptor diffusional trapping machinery as an early therapeutic target in neurodegenerative... (2025)]] (major topic)
 - [[PMID40307424|APOE deficiency inhibits amyloid-facilitated (A) tau pathology (T) and neurodegeneration (N), hal... (2025)]]
 - [[PMID41224665|Astrocytes as Therapeutic Targets in Neurodegenerative Disorders. (2025)]] (major topic)
@@ -45,14 +46,13 @@ MeSH descriptor D019636 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID29508987|Elucidating the Structures of Amyloid Oligomers with Macrocyclic β-Hairpin Peptides: Insights int... (2018)]] (major topic)
 - [[PMID28702523|Implications of peptide assemblies in amyloid diseases. (2017)]] (major topic)
 - [[PMID29273078|Practical considerations for choosing a mouse model of Alzheimer's disease. (2017)]]
-- [[PMID26494242|Immunotherapeutic Approaches Targeting Amyloid-β, α-Synuclein, and Tau for the Treatment of Neuro... (2016)]] (major topic)
 - [[PMID27289378|Metabolic control of the proteotoxic stress response: implications in diabetes mellitus and neuro... (2016)]] (major topic)
-- [[PMID25840008|Neurodegenerative diseases: expanding the prion concept. (2015)]] (major topic)
 - [[PMID24228054|Evidence for prion-like mechanisms in several neurodegenerative diseases: potential implications... (2013)]] (major topic)
 - [[PMID23357359|FTIR spectroscopic imaging of protein aggregation in living cells. (2013)]]
 - [[PMID24252153|N-truncated Abeta starting with position four: early intraneuronal accumulation and rescue of tox... (2013)]]
 - [[PMID23529761|The role of amyloidogenic protein oligomerization in neurodegenerative disease. (2013)]] (major topic)
 - [[PMID22176890|Interaction between pathogenic proteins in neurodegenerative disorders. (2012)]] (major topic)
+- [[PMID22419736|Neuropathogenic role of adenylate kinase-1 in Aβ-mediated tau phosphorylation via AMPK and GSK3β. (2012)]]
 - [[PMID22424229|The amyloid state of proteins in human diseases. (2012)]] (major topic)
 - [[PMID22286176|The toxic Aβ oligomer and Alzheimer's disease: an emperor in need of clothes. (2012)]]
 - [[PMID22076255|CSF levels of oligomeric alpha-synuclein and beta-amyloid as biomarkers for neurodegenerative dis... (2011)]] (major topic)
@@ -60,6 +60,7 @@ MeSH descriptor D019636 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21238939|Regulation of caspases in the nervous system implications for functions in health and disease. (2011)]]
 - [[PMID20473510|Tau, prions and Aβ: the triad of neurodegeneration. (2011)]] (major topic)
 - [[PMID20409077|Altered longevity-assurance activity of p53:p44 in the mouse causes memory loss, neurodegeneratio... (2010)]] (major topic)
+- [[PMID20117162|Axon degeneration: Mechanisms and implications of a distinct program from cell death. (2010)]]
 - [[PMID19960174|Beta-amyloid oligomers and cellular prion protein in Alzheimer's disease. (2010)]]
 - [[PMID20546306|Mysterious oligomerization of the amyloidogenic proteins. (2010)]]
 - [[PMID20351282|PI3 kinase signaling is involved in Abeta-induced memory loss in Drosophila. (2010)]]
@@ -72,10 +73,12 @@ MeSH descriptor D019636 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18414880|Characterization of antibodies that selectively detect alpha-synuclein in pathological inclusions. (2008)]] (major topic)
 - [[PMID18583197|The SWAN biomedical discourse ontology. (2008)]]
 - [[PMID18216876|The two faces of protein misfolding: gain- and loss-of-function in neurodegenerative diseases. (2008)]] (major topic)
+- [[PMID17328689|Calcium and neurodegeneration. (2007)]] (major topic)
 - [[PMID16885229|Prefibrillar amyloid aggregates could be generic toxins in higher organisms. (2006)]] (major topic)
 - [[PMID16027115|High beta-secretase activity elicits neurodegeneration in transgenic mice despite reductions in a... (2005)]]
 - [[PMID16020737|Tau suppression in a neurodegenerative mouse model improves memory function. (2005)]] (major topic)
 - [[PMID15036877|More than just two peas in a pod: common amyloidogenic properties of tau and alpha-synuclein in n... (2004)]] (major topic)
+- [[PMID12704221|Protofibrils, pores, fibrils, and neurodegeneration: separating the responsible protein aggregate... (2003)]] (major topic)
 %% pubmed-stream:end %%
 
 ## Notes

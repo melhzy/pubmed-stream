@@ -11,11 +11,10 @@ tags:
 
 MeSH descriptor D001362 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D001362)
 
-## Papers (14)
+## Papers (13)
 
 - [[PMID24356899|(-)-Epigallocatechin-3-gallate ameliorates learning and memory deficits by adjusting the balance... (2014)]] (major topic)
 - [[PMID23182244|Alzheimer brain-derived amyloid β-protein impairs synaptic remodeling and memory consolidation. (2013)]] (major topic)
-- [[PMID23672786|Systemic vaccination with anti-oligomeric monoclonal antibodies improves cognitive function by re... (2013)]]
 - [[PMID22188425|Amyloid generation and dysfunctional immunoproteasome activation with disease progression in anim... (2012)]]
 - [[PMID23172351|Expression of the plant viral protease NIa in the brain of a mouse model of Alzheimer's disease m... (2012)]]
 - [[PMID22160221|Hematopoietic CC-chemokine receptor 2 (CCR2) competent cells are protective for the cognitive imp... (2012)]]

@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D058953 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D058953)
 
-## Papers (9)
+## Papers (8)
 
-- [[PMID32320074|Amyloid-β oligomers in cellular models of Alzheimer's disease. (2020)]]
 - [[PMID26898910|Phosphorylation of the amyloid β-peptide at Ser26 stabilizes oligomeric assembly and increases ne... (2016)]]
 - [[PMID26699276|Ganglioside-Dependent Neural Stem Cell Proliferation in Alzheimer's Disease Model Mice. (2015)]] (major topic)
 - [[PMID26293123|Human neural stem cells alleviate Alzheimer-like pathology in a mouse model. (2015)]] (major topic)

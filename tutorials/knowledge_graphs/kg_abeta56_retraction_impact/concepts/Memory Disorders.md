@@ -11,12 +11,12 @@ tags:
 
 MeSH descriptor D008569 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008569)
 
-## Papers (98)
+## Papers (100)
 
+- [[PMID40407976|Amyloid neuropathy, tauopathy, decreased cholinergic and dopaminergic neurons, long-term memory a... (2026)]]
 - [[PMID42141350|Amyloid Plaques Ameliorate Memory Deficits and Hippocampal Neuron Loss in an Aβ4-42-Driven Alzhei... (2026)]] (major topic)
 - [[PMID42441402|Medial entorhinal-hippocampal desynchronization parallels the emergence of memory impairment in a... (2026)]] (major topic)
 - [[PMID41965896|Pyrazole-derived TRPC3 antagonist ameliorates synaptic dysfunctions and memory deficits in Alzhei... (2026)]] (major topic)
-- [[PMID41863579|The metabolic roots of memory loss: interlinking the Diabetes-Alzheimer's hypothesis. (2026)]] (major topic)
 - [[PMID39885298|Synaptic vulnerability to amyloid-β and tau pathologies differentially disrupts emotional and mem... (2025)]] (major topic)
 - [[PMID38398861|Potential Therapeutic Effects of Bifidobacterium breve MCC1274 on Alzheimer's Disease Pathologies... (2024)]]
 - [[PMID35767571|Curcumin improves D-galactose and normal-aging associated memory impairment in mice: In vivo and... (2022)]]
@@ -47,8 +47,8 @@ MeSH descriptor D008569 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27723722|Caspase-2 cleavage of tau reversibly impairs memory. (2016)]] (major topic)
 - [[PMID27585306|Neurodegeneration in an Animal Model of Chronic Amyloid-beta Oligomer Infusion Is Counteracted by... (2016)]]
 - [[PMID27258424|Sideritis spp. Extracts Enhance Memory and Learning in Alzheimer's β-Amyloidosis Mouse Models and... (2016)]]
+- [[PMID27233830|The flavonoid baicalein rescues synaptic plasticity and memory deficits in a mouse model of Alzhe... (2016)]] (major topic)
 - [[PMID27240327|The Rationale for Insulin Therapy in Alzheimer's Disease. (2016)]] (major topic)
-- [[PMID26215784|Anti-Aβ antibodies incapable of reducing cerebral Aβ oligomers fail to attenuate spatial referenc... (2015)]] (major topic)
 - [[PMID26024049|Effects of Aβ exposure on long-term associative memory and its neuronal mechanisms in a defined n... (2015)]]
 - [[PMID26018073|Prion-Protein-interacting Amyloid-β Oligomers of High Molecular Weight Are Tightly Correlated wit... (2015)]] (major topic)
 - [[PMID26468204|Reducing Ribosomal Protein S6 Kinase 1 Expression Improves Spatial Memory and Synaptic Plasticity... (2015)]] (major topic)
@@ -108,6 +108,8 @@ MeSH descriptor D008569 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID16291936|Age-dependent neurofibrillary tangle formation, neuron loss, and memory impairment in a mouse mod... (2005)]] (major topic)
 - [[PMID15755686|Episodic-like memory deficits in the APPswe/PS1dE9 mouse model of Alzheimer's disease: relationsh... (2005)]] (major topic)
 - [[PMID14637120|Prevention of age-related spatial memory deficits in a transgenic mouse model of Alzheimer's dise... (2003)]] (major topic)
+- [[PMID11941374|Immunization reverses memory deficits without reducing brain Abeta burden in Alzheimer's disease... (2002)]] (major topic)
+- [[PMID12151510|Reversible memory loss in a mouse transgenic model of Alzheimer's disease. (2002)]] (major topic)
 - [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]] (major topic)
 - [[PMID10952022|Elevated A beta and apolipoprotein E in A betaPP transgenic mice and its relationship to amyloid... (2000)]]
 - [[PMID8810256|Correlative memory deficits, Abeta elevation, and amyloid plaques in transgenic mice. (1996)]] (major topic)

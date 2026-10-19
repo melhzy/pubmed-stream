@@ -13,6 +13,7 @@ MeSH descriptor D003300 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (27)
 
+- [[PMID40847318|Cell-specific copper dyshomeostasis mechanism in Alzheimer's disease. (2025)]] (major topic)
 - [[PMID39955064|Identifying the copper coordination environment between interacting neurodegenerative proteins: A... (2025)]] (major topic)
 - [[PMID34878720|Rational Design of a Cu Chelator That Mitigates Cu-Induced ROS Production by Amyloid Beta. (2022)]] (major topic)
 - [[PMID33724783|Probing the Structure of Toxic Amyloid-β Oligomers with Electron Spin Resonance and Molecular Mod... (2021)]]
@@ -22,7 +23,6 @@ MeSH descriptor D003300 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID25354461|Biometals and their therapeutic implications in Alzheimer's disease. (2015)]] (major topic)
 - [[PMID26408196|Truncated Amyloid-β(11-40/42) from Alzheimer Disease Binds Cu2+ with a Femtomolar Affinity and In... (2015)]] (major topic)
 - [[PMID26350232|Ultraviolet light triggers the conversion of Cu2+-bound Aβ42 aggregates into cytotoxic species in... (2015)]] (major topic)
-- [[PMID24857861|Factors influencing compact-extended structure equilibrium in oligomers of aβ1-40 peptide--an ion... (2014)]] (major topic)
 - [[PMID24397771|Rational design of a structural framework with potential use to develop chemical reagents that ta... (2014)]]
 - [[PMID23959898|Pulsed hydrogen-deuterium exchange mass spectrometry probes conformational changes in amyloid bet... (2013)]]
 - [[PMID23995980|The effect of Cu(2+) and Zn(2+) on the Aβ42 peptide aggregation and cellular toxicity. (2013)]] (major topic)

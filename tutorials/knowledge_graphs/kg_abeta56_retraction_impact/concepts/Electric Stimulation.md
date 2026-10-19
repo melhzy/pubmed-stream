@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D004558 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D004558)
 
-## Papers (8)
+## Papers (10)
 
 - [[PMID25917310|Treadmill exercise enhances synaptic plasticity, but does not alter β-amyloid deposition in hippo... (2015)]]
 - [[PMID21903077|Nitration of tyrosine 10 critically enhances amyloid β aggregation and plaque formation. (2011)]]
@@ -20,7 +20,9 @@ MeSH descriptor D004558 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18367618|Receptor for advanced glycation end product-dependent activation of p38 mitogen-activated protein... (2008)]]
 - [[PMID18721884|Significant structural but not physiological changes in cortical neurons of 12-month-old Tg2576 m... (2008)]]
 - [[PMID17634359|Abeta oligomer-mediated long-term potentiation impairment involves protein phosphatase 1-dependen... (2007)]]
+- [[PMID15572108|Bidirectional activity-dependent morphological plasticity in hippocampal neurons. (2004)]]
 - [[PMID15056716|Block of long-term potentiation by naturally secreted and synthetic amyloid beta-peptide in hippo... (2004)]]
+- [[PMID14627649|Calcium/calmodulin-dependent protein kinase II contributes to activity-dependent filopodia growth... (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

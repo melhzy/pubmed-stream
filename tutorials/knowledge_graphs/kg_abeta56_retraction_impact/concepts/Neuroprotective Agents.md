@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D018696 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018696)
 
-## Papers (56)
+## Papers (52)
 
 - [[PMID41991786|Aristotelia chilensis Fruit Extracts Exhibit Neuroprotective Properties Against Alzheimer's Disea... (2026)]] (major topic)
-- [[PMID41935181|Baicalein alleviates Alzheimer's disease pathology in AD models by activating the PI3K/AKT/GSK3β... (2026)]]
 - [[PMID40566818|Kenpaullone attenuates amyloid-beta deposition and neuroinflammation, improving memory in a 5XFAD... (2026)]] (major topic)
 - [[PMID40407867|Resveratrol, a calorie restriction mimetic, protects AlCl3-induced neurotoxicity and cognitive de... (2025)]] (major topic)
 - [[PMID39030577|Alpha-lipoic acid alleviates cognitive deficits in transgenic APP23/PS45 mice through a mitophagy... (2024)]]
@@ -23,12 +22,12 @@ MeSH descriptor D018696 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID36293516|Treadmill Exercise Reduces Neuroinflammation, Glial Cell Activation and Improves Synaptic Transmi... (2022)]] (major topic)
 - [[PMID33925063|Anti-Alzheimer's Molecules Derived from Marine Life: Understanding Molecular Mechanisms and Thera... (2021)]] (major topic)
 - [[PMID32791516|JBPOS0101 regulates amyloid beta, tau, and glial cells in an Alzheimer's disease model. (2020)]] (major topic)
-- [[PMID30702009|Are antibodies directed against amyloid-β (Aβ) oligomers the last call for the Aβ hypothesis of A... (2019)]] (major topic)
 - [[PMID30708052|Poly(propylene imine) dendrimers with histidine-maltose shell as novel type of nanoparticles for... (2019)]] (major topic)
 - [[PMID31052389|Targeting Apolipoprotein E for Alzheimer's Disease: An Industry Perspective. (2019)]]
 - [[PMID31236795|Triptolide Improves Cognitive Dysfunction in Rats with Vascular Dementia by Activating the SIRT1/... (2019)]]
 - [[PMID30143530|Are N- and C-terminally truncated Aβ species key pathological triggers in Alzheimer's disease? (2018)]]
 - [[PMID29050859|Neuroprotective effects of a triple GLP-1/GIP/glucagon receptor agonist in the APP/PS1 transgenic... (2018)]] (major topic)
+- [[PMID29660932|Neuroprotective Effects of Ferruginol, Jatrophone, and Junicedric Acid Against Amyloid-β Injury i... (2018)]] (major topic)
 - [[PMID30510627|Neuroprotective Mechanisms of Resveratrol in Alzheimer's Disease: Role of SIRT1. (2018)]] (major topic)
 - [[PMID28963439|Neuroprotective astrocyte-derived insulin/insulin-like growth factor 1 stimulates endocytic proce... (2017)]]
 - [[PMID28934273|Novel derivative of Paeonol, Paeononlsilatie sodium, alleviates behavioral damage and hippocampal... (2017)]] (major topic)
@@ -39,11 +38,9 @@ MeSH descriptor D018696 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28669120|The protection of novel 2-arylethenylquinoline derivatives against impairment of associative lear... (2017)]] (major topic)
 - [[PMID27761760|Thymol improves high-fat diet-induced cognitive deficits in mice via ameliorating brain insulin r... (2017)]] (major topic)
 - [[PMID27503326|Inhibition of ADAM10 promotes the clearance of Aβ across the BBB by reducing LRP1 ectodomain shed... (2016)]]
-- [[PMID26907803|Naturally occurring autoantibodies against Aβ oligomers exhibited more beneficial effects in the... (2016)]] (major topic)
 - [[PMID25354461|Biometals and their therapeutic implications in Alzheimer's disease. (2015)]] (major topic)
 - [[PMID26079110|Icariin decreases both APP and Aβ levels and increases neurogenesis in the brain of Tg2576 mice. (2015)]]
 - [[PMID25173807|Novel therapeutic strategy for neurodegeneration by blocking Aβ seeding mediated aggregation in m... (2015)]] (major topic)
-- [[PMID24796668|6-Shogaol, an active constituent of ginger, attenuates neuroinflammation and cognitive deficits i... (2014)]]
 - [[PMID24595198|Brain pyroglutamate amyloid-β is produced by cathepsin B and is reduced by the cysteine protease... (2014)]]
 - [[PMID24903973|Cilostazol suppresses β-amyloid production by activating a disintegrin and metalloproteinase 10 v... (2014)]] (major topic)
 - [[PMID25393479|Neuritin can normalize neural deficits of Alzheimer's disease. (2014)]] (major topic)
@@ -68,7 +65,6 @@ MeSH descriptor D018696 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17192927|Orally available compound prevents deficits in memory caused by the Alzheimer amyloid-beta oligom... (2006)]] (major topic)
 - [[PMID15649697|ApoE isoform-specific effects on LTP: blockade by oligomeric amyloid-beta1-42. (2005)]]
 - [[PMID15310905|Increased nuclear NAD biosynthesis and SIRT1 activation prevent axonal degeneration. (2004)]]
-- [[PMID11701763|Vaccination with soluble Abeta oligomers generates toxicity-neutralizing antibodies. (2001)]]
 %% pubmed-stream:end %%
 
 ## Notes

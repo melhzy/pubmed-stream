@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D059808 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D059808)
 
-## Papers (6)
+## Papers (7)
 
+- [[PMID42280341|The Role of Polyphenols on Cognitive Function and Dementia Through Gut-Microbiota-Brain Axis Modu... (2026)]] (major topic)
 - [[PMID31958081|Pine Bark Polyphenolic Extract Attenuates Amyloid-β and Tau Misfolding in a Model System of Alzhe... (2020)]] (major topic)
 - [[PMID23951225|The polyphenol oleuropein aglycone protects TgCRND8 mice against Aß plaque pathology. (2013)]] (major topic)
 - [[PMID21671331|Polyphenolic glycosides and aglycones utilize opposing pathways to selectively remodel and inacti... (2011)]] (major topic)

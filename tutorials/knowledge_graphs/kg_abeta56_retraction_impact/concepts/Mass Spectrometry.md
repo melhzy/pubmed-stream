@@ -20,7 +20,6 @@ MeSH descriptor D013058 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26224839|Na, K-ATPase α3 is a death target of Alzheimer patient amyloid-β assembly. (2015)]]
 - [[PMID26421877|Role of Species-Specific Primary Structure Differences in Aβ42 Assembly and Neurotoxicity. (2015)]]
 - [[PMID26192747|Tau post-translational modifications in wild-type and human amyloid precursor protein transgenic... (2015)]]
-- [[PMID25846299|The aqueous phase of Alzheimer's disease brain contains assemblies built from ∼4 and ∼7 kDa Aβ sp... (2015)]]
 - [[PMID24397771|Rational design of a structural framework with potential use to develop chemical reagents that ta... (2014)]]
 - [[PMID23612608|Amyloid-β-neuropeptide interactions assessed by ion mobility-mass spectrometry. (2013)]]
 - [[PMID23959898|Pulsed hydrogen-deuterium exchange mass spectrometry probes conformational changes in amyloid bet... (2013)]] (major topic)
@@ -32,6 +31,7 @@ MeSH descriptor D013058 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18192269|Detergent-insoluble aggregates associated with amyotrophic lateral sclerosis in transgenic mice c... (2008)]]
 - [[PMID18351682|Simultaneous monitoring of peptide aggregate distributions, structure, and kinetics using amide h... (2008)]]
 - [[PMID18723506|The AbetaCs of Abeta-cleaving proteases. (2008)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

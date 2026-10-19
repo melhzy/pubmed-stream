@@ -13,7 +13,6 @@ MeSH descriptor D020022 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (29)
 
-- [[PMID41540021|Genetic insights and mechanistic parallels in gestational diabetes mellitus and type 2 diabetes. (2026)]]
 - [[PMID41703264|Protective mutations associated with APOE in Alzheimer's disease. (2026)]]
 - [[PMID40892789|Computational prediction of high-risk non-synonymous SNPs in human ApoE and their structural impa... (2025)]]
 - [[PMID41516176|Interplay Between 3D Chromatin Architecture and Gene Regulation at the APOE Locus Contributes to... (2025)]]
@@ -38,6 +37,7 @@ MeSH descriptor D020022 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19124691|Influence of cognitive status, age, and APOE-4 genetic risk on brain FDDNP positron-emission tomo... (2009)]]
 - [[PMID19398704|Neuropathologic intermediate phenotypes enhance association to Alzheimer susceptibility alleles. (2009)]] (major topic)
 - [[PMID18957217|Cystatin C-cathepsin B axis regulates amyloid beta levels and associated neuronal deficits in an... (2008)]]
+- [[PMID19038212|Linking Abeta and tau in late-onset Alzheimer's disease: a dual pathway hypothesis. (2008)]]
 - [[PMID19036982|Loss of LR11/SORLA enhances early pathology in a mouse model of amyloidosis: evidence for a proxi... (2008)]]
 - [[PMID18802446|Thirty years of Alzheimer's disease genetics: the implications of systematic meta-analyses. (2008)]] (major topic)
 - [[PMID17001693|Retinoid receptors, transporters, and metabolizers as therapeutic targets in late onset Alzheimer... (2006)]]

@@ -13,15 +13,15 @@ MeSH descriptor D020033 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (23)
 
-- [[PMID41532445|Differentiating Alzheimer's Aβ Isoforms Coaggregated in Cerebrospinal Fluid via Single-Particle I... (2026)]]
+- [[PMID40990631|Tau Axonal Sorting and Interaction With Synaptic Plasticity Modulators Is Domain- and Isoform-Dep... (2025)]]
 - [[PMID36359817|The Hidden Role of Non-Canonical Amyloid β Isoforms in Alzheimer's Disease. (2022)]]
 - [[PMID34099706|Phospholipids of APOE lipoproteins activate microglia in an isoform-specific manner in preclinica... (2021)]]
 - [[PMID30587772|The Role of APOE and TREM2 in Alzheimer's Disease-Current Understanding and Perspectives. (2018)]]
+- [[PMID28536263|Axodendritic sorting and pathological missorting of Tau are isoform-specific and determined by ax... (2017)]]
 - [[PMID28934977|ERβ and ApoE isoforms interact to regulate BDNF-5-HT2A signaling and synaptic function in the fem... (2017)]] (major topic)
 - [[PMID26719327|Amyloid-β Receptors: The Good, the Bad, and the Prion Protein. (2016)]]
 - [[PMID27647307|The Complex Role of Apolipoprotein E in Alzheimer's Disease: an Overview and Update. (2016)]]
 - [[PMID26410307|Brain-derived neurotrophic factor and TrkB expression in the "oldest-old," the 90+ Study: correla... (2015)]]
-- [[PMID24735871|Gly25-Ser26 amyloid β-protein structural isomorphs produce distinct Aβ42 conformational dynamics... (2014)]]
 - [[PMID24386422|Profiling murine tau with 0N, 1N and 2N isoform-specific antibodies in brain and peripheral organ... (2013)]]
 - [[PMID23100439|Apolipoprotein E, especially apolipoprotein E4, increases the oligomerization of amyloid β peptide. (2012)]]
 - [[PMID21069870|A differential association of Apolipoprotein E isoforms with the amyloid-β oligomer in solution. (2011)]]

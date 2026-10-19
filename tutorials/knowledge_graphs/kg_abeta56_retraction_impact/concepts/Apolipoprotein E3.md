@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D053318 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D053318)
 
-## Papers (9)
+## Papers (10)
 
+- [[PMID41916957|Astrocytic APOE3-Christchurch expression ameliorates brain amyloid-β pathology in 5xFAD mice. (2026)]] (major topic)
 - [[PMID41102453|Interaction of sortilin with apolipoprotein E3 enables neurons to use long-chain fatty acids as a... (2025)]] (major topic)
 - [[PMID34099706|Phospholipids of APOE lipoproteins activate microglia in an isoform-specific manner in preclinica... (2021)]] (major topic)
 - [[PMID23100439|Apolipoprotein E, especially apolipoprotein E4, increases the oligomerization of amyloid β peptide. (2012)]]

@@ -11,10 +11,11 @@ tags:
 
 MeSH descriptor D008094 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008094)
 
-## Papers (3)
+## Papers (4)
 
 - [[PMID42410183|Chronic Lithium Exposure Reshapes PI3K-mTOR-linked Proteostatic Networks in the Hippocampus of an... (2026)]] (major topic)
 - [[PMID27459671|Tau Protein Mediates APP Intracellular Domain (AICD)-Induced Alzheimer's-Like Pathological Featur... (2016)]]
+- [[PMID25589714|Amyloid-β Modulates Both AβPP and Tau Phosphorylation. (2015)]]
 - [[PMID25187954|Brain intraventricular injection of amyloid-β in zebrafish embryo impairs cognition and increases... (2014)]] (major topic)
 %% pubmed-stream:end %%
 

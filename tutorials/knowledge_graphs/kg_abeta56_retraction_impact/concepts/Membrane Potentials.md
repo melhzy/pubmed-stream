@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D008564 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008564)
 
-## Papers (7)
+## Papers (6)
 
 - [[PMID27708157|Amyloid-β effects on synapses and memory require AMPA receptor subunit GluA3. (2016)]]
-- [[PMID25400096|Small Aβ1-42 oligomer-induced membrane depolarization of neuronal and microglial cells: role of N... (2015)]] (major topic)
 - [[PMID22915123|Ryanodine receptor blockade reduces amyloid-β load and memory impairments in Tg2576 mouse model o... (2012)]]
 - [[PMID20554859|A pathologic cascade leading to synaptic dysfunction in alpha-synuclein-induced neurodegeneration. (2010)]]
 - [[PMID20544830|Amyloid-beta oligomers impair fear conditioned memory in a calcineurin-dependent fashion in mice. (2010)]]

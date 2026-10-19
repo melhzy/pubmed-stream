@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D011994 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D011994)
 
-## Papers (27)
+## Papers (24)
 
 - [[PMID32966331|Familial Alzheimer's disease mutations at position 22 of the amyloid β-peptide sequence different... (2020)]]
 - [[PMID31915254|Neuronal Protein Tyrosine Phosphatase 1B Hastens Amyloid β-Associated Alzheimer's Disease in Mice. (2020)]]
@@ -19,10 +19,7 @@ MeSH descriptor D011994 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID30824544|Detection of TAR DNA-binding protein 43 (TDP-43) oligomers as initial intermediate species during... (2019)]]
 - [[PMID28910862|Effects of Newly Synthesized Recombinant Human Amyloid-β Complexes and Poly-Amyloid-β Fibers on C... (2017)]] (major topic)
 - [[PMID28533388|Selective lowering of synapsins induced by oligomeric α-synuclein exacerbates memory deficits. (2017)]]
-- [[PMID28294556|Unmodified and pyroglutamylated amyloid β peptides form hypertoxic hetero-oligomers of unique sec... (2017)]]
 - [[PMID27503326|Inhibition of ADAM10 promotes the clearance of Aβ across the BBB by reducing LRP1 ectodomain shed... (2016)]]
-- [[PMID26945100|Peripherally administered sera antibodies recognizing amyloid-β oligomers mitigate Alzheimer's di... (2016)]]
-- [[PMID25933020|Passive immunization with phospho-tau antibodies reduces tau pathology and functional deficits in... (2015)]]
 - [[PMID26018073|Prion-Protein-interacting Amyloid-β Oligomers of High Molecular Weight Are Tightly Correlated wit... (2015)]]
 - [[PMID26402097|Tomoregulin (TMEFF2) Binds Alzheimer's Disease Amyloid-β (Aβ) Oligomer and AβPP and Protects Neur... (2015)]]
 - [[PMID24729203|Capillary electrophoresis for the analysis of the effect of sample preparation on early stages of... (2014)]]

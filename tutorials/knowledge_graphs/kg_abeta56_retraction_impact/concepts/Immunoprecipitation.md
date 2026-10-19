@@ -11,13 +11,11 @@ tags:
 
 MeSH descriptor D047468 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D047468)
 
-## Papers (25)
+## Papers (24)
 
 - [[PMID27365298|Early Activation of Experience-Independent Dendritic Spine Turnover in a Mouse Model of Alzheimer... (2017)]]
 - [[PMID25988806|A native interactor scaffolds and stabilizes toxic ATAXIN-1 oligomers in SCA1. (2015)]]
 - [[PMID25925093|Herpes simplex virus type 1 infection in neurons leads to production and nuclear localization of... (2015)]]
-- [[PMID25846299|The aqueous phase of Alzheimer's disease brain contains assemblies built from ∼4 and ∼7 kDa Aβ sp... (2015)]]
-- [[PMID25096615|The murine version of BAN2401 (mAb158) selectively reduces amyloid-β protofibrils in brain and ce... (2015)]]
 - [[PMID26402097|Tomoregulin (TMEFF2) Binds Alzheimer's Disease Amyloid-β (Aβ) Oligomer and AβPP and Protects Neur... (2015)]]
 - [[PMID23595760|MER5101, a novel Aβ1-15:DT conjugate vaccine, generates a robust anti-Aβ antibody response and at... (2013)]]
 - [[PMID23375565|New ELISAs with high specificity for soluble oligomers of amyloid β-protein detect natural Aβ oli... (2013)]]
@@ -38,6 +36,7 @@ MeSH descriptor D047468 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18987186|Nicotinamide restores cognition in Alzheimer's disease transgenic mice via a mechanism involving... (2008)]]
 - [[PMID17651976|Abeta solubility and deposition during AD progression and in APPxPS-1 knock-in mice. (2007)]]
 - [[PMID16469784|Effects of secreted oligomers of amyloid beta-protein on hippocampal synaptic plasticity: a poten... (2006)]]
+- [[PMID15834427|Amyloid beta protein immunotherapy neutralizes Abeta oligomers that disrupt synaptic plasticity i... (2005)]]
 %% pubmed-stream:end %%
 
 ## Notes

@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D001523 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D001523)
 
-## Papers (2)
+## Papers (3)
 
 - [[PMID39934896|AMPA receptor diffusional trapping machinery as an early therapeutic target in neurodegenerative... (2025)]] (major topic)
+- [[PMID40816036|MicroRNA-128-3p as a promising target in neuropsychiatric disorders: From epigenetics to pharmaco... (2025)]] (major topic)
 - [[PMID28842420|Conditional Deletion of Prnp Rescues Behavioral and Synaptic Deficits after Disease Onset in Tran... (2017)]] (major topic)
 %% pubmed-stream:end %%
 

@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D003903 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D003903)
 
-## Papers (2)
+## Papers (1)
 
-- [[PMID42678205|Hydration water dynamics in amyloid-β aggregates using deuterium and oxygen-17 solid-state NMR sp... (2026)]] (major topic)
 - [[PMID23959898|Pulsed hydrogen-deuterium exchange mass spectrometry probes conformational changes in amyloid bet... (2013)]]
 %% pubmed-stream:end %%
 

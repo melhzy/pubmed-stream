@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D003920 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D003920)
 
-## Papers (4)
+## Papers (3)
 
-- [[PMID41863579|The metabolic roots of memory loss: interlinking the Diabetes-Alzheimer's hypothesis. (2026)]] (major topic)
 - [[PMID35253743|A Bioinformatics Approach Toward Unravelling the Synaptic Molecular Crosstalk Between Alzheimer's... (2022)]] (major topic)
 - [[PMID29070797|Active Immunization Against hIAPP Oligomers Ameliorates the Diabetes- Associated Phenotype in a T... (2017)]] (major topic)
 - [[PMID27289378|Metabolic control of the proteotoxic stress response: implications in diabetes mellitus and neuro... (2016)]] (major topic)

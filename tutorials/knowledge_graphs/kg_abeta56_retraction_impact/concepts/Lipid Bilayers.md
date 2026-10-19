@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D008051 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008051)
 
-## Papers (10)
+## Papers (9)
 
-- [[PMID42629610|Membrane Complexity and Phase Behavior Dictate the Stability of Membrane-Inserted Aβ42 Hexamers. (2026)]] (major topic)
 - [[PMID31834770|Acetylation of Aβ40 Alters Aggregation in the Presence and Absence of Lipid Membranes. (2020)]] (major topic)
 - [[PMID26164502|Lipid insertion domain unfolding regulates protein orientational transition behavior in a lipid b... (2015)]] (major topic)
 - [[PMID23620083|AβP1-42 incorporation and channel formation in planar lipid membranes: the role of cholesterol an... (2013)]] (major topic)

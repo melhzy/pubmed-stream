@@ -13,10 +13,10 @@ MeSH descriptor D005110 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (11)
 
+- [[PMID41912984|Extracellular Protein Quality Control in Tau Pathology. (2026)]] (major topic)
 - [[PMID35216328|An Essential Role for Alzheimer's-Linked Amyloid Beta Oligomers in Neurodevelopment: Transient Ex... (2022)]]
 - [[PMID32444385|Effect of Aβ Oligomers on Neuronal APP Triggers a Vicious Cycle Leading to the Propagation of Syn... (2020)]]
 - [[PMID30403004|Amyloid beta soluble forms and plasminogen activation system in Alzheimer's disease: Consequences... (2019)]]
-- [[PMID24878508|Intracellular processing of disease-associated α-synuclein in the human brain suggests prion-like... (2014)]]
 - [[PMID23372648|Accumulation of intraneuronal β-amyloid 42 peptides is associated with early changes in microtubu... (2013)]]
 - [[PMID22762015|Neurotoxicity of amyloid β-protein: synaptic and network dysfunction. (2012)]]
 - [[PMID20876215|Heat-shock protein 70 modulates toxic extracellular α-synuclein oligomers and rescues trans-synap... (2011)]]

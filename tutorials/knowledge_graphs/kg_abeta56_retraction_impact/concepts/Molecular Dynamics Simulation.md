@@ -11,12 +11,9 @@ tags:
 
 MeSH descriptor D056004 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D056004)
 
-## Papers (33)
+## Papers (28)
 
-- [[PMID42752992|Bioinformatics-Driven Discovery of Aβ-Targeted Therapeutics and Diagnostic Biomarkers for Alzheim... (2026)]]
-- [[PMID41532445|Differentiating Alzheimer's Aβ Isoforms Coaggregated in Cerebrospinal Fluid via Single-Particle I... (2026)]]
 - [[PMID41872054|K16F/E22F Mutation Promotes Oligomerization and Alters β-Sheet Topology of Aβ16-22 Peptides: Insi... (2026)]] (major topic)
-- [[PMID42629610|Membrane Complexity and Phase Behavior Dictate the Stability of Membrane-Inserted Aβ42 Hexamers. (2026)]]
 - [[PMID42334185|Temperature-Dependent Dynamics of Aβ42 and α-Synuclein Monomers and Early Oligomerization of Aβ42... (2026)]]
 - [[PMID40892789|Computational prediction of high-risk non-synonymous SNPs in human ApoE and their structural impa... (2025)]]
 - [[PMID35258946|Mechanistic Kinetic Model Reveals How Amyloidogenic Hydrophobic Patches Facilitate the Amyloid-β... (2022)]]
@@ -27,8 +24,6 @@ MeSH descriptor D056004 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26439281|Mechanism of C-Terminal Fragments of Amyloid β-Protein as Aβ Inhibitors: Do C-Terminal Interactio... (2016)]]
 - [[PMID27901087|Polymorphism of fibrillar structures depending on the size of assembled Aβ17-42 peptides. (2016)]] (major topic)
 - [[PMID26164502|Lipid insertion domain unfolding regulates protein orientational transition behavior in a lipid b... (2015)]]
-- [[PMID24495298|Atomic force microscopy to study molecular mechanisms of amyloid fibril formation and toxicity in... (2014)]]
-- [[PMID24735871|Gly25-Ser26 amyloid β-protein structural isomorphs produce distinct Aβ42 conformational dynamics... (2014)]]
 - [[PMID24240640|Structural diversity of Alzheimer's disease amyloid-β dimers and their role in oligomerization an... (2014)]]
 - [[PMID24494584|The conformational stability of nonfibrillar amyloid-β peptide oligomers critically depends on th... (2014)]] (major topic)
 - [[PMID23612608|Amyloid-β-neuropeptide interactions assessed by ion mobility-mass spectrometry. (2013)]]

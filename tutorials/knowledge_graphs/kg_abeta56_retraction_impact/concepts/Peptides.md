@@ -11,11 +11,10 @@ tags:
 
 MeSH descriptor D010455 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D010455)
 
-## Papers (38)
+## Papers (37)
 
 - [[PMID42048649|α,β-Dehydroamino-Acid-Containing Peptides Resist Proteolysis and Inhibit Aggregation of a Tau-Der... (2026)]] (major topic)
 - [[PMID33598831|Aggregation of gelsolin wild-type and G167K/R, N184K, and D187N/Y mutant peptides and inhibition. (2021)]] (major topic)
-- [[PMID30702009|Are antibodies directed against amyloid-β (Aβ) oligomers the last call for the Aβ hypothesis of A... (2019)]] (major topic)
 - [[PMID28001392|Stabilization, Assembly, and Toxicity of Trimers Derived from Aβ. (2017)]] (major topic)
 - [[PMID28375705|The Solution Assembly of Biological Molecules Using Ion Mobility Methods: From Amino Acids to Amy... (2017)]]
 - [[PMID28937655|Why are Functional Amyloids Non-Toxic in Humans? (2017)]] (major topic)

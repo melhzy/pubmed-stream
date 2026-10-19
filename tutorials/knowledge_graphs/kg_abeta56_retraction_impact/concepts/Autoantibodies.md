@@ -13,7 +13,7 @@ MeSH descriptor D001323 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (5)
 
-- [[PMID26907803|Naturally occurring autoantibodies against Aβ oligomers exhibited more beneficial effects in the... (2016)]] (major topic)
+- [[PMID42127169|IgLON5 autoimmune antibodies activate Tau via neuronal hyperactivity. (2026)]] (major topic)
 - [[PMID23462987|Naturally occurring autoantibodies interfere with β-amyloid metabolism and improve cognition in a... (2013)]] (major topic)
 - [[PMID22188568|Autoreactive-Aβ antibodies promote APP β-secretase processing. (2012)]] (major topic)
 - [[PMID21490226|Naturally occurring autoantibodies against beta-amyloid: investigating their role in transgenic a... (2011)]] (major topic)

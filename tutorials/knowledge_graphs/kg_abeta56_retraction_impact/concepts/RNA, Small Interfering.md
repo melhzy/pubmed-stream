@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D034741 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D034741)
 
-## Papers (16)
+## Papers (17)
 
 - [[PMID30576228|VEGF receptor-1 modulates amyloid β 1-42 oligomer-induced senescence in brain endothelial cells. (2019)]]
 - [[PMID27520374|miR-106b inhibits tau phosphorylation at Tyr18 by targeting Fyn in a model of Alzheimer's disease. (2016)]]
@@ -26,6 +26,7 @@ MeSH descriptor D034741 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21403388|Stimulation of non-amyloidogenic processing of amyloid-β protein precursor by cryptotanshinone in... (2011)]]
 - [[PMID20032460|Inhibition of calcineurin-mediated endocytosis and alpha-amino-3-hydroxy-5-methyl-4-isoxazoleprop... (2010)]]
 - [[PMID20097758|Loss of function of ATXN1 increases amyloid beta-protein levels by potentiating beta-secretase pr... (2010)]]
+- [[PMID19828813|Activated actin-depolymerizing factor/cofilin sequesters phosphorylated microtubule-associated pr... (2009)]]
 - [[PMID19240035|{beta}-Amyloid impairs AMPA receptor trafficking and function by reducing Ca2+/calmodulin-depende... (2009)]]
 - [[PMID19020010|Blocking Abeta42 accumulation delays the onset and progression of tau pathology via the C terminu... (2008)]]
 - [[PMID15310905|Increased nuclear NAD biosynthesis and SIRT1 activation prevent axonal degeneration. (2004)]]

@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D017966 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D017966)
 
-## Papers (12)
+## Papers (16)
 
 - [[PMID33573114|Impairment of Spike-Timing-Dependent Plasticity at Schaffer Collateral-CA1 Synapses in Adult APP/... (2021)]]
 - [[PMID32019603|Tau-tubulin kinase 1 and amyloid-β peptide induce phosphorylation of collapsin response mediator... (2020)]]
@@ -24,7 +24,11 @@ MeSH descriptor D017966 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23868258|Ultrasensitive fluorescent proteins for imaging neuronal activity. (2013)]]
 - [[PMID18505838|Place cell firing correlates with memory deficits and amyloid plaque burden in Tg2576 Alzheimer m... (2008)]] (major topic)
 - [[PMID18842893|The Reelin signaling pathway promotes dendritic spine development in hippocampal neurons. (2008)]] (major topic)
+- [[PMID17224406|Nonlinear regulation of unitary synaptic signals by CaV(2.3) voltage-sensitive calcium channels l... (2007)]] (major topic)
 - [[PMID17360894|Reelin depletion in the entorhinal cortex of human amyloid precursor protein transgenic mice and... (2007)]]
+- [[PMID15572108|Bidirectional activity-dependent morphological plasticity in hippocampal neurons. (2004)]] (major topic)
+- [[PMID15190253|Structural basis of long-term potentiation in single dendritic spines. (2004)]] (major topic)
+- [[PMID14627649|Calcium/calmodulin-dependent protein kinase II contributes to activity-dependent filopodia growth... (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

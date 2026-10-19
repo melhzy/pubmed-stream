@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D000072105 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000072105)
 
-## Papers (6)
+## Papers (7)
 
 - [[PMID33543942|Amyloid Oligomers: A Joint Experimental/Computational Perspective on Alzheimer's Disease, Parkins... (2021)]]
 - [[PMID24394345|Prion-like activity of Cu/Zn superoxide dismutase: implications for amyotrophic lateral sclerosis. (2014)]]
@@ -19,6 +19,7 @@ MeSH descriptor D000072105 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui
 - [[PMID22009041|Association between frontal cortex oxidative damage and beta-amyloid as a function of age in Down... (2012)]]
 - [[PMID18192269|Detergent-insoluble aggregates associated with amyotrophic lateral sclerosis in transgenic mice c... (2008)]]
 - [[PMID17581637|SIRT1 deacetylase protects against neurodegeneration in models for Alzheimer's disease and amyotr... (2007)]]
+- [[PMID12704221|Protofibrils, pores, fibrils, and neurodegeneration: separating the responsible protein aggregate... (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

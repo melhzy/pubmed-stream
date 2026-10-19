@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D053327 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D053327)
 
-## Papers (33)
+## Papers (35)
 
 - [[PMID41736084|APOE-ε4 genotype and western diet synergistically aggravate synaptic dysfunction in Alzheimer's d... (2026)]] (major topic)
 - [[PMID42274838|APOE4-Expressing Astrocytes Exhibit Parkinson's Disease-Related Pathology. (2026)]] (major topic)
@@ -40,8 +40,10 @@ MeSH descriptor D053327 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19398704|Neuropathologic intermediate phenotypes enhance association to Alzheimer susceptibility alleles. (2009)]]
 - [[PMID18948255|Understanding the association of apolipoprotein E4 with Alzheimer disease: clues from its structure. (2009)]] (major topic)
 - [[PMID18448646|Activation of the amyloid cascade in apolipoprotein E4 transgenic mice induces lysosomal activati... (2008)]] (major topic)
+- [[PMID18568014|Animal models of Alzheimer's disease and frontotemporal dementia. (2008)]]
 - [[PMID19033669|apoE isoform-specific disruption of amyloid beta peptide clearance from mouse brain. (2008)]] (major topic)
 - [[PMID18562290|Apolipoprotein (apo) E4 enhances HIV-1 cell entry in vitro, and the APOE epsilon4/epsilon4 genoty... (2008)]] (major topic)
+- [[PMID19038212|Linking Abeta and tau in late-onset Alzheimer's disease: a dual pathway hypothesis. (2008)]]
 - [[PMID18212130|Rosiglitazone increases dendritic spine density and rescues spine loss caused by apolipoprotein E... (2008)]] (major topic)
 - [[PMID17314289|Apolipoprotein E-containing lipoproteins protect neurons from apoptosis via a signaling pathway i... (2007)]]
 - [[PMID15649697|ApoE isoform-specific effects on LTP: blockade by oligomeric amyloid-beta1-42. (2005)]]

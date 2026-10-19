@@ -11,12 +11,13 @@ tags:
 
 MeSH descriptor D014162 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D014162)
 
-## Papers (29)
+## Papers (33)
 
 - [[PMID26429731|Double-Edged Roles of Nitric Oxide Signaling on APP Processing and Amyloid-β Production In Vitro:... (2016)]]
 - [[PMID26710111|Exosomal cellular prion protein drives fibrillization of amyloid beta and counteracts amyloid bet... (2016)]]
 - [[PMID26898910|Phosphorylation of the amyloid β-peptide at Ser26 stabilizes oligomeric assembly and increases ne... (2016)]]
 - [[PMID26221415|Calcium Channel Blockers, Progression to Dementia, and Effects on Amyloid Beta Peptide Production. (2015)]]
+- [[PMID26293809|Intracellular amyloid β oligomers impair organelle transport and induce dendritic spine loss in p... (2015)]]
 - [[PMID24903973|Cilostazol suppresses β-amyloid production by activating a disintegrin and metalloproteinase 10 v... (2014)]]
 - [[PMID23595760|MER5101, a novel Aβ1-15:DT conjugate vaccine, generates a robust anti-Aβ antibody response and at... (2013)]]
 - [[PMID23583109|The CAMKK2-AMPK kinase pathway mediates the synaptotoxic effects of Aβ oligomers through Tau phos... (2013)]]
@@ -33,14 +34,17 @@ MeSH descriptor D014162 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID20371618|CNS expression of anti-inflammatory cytokine interleukin-4 attenuates Alzheimer's disease-like pa... (2010)]]
 - [[PMID20554868|L-3-n-butylphthalide improves cognitive impairment and reduces amyloid-beta in a transgenic model... (2010)]]
 - [[PMID20211007|Reduction of beta-amyloid pathology by celastrol in a transgenic mouse model of Alzheimer's disease. (2010)]]
+- [[PMID19828813|Activated actin-depolymerizing factor/cofilin sequesters phosphorylated microtubule-associated pr... (2009)]]
 - [[PMID19164507|The E693Delta mutation in amyloid precursor protein increases intracellular accumulation of amylo... (2009)]]
 - [[PMID18414880|Characterization of antibodies that selectively detect alpha-synuclein in pathological inclusions. (2008)]]
 - [[PMID18987186|Nicotinamide restores cognition in Alzheimer's disease transgenic mice via a mechanism involving... (2008)]]
 - [[PMID18585407|Oligomers of the amyloid-beta protein disrupt working memory: confirmation with two behavioral pr... (2008)]]
 - [[PMID19020024|Optical reporters for the conformation of alpha-synuclein reveal a specific interaction with mito... (2008)]]
 - [[PMID17920016|Amyloid precursor protein regulates brain apolipoprotein E and cholesterol metabolism through lip... (2007)]]
+- [[PMID17145504|AMPAR removal underlies Abeta-induced synaptic depression and dendritic spine loss. (2006)]]
 - [[PMID15984012|Amyloid-beta oligomers are inefficiently measured by enzyme-linked immunosorbent assay. (2005)]]
 - [[PMID15591046|beta-Synuclein reduces proteasomal inhibition by alpha-synuclein but not gamma-synuclein. (2005)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
 - [[PMID10978169|The oligomerization of amyloid beta-protein begins intracellularly in cells derived from human br... (2000)]]
 %% pubmed-stream:end %%
 

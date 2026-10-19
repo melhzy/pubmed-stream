@@ -11,16 +11,16 @@ tags:
 
 MeSH descriptor D009483 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D009483)
 
-## Papers (29)
+## Papers (30)
 
 - [[PMID41494991|Independent, but not synergistic, associations of APOEε4 and systemic inflammation on cognitive d... (2026)]]
+- [[PMID40870510|From Better Diagnostics to Earlier Treatment: The Rapidly Evolving Alzheimer's Disease Landscape. (2025)]]
 - [[PMID36269624|The Mediating Role of Inflammation in the Relationship Between α-Synuclein and Cognitive Function... (2023)]]
 - [[PMID29672680|Cognitive correlates of α4β2 nicotinic acetylcholine receptors in mild Alzheimer's dementia. (2018)]]
 - [[PMID29246249|Oligomeric forms of amyloid-β protein in plasma as a potential blood-based biomarker for Alzheime... (2017)]]
 - [[PMID28045051|Randomized trial on the effects of a combined physical/cognitive training in aged MCI subjects: t... (2017)]]
 - [[PMID27770234|Soluble pre-fibrillar tau and β-amyloid species emerge in early human Alzheimer's disease and tra... (2016)]]
 - [[PMID26410307|Brain-derived neurotrophic factor and TrkB expression in the "oldest-old," the 90+ Study: correla... (2015)]]
-- [[PMID25125457|Cognitive and functional decline and their relationship in patients with mild Alzheimer's dementia. (2015)]]
 - [[PMID24553930|A sensitive aβ oligomer assay discriminates Alzheimer's and aged control cerebrospinal fluid. (2014)]]
 - [[PMID24561222|Aberrant CaMKII activity in the medial prefrontal cortex is associated with cognitive dysfunction... (2014)]]
 - [[PMID22622366|A novel ARC gene polymorphism is associated with reduced risk of Alzheimer's disease. (2012)]]
@@ -38,6 +38,7 @@ MeSH descriptor D009483 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19295912|Transcriptome analysis of synaptoneurosomes identifies neuroplasticity genes overexpressed in inc... (2009)]]
 - [[PMID18385314|A two-year study with fibrillar beta-amyloid (Abeta) immunization in aged canines: effects on cog... (2008)]]
 - [[PMID18448646|Activation of the amyloid cascade in apolipoprotein E4 transgenic mice induces lysosomal activati... (2008)]]
+- [[PMID18568014|Animal models of Alzheimer's disease and frontotemporal dementia. (2008)]]
 - [[PMID18077800|Patients with MCI and N400 or P600 abnormalities are at very high risk for conversion to dementia. (2008)]]
 - [[PMID18090922|Clinicopathologic correlations in a large Alzheimer disease center autopsy cohort: neuritic plaqu... (2007)]]
 - [[PMID16894105|Mild cognitive impairment: risk of Alzheimer disease and rate of cognitive decline. (2006)]]

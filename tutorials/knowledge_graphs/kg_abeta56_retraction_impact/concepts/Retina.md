@@ -14,8 +14,8 @@ MeSH descriptor D012160 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 ## Papers (7)
 
 - [[PMID41677387|Morpho-Functional Characterization and miRNA Profiling of the Retina in the 5xFAD Murine Model of... (2026)]] (major topic)
+- [[PMID41222203|A Cerebral Origin for Retinal Degeneration in the Visual Form of Alzheimer's Disease? (2025)]]
 - [[PMID35216328|An Essential Role for Alzheimer's-Linked Amyloid Beta Oligomers in Neurodevelopment: Transient Ex... (2022)]] (major topic)
-- [[PMID32597800|Age-Specific Retinal and Cerebral Immunodetection of Amyloid-β Plaques and Oligomers in a Rodent... (2020)]] (major topic)
 - [[PMID33262378|The retinal toxicity profile towards assemblies of Amyloid-β indicate the predominant pathophysio... (2020)]] (major topic)
 - [[PMID23469078|Treatment with 670 nm light up regulates cytochrome C oxidase expression and reduces inflammation... (2013)]]
 - [[PMID20957206|Viewing ageing eyes: diverse sites of amyloid Beta accumulation in the ageing mouse retina and th... (2010)]] (major topic)

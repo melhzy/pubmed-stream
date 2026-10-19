@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D007150 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D007150)
 
-## Papers (58)
+## Papers (61)
 
 - [[PMID41677387|Morpho-Functional Characterization and miRNA Profiling of the Retina in the 5xFAD Murine Model of... (2026)]]
 - [[PMID35173711|Multifocal Cerebral Microinfarcts Modulate Early Alzheimer's Disease Pathology in a Sex-Dependent... (2021)]]
@@ -20,11 +20,9 @@ MeSH descriptor D007150 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27194408|Inflammatory insult during pregnancy accelerates age-related behavioral and neurobiochemical chan... (2016)]]
 - [[PMID27566602|Revisiting rodent models: Octodon degus as Alzheimer's disease model? (2016)]]
 - [[PMID25988806|A native interactor scaffolds and stabilizes toxic ATAXIN-1 oligomers in SCA1. (2015)]]
-- [[PMID26215784|Anti-Aβ antibodies incapable of reducing cerebral Aβ oligomers fail to attenuate spatial referenc... (2015)]]
-- [[PMID25534024|Differential induction and spread of tau pathology in young PS19 tau transgenic mice following in... (2015)]]
 - [[PMID25768013|Early onset of hypersynchronous network activity and expression of a marker of chronic seizures i... (2015)]]
 - [[PMID25925093|Herpes simplex virus type 1 infection in neurons leads to production and nuclear localization of... (2015)]]
-- [[PMID25676491|Pathological interface between oligomeric alpha-synuclein and tau in synucleinopathies. (2015)]]
+- [[PMID25312309|Altered synaptic structure in the hippocampus in a mouse model of Alzheimer's disease with solubl... (2014)]]
 - [[PMID24188815|Magnetization transfer contrast imaging reveals amyloid pathology in Alzheimer's disease transgen... (2014)]]
 - [[PMID25415602|Microspectroscopy (μFTIR) reveals co-localization of lipid oxidation and amyloid plaques in human... (2014)]] (major topic)
 - [[PMID23455075|Neurogenic effects of β-amyloid in the choroid plexus epithelial cells in Alzheimer's disease. (2013)]]
@@ -55,6 +53,7 @@ MeSH descriptor D007150 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19772895|Amyloid-beta expression in retrosplenial cortex of triple transgenic mice: relationship to cholin... (2009)]]
 - [[PMID19593388|CCL2 accelerates microglia-mediated Abeta oligomer formation and progression of neurocognitive dy... (2009)]]
 - [[PMID19775170|Surface plasmon resonance binding kinetics of Alzheimer's disease amyloid beta peptide-capturing... (2009)]]
+- [[PMID19503072|Transmission and spreading of tauopathy in transgenic mouse brain. (2009)]]
 - [[PMID18429966|Transthyretin accelerates vascular Abeta deposition in a mouse model of Alzheimer's disease. (2009)]]
 - [[PMID18504134|A transgenic rat that develops Alzheimer's disease-like amyloid pathology, deficits in synaptic p... (2008)]]
 - [[PMID18669616|Amyloid plaque and neurofibrillary tangle pathology in a regulatable mouse model of Alzheimer's d... (2008)]]
@@ -64,13 +63,17 @@ MeSH descriptor D007150 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18317926|Translocation of amyloid precursor protein C-terminal fragment(s) to the nucleus precedes neurona... (2008)]]
 - [[PMID16385556|Antibodies against beta-amyloid reduce Abeta oligomers, glycogen synthase kinase-3beta activation... (2006)]]
 - [[PMID16738486|Increased tau phosphorylation at the Ser396 epitope after amyloid beta-exposure in organotypic cu... (2006)]]
+- [[PMID15834427|Amyloid beta protein immunotherapy neutralizes Abeta oligomers that disrupt synaptic plasticity i... (2005)]]
 - [[PMID15748777|Caloric restriction attenuates Abeta-deposition in Alzheimer transgenic models. (2005)]]
+- [[PMID15787694|Effects of Abeta1-42 fibrils and of the tetrapeptide Pr-IIGL on the phosphorylation state of the... (2005)]]
 - [[PMID16027115|High beta-secretase activity elicits neurodegeneration in transgenic mice despite reductions in a... (2005)]]
 - [[PMID15748782|Human-like rodent amyloid-beta-peptide determines Alzheimer pathology in aged wild-type Octodon d... (2005)]]
 - [[PMID12393227|Behavioural and histopathological analyses of ibuprofen treatment on the effect of aggregated Abe... (2002)]]
 - [[PMID12393239|Presence of hydroxysteroid dehydrogenase type 10 in amyloid plaques (APs) of Hsiao's APP-Sw trans... (2002)]]
 - [[PMID11160418|Age-dependent changes in brain, CSF, and plasma amyloid (beta) protein in the Tg2576 transgenic m... (2001)]]
 - [[PMID11403971|Intraneuronal Abeta accumulation precedes plaque formation in beta-amyloid precursor protein and... (2001)]]
+- [[PMID11755008|Phenolic anti-inflammatory antioxidant reversal of Abeta-induced cognitive deficits and neuropath... (2001)]]
+- [[PMID1354011|Effects of microtubule stabilization and destabilization on tau immunoreactivity in cultured hipp... (1992)]]
 %% pubmed-stream:end %%
 
 ## Notes

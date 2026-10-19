@@ -11,12 +11,10 @@ tags:
 
 MeSH descriptor D021962 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D021962)
 
-## Papers (8)
+## Papers (6)
 
 - [[PMID35431249|Lipid Rafts Act as a Common Platform for Amyloid-β Oligomer-Induced Alzheimer's Disease Pathology. (2022)]] (major topic)
 - [[PMID31905804|The Interaction between Amyloid Prefibrillar Oligomers of Salmon Calcitonin and a Lipid-Raft Mode... (2019)]] (major topic)
-- [[PMID24495298|Atomic force microscopy to study molecular mechanisms of amyloid fibril formation and toxicity in... (2014)]]
-- [[PMID24614900|Plasma membrane injury depends on bilayer lipid composition in Alzheimer's disease. (2014)]]
 - [[PMID23386614|Prion protein-mediated toxicity of amyloid-β oligomers requires lipid rafts and the transmembrane... (2013)]] (major topic)
 - [[PMID19542222|Paradoxical condensation of copper with elevated beta-amyloid in lipid rafts under cellular coppe... (2009)]] (major topic)
 - [[PMID17635634|Alzheimer's disease: cholesterol, membrane rafts, isoprenoids and statins. (2007)]] (major topic)

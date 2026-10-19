@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D000077185 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000077185)
 
-## Papers (10)
+## Papers (9)
 
-- [[PMID42752992|Bioinformatics-Driven Discovery of Aβ-Targeted Therapeutics and Diagnostic Biomarkers for Alzheim... (2026)]]
 - [[PMID40407867|Resveratrol, a calorie restriction mimetic, protects AlCl3-induced neurotoxicity and cognitive de... (2025)]]
 - [[PMID36949020|Brain targeting based nanocarriers loaded with resveratrol in Alzheimer's disease: A review. (2023)]]
 - [[PMID32089065|Activating Sirt1 by resveratrol suppresses Nav1.7 expression in DRG through miR-182 and alleviate... (2020)]] (major topic)

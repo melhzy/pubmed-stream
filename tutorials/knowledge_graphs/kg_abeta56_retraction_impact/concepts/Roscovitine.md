@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D000077546 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000077546)
 
-## Papers (2)
+## Papers (3)
 
+- [[PMID25589714|Amyloid-β Modulates Both AβPP and Tau Phosphorylation. (2015)]]
 - [[PMID22223639|Cdk5 protein inhibition and Aβ42 increase BACE1 protein level in primary neurons by a post-transc... (2012)]]
 - [[PMID22915123|Ryanodine receptor blockade reduces amyloid-β load and memory impairments in Tg2576 mouse model o... (2012)]]
 %% pubmed-stream:end %%

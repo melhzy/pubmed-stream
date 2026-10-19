@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D001695 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D001695)
 
-## Papers (2)
+## Papers (1)
 
 - [[PMID37364580|Nicotinamide Adenine Dinucleotide in Aging Biology: Potential Applications and Many Unknowns. (2023)]]
-- [[PMID37212028|Recent developments in the chemical biology of amyloid-β oligomer targeting. (2023)]]
 %% pubmed-stream:end %%
 
 ## Notes

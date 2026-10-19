@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D030801 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D030801)
 
-## Papers (27)
+## Papers (29)
 
 - [[PMID34674371|Drosophila p38 MAPK interacts with BAG-3/starvin to regulate age-dependent protein homeostasis. (2021)]]
 - [[PMID31823504|Mapping pathogenic processes contributing to neurodegeneration in Drosophila models of Alzheimer'... (2020)]]
@@ -20,12 +20,14 @@ MeSH descriptor D030801 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28900141|Dianxianning improved amyloid β-induced pathological characteristics partially through DAF-2/DAF-... (2017)]]
 - [[PMID28669120|The protection of novel 2-arylethenylquinoline derivatives against impairment of associative lear... (2017)]]
 - [[PMID27503326|Inhibition of ADAM10 promotes the clearance of Aβ across the BBB by reducing LRP1 ectodomain shed... (2016)]]
+- [[PMID27023670|Stabilization of Microtubule-Unbound Tau via Tau Phosphorylation at Ser262/356 by Par-1/MARK Cont... (2016)]]
 - [[PMID24725347|Oligomer-targeting with a conformational antibody fragment promotes toxicity in Aβ-expressing flies. (2014)]]
 - [[PMID24751138|Structure-activity relationships for a series of compounds that inhibit aggregation of the Alzhei... (2014)]]
 - [[PMID23462987|Naturally occurring autoantibodies interfere with β-amyloid metabolism and improve cognition in a... (2013)]]
 - [[PMID23520540|Oleuropein aglycone protects transgenic C. elegans strains expressing Aβ42 by reducing plaque loa... (2013)]]
 - [[PMID23019586|Epidermal growth factor receptor is a preferred target for treating amyloid-β-induced memory loss. (2012)]]
 - [[PMID22461632|Expression in drosophila of tandem amyloid β peptides provides insights into links between aggreg... (2012)]]
+- [[PMID22419736|Neuropathogenic role of adenylate kinase-1 in Aβ-mediated tau phosphorylation via AMPK and GSK3β. (2012)]]
 - [[PMID22086139|Recent rodent models for Alzheimer's disease: clinical implications and basic research. (2012)]]
 - [[PMID21775587|Ablation of cellular prion protein does not ameliorate abnormal neural network activity or cognit... (2011)]]
 - [[PMID21752991|Copper reduces Aβ oligomeric species and ameliorates neuromuscular synaptic defects in a C. elega... (2011)]]

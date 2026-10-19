@@ -62,6 +62,18 @@ def test_classify_orders_kinds_and_ignores_biological_retraction():
     assert ci.classify(["Dendritic spine retraction follows exposure ⟦CITE⟧."]) == ci.KINDS[2]
     assert ci.classify(["Oligomers disrupt synaptic integrity ⟦CITE⟧."]) == ci.KINDS[2]
     assert ci.classify(["Figures in the paper were manipulated ⟦CITE⟧."]) == ci.KINDS[0]
+    assert ci.classify(["Sleuthing identified serious errors in Alzheimer's research ⟦CITE⟧."]) == ci.KINDS[0]
+    assert ci.classify(["Aβ-56 has been scrutinized for alleged image alterations ⟦CITE⟧."]) == ci.KINDS[0]
+    assert ci.classify(["Aβ-56 impairs memory ⟦CITE⟧."]) == ci.KINDS[1]
+
+
+def test_finding_written_with_another_asterisk_character_is_recognised(tmp_path):
+    # Some publishers set Aβ*56 with U+2217, the asterisk operator
+    assert ci.classify(["Aβ∗56 impairs memory in mice ⟦CITE⟧."]) == ci.KINDS[1]
+    write_article(tmp_path, ARTICLE.replace("Aβ*56", "Aβ∗56"))
+    result = ci.citation_contexts(tmp_path, "16541076", "10.1038/nature04533")["PMC1"]
+    assert result["mentions"] == 1
+    assert any(s.startswith("Aβ*56 was isolated") for s in result["sentences"])
 
 
 def test_annotate_adds_properties_and_keeps_the_note(tmp_path):
@@ -81,3 +93,33 @@ def test_write_base_has_a_view_per_kind(tmp_path):
     for kind in ci.KINDS[:3]:
         assert f"citation_kind == \"{kind}\"" in text
     assert "        - 'hop == 1'\n        - 'retracted == true'\n" in text
+
+
+def test_worth_a_look_flags_softer_doubt_words_in_general_citations():
+    assert ci.worth_a_look(["Whether oligomers drive AD remains debated ⟦CITE⟧."], ci.KINDS[2])
+    assert not ci.worth_a_look(["Oligomers impair memory ⟦CITE⟧."], ci.KINDS[2])
+    assert not ci.worth_a_look(["The paper was retracted; it is debated ⟦CITE⟧."], ci.KINDS[0])
+
+
+class _Response:
+    def __init__(self, status, data=None):
+        self.status_code, self._data = status, data
+
+    def json(self):
+        return self._data
+
+
+def test_semantic_scholar_contexts_pages_retries_and_keys_by_pubmed_id(monkeypatch):
+    pages = [
+        _Response(429),
+        _Response(200, {"next": 1, "data": [
+            {"contexts": ["Aβ∗56 impairs memory (Lesne, 2006)."], "citingPaper": {"externalIds": {"PubMed": "111"}}},
+            {"contexts": ["No PubMed ID."], "citingPaper": {"externalIds": {"DOI": "10.1/x"}}},
+        ]}),
+        _Response(200, {"data": [{"contexts": [], "citingPaper": {"externalIds": {"PubMed": "222"}}}]}),
+    ]
+    calls = []
+    monkeypatch.setattr(ci.requests, "get", lambda url, **kw: calls.append(kw["params"]["offset"]) or pages.pop(0))
+    monkeypatch.setattr(ci.time, "sleep", lambda s: None)
+    assert ci.semantic_scholar_contexts("16541076") == {"111": ["Aβ*56 impairs memory (Lesne, 2006)."]}
+    assert calls == [0, 0, 1]

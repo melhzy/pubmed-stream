@@ -11,12 +11,13 @@ tags:
 
 MeSH descriptor D060825 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D060825)
 
-## Papers (70)
+## Papers (71)
 
 - [[PMID40935215|Bazi Bushen improves cognitive dysfunction in 5×FAD mice by targeting amyloid pathology, neuroinf... (2026)]] (major topic)
+- [[PMID41997924|Dysfunction of the episodic memory network in the Alzheimer's disease cascade. (2026)]]
 - [[PMID41494991|Independent, but not synergistic, associations of APOEε4 and systemic inflammation on cognitive d... (2026)]] (major topic)
-- [[PMID42464289|Passive amyloid-β immunotherapy in Alzheimer's disease: a multicellular clearance system beyond p... (2026)]]
 - [[PMID41023206|Socioeconomic status modifies the association between adherence to the Mediterranean diet and cog... (2026)]] (major topic)
+- [[PMID41956094|Tau seeds induce neurofibrillary tangle formation across brain regions via individual-specific co... (2026)]]
 - [[PMID40442822|Acute targeting of N-terminal tau protein has long-lasting beneficial effects in Tg2576 APP/Aβ mo... (2025)]] (major topic)
 - [[PMID40098057|Alpha synuclein co-pathology is associated with accelerated amyloid-driven tau accumulation in Al... (2025)]]
 - [[PMID40790741|Amyloid-Beta Pathology Increases Synaptic Engulfment by Glia in Feline Cognitive Dysfunction Synd... (2025)]] (major topic)
@@ -25,6 +26,7 @@ MeSH descriptor D060825 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID41306975|Genetic knockdown of DYRK1A attenuates cognitive impairment, Aβ pathology, tauopathy and neuroinf... (2025)]] (major topic)
 - [[PMID40285940|Multi-Target Inhibitor of ZJQ- 3 F Against AChE/BACE1/GSK3β Targets Improves the Cognitive Impair... (2025)]] (major topic)
 - [[PMID40407867|Resveratrol, a calorie restriction mimetic, protects AlCl3-induced neurotoxicity and cognitive de... (2025)]] (major topic)
+- [[PMID41173390|Sertad1 is elevated and plays a necessary role in neuron loss and cognitive impairment in a mouse... (2025)]] (major topic)
 - [[PMID37994989|A randomized placebo-controlled trial of nicotinamide riboside in older adults with mild cognitiv... (2024)]] (major topic)
 - [[PMID39030577|Alpha-lipoic acid alleviates cognitive deficits in transgenic APP23/PS45 mice through a mitophagy... (2024)]] (major topic)
 - [[PMID38217040|Metabotropic glutamate receptor 5 (mGluR5) is associated with neurodegeneration and amyloid depos... (2024)]] (major topic)
@@ -75,7 +77,6 @@ MeSH descriptor D060825 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26733416|RPS23RG1 reduces Aβ oligomer-induced synaptic and cognitive deficits. (2016)]] (major topic)
 - [[PMID25772787|Hippocampal plasticity during the progression of Alzheimer's disease. (2015)]]
 - [[PMID25111034|ERP abnormalities elicited by word repetition in fragile X-associated tremor/ataxia syndrome (FXT... (2014)]] (major topic)
-- [[PMID24635842|Plasma amyloid-β oligomers and soluble tumor necrosis factor receptors as potential biomarkers of... (2014)]] (major topic)
 - [[PMID23479202|Correlation of specific amyloid-β oligomers with tau in cerebrospinal fluid from cognitively norm... (2013)]] (major topic)
 - [[PMID23799095|Evaluating amyloid-β oligomers in cerebrospinal fluid as a biomarker for Alzheimer's disease. (2013)]]
 - [[PMID24077890|Pathology of clinical and preclinical Alzheimer's disease. (2013)]]

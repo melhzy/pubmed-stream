@@ -19,7 +19,6 @@ MeSH descriptor D008970 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID25182735|High order W02-reactive stable oligomers of amyloid-β are produced in vivo and in vitro via dialy... (2015)]]
 - [[PMID26224839|Na, K-ATPase α3 is a death target of Alzheimer patient amyloid-β assembly. (2015)]]
 - [[PMID26018073|Prion-Protein-interacting Amyloid-β Oligomers of High Molecular Weight Are Tightly Correlated wit... (2015)]]
-- [[PMID25846299|The aqueous phase of Alzheimer's disease brain contains assemblies built from ∼4 and ∼7 kDa Aβ sp... (2015)]]
 - [[PMID26322584|η-Secretase processing of APP inhibits neuronal activity in the hippocampus. (2015)]]
 - [[PMID23640054|Brain interstitial oligomeric amyloid β increases with age and is resistant to clearance from bra... (2013)]]
 - [[PMID23695685|Mechanistic and environmental control of the prevalence and lifetime of amyloid oligomers. (2013)]]
@@ -47,7 +46,8 @@ MeSH descriptor D008970 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17176037|Solution state characterization of amyloid beta-derived diffusible ligands. (2006)]]
 - [[PMID15649697|ApoE isoform-specific effects on LTP: blockade by oligomeric amyloid-beta1-42. (2005)]]
 - [[PMID16011984|Neurotoxic protein oligomers--what you see is not always what you get. (2005)]]
-- [[PMID16354549|Physicochemical characteristics of soluble oligomeric Abeta and their pathologic role in Alzheime... (2005)]]
+- [[PMID12506200|Amyloid beta -protein (Abeta) assembly: Abeta 40 and Abeta 42 oligomerize through distinct pathways. (2003)]]
+- [[PMID12124613|Neurodegenerative disease: amyloid pores from pathogenic mutations. (2002)]]
 - [[PMID10978169|The oligomerization of amyloid beta-protein begins intracellularly in cells derived from human br... (2000)]]
 %% pubmed-stream:end %%
 

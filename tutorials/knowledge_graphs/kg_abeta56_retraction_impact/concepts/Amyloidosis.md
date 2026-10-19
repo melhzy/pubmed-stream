@@ -13,7 +13,7 @@ MeSH descriptor D000686 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (45)
 
-- [[PMID41832348|A molecular perspective of gelsolin amyloidosis: An old foe with new faces. (2026)]] (major topic)
+- [[PMID40407976|Amyloid neuropathy, tauopathy, decreased cholinergic and dopaminergic neurons, long-term memory a... (2026)]] (major topic)
 - [[PMID40442822|Acute targeting of N-terminal tau protein has long-lasting beneficial effects in Tg2576 APP/Aβ mo... (2025)]] (major topic)
 - [[PMID37884349|Nascent Aβ42 Fibrillization in Synaptic Endosomes Precedes Plaque Formation in a Mouse Model of A... (2023)]] (major topic)
 - [[PMID37118355|Alzheimer's disease modification mediated by bone marrow-derived macrophages via a TREM2-independ... (2022)]] (major topic)

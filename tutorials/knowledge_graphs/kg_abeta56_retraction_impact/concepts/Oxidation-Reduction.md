@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D010084 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D010084)
 
-## Papers (13)
+## Papers (14)
 
 - [[PMID30385800|Copper Redox Cycling Inhibits Aβ Fibre Formation and Promotes Fibre Fragmentation, while Generati... (2018)]]
 - [[PMID24833600|Amyloid-beta disrupts calcium and redox homeostasis in brain endothelial cells. (2015)]]
@@ -26,6 +26,7 @@ MeSH descriptor D010084 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18064449|Neurotoxicity in Alzheimer's disease: is covalently crosslinked A beta responsible? (2008)]]
 - [[PMID18317926|Translocation of amyloid precursor protein C-terminal fragment(s) to the nucleus precedes neurona... (2008)]]
 - [[PMID14637120|Prevention of age-related spatial memory deficits in a transgenic mouse model of Alzheimer's dise... (2003)]]
+- [[PMID11755008|Phenolic anti-inflammatory antioxidant reversal of Abeta-induced cognitive deficits and neuropath... (2001)]]
 %% pubmed-stream:end %%
 
 ## Notes

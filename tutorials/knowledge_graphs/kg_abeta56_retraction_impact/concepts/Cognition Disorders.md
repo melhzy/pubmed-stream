@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D003072 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D003072)
 
-## Papers (103)
+## Papers (99)
 
 - [[PMID40407867|Resveratrol, a calorie restriction mimetic, protects AlCl3-induced neurotoxicity and cognitive de... (2025)]] (major topic)
 - [[PMID32926328|5-N-ethyl Carboxamidoadenosine Stimulates Adenosine-2b Receptor-Mediated Mitogen-Activated Protei... (2020)]] (major topic)
@@ -32,23 +32,18 @@ MeSH descriptor D003072 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27194408|Inflammatory insult during pregnancy accelerates age-related behavioral and neurobiochemical chan... (2016)]] (major topic)
 - [[PMID27023127|Intracerebroventricular Injection of Amyloid-β Peptides in Normal Mice to Acutely Induce Alzheime... (2016)]] (major topic)
 - [[PMID27829687|Network abnormalities and interneuron dysfunction in Alzheimer disease. (2016)]]
-- [[PMID26945100|Peripherally administered sera antibodies recognizing amyloid-β oligomers mitigate Alzheimer's di... (2016)]]
 - [[PMID27770234|Soluble pre-fibrillar tau and β-amyloid species emerge in early human Alzheimer's disease and tra... (2016)]] (major topic)
+- [[PMID26949218|Soluble prion protein and its N-terminal fragment prevent impairment of synaptic plasticity by Aβ... (2016)]]
 - [[PMID26954017|Traditional Chinese Nootropic Medicine Radix Polygalae and Its Active Constituent Onjisaponin B R... (2016)]] (major topic)
 - [[PMID26221415|Calcium Channel Blockers, Progression to Dementia, and Effects on Amyloid Beta Peptide Production. (2015)]]
-- [[PMID25125457|Cognitive and functional decline and their relationship in patients with mild Alzheimer's dementia. (2015)]] (major topic)
 - [[PMID25637092|MRZ-99030 - A novel modulator of Aβ aggregation: II - Reversal of Aβ oligomer-induced deficits in... (2015)]] (major topic)
-- [[PMID25933020|Passive immunization with phospho-tau antibodies reduces tau pathology and functional deficits in... (2015)]] (major topic)
 - [[PMID25888276|Tong Luo Jiu Nao ameliorates Aβ1-40-induced cognitive impairment on adaptive behavior learning by... (2015)]] (major topic)
 - [[PMID24849345|1α,25-Dihydroxyvitamin D3 reduces cerebral amyloid-β accumulation and improves cognition in mouse... (2014)]] (major topic)
-- [[PMID24796668|6-Shogaol, an active constituent of ginger, attenuates neuroinflammation and cognitive deficits i... (2014)]] (major topic)
 - [[PMID24561222|Aberrant CaMKII activity in the medial prefrontal cortex is associated with cognitive dysfunction... (2014)]] (major topic)
 - [[PMID25390368|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers I: Abeta 42 oligomer binding to sp... (2014)]]
 - [[PMID25390692|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers II: Sigma-2/PGRMC1 receptors media... (2014)]]
-- [[PMID24760018|Aminostyrylbenzofuran directly reduces oligomeric amyloid-β and reverses cognitive deficits in Al... (2014)]] (major topic)
 - [[PMID25187954|Brain intraventricular injection of amyloid-β in zebrafish embryo impairs cognition and increases... (2014)]]
 - [[PMID24899710|Genetic modulation of soluble Aβ rescues cognitive and synaptic impairment in a mouse model of Al... (2014)]] (major topic)
-- [[PMID25281869|Immunotherapy alleviates amyloid-associated synaptic pathology in an Alzheimer's disease mouse mo... (2014)]]
 - [[PMID24903713|Intracellular Aβ pathology and early cognitive impairments in a transgenic rat overexpressing hum... (2014)]] (major topic)
 - [[PMID25386946|Smart Soup, a traditional Chinese medicine formula, ameliorates amyloid pathology and related cog... (2014)]]
 - [[PMID24440055|Synergistic effects of amyloid-beta and wild-type human tau on dendritic spine loss in a floxed d... (2014)]]
@@ -61,7 +56,6 @@ MeSH descriptor D003072 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23771815|Nonhuman amyloid oligomer epitope reduces Alzheimer's-like neuropathology in 3xTg-AD transgenic m... (2013)]]
 - [[PMID23710760|Octodon degus: a model for the cognitive impairment associated with Alzheimer's disease. (2013)]] (major topic)
 - [[PMID23447589|Reversible pathologic and cognitive phenotypes in an inducible model of Alzheimer-amyloidosis. (2013)]] (major topic)
-- [[PMID23672786|Systemic vaccination with anti-oligomeric monoclonal antibodies improves cognitive function by re... (2013)]]
 - [[PMID22640423|Absence of amyloid β oligomers at the postsynapse and regulated synaptic Zn2+ in cognitively inta... (2012)]] (major topic)
 - [[PMID22188425|Amyloid generation and dysfunctional immunoproteasome activation with disease progression in anim... (2012)]] (major topic)
 - [[PMID22122128|Amyloid β: linking synaptic plasticity failure to memory disruption in Alzheimer's disease. (2012)]]
@@ -116,6 +110,8 @@ MeSH descriptor D003072 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15753419|Mild cognitive impairment is related to Alzheimer disease pathology and cerebral infarctions. (2005)]] (major topic)
 - [[PMID15608634|Natural oligomers of the amyloid-beta protein specifically disrupt cognitive function. (2005)]] (major topic)
 - [[PMID15922461|Notch to remember. (2005)]]
+- [[PMID16042545|Synaptic plasticity disruption by amyloid beta protein: modulation by potential Alzheimer's disea... (2005)]]
+- [[PMID11755008|Phenolic anti-inflammatory antioxidant reversal of Abeta-induced cognitive deficits and neuropath... (2001)]] (major topic)
 %% pubmed-stream:end %%
 
 ## Notes

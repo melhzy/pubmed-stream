@@ -11,9 +11,11 @@ tags:
 
 MeSH descriptor D011499 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D011499)
 
-## Papers (24)
+## Papers (26)
 
 - [[PMID42196249|Protein Modifications and Quality Control System: Target for Alzheimer's Disease Therapy. (2026)]] (major topic)
+- [[PMID40635200|Decoding tau acetylation in Alzheimer's disease and tauopathies: from site-specific mechanisms to... (2025)]]
+- [[PMID40563464|The Role and Pathogenesis of Tau Protein in Alzheimer's Disease. (2025)]]
 - [[PMID30182337|Cellular Proteostasis in Neurodegeneration. (2019)]]
 - [[PMID29385735|Peptides as Potential Therapeutics for Alzheimer's Disease. (2018)]]
 - [[PMID28877993|Stabilization of dynamic microtubules by mDia1 drives Tau-dependent Aβ1-42 synaptotoxicity. (2017)]]

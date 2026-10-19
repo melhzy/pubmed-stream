@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D002522 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002522)
 
-## Papers (10)
+## Papers (11)
 
 - [[PMID30787106|Systematic and standardized comparison of reported amyloid-β receptors for sufficiency, affinity,... (2019)]]
 - [[PMID30401430|Liquid and Hydrogel Phases of PrPC Linked to Conformation Shifts and Triggered by Alzheimer's Amy... (2018)]]
@@ -22,6 +22,7 @@ MeSH descriptor D002522 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19242475|Cellular prion protein mediates impairment of synaptic plasticity by amyloid-beta oligomers. (2009)]]
 - [[PMID19164507|The E693Delta mutation in amyloid precursor protein increases intracellular accumulation of amylo... (2009)]]
 - [[PMID19020024|Optical reporters for the conformation of alpha-synuclein reveal a specific interaction with mito... (2008)]]
+- [[PMID17855606|Swimming against the tide: mobility of the microtubule-associated protein tau in neurons. (2007)]]
 - [[PMID17101697|Tau-dependent microtubule disassembly initiated by prefibrillar beta-amyloid. (2006)]]
 %% pubmed-stream:end %%
 

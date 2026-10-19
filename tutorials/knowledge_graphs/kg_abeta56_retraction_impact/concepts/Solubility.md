@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D012995 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D012995)
 
-## Papers (42)
+## Papers (39)
 
 - [[PMID32252825|Diversity in Aβ deposit morphology and secondary proteome insolubility across models of Alzheimer... (2020)]]
 - [[PMID29385735|Peptides as Potential Therapeutics for Alzheimer's Disease. (2018)]]
@@ -19,7 +19,6 @@ MeSH descriptor D012995 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28533388|Selective lowering of synapsins induced by oligomeric α-synuclein exacerbates memory deficits. (2017)]]
 - [[PMID26710111|Exosomal cellular prion protein drives fibrillization of amyloid beta and counteracts amyloid bet... (2016)]]
 - [[PMID27917876|Soluble Amyloid-beta Aggregates from Human Alzheimer's Disease Brains. (2016)]]
-- [[PMID25833098|The Essential Role of Soluble Aβ Oligomers in Alzheimer's Disease. (2016)]]
 - [[PMID23685882|N-truncated amyloid β (Aβ) 4-42 forms stable aggregates and induces acute and long-lasting behavi... (2013)]]
 - [[PMID23771815|Nonhuman amyloid oligomer epitope reduces Alzheimer's-like neuropathology in 3xTg-AD transgenic m... (2013)]]
 - [[PMID23799536|Scara1 deficiency impairs clearance of soluble amyloid-β by mononuclear phagocytes and accelerate... (2013)]]
@@ -28,6 +27,7 @@ MeSH descriptor D012995 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID22102410|Binding with nucleic acids or glycosaminoglycans converts soluble protein oligomers to amyloid. (2012)]]
 - [[PMID22129351|Dihydroxybenzoic acid isomers differentially dissociate soluble biotinyl-Aβ(1-42) oligomers. (2012)]]
 - [[PMID22461632|Expression in drosophila of tandem amyloid β peptides provides insights into links between aggreg... (2012)]]
+- [[PMID22357853|Neutralization of soluble, synaptotoxic amyloid β species by antibodies is epitope specific. (2012)]]
 - [[PMID23109151|Pittsburgh compound B and the postmortem diagnosis of Alzheimer disease. (2012)]]
 - [[PMID22121920|Soluble Aβ oligomer production and toxicity. (2012)]]
 - [[PMID22449380|Somatostatin receptor subtype-4 agonist NNC 26-9100 decreases extracellular and intracellular Aβ₁... (2012)]]
@@ -49,12 +49,9 @@ MeSH descriptor D012995 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17052343|Autoinsertion of soluble oligomers of Alzheimer's Abeta(1-42) peptide into cholesterol-containing... (2006)]]
 - [[PMID17038501|Generic hydrophobic residues are sufficient to promote aggregation of the Alzheimer's Abeta42 pep... (2006)]]
 - [[PMID15590663|Curcumin inhibits formation of amyloid beta oligomers and fibrils, binds plaques, and reduces amy... (2005)]]
-- [[PMID16354549|Physicochemical characteristics of soluble oligomeric Abeta and their pathologic role in Alzheime... (2005)]]
 - [[PMID16020737|Tau suppression in a neurodegenerative mouse model improves memory function. (2005)]]
-- [[PMID12702875|Common structure of soluble amyloid oligomers implies common mechanism of pathogenesis. (2003)]]
 - [[PMID12499373|In vitro characterization of conditions for amyloid-beta peptide oligomerization and fibrillogene... (2003)]]
 - [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]]
-- [[PMID11701763|Vaccination with soluble Abeta oligomers generates toxicity-neutralizing antibodies. (2001)]]
 %% pubmed-stream:end %%
 
 ## Notes

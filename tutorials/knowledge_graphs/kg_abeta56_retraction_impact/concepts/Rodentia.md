@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D012377 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D012377)
 
-## Papers (2)
+## Papers (1)
 
-- [[PMID32597800|Age-Specific Retinal and Cerebral Immunodetection of Amyloid-β Plaques and Oligomers in a Rodent... (2020)]]
 - [[PMID30227888|Vulnerability and resilience to Alzheimer's disease: early life conditions modulate neuropatholog... (2018)]]
 %% pubmed-stream:end %%
 

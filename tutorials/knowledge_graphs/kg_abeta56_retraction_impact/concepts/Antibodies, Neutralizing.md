@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D057134 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D057134)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID41896453|Engineering a dimeric single-domain antibody for improved detection and neutralization of amyloid... (2026)]] (major topic)
+- [[PMID22357853|Neutralization of soluble, synaptotoxic amyloid β species by antibodies is epitope specific. (2012)]]
 %% pubmed-stream:end %%
 
 ## Notes

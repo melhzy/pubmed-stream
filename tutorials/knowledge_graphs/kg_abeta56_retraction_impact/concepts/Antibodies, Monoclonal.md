@@ -11,10 +11,8 @@ tags:
 
 MeSH descriptor D000911 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000911)
 
-## Papers (38)
+## Papers (34)
 
-- [[PMID42222928|Ex vivo comparison of ACU193 and lecanemab reveals binding differences in mouse brain. (2026)]] (major topic)
-- [[PMID42464289|Passive amyloid-β immunotherapy in Alzheimer's disease: a multicellular clearance system beyond p... (2026)]] (major topic)
 - [[PMID41760995|The evolving landscape of amyloid-targeting therapies in Alzheimer's disease: progress and challe... (2026)]] (major topic)
 - [[PMID40442822|Acute targeting of N-terminal tau protein has long-lasting beneficial effects in Tg2576 APP/Aβ mo... (2025)]] (major topic)
 - [[PMID32469918|Molecular interactions between monoclonal oligomer-specific antibody 5E3 and its amyloid beta cog... (2020)]] (major topic)
@@ -23,15 +21,10 @@ MeSH descriptor D000911 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28592267|A vaccine with Aβ oligomer-specific mimotope attenuates cognitive deficits and brain pathologies... (2017)]] (major topic)
 - [[PMID28691099|Selective targeting of primary and secondary nucleation pathways in Aβ42 aggregation using a rati... (2017)]] (major topic)
 - [[PMID26820640|Effects of an amyloid-beta 1-42 oligomers antibody screened from a phage display library in APP/P... (2016)]] (major topic)
-- [[PMID25933020|Passive immunization with phospho-tau antibodies reduces tau pathology and functional deficits in... (2015)]] (major topic)
 - [[PMID25810517|Tau immunotherapy modulates both pathological tau and upstream amyloid pathology in an Alzheimer'... (2015)]] (major topic)
-- [[PMID25096615|The murine version of BAN2401 (mAb158) selectively reduces amyloid-β protofibrils in brain and ce... (2015)]] (major topic)
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]]
 - [[PMID24643138|Improvement of memory deficits and amyloid-β clearance in aged APP23 mice treated with a combinat... (2014)]] (major topic)
-- [[PMID24931606|Α-synuclein immunotherapy blocks uptake and templated propagation of misfolded α-synuclein and ne... (2014)]] (major topic)
 - [[PMID24252153|N-truncated Abeta starting with position four: early intraneuronal accumulation and rescue of tox... (2013)]] (major topic)
 - [[PMID23375565|New ELISAs with high specificity for soluble oligomers of amyloid β-protein detect natural Aβ oli... (2013)]]
-- [[PMID23672786|Systemic vaccination with anti-oligomeric monoclonal antibodies improves cognitive function by re... (2013)]] (major topic)
 - [[PMID22476196|An anti-diabetes agent protects the mouse brain from defective insulin signaling caused by Alzhei... (2012)]]
 - [[PMID22355408|Large aggregates are the major soluble Aβ species in AD brain fractionated with density gradient... (2012)]]
 - [[PMID22814377|Molecular basis of β-amyloid oligomer recognition with a conformational antibody fragment. (2012)]]
@@ -49,6 +42,9 @@ MeSH descriptor D000911 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18663823|Value in development of a TAPIR-like mouse monoclonal antibody to Abeta. (2008)]] (major topic)
 - [[PMID17784787|In vitro and in vivo neurotoxicity of prion protein oligomers. (2007)]]
 - [[PMID17183149|An antibody to the beta-secretase cleavage site on amyloid-beta-protein precursor inhibits amyloi... (2006)]] (major topic)
+- [[PMID15834427|Amyloid beta protein immunotherapy neutralizes Abeta oligomers that disrupt synaptic plasticity i... (2005)]] (major topic)
+- [[PMID11941374|Immunization reverses memory deficits without reducing brain Abeta burden in Alzheimer's disease... (2002)]]
+- [[PMID12151510|Reversible memory loss in a mouse transgenic model of Alzheimer's disease. (2002)]]
 - [[PMID9916941|Appearance of sodium dodecyl sulfate-stable amyloid beta-protein (Abeta) dimer in the cortex duri... (1999)]]
 - [[PMID8021238|Evidence that production and release of amyloid beta-protein involves the endocytic pathway. (1994)]]
 %% pubmed-stream:end %%

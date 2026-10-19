@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D019587 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D019587)
 
-## Papers (6)
+## Papers (7)
 
+- [[PMID42280341|The Role of Polyphenols on Cognitive Function and Dementia Through Gut-Microbiota-Brain Axis Modu... (2026)]]
 - [[PMID32825797|Dietary Intake of Rosmarinic Acid Increases Serum Inhibitory Activity in Amyloid A Aggregation an... (2020)]]
 - [[PMID33238473|Sex-Specific Effects of Chronic Creatine Supplementation on Hippocampal-Mediated Spatial Cognitio... (2020)]]
 - [[PMID29310724|Effect of long-term nutraceutical and dietary supplement use on cognition in the elderly: a 10-ye... (2018)]] (major topic)

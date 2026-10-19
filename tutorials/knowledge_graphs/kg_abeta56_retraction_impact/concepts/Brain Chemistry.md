@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D001923 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D001923)
 
-## Papers (31)
+## Papers (32)
 
 - [[PMID41578040|Spatially resolved lipids in a mouse brain model of globoid cell leukodystrophy via IR-MALDESI MS... (2026)]] (major topic)
 - [[PMID32180217|A mechanistic hypothesis for the impairment of synaptic plasticity by soluble Aβ oligomers from A... (2020)]]
@@ -38,10 +38,11 @@ MeSH descriptor D001923 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17651976|Abeta solubility and deposition during AD progression and in APPxPS-1 knock-in mice. (2007)]] (major topic)
 - [[PMID17442823|Dietary docosahexaenoic acid and docosapentaenoic acid ameliorate amyloid-beta and tau pathology... (2007)]]
 - [[PMID18220524|Nogo receptor interacts with brain APP and Abeta to reduce pathologic changes in Alzheimer's tran... (2007)]]
-- [[PMID16354549|Physicochemical characteristics of soluble oligomeric Abeta and their pathologic role in Alzheime... (2005)]]
-- [[PMID12702875|Common structure of soluble amyloid oligomers implies common mechanism of pathogenesis. (2003)]]
+- [[PMID12925731|Alzheimer's disease-affected brain: presence of oligomeric A beta ligands (ADDLs) suggests a mole... (2003)]] (major topic)
 - [[PMID14637120|Prevention of age-related spatial memory deficits in a transgenic mouse model of Alzheimer's dise... (2003)]]
+- [[PMID12151510|Reversible memory loss in a mouse transgenic model of Alzheimer's disease. (2002)]]
 - [[PMID11160418|Age-dependent changes in brain, CSF, and plasma amyloid (beta) protein in the Tg2576 transgenic m... (2001)]]
+- [[PMID11755008|Phenolic anti-inflammatory antioxidant reversal of Abeta-induced cognitive deficits and neuropath... (2001)]]
 - [[PMID8810256|Correlative memory deficits, Abeta elevation, and amyloid plaques in transgenic mice. (1996)]] (major topic)
 - [[PMID8702810|Morphology and toxicity of Abeta-(1-42) dimer derived from neuritic and vascular amyloid deposits... (1996)]]
 %% pubmed-stream:end %%

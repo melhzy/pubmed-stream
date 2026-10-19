@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D012893 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D012893)
 
-## Papers (1)
+## Papers (2)
 
+- [[PMID40407976|Amyloid neuropathy, tauopathy, decreased cholinergic and dopaminergic neurons, long-term memory a... (2026)]] (major topic)
 - [[PMID27320125|Amyloid-β induces sleep fragmentation that is rescued by fatty acid binding proteins in Drosophila. (2017)]] (major topic)
 %% pubmed-stream:end %%
 

@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D005971 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D005971)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID8094963|Evidence for excitoprotective and intraneuronal calcium-regulating roles for secreted forms of th... (1993)]]
+- [[PMID1354011|Effects of microtubule stabilization and destabilization on tau immunoreactivity in cultured hipp... (1992)]]
 %% pubmed-stream:end %%
 
 ## Notes

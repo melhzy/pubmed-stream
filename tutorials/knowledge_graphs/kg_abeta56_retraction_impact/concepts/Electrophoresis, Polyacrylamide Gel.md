@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D004591 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D004591)
 
-## Papers (22)
+## Papers (21)
 
 - [[PMID29886523|Preparation of Pure Populations of Amyloid β-Protein Oligomers of Defined Size. (2018)]] (major topic)
-- [[PMID25846299|The aqueous phase of Alzheimer's disease brain contains assemblies built from ∼4 and ∼7 kDa Aβ sp... (2015)]]
 - [[PMID24077890|Pathology of clinical and preclinical Alzheimer's disease. (2013)]]
 - [[PMID22528081|Preparation of stable amyloid β-protein oligomers of defined assembly order. (2012)]]
 - [[PMID23173076|Synapse-binding subpopulations of Aβ oligomers sensitive to peptide assembly blockers and scFv an... (2012)]]

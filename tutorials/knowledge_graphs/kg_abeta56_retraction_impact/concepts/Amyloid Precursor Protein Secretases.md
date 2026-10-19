@@ -11,11 +11,11 @@ tags:
 
 MeSH descriptor D053829 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D053829)
 
-## Papers (145)
+## Papers (146)
 
+- [[PMID41758970|Amyloid Alpha: The Neglected Cousin of Amyloid Beta. (2026)]]
 - [[PMID40935215|Bazi Bushen improves cognitive dysfunction in 5×FAD mice by targeting amyloid pathology, neuroinf... (2026)]]
 - [[PMID42336284|From mechanism to substratome: Unraveling mysteries of γ-secretase. (2026)]] (major topic)
-- [[PMID42423830|Inhibition of miR-25-3p Alleviates Neuroinflammation in Alzheimer's Disease By Targeting ADAM10. (2026)]] (major topic)
 - [[PMID42237182|Neuronal overexpression of Nrf2 reduces dystrophic neurites in 5XFAD Alzheimer's disease model mice. (2026)]]
 - [[PMID40285940|Multi-Target Inhibitor of ZJQ- 3 F Against AChE/BACE1/GSK3β Targets Improves the Cognitive Impair... (2025)]] (major topic)
 - [[PMID39996369|Presenilin, γ-Secretase, and the Search for Pathogenic Triggers of Alzheimer's Disease. (2025)]] (major topic)
@@ -32,7 +32,6 @@ MeSH descriptor D053829 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID31823504|Mapping pathogenic processes contributing to neurodegeneration in Drosophila models of Alzheimer'... (2020)]]
 - [[PMID33016509|β2-AR activation promotes cleavage and nuclear translocation of Her2 and metastatic potential of... (2020)]]
 - [[PMID31472195|Age-related changes in hippocampal AD pathology, actin remodeling proteins and spatial memory beh... (2019)]]
-- [[PMID30702009|Are antibodies directed against amyloid-β (Aβ) oligomers the last call for the Aβ hypothesis of A... (2019)]]
 - [[PMID31073968|Palmitic Acid-Induced NAD+ Depletion is Associated with the Reduced Function of SIRT1 and Increas... (2019)]] (major topic)
 - [[PMID31303501|Paricalcitol accelerates BACE1 lysosomal degradation and inhibits calpain-1 dependent neuronal lo... (2019)]] (major topic)
 - [[PMID31371707|Production of seedable Amyloid-β peptides in model of prion diseases upon PrPSc-induced PDK1 over... (2019)]]
@@ -139,6 +138,7 @@ MeSH descriptor D053829 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19589380|Vascular endothelial growth factor (VEGF) affects processing of amyloid precursor protein and bet... (2009)]]
 - [[PMID18945886|Abeta oligomers induce neuronal cell cycle events in Alzheimer's disease. (2008)]]
 - [[PMID18650430|Amyloid precursor protein trafficking, processing, and function. (2008)]]
+- [[PMID18568014|Animal models of Alzheimer's disease and frontotemporal dementia. (2008)]]
 - [[PMID19036715|Gamma-secretase limits the inflammatory response through the processing of LRP1. (2008)]] (major topic)
 - [[PMID18581273|Therapeutic strategies for Alzheimer's disease. (2008)]]
 - [[PMID17634359|Abeta oligomer-mediated long-term potentiation impairment involves protein phosphatase 1-dependen... (2007)]]
@@ -158,6 +158,7 @@ MeSH descriptor D053829 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15709475|The non-amyloidogenic pathway: structure and function of alpha-secretases. (2005)]]
 - [[PMID15734686|Twenty years of the Alzheimer's disease amyloid hypothesis: a genetic perspective. (2005)]]
 - [[PMID11932745|Naturally secreted oligomers of amyloid beta protein potently inhibit hippocampal long-term poten... (2002)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

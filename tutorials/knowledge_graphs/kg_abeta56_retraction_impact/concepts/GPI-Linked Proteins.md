@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D058851 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D058851)
 
-## Papers (1)
+## Papers (2)
 
+- [[PMID41892301|Neurophysiological In Vitro Model of Amyloid-β-Induced Deficits of Hippocampal LTP Involving Neur... (2026)]]
 - [[PMID25393479|Neuritin can normalize neural deficits of Alzheimer's disease. (2014)]]
 %% pubmed-stream:end %%
 

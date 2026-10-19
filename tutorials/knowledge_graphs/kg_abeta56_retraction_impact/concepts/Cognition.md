@@ -15,11 +15,11 @@ MeSH descriptor D003071 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 - [[PMID40935215|Bazi Bushen improves cognitive dysfunction in 5×FAD mice by targeting amyloid pathology, neuroinf... (2026)]]
 - [[PMID41023206|Socioeconomic status modifies the association between adherence to the Mediterranean diet and cog... (2026)]] (major topic)
+- [[PMID42280341|The Role of Polyphenols on Cognitive Function and Dementia Through Gut-Microbiota-Brain Axis Modu... (2026)]] (major topic)
 - [[PMID40407867|Resveratrol, a calorie restriction mimetic, protects AlCl3-induced neurotoxicity and cognitive de... (2025)]]
 - [[PMID36269624|The Mediating Role of Inflammation in the Relationship Between α-Synuclein and Cognitive Function... (2023)]]
 - [[PMID35197102|Optogenetics: implications for Alzheimer's disease research and therapy. (2022)]]
 - [[PMID36517890|SNCA genetic lowering reveals differential cognitive function of alpha-synuclein dependent on sex. (2022)]] (major topic)
-- [[PMID32338218|Active Immunotherapy with 12-mer Aβ1-42-like Assembly Vaccine Shows Efficacy in Aged 3×Tg-AD Mice. (2021)]] (major topic)
 - [[PMID31701436|Andrographolide Reduces Neuroinflammation and Oxidative Stress in Aged Octodon degus. (2020)]]
 - [[PMID31208706|A Novel Apolipoprotein E Antagonist Functionally Blocks Apolipoprotein E Interaction With N-termi... (2019)]]
 - [[PMID30940494|Multivariate MR biomarkers better predict cognitive dysfunction in mouse models of Alzheimer's di... (2019)]]
@@ -35,12 +35,11 @@ MeSH descriptor D003071 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID29016862|Ube3a deficiency inhibits amyloid plaque formation in APPswe/PS1δE9 mouse model of Alzheimer's di... (2017)]]
 - [[PMID26202697|MT5-MMP is a new pro-amyloidogenic proteinase that promotes amyloid pathology and cognitive decli... (2016)]]
 - [[PMID26054481|Pathophysiological Links Among Hypertension and Alzheimer's Disease. (2016)]]
+- [[PMID27233830|The flavonoid baicalein rescues synaptic plasticity and memory deficits in a mouse model of Alzhe... (2016)]]
 - [[PMID26410307|Brain-derived neurotrophic factor and TrkB expression in the "oldest-old," the 90+ Study: correla... (2015)]] (major topic)
 - [[PMID26305888|Cognitive and Disease-Modifying Effects of 11β-Hydroxysteroid Dehydrogenase Type 1 Inhibition in... (2015)]] (major topic)
-- [[PMID25125457|Cognitive and functional decline and their relationship in patients with mild Alzheimer's dementia. (2015)]] (major topic)
 - [[PMID25888276|Tong Luo Jiu Nao ameliorates Aβ1-40-induced cognitive impairment on adaptive behavior learning by... (2015)]] (major topic)
 - [[PMID25661995|Tripchlorolide improves cognitive deficits by reducing amyloid β and upregulating synapse-related... (2015)]] (major topic)
-- [[PMID24796668|6-Shogaol, an active constituent of ginger, attenuates neuroinflammation and cognitive deficits i... (2014)]]
 - [[PMID25390368|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers I: Abeta 42 oligomer binding to sp... (2014)]]
 - [[PMID25390692|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers II: Sigma-2/PGRMC1 receptors media... (2014)]]
 - [[PMID25187954|Brain intraventricular injection of amyloid-β in zebrafish embryo impairs cognition and increases... (2014)]] (major topic)
@@ -50,7 +49,6 @@ MeSH descriptor D003071 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23576130|Brain amyloid-β oligomers in ageing and Alzheimer's disease. (2013)]]
 - [[PMID22816379|Multiple low-dose infusions of human umbilical cord blood cells improve cognitive impairments and... (2013)]] (major topic)
 - [[PMID23462987|Naturally occurring autoantibodies interfere with β-amyloid metabolism and improve cognition in a... (2013)]] (major topic)
-- [[PMID23672786|Systemic vaccination with anti-oligomeric monoclonal antibodies improves cognitive function by re... (2013)]]
 - [[PMID23951225|The polyphenol oleuropein aglycone protects TgCRND8 mice against Aß plaque pathology. (2013)]]
 - [[PMID22563077|Exercise is more effective than diet control in preventing high fat diet-induced β-amyloid deposi... (2012)]]
 - [[PMID23172351|Expression of the plant viral protease NIa in the brain of a mouse model of Alzheimer's disease m... (2012)]] (major topic)
@@ -70,6 +68,8 @@ MeSH descriptor D003071 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18624777|Parenchymal and vascular Abeta-deposition and its effects on the degeneration of neurons and cogn... (2008)]] (major topic)
 - [[PMID17521929|Acute inhibition of calcineurin restores associative learning and memory in Tg2576 APP transgenic... (2007)]]
 - [[PMID16020737|Tau suppression in a neurodegenerative mouse model improves memory function. (2005)]]
+- [[PMID12399581|Alzheimer's disease is a synaptic failure. (2002)]]
+- [[PMID12151510|Reversible memory loss in a mouse transgenic model of Alzheimer's disease. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

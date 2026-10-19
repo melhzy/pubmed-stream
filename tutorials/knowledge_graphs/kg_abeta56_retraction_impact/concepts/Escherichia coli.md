@@ -11,11 +11,10 @@ tags:
 
 MeSH descriptor D004926 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D004926)
 
-## Papers (9)
+## Papers (8)
 
 - [[PMID29545515|A common mechanism of proteasome impairment by neurodegenerative disease-associated oligomers. (2018)]]
 - [[PMID28910862|Effects of Newly Synthesized Recombinant Human Amyloid-β Complexes and Poly-Amyloid-β Fibers on C... (2017)]]
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]]
 - [[PMID22493266|The E. coli CsgB nucleator of curli assembles to β-sheet oligomers that alter the CsgA fibrilliza... (2012)]] (major topic)
 - [[PMID22315227|α-Synuclein in central nervous system and from erythrocytes, mammalian cells, and Escherichia col... (2012)]]
 - [[PMID21454545|Structural insights into functional and pathological amyloid. (2011)]]

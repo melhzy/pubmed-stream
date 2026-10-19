@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D008565 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008565)
 
-## Papers (58)
+## Papers (59)
 
-- [[PMID42423830|Inhibition of miR-25-3p Alleviates Neuroinflammation in Alzheimer's Disease By Targeting ADAM10. (2026)]] (major topic)
 - [[PMID39030577|Alpha-lipoic acid alleviates cognitive deficits in transgenic APP23/PS45 mice through a mitophagy... (2024)]]
 - [[PMID37100873|Mycoplasma fermentans infection induces human necrotic neuronal cell death via IFITM3-mediated am... (2023)]]
 - [[PMID36230925|HIV-Associated Insults Modulate ADAM10 and Its Regulator Sirtuin1 in an NMDA Receptor-Dependent M... (2022)]]
@@ -68,6 +67,8 @@ MeSH descriptor D008565 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15755686|Episodic-like memory deficits in the APPswe/PS1dE9 mouse model of Alzheimer's disease: relationsh... (2005)]] (major topic)
 - [[PMID15972296|Genomic structure and functional characterization of the human ADAM10 promoter. (2005)]] (major topic)
 - [[PMID15922461|Notch to remember. (2005)]] (major topic)
+- [[PMID12399581|Alzheimer's disease is a synaptic failure. (2002)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]] (major topic)
 - [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]]
 - [[PMID11447826|Apolipoprotein E and Alzheimer's disease: signal transduction mechanisms. (2001)]] (major topic)
 - [[PMID11403971|Intraneuronal Abeta accumulation precedes plaque formation in beta-amyloid precursor protein and... (2001)]] (major topic)

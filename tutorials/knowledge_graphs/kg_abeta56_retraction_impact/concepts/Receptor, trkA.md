@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D020917 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D020917)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID24356899|(-)-Epigallocatechin-3-gallate ameliorates learning and memory deficits by adjusting the balance... (2014)]] (major topic)
+- [[PMID20829454|Tau reduction prevents Abeta-induced defects in axonal transport. (2010)]]
 %% pubmed-stream:end %%
 
 ## Notes

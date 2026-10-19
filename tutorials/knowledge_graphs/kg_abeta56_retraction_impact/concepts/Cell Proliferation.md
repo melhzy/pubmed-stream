@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D049109 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D049109)
 
-## Papers (14)
+## Papers (13)
 
-- [[PMID42423830|Inhibition of miR-25-3p Alleviates Neuroinflammation in Alzheimer's Disease By Targeting ADAM10. (2026)]]
 - [[PMID42019491|Somatic cancer variants enriched in Alzheimer's disease microglia-like cells drive inflammatory a... (2026)]]
 - [[PMID31509551|Amyloid β oligomers inhibit growth of human cancer cells. (2019)]]
 - [[PMID29590593|Toxic HypF-N Oligomers Selectively Bind the Plasma Membrane to Impair Cell Adhesion Capability. (2018)]]

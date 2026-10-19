@@ -11,9 +11,9 @@ tags:
 
 MeSH descriptor D059748 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D059748)
 
-## Papers (23)
+## Papers (24)
 
-- [[PMID41461311|Selective degradation of DAPK1 via a novel hydrophobic tagging attenuates tau pathology in Alzhei... (2026)]]
+- [[PMID42595893|Dendritic translation and neuroproteasome-mediated degradation of endogenous tau revealed by STAR... (2026)]]
 - [[PMID42048649|α,β-Dehydroamino-Acid-Containing Peptides Resist Proteolysis and Inhibit Aggregation of a Tau-Der... (2026)]]
 - [[PMID39996369|Presenilin, γ-Secretase, and the Search for Pathogenic Triggers of Alzheimer's Disease. (2025)]]
 - [[PMID35089425|Revisiting APP secretases: an overview on the holistic effects of retinoic acid receptor stimulat... (2022)]]
@@ -21,6 +21,7 @@ MeSH descriptor D059748 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID33016509|β2-AR activation promotes cleavage and nuclear translocation of Her2 and metastatic potential of... (2020)]]
 - [[PMID31303501|Paricalcitol accelerates BACE1 lysosomal degradation and inhibits calpain-1 dependent neuronal lo... (2019)]]
 - [[PMID30143530|Are N- and C-terminally truncated Aβ species key pathological triggers in Alzheimer's disease? (2018)]]
+- [[PMID30145931|Pathological missorting of endogenous MAPT/Tau in neurons caused by failure of protein degradatio... (2018)]] (major topic)
 - [[PMID28197669|Clearance of cerebral Aβ in Alzheimer's disease: reassessing the role of microglia and monocytes. (2017)]]
 - [[PMID26954017|Traditional Chinese Nootropic Medicine Radix Polygalae and Its Active Constituent Onjisaponin B R... (2016)]]
 - [[PMID26080426|Activation of peroxisome proliferator-activated receptor α stimulates ADAM10-mediated proteolysis... (2015)]]

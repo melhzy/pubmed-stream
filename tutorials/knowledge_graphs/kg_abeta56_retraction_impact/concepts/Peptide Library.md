@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D019151 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D019151)
 
-## Papers (3)
+## Papers (2)
 
 - [[PMID42041135|Identification of Secondary Nucleation Inhibitors of Amyloid-β Aggregation by Cellular Selection... (2026)]] (major topic)
-- [[PMID28976547|A mimotope of Aβ oligomers may also behave as a β-sheet inhibitor. (2017)]] (major topic)
 - [[PMID26820640|Effects of an amyloid-beta 1-42 oligomers antibody screened from a phage display library in APP/P... (2016)]]
 %% pubmed-stream:end %%
 

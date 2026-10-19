@@ -27,7 +27,6 @@ MeSH descriptor D001812 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27503326|Inhibition of ADAM10 promotes the clearance of Aβ across the BBB by reducing LRP1 ectodomain shed... (2016)]] (major topic)
 - [[PMID26012373|Development of fluorescent probes that bind and stain amyloid plaques in Alzheimer's disease. (2015)]]
 - [[PMID25761889|Scanning ultrasound removes amyloid-β and restores memory in an Alzheimer's disease mouse model. (2015)]]
-- [[PMID24604742|Apolipoprotein E receptor pathways in Alzheimer disease. (2014)]]
 - [[PMID23859553|In vivo application of beta amyloid oligomers: a simple tool to evaluate mechanisms of action and... (2014)]]
 - [[PMID23229335|Highly stabilized curcumin nanoparticles tested in an in vitro blood-brain barrier model and in A... (2013)]] (major topic)
 - [[PMID23181169|Role of ABC transporters in the pathogenesis of Alzheimer's disease. (2012)]] (major topic)
@@ -41,6 +40,7 @@ MeSH descriptor D001812 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18690837|Clinico-pathologic function of cerebral ABC transporters - implications for the pathogenesis of A... (2008)]]
 - [[PMID18823564|Mannan-Abeta28 conjugate prevents Abeta-plaque deposition, but increases microhemorrhages in the... (2008)]]
 - [[PMID15590663|Curcumin inhibits formation of amyloid beta oligomers and fibrils, binds plaques, and reduces amy... (2005)]]
+- [[PMID12558997|Stabilization of the cyclin-dependent kinase 5 activator, p35, by paclitaxel decreases beta-amylo... (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

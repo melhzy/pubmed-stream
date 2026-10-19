@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D018621 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018621)
 
-## Papers (39)
+## Papers (37)
 
 - [[PMID40076721|Cellular Prion Protein and Amyloid-β Oligomers in Alzheimer's Disease-Are There Connections? (2025)]]
 - [[PMID39955064|Identifying the copper coordination environment between interacting neurodegenerative proteins: A... (2025)]] (major topic)
@@ -29,14 +29,12 @@ MeSH descriptor D018621 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID25888324|Glutamate receptors function as scaffolds for the regulation of β-amyloid and cellular prion prot... (2015)]] (major topic)
 - [[PMID26018073|Prion-Protein-interacting Amyloid-β Oligomers of High Molecular Weight Are Tightly Correlated wit... (2015)]]
 - [[PMID23948943|Cellular prion protein as a therapeutic target in Alzheimer's disease. (2014)]] (major topic)
-- [[PMID24614900|Plasma membrane injury depends on bilayer lipid composition in Alzheimer's disease. (2014)]]
 - [[PMID25148681|Therapeutic molecules and endogenous ligands regulate the interaction between brain cellular prio... (2014)]] (major topic)
 - [[PMID23805846|Alzheimer's amyloid-β oligomers rescue cellular prion protein induced tau reduction via the Fyn p... (2013)]] (major topic)
 - [[PMID22987042|Amyloid-β induced signaling by cellular prion protein and Fyn kinase in Alzheimer disease. (2013)]] (major topic)
 - [[PMID24228054|Evidence for prion-like mechanisms in several neurodegenerative diseases: potential implications... (2013)]]
 - [[PMID24012003|Metabotropic glutamate receptor 5 is a coreceptor for Alzheimer aβ oligomer bound to cellular pri... (2013)]] (major topic)
 - [[PMID23856335|Overcoming barriers and thresholds - signaling of oligomeric Aβ through the prion protein to Fyn. (2013)]] (major topic)
-- [[PMID23335053|The cellular prion protein traps Alzheimer's Aβ in an oligomeric form and disassembles amyloid fi... (2013)]] (major topic)
 - [[PMID22820466|Alzheimer amyloid-β oligomer bound to postsynaptic prion protein activates Fyn to impair neurons. (2012)]] (major topic)
 - [[PMID22449984|Regulation of amyloid-β production by the prion protein. (2012)]] (major topic)
 - [[PMID23175838|The complex PrP(c)-Fyn couples human oligomeric Aβ with pathological tau changes in Alzheimer's d... (2012)]] (major topic)

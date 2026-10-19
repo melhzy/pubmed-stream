@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D000251 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000251)
 
-## Papers (1)
+## Papers (2)
 
+- [[PMID24065130|Amyloid-β oligomers induce synaptic damage via Tau-dependent microtubule severing by TTLL6 and sp... (2013)]] (major topic)
 - [[PMID21281590|High-resolution conformation and backbone dynamics of a soluble aggregate of apomyoglobin119. (2011)]]
 %% pubmed-stream:end %%
 

@@ -11,12 +11,11 @@ tags:
 
 MeSH descriptor D011328 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D011328)
 
-## Papers (53)
+## Papers (50)
 
 - [[PMID36399277|Aβ and Tau Prions Causing Alzheimer's Disease. (2023)]] (major topic)
 - [[PMID36595668|Heterotypic electrostatic interactions control complex phase separation of tau and prion into mul... (2023)]] (major topic)
 - [[PMID37968719|Neuronal transcriptome, tau and synapse loss in Alzheimer's knock-in mice require prion protein. (2023)]] (major topic)
-- [[PMID34494298|Distinct types of amyloid-β oligomers displaying diverse neurotoxicity mechanisms in Alzheimer's... (2021)]]
 - [[PMID31371707|Production of seedable Amyloid-β peptides in model of prion diseases upon PrPSc-induced PDK1 over... (2019)]] (major topic)
 - [[PMID30401430|Liquid and Hydrogel Phases of PrPC Linked to Conformation Shifts and Triggered by Alzheimer's Amy... (2018)]]
 - [[PMID29615128|Prion-like propagation of β-amyloid aggregates in the absence of APP overexpression. (2018)]] (major topic)
@@ -24,11 +23,8 @@ MeSH descriptor D011328 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28683325|Silent Allosteric Modulation of mGluR5 Maintains Glutamate Signaling while Rescuing Alzheimer's M... (2017)]]
 - [[PMID26667279|Metabotropic glutamate receptor 5 couples cellular prion protein to intracellular signalling in A... (2016)]] (major topic)
 - [[PMID25465238|The Binding Receptors of Aβ: an Alternative Therapeutic Target for Alzheimer's Disease. (2016)]]
-- [[PMID25399729|Invited review: Prion-like transmission and spreading of tau pathology. (2015)]] (major topic)
-- [[PMID25840008|Neurodegenerative diseases: expanding the prion concept. (2015)]] (major topic)
 - [[PMID25678560|Neuronal death induced by misfolded prion protein is due to NAD+ depletion and can be relieved in... (2015)]] (major topic)
 - [[PMID26018073|Prion-Protein-interacting Amyloid-β Oligomers of High Molecular Weight Are Tightly Correlated wit... (2015)]] (major topic)
-- [[PMID25134727|Amyloid-β oligomers as a template for secondary amyloidosis in Alzheimer's disease. (2014)]]
 - [[PMID23859553|In vivo application of beta amyloid oligomers: a simple tool to evaluate mechanisms of action and... (2014)]]
 - [[PMID24394345|Prion-like activity of Cu/Zn superoxide dismutase: implications for amyotrophic lateral sclerosis. (2014)]] (major topic)
 - [[PMID24228054|Evidence for prion-like mechanisms in several neurodegenerative diseases: potential implications... (2013)]] (major topic)
@@ -66,6 +62,7 @@ MeSH descriptor D011328 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19164927|Computational simulations of the early steps of protein aggregation. (2007)]] (major topic)
 - [[PMID17784787|In vitro and in vivo neurotoxicity of prion protein oligomers. (2007)]] (major topic)
 - [[PMID17495929|Prion recognition elements govern nucleation, strain specificity and species barriers. (2007)]] (major topic)
+- [[PMID12704221|Protofibrils, pores, fibrils, and neurodegeneration: separating the responsible protein aggregate... (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

@@ -11,13 +11,12 @@ tags:
 
 MeSH descriptor D008969 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008969)
 
-## Papers (42)
+## Papers (45)
 
 - [[PMID25889972|Antiparallel β-Sheet Structure within the C-Terminal Region of 42-Residue Alzheimer's Amyloid-β P... (2015)]]
 - [[PMID26164502|Lipid insertion domain unfolding regulates protein orientational transition behavior in a lipid b... (2015)]]
 - [[PMID26224839|Na, K-ATPase α3 is a death target of Alzheimer patient amyloid-β assembly. (2015)]]
 - [[PMID26551456|Solvent exposure of Tyr10 as a probe of structural differences between monomeric and aggregated f... (2015)]]
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]]
 - [[PMID24587111|RNA aptamer probes as optical imaging agents for the detection of amyloid plaques. (2014)]]
 - [[PMID23612608|Amyloid-β-neuropeptide interactions assessed by ion mobility-mass spectrometry. (2013)]]
 - [[PMID23811057|Aβ monomers transiently sample oligomer and fibril-like configurations: ensemble characterization... (2013)]]
@@ -46,7 +45,9 @@ MeSH descriptor D008969 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19726682|Metalloprotease ADAM10 is required for Notch1 site 2 cleavage. (2009)]]
 - [[PMID19491937|Unraveling infectious structures, strain variants and species barriers for the yeast prion (PSI+). (2009)]]
 - [[PMID18650430|Amyloid precursor protein trafficking, processing, and function. (2008)]]
+- [[PMID18568014|Animal models of Alzheimer's disease and frontotemporal dementia. (2008)]]
 - [[PMID18505725|Antibodies to potato virus Y bind the amyloid beta peptide: immunohistochemical and NMR studies. (2008)]]
+- [[PMID18326489|Calmodulin binding and Cdk5 phosphorylation of p35 regulate its effect on microtubules. (2008)]]
 - [[PMID18765820|Interaction of membrane-bound islet amyloid polypeptide with soluble and crystalline insulin. (2008)]]
 - [[PMID18407659|Interaction with amyloid beta peptide compromises the lipid binding function of apolipoprotein E. (2008)]]
 - [[PMID18258258|Mutations enhance the aggregation propensity of the Alzheimer's A beta peptide. (2008)]]
@@ -55,6 +56,8 @@ MeSH descriptor D008969 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17636121|The curli nucleator protein, CsgB, contains an amyloidogenic domain that directs CsgA polymerizat... (2007)]]
 - [[PMID17038501|Generic hydrophobic residues are sufficient to promote aggregation of the Alzheimer's Abeta42 pep... (2006)]]
 - [[PMID15709475|The non-amyloidogenic pathway: structure and function of alpha-secretases. (2005)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
+- [[PMID12130773|The amyloid hypothesis of Alzheimer's disease: progress and problems on the road to therapeutics. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

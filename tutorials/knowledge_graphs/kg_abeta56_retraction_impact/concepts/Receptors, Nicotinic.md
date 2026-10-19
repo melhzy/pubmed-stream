@@ -11,12 +11,14 @@ tags:
 
 MeSH descriptor D011978 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D011978)
 
-## Papers (4)
+## Papers (6)
 
 - [[PMID29672680|Cognitive correlates of α4β2 nicotinic acetylcholine receptors in mild Alzheimer's dementia. (2018)]] (major topic)
 - [[PMID30544533|Designing Hybrids Targeting the Cholinergic System by Modulating the Muscarinic and Nicotinic Rec... (2018)]] (major topic)
 - [[PMID20164328|Loss of alpha7 nicotinic receptors enhances beta-amyloid oligomer accumulation, exacerbating earl... (2010)]] (major topic)
 - [[PMID19293145|Nicotinic acetylcholine receptor signalling: roles in Alzheimer's disease and amyloid neuroprotec... (2009)]] (major topic)
+- [[PMID15787694|Effects of Abeta1-42 fibrils and of the tetrapeptide Pr-IIGL on the phosphorylation state of the... (2005)]] (major topic)
+- [[PMID16025111|Regulation of NMDA receptor trafficking by amyloid-beta. (2005)]]
 %% pubmed-stream:end %%
 
 ## Notes

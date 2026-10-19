@@ -13,8 +13,8 @@ MeSH descriptor D035683 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (13)
 
-- [[PMID42423830|Inhibition of miR-25-3p Alleviates Neuroinflammation in Alzheimer's Disease By Targeting ADAM10. (2026)]] (major topic)
 - [[PMID41677387|Morpho-Functional Characterization and miRNA Profiling of the Retina in the 5xFAD Murine Model of... (2026)]] (major topic)
+- [[PMID40816036|MicroRNA-128-3p as a promising target in neuropsychiatric disorders: From epigenetics to pharmaco... (2025)]] (major topic)
 - [[PMID38129872|In diabetic male Wistar rats, quercetin-conjugated superparamagnetic iron oxide nanoparticles hav... (2023)]] (major topic)
 - [[PMID33406804|The Evolving Landscape of Exosomes in Neurodegenerative Diseases: Exosomes Characteristics and a... (2021)]] (major topic)
 - [[PMID32089065|Activating Sirt1 by resveratrol suppresses Nav1.7 expression in DRG through miR-182 and alleviate... (2020)]] (major topic)

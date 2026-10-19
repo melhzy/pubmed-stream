@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D018450 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018450)
 
-## Papers (62)
+## Papers (60)
 
-- [[PMID41478826|A review of evidence supporting amyloid beta reduction as a surrogate endpoint in Alzheimer's dis... (2026)]]
+- [[PMID41997924|Dysfunction of the episodic memory network in the Alzheimer's disease cascade. (2026)]]
+- [[PMID41832772|Regulation of Lipid Dysmetabolism and Neuroinflammation Progression Linked With Alzheimer's Disea... (2026)]]
 - [[PMID40307424|APOE deficiency inhibits amyloid-facilitated (A) tau pathology (T) and neurodegeneration (N), hal... (2025)]]
 - [[PMID39863324|Distinct CSF α-synuclein aggregation profiles associated with Alzheimer's disease phenotypes and... (2025)]]
 - [[PMID40551158|Long-term electroacupuncture and repetitive transcranial magnetic stimulation differentially slow... (2025)]]
@@ -33,11 +34,8 @@ MeSH descriptor D018450 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27770234|Soluble pre-fibrillar tau and β-amyloid species emerge in early human Alzheimer's disease and tra... (2016)]]
 - [[PMID26260791|ATP-binding cassette transporter A7 (ABCA7) loss of function alters Alzheimer amyloid processing. (2015)]]
 - [[PMID26221415|Calcium Channel Blockers, Progression to Dementia, and Effects on Amyloid Beta Peptide Production. (2015)]]
-- [[PMID25125457|Cognitive and functional decline and their relationship in patients with mild Alzheimer's dementia. (2015)]]
 - [[PMID26012373|Development of fluorescent probes that bind and stain amyloid plaques in Alzheimer's disease. (2015)]]
 - [[PMID25772787|Hippocampal plasticity during the progression of Alzheimer's disease. (2015)]]
-- [[PMID25014735|Inflammatory risk factors and pathologies promoting Alzheimer's disease progression: is RAGE the... (2015)]]
-- [[PMID25399729|Invited review: Prion-like transmission and spreading of tau pathology. (2015)]] (major topic)
 - [[PMID24664867|Environmental factors in the development and progression of late-onset Alzheimer's disease. (2014)]]
 - [[PMID24440055|Synergistic effects of amyloid-beta and wild-type human tau on dendritic spine loss in a floxed d... (2014)]]
 - [[PMID24126163|Tissue plasminogen activator arrests Alzheimer's disease pathogenesis. (2014)]]

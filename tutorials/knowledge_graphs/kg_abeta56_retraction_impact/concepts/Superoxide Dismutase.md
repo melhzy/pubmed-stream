@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D013482 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D013482)
 
-## Papers (8)
+## Papers (9)
 
 - [[PMID27796749|Quercetin Exerts Differential Neuroprotective Effects Against H2O2 and Aβ Aggregates in Hippocamp... (2017)]]
 - [[PMID24394345|Prion-like activity of Cu/Zn superoxide dismutase: implications for amyotrophic lateral sclerosis. (2014)]] (major topic)
@@ -21,6 +21,7 @@ MeSH descriptor D013482 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18784309|Complete rescue of cerebrovascular function in aged Alzheimer's disease transgenic mice by antiox... (2008)]]
 - [[PMID18192269|Detergent-insoluble aggregates associated with amyotrophic lateral sclerosis in transgenic mice c... (2008)]] (major topic)
 - [[PMID17581637|SIRT1 deacetylase protects against neurodegeneration in models for Alzheimer's disease and amyotr... (2007)]]
+- [[PMID12704221|Protofibrils, pores, fibrils, and neurodegeneration: separating the responsible protein aggregate... (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

@@ -11,12 +11,10 @@ tags:
 
 MeSH descriptor D001665 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D001665)
 
-## Papers (26)
+## Papers (25)
 
-- [[PMID42212154|The inhibition of the Aβ-ASC interaction site suppresses β-amyloid aggregation and cytotoxicity. (2026)]]
 - [[PMID27940601|Binding Sites for Amyloid-β Oligomers and Synaptic Toxicity. (2017)]]
 - [[PMID28691099|Selective targeting of primary and secondary nucleation pathways in Aβ42 aggregation using a rati... (2017)]]
-- [[PMID27852777|Amyloid-β Peptide Nitrotyrosination Stabilizes Oligomers and Enhances NMDAR-Mediated Toxicity. (2016)]]
 - [[PMID25928376|Nanoscale Synaptic Membrane Mimetic Allows Unbiased High Throughput Screen That Targets Binding S... (2015)]]
 - [[PMID25558816|Pseudophosphorylation of Tau at distinct epitopes or the presence of the P301L mutation targets t... (2015)]]
 - [[PMID24397771|Rational design of a structural framework with potential use to develop chemical reagents that ta... (2014)]]
@@ -24,7 +22,6 @@ MeSH descriptor D001665 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23843949|Amyloid-β protofibrils: size, morphology and synaptotoxicity of an engineered mimic. (2013)]]
 - [[PMID23612608|Amyloid-β-neuropeptide interactions assessed by ion mobility-mass spectrometry. (2013)]]
 - [[PMID23546882|MicroRNA-144 is regulated by activator protein-1 (AP-1) and decreases expression of Alzheimer dis... (2013)]]
-- [[PMID23335053|The cellular prion protein traps Alzheimer's Aβ in an oligomeric form and disassembles amyloid fi... (2013)]]
 - [[PMID23679559|Tranilast binds to aβ monomers and promotes aβ fibrillation. (2013)]]
 - [[PMID21232050|Alzheimer's disease & metals: therapeutic opportunities. (2011)]]
 - [[PMID21393248|Amyloid-beta42 interacts mainly with insoluble prion protein in the Alzheimer brain. (2011)]]
@@ -39,6 +36,8 @@ MeSH descriptor D001665 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19491937|Unraveling infectious structures, strain variants and species barriers for the yeast prion (PSI+). (2009)]]
 - [[PMID18480271|Site-specific blockade of RAGE-Vd prevents amyloid-beta oligomer neurotoxicity. (2008)]]
 - [[PMID17909280|Structure of Alzheimer's disease amyloid precursor protein copper-binding domain at atomic resolu... (2007)]]
+- [[PMID15537891|Synaptic targeting by Alzheimer's-related amyloid beta oligomers. (2004)]]
+- [[PMID12925731|Alzheimer's disease-affected brain: presence of oligomeric A beta ligands (ADDLs) suggests a mole... (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

@@ -11,15 +11,12 @@ tags:
 
 MeSH descriptor D055550 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D055550)
 
-## Papers (20)
+## Papers (17)
 
-- [[PMID42629610|Membrane Complexity and Phase Behavior Dictate the Stability of Membrane-Inserted Aβ42 Hexamers. (2026)]]
 - [[PMID40892789|Computational prediction of high-risk non-synonymous SNPs in human ApoE and their structural impa... (2025)]]
 - [[PMID29791461|A discrete mathematical model for the aggregation of β-Amyloid. (2018)]]
 - [[PMID29319162|A long-lived Aβ oligomer resistant to fibrillization. (2018)]]
 - [[PMID28922400|Protein folding, misfolding and aggregation: The importance of two-electron stabilizing interacti... (2017)]]
-- [[PMID28294556|Unmodified and pyroglutamylated amyloid β peptides form hypertoxic hetero-oligomers of unique sec... (2017)]]
-- [[PMID24720730|The coexistence of an equal amount of Alzheimer's amyloid-β 40 and 42 forms structurally stable a... (2014)]]
 - [[PMID24494584|The conformational stability of nonfibrillar amyloid-β peptide oligomers critically depends on th... (2014)]]
 - [[PMID23936224|Conformational stability of fibrillar amyloid-beta oligomers via protofilament pair formation - a... (2013)]]
 - [[PMID22870885|Aggregation pathways of the amyloid β(1-42) peptide depend on its colloidal stability and ordered... (2012)]]

@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D006706 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D006706)
 
-## Papers (8)
+## Papers (9)
 
+- [[PMID40847318|Cell-specific copper dyshomeostasis mechanism in Alzheimer's disease. (2025)]] (major topic)
 - [[PMID28114405|Optogenetic Restoration of Disrupted Slow Oscillations Halts Amyloid Deposition and Restores Calc... (2017)]] (major topic)
 - [[PMID28652376|Protein homeostasis of a metastable subproteome associated with Alzheimer's disease. (2017)]] (major topic)
 - [[PMID27532054|A protein homeostasis signature in healthy brains recapitulates tissue vulnerability to Alzheimer... (2016)]]

@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D009415 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D009415)
 
-## Papers (10)
+## Papers (11)
 
+- [[PMID41997924|Dysfunction of the episodic memory network in the Alzheimer's disease cascade. (2026)]] (major topic)
 - [[PMID29986165|What Happens with the Circuit in Alzheimer's Disease in Mice and Humans? (2018)]] (major topic)
 - [[PMID27829687|Network abnormalities and interneuron dysfunction in Alzheimer disease. (2016)]] (major topic)
 - [[PMID25768013|Early onset of hypersynchronous network activity and expression of a marker of chronic seizures i... (2015)]] (major topic)
