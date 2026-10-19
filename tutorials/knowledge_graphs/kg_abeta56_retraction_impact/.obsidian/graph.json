@@ -1,0 +1,39 @@
+{
+  "colorGroups": [
+    {
+      "query": "tag:#pubmed/retracted",
+      "color": {
+        "a": 1,
+        "rgb": 15026253
+      }
+    },
+    {
+      "query": "path:collections",
+      "color": {
+        "a": 1,
+        "rgb": 9326278
+      }
+    },
+    {
+      "query": "path:concepts",
+      "color": {
+        "a": 1,
+        "rgb": 1222036
+      }
+    },
+    {
+      "query": "tag:#pubmed/stub",
+      "color": {
+        "a": 1,
+        "rgb": 9145752
+      }
+    },
+    {
+      "query": "tag:#pubmed/review",
+      "color": {
+        "a": 1,
+        "rgb": 16214805
+      }
+    }
+  ]
+}

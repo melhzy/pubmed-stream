@@ -24,7 +24,7 @@ Click **Open in Colab** to run it in your browser, with nothing to install. To r
 
 ## Learn each step in depth
 
-Tutorial 0 uses every part of pubmed-stream once. Tutorials 1 to 6 take one step each, with more detail and more charts, and tutorial 7 hands the whole search to an AI assistant. They are saved with their results, so you can also just read them on GitHub.
+Tutorial 0 uses every part of pubmed-stream once. Tutorials 1 to 6 take one step each, with more detail and more charts, tutorial 7 hands the whole search to an AI assistant, and tutorial 8 puts the steps together to measure one paper's impact. They are saved with their results, so you can also just read them on GitHub.
 
 | # | Tutorial | You will learn to | Run |
 |---|----------|-------------------|-----|
@@ -35,8 +35,9 @@ Tutorial 0 uses every part of pubmed-stream once. Tutorials 1 to 6 take one step
 | 5 | [The knowledge graph of a study](05_knowledge_graph.ipynb) | Build a knowledge graph and explain it in twelve views: composition, sources, years, network, concepts, co-occurrence, most cited and bridge papers, journals, evidence types | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) |
 | 6 | [Text mining and RAG preparation](06_text_mining.ipynb) | Split full text into sections, see where topics are discussed, prepare passages for AI search tools (RAG) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/melhzy/pubmed-stream/blob/main/tutorials/06_text_mining.ipynb) |
 | 7 | [Your literature search with an AI assistant](07_ai_assistant.md) | A step-by-step guide for medical students and biologists: install Claude Code or Codex, choose a model, ask questions in plain English, check the evidence, keep it in Obsidian, and use a local model for private questions | In a terminal |
+| 8 | [Measuring the impact of a retracted paper](08_retraction_impact.ipynb) | Follow a retracted paper through the papers citing it and the papers citing those; read from the full text how each one cites it; see who still cites it after the retraction; build a knowledge graph of its impact | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/melhzy/pubmed-stream/blob/main/tutorials/08_retraction_impact.ipynb) |
 
-The examples follow real research questions: the gut microbiome in Parkinson's disease, in frailty and sarcopenia, and the oral and gut microbiomes in Alzheimer's disease. Each notebook takes one to five minutes. Results change over time, because new papers keep appearing; the saved results show one run.
+The examples follow real research questions: the gut microbiome in Parkinson's disease, in frailty and sarcopenia, and the oral and gut microbiomes in Alzheimer's disease; tutorial 8 follows a retracted Alzheimer's paper. Each notebook takes one to five minutes, except tutorial 8, which downloads about 800 full-text articles in about 15 minutes. Results change over time, because new papers keep appearing; the saved results show one run.
 
 ## For programmers
 
@@ -54,6 +55,8 @@ Setting the `NCBI_API_KEY` environment variable makes every notebook about three
 | [`kg_study.py`](kg_study.py) | Tutorial 5's study as a short script to copy and adapt; run it again with `--refresh` to add new papers |
 | [`tutorial_utils.py`](tutorial_utils.py) | Helpers the notebooks share: chart style and colours, `read_kg`, which reads a knowledge graph's notes into Python, and Colab support |
 | [`keywords/`](keywords/) | Keyword lists from real projects, with categories, priorities and rationales; tutorial 3 uses one |
+| [`knowledge_graphs/`](knowledge_graphs/README.md) | Knowledge graphs saved from the tutorials' runs, to open in Obsidian without running anything; tutorial 8's graph of the retracted Aβ\*56 paper is there |
+| [`citation_impact.py`](citation_impact.py) | Tutorial 8's helpers: the citing papers of many papers at once, counts by year and flag, the sentences that cite a paper in full text, and their classification |
 | [`tools/session_figures.py`](tools/session_figures.py) | Charts a research folder's session: searches, papers by year, most cited works, kinds of evidence, the key paper's neighborhood; tutorial 7 shows them |
 | [`tools/manage_text_field.py`](tools/manage_text_field.py) | Add, remove or check the `text` field of downloaded files, to save space or restore it from the XML |
 

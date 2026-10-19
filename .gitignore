@@ -16,3 +16,5 @@ kg_*/
 .ipynb_checkpoints/
 /.cache/
 /site/
+# Example knowledge graphs saved with the tutorials
+!tutorials/knowledge_graphs/kg_*/

@@ -1,0 +1,78 @@
+filters:
+  and:
+    - file.inFolder("papers")
+properties:
+  file.name:
+    displayName: Note
+  note.title:
+    displayName: Title
+  note.year:
+    displayName: Year
+  note.journal:
+    displayName: Journal
+  note.status:
+    displayName: Status
+  note.publication_types:
+    displayName: Publication type
+views:
+  - type: table
+    name: All papers
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+      - status
+      - publication_types
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: Full text
+    filters:
+      and:
+        - 'status == "full-text"'
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: Reviews
+    filters:
+      and:
+        - file.hasTag("pubmed/review")
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: Retracted
+    filters:
+      and:
+        - retracted == true
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+  - type: table
+    name: Reading list
+    filters:
+      and:
+        - file.hasTag("to-read")
+    order:
+      - file.name
+      - title
+      - year
+      - journal
+    sort:
+      - property: year
+        direction: DESC
