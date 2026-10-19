@@ -56,6 +56,11 @@ pubmed-stream neighborhood 31319564
 pubmed-stream kg "gut microbiome frailty" -q '"gut microbiota"[Title] AND frailty[Title/Abstract]' --seed 31319564
 pubmed-stream open kg_gut_microbiome_frailty
 
+# Have a model running on your own computer, in Ollama (https://ollama.com), summarize the 10 newest
+# abstracts, and save the summaries in the knowledge graph
+ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
+pubmed-stream review "Is the gut microbiota linked to frailty?" --limit 10 --vault kg_gut_microbiome_frailty
+
 # Let Claude Code, Codex or Gemini CLI do all of this: set up a folder, then start the assistant there
 pubmed-stream init
 ```
