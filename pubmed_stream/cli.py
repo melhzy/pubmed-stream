@@ -271,8 +271,8 @@ when the answer cites an article that was not read, 2 when Ollama fails.""",
         help="Prepare a research folder for Claude Code, Codex and Gemini CLI",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""Writes AGENTS.md (the instructions; CLAUDE.md and GEMINI.md import it),
-.mcp.json (Claude Code) and .codex/config.toml (Codex), which start
-pubmed-stream's MCP server. Existing files are kept, and settings are added
+.mcp.json (Claude Code), .codex/config.toml (Codex) and .gemini/settings.json
+(Gemini CLI), which start pubmed-stream's MCP server. Existing files are kept, and settings are added
 to them. Then start your assistant in the folder: claude, codex or gemini.""",
     )
     init.add_argument("folder", nargs="?", default=".", help="The research folder (default: the current folder)")
@@ -727,7 +727,7 @@ def main() -> int:
                                         review_model=args.review_model):
             print(f"{action:>8}  {Path(args.folder) / name}")
         print("\nStart your assistant in this folder: claude, codex or gemini. Claude Code asks once to "
-              "approve the pubmed-stream server; in Codex, /mcp lists its tools.")
+              "approve the pubmed-stream server; in Codex and Gemini CLI, /mcp lists its tools.")
         return 0
 
     if args.command == "review":
