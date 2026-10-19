@@ -201,6 +201,7 @@ Codex 0.163 ignores a model setting inside a research folder, so pubmed-stream d
 | To | Do this |
 |---|---|
 | Use another model once | `pubmed-stream review "..." --model llama3.2:3b` |
+| Use Claude Code, Codex or Gemini CLI instead | `pubmed-stream review "..." --model claude` (or `codex`, `gemini`): more accurate, but the abstracts leave your computer |
 | Make it this folder's default | `pubmed-stream init --review-model llama3.2:3b` |
 | See and get models | `ollama list` shows what you have; `ollama pull llama3.2:3b` downloads one |
 

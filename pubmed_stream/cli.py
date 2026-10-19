@@ -281,26 +281,35 @@ surnames such as "van der Berg" after importing.""",
 
     review_p = subparsers.add_parser(
         "review",
-        help="Summarize downloaded abstracts with a local model through Ollama, and check its numbers and citations",
+        help="Summarize downloaded abstracts with a local model (Ollama) or an AI assistant (Claude Code, "
+             "Codex, Gemini CLI), and check its numbers and citations",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""examples:
   pubmed-stream review "Does FMT help Parkinson's disease?" --id 38686220 41826284 38057970
   pubmed-stream review "What is known about X?" --limit 10 --answer --vault kg_x
+  pubmed-stream review "What is known about X?" --limit 10 --model qwen3.5:9b
+  pubmed-stream review "What is known about X?" --limit 10 --model claude
+  pubmed-stream review "What is known about X?" --limit 10 --model codex
 
-Needs Ollama (https://ollama.com) with the model downloaded, the default or
-any other that your computer can run (larger ones make fewer mistakes):
-  ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
-  ollama pull qwen3.5:9b        then add --model qwen3.5:9b
+--model chooses who summarizes:
+  a local model in Ollama (https://ollama.com): nothing leaves your computer.
+    Download it first: ollama pull qwen3.5:9b. The default is Llama 3.2 1B:
+    ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
+  claude, codex or gemini: the AI assistant installed and signed in on this
+    computer, with its tools turned off. Larger models, fewer mistakes, but
+    the abstracts go to Anthropic, OpenAI or Google. Add the assistant's own
+    model after a colon: claude:opus, codex:<model>, gemini:<model>.
 The model reads one abstract at a time, without the question; pubmed-stream
 attaches each PubMed ID itself and flags numbers a summary adds. Exits with 1
-when the answer cites an article that was not read, 2 when Ollama fails.""",
+when the answer cites an article that was not read, 2 when the model fails.""",
     )
     review_p.add_argument("question", help="The research question, in plain language")
     review_p.add_argument("--path", default="publications", help="Downloaded articles (default: ./publications)")
     review_p.add_argument("--id", nargs="+", metavar="ID", help="Summarize these articles, by PubMed ID or PMC ID")
     review_p.add_argument("--limit", type=int, default=10, help="Without --id, the newest N articles (default: 10)")
-    review_p.add_argument("--model", help="Ollama model (default: the folder's review model from 'init "
-                                         "--review-model', else Llama 3.2 1B Instruct, Unsloth's 4-bit GGUF)")
+    review_p.add_argument("--model", help="An Ollama model, or claude, codex or gemini (default: the folder's "
+                                         "review model from 'init --review-model', else Llama 3.2 1B Instruct, "
+                                         "Unsloth's 4-bit GGUF, in Ollama)")
     review_p.add_argument("--answer", action="store_true",
                           help="Also write one answer from all the summaries (experimental with small models)")
     review_p.add_argument("--out", help="Also save the review as this Markdown file")
@@ -324,7 +333,8 @@ to them. Then start your assistant in the folder: claude, codex or gemini.""",
     init.add_argument("--claude-model", metavar="MODEL",
                       help="Claude Code's model in this folder, such as opus or sonnet (.claude/settings.json)")
     init.add_argument("--review-model", metavar="MODEL",
-                      help="The Ollama model 'pubmed-stream review' uses in this folder (.pubmed-stream.json)")
+                      help="The model 'pubmed-stream review' uses in this folder: an Ollama model, or claude, "
+                           "codex or gemini (.pubmed-stream.json)")
 
     open_p = subparsers.add_parser(
         "open",
@@ -682,7 +692,7 @@ def _run_open(kg_dir) -> int:
 
 def _run_review(args: argparse.Namespace) -> int:
     from .assistants import review_model
-    from .review import DEFAULT_MODEL, OllamaError, review, save_to_vault
+    from .review import DEFAULT_MODEL, ModelError, review, save_to_vault
 
     try:
         result = review(args.question, path=args.path, ids=args.id, limit=args.limit,
@@ -691,7 +701,7 @@ def _run_review(args: argparse.Namespace) -> int:
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)
         return 1
-    except OllamaError as e:
+    except ModelError as e:
         print(f"Error: {e}", file=sys.stderr)
         return 2
     print(result)

@@ -952,7 +952,7 @@ def _render_home(graph: _Graph, concept_papers: Dict[str, List[Tuple[str, bool]]
     if vault is not None and (vault / "reviews").is_dir():
         reviews = sorted(p.stem for p in (vault / "reviews").glob("*.md"))
         if reviews:
-            lines += ["", "## Reviews by a local model", ""] + [f"- {_link(name)}" for name in reviews]
+            lines += ["", "## Reviews", ""] + [f"- {_link(name)}" for name in reviews]
     return "\n".join(lines)
 
 
