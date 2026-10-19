@@ -626,7 +626,7 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
    python -m twine check dist/*
    ```
 
-4. **Upload to PyPI** with an API token from <https://pypi.org/manage/account/token/>, scoped to the `pubmed-stream` project. The username is literally `__token__`; a PyPI password will not work. A `403 Forbidden` means the token is wrong, expired or not scoped to this project. PyPI never accepts the same version twice, so fix a broken release with a new patch version.
+4. **Upload to PyPI** with an API token from <https://pypi.org/manage/account/token/>, scoped to the `pubmed-stream` project. The username is literally `__token__`; a PyPI password will not work. A `403 Forbidden` means the token is wrong, expired or not scoped to this project. PyPI never accepts the same version twice, so fix a broken release with a new patch version. `InvalidDistribution: Metadata is missing required fields: Name, Version` means twine is too old to read the package's metadata (version 2.4): use twine 6.1 or later. In a shared environment such as Anaconda's, upgrading twine also upgrades packages that other tools there depend on, so run it from a separate virtual environment.
 
    ```bash
    python -m twine upload -u __token__ -p pypi-... dist/*
