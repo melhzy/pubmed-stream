@@ -1,0 +1,6786 @@
+{
+ "42624989": {
+  "pmid": "42624989",
+  "title": "Targeting soluble misfolded oligomers in anti-amyloid research.",
+  "journal": "Nature reviews. Chemistry",
+  "year": "2026",
+  "authors": [
+   "Vosbein Pernille",
+   "Mao Hanbin",
+   "Lou Chenguang"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": null,
+  "doi": "10.1038/s41570-026-00867-y",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41624198": {
+  "pmid": "41624198",
+  "title": "Unraveling the neuroprotective mechanisms of elephant black garlic extract against beta amyloid peptide-induced neurotoxicity.",
+  "journal": "Frontiers in nutrition",
+  "year": "2025",
+  "authors": [
+   "Gavilan Javiera",
+   "Panes-Fernández Jessica",
+   "Araya Aníbal",
+   "Pérez-Manríquez Claudia",
+   "Becerra José",
+   "Varas Patricio",
+   "Moraga-Cid Gustavo",
+   "Yévenes Gonzalo E",
+   "Fuentealba Jorge"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12857319",
+  "doi": "10.3389/fnut.2025.1725284",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41227148": {
+  "pmid": "41227148",
+  "title": "Alzheimer Syndrome or Age-Related Dementia-History, Therapy and Prevention.",
+  "journal": "Journal of clinical medicine",
+  "year": "2025",
+  "authors": [
+   "Bermejo-Pareja Félix",
+   "Del Ser Teodoro"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12607965",
+  "doi": "10.3390/jcm14217752",
+  "score": null,
+  "mesh_terms": []
+ },
+ "39474119": {
+  "pmid": "39474119",
+  "title": "Real-Time Tracking of Vesicles in Living Cells Reveals That Tau-Hyperphosphorylation Suppresses Unidirectional Transport by Motor Proteins.",
+  "journal": "Chemical & biomedical imaging",
+  "year": "2024",
+  "authors": [
+   "Lee Eunsang",
+   "Kim Donghee",
+   "Song Yo Han",
+   "Shin Kyujin",
+   "Song Sanggeun",
+   "Lee Minho",
+   "Goh Yeongchang",
+   "Lim Mi Hee",
+   "Kim Ji-Hyun",
+   "Sung Jaeyoung",
+   "Lee Kang Taek"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC11504168",
+  "doi": "10.1021/cbmi.4c00016",
+  "score": null,
+  "mesh_terms": []
+ },
+ "39246604": {
+  "pmid": "39246604",
+  "title": "Modifying Alzheimer's disease pathophysiology with photobiomodulation: model, evidence, and future with EEG-guided intervention.",
+  "journal": "Frontiers in neurology",
+  "year": "2024",
+  "authors": [
+   "Lim Lew"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC11377238",
+  "doi": "10.3389/fneur.2024.1407785",
+  "score": null,
+  "mesh_terms": []
+ },
+ "39129909": {
+  "pmid": "39129909",
+  "title": "A Lack of Tourism-Based Health Services Amid Global Aging: How Tourism and Health Practices Can Combine to Benefit the Aging Population.",
+  "journal": "Health services insights",
+  "year": "2024",
+  "authors": [
+   "Wen Jun"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC11316958",
+  "doi": "10.1177/11786329241271570",
+  "score": null,
+  "mesh_terms": []
+ },
+ "38433923": {
+  "pmid": "38433923",
+  "title": "Aβ∗56 is a stable oligomer that impairs memory function in mice.",
+  "journal": "iScience",
+  "year": "2024",
+  "authors": [
+   "Liu Peng",
+   "Lapcinski Ian P",
+   "Hlynialuk Chris J W",
+   "Steuer Elizabeth L",
+   "Loude Thomas J",
+   "Shapiro Samantha L",
+   "Kemper Lisa J",
+   "Ashe Karen H"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10905009",
+  "doi": "10.1016/j.isci.2024.109239",
+  "score": null,
+  "mesh_terms": []
+ },
+ "38425915": {
+  "pmid": "38425915",
+  "title": "Copper(II) Can Kinetically Trap Arctic and Italian Amyloid-β40 as Toxic Oligomers, Mimicking Cu(II) Binding to Wild-Type Amyloid-β42: Implications for Familial Alzheimer's Disease.",
+  "journal": "JACS Au",
+  "year": "2024",
+  "authors": [
+   "Tian Yao",
+   "Shang Qi",
+   "Liang Ruina",
+   "Viles John H"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10900208",
+  "doi": "10.1021/jacsau.3c00687",
+  "score": null,
+  "mesh_terms": []
+ },
+ "38292607": {
+  "pmid": "38292607",
+  "title": "Antibodies Raised Against an Aβ Oligomer Mimic Recognize Pathological Features in Alzheimer's Disease and Associated Amyloid-Disease Brain Tissue.",
+  "journal": "ACS central science",
+  "year": "2024",
+  "authors": [
+   "Kreutzer Adam G",
+   "Parrocha Chelsea Marie T",
+   "Haerianardakani Sepehr",
+   "Guaglianone Gretchen",
+   "Nguyen Jennifer T",
+   "Diab Michelle N",
+   "Yong William",
+   "Perez-Rosendahl Mari",
+   "Head Elizabeth",
+   "Nowick James S"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC10823522",
+  "doi": "10.1021/acscentsci.3c00592",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37849662": {
+  "pmid": "37849662",
+  "title": "Clinical Peptidomics: Advances in Instrumentation, Analyses, and Applications.",
+  "journal": "BME frontiers",
+  "year": "2023",
+  "authors": [
+   "Li Lin",
+   "Wu Jing",
+   "Lyon Christopher J",
+   "Jiang Li",
+   "Hu Tony Y"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC10521655",
+  "doi": "10.34133/bmef.0019",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37588168": {
+  "pmid": "37588168",
+  "title": "Anti-amyloid: An antibody to cure Alzheimer's or an attitude.",
+  "journal": "iScience",
+  "year": "2023",
+  "authors": [
+   "Osborne Olivia M",
+   "Naranjo Oandy",
+   "Heckmann Bradlee L",
+   "Dykxhoorn Derek",
+   "Toborek Michal"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC10425904",
+  "doi": "10.1016/j.isci.2023.107461",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37457297": {
+  "pmid": "37457297",
+  "title": "Recent progress of nanomedicine in the treatment of Alzheimer's disease.",
+  "journal": "Frontiers in cell and developmental biology",
+  "year": "2023",
+  "authors": [
+   "Hu Liqiang",
+   "Tao Yiran",
+   "Jiang Yanjiao",
+   "Qin Feng"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10340527",
+  "doi": "10.3389/fcell.2023.1228679",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37426432": {
+  "pmid": "37426432",
+  "title": "Alzheimer's disease: a mini-review for the clinician.",
+  "journal": "Frontiers in neurology",
+  "year": "2023",
+  "authors": [
+   "Madnani Rishi S"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10325860",
+  "doi": "10.3389/fneur.2023.1178588",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37367788": {
+  "pmid": "37367788",
+  "title": "An Electrochemistry and Computational Study at an Electrified Liquid-Liquid Interface for Studying Beta-Amyloid Aggregation.",
+  "journal": "Membranes",
+  "year": "2023",
+  "authors": [
+   "Silwane Bongiwe",
+   "Wilson Mark",
+   "Kataky Ritu"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10303370",
+  "doi": "10.3390/membranes13060584",
+  "score": null,
+  "mesh_terms": []
+ },
+ "36969430": {
+  "pmid": "36969430",
+  "title": "Partial Destabilization of Amyloid-β Protofibril by Methionine Photo-Oxidation: A Molecular Dynamic Simulation Study.",
+  "journal": "ACS omega",
+  "year": "2023",
+  "authors": [
+   "Maghsoodi Fahimeh",
+   "Martin Tye D",
+   "Chi Eva Y"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC10035002",
+  "doi": "10.1021/acsomega.2c07468",
+  "score": null,
+  "mesh_terms": []
+ },
+ "36909366": {
+  "pmid": "36909366",
+  "title": "Cyclic Glycine-Proline Improves Memory and Reduces Amyloid Plaque Load in APP/PS1 Transgenic Mouse Model of Alzheimer's Disease.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2023",
+  "authors": [
+   "Arora Tushar",
+   "Sharma Shiv K"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9995210",
+  "doi": "10.1155/2023/1753791",
+  "score": null,
+  "mesh_terms": []
+ },
+ "36818134": {
+  "pmid": "36818134",
+  "title": "Cognitive interventions for memory and psychological well-being in aging and dementias.",
+  "journal": "Frontiers in psychology",
+  "year": "2023",
+  "authors": [
+   "Dinius Cassandra J",
+   "Pocknell Carmen E",
+   "Caffrey Michelle P",
+   "Roche Richard A P"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9932670",
+  "doi": "10.3389/fpsyg.2023.1070012",
+  "score": null,
+  "mesh_terms": []
+ },
+ "36297207": {
+  "pmid": "36297207",
+  "title": "Treponema denticola Induces Neuronal Apoptosis by Promoting Amyloid-β Accumulation in Mice.",
+  "journal": "Pathogens (Basel, Switzerland)",
+  "year": "2022",
+  "authors": [
+   "Wu Linrui",
+   "Su Xinyi",
+   "Tang Zhiqun",
+   "Jian Lixiang",
+   "Zhu He",
+   "Cheng Xingqun",
+   "Wu Hongkun"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9610539",
+  "doi": "10.3390/pathogens11101150",
+  "score": null,
+  "mesh_terms": []
+ },
+ "36145662": {
+  "pmid": "36145662",
+  "title": "New Drug Design Avenues Targeting Alzheimer's Disease by Pharmacoinformatics-Aided Tools.",
+  "journal": "Pharmaceutics",
+  "year": "2022",
+  "authors": [
+   "Arrué Lily",
+   "Cigna-Méndez Alexandra",
+   "Barbosa Tábata",
+   "Borrego-Muñoz Paola",
+   "Struve-Villalobos Silvia",
+   "Oviedo Victoria",
+   "Martínez-García Claudia",
+   "Sepúlveda-Lara Alexis",
+   "Millán Natalia",
+   "Márquez Montesinos José C E",
+   "Muñoz Juana",
+   "Santana Paula A",
+   "Peña-Varas Carlos",
+   "Barreto George E",
+   "González Janneth",
+   "Ramírez David"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9503559",
+  "doi": "10.3390/pharmaceutics14091914",
+  "score": null,
+  "mesh_terms": []
+ },
+ "36117918": {
+  "pmid": "36117918",
+  "title": "Based on molecular structures: Amyloid-β generation, clearance, toxicity and therapeutic strategies.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2022",
+  "authors": [
+   "Yang Hai",
+   "Li Jinping",
+   "Li Xiaoxiong",
+   "Ma Linqiu",
+   "Hou Mingliang",
+   "Zhou Huadong",
+   "Zhou Rui"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9470852",
+  "doi": "10.3389/fnmol.2022.927530",
+  "score": null,
+  "mesh_terms": []
+ },
+ "36081661": {
+  "pmid": "36081661",
+  "title": "Oligomeropathies, inflammation and prion protein binding.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2022",
+  "authors": [
+   "Forloni Gianluigi",
+   "La Vitola Pietro",
+   "Balducci Claudia"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9445368",
+  "doi": "10.3389/fnins.2022.822420",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35885050": {
+  "pmid": "35885050",
+  "title": "Synaptic Disruption by Soluble Oligomers in Patients with Alzheimer's and Parkinson's Disease.",
+  "journal": "Biomedicines",
+  "year": "2022",
+  "authors": [
+   "Gutierrez Berenice A",
+   "Limon Agenor"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC9313353",
+  "doi": "10.3390/biomedicines10071743",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35720993": {
+  "pmid": "35720993",
+  "title": "Novel Stilbene-Nitroxyl Hybrid Compounds Display Discrete Modulation of Amyloid Beta Toxicity and Structure.",
+  "journal": "Frontiers in chemistry",
+  "year": "2022",
+  "authors": [
+   "Hilt Silvia",
+   "Liu Ruiwu",
+   "Maezawa Izumi",
+   "Rojalin Tatu",
+   "Aung Hnin H",
+   "Budamagunta Madhu",
+   "Slez Ryan",
+   "Gong Qizhi",
+   "Carney Randy P",
+   "Voss John C"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC9204515",
+  "doi": "10.3389/fchem.2022.896386",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35557606": {
+  "pmid": "35557606",
+  "title": "ACU193: An Immunotherapeutic Poised to Test the Amyloid β Oligomer Hypothesis of Alzheimer's Disease.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2022",
+  "authors": [
+   "Krafft Grant A",
+   "Jerecic Jasna",
+   "Siemers Eric",
+   "Cline Erika N"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9088393",
+  "doi": "10.3389/fnins.2022.848215",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35515829": {
+  "pmid": "35515829",
+  "title": "Adequate prediction for inhibitor affinity of Aβ40 protofibril using the linear interaction energy method.",
+  "journal": "RSC advances",
+  "year": "2019",
+  "authors": [
+   "Ngo Son Tung",
+   "Mai Binh Khanh",
+   "Derreumaux Philippe",
+   "Vu Van V"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9063661",
+  "doi": "10.1039/c9ra01177c",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35515472": {
+  "pmid": "35515472",
+  "title": "Synthetic and biochemical studies on the effect of persulfidation on disulfide dimer models of amyloid β42 at position 35 in Alzheimer's etiology.",
+  "journal": "RSC advances",
+  "year": "2020",
+  "authors": [
+   "Murakami Kazuma",
+   "Kato Haruka",
+   "Hanaki Mizuho",
+   "Monobe Yoko",
+   "Akagi Ken-Ichi",
+   "Kawase Taiji",
+   "Hirose Kenji",
+   "Irie Kazuhiro"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9054097",
+  "doi": "10.1039/d0ra03429k",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35204298": {
+  "pmid": "35204298",
+  "title": "N-Acetyl-Cysteine: Modulating the Cysteine Redox Proteome in Neurodegenerative Diseases.",
+  "journal": "Antioxidants (Basel, Switzerland)",
+  "year": "2022",
+  "authors": [
+   "Martinez-Banaclocha Marcos"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8869501",
+  "doi": "10.3390/antiox11020416",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35082658": {
+  "pmid": "35082658",
+  "title": "Association of Circulating Magnesium Levels in Patients With Alzheimer's Disease From 1991 to 2021: A Systematic Review and Meta-Analysis.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2021",
+  "authors": [
+   "Du Ke",
+   "Zheng Xi",
+   "Ma Zi-Tai",
+   "Lv Jun-Ya",
+   "Jiang Wen-Juan",
+   "Liu Ming-Yan"
+  ],
+  "pub_types": [
+   "Systematic Review",
+   "Journal Article"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8784804",
+  "doi": "10.3389/fnagi.2021.799824",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35046791": {
+  "pmid": "35046791",
+  "title": "Recent Developments in Positron Emission Tomography Tracers for Proteinopathies Imaging in Dementia.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2021",
+  "authors": [
+   "Ni Ruiqing",
+   "Nitsch Roger M"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8761855",
+  "doi": "10.3389/fnagi.2021.751897",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35046767": {
+  "pmid": "35046767",
+  "title": "The Therapeutic and Diagnostic Potential of Amyloid β Oligomers Selective Antibodies to Treat Alzheimer's Disease.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2021",
+  "authors": [
+   "Viola Kirsten L",
+   "Bicca Maira A",
+   "Bebenek Adrian M",
+   "Kranz Daniel L",
+   "Nandwana Vikas",
+   "Waters Emily A",
+   "Haney Chad R",
+   "Lee Maxwell",
+   "Gupta Abhay",
+   "Brahmbhatt Zachary",
+   "Huang Weijian",
+   "Chang Ting-Tung",
+   "Peck Anderson",
+   "Valdez Clarissa",
+   "Dravid Vinayak P",
+   "Klein William L"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8761808",
+  "doi": "10.3389/fnins.2021.768646",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34901820": {
+  "pmid": "34901820",
+  "title": "Dual-targeted carbon-dot-drugs nanoassemblies for modulating Alzheimer's related amyloid-β aggregation and inhibiting fungal infection.",
+  "journal": "Materials today. Bio",
+  "year": "2021",
+  "authors": [
+   "Yan Chaoren",
+   "Wang Chaoli",
+   "Shao Xu",
+   "Shu Qi",
+   "Hu Xiaoling",
+   "Guan Ping",
+   "Teng Yonggang",
+   "Cheng Yuan"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8639470",
+  "doi": "10.1016/j.mtbio.2021.100167",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34832961": {
+  "pmid": "34832961",
+  "title": "Positron Emission Tomography in Animal Models of Alzheimer's Disease Amyloidosis: Translational Implications.",
+  "journal": "Pharmaceuticals (Basel, Switzerland)",
+  "year": "2021",
+  "authors": [
+   "Ni Ruiqing"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8623863",
+  "doi": "10.3390/ph14111179",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34704001": {
+  "pmid": "34704001",
+  "title": "Synthetic amyloid-β oligomers drive early pathological progression of Alzheimer's disease in nonhuman primates.",
+  "journal": "iScience",
+  "year": "2021",
+  "authors": [
+   "Yue Feng",
+   "Feng Su",
+   "Lu Chunling",
+   "Zhang Ting",
+   "Tao Guoxian",
+   "Liu Jing",
+   "Yue Chunmei",
+   "Jing Naihe"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8524197",
+  "doi": "10.1016/j.isci.2021.103207",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34458738": {
+  "pmid": "34458738",
+  "title": "Synthesis and structure-activity relationships of 3,4,5-trisubstituted-1,2,4-triazoles: high affinity and selective somatostatin receptor-4 agonists for Alzheimer's disease treatment.",
+  "journal": "RSC medicinal chemistry",
+  "year": "2021",
+  "authors": [
+   "Neumann William L",
+   "Sandoval Karin E",
+   "Mobayen Shirin",
+   "Minaeian Mahsa",
+   "Kukielski Stephen G",
+   "Srabony Khush N",
+   "Frare Rafael",
+   "Slater Olivia",
+   "Farr Susan A",
+   "Niehoff Michael L",
+   "Hospital Audrey",
+   "Kontoyianni Maria",
+   "Crider A Michael",
+   "Witt Ken A"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC8372316",
+  "doi": "10.1039/d1md00044f",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34396107": {
+  "pmid": "34396107",
+  "title": "Soluble amyloid beta-containing aggregates are present throughout the brain at early stages of Alzheimer's disease.",
+  "journal": "Brain communications",
+  "year": "2021",
+  "authors": [
+   "Sideris Dimitrios I",
+   "Danial John S H",
+   "Emin Derya",
+   "Ruggeri Francesco S",
+   "Xia Zengjie",
+   "Zhang Yu P",
+   "Lobanova Evgeniia",
+   "Dakin Helen",
+   "De Suman",
+   "Miller Alyssa",
+   "Sang Jason C",
+   "Knowles Tuomas P J",
+   "Vendruscolo Michele",
+   "Fraser Graham",
+   "Crowther Damian",
+   "Klenerman David"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8361392",
+  "doi": "10.1093/braincomms/fcab147",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34248598": {
+  "pmid": "34248598",
+  "title": "Cadmium, an Environmental Contaminant, Exacerbates Alzheimer's Pathology in the Aged Mice's Brain.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2021",
+  "authors": [
+   "Ali Tahir",
+   "Khan Amjad",
+   "Alam Sayed Ibrar",
+   "Ahmad Sareer",
+   "Ikram Muhammad",
+   "Park Jun Sung",
+   "Lee Hyeon Jin",
+   "Kim Myeong Ok"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8263901",
+  "doi": "10.3389/fnagi.2021.650930",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34168810": {
+  "pmid": "34168810",
+  "title": "α-CGRP disrupts amylin fibrillization and regulates insulin secretion: implications on diabetes and migraine.",
+  "journal": "Chemical science",
+  "year": "2021",
+  "authors": [
+   "Gray Amber L H",
+   "Antevska Aleksandra",
+   "Link Benjamin A",
+   "Bogin Bryan",
+   "Burke Susan J",
+   "Dupuy Samuel D",
+   "Collier J Jason",
+   "Levine Zachary A",
+   "Karlstad Michael D",
+   "Do Thanh D"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC8179678",
+  "doi": "10.1039/d1sc01167g",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34163615": {
+  "pmid": "34163615",
+  "title": "Fluorescent small organic probes for biosensing.",
+  "journal": "Chemical science",
+  "year": "2021",
+  "authors": [
+   "Tian Xue",
+   "Murfin Lloyd C",
+   "Wu Luling",
+   "Lewis Simon E",
+   "James Tony D"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8179477",
+  "doi": "10.1039/d0sc06928k",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34094152": {
+  "pmid": "34094152",
+  "title": "Metal-chelating benzothiazole multifunctional compounds for the modulation and 64Cu PET imaging of Aβ aggregation.",
+  "journal": "Chemical science",
+  "year": "2020",
+  "authors": [
+   "Huang Yiran",
+   "Cho Hong-Jun",
+   "Bandara Nilantha",
+   "Sun Liang",
+   "Tran Diana",
+   "Rogers Buck E",
+   "Mirica Liviu M"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC8163150",
+  "doi": "10.1039/d0sc02641g",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33912016": {
+  "pmid": "33912016",
+  "title": "The Cellular Prion Protein-ROCK Connection: Contribution to Neuronal Homeostasis and Neurodegenerative Diseases.",
+  "journal": "Frontiers in cellular neuroscience",
+  "year": "2021",
+  "authors": [
+   "Schneider Benoit",
+   "Baudry Anne",
+   "Pietri Mathéa",
+   "Alleaume-Butaux Aurélie",
+   "Bizingre Chloé",
+   "Nioche Pierre",
+   "Kellermann Odile",
+   "Launay Jean-Marie"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8072021",
+  "doi": "10.3389/fncel.2021.660683",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33841293": {
+  "pmid": "33841293",
+  "title": "Exploring How Low Oxygen Post Conditioning Improves Stroke-Induced Cognitive Impairment: A Consideration of Amyloid-Beta Loading and Other Mechanisms.",
+  "journal": "Frontiers in neurology",
+  "year": "2021",
+  "authors": [
+   "Zhao Zidan",
+   "Hood Rebecca J",
+   "Ong Lin Kooi",
+   "Pietrogrande Giovanni",
+   "Sanchez Bezanilla Sonia",
+   "Warren Kirby E",
+   "Ilicic Marina",
+   "Kluge Murielle G",
+   "TeBay Clifford",
+   "Ottersen Ole P",
+   "Johnson Sarah J",
+   "Nilsson Michael",
+   "Walker Frederick R"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8024636",
+  "doi": "10.3389/fneur.2021.585189",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33716651": {
+  "pmid": "33716651",
+  "title": "Rationally Designed Bicyclic Peptides Prevent the Conversion of Aβ42 Assemblies Into Fibrillar Structures.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2021",
+  "authors": [
+   "Ikenoue Tatsuya",
+   "Aprile Francesco A",
+   "Sormanni Pietro",
+   "Vendruscolo Michele"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7947257",
+  "doi": "10.3389/fnins.2021.623097",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33572457": {
+  "pmid": "33572457",
+  "title": "Curcumin as Scaffold for Drug Discovery against Neurodegenerative Diseases.",
+  "journal": "Biomedicines",
+  "year": "2021",
+  "authors": [
+   "Lo Cascio Filippa",
+   "Marzullo Paola",
+   "Kayed Rakez",
+   "Palumbo Piccionello Antonio"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7916200",
+  "doi": "10.3390/biomedicines9020173",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33414705": {
+  "pmid": "33414705",
+  "title": "Natural Compounds as Inhibitors of Aβ Peptide Aggregation: Chemical Requirements and Molecular Mechanisms.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2020",
+  "authors": [
+   "Pagano Katiuscia",
+   "Tomaselli Simona",
+   "Molinari Henriette",
+   "Ragona Laura"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7783407",
+  "doi": "10.3389/fnins.2020.619667",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33409475": {
+  "pmid": "33409475",
+  "title": "Alteration in synaptic nanoscale organization dictates amyloidogenic processing in Alzheimer's disease.",
+  "journal": "iScience",
+  "year": "2021",
+  "authors": [
+   "Kedia Shekhar",
+   "Ramakrishna Pratyush",
+   "Netrakanti Pallavi Rao",
+   "Singh Nivedita",
+   "Sisodia Sangram S",
+   "Jose Mini",
+   "Kumar Sathish",
+   "Mahadevan Anita",
+   "Ramanan Narendrakumar",
+   "Nadkarni Suhita",
+   "Nair Deepak"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7773964",
+  "doi": "10.1016/j.isci.2020.101924",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33162881": {
+  "pmid": "33162881",
+  "title": "Neuroprotective Effect of Optogenetics Varies With Distance From Channelrhodopsin-2 Expression in an Amyloid-β-Injected Mouse Model of Alzheimer's Disease.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2020",
+  "authors": [
+   "Cui Xiaorui",
+   "Zhang Feng",
+   "Zhang Hui",
+   "Huang Xi",
+   "Wang Kewei",
+   "Huang Ting",
+   "Yang Xifei",
+   "Zou Liangyu"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7584457",
+  "doi": "10.3389/fnins.2020.583628",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33083713": {
+  "pmid": "33083713",
+  "title": "Metal- and UV- Catalyzed Oxidation Results in Trapped Amyloid-β Intermediates Revealing that Self-Assembly Is Required for Aβ-Induced Cytotoxicity.",
+  "journal": "iScience",
+  "year": "2020",
+  "authors": [
+   "Maina Mahmoud B",
+   "Burra Gunasekhar",
+   "Al-Hilaly Youssra K",
+   "Mengham Kurtis",
+   "Fennell Kate",
+   "Serpell Louise C"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7516296",
+  "doi": "10.1016/j.isci.2020.101537",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33014535": {
+  "pmid": "33014535",
+  "title": "Rodent Models of Amyloid-Beta Feature of Alzheimer's Disease: Development and Potential Treatment Implications.",
+  "journal": "Aging and disease",
+  "year": "2020",
+  "authors": [
+   "Poon Chi Him",
+   "Wang Yingyi",
+   "Fung Man-Lung",
+   "Zhang Chengfei",
+   "Lim Lee Wei"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7505263",
+  "doi": "10.14336/AD.2019.1026",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32916822": {
+  "pmid": "32916822",
+  "title": "The Role of Lipid Environment in Ganglioside GM1-Induced Amyloid β Aggregation.",
+  "journal": "Membranes",
+  "year": "2020",
+  "authors": [
+   "Rudajev Vladimir",
+   "Novotny Jiri"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7558528",
+  "doi": "10.3390/membranes10090226",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32656435": {
+  "pmid": "32656435",
+  "title": "Heptameric Peptide Interferes with Amyloid-β Aggregation by Structural Reorganization of the Toxic Oligomers.",
+  "journal": "ACS omega",
+  "year": "2020",
+  "authors": [
+   "Bhattacharyya Rajanya",
+   "Bhattacharjee Sayan",
+   "Pathak Bani K",
+   "Sengupta Jayati"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7346273",
+  "doi": "10.1021/acsomega.0c01730",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32566913": {
+  "pmid": "32566913",
+  "title": "Molecular Pathogenesis and Interventional Strategies for Alzheimer's Disease: Promises and Pitfalls.",
+  "journal": "ACS pharmacology & translational science",
+  "year": "2020",
+  "authors": [
+   "Bhute Shashikala",
+   "Sarmah Deepaneeta",
+   "Datta Aishika",
+   "Rane Pallavi",
+   "Shard Amit",
+   "Goswami Avirag",
+   "Borah Anupom",
+   "Kalia Kiran",
+   "Dave Kunjan R",
+   "Bhattacharya Pallab"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7296537",
+  "doi": "10.1021/acsptsci.9b00104",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32309597": {
+  "pmid": "32309597",
+  "title": "Functional Amyloids and their Possible Influence on Alzheimer Disease.",
+  "journal": "Discoveries (Craiova, Romania)",
+  "year": "2017",
+  "authors": [
+   "Lau Angus",
+   "Bourkas Matthew",
+   "Lu Yang Qing Qin",
+   "Ostrowski Lauren Anne",
+   "Weber-Adrian Danielle",
+   "Figueiredo Carlyn",
+   "Arshad Hamza",
+   "Shoaei Seyedeh Zahra Shams",
+   "Morrone Christopher Daniel",
+   "Matan-Lithwick Stuart",
+   "Abraham Karan Joshua",
+   "Wang Hansen",
+   "Schmitt-Ulms Gerold"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7159844",
+  "doi": "10.15190/d.2017.9",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32210564": {
+  "pmid": "32210564",
+  "title": "Removal of Aβ Oligomers from the Blood: A Potential Therapeutic System for Alzheimer's Disease.",
+  "journal": "Neuropsychiatric disease and treatment",
+  "year": "2020",
+  "authors": [
+   "Saito Yuta",
+   "Sakata Miwa",
+   "Kobayakawa Moe",
+   "Kawachi Hiroshi",
+   "Kawaguchi Kazunori",
+   "Hiki Yoshiyuki",
+   "Kato Masao",
+   "Mori Mayuko",
+   "Hasegawa Midori",
+   "Ohashi Norimi",
+   "Yuzawa Yukio",
+   "Kitaguchi Nobuya"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7064818",
+  "doi": "10.2147/NDT.S241074",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32195099": {
+  "pmid": "32195099",
+  "title": "Super-Resolution Infrared Imaging of Polymorphic Amyloid Aggregates Directly in Neurons.",
+  "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+  "year": "2020",
+  "authors": [
+   "Klementieva Oxana",
+   "Sandt Christophe",
+   "Martinsson Isak",
+   "Kansiz Mustafa",
+   "Gouras Gunnar K",
+   "Borondics Ferenc"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7080554",
+  "doi": "10.1002/advs.201903004",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32180930": {
+  "pmid": "32180930",
+  "title": "A novel two-photon ratiometric fluorescent probe for imaging and sensing of BACE1 in different regions of AD mouse brain.",
+  "journal": "Chemical science",
+  "year": "2020",
+  "authors": [
+   "Ge Lihong",
+   "Liu Zhichao",
+   "Tian Yang"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7058092",
+  "doi": "10.1039/c9sc05256a",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32153747": {
+  "pmid": "32153747",
+  "title": "Single molecule sensing of amyloid-β aggregation by confined glass nanopores.",
+  "journal": "Chemical science",
+  "year": "2019",
+  "authors": [
+   "Yu Ru-Jia",
+   "Lu Si-Min",
+   "Xu Su-Wen",
+   "Li Yuan-Jie",
+   "Xu Qun",
+   "Ying Yi-Lun",
+   "Long Yi-Tao"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7020925",
+  "doi": "10.1039/c9sc03260f",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32139977": {
+  "pmid": "32139977",
+  "title": "Flow cytometric evaluation of crude synaptosome preparation as a way to study synaptic alteration in neurodegenerative diseases.",
+  "journal": "Neuromethods",
+  "year": "2018",
+  "authors": [
+   "Postupna Nadia O",
+   "Latimer Caitlin S",
+   "Keene C Dirk",
+   "Montine Kathleen S",
+   "Montine Thomas J",
+   "Darvas Martin"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC7058378",
+  "doi": "10.1007/978-1-4939-8739-9_17",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32076398": {
+  "pmid": "32076398",
+  "title": "Oligomers Are Promising Targets for Drug Development in the Treatment of Proteinopathies.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2019",
+  "authors": [
+   "Galzitskaya Oxana V"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7006448",
+  "doi": "10.3389/fnmol.2019.00319",
+  "score": null,
+  "mesh_terms": []
+ },
+ "31921764": {
+  "pmid": "31921764",
+  "title": "Modification of Aβ Peptide Aggregation via Covalent Binding of a Series of Ru(III) Complexes.",
+  "journal": "Frontiers in chemistry",
+  "year": "2019",
+  "authors": [
+   "Gomes Luiza M F",
+   "Bataglioli Janaina C",
+   "Jussila Allison J",
+   "Smith Jason R",
+   "Walsby Charles J",
+   "Storr Tim"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6915085",
+  "doi": "10.3389/fchem.2019.00838",
+  "score": null,
+  "mesh_terms": []
+ },
+ "31736856": {
+  "pmid": "31736856",
+  "title": "Amyloid Beta Oligomers Target to Extracellular and Intracellular Neuronal Synaptic Proteins in Alzheimer's Disease.",
+  "journal": "Frontiers in neurology",
+  "year": "2019",
+  "authors": [
+   "Ding Yu",
+   "Zhao Jiahui",
+   "Zhang Xunle",
+   "Wang Shanshan",
+   "Viola Kirsten L",
+   "Chow Frances E",
+   "Zhang Yang",
+   "Lippa Carol",
+   "Klein William L",
+   "Gong Yuesong"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC6838211",
+  "doi": "10.3389/fneur.2019.01140",
+  "score": null,
+  "mesh_terms": []
+ },
+ "31680939": {
+  "pmid": "31680939",
+  "title": "Cajaninstilbene Acid Ameliorates Cognitive Impairment Induced by Intrahippocampal Injection of Amyloid-β1-42 Oligomers.",
+  "journal": "Frontiers in pharmacology",
+  "year": "2019",
+  "authors": [
+   "Wang Li-Sha",
+   "Tao Xue",
+   "Liu Xin-Min",
+   "Zhou Yun-Feng",
+   "Zhang Meng-Di",
+   "Liao Yong-Hong",
+   "Pan Rui-Le",
+   "Chang Qi"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6798059",
+  "doi": "10.3389/fphar.2019.01084",
+  "score": null,
+  "mesh_terms": []
+ },
+ "31632238": {
+  "pmid": "31632238",
+  "title": "Aβ Seeding as a Tool to Study Cerebral Amyloidosis and Associated Pathology.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2019",
+  "authors": [
+   "Friesen Marina",
+   "Meyer-Luehmann Melanie"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6783493",
+  "doi": "10.3389/fnmol.2019.00233",
+  "score": null,
+  "mesh_terms": []
+ },
+ "31458729": {
+  "pmid": "31458729",
+  "title": "Tailoring Hydrophobic Interactions between Probes and Amyloid-β Peptides for Fluorescent Monitoring of Amyloid-β Aggregation.",
+  "journal": "ACS omega",
+  "year": "2018",
+  "authors": [
+   "Kim Sonam",
+   "Lee Hyuck Jin",
+   "Nam Eunju",
+   "Jeong Donghyun",
+   "Cho Jaeheung",
+   "Lim Mi Hee",
+   "You Youngmin"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6641720",
+  "doi": "10.1021/acsomega.8b00286",
+  "score": null,
+  "mesh_terms": []
+ },
+ "31397354": {
+  "pmid": "31397354",
+  "title": "Optogenetics-induced activation of glutamate receptors improves memory function in mice with Alzheimer's disease.",
+  "journal": "Neural regeneration research",
+  "year": "2019",
+  "authors": [
+   "Wang Ke-Wei",
+   "Ye Xiao-Lin",
+   "Huang Ting",
+   "Yang Xi-Fei",
+   "Zou Liang-Yu"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6788230",
+  "doi": "10.4103/1673-5374.262593",
+  "score": null,
+  "mesh_terms": []
+ },
+ "31333460": {
+  "pmid": "31333460",
+  "title": "Doxycycline for Alzheimer's Disease: Fighting β-Amyloid Oligomers and Neuroinflammation.",
+  "journal": "Frontiers in pharmacology",
+  "year": "2019",
+  "authors": [
+   "Balducci Claudia",
+   "Forloni Gianluigi"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6616274",
+  "doi": "10.3389/fphar.2019.00738",
+  "score": null,
+  "mesh_terms": []
+ },
+ "31255986": {
+  "pmid": "31255986",
+  "title": "α-Helical Motif as Inhibitors of Toxic Amyloid-β Oligomer Generation via Highly Specific Recognition of Amyloid Surface.",
+  "journal": "iScience",
+  "year": "2019",
+  "authors": [
+   "Jiang Yixiang",
+   "Jiang Xuehan",
+   "Shi Xiaodong",
+   "Yang Fadeng",
+   "Cao Yang",
+   "Qin Xuan",
+   "Hou Zhanfeng",
+   "Xie Mingsheng",
+   "Liu Na",
+   "Fang Qi",
+   "Yin Feng",
+   "Han Wei",
+   "Li Zigang"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6606958",
+  "doi": "10.1016/j.isci.2019.06.022",
+  "score": null,
+  "mesh_terms": []
+ },
+ "30842826": {
+  "pmid": "30842826",
+  "title": "A catalytic antioxidant for limiting amyloid-beta peptide aggregation and reactive oxygen species generation.",
+  "journal": "Chemical science",
+  "year": "2019",
+  "authors": [
+   "Gomes Luiza M F",
+   "Mahammed Atif",
+   "Prosser Kathleen E",
+   "Smith Jason R",
+   "Silverman Michael A",
+   "Walsby Charles J",
+   "Gross Zeev",
+   "Storr Tim"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6369440",
+  "doi": "10.1039/c8sc04660c",
+  "score": null,
+  "mesh_terms": []
+ },
+ "30618627": {
+  "pmid": "30618627",
+  "title": "The Role of Glial Cells and Synapse Loss in Mouse Models of Alzheimer's Disease.",
+  "journal": "Frontiers in cellular neuroscience",
+  "year": "2018",
+  "authors": [
+   "Ziegler-Waldkirch Stephanie",
+   "Meyer-Luehmann Melanie"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6297249",
+  "doi": "10.3389/fncel.2018.00473",
+  "score": null,
+  "mesh_terms": []
+ },
+ "30599043": {
+  "pmid": "30599043",
+  "title": "Are Porphyromonas gingivalis Outer Membrane Vesicles Microbullets for Sporadic Alzheimer's Disease Manifestation?",
+  "journal": "Journal of Alzheimer's disease reports",
+  "year": "2018",
+  "authors": [
+   "Singhrao Sim K",
+   "Olsen Ingar"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6311351",
+  "doi": "10.3233/ADR-180080",
+  "score": null,
+  "mesh_terms": []
+ },
+ "30581897": {
+  "pmid": "30581897",
+  "title": "Estimating the concentration of therapeutic range using disease-specific iPS cells: Low-dose rapamycin therapy for Pendred syndrome.",
+  "journal": "Regenerative therapy",
+  "year": "2019",
+  "authors": [
+   "Hosoya Makoto",
+   "Saeki Tsubasa",
+   "Saegusa Chika",
+   "Matsunaga Tatsuo",
+   "Okano Hideyuki",
+   "Fujioka Masato",
+   "Ogawa Kaoru"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6299162",
+  "doi": "10.1016/j.reth.2018.11.001",
+  "score": null,
+  "mesh_terms": []
+ },
+ "30319394": {
+  "pmid": "30319394",
+  "title": "Enriched Environment Significantly Reduced Senile Plaques in a Transgenic Mice Model of Alzheimer's Disease, Improving Memory.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2018",
+  "authors": [
+   "Balthazar Janaina",
+   "Schöwe Natalia Mendes",
+   "Cipolli Gabriela Cabett",
+   "Buck Hudson Sousa",
+   "Viel Tania Araujo"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6168651",
+  "doi": "10.3389/fnagi.2018.00288",
+  "score": null,
+  "mesh_terms": []
+ },
+ "30271321": {
+  "pmid": "30271321",
+  "title": "Soluble Aβ42 Acts as Allosteric Activator of the Core Cholinergic Enzyme Choline Acetyltransferase.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2018",
+  "authors": [
+   "Kumar Amit",
+   "Lana Erica",
+   "Kumar Rajnish",
+   "Lithner Christina Unger",
+   "Darreh-Shori Taher"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6146036",
+  "doi": "10.3389/fnmol.2018.00327",
+  "score": null,
+  "mesh_terms": []
+ },
+ "30214656": {
+  "pmid": "30214656",
+  "title": "Oligomerization Alters Binding Affinity Between Amyloid Beta and a Modulator of Peptide Aggregation.",
+  "journal": "The journal of physical chemistry. C, Nanomaterials and interfaces",
+  "year": "2017",
+  "authors": [
+   "Hilt Silvia",
+   "Rojalin Tatu",
+   "Viitala Tapani",
+   "Koivuniemi Artturi",
+   "Bunker Alex",
+   "Hogiu Sebastian Wachsmann",
+   "Kálai Tamás",
+   "Hideg Kálmán",
+   "Yliperttula Marjo",
+   "Voss John C"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC6130836",
+  "doi": "10.1021/acs.jpcc.7b06164",
+  "score": null,
+  "mesh_terms": []
+ },
+ "30136680": {
+  "pmid": "30136680",
+  "title": "Loss of canonical Wnt signaling is involved in the pathogenesis of Alzheimer's disease.",
+  "journal": "Neural regeneration research",
+  "year": "2018",
+  "authors": [
+   "Tapia-Rojas Cheril",
+   "Inestrosa Nibaldo C"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6128062",
+  "doi": "10.4103/1673-5374.238606",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29628886": {
+  "pmid": "29628886",
+  "title": "U1 snRNP Alteration and Neuronal Cell Cycle Reentry in Alzheimer Disease.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2018",
+  "authors": [
+   "Bai Bing"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5876301",
+  "doi": "10.3389/fnagi.2018.00075",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29627987": {
+  "pmid": "29627987",
+  "title": "Controlling the Oligomerization State of Aβ-Derived Peptides with Light.",
+  "journal": "Journal of the American Chemical Society",
+  "year": "2018",
+  "authors": [
+   "Salveson Patrick J",
+   "Haerianardakani Sepehr",
+   "Thuy-Boun Alexander",
+   "Kreutzer Adam G",
+   "Nowick James S"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Research Support, Non-U.S. Gov't",
+   "Research Support, N.I.H., Extramural"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC6361387",
+  "doi": "10.1021/jacs.8b02658",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29560429": {
+  "pmid": "29560429",
+  "title": "Mutations in the β-amyloid precursor protein in familial Alzheimer's disease increase Aβ oligomer production in cellular models.",
+  "journal": "Heliyon",
+  "year": "2018",
+  "authors": [
+   "Ohshima Yoichi",
+   "Taguchi Katsutoshi",
+   "Mizuta Ikuko",
+   "Tanaka Masaki",
+   "Tomiyama Takami",
+   "Kametani Fuyuki",
+   "Yabe-Nishimura Chihiro",
+   "Mizuno Toshiki",
+   "Tokuda Takahiko"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5857613",
+  "doi": "10.1016/j.heliyon.2018.e00511",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29507776": {
+  "pmid": "29507776",
+  "title": "Prospects for strain-specific immunotherapy in Alzheimer's disease and tauopathies.",
+  "journal": "NPJ vaccines",
+  "year": "2018",
+  "authors": [
+   "Bittar Alice",
+   "Sengupta Urmi",
+   "Kayed Rakez"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5829136",
+  "doi": "10.1038/s41541-018-0046-8",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29472855": {
+  "pmid": "29472855",
+  "title": "Role of Copper in the Onset of Alzheimer's Disease Compared to Other Metals.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2017",
+  "authors": [
+   "Bagheri Soghra",
+   "Squitti Rosanna",
+   "Haertlé Thomas",
+   "Siotto Mariacristina",
+   "Saboury Ali A"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5810277",
+  "doi": "10.3389/fnagi.2017.00446",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29379433": {
+  "pmid": "29379433",
+  "title": "Ventricular and Periventricular Anomalies in the Aging and Cognitively Impaired Brain.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2017",
+  "authors": [
+   "Todd Krysti L",
+   "Brighton Tessa",
+   "Norton Emily S",
+   "Schick Samuel",
+   "Elkins Wendy",
+   "Pletnikova Olga",
+   "Fortinsky Richard H",
+   "Troncoso Juan C",
+   "Molfese Peter J",
+   "Resnick Susan M",
+   "Conover Joanne C",
+   "Alzheimer’s Disease Neuroimaging Initiative"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5771258",
+  "doi": "10.3389/fnagi.2017.00445",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29375307": {
+  "pmid": "29375307",
+  "title": "AMPA Receptor Trafficking in Natural and Pathological Aging.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2017",
+  "authors": [
+   "Jurado Sandra"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5767248",
+  "doi": "10.3389/fnmol.2017.00446",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29190943": {
+  "pmid": "29190943",
+  "title": "Neuroprotective effects of bajijiasu against cognitive impairment induced by amyloid-β in APP/PS1 mice.",
+  "journal": "Oncotarget",
+  "year": "2017",
+  "authors": [
+   "Cai Haobin",
+   "Wang Yijie",
+   "He Jiayang",
+   "Cai Tiantian",
+   "Wu Jun",
+   "Fang Jiansong",
+   "Zhang Rong",
+   "Guo Zhouke",
+   "Guan Li",
+   "Zhan Qinkai",
+   "Lin Li",
+   "Xiao Yao",
+   "Pan Huafeng",
+   "Wang Qi"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5696209",
+  "doi": "10.18632/oncotarget.21515",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29124140": {
+  "pmid": "29124140",
+  "title": "Probing the role of aromatic residues in the self-assembly of Aβ(16-22) in fluorinated alcohols and their aqueous mixtures.",
+  "journal": "Biochemistry and biophysics reports",
+  "year": "2015",
+  "authors": [
+   "Pachahara Sanjai Kumar",
+   "Nagaraj Ramakrishnan"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5668628",
+  "doi": "10.1016/j.bbrep.2015.04.005",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29089988": {
+  "pmid": "29089988",
+  "title": "DNA damage and neurodegeneration: the unusual suspect.",
+  "journal": "Neural regeneration research",
+  "year": "2017",
+  "authors": [
+   "Stein Daniel",
+   "Toiber Debra"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5649463",
+  "doi": "10.4103/1673-5374.215254",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29056865": {
+  "pmid": "29056865",
+  "title": "1,2,3,4,6-penta-O-galloyl-β-D-glucopyranose Binds to the N-terminal Metal Binding Region to Inhibit Amyloid β-protein Oligomer and Fibril Formation.",
+  "journal": "International journal of mass spectrometry",
+  "year": "2017",
+  "authors": [
+   "de Almeida Natália E C",
+   "Do Thanh D",
+   "LaPointe Nichole E",
+   "Tro Michael",
+   "Feinstein Stuart C",
+   "Shea Joan-Emma",
+   "Bowers Michael T"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5644501",
+  "doi": "10.1016/j.ijms.2016.09.018",
+  "score": null,
+  "mesh_terms": []
+ },
+ "28993712": {
+  "pmid": "28993712",
+  "title": "Reversing the amyloid trend: Mechanism of fibril assembly and dissolution of the repeat domain from a human functional amyloid.",
+  "journal": "Israel journal of chemistry",
+  "year": "2017",
+  "authors": [
+   "McGlinchey Ryan P",
+   "Lee Jennifer C"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5630176",
+  "doi": "10.1002/ijch.201600080",
+  "score": null,
+  "mesh_terms": []
+ },
+ "28670737": {
+  "pmid": "28670737",
+  "title": "A human scFv antibody that targets and neutralizes high molecular weight pathogenic amyloid-β oligomers.",
+  "journal": "Journal of neurochemistry",
+  "year": "2017",
+  "authors": [
+   "Sebollela Adriano",
+   "Cline Erika N",
+   "Popova Izolda",
+   "Luo Kevin",
+   "Sun Xiaoxia",
+   "Ahn Jay",
+   "Barcelos Milena A",
+   "Bezerra Vanessa N",
+   "Lyra E Silva Natalia M",
+   "Patel Jason",
+   "Pinheiro Nathalia R",
+   "Qin Lei A",
+   "Kamel Josette M",
+   "Weng Anthea",
+   "DiNunno Nadia",
+   "Bebenek Adrian M",
+   "Velasco Pauline T",
+   "Viola Kirsten L",
+   "Lacor Pascale N",
+   "Ferreira Sergio T",
+   "Klein William L"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5752625",
+  "doi": "10.1111/jnc.14118",
+  "score": null,
+  "mesh_terms": []
+ },
+ "28580182": {
+  "pmid": "28580182",
+  "title": "Cerebral Microvascular Accumulation of Tau Oligomers in Alzheimer's Disease and Related Tauopathies.",
+  "journal": "Aging and disease",
+  "year": "2017",
+  "authors": [
+   "Castillo-Carranza Diana L",
+   "Nilson Ashley N",
+   "Van Skike Candice E",
+   "Jahrling Jordan B",
+   "Patel Kishan",
+   "Garach Prajesh",
+   "Gerson Julia E",
+   "Sengupta Urmi",
+   "Abisambra Jose",
+   "Nelson Peter",
+   "Troncoso Juan",
+   "Ungvari Zoltan",
+   "Galvan Veronica",
+   "Kayed Rakez"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5440106",
+  "doi": "10.14336/AD.2017.0112",
+  "score": null,
+  "mesh_terms": []
+ },
+ "28529531": {
+  "pmid": "28529531",
+  "title": "The Protective Effect of Lavender Essential Oil and Its Main Component Linalool against the Cognitive Deficits Induced by D-Galactose and Aluminum Trichloride in Mice.",
+  "journal": "Evidence-based complementary and alternative medicine : eCAM",
+  "year": "2017",
+  "authors": [
+   "Xu Pan",
+   "Wang Kezhu",
+   "Lu Cong",
+   "Dong Liming",
+   "Gao Li",
+   "Yan Ming",
+   "Aibai Silafu",
+   "Yang Yanyan",
+   "Liu Xinmin"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5424179",
+  "doi": "10.1155/2017/7426538",
+  "score": null,
+  "mesh_terms": []
+ },
+ "28469550": {
+  "pmid": "28469550",
+  "title": "Exosomes and the Prion Protein: More than One Truth.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2017",
+  "authors": [
+   "Hartmann Alexander",
+   "Muth Christiane",
+   "Dabrowski Oliver",
+   "Krasemann Susanne",
+   "Glatzel Markus"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5395619",
+  "doi": "10.3389/fnins.2017.00194",
+  "score": null,
+  "mesh_terms": []
+ },
+ "28413635": {
+  "pmid": "28413635",
+  "title": "Role of amyloid β protein receptors in mediating synaptic plasticity.",
+  "journal": "Biomedical reports",
+  "year": "2017",
+  "authors": [
+   "Li Yu",
+   "Sun Zhongqing",
+   "Cao Qiaoyu",
+   "Chen Meiwan",
+   "Luo Huanmin",
+   "Lin Xi",
+   "Xiao Fei"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5374942",
+  "doi": "10.3892/br.2017.863",
+  "score": null,
+  "mesh_terms": []
+ },
+ "28357335": {
+  "pmid": "28357335",
+  "title": "Inhibition of Aβ42 oligomerization in yeast by a PICALM ortholog and certain FDA approved drugs.",
+  "journal": "Microbial cell (Graz, Austria)",
+  "year": "2016",
+  "authors": [
+   "Park Sei-Kyoung",
+   "Ratia Kiira",
+   "Ba Mariam",
+   "Valencik Maria",
+   "Liebman Susan W"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5349104",
+  "doi": "10.15698/mic2016.02.476",
+  "score": null,
+  "mesh_terms": []
+ },
+ "28344547": {
+  "pmid": "28344547",
+  "title": "APP Function and Lipids: A Bidirectional Link.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2017",
+  "authors": [
+   "Grimm Marcus O W",
+   "Mett Janine",
+   "Grimm Heike S",
+   "Hartmann Tobias"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5344993",
+  "doi": "10.3389/fnmol.2017.00063",
+  "score": null,
+  "mesh_terms": []
+ },
+ "28031886": {
+  "pmid": "28031886",
+  "title": "The role and therapeutic targeting of α-, β- and γ-secretase in Alzheimer's disease.",
+  "journal": "Future science OA",
+  "year": "2015",
+  "authors": [
+   "MacLeod Ruth",
+   "Hillert Ellin-Kristina",
+   "Cameron Ryan T",
+   "Baillie George S"
+  ],
+  "pub_types": [
+   "Review",
+   "Journal Article"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5137966",
+  "doi": "10.4155/fso.15.9",
+  "score": null,
+  "mesh_terms": []
+ },
+ "27551275": {
+  "pmid": "27551275",
+  "title": "Amyloidosis in Retinal Neurodegenerative Diseases.",
+  "journal": "Frontiers in neurology",
+  "year": "2016",
+  "authors": [
+   "Masuzzo Ambra",
+   "Dinet Virginie",
+   "Cavanagh Chelsea",
+   "Mascarelli Frederic",
+   "Krantic Slavica"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4976396",
+  "doi": "10.3389/fneur.2016.00127",
+  "score": null,
+  "mesh_terms": []
+ },
+ "27507947": {
+  "pmid": "27507947",
+  "title": "Scorpion Venom Heat-Resistant Peptide Protects Transgenic Caenorhabditis elegans from β-Amyloid Toxicity.",
+  "journal": "Frontiers in pharmacology",
+  "year": "2016",
+  "authors": [
+   "Zhang Xiao-Gang",
+   "Wang Xi",
+   "Zhou Ting-Ting",
+   "Wu Xue-Fei",
+   "Peng Yan",
+   "Zhang Wan-Qin",
+   "Li Shao",
+   "Zhao Jie"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4960250",
+  "doi": "10.3389/fphar.2016.00227",
+  "score": null,
+  "mesh_terms": []
+ },
+ "27471697": {
+  "pmid": "27471697",
+  "title": "Immunotherapy for the treatment of Alzheimer's disease: amyloid-β or tau, which is the right target?",
+  "journal": "ImmunoTargets and therapy",
+  "year": "2014",
+  "authors": [
+   "Castillo-Carranza Diana L",
+   "Guerrero-Muñoz Marcos J",
+   "Kayed Rakez"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4918231",
+  "doi": "10.2147/ITT.S40131",
+  "score": null,
+  "mesh_terms": []
+ },
+ "27249006": {
+  "pmid": "27249006",
+  "title": "Tethered and Polymer Supported Bilayer Lipid Membranes: Structure and Function.",
+  "journal": "Membranes",
+  "year": "2016",
+  "authors": [
+   "Andersson Jakob",
+   "Köper Ingo"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4931525",
+  "doi": "10.3390/membranes6020030",
+  "score": null,
+  "mesh_terms": []
+ },
+ "27242518": {
+  "pmid": "27242518",
+  "title": "Glycines from the APP GXXXG/GXXXA Transmembrane Motifs Promote Formation of Pathogenic Aβ Oligomers in Cells.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2016",
+  "authors": [
+   "Decock Marie",
+   "Stanga Serena",
+   "Octave Jean-Noël",
+   "Dewachter Ilse",
+   "Smith Steven O",
+   "Constantinescu Stefan N",
+   "Kienlen-Campard Pascal"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC4861705",
+  "doi": "10.3389/fnagi.2016.00107",
+  "score": null,
+  "mesh_terms": []
+ },
+ "27239535": {
+  "pmid": "27239535",
+  "title": "Learning to classify neural activity from a mouse model of Alzheimer's disease amyloidosis versus controls.",
+  "journal": "Alzheimer's & dementia (Amsterdam, Netherlands)",
+  "year": "2016",
+  "authors": [
+   "Beker Shlomit",
+   "Kellner Vered",
+   "Chechik Gal",
+   "Stern Edward A"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC4879657",
+  "doi": "10.1016/j.dadm.2016.01.002",
+  "score": null,
+  "mesh_terms": []
+ },
+ "27239510": {
+  "pmid": "27239510",
+  "title": "Amyloid-β sequester proteins as blood-based biomarkers of cognitive decline.",
+  "journal": "Alzheimer's & dementia (Amsterdam, Netherlands)",
+  "year": "2015",
+  "authors": [
+   "Uchida Kazuhiko",
+   "Shan Liu",
+   "Suzuki Hideaki",
+   "Tabuse Yo",
+   "Nishimura Yoshinori",
+   "Hirokawa Yoshihiro",
+   "Mizukami Katsuyoshi",
+   "Akatsu Hiroyasu",
+   "Meno Kohji",
+   "Asada Takashi"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4876892",
+  "doi": "10.1016/j.dadm.2015.04.003",
+  "score": null,
+  "mesh_terms": []
+ },
+ "27152108": {
+  "pmid": "27152108",
+  "title": "A genetically immortalized human stem cell line: a promising new tool for Alzheimer's disease therapy.",
+  "journal": "EXCLI journal",
+  "year": "2015",
+  "authors": [
+   "Puangmalai Nicha",
+   "Somani Alyma",
+   "Thangnipon Wipawan",
+   "Ballard Clive",
+   "Broadstock Martin"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4849102",
+  "doi": "10.17179/excli2015-560",
+  "score": null,
+  "mesh_terms": []
+ },
+ "27014058": {
+  "pmid": "27014058",
+  "title": "Effect of Presenilin Mutations on APP Cleavage; Insights into the Pathogenesis of FAD.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2016",
+  "authors": [
+   "Li Nuomin",
+   "Liu Kefu",
+   "Qiu Yunjie",
+   "Ren Zehui",
+   "Dai Rongji",
+   "Deng Yulin",
+   "Qing Hong"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4786568",
+  "doi": "10.3389/fnagi.2016.00051",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26858588": {
+  "pmid": "26858588",
+  "title": "Application of an Amyloid Beta Oligomer Standard in the sFIDA Assay.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2016",
+  "authors": [
+   "Kühbach Katja",
+   "Hülsemann Maren",
+   "Herrmann Yvonne",
+   "Kravchenko Kateryna",
+   "Kulawik Andreas",
+   "Linnartz Christina",
+   "Peters Luriano",
+   "Wang Kun",
+   "Willbold Johannes",
+   "Willbold Dieter",
+   "Bannach Oliver"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4731524",
+  "doi": "10.3389/fnins.2016.00008",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26696824": {
+  "pmid": "26696824",
+  "title": "Tau Oligomers: The Toxic Player at Synapses in Alzheimer's Disease.",
+  "journal": "Frontiers in cellular neuroscience",
+  "year": "2015",
+  "authors": [
+   "Guerrero-Muñoz Marcos J",
+   "Gerson Julia",
+   "Castillo-Carranza Diana L"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4667007",
+  "doi": "10.3389/fncel.2015.00464",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26601224": {
+  "pmid": "26601224",
+  "title": "Extension of the generic amyloid hypothesis to nonproteinaceous metabolite assemblies.",
+  "journal": "Science advances",
+  "year": "2015",
+  "authors": [
+   "Shaham-Niv Shira",
+   "Adler-Abramovich Lihi",
+   "Schnaider Lee",
+   "Gazit Ehud"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4643800",
+  "doi": "10.1126/sciadv.1500137",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26528151": {
+  "pmid": "26528151",
+  "title": "Dissecting Alzheimer disease in Down syndrome using mouse models.",
+  "journal": "Frontiers in behavioral neuroscience",
+  "year": "2015",
+  "authors": [
+   "Choong Xun Yu",
+   "Tosh Justin L",
+   "Pulford Laura J",
+   "Fisher Elizabeth M C"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4602094",
+  "doi": "10.3389/fnbeh.2015.00268",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26379620": {
+  "pmid": "26379620",
+  "title": "Fluid Biomarkers in Clinical Trials of Alzheimer's Disease Therapeutics.",
+  "journal": "Frontiers in neurology",
+  "year": "2015",
+  "authors": [
+   "Ritter Aaron",
+   "Cummings Jeffrey"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC4553391",
+  "doi": "10.3389/fneur.2015.00186",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26316994": {
+  "pmid": "26316994",
+  "title": "Amyloid Beta-Protein and Neural Network Dysfunction.",
+  "journal": "Journal of neurodegenerative diseases",
+  "year": "2013",
+  "authors": [
+   "Peña-Ortega Fernando"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4437331",
+  "doi": "10.1155/2013/657470",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26106290": {
+  "pmid": "26106290",
+  "title": "Therapeutic potential of mGluR5 targeting in Alzheimer's disease.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2015",
+  "authors": [
+   "Kumar Anil",
+   "Dhull Dinesh K",
+   "Mishra Pooja S"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4460345",
+  "doi": "10.3389/fnins.2015.00215",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26074816": {
+  "pmid": "26074816",
+  "title": "Neurovascular and neurometabolic derailment in aging and Alzheimer's disease.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2015",
+  "authors": [
+   "Lourenço Cátia F",
+   "Ledo Ana",
+   "Dias Cândida",
+   "Barbosa Rui M",
+   "Laranjinha João"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4445047",
+  "doi": "10.3389/fnagi.2015.00103",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26074767": {
+  "pmid": "26074767",
+  "title": "Soluble amyloid-β oligomers as synaptotoxins leading to cognitive impairment in Alzheimer's disease.",
+  "journal": "Frontiers in cellular neuroscience",
+  "year": "2015",
+  "authors": [
+   "Ferreira Sergio T",
+   "Lourenco Mychael V",
+   "Oliveira Mauricio M",
+   "De Felice Fernanda G"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4443025",
+  "doi": "10.3389/fncel.2015.00191",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25892799": {
+  "pmid": "25892799",
+  "title": "Omega-3 fatty acid obtained from Nannochloropsis oceanica cultures grown under low urea protect against Abeta-induced neural damage.",
+  "journal": "Journal of food science and technology",
+  "year": "2015",
+  "authors": [
+   "Lai Ying-Jang"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4397287",
+  "doi": "10.1007/s13197-014-1329-3",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25853119": {
+  "pmid": "25853119",
+  "title": "The elusive nature and diagnostics of misfolded Aβ oligomers.",
+  "journal": "Frontiers in chemistry",
+  "year": "2015",
+  "authors": [
+   "Cerasoli Eleonora",
+   "Ryadnov Maxim G",
+   "Austen Brian M"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4365737",
+  "doi": "10.3389/fchem.2015.00017",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25774171": {
+  "pmid": "25774171",
+  "title": "Analysis of hippocampal gene expression profile of Alzheimer's disease model rats using genome chip bioinformatics.",
+  "journal": "Neural regeneration research",
+  "year": "2012",
+  "authors": [
+   "Li Yinghong",
+   "Wu Zhengzhi",
+   "Jin Yu",
+   "Wu Anmin",
+   "Cao Meiqun",
+   "Sun Kehuan",
+   "Jia Xiuqin",
+   "Chen Manyin"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4350114",
+  "doi": "10.3969/j.issn.1673-5374.2012.05.002",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25437612": {
+  "pmid": "25437612",
+  "title": "Prions and prion-like pathogens in neurodegenerative disorders.",
+  "journal": "Pathogens (Basel, Switzerland)",
+  "year": "2014",
+  "authors": [
+   "Peggion Caterina",
+   "Sorgato Maria Catia",
+   "Bertoli Alessandro"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4235734",
+  "doi": "10.3390/pathogens3010149",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25343100": {
+  "pmid": "25343100",
+  "title": "Alzheimer's disease and prion protein.",
+  "journal": "Intractable & rare diseases research",
+  "year": "2013",
+  "authors": [
+   "Zhou Jiayi",
+   "Liu Bingqian"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4204584",
+  "doi": "10.5582/irdr.2013.v2.2.35",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25285073": {
+  "pmid": "25285073",
+  "title": "Memantine prevents memory consolidation failure induced by soluble beta amyloid in rats.",
+  "journal": "Frontiers in behavioral neuroscience",
+  "year": "2014",
+  "authors": [
+   "Tucci Paolo",
+   "Mhillaj Emanuela",
+   "Morgese Maria Grazia",
+   "Colaianna Marilena",
+   "Zotti Margherita",
+   "Schiavone Stefania",
+   "Cicerale Maria",
+   "Trezza Viviana",
+   "Campolongo Patrizia",
+   "Cuomo Vincenzo",
+   "Trabace Luigia"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4168698",
+  "doi": "10.3389/fnbeh.2014.00332",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25278878": {
+  "pmid": "25278878",
+  "title": "Differential spatio-temporal regulation of MMPs in the 5xFAD mouse model of Alzheimer's disease: evidence for a pro-amyloidogenic role of MT1-MMP.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2014",
+  "authors": [
+   "Py Nathalie A",
+   "Bonnet Amandine E",
+   "Bernard Anne",
+   "Marchalant Yannick",
+   "Charrat Eliane",
+   "Checler Frédéric",
+   "Khrestchatisky Michel",
+   "Baranger Kévin",
+   "Rivera Santiago"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4166961",
+  "doi": "10.3389/fnagi.2014.00247",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25249976": {
+  "pmid": "25249976",
+  "title": "Reciprocal modulation of Aβ42 aggregation by copper and homocysteine.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2014",
+  "authors": [
+   "Keskitalo Salla",
+   "Farkas Melinda",
+   "Hanenberg Michael",
+   "Szodorai Anita",
+   "Kulic Luka",
+   "Semmler Alexander",
+   "Weller Michael",
+   "Nitsch Roger M",
+   "Linnebank Michael"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4157544",
+  "doi": "10.3389/fnagi.2014.00237",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25206631": {
+  "pmid": "25206631",
+  "title": "Construction of human Fab library and screening of a single-domain antibody of amyloid-beta 42 oligomers.",
+  "journal": "Neural regeneration research",
+  "year": "2013",
+  "authors": [
+   "Yuan Zuanning",
+   "Du Minge",
+   "Chen Yiwen",
+   "Dou Fei"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4158702",
+  "doi": "10.3969/j.issn.1673-5374.2013.33.004",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25147478": {
+  "pmid": "25147478",
+  "title": "Ion mobility spectrometry: A personal view of its development at UCSB.",
+  "journal": "International journal of mass spectrometry",
+  "year": "2014",
+  "authors": [
+   "Bowers Michael T"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC4135396",
+  "doi": "10.1016/j.ijms.2014.06.016",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25140287": {
+  "pmid": "25140287",
+  "title": "Development of a novel cellular model of Alzheimer's disease utilizing neurosphere cultures derived from B6C3-Tg(APPswe,PSEN1dE9)85Dbo/J embryonic mouse brain.",
+  "journal": "SpringerPlus",
+  "year": "2014",
+  "authors": [
+   "Ghate Pankaj S",
+   "Sidhar Himakshi",
+   "Carlson George A",
+   "Giri Ranjit K"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4137416",
+  "doi": "10.1186/2193-1801-3-161",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25076904": {
+  "pmid": "25076904",
+  "title": "Effects of soluble β-amyloid on the release of neurotransmitters from rat brain synaptosomes.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2014",
+  "authors": [
+   "Olivero Guendalina",
+   "Grilli Massimo",
+   "Chen Jiayang",
+   "Preda Stefania",
+   "Mura Elisa",
+   "Govoni Stefano",
+   "Marchi Mario"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4098032",
+  "doi": "10.3389/fnagi.2014.00166",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25045405": {
+  "pmid": "25045405",
+  "title": "Targeting the proper amyloid-beta neuronal toxins: a path forward for Alzheimer's disease immunotherapeutics.",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2014",
+  "authors": [
+   "Goure William F",
+   "Krafft Grant A",
+   "Jerecic Jasna",
+   "Hefti Franz"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4100318",
+  "doi": "10.1186/alzrt272",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25031633": {
+  "pmid": "25031633",
+  "title": "Perspectives on future Alzheimer therapies: amyloid-β protofibrils - a new target for immunotherapy with BAN2401 in Alzheimer's disease.",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2014",
+  "authors": [
+   "Lannfelt Lars",
+   "Möller Christer",
+   "Basun Hans",
+   "Osswald Gunilla",
+   "Sehlin Dag",
+   "Satlin Andrew",
+   "Logovinsky Veronika",
+   "Gellerfors Pär"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4054967",
+  "doi": "10.1186/alzrt246",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25031632": {
+  "pmid": "25031632",
+  "title": "Interpreting Alzheimer's disease clinical trials in light of the effects on amyloid-β.",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2014",
+  "authors": [
+   "Toyn Jeremy H",
+   "Ahlijanian Michael K"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4014014",
+  "doi": "10.1186/alzrt244",
+  "score": null,
+  "mesh_terms": []
+ },
+ "24926455": {
+  "pmid": "24926455",
+  "title": "Anti-amyloid beta to tau - based immunization: Developments in immunotherapy for Alzheimer disease.",
+  "journal": "ImmunoTargets and therapy",
+  "year": "2013",
+  "authors": [
+   "Lambracht-Washington Doris",
+   "Rosenberg Roger N"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC4051350",
+  "doi": "10.2147/ITT.S31428",
+  "score": null,
+  "mesh_terms": []
+ },
+ "24918054": {
+  "pmid": "24918054",
+  "title": "Changed membrane integration and catalytic site conformation are two mechanisms behind the increased Aβ42/Aβ40 ratio by presenilin 1 familial Alzheimer-linked mutations.",
+  "journal": "FEBS open bio",
+  "year": "2014",
+  "authors": [
+   "Wanngren Johanna",
+   "Lara Patricia",
+   "Ojemalm Karin",
+   "Maioli Silvia",
+   "Moradi Nasim",
+   "Chen Lu",
+   "Tjernberg Lars O",
+   "Lundkvist Johan",
+   "Nilsson IngMarie",
+   "Karlström Helena"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4050182",
+  "doi": "10.1016/j.fob.2014.04.006",
+  "score": null,
+  "mesh_terms": []
+ },
+ "24778618": {
+  "pmid": "24778618",
+  "title": "Age-related changes of protein SUMOylation balance in the AβPP Tg2576 mouse model of Alzheimer's disease.",
+  "journal": "Frontiers in pharmacology",
+  "year": "2014",
+  "authors": [
+   "Nisticò Robert",
+   "Ferraina Caterina",
+   "Marconi Veronica",
+   "Blandini Fabio",
+   "Negri Lucia",
+   "Egebjerg Jan",
+   "Feligioni Marco"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3985012",
+  "doi": "10.3389/fphar.2014.00063",
+  "score": null,
+  "mesh_terms": []
+ },
+ "24478697": {
+  "pmid": "24478697",
+  "title": "Environmental enrichment strengthens corticocortical interactions and reduces amyloid-β oligomers in aged mice.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2014",
+  "authors": [
+   "Mainardi Marco",
+   "Di Garbo Angelo",
+   "Caleo Matteo",
+   "Berardi Nicoletta",
+   "Sale Alessandro",
+   "Maffei Lamberto"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3899529",
+  "doi": "10.3389/fnagi.2014.00001",
+  "score": null,
+  "mesh_terms": []
+ },
+ "24289820": {
+  "pmid": "24289820",
+  "title": "Amyloid β-protein oligomers and Alzheimer's disease.",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2013",
+  "authors": [
+   "Hayden Eric Y",
+   "Teplow David B"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3978746",
+  "doi": "10.1186/alzrt226",
+  "score": null,
+  "mesh_terms": []
+ },
+ "24286008": {
+  "pmid": "24286008",
+  "title": "Mitochondrial bioenergetics is defective in presymptomatic Tg2576 AD mice.",
+  "journal": "Translational neuroscience",
+  "year": "2011",
+  "authors": [
+   "Varghese Merina",
+   "Zhao Wei",
+   "Wang Jun",
+   "Cheng Alice",
+   "Qian Xianjuan",
+   "Chaudhry Amna",
+   "Ho Lap",
+   "Pasinetti Giulio Maria"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3839672",
+  "doi": "10.2478/s13380-011-0011-8",
+  "score": null,
+  "mesh_terms": []
+ },
+ "24093018": {
+  "pmid": "24093018",
+  "title": "Sirtuins in neurodegenerative diseases: an update on potential mechanisms.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2013",
+  "authors": [
+   "Min Sang-Won",
+   "Sohn Peter D",
+   "Cho Seo-Hyun",
+   "Swanson Raymond A",
+   "Gan Li"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3782645",
+  "doi": "10.3389/fnagi.2013.00053",
+  "score": null,
+  "mesh_terms": []
+ },
+ "24072999": {
+  "pmid": "24072999",
+  "title": "Breaking the Code of Amyloid-β Oligomers.",
+  "journal": "International journal of cell biology",
+  "year": "2013",
+  "authors": [
+   "Lesné Sylvain E"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3773433",
+  "doi": "10.1155/2013/950783",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23981712": {
+  "pmid": "23981712",
+  "title": "On the subject of rigor in the study of amyloid β-protein assembly.",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2013",
+  "authors": [
+   "Teplow David B"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3978854",
+  "doi": "10.1186/alzrt203",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23964237": {
+  "pmid": "23964237",
+  "title": "Lessons from two prevalent amyloidoses-what amylin and Aβ have in common.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2013",
+  "authors": [
+   "Götz Jürgen",
+   "Lim Yun-An",
+   "Eckert Anne"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3737661",
+  "doi": "10.3389/fnagi.2013.00038",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23908786": {
+  "pmid": "23908786",
+  "title": "It all starts at the ends: multifaceted involvement of C- and N-terminally modified cholinesterases in Alzheimer's disease.",
+  "journal": "Rambam Maimonides medical journal",
+  "year": "2010",
+  "authors": [
+   "Berson Amit",
+   "Soreq Hermona"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3678781",
+  "doi": "10.5041/RMMJ.10014",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23866842": {
+  "pmid": "23866842",
+  "title": "Biological function of Presenilin and its role in AD pathogenesis.",
+  "journal": "Translational neurodegeneration",
+  "year": "2013",
+  "authors": [
+   "Zhang Shuting",
+   "Zhang Mingming",
+   "Cai Fang",
+   "Song Weihong"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3718700",
+  "doi": "10.1186/2047-9158-2-15",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23847532": {
+  "pmid": "23847532",
+  "title": "β-Amyloid oligomers in aging and Alzheimer's disease.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2013",
+  "authors": [
+   "Zahs Kathleen R",
+   "Ashe Karen H"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3701119",
+  "doi": "10.3389/fnagi.2013.00028",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23847530": {
+  "pmid": "23847530",
+  "title": "Is abeta a sufficient biomarker for monitoring anti-abeta clinical studies? A critical review.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2013",
+  "authors": [
+   "Moreth Jens",
+   "Mavoungou Chrystelle",
+   "Schindowski Katharina"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3698450",
+  "doi": "10.3389/fnagi.2013.00025",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23730149": {
+  "pmid": "23730149",
+  "title": "Role of grape seed polyphenols in Alzheimer's disease neuropathology.",
+  "journal": "Nutrition and dietary supplements",
+  "year": "2010",
+  "authors": [
+   "Pasinetti Giulio Maria",
+   "Ho Lap"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3666959",
+  "doi": "10.2147/NDS.S6898",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23678397": {
+  "pmid": "23678397",
+  "title": "Ammonium hydroxide treatment of Aβ produces an aggregate free solution suitable for biophysical and cell culture characterization.",
+  "journal": "PeerJ",
+  "year": "2013",
+  "authors": [
+   "Ryan Timothy M",
+   "Caine Joanne",
+   "Mertens Haydyn D T",
+   "Kirby Nigel",
+   "Nigro Julie",
+   "Breheney Kerry",
+   "Waddington Lynne J",
+   "Streltsov Victor A",
+   "Curtain Cyril",
+   "Masters Colin L",
+   "Roberts Blaine R"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3646356",
+  "doi": "10.7717/peerj.73",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23673233": {
+  "pmid": "23673233",
+  "title": "The neurotrophic compound J147 reverses cognitive impairment in aged Alzheimer's disease mice.",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2013",
+  "authors": [
+   "Prior Marguerite",
+   "Dargusch Richard",
+   "Ehren Jennifer L",
+   "Chiruta Chandramouli",
+   "Schubert David"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3706879",
+  "doi": "10.1186/alzrt179",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23663286": {
+  "pmid": "23663286",
+  "title": "Passive anti-amyloid immunotherapy in Alzheimer's disease: What are the most promising targets?",
+  "journal": "Immunity & ageing : I & A",
+  "year": "2013",
+  "authors": [
+   "Moreth Jens",
+   "Mavoungou Chrystelle",
+   "Schindowski Katharina"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3681567",
+  "doi": "10.1186/1742-4933-10-18",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23412139": {
+  "pmid": "23412139",
+  "title": "Discovery of an Orally Available, Brain Penetrant BACE1 Inhibitor that Affords Robust CNS Aβ Reduction.",
+  "journal": "ACS medicinal chemistry letters",
+  "year": "2012",
+  "authors": [
+   "Stamford Andrew W",
+   "Scott Jack D",
+   "Li Sarah W",
+   "Babu Suresh",
+   "Tadesse Dawit",
+   "Hunter Rachael",
+   "Wu Yusheng",
+   "Misiaszek Jeffrey",
+   "Cumming Jared N",
+   "Gilbert Eric J",
+   "Huang Chunli",
+   "McKittrick Brian A",
+   "Hong Liwu",
+   "Guo Tao",
+   "Zhu Zhaoning",
+   "Strickland Corey",
+   "Orth Peter",
+   "Voigt Johannes H",
+   "Kennedy Matthew E",
+   "Chen Xia",
+   "Kuvelkar Reshma",
+   "Hodgson Robert",
+   "Hyde Lynn A",
+   "Cox Kathleen",
+   "Favreau Leonard",
+   "Parker Eric M",
+   "Greenlee William J"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3568987",
+  "doi": "10.1021/ml3001165",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23210692": {
+  "pmid": "23210692",
+  "title": "Advances in the pathogenesis of Alzheimer's disease: a re-evaluation of amyloid cascade hypothesis.",
+  "journal": "Translational neurodegeneration",
+  "year": "2012",
+  "authors": [
+   "Dong Suzhen",
+   "Duan Yale",
+   "Hu Yinghe",
+   "Zhao Zheng"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3526416",
+  "doi": "10.1186/2047-9158-1-18",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23162743": {
+  "pmid": "23162743",
+  "title": "PAK in Alzheimer disease, Huntington disease and X-linked mental retardation.",
+  "journal": "Cellular logistics",
+  "year": "2012",
+  "authors": [
+   "Ma Qiu-Lan",
+   "Yang Fusheng",
+   "Frautschy Sally A",
+   "Cole Greg M"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3490962",
+  "doi": "10.4161/cl.21602",
+  "score": null,
+  "mesh_terms": []
+ },
+ "23125823": {
+  "pmid": "23125823",
+  "title": "Age-related changes in synaptic markers and monocyte subsets link the cognitive decline of APP(Swe)/PS1 mice.",
+  "journal": "Frontiers in cellular neuroscience",
+  "year": "2012",
+  "authors": [
+   "Naert Gaëlle",
+   "Rivest Serge"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3485573",
+  "doi": "10.3389/fncel.2012.00051",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22936898": {
+  "pmid": "22936898",
+  "title": "Human stefin B normal and patho-physiological role: molecular and cellular aspects of amyloid-type aggregation of certain EPM1 mutants.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2012",
+  "authors": [
+   "Polajnar Mira",
+   "Ceru Slavko",
+   "Kopitar-Jerala Nataša",
+   "Zerovnik Eva"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3426797",
+  "doi": "10.3389/fnmol.2012.00088",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22876218": {
+  "pmid": "22876218",
+  "title": "Pore formation by human stefin B in its native and oligomeric states and the consequent amyloid induced toxicity.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2012",
+  "authors": [
+   "Anderluh Gregor",
+   "Zerovnik Eva"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3410518",
+  "doi": "10.3389/fnmol.2012.00085",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22844635": {
+  "pmid": "22844635",
+  "title": "Apolipoprotein e: essential catalyst of the Alzheimer amyloid cascade.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2012",
+  "authors": [
+   "Potter Huntington",
+   "Wisniewski Thomas"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3403541",
+  "doi": "10.1155/2012/489428",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22675649": {
+  "pmid": "22675649",
+  "title": "Microglial KCa3.1 Channels as a Potential Therapeutic Target for Alzheimer's Disease.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2012",
+  "authors": [
+   "Maezawa Izumi",
+   "Jenkins David Paul",
+   "Jin Benjamin E",
+   "Wulff Heike"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3364551",
+  "doi": "10.1155/2012/868972",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22655214": {
+  "pmid": "22655214",
+  "title": "The biphasic role of microglia in Alzheimer's disease.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2012",
+  "authors": [
+   "Mizuno Tetsuya"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3357927",
+  "doi": "10.1155/2012/737846",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22654723": {
+  "pmid": "22654723",
+  "title": "Therapeutic interventions targeting Beta amyloid pathogenesis in an aging dog model.",
+  "journal": "Current neuropharmacology",
+  "year": "2011",
+  "authors": [
+   "Martin Sarah B",
+   "Dowling Amy L S",
+   "Head Elizabeth"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3263459",
+  "doi": "10.2174/157015911798376217",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22649365": {
+  "pmid": "22649365",
+  "title": "Angiotensin II, a Neuropeptide at the Frontier between Endocrinology and Neuroscience: Is There a Link between the Angiotensin II Type 2 Receptor and Alzheimer's Disease?",
+  "journal": "Frontiers in endocrinology",
+  "year": "2011",
+  "authors": [
+   "Gallo-Payet Nicole",
+   "Guimond Marie-Odile",
+   "Bilodeau Lyne",
+   "Wallinder Charlotta",
+   "Alterman Mathias",
+   "Hallberg Anders"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3355904",
+  "doi": "10.3389/fendo.2011.00017",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22621179": {
+  "pmid": "22621179",
+  "title": "Overlapping profiles of Aβ peptides in the Alzheimer's disease and pathological aging brains.",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2012",
+  "authors": [
+   "Moore Brenda D",
+   "Chakrabarty Paramita",
+   "Levites Yona",
+   "Kukar Tom L",
+   "Baine Ann-Marie",
+   "Moroni Tina",
+   "Ladd Thomas B",
+   "Das Pritam",
+   "Dickson Dennis W",
+   "Golde Todd E"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3506932",
+  "doi": "10.1186/alzrt121",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22332002": {
+  "pmid": "22332002",
+  "title": "Formation of the 42-mer Amyloid β Radical and the Therapeutic Role of Superoxide Dismutase in Alzheimer's Disease.",
+  "journal": "Journal of amino acids",
+  "year": "2011",
+  "authors": [
+   "Murakami Kazuma",
+   "Shimizu Takahiko",
+   "Irie Kazuhiro"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3276080",
+  "doi": "10.4061/2011/654207",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22125665": {
+  "pmid": "22125665",
+  "title": "The modulating effect of mechanical changes in lipid bilayers caused by apoE-containing lipoproteins on Aβ induced membrane disruption.",
+  "journal": "ACS chemical neuroscience",
+  "year": "2011",
+  "authors": [
+   "Legleiter Justin",
+   "Fryer John D",
+   "Holtzman David M",
+   "Kowalewski Andtomasz"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3223979",
+  "doi": "10.1021/cn2000475",
+  "score": null,
+  "mesh_terms": []
+ },
+ "22114742": {
+  "pmid": "22114742",
+  "title": "Detection of Soluble Amyloid-β Oligomers and Insoluble High-Molecular-Weight Particles in CSF: Development of Methods with Potential for Diagnosis and Therapy Monitoring of Alzheimer's Disease.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2011",
+  "authors": [
+   "Funke Susanne Aileen"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3216303",
+  "doi": "10.4061/2011/151645",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21904524": {
+  "pmid": "21904524",
+  "title": "GSK3 and Alzheimer's Disease: Facts and Fiction….",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2011",
+  "authors": [
+   "Kremer Anna",
+   "Louis Justin V",
+   "Jaworski Tomasz",
+   "Van Leuven Fred"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3162188",
+  "doi": "10.3389/fnmol.2011.00017",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21871088": {
+  "pmid": "21871088",
+  "title": "Alzheimer's disease: synapses gone cold.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2011",
+  "authors": [
+   "Koffie Robert M",
+   "Hyman Bradley T",
+   "Spires-Jones Tara L"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3178498",
+  "doi": "10.1186/1750-1326-6-63",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21718498": {
+  "pmid": "21718498",
+  "title": "Microglial phagocytosis induced by fibrillar β-amyloid is attenuated by oligomeric β-amyloid: implications for Alzheimer's disease.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2011",
+  "authors": [
+   "Pan Xiao-Dong",
+   "Zhu Yuan-Gui",
+   "Lin Nan",
+   "Zhang Jing",
+   "Ye Qin-Yong",
+   "Huang Hua-Pin",
+   "Chen Xiao-Chun"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3149591",
+  "doi": "10.1186/1750-1326-6-45",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21490772": {
+  "pmid": "21490772",
+  "title": "The role of high-density lipoproteins in reducing the risk of vascular diseases, neurogenerative disorders, and cancer.",
+  "journal": "Cholesterol",
+  "year": "2011",
+  "authors": [
+   "McGrowder Donovan",
+   "Riley Cliff",
+   "Morrison Errol Y St A",
+   "Gordon Lorenzo"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3065895",
+  "doi": "10.1155/2011/496925",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21375782": {
+  "pmid": "21375782",
+  "title": "Extracellular and intraneuronal HMW-AbetaOs represent a molecular basis of memory loss in Alzheimer's disease model mouse.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2011",
+  "authors": [
+   "Takamura Ayumi",
+   "Okamoto Yasuhide",
+   "Kawarabayashi Takeshi",
+   "Yokoseki Tatsuki",
+   "Shibata Masao",
+   "Mouri Akihiko",
+   "Nabeshima Toshitaka",
+   "Sun Hui",
+   "Abe Koji",
+   "Urisu Tsuneo",
+   "Yamamoto Naoki",
+   "Shoji Mikio",
+   "Yanagisawa Katsuhiko",
+   "Michikawa Makoto",
+   "Matsubara Etsuro"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3061944",
+  "doi": "10.1186/1750-1326-6-20",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21331340": {
+  "pmid": "21331340",
+  "title": "Cell surface binding and internalization of aβ modulated by degree of aggregation.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2011",
+  "authors": [
+   "Bateman David A",
+   "Chakrabartty Avijit"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3038693",
+  "doi": "10.4061/2011/962352",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21318142": {
+  "pmid": "21318142",
+  "title": "Formation of Toxic Amyloid Fibrils by Amyloid β-Protein on Ganglioside Clusters.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2011",
+  "authors": [
+   "Matsuzaki Katsumi"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3034960",
+  "doi": "10.4061/2011/956104",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21247479": {
+  "pmid": "21247479",
+  "title": "Preclinical study of dimebon on β-amyloid-mediated neuropathology in Alzheimer's disease.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2011",
+  "authors": [
+   "Wang Jun",
+   "Ferruzzi Mario G",
+   "Varghese Merina",
+   "Qian Xianjuan",
+   "Cheng Alice",
+   "Xie Mathew",
+   "Zhao Wei",
+   "Ho Lap",
+   "Pasinetti Giulio M"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3035024",
+  "doi": "10.1186/1750-1326-6-7",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21235801": {
+  "pmid": "21235801",
+  "title": "MyD88-adaptor protein acts as a preventive mechanism for memory deficits in a mouse model of Alzheimer's disease.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2011",
+  "authors": [
+   "Michaud Jean-Philippe",
+   "Richard Karine L",
+   "Rivest Serge"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3030527",
+  "doi": "10.1186/1750-1326-6-5",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21234417": {
+  "pmid": "21234417",
+  "title": "Lipid Rafts: Linking Alzheimer's Amyloid-β Production, Aggregation, and Toxicity at Neuronal Membranes.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2010",
+  "authors": [
+   "Rushworth Jo V",
+   "Hooper Nigel M"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC3014710",
+  "doi": "10.4061/2011/603052",
+  "score": null,
+  "mesh_terms": []
+ },
+ "21221412": {
+  "pmid": "21221412",
+  "title": "Inhibition of Aβ42 peptide aggregation by a binuclear ruthenium(II)-platinum(II) complex: Potential for multi-metal organometallics as anti-amyloid agents.",
+  "journal": "ACS chemical neuroscience",
+  "year": "2010",
+  "authors": [
+   "Kumar Amit",
+   "Moody Lamaryet",
+   "Olaivar Jason F",
+   "Lewis Nerissa A",
+   "Khade Rahul L",
+   "Holder Alvin A",
+   "Zhang Yong",
+   "Rangachari Vijayaraghavan"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC3017353",
+  "doi": "10.1021/cn100046m",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20862385": {
+  "pmid": "20862385",
+  "title": "Targeting S100B in Cerebral Ischemia and in Alzheimer's Disease.",
+  "journal": "Cardiovascular psychiatry and neurology",
+  "year": "2010",
+  "authors": [
+   "Mori Takashi",
+   "Asano Takao",
+   "Town Terrence"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC2939387",
+  "doi": "10.1155/2010/687067",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20862366": {
+  "pmid": "20862366",
+  "title": "Modeling of tau-mediated synaptic and neuronal degeneration in Alzheimer's disease.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2010",
+  "authors": [
+   "Jaworski Tomasz",
+   "Kügler Sebastian",
+   "Van Leuven Fred"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2938448",
+  "doi": "10.4061/2010/573138",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20856923": {
+  "pmid": "20856923",
+  "title": "Brain amyloid β protein and memory disruption in Alzheimer's disease.",
+  "journal": "Neuropsychiatric disease and treatment",
+  "year": "2010",
+  "authors": [
+   "Xia Weiming"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC2938309",
+  "doi": "10.2147/NDT.S7460",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20798763": {
+  "pmid": "20798763",
+  "title": "Amyloid Beta annular protofibrils in cell processes and synapses accumulate with aging and Alzheimer-associated genetic modification.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2009",
+  "authors": [
+   "Kokubo Hideko",
+   "Kayed Rakez",
+   "Glabe Charles G",
+   "Staufenbiel Matthias",
+   "Saido Takaomi C",
+   "Iwata Nobuhisa",
+   "Yamaguchi Haruyasu"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2925098",
+  "doi": "10.4061/2009/689285",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20725514": {
+  "pmid": "20725514",
+  "title": "The Nuclear Receptor PPARgamma as a Therapeutic Target for Cerebrovascular and Brain Dysfunction in Alzheimer's Disease.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2010",
+  "authors": [
+   "Nicolakakis Nektaria",
+   "Hamel Edith"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2912024",
+  "doi": "10.3389/fnagi.2010.00021",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20721349": {
+  "pmid": "20721349",
+  "title": "CSF Biomarkers for Alzheimer's Disease Diagnosis.",
+  "journal": "International journal of Alzheimer's disease",
+  "year": "2010",
+  "authors": [
+   "Anoop A",
+   "Singh Pradeep K",
+   "Jacob Reeba S",
+   "Maji Samir K"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2915796",
+  "doi": "10.4061/2010/606802",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20642866": {
+  "pmid": "20642866",
+  "title": "The culprit behind amyloid beta peptide related neurotoxicity in Alzheimer's disease: oligomer size or conformation?",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2010",
+  "authors": [
+   "Broersen Kerensa",
+   "Rousseau Frederic",
+   "Schymkowitz Joost"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2949586",
+  "doi": "10.1186/alzrt36",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20478062": {
+  "pmid": "20478062",
+  "title": "Endocytic pathways mediating oligomeric Abeta42 neurotoxicity.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2010",
+  "authors": [
+   "Yu Chunjiang",
+   "Nwabuisi-Heath Evelyn",
+   "Laxton Kevin",
+   "Ladu Mary Jo"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC2881055",
+  "doi": "10.1186/1750-1326-5-19",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20161175": {
+  "pmid": "20161175",
+  "title": "Detection and Identification of Bioanalytes with High Resolution LSPR Spectroscopy and MALDI Mass Spectrometry.",
+  "journal": "The journal of physical chemistry. C, Nanomaterials and interfaces",
+  "year": "2009",
+  "authors": [
+   "Anker Jeffrey N",
+   "Hall W Paige",
+   "Lambert Mary P",
+   "Velasco Pauline T",
+   "Mrksich Milan",
+   "Klein William L",
+   "Van Duyne Richard P"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC2723955",
+  "doi": "10.1021/jp900266k",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19997583": {
+  "pmid": "19997583",
+  "title": "Soluble state high resolution atomic force microscopy study of Alzheimer's beta-amyloid oligomers.",
+  "journal": "Applied physics letters",
+  "year": "2009",
+  "authors": [
+   "Shekhawat Gajendra S",
+   "Lambert Mary P",
+   "Sharma Saurabh",
+   "Velasco Pauline T",
+   "Viola Kirsten L",
+   "Klein William L",
+   "Dravid Vinayak P"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC2789110",
+  "doi": "10.1063/1.3251779",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19930651": {
+  "pmid": "19930651",
+  "title": "Alzheimer's disease: synaptic dysfunction and Abeta.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2009",
+  "authors": [
+   "Shankar Ganesh M",
+   "Walsh Dominic M"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2788538",
+  "doi": "10.1186/1750-1326-4-48",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19839939": {
+  "pmid": "19839939",
+  "title": "Animal models for Alzheimer's disease and frontotemporal dementia: a perspective.",
+  "journal": "ASN neuro",
+  "year": "2009",
+  "authors": [
+   "Götz Jürgen",
+   "Götz Naeman N"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Research Support, Non-U.S. Gov't"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2785514",
+  "doi": "10.1042/AN20090042",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19822029": {
+  "pmid": "19822029",
+  "title": "Proteinopathy-induced neuronal senescence: a hypothesis for brain failure in Alzheimer's and other neurodegenerative diseases.",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2009",
+  "authors": [
+   "Golde Todd E",
+   "Miller Victor M"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2874257",
+  "doi": "10.1186/alzrt5",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19570031": {
+  "pmid": "19570031",
+  "title": "Memory deficits in APP23/Abca1+/- mice correlate with the level of Aβ oligomers.",
+  "journal": "ASN neuro",
+  "year": "2009",
+  "authors": [
+   "Lefterov Iliya",
+   "Fitz Nicholas F",
+   "Cronican Andrea",
+   "Lefterov Preslav",
+   "Staufenbiel Matthias",
+   "Koldamova Radosveta"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Research Support, N.I.H., Extramural"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC2695585",
+  "doi": "10.1042/AN20090015",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19419557": {
+  "pmid": "19419557",
+  "title": "Calcium signaling in neurodegeneration.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2009",
+  "authors": [
+   "Marambaud Philippe",
+   "Dreses-Werringloer Ute",
+   "Vingtdeux Valérie"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2689218",
+  "doi": "10.1186/1750-1326-4-20",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19415125": {
+  "pmid": "19415125",
+  "title": "Advances on the understanding of the origins of synaptic pathology in AD.",
+  "journal": "Current genomics",
+  "year": "2007",
+  "authors": [
+   "Lacor Pascale Nathalie"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC2647163",
+  "doi": "10.2174/138920207783769530",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19337449": {
+  "pmid": "19337449",
+  "title": "An update on the toxicity of Abeta in Alzheimer's disease.",
+  "journal": "Neuropsychiatric disease and treatment",
+  "year": "2008",
+  "authors": [
+   "Götz Jürgen",
+   "Ittner Lars M",
+   "Schonrock Nicole",
+   "Cappai Roberto"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2646638",
+  "doi": "10.2147/ndt.s3016",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19300541": {
+  "pmid": "19300541",
+  "title": "Impaired cognition and attention in adults: pharmacological management strategies.",
+  "journal": "Neuropsychiatric disease and treatment",
+  "year": "2007",
+  "authors": [
+   "Allain Hervé",
+   "Akwa Yvette",
+   "Lacomblez Lucette",
+   "Lieury Alain",
+   "Bentué-Ferrer Danièle"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2654526",
+  "doi": "10.2147/nedt.2007.3.1.103",
+  "score": null,
+  "mesh_terms": []
+ },
+ "19291319": {
+  "pmid": "19291319",
+  "title": "The PI3K-Akt-mTOR pathway regulates Abeta oligomer induced neuronal cell cycle events.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2009",
+  "authors": [
+   "Bhaskar Kiran",
+   "Miller Megan",
+   "Chludzinski Alexandra",
+   "Herrup Karl",
+   "Zagorski Michael",
+   "Lamb Bruce T"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC2663563",
+  "doi": "10.1186/1750-1326-4-14",
+  "score": null,
+  "mesh_terms": []
+ },
+ "18615151": {
+  "pmid": "18615151",
+  "title": "Brain slices as models for neurodegenerative disease and screening platforms to identify novel therapeutics.",
+  "journal": "Current neuropharmacology",
+  "year": "2007",
+  "authors": [
+   "Cho Seongeun",
+   "Wood Andrew",
+   "Bowlby Mark R"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC2435340",
+  "doi": "10.2174/157015907780077105",
+  "score": null,
+  "mesh_terms": []
+ },
+ "17559680": {
+  "pmid": "17559680",
+  "title": "Novel rat Alzheimer's disease models based on AAV-mediated gene transfer to selectively increase hippocampal Abeta levels.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2007",
+  "authors": [
+   "Lawlor Patricia A",
+   "Bland Ross J",
+   "Das Pritam",
+   "Price Robert W",
+   "Holloway Vallie",
+   "Smithson Lisa",
+   "Dicker Bridget L",
+   "During Matthew J",
+   "Young Deborah",
+   "Golde Todd E"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC1906777",
+  "doi": "10.1186/1750-1326-2-11",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42389265": {
+  "pmid": "42389265",
+  "title": "Advances in the treatment of Alzheimer's disease.",
+  "journal": "Frontiers in pharmacology",
+  "year": "2026",
+  "authors": [
+   "Temelli Goceroglu Rezzan",
+   "Hacimuftuoglu Ahmet"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13319105",
+  "doi": "10.3389/fphar.2026.1819165",
+  "score": null,
+  "mesh_terms": []
+ },
+ "40969938": {
+  "pmid": "40969938",
+  "title": "Long-term gabapentin treatment impairs cognitive function in aged mice via tau hyperphosphorylation.",
+  "journal": "Frontiers in pharmacology",
+  "year": "2025",
+  "authors": [
+   "Xia Suyun",
+   "You Zerong",
+   "Wu Xinbo",
+   "Yang Jinsheng",
+   "Wang Shiyu",
+   "Li Na",
+   "Dai Jiajia",
+   "Dong Yuanlin",
+   "Chen Lucy",
+   "Yan Min",
+   "Shen Shiqian",
+   "Xie Zhongcong",
+   "Mao Jianren"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12440869",
+  "doi": "10.3389/fphar.2025.1616775",
+  "score": null,
+  "mesh_terms": []
+ },
+ "38449479": {
+  "pmid": "38449479",
+  "title": "Binding mechanism of full-length Aβ40 peptide to a mixed lipid bilayer.",
+  "journal": "Frontiers in chemistry",
+  "year": "2024",
+  "authors": [
+   "Wang Ke",
+   "Cai Wensheng"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10914957",
+  "doi": "10.3389/fchem.2024.1367793",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35586776": {
+  "pmid": "35586776",
+  "title": "History in Perspective: The prime pathological players and role of phytochemicals in Alzheimer's disease.",
+  "journal": "IBRO neuroscience reports",
+  "year": "2022",
+  "authors": [
+   "Sajad Mohd",
+   "Kumar Rajesh",
+   "Thakur Sonu Chand"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9108734",
+  "doi": "10.1016/j.ibneur.2022.04.009",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35341232": {
+  "pmid": "35341232",
+  "title": "Role of JAK/STAT in the Neuroinflammation and its Association with Neurological Disorders.",
+  "journal": "Annals of neurosciences",
+  "year": "2021",
+  "authors": [
+   "Jain Mayank",
+   "Singh Mukul Kumar",
+   "Shyam Hari",
+   "Mishra Archana",
+   "Kumar Shailendra",
+   "Kumar Ambrish",
+   "Kushwaha Jitendra"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8948319",
+  "doi": "10.1177/09727531211070532",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35214143": {
+  "pmid": "35214143",
+  "title": "Delivery of Intravenously Administered Antibodies Targeting Alzheimer's Disease-Relevant Tau Species into the Brain Based on Receptor-Mediated Transcytosis.",
+  "journal": "Pharmaceutics",
+  "year": "2022",
+  "authors": [
+   "Tashima Toshihiko"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8876001",
+  "doi": "10.3390/pharmaceutics14020411",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35069106": {
+  "pmid": "35069106",
+  "title": "Trans ε-Viniferin Decreases Amyloid Deposits With Greater Efficiency Than Resveratrol in an Alzheimer's Mouse Model.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2021",
+  "authors": [
+   "Freyssin Aline",
+   "Rioux Bilan Agnès",
+   "Fauconneau Bernard",
+   "Galineau Laurent",
+   "Serrière Sophie",
+   "Tauber Clovis",
+   "Perrin Flavie",
+   "Guillard Jérôme",
+   "Chalon Sylvie",
+   "Page Guylène"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8770934",
+  "doi": "10.3389/fnins.2021.803927",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34349624": {
+  "pmid": "34349624",
+  "title": "Relationship Between Amyloid-β Deposition and Blood-Brain Barrier Dysfunction in Alzheimer's Disease.",
+  "journal": "Frontiers in cellular neuroscience",
+  "year": "2021",
+  "authors": [
+   "Wang Dong",
+   "Chen Fanglian",
+   "Han Zhaoli",
+   "Yin Zhenyu",
+   "Ge Xintong",
+   "Lei Ping"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8326917",
+  "doi": "10.3389/fncel.2021.695479",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34113785": {
+  "pmid": "34113785",
+  "title": "Aluminum and Tau in Neurofibrillary Tangles in Familial Alzheimer's Disease.",
+  "journal": "Journal of Alzheimer's disease reports",
+  "year": "2021",
+  "authors": [
+   "Mold Matthew John",
+   "O'Farrell Adam",
+   "Morris Benjamin",
+   "Exley Christopher"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8150251",
+  "doi": "10.3233/ADR-210011",
+  "score": null,
+  "mesh_terms": []
+ },
+ "25802556": {
+  "pmid": "25802556",
+  "title": "A highly sensitive novel immunoassay specifically detects low levels of soluble Aβ oligomers in human cerebrospinal fluid.",
+  "journal": "Alzheimer's research & therapy",
+  "year": "2015",
+  "authors": [
+   "Yang Ting",
+   "O'Malley Tiernan T",
+   "Kanmert Daniel",
+   "Jerecic Jasna",
+   "Zieske Lynn R",
+   "Zetterberg Henrik",
+   "Hyman Bradley T",
+   "Walsh Dominic M",
+   "Selkoe Dennis J"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC4369838",
+  "doi": "10.1186/s13195-015-0100-y",
+  "score": null,
+  "mesh_terms": []
+ },
+ "40092368": {
+  "pmid": "40092368",
+  "title": "Uncovering atrophy progression pattern and mechanisms in individuals at risk of Alzheimer's disease.",
+  "journal": "Brain communications",
+  "year": "2025",
+  "authors": [
+   "Tremblay Christina",
+   "Rahayel Shady",
+   "Pastor-Bernier Alexandre",
+   "St-Onge Frédéric",
+   "Vo Andrew",
+   "Rheault François",
+   "Daneault Véronique",
+   "Morys Filip",
+   "Rajah Natasha",
+   "Villeneuve Sylvia",
+   "Dagher Alain",
+   "PREVENT-AD Research Group",
+   "Alzheimer’s Disease Neuroimaging Initiative (ADNI)"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC11906971",
+  "doi": "10.1093/braincomms/fcaf099",
+  "score": null,
+  "mesh_terms": []
+ },
+ "39698283": {
+  "pmid": "39698283",
+  "title": "Pharmacology, Signaling and Therapeutic Potential of Metabotropic Glutamate Receptor 5 Negative Allosteric Modulators.",
+  "journal": "ACS pharmacology & translational science",
+  "year": "2024",
+  "authors": [
+   "Kos Jackson A",
+   "Langiu Monica",
+   "Hellyer Shane D",
+   "Gregory Karen J"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC11651194",
+  "doi": "10.1021/acsptsci.4c00213",
+  "score": null,
+  "mesh_terms": []
+ },
+ "39697541": {
+  "pmid": "39697541",
+  "title": "Fyn, an important molecule in the brain, is a potential therapeutic target for brain tumours.",
+  "journal": "Frontiers in pharmacology",
+  "year": "2024",
+  "authors": [
+   "Xu Chongxi",
+   "Tang Yi",
+   "Lu Xing",
+   "Chen Ruiqi"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC11652172",
+  "doi": "10.3389/fphar.2024.1485919",
+  "score": null,
+  "mesh_terms": []
+ },
+ "39386453": {
+  "pmid": "39386453",
+  "title": "Assessment of the relationship between synaptic density and metabotropic glutamate receptors in early Alzheimer's disease: a multi-tracer PET study.",
+  "journal": "bioRxiv : the preprint server for biology",
+  "year": "2024",
+  "authors": [
+   "Salardini Elaheh",
+   "O'Dell Ryan S",
+   "Tchorz Em",
+   "Nabulsi Nabeel B",
+   "Huang Yiyun",
+   "Carson Richard E",
+   "van Dyck Christopher H",
+   "Mecca Adam P"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Preprint"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC11463661",
+  "doi": "10.1101/2024.09.21.614277",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37854584": {
+  "pmid": "37854584",
+  "title": "Human prion diseases and the prion protein - what is the current state of knowledge?",
+  "journal": "Translational neuroscience",
+  "year": "2023",
+  "authors": [
+   "Nafe Reinhold",
+   "Arendt Christophe T",
+   "Hattingen Elke"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10579786",
+  "doi": "10.1515/tnsci-2022-0315",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37623221": {
+  "pmid": "37623221",
+  "title": "The Deficits of Insulin Signal in Alzheimer's Disease and the Mechanisms of Vanadium Compounds in Curing AD.",
+  "journal": "Current issues in molecular biology",
+  "year": "2023",
+  "authors": [
+   "Yao Jinyi",
+   "He Zhijun",
+   "You Guanying",
+   "Liu Qiong",
+   "Li Nan"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10453015",
+  "doi": "10.3390/cimb45080402",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35959488": {
+  "pmid": "35959488",
+  "title": "Amyloid precursor protein (APP) and amyloid β (Aβ) interact with cell adhesion molecules: Implications in Alzheimer's disease and normal physiology.",
+  "journal": "Frontiers in cell and developmental biology",
+  "year": "2022",
+  "authors": [
+   "Pfundstein Grant",
+   "Nikonenko Alexander G",
+   "Sytnyk Vladimir"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9360506",
+  "doi": "10.3389/fcell.2022.969547",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35252893": {
+  "pmid": "35252893",
+  "title": "Antroquinonol administration in animal preclinical studies for Alzheimer's disease (AD): A new avenue for modifying progression of AD pathophysiology.",
+  "journal": "Brain, behavior, & immunity - health",
+  "year": "2022",
+  "authors": [
+   "Francesca Fernandez",
+   "Caitlin Aust",
+   "Sarah Lye",
+   "Robyn Griffiths Lyn"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8892093",
+  "doi": "10.1016/j.bbih.2022.100435",
+  "score": null,
+  "mesh_terms": []
+ },
+ "20691893": {
+  "pmid": "20691893",
+  "title": "Fyn-tau-amyloid: a toxic triad.",
+  "journal": "Cell",
+  "year": "2010",
+  "authors": [
+   "Haass Christian",
+   "Mandelkow Eckhard"
+  ],
+  "pub_types": [
+   "Comment",
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": null,
+  "doi": "10.1016/j.cell.2010.07.032",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35494163": {
+  "pmid": "35494163",
+  "title": "Soluble brain homogenates from diverse human and mouse sources preferentially seed diffuse Aβ plaque pathology when injected into newborn mouse hosts.",
+  "journal": "Free neuropathology",
+  "year": "2022",
+  "authors": [
+   "Moore Brenda D",
+   "Levites Yona",
+   "Xu Guilian",
+   "Hampton Hailey",
+   "Adamo Munir F",
+   "Croft Cara L",
+   "Futch Hunter S",
+   "Moran Corey",
+   "Fromholt Susan",
+   "Janus Christopher",
+   "Prokop Stefan",
+   "Dickson Dennis",
+   "Lewis Jada",
+   "Giasson Benoit I",
+   "Golde Todd E",
+   "Borchelt David R"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC9053163",
+  "doi": "10.17879/freeneuropathology-2022-3766",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42677111": {
+  "pmid": "42677111",
+  "title": "Investigation of neuroprotective and antiapoptotic effects of rosmarinic acid in an in vitro Alzheimer's disease model.",
+  "journal": "Iranian journal of basic medical sciences",
+  "year": "2026",
+  "authors": [
+   "Şen Aysu",
+   "Eroğlu Güneş Canan",
+   "Dursun Ebru Nur",
+   "Kurar Ercan",
+   "Kutlu Selim"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13527855",
+  "doi": "10.22038/ijbms.2026.91805.19812",
+  "score": null,
+  "mesh_terms": []
+ },
+ "40137428": {
+  "pmid": "40137428",
+  "title": "Exploring the Immunological Role of the Microbial Composition of the Appendix and the Associated Risks of Appendectomies.",
+  "journal": "Journal of personalized medicine",
+  "year": "2025",
+  "authors": [
+   "Islam Tarequl",
+   "Sagor Md Shahjalal",
+   "Tamanna Noshin Tabassum",
+   "Bappy Md Kamrul Islam",
+   "Danishuddin",
+   "Haque Md Azizul",
+   "Lackner Maximilian"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC11943658",
+  "doi": "10.3390/jpm15030112",
+  "score": null,
+  "mesh_terms": []
+ },
+ "39280698": {
+  "pmid": "39280698",
+  "title": "Association between air pollution and cerebrospinal fluid alpha-synuclein in urban elders: the CABLE study.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2024",
+  "authors": [
+   "Wang An-Yi",
+   "Hu He-Ying",
+   "Sun Yan",
+   "Ou Ya-Nan",
+   "Ma Ya-Hui",
+   "Li Meng",
+   "Li Qiong-Yao",
+   "Tan Lan"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC11392785",
+  "doi": "10.3389/fnagi.2024.1422772",
+  "score": null,
+  "mesh_terms": []
+ },
+ "39221152": {
+  "pmid": "39221152",
+  "title": "Bioinformatic analysis of hippocampal histopathology in Alzheimer's disease and the therapeutic effects of active components of traditional Chinese medicine.",
+  "journal": "Frontiers in pharmacology",
+  "year": "2024",
+  "authors": [
+   "Zhiyan Chen",
+   "Min Zhan",
+   "Yida Du",
+   "Chunying He",
+   "Xiaohua Hu",
+   "Yutong Li",
+   "Huan Wang",
+   "Linjuan Sun"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC11362046",
+  "doi": "10.3389/fphar.2024.1424803",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37893236": {
+  "pmid": "37893236",
+  "title": "Investigating the Pathogenic Interplay of Alpha-Synuclein, Tau, and Amyloid Beta in Lewy Body Dementia: Insights from Viral-Mediated Overexpression in Transgenic Mouse Models.",
+  "journal": "Biomedicines",
+  "year": "2023",
+  "authors": [
+   "Lim Melina J",
+   "Boschen Suelen L",
+   "Kurti Aishe",
+   "Castanedes Casey Monica",
+   "Phillips Virginia R",
+   "Fryer John D",
+   "Dickson Dennis",
+   "Jansen-West Karen R",
+   "Petrucelli Leonard",
+   "Delenclos Marion",
+   "McLean Pamela J"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC10604054",
+  "doi": "10.3390/biomedicines11102863",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37626551": {
+  "pmid": "37626551",
+  "title": "Is Hearing Loss a Risk Factor for Idiopathic Parkinson's Disease? An English Longitudinal Study of Ageing Analysis.",
+  "journal": "Brain sciences",
+  "year": "2023",
+  "authors": [
+   "Readman Megan Rose",
+   "Wan Fang",
+   "Fairman Ian",
+   "Linkenauger Sally A",
+   "Crawford Trevor J",
+   "Plack Christopher J"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10452744",
+  "doi": "10.3390/brainsci13081196",
+  "score": null,
+  "mesh_terms": []
+ },
+ "37292130": {
+  "pmid": "37292130",
+  "title": "Validity of CSF alpha-synuclein to predict psychosis in prodromal Alzheimer's disease.",
+  "journal": "Frontiers in neurology",
+  "year": "2023",
+  "authors": [
+   "Monge-García Sonia",
+   "García-Ayllón María-Salud",
+   "Sánchez-Payá José",
+   "Gasparini-Berenguer Ruth",
+   "Cortés-Gómez María-Ángeles",
+   "Sáez-Valero Javier",
+   "Monge-Argilés José-Antonio"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10244520",
+  "doi": "10.3389/fneur.2023.1124145",
+  "score": null,
+  "mesh_terms": []
+ },
+ "36353596": {
+  "pmid": "36353596",
+  "title": "Potential value of cerebrospinal fluid α-synuclein in the identification of postoperative delirium undergoing knee/hip arthroplasty: The perioperative neurocognitive disorder and biomarker lifestyle study.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2022",
+  "authors": [
+   "Lin Xu",
+   "Guo Yuwei",
+   "Dong Rui",
+   "Wang Bin",
+   "Bi Yanlin"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9637833",
+  "doi": "10.3389/fnins.2022.935869",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35683523": {
+  "pmid": "35683523",
+  "title": "Evaluation of Alpha-Synuclein Cerebrospinal Fluid Levels in Several Neurological Disorders.",
+  "journal": "Journal of clinical medicine",
+  "year": "2022",
+  "authors": [
+   "Agnello Luisa",
+   "Lo Sasso Bruna",
+   "Vidali Matteo",
+   "Scazzone Concetta",
+   "Gambino Caterina Maria",
+   "Piccoli Tommaso",
+   "Bivona Giulia",
+   "Ciaccio Anna Maria",
+   "Giglio Rosaria Vincenza",
+   "La Bella Vincenzo",
+   "Ciaccio Marcello"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9181117",
+  "doi": "10.3390/jcm11113139",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35647576": {
+  "pmid": "35647576",
+  "title": "Role of Environmental Toxicants on Neurodegenerative Disorders.",
+  "journal": "Frontiers in toxicology",
+  "year": "2022",
+  "authors": [
+   "Nabi Masarat",
+   "Tabassum Nahida"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC9131020",
+  "doi": "10.3389/ftox.2022.837579",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34910503": {
+  "pmid": "34910503",
+  "title": "Single-synapse analyses of Alzheimer's disease implicate pathologic tau, DJ1, CD47, and ApoE.",
+  "journal": "Science advances",
+  "year": "2021",
+  "authors": [
+   "Phongpreecha Thanaphong",
+   "Gajera Chandresh R",
+   "Liu Candace C",
+   "Vijayaragavan Kausalia",
+   "Chang Alan L",
+   "Becker Martin",
+   "Fallahzadeh Ramin",
+   "Fernandez Rosemary",
+   "Postupna Nadia",
+   "Sherfield Emily",
+   "Tebaykin Dmitry",
+   "Latimer Caitlin",
+   "Shively Carol A",
+   "Register Thomas C",
+   "Craft Suzanne",
+   "Montine Kathleen S",
+   "Fox Edward J",
+   "Poston Kathleen L",
+   "Keene C Dirk",
+   "Angelo Michael",
+   "Bendall Sean C",
+   "Aghaeepour Nima",
+   "Montine Thomas J"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC8673771",
+  "doi": "10.1126/sciadv.abk0473",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34833002": {
+  "pmid": "34833002",
+  "title": "Examining the Toxicity of α-Synuclein in Neurodegenerative Disorders.",
+  "journal": "Life (Basel, Switzerland)",
+  "year": "2021",
+  "authors": [
+   "Shan Frank Y",
+   "Fung Kar-Ming",
+   "Zieneldien Tarek",
+   "Kim Janice",
+   "Cao Chuanhai",
+   "Huang Jason H"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8621244",
+  "doi": "10.3390/life11111126",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34380910": {
+  "pmid": "34380910",
+  "title": "Mutations in GBA, SNCA, and VPS35 are not associated with Alzheimer's disease in a Chinese population: a case-control study.",
+  "journal": "Neural regeneration research",
+  "year": "2022",
+  "authors": [
+   "Wen Ya-Fei",
+   "Xiao Xue-Wen",
+   "Zhou Lu",
+   "Jiang Ya-Ling",
+   "Zhu Yuan",
+   "Guo Li-Na",
+   "Wang Xin",
+   "Liu Hui",
+   "Zhou Ya-Fang",
+   "Wang Jun-Ling",
+   "Liao Xin-Xin",
+   "Shen Lu",
+   "Jiao Bin"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8504399",
+  "doi": "10.4103/1673-5374.321000",
+  "score": null,
+  "mesh_terms": []
+ },
+ "39070259": {
+  "pmid": "39070259",
+  "title": "Phytonutrients in the promotion of healthspan: a new perspective.",
+  "journal": "Frontiers in nutrition",
+  "year": "2024",
+  "authors": [
+   "Jacquier Emma F",
+   "Kassis Amira",
+   "Marcu Diana",
+   "Contractor Nikhat",
+   "Hong Jina",
+   "Hu Chun",
+   "Kuehn Marissa",
+   "Lenderink Christopher",
+   "Rajgopal Arun"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC11272662",
+  "doi": "10.3389/fnut.2024.1409339",
+  "score": null,
+  "mesh_terms": []
+ },
+ "38051904": {
+  "pmid": "38051904",
+  "title": "Neural stem cell-derived exosomes promote mitochondrial biogenesis and restore abnormal protein distribution in a mouse model of Alzheimer's disease.",
+  "journal": "Neural regeneration research",
+  "year": "2024",
+  "authors": [
+   "Li Bo",
+   "Chen Yujie",
+   "Zhou Yan",
+   "Feng Xuanran",
+   "Gu Guojun",
+   "Han Shuang",
+   "Cheng Nianhao",
+   "Sun Yawen",
+   "Zhang Yiming",
+   "Cheng Jiahui",
+   "Zhang Qi",
+   "Zhang Wei",
+   "Liu Jianhui"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC10883488",
+  "doi": "10.4103/1673-5374.385839",
+  "score": null,
+  "mesh_terms": []
+ },
+ "38001775": {
+  "pmid": "38001775",
+  "title": "The Contribution of Hippocampal All-Trans Retinoic Acid (ATRA) Deficiency to Alzheimer's Disease: A Narrative Overview of ATRA-Dependent Gene Expression in Post-Mortem Hippocampal Tissue.",
+  "journal": "Antioxidants (Basel, Switzerland)",
+  "year": "2023",
+  "authors": [
+   "Almaguer Joey",
+   "Hindle Ashly",
+   "Lawrence J Josh"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC10669734",
+  "doi": "10.3390/antiox12111921",
+  "score": null,
+  "mesh_terms": []
+ },
+ "35052635": {
+  "pmid": "35052635",
+  "title": "Protection against Amyloid-β Oligomer Neurotoxicity by Small Molecules with Antioxidative Properties: Potential for the Prevention of Alzheimer's Disease Dementia.",
+  "journal": "Antioxidants (Basel, Switzerland)",
+  "year": "2022",
+  "authors": [
+   "Araki Wataru",
+   "Kametani Fuyuki"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8773221",
+  "doi": "10.3390/antiox11010132",
+  "score": null,
+  "mesh_terms": []
+ },
+ "34484659": {
+  "pmid": "34484659",
+  "title": "Time-course miRNA alterations and SIRT1 inhibition triggered by adolescent lead exposure in mice.",
+  "journal": "Toxicology research",
+  "year": "2021",
+  "authors": [
+   "Liu Rundong",
+   "Wang Yawei",
+   "Bai Lin",
+   "Wang Ruike",
+   "Wu Yingying",
+   "Liu Mengchen",
+   "Li Qiong",
+   "Ba Yue",
+   "Zhang Huizhen",
+   "Zhou Guoyu",
+   "Cheng Xuemin",
+   "Huang Hui"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC8403607",
+  "doi": "10.1093/toxres/tfab050",
+  "score": null,
+  "mesh_terms": []
+ },
+ "33414704": {
+  "pmid": "33414704",
+  "title": "Role of Sirtuins in Modulating Neurodegeneration of the Enteric Nervous System and Central Nervous System.",
+  "journal": "Frontiers in neuroscience",
+  "year": "2020",
+  "authors": [
+   "Chandramowlishwaran Pavithra",
+   "Vijay Anitha",
+   "Abraham Daniel",
+   "Li Ge",
+   "Mwangi Simon Musyoka",
+   "Srinivasan Shanthi"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC7783311",
+  "doi": "10.3389/fnins.2020.614331",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32669903": {
+  "pmid": "32669903",
+  "title": "Epigenetic mechanisms in Alzheimer's disease.",
+  "journal": "Degenerative neurological and neuromuscular disease",
+  "year": "2014",
+  "authors": [
+   "Balazs Robert"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7337154",
+  "doi": "10.2147/DNND.S37341",
+  "score": null,
+  "mesh_terms": []
+ },
+ "31244753": {
+  "pmid": "31244753",
+  "title": "Ketone Bodies in Neurological Diseases: Focus on Neuroprotection and Underlying Mechanisms.",
+  "journal": "Frontiers in neurology",
+  "year": "2019",
+  "authors": [
+   "Yang Huajun",
+   "Shan Wei",
+   "Zhu Fei",
+   "Wu Jianping",
+   "Wang Qun"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6581710",
+  "doi": "10.3389/fneur.2019.00585",
+  "score": null,
+  "mesh_terms": []
+ },
+ "30524273": {
+  "pmid": "30524273",
+  "title": "Resveratrol Brain Delivery for Neurological Disorders Prevention and Treatment.",
+  "journal": "Frontiers in pharmacology",
+  "year": "2018",
+  "authors": [
+   "Andrade Stephanie",
+   "Ramalho Maria João",
+   "Pereira Maria do Carmo",
+   "Loureiro Joana A"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC6262174",
+  "doi": "10.3389/fphar.2018.01261",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41868623": {
+  "pmid": "41868623",
+  "title": "Amyloid-β acute exposition affects the CA1 hippocampal network activity and its topological organization, evaluated with multielectrode arrays.",
+  "journal": "Frontiers in dementia",
+  "year": "2026",
+  "authors": [
+   "Alcantara-Gonzalez David",
+   "Santiago Elizabeth",
+   "Peña-Ortega Fernando"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13002378",
+  "doi": "10.3389/frdem.2026.1738954",
+  "score": null,
+  "mesh_terms": []
+ },
+ "32265655": {
+  "pmid": "32265655",
+  "title": "Acute Pannexin 1 Blockade Mitigates Early Synaptic Plasticity Defects in a Mouse Model of Alzheimer's Disease.",
+  "journal": "Frontiers in cellular neuroscience",
+  "year": "2020",
+  "authors": [
+   "Flores-Muñoz Carolina",
+   "Gómez Bárbara",
+   "Mery Elena",
+   "Mujica Paula",
+   "Gajardo Ivana",
+   "Córdova Claudio",
+   "Lopez-Espíndola Daniela",
+   "Durán-Aniotz Claudia",
+   "Hetz Claudio",
+   "Muñoz Pablo",
+   "Gonzalez-Jamett Arlek M",
+   "Ardiles Álvaro O"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC7103637",
+  "doi": "10.3389/fncel.2020.00046",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29163036": {
+  "pmid": "29163036",
+  "title": "Amino-Terminal β-Amyloid Antibody Blocks β-Amyloid-Mediated Inhibition of the High-Affinity Choline Transporter CHT.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2017",
+  "authors": [
+   "Cuddy Leah K",
+   "Seah Claudia",
+   "Pasternak Stephen H",
+   "Rylett R Jane"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5681948",
+  "doi": "10.3389/fnmol.2017.00361",
+  "score": null,
+  "mesh_terms": []
+ },
+ "26300732": {
+  "pmid": "26300732",
+  "title": "Monomeric ß-amyloid interacts with type-1 insulin-like growth factor receptors to provide energy supply to neurons.",
+  "journal": "Frontiers in cellular neuroscience",
+  "year": "2015",
+  "authors": [
+   "Giuffrida Maria L",
+   "Tomasello Marianna F",
+   "Pandini Giuseppe",
+   "Caraci Filippo",
+   "Battaglia Giuseppe",
+   "Busceti Carla",
+   "Di Pietro Paola",
+   "Pappalardo Giuseppe",
+   "Attanasio Francesco",
+   "Chiechio Santina",
+   "Bagnoli Silvia",
+   "Nacmias Benedetta",
+   "Sorbi Sandro",
+   "Vigneri Riccardo",
+   "Rizzarelli Enrico",
+   "Nicoletti Ferdinando",
+   "Copani Agata"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4528168",
+  "doi": "10.3389/fncel.2015.00297",
+  "score": null,
+  "mesh_terms": []
+ },
+ "11224469": {
+  "pmid": "11224469",
+  "title": "Utilization of a novel model of food reinforced behavior involving neuropeptide Y, insulin, 2-deoxy-d-glucose and naloxone.",
+  "journal": "Behavioural pharmacology",
+  "year": "1996",
+  "authors": [
+   "O'Hare E.",
+   "Levine A.S.",
+   "Semotuk M.T.",
+   "Tierney K.J.",
+   "Shephard R.A.",
+   "Grace M.K.",
+   "Cleary J."
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": null,
+  "doi": null,
+  "score": null,
+  "mesh_terms": []
+ },
+ "42620051": {
+  "pmid": "42620051",
+  "title": "APOEε4 attenuates early TREM2-mediated microglial responses and influences disease trajectories in dementia with Lewy bodies.",
+  "journal": "Research square",
+  "year": "2026",
+  "authors": [
+   "Rodríguez Estrella Morenas",
+   "Zaragoza-Ballester Pablo",
+   "Alcolea Daniel",
+   "Esteller-Gauxax Diana",
+   "Nuscher Brigitte",
+   "Chacón Sara",
+   "Fernández-León Álex",
+   "Rodríguez-Baz Íñigo",
+   "Bejanin Alexandre",
+   "Vera Elena",
+   "Vaqué-Alcázar Lidia",
+   "Franquesa-Mullerat Maria",
+   "Sala-Matevera Isabel",
+   "Schlepckow Kai",
+   "Gómez-Grande Adolfo",
+   "Solís Sebastián Ruiz",
+   "Lleó Alberto",
+   "Camacho Valle",
+   "Balasa Mircea",
+   "Fortea Juan",
+   "Haass Christian"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Preprint"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC13484399",
+  "doi": "10.21203/rs.3.rs-10429506/v1",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42219867": {
+  "pmid": "42219867",
+  "title": "Syndrome-specific vulnerability of neuronal and glial 4-repeat frontotemporal lobar degeneration-tau.",
+  "journal": "Brain : a journal of neurology",
+  "year": "2026",
+  "authors": [
+   "Minogue Grace",
+   "Zouridakis Antonia",
+   "Nelson Caroline",
+   "Kawles Allegra",
+   "Keszycki Rachel",
+   "Macomber Alyssa",
+   "Weintraub Sandra",
+   "Gill Nathan",
+   "Mao Qinwen",
+   "Jamshidi Pouya",
+   "Castellani Rudolph",
+   "Mesulam M-Marsel",
+   "Geula Changiz",
+   "Gefen Tamar"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC13387371",
+  "doi": "10.1093/brain/awag190",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41907842": {
+  "pmid": "41907842",
+  "title": "Molecular mechanism of Alzheimer's disease using integrated multi-omics.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2026",
+  "authors": [
+   "Alhusaini Mera",
+   "Mussa Bashair M",
+   "Ilce Burcu Yener",
+   "Alhaj Hamid",
+   "Hamoudi Rifat"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13021848",
+  "doi": "10.3389/fnagi.2026.1735696",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41893715": {
+  "pmid": "41893715",
+  "title": "Canine Cognitive Dysfunction and Alzheimer's Disease: Pathophysiological Relationships and the Impact of Glymphatic System Impairment on Neurodegeneration.",
+  "journal": "Veterinary sciences",
+  "year": "2026",
+  "authors": [
+   "Dondi Maurizio",
+   "Bianchi Ezio",
+   "Borghetti Paolo",
+   "Di Lecce Rosanna",
+   "Gnudi Giacomo",
+   "Guarnieri Chiara",
+   "Buffagni Valentina",
+   "Ravanetti Francesca",
+   "Saleri Roberta",
+   "Corradi Attilio"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13030642",
+  "doi": "10.3390/vetsci13030298",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41582996": {
+  "pmid": "41582996",
+  "title": "LRP1 at the crossroads of Aβ clearance and therapeutic targeting in Alzheimer's disease.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2025",
+  "authors": [
+   "Deng Yuepeng",
+   "Yin Haolin",
+   "Lu Zihao",
+   "Lan Huan",
+   "Liu Wenxiong",
+   "Zuo Chao",
+   "Pan Nanfang",
+   "Tian Xiaohe",
+   "Gong Qiyong"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12827580",
+  "doi": "10.3389/fnagi.2025.1669405",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41278832": {
+  "pmid": "41278832",
+  "title": "Axon Regeneration and Functional Recovery after Spinal Cord Injury is Enhanced by Allele-Specific ApoE Neuronal Action through LRP8.",
+  "journal": "bioRxiv : the preprint server for biology",
+  "year": "2025",
+  "authors": [
+   "Kannan Ramakrishnan",
+   "Wang Xingxing",
+   "Nicholson LaShae",
+   "Lin Nancy Z",
+   "Howard Elisa M",
+   "Basu Atrayee",
+   "Ingabire Ines",
+   "Sekine Yuichi",
+   "Strittmatter Stephen M"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Preprint"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC12632883",
+  "doi": "10.1101/2025.10.10.681747",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41210483": {
+  "pmid": "41210483",
+  "title": "Proteostasis disruption and lipid dyshomeostasis in neurodegeneration: exploring common druggable targets across sporadic and monogenic disorders.",
+  "journal": "Frontiers in molecular neuroscience",
+  "year": "2025",
+  "authors": [
+   "Pereira Sena Priscila",
+   "Friedrich Lea",
+   "Villarreal Alcibiades",
+   "Fath Florian",
+   "Sopco Liubovi",
+   "Hernández-Guillamon Mar",
+   "Saraiva-Pereira Maria Luiza",
+   "Britton Gabrielle",
+   "Weber Jonasz Jeremiasz",
+   "Schmidt Thorsten"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12592146",
+  "doi": "10.3389/fnmol.2025.1681079",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41111608": {
+  "pmid": "41111608",
+  "title": "Association of APOE ε4 with cerebrospinal fluid protein and amyloid-β42 levels in Alzheimer's disease.",
+  "journal": "Journal of Alzheimer's disease reports",
+  "year": "2025",
+  "authors": [
+   "Chen Renyu",
+   "Yuan Fang",
+   "Liu Shuai",
+   "Wu Hao",
+   "Shi Zhihong",
+   "Di Cihan",
+   "Fan Shiyu",
+   "Liang Bing",
+   "Ji Yong"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12534799",
+  "doi": "10.1177/25424823251387587",
+  "score": null,
+  "mesh_terms": []
+ },
+ "18005427": {
+  "pmid": "18005427",
+  "title": "The Alzheimer's disease beta-secretase enzyme, BACE1.",
+  "journal": "Molecular neurodegeneration",
+  "year": "2007",
+  "authors": [
+   "Cole Sarah L",
+   "Vassar Robert"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC2211305",
+  "doi": "10.1186/1750-1326-2-22",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42801635": {
+  "pmid": "42801635",
+  "title": "Co-activation of Selective Nicotinic Acetylcholine Receptor Subtypes Is Required for Neuroprotection against Alzheimer's Disease.",
+  "journal": "Advanced science (Weinheim, Baden-Wurttemberg, Germany)",
+  "year": "2026",
+  "authors": [
+   "Lee Rahmi",
+   "Kim Gayeon",
+   "Black Ellison R",
+   "Kim Seonil"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC13616367",
+  "doi": "10.1002/advs.77858",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42784131": {
+  "pmid": "42784131",
+  "title": "Assessing Microstructural and Molecular Brain Changes in Early Cognitive Decline Using Multiparametric 3T Magnetic Resonance Imaging.",
+  "journal": "Neurology international",
+  "year": "2026",
+  "authors": [
+   "Zhang Zongpai",
+   "Wu Jingpu",
+   "Rios Pulgar Isabel M",
+   "Chang Elizabeth H T",
+   "Chai Keyi",
+   "Wang Puyang",
+   "Jiang Shanshan",
+   "Li Xu",
+   "Oishi Kenichi",
+   "Smith Gwenn S",
+   "Wagandt Carrie",
+   "Pontone Gregory M",
+   "Moghekar Abhay",
+   "Bakker Arnold",
+   "Zhou Jinyuan"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC13610878",
+  "doi": "10.3390/neurolint18090177",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42654155": {
+  "pmid": "42654155",
+  "title": "Targeting TTLL1 Alleviates Aβ-Induced Microtubule Disruption and TAU Pathology in Human iPSC-Derived Cortical Neurons.",
+  "journal": "Pharmaceutics",
+  "year": "2026",
+  "authors": [
+   "Al Kabbani Mohamed Aghyad",
+   "Köhler Laura",
+   "Wied Tamara",
+   "Adam Daniel",
+   "Klimek Jennifer",
+   "Zempel Hans"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13516559",
+  "doi": "10.3390/pharmaceutics18081038",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42558846": {
+  "pmid": "42558846",
+  "title": "Locus Coeruleus as a Master Regulator of Diverse Functions in the Central Nervous System: Its Relevance in Ageing and Neurodegenerative Disorders.",
+  "journal": "Annals of neurosciences",
+  "year": "2026",
+  "authors": [
+   "Bhattacharya Ahana",
+   "Manjithaya Ravi",
+   "Chickabasaviah Yasha",
+   "Alladi Phalguni Anand"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13437911",
+  "doi": "10.1177/09727531261462296",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42250112": {
+  "pmid": "42250112",
+  "title": "Licochalcone a enhances cognitive resilience in APP/PS1 Mice by modulating glucose metabolism, Aβ burden, and neuroinflammation.",
+  "journal": "GeroScience",
+  "year": "2026",
+  "authors": [
+   "Carrasco Marina",
+   "Guzman Laura",
+   "Barroso Emma",
+   "Olloquequi Jordi",
+   "Cano Amanda",
+   "Ureña Jesús",
+   "Verdaguer Ester",
+   "Prohens Rafel",
+   "Fortuna Ana",
+   "Auladell Carme",
+   "Ettcheto Miren",
+   "Camins Antoni"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": null,
+  "doi": "10.1007/s11357-026-02321-9",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42146485": {
+  "pmid": "42146485",
+  "title": "In vitro comparison of Aβ-targeting SNIPR, synNotch, and TRUCK for cell-based drug delivery in Alzheimer's disease.",
+  "journal": "bioRxiv : the preprint server for biology",
+  "year": "2026",
+  "authors": [
+   "Siebrand Cynthia J",
+   "Mayeri Zachary",
+   "Brown Ian",
+   "Andersen Julie K",
+   "Walton Chaska C"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Preprint"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC13174612",
+  "doi": "10.64898/2026.04.29.721717",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42100486": {
+  "pmid": "42100486",
+  "title": "Secretory form of viral protease NIa ameliorates amyloid-β pathology and cognitive deficits in a mouse model of Alzheimer's disease.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2026",
+  "authors": [
+   "Park Euy Jun",
+   "Mun Bo-Ram",
+   "Kim Sung Yoon",
+   "Elangovan Muthukumar",
+   "Kim Sung Bin",
+   "Choi Won-Seok",
+   "Park Woo Jin"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13143923",
+  "doi": "10.3389/fnagi.2026.1720518",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41948065": {
+  "pmid": "41948065",
+  "title": "Systemic proteomic and organ aging signatures associated with plasma Aβ oligomerization in a Korean cohort: a cross-sectional study.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2026",
+  "authors": [
+   "Oh Hyunjung",
+   "Kim Hongju",
+   "Kang Hojin",
+   "Kwon Dohyeon",
+   "French Leon",
+   "Park Young Ho",
+   "Youn Young Chul",
+   "An Seong Soo",
+   "Kim SangYun",
+   "Kang Sungmin"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13051358",
+  "doi": "10.3389/fnagi.2026.1620991",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41648397": {
+  "pmid": "41648397",
+  "title": "Selective impairment of long-term depression in accumbal D1-MSNs involves calcium-permeable AMPARs in Alzheimer's disease.",
+  "journal": "bioRxiv : the preprint server for biology",
+  "year": "2026",
+  "authors": [
+   "Riffo-Lepe Nicolas",
+   "Gonzalez-Sanmiguel Juliana",
+   "Meza Isaías",
+   "Saavedra-Sieyes Paulina",
+   "Armijo-Weingart Lorena",
+   "Salinas Armando",
+   "Martín Loreto San",
+   "Aguayo Luis G"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Preprint"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC12871705",
+  "doi": "10.64898/2026.01.19.700385",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29255789": {
+  "pmid": "29255789",
+  "title": "Type 2 diabetes mellitus and cerebrospinal fluid Alzheimer's disease biomarker amyloid β1-42 in Alzheimer's Disease Neuroimaging Initiative participants.",
+  "journal": "Alzheimer's & dementia (Amsterdam, Netherlands)",
+  "year": "2018",
+  "authors": [
+   "Li Wei",
+   "Risacher Shannon L",
+   "Gao Sujuan",
+   "Boehm Stephen L",
+   "Elmendorf Jeffrey S",
+   "Saykin Andrew J"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5725206",
+  "doi": "10.1016/j.dadm.2017.11.002",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29067346": {
+  "pmid": "29067346",
+  "title": "Phase II clinical trials of anti-amyloid β antibodies: When is enough, enough?",
+  "journal": "Alzheimer's & dementia (New York, N. Y.)",
+  "year": "2017",
+  "authors": [
+   "Gold Michael"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC5651424",
+  "doi": "10.1016/j.trci.2017.04.005",
+  "score": null,
+  "mesh_terms": []
+ },
+ "29067343": {
+  "pmid": "29067343",
+  "title": "Alzheimer's disease drug development pipeline: 2017.",
+  "journal": "Alzheimer's & dementia (New York, N. Y.)",
+  "year": "2017",
+  "authors": [
+   "Cummings Jeffrey",
+   "Lee Garam",
+   "Mortsdorf Travis",
+   "Ritter Aaron",
+   "Zhong Kate"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC5651419",
+  "doi": "10.1016/j.trci.2017.05.002",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42741787": {
+  "pmid": "42741787",
+  "title": "Novel 1,4-Diazepane derivatives as amyloid-beta (Aβ) aggregation inhibitors.",
+  "journal": "Frontiers in chemistry",
+  "year": "2026",
+  "authors": [
+   "Karuturi Rahul C",
+   "Hefny Ahmed A",
+   "Shakeri Arash",
+   "Rao Praveen P N"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13574327",
+  "doi": "10.3389/fchem.2026.1919936",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41788816": {
+  "pmid": "41788816",
+  "title": "Early and late chaperone intervention therapy boosts XBP1s and ADAM10, restores proteostasis, and rescues learning in Alzheimer's Disease mice.",
+  "journal": "Aging biology",
+  "year": "2023",
+  "authors": [
+   "Hafycz Jennifer M",
+   "Strus Ewa",
+   "Sengupta Kamalini",
+   "Naidoo Nirinjini N"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC12959931",
+  "doi": "10.59368/agingbio.20230017",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41754934": {
+  "pmid": "41754934",
+  "title": "Recent Advances in Nanoparticle-Based Drug Delivery Strategies to Cross the Blood-Brain Barrier in Targeted Treatment of Alzheimer's Disease.",
+  "journal": "Pharmaceutics",
+  "year": "2026",
+  "authors": [
+   "Le Hoa",
+   "Vu Giang T T",
+   "Abioye Amos",
+   "Adejare Adeboye"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12944235",
+  "doi": "10.3390/pharmaceutics18020192",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41726661": {
+  "pmid": "41726661",
+  "title": "Eutectic Mixture Approach for Enhancing Solubility, Permeability, and Bioactivity of Curcumin: Influence of Ferulic Acid and Nicotinamide as Coformers.",
+  "journal": "ACS omega",
+  "year": "2026",
+  "authors": [
+   "Maicheen Chirattikan",
+   "Theeramunkong Sewan",
+   "Tadtong Sarin",
+   "Saenjum Chalermpong",
+   "Thongkorn Kriangkrai",
+   "Phongpradist Rungsinee",
+   "Sirilun Sasithorn",
+   "Jiaranaikulwanitch Jutamas"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12917782",
+  "doi": "10.1021/acsomega.5c11528",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41573123": {
+  "pmid": "41573123",
+  "title": "Reactive fluorescent probe for covalent membrane-anchoring: enabling real-time imaging of protein aggregation dynamics in live cells.",
+  "journal": "Chemical science",
+  "year": "2026",
+  "authors": [
+   "Wei Hongbei",
+   "Xu Liren",
+   "Wei Ke",
+   "Bian Wenhai",
+   "Wen Yifan",
+   "Yu Wanyi",
+   "Zhang Hui",
+   "Huang Haiqiao",
+   "James Tony D",
+   "Sun Xiaolong"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12820711",
+  "doi": "10.1039/d5sc07716h",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41502755": {
+  "pmid": "41502755",
+  "title": "Repurposed Arylidene-hydrazinyl-1,3-thiazoles as Multitarget Anti-Alzheimer's Agents via Combined Computational and Experimental Studies.",
+  "journal": "ACS omega",
+  "year": "2025",
+  "authors": [
+   "Drozdowska Danuta",
+   "Ratkiewicz Artur",
+   "Wróbel-Tałałaj Agnieszka",
+   "Parzych Cezary",
+   "El-Dershaby Hadeel A",
+   "Abd El-Razik Heba A",
+   "Soliman Farid S G",
+   "El-Wakil Marwa H"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12771191",
+  "doi": "10.1021/acsomega.5c08737",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41479572": {
+  "pmid": "41479572",
+  "title": "The Potential of the Peptide Drug Semax and Its Derivative for Correcting Pathological Impairments in the Animal Model of Alzheimer's Disease.",
+  "journal": "Acta naturae",
+  "year": "2025",
+  "authors": [
+   "Radchenko A I",
+   "Kuzubova E V",
+   "Apostol A A",
+   "Mitkevich V A",
+   "Andreeva L A",
+   "Limborska S A",
+   "Stepenko Yu V",
+   "Shmigerova V S",
+   "Solin A V",
+   "Korokin M V",
+   "Pokrovskii M V",
+   "Myasoedov N F",
+   "Makarov A A"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12755871",
+  "doi": "10.32607/actanaturae.27808",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41300478": {
+  "pmid": "41300478",
+  "title": "PPARα-Mediated Fatty Acid Catabolism in Astrocytes Was Involved in Improvement of Cognitive Dysfunction by Phlorizin in APP/PS1 Mice.",
+  "journal": "Antioxidants (Basel, Switzerland)",
+  "year": "2025",
+  "authors": [
+   "Fu Yan",
+   "Zhang Xuya",
+   "Li Lingling",
+   "Jiang Hong",
+   "Ren Qiaozhi",
+   "Yi Tianxing",
+   "Zhang Yali",
+   "Lu Yi"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12649400",
+  "doi": "10.3390/antiox14111321",
+  "score": null,
+  "mesh_terms": []
+ },
+ "24795626": {
+  "pmid": "24795626",
+  "title": "Possible modification of Alzheimer's disease by statins in midlife: interactions with genetic and non-genetic risk factors.",
+  "journal": "Frontiers in aging neuroscience",
+  "year": "2014",
+  "authors": [
+   "Shinohara Mitsuru",
+   "Sato Naoyuki",
+   "Shimamura Munehisa",
+   "Kurinami Hitomi",
+   "Hamasaki Toshimitsu",
+   "Chatterjee Amarnath",
+   "Rakugi Hiromi",
+   "Morishita Ryuichi"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC4005936",
+  "doi": "10.3389/fnagi.2014.00071",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42575917": {
+  "pmid": "42575917",
+  "title": "Liquid-liquid phase-separated tau colocalizes with and stabilizes Aβ oligomers.",
+  "journal": "Communications chemistry",
+  "year": "2026",
+  "authors": [
+   "Jacob Tina",
+   "Schützmann Marie P",
+   "Gerhards Laurin",
+   "Hruby Laura",
+   "Leprivier Gabriel",
+   "Tamgüney Gültekin",
+   "Hoyer Wolfgang"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13458519",
+  "doi": "10.1038/s42004-026-02165-6",
+  "score": null,
+  "mesh_terms": []
+ },
+ "42198545": {
+  "pmid": "42198545",
+  "title": "Associations Between Neurological Diseases and Dioxin Exposure Originating from Agent Orange in Vietnam: A Narrative Review.",
+  "journal": "Toxics",
+  "year": "2026",
+  "authors": [
+   "Pham-The Tai",
+   "Nguyet Pham Hang Thi",
+   "Folk William R",
+   "Tran Nghi Ngoc",
+   "Tran-Thi Tuyet-Hanh",
+   "Nishijo Hisao",
+   "Nishijo Muneko"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13211350",
+  "doi": "10.3390/toxics14050419",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41929143": {
+  "pmid": "41929143",
+  "title": "Iron toxicity potentiates cell-type specific amyloid beta proteotoxicity in C. elegans via altered energy homeostasis.",
+  "journal": "bioRxiv : the preprint server for biology",
+  "year": "2026",
+  "authors": [
+   "Peng Wilson",
+   "Chung Kaitlin B",
+   "Al-Qazzaz Ali",
+   "Straut Aidan",
+   "O'Banion M Kerry",
+   "Lawrence B Paige",
+   "Dirksen Robert T",
+   "Onukwufor John O"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Preprint"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": true,
+  "pmcid": "PMC13042036",
+  "doi": "10.64898/2026.03.25.714217",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41718392": {
+  "pmid": "41718392",
+  "title": "Amyloid Beta Oligomers as Early Triggers of Neuronal Cytoskeleton Dysfunction in Alzheimer's Disease.",
+  "journal": "Pathophysiology : the official journal of the International Society for Pathophysiology",
+  "year": "2026",
+  "authors": [
+   "Gasca-Martínez Yadira",
+   "Ontiveros-Torres Miguel Angel",
+   "López-Gallegos Isaías",
+   "Jarero-Basulto José Jaime"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12921916",
+  "doi": "10.3390/pathophysiology33010014",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41622474": {
+  "pmid": "41622474",
+  "title": "Blood-based biomarkers and early diagnosis of Alzheimer's disease.",
+  "journal": "Neural regeneration research",
+  "year": "2026",
+  "authors": [
+   "Cui Zhikang",
+   "Li Guixia",
+   "Wei Shuyong",
+   "Cheng Qian",
+   "Yu Qian",
+   "Zong Shuai",
+   "Zhang Pengfei",
+   "Chen Hang",
+   "Yu Shuyi",
+   "Wu Shuang",
+   "Li Ming",
+   "Lu Zhiming"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC13568666",
+  "doi": "10.4103/NRR.NRR-D-25-00759",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41334059": {
+  "pmid": "41334059",
+  "title": "Oral diseases as emerging risk factors for Alzheimer's disease: A scoping review.",
+  "journal": "The Japanese dental science review",
+  "year": "2025",
+  "authors": [
+   "Yi Yuseung",
+   "Lee Chang-Ha",
+   "Shin Hyun-Seung",
+   "Shin Seungil"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12666449",
+  "doi": "10.1016/j.jdsr.2025.11.003",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41300531": {
+  "pmid": "41300531",
+  "title": "Antioxidants Trolox and Methazolamide Protect Microvascular Endothelial Cells from Oxidative Damage Induced by Sporadic and Familial Forms of Oligomeric Amyloid-β.",
+  "journal": "Antioxidants (Basel, Switzerland)",
+  "year": "2025",
+  "authors": [
+   "Valle Maria Luisa",
+   "Getaneh Bitseat",
+   "William Christopher",
+   "Ghiso Jorge",
+   "Rostagno Agueda"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12649480",
+  "doi": "10.3390/antiox14111375",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41268476": {
+  "pmid": "41268476",
+  "title": "Gaining insights into Alzheimer's disease by predicting chromatin spatial organization.",
+  "journal": "Bioinformatics advances",
+  "year": "2025",
+  "authors": [
+   "Villaman Camilo",
+   "Cartas-Espinel Irene",
+   "Saez Mauricio",
+   "Martin Alberto J M"
+  ],
+  "pub_types": [
+   "Journal Article"
+  ],
+  "is_review": false,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12627407",
+  "doi": "10.1093/bioadv/vbaf268",
+  "score": null,
+  "mesh_terms": []
+ },
+ "41234939": {
+  "pmid": "41234939",
+  "title": "Innovations in Alzheimer's disease diagnostic technologies: clinical prospects of novel biomarkers, multimodal integration, and non-invasive detection.",
+  "journal": "Frontiers in neurology",
+  "year": "2025",
+  "authors": [
+   "Wang Rui",
+   "Peng Siqin",
+   "Zhu Jianrong",
+   "Xu Ye",
+   "Wang Minghao",
+   "Zhang Ling",
+   "Qiu Yilan",
+   "Hou Defu",
+   "Wang Qinglin",
+   "Liu Rushi"
+  ],
+  "pub_types": [
+   "Journal Article",
+   "Review"
+  ],
+  "is_review": true,
+  "is_retracted": false,
+  "nih_funded": false,
+  "pmcid": "PMC12605353",
+  "doi": "10.3389/fneur.2025.1651708",
+  "score": null,
+  "mesh_terms": []
+ }
+}

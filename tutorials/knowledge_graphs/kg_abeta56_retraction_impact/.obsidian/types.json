@@ -1,0 +1,17 @@
+{
+  "types": {
+    "year": "number",
+    "retracted": "checkbox",
+    "authors": "multitext",
+    "publication_types": "multitext",
+    "mesh": "multitext",
+    "keywords": "multitext",
+    "pmid": "text",
+    "pmcid": "text",
+    "doi": "text",
+    "journal": "text",
+    "status": "text",
+    "url": "text",
+    "papers": "multitext"
+  }
+}

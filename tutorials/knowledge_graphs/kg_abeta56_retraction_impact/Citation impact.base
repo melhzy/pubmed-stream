@@ -1,0 +1,66 @@
+filters:
+  and:
+    - file.inFolder("papers")
+properties:
+  file.name:
+    displayName: Paper
+  note.citation_sentence:
+    displayName: How it cites the paper
+  note.title:
+    displayName: Title
+  note.year:
+    displayName: Year
+views:
+  - type: table
+    name: Discusses the retraction or doubts
+    filters:
+      and:
+        - 'citation_kind == "Discusses the retraction or doubts"'
+    order:
+      - file.name
+      - title
+      - year
+      - citation_sentence
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: Names Aβ*56
+    filters:
+      and:
+        - 'citation_kind == "Names Aβ*56"'
+    order:
+      - file.name
+      - title
+      - year
+      - citation_sentence
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: Cites it in general
+    filters:
+      and:
+        - 'citation_kind == "Cites it in general"'
+    order:
+      - file.name
+      - title
+      - year
+      - citation_sentence
+    sort:
+      - property: year
+        direction: DESC
+  - type: table
+    name: Retracted citing papers
+    filters:
+      and:
+        - 'hop == 1'
+        - 'retracted == true'
+    order:
+      - file.name
+      - title
+      - year
+      - citation_sentence
+    sort:
+      - property: year
+        direction: DESC

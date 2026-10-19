@@ -1,0 +1,162 @@
+---
+type: "concept"
+vocabulary: "MeSH"
+mesh_ui: "D018782"
+url: "https://meshb.nlm.nih.gov/record/ui?ui=D018782"
+tags:
+  - "pubmed/concept"
+---
+%% pubmed-stream:start - generated; edits inside this block are overwritten %%
+# Maze Learning
+
+MeSH descriptor D018782 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018782)
+
+## Papers (143)
+
+- [[PMID40935215|Bazi Bushen improves cognitive dysfunction in 5×FAD mice by targeting amyloid pathology, neuroinf... (2026)]]
+- [[PMID40566818|Kenpaullone attenuates amyloid-beta deposition and neuroinflammation, improving memory in a 5XFAD... (2026)]]
+- [[PMID40551158|Long-term electroacupuncture and repetitive transcranial magnetic stimulation differentially slow... (2025)]]
+- [[PMID40812500|Low-intensity pulsed ultrasound enhances microglial-mediated Aβ clearance and synaptic preservati... (2025)]]
+- [[PMID40407867|Resveratrol, a calorie restriction mimetic, protects AlCl3-induced neurotoxicity and cognitive de... (2025)]]
+- [[PMID35378696|A Genetic Model of Epilepsy with a Partial Alzheimer's Disease-Like Phenotype and Central Insulin... (2022)]]
+- [[PMID34864680|High Fat Diet Mediates Amyloid-β Cleaving Enzyme 1 Phosphorylation and SUMOylation, Enhancing Cog... (2022)]]
+- [[PMID36296969|Moringa Oleifera Alleviates Aβ Burden and Improves Synaptic Plasticity and Cognitive Impairments... (2022)]]
+- [[PMID34064687|Berberine Improves Cognitive Impairment by Simultaneously Impacting Cerebral Blood Flow and β-Amy... (2021)]]
+- [[PMID33441593|Early β adrenoceptor dependent time window for fear memory persistence in APPswe/PS1dE9 mice. (2021)]]
+- [[PMID35173711|Multifocal Cerebral Microinfarcts Modulate Early Alzheimer's Disease Pathology in a Sex-Dependent... (2021)]]
+- [[PMID32926328|5-N-ethyl Carboxamidoadenosine Stimulates Adenosine-2b Receptor-Mediated Mitogen-Activated Protei... (2020)]]
+- [[PMID32867800|Benzo(a)pyrene exposure induced neuronal loss, plaque deposition, and cognitive decline in APP/PS... (2020)]]
+- [[PMID31997558|Lipopolysaccharide exposure during late embryogenesis triggers and drives Alzheimer-like behavior... (2020)]]
+- [[PMID31915254|Neuronal Protein Tyrosine Phosphatase 1B Hastens Amyloid β-Associated Alzheimer's Disease in Mice. (2020)]]
+- [[PMID31804556|A dual inhibitor of the proteasome catalytic subunits LMP2 and Y attenuates disease progression i... (2019)]]
+- [[PMID31472195|Age-related changes in hippocampal AD pathology, actin remodeling proteins and spatial memory beh... (2019)]]
+- [[PMID30894120|Amyloid-β plaque formation and reactive gliosis are required for induction of cognitive deficits... (2019)]]
+- [[PMID31010414|Exposure to fluoride aggravates the impairment in learning and memory and neuropathological lesio... (2019)]] (major topic)
+- [[PMID30940494|Multivariate MR biomarkers better predict cognitive dysfunction in mouse models of Alzheimer's di... (2019)]]
+- [[PMID31177217|Oral Immunization with Soybean Storage Protein Containing Amyloid-β 4-10 Prevents Spatial Learnin... (2019)]]
+- [[PMID31363064|p110δ PI3-Kinase Inhibition Perturbs APP and TNFα Trafficking, Reduces Plaque Burden, Dampens Neu... (2019)]]
+- [[PMID31236795|Triptolide Improves Cognitive Dysfunction in Rats with Vascular Dementia by Activating the SIRT1/... (2019)]]
+- [[PMID29702127|Vascular endothelial growth factor improves the cognitive decline of Alzheimer's disease via conc... (2019)]]
+- [[PMID29378642|Anti-β-sheet conformation monoclonal antibody reduces tau and Aβ oligomer pathology in an Alzheim... (2018)]]
+- [[PMID29962345|Berberine Alleviates Amyloid-Beta Pathology in the Brain of APP/PS1 Transgenic Mice via Inhibitin... (2018)]]
+- [[PMID29995210|Bidirectional modulation of Alzheimer phenotype by alpha-synuclein in mice and primary neurons. (2018)]]
+- [[PMID30366065|Cerebral inoculation of human A53T α-synuclein reduces spatial memory decline and amyloid-β aggre... (2018)]]
+- [[PMID29843688|Huatuo Zaizao pill ameliorates cognitive impairment of APP/PS1 transgenic mice by improving synap... (2018)]]
+- [[PMID28887197|Reduction in open field activity in the absence of memory deficits in the AppNL-G-F knock-in mous... (2018)]]
+- [[PMID27966067|Cathepsin B Improves ß-Amyloidosis and Learning and Memory in Models of Alzheimer's Disease. (2017)]]
+- [[PMID28480424|COGNITIVE-ENHANCING PROPERTIES OF MORINDA LUCIDA (RUBIACEAE) AND PELTOPHORUM PTEROCARPUM (FABACEA... (2017)]]
+- [[PMID28900141|Dianxianning improved amyloid β-induced pathological characteristics partially through DAF-2/DAF-... (2017)]]
+- [[PMID28910862|Effects of Newly Synthesized Recombinant Human Amyloid-β Complexes and Poly-Amyloid-β Fibers on C... (2017)]]
+- [[PMID28771976|HDAC3 negatively regulates spatial memory in a mouse model of Alzheimer's disease. (2017)]]
+- [[PMID28403230|Isoflurane anesthesia promotes cognitive impairment by inducing expression of β-amyloid protein-r... (2017)]]
+- [[PMID29073110|M344 promotes nonamyloidogenic amyloid precursor protein processing while normalizing Alzheimer's... (2017)]]
+- [[PMID28934273|Novel derivative of Paeonol, Paeononlsilatie sodium, alleviates behavioral damage and hippocampal... (2017)]] (major topic)
+- [[PMID27431920|Alzheimer's disease like pathology induced six weeks after aggregated amyloid-beta injection in r... (2016)]]
+- [[PMID27563885|Assessing the Effects of Acute Amyloid β Oligomer Exposure in the Rat. (2016)]]
+- [[PMID26649780|Effect of Zhuang Jing Decoction on Learning and Memory Ability in Aging Rats. (2016)]] (major topic)
+- [[PMID26820640|Effects of an amyloid-beta 1-42 oligomers antibody screened from a phage display library in APP/P... (2016)]] (major topic)
+- [[PMID27240424|Increase of Positive Net Charge and Conformational Rigidity Enhances the Efficacy of d-Enantiomer... (2016)]]
+- [[PMID26821012|Mesenchymal Stem Cells Preserve Working Memory in the 3xTg-AD Mouse Model of Alzheimer's Disease. (2016)]] (major topic)
+- [[PMID27798139|Selective Degeneration of Entorhinal-CA1 Synapses in Alzheimer's Disease via Activation of DAPK1. (2016)]]
+- [[PMID27258424|Sideritis spp. Extracts Enhance Memory and Learning in Alzheimer's β-Amyloidosis Mouse Models and... (2016)]]
+- [[PMID27459671|Tau Protein Mediates APP Intracellular Domain (AICD)-Induced Alzheimer's-Like Pathological Featur... (2016)]]
+- [[PMID26227349|AAV2/1 CD74 Gene Transfer Reduces β-amyloidosis and Improves Learning and Memory in a Mouse Model... (2015)]]
+- [[PMID26215784|Anti-Aβ antibodies incapable of reducing cerebral Aβ oligomers fail to attenuate spatial referenc... (2015)]]
+- [[PMID26305888|Cognitive and Disease-Modifying Effects of 11β-Hydroxysteroid Dehydrogenase Type 1 Inhibition in... (2015)]]
+- [[PMID26079110|Icariin decreases both APP and Aβ levels and increases neurogenesis in the brain of Tg2576 mice. (2015)]]
+- [[PMID26468204|Reducing Ribosomal Protein S6 Kinase 1 Expression Improves Spatial Memory and Synaptic Plasticity... (2015)]]
+- [[PMID25917310|Treadmill exercise enhances synaptic plasticity, but does not alter β-amyloid deposition in hippo... (2015)]]
+- [[PMID25661995|Tripchlorolide improves cognitive deficits by reducing amyloid β and upregulating synapse-related... (2015)]]
+- [[PMID24561222|Aberrant CaMKII activity in the medial prefrontal cortex is associated with cognitive dysfunction... (2014)]]
+- [[PMID24333930|Activated protein C inhibits amyloid β production via promoting expression of ADAM-10. (2014)]]
+- [[PMID24021662|Active and passive immunization strategies based on the SDPM1 peptide demonstrate pre-clinical ef... (2014)]]
+- [[PMID24849360|Anti-ApoE antibody given after plaque onset decreases Aβ accumulation and improves brain function... (2014)]]
+- [[PMID24899710|Genetic modulation of soluble Aβ rescues cognitive and synaptic impairment in a mouse model of Al... (2014)]]
+- [[PMID24643138|Improvement of memory deficits and amyloid-β clearance in aged APP23 mice treated with a combinat... (2014)]]
+- [[PMID25100603|Knock-in of human BACE1 cleaves murine APP and reiterates Alzheimer-like phenotypes. (2014)]]
+- [[PMID25157105|Methylene blue modulates β-secretase, reverses cerebral amyloidosis, and improves cognition in tr... (2014)]]
+- [[PMID25386946|Smart Soup, a traditional Chinese medicine formula, ameliorates amyloid pathology and related cog... (2014)]]
+- [[PMID25180067|The effects of sesquiterpenes-rich extract of Alpinia oxyphylla Miq. on amyloid-β-induced cogniti... (2014)]]
+- [[PMID23596795|(Effects of huannao yicong recipe extract on the learning and memory and related factors of Abeta... (2013)]] (major topic)
+- [[PMID23186988|A novel drug candidate for Alzheimer's disease treatment: gx-50 derived from Zanthoxylum bungeanum. (2013)]]
+- [[PMID23229335|Highly stabilized curcumin nanoparticles tested in an in vitro blood-brain barrier model and in A... (2013)]]
+- [[PMID23595760|MER5101, a novel Aβ1-15:DT conjugate vaccine, generates a robust anti-Aβ antibody response and at... (2013)]]
+- [[PMID22816379|Multiple low-dose infusions of human umbilical cord blood cells improve cognitive impairments and... (2013)]]
+- [[PMID23685882|N-truncated amyloid β (Aβ) 4-42 forms stable aggregates and induces acute and long-lasting behavi... (2013)]]
+- [[PMID23842742|Nicotine prevents synaptic impairment induced by amyloid-β oligomers through α7-nicotinic acetylc... (2013)]]
+- [[PMID24156265|Reduced Alzheimer's disease pathology by St. John's Wort treatment is independent of hyperforin a... (2013)]]
+- [[PMID23447589|Reversible pathologic and cognitive phenotypes in an inducible model of Alzheimer-amyloidosis. (2013)]]
+- [[PMID24117120|Serum β-amyloid peptide levels spike in the early stage of Alzheimer-like plaque pathology in an... (2013)]]
+- [[PMID23669069|Somatostatin receptor subtype-4 agonist NNC 26-9100 mitigates the effect of soluble Aβ(42) oligom... (2013)]]
+- [[PMID23672786|Systemic vaccination with anti-oligomeric monoclonal antibodies improves cognitive function by re... (2013)]]
+- [[PMID23762322|Unintended effects of cardiovascular drugs on the pathogenesis of Alzheimer's disease. (2013)]]
+- [[PMID22476196|An anti-diabetes agent protects the mouse brain from defective insulin signaling caused by Alzhei... (2012)]]
+- [[PMID22459600|Berberine ameliorates β-amyloid pathology, gliosis, and cognitive impairment in an Alzheimer's di... (2012)]]
+- [[PMID22527777|Changes in insulin-signaling transduction pathway underlie learning/memory deficits in an Alzheim... (2012)]]
+- [[PMID22356593|Cognitive deficits in a mouse model of pre-manifest Parkinson's disease. (2012)]]
+- [[PMID22337825|Deletion of the cathepsin B gene improves memory deficits in a transgenic ALZHeimer's disease mou... (2012)]]
+- [[PMID22238689|Effects of NK-4 in a transgenic mouse model of Alzheimer's disease. (2012)]]
+- [[PMID23019586|Epidermal growth factor receptor is a preferred target for treating amyloid-β-induced memory loss. (2012)]]
+- [[PMID23172351|Expression of the plant viral protease NIa in the brain of a mouse model of Alzheimer's disease m... (2012)]]
+- [[PMID21741124|Fyn knock-down increases Aβ, decreases phospho-tau, and worsens spatial learning in 3×Tg-AD mice. (2012)]]
+- [[PMID22796588|Increased β-amyloid deposition in Tg-SWDI transgenic mouse brain following in vivo lead exposure. (2012)]]
+- [[PMID21861096|Late-onset intermittent fasting dietary restriction as a potential intervention to retard age-ass... (2012)]]
+- [[PMID22674261|Neurotoxicity and memory deficits induced by soluble low-molecular-weight amyloid-β1-42 oligomers... (2012)]]
+- [[PMID22869717|Postsynaptic dysfunction is associated with spatial and object recognition memory loss in a natur... (2012)]]
+- [[PMID22915123|Ryanodine receptor blockade reduces amyloid-β load and memory impairments in Tg2576 mouse model o... (2012)]]
+- [[PMID21993310|S14G-humanin improves cognitive deficits and reduces amyloid pathology in the middle-aged APPswe/... (2012)]]
+- [[PMID22836259|Soluble α-synuclein is a novel modulator of Alzheimer's disease pathophysiology. (2012)]]
+- [[PMID22449380|Somatostatin receptor subtype-4 agonist NNC 26-9100 decreases extracellular and intracellular Aβ₁... (2012)]]
+- [[PMID22219198|Tannic acid is a natural β-secretase inhibitor that prevents cognitive impairment and mitigates A... (2012)]]
+- [[PMID21775587|Ablation of cellular prion protein does not ameliorate abnormal neural network activity or cognit... (2011)]]
+- [[PMID21487307|Brain oligomeric β-amyloid but not total amyloid plaque burden correlates with neuronal loss and... (2011)]]
+- [[PMID22033930|c-Jun N-terminal kinase regulates soluble Aβ oligomers and cognitive impairment in AD mouse model. (2011)]]
+- [[PMID20579773|Carvedilol as a potential novel agent for the treatment of Alzheimer's disease. (2011)]]
+- [[PMID21508244|CC chemokine receptor 2 deficiency aggravates cognitive impairments and amyloid pathology in a tr... (2011)]]
+- [[PMID21185826|Chronic peripheral administration of somatostatin receptor subtype-4 agonist NNC 26-9100 enhances... (2011)]] (major topic)
+- [[PMID21734652|Increasing CREB function in the CA1 region of dorsal hippocampus rescues the spatial memory defic... (2011)]]
+- [[PMID21966373|Neuropathology in mice expressing mouse alpha-synuclein. (2011)]]
+- [[PMID21903077|Nitration of tyrosine 10 critically enhances amyloid β aggregation and plaque formation. (2011)]]
+- [[PMID21272191|Phenylbutyric acid reduces amyloid plaques and rescues cognitive behavior in AD transgenic mice. (2011)]]
+- [[PMID21228172|PKC ε activation prevents synaptic loss, Aβ elevation, and cognitive deficits in Alzheimer's dise... (2011)]]
+- [[PMID21513747|Soluble Aβ levels correlate with cognitive deficits in the 12-month-old APPswe/PS1dE9 mouse model... (2011)]]
+- [[PMID21827663|TLR4 mutation reduces microglial activation, increases Aβ deposits and exacerbates cognitive defi... (2011)]]
+- [[PMID19538474|Cognitive impairment in the Tg6590 transgenic rat model of Alzheimer's disease. (2010)]]
+- [[PMID20641005|Days to criterion as an indicator of toxicity associated with human Alzheimer amyloid-beta oligom... (2010)]]
+- [[PMID20381538|Effect size of reference memory deficits in the Morris water maze in Tg2576 mice. (2010)]] (major topic)
+- [[PMID20378958|Expression of the neuronal adaptor protein X11alpha protects against memory dysfunction in a tran... (2010)]]
+- [[PMID21103342|Formulation of a medical food cocktail for Alzheimer's disease: beneficial effects on cognition a... (2010)]]
+- [[PMID20110613|Insulin-resistant brain state after intracerebroventricular streptozotocin injection exacerbates... (2010)]]
+- [[PMID20554868|L-3-n-butylphthalide improves cognitive impairment and reduces amyloid-beta in a transgenic model... (2010)]]
+- [[PMID20445063|Memory impairment in transgenic Alzheimer mice requires cellular prion protein. (2010)]]
+- [[PMID20336061|Rosiglitazone rescues memory impairment in Alzheimer's transgenic mice: mechanisms involving a re... (2010)]]
+- [[PMID20505094|Synergistic Interactions between Abeta, tau, and alpha-synuclein: acceleration of neuropathology... (2010)]]
+- [[PMID19277012|AAV1/2-mediated CNS gene delivery of dominant-negative CCL2 mutant suppresses gliosis, beta-amylo... (2009)]] (major topic)
+- [[PMID19221420|Effect of a dominant-negative form of ADAM10 in a mouse model of Alzheimer's disease. (2009)]]
+- [[PMID19158422|Heterogeneity in red wine polyphenolic contents differentially influences Alzheimer's disease-typ... (2009)]]
+- [[PMID19228952|Neprilysin overexpression inhibits plaque formation but fails to reduce pathogenic Abeta oligomer... (2009)]]
+- [[PMID18504134|A transgenic rat that develops Alzheimer's disease-like amyloid pathology, deficits in synaptic p... (2008)]]
+- [[PMID18772249|Faster forgetting contributes to impaired spatial memory in the PDAPP mouse: deficit in memory re... (2008)]]
+- [[PMID18716656|GABA(A) receptor-mediated acceleration of aging-associated memory decline in APP/PS1 mice and its... (2008)]]
+- [[PMID18987186|Nicotinamide restores cognition in Alzheimer's disease transgenic mice via a mechanism involving... (2008)]]
+- [[PMID18585407|Oligomers of the amyloid-beta protein disrupt working memory: confirmation with two behavioral pr... (2008)]] (major topic)
+- [[PMID18505838|Place cell firing correlates with memory deficits and amyloid plaque burden in Tg2576 Alzheimer m... (2008)]]
+- [[PMID18155846|Plaque-bearing mice with reduced levels of oligomeric amyloid-beta assemblies have intact memory... (2008)]]
+- [[PMID19096161|Use of copper and insulin-resistance to accelerate cognitive deficits and synaptic protein loss i... (2008)]]
+- [[PMID17344403|Active beta-amyloid immunization restores spatial learning in PDAPP mice displaying very low leve... (2007)]] (major topic)
+- [[PMID17650315|Chronic administration of R-flurbiprofen attenuates learning impairments in transgenic amyloid pr... (2007)]]
+- [[PMID17233641|Impaired spatial learning in the APPSwe + PSEN1DeltaE9 bigenic mouse model of Alzheimer's disease. (2007)]] (major topic)
+- [[PMID17478722|Reducing endogenous tau ameliorates amyloid beta-induced deficits in an Alzheimer's disease mouse... (2007)]]
+- [[PMID16541076|A specific amyloid-beta protein assembly in the brain impairs memory. (2006)]]
+- [[PMID16511867|Cerebrolysin decreases amyloid-beta production by regulating amyloid protein precursor maturation... (2006)]]
+- [[PMID16914850|Molecular basis of memory loss in the Tg2576 mouse model of Alzheimer's disease. (2006)]]
+- [[PMID15755686|Episodic-like memory deficits in the APPswe/PS1dE9 mouse model of Alzheimer's disease: relationsh... (2005)]]
+- [[PMID16020737|Tau suppression in a neurodegenerative mouse model improves memory function. (2005)]]
+- [[PMID14637120|Prevention of age-related spatial memory deficits in a transgenic mouse model of Alzheimer's dise... (2003)]]
+- [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]]
+- [[PMID11724968|Specific spatial learning deficits become severe with age in beta -amyloid precursor protein tran... (2001)]]
+- [[PMID8810256|Correlative memory deficits, Abeta elevation, and amyloid plaques in transgenic mice. (1996)]]
+%% pubmed-stream:end %%
+
+## Notes
+

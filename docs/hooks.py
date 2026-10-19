@@ -107,11 +107,16 @@ def on_page_markdown(markdown, page, config, files):
     return LINK.sub(lambda m: m.group(1) + _link(m.group(2), page.file.src_uri) + m.group(3), markdown)
 
 
-NOTEBOOK_LINK = re.compile(r'href="(?!https?:|#|mailto:)([^"#]+)\.(?:md|ipynb)((?:#[^"]*)?)"')
+NOTEBOOK_LINK = re.compile(r'href="(?!https?:|#|mailto:)([^"#]+\.(?:md|ipynb))((?:#[^"]*)?)"')
+
+
+def _notebook_link(path, anchor, page):
+    link = _link(path + anchor, page.file.src_uri)
+    return link if "://" in link else re.sub(r"\.(?:md|ipynb)(?=#|$)", ".html", link)
 
 
 def on_post_page(html, page, config):
-    """Notebook pages keep their GitHub links to .md files; point them at the site's pages."""
+    """Notebook pages keep their GitHub links to .md files; point them at the site's pages, or at GitHub."""
     if page.file.src_uri.endswith(".ipynb"):
-        html = NOTEBOOK_LINK.sub(r'href="\1.html\2"', html)
+        html = NOTEBOOK_LINK.sub(lambda m: f'href="{_notebook_link(m.group(1), m.group(2), page)}"', html)
     return html

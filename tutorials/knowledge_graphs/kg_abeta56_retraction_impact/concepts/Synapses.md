@@ -1,0 +1,171 @@
+---
+type: "concept"
+vocabulary: "MeSH"
+mesh_ui: "D013569"
+url: "https://meshb.nlm.nih.gov/record/ui?ui=D013569"
+tags:
+  - "pubmed/concept"
+---
+%% pubmed-stream:start - generated; edits inside this block are overwritten %%
+# Synapses
+
+MeSH descriptor D013569 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D013569)
+
+## Papers (152)
+
+- [[PMID42277209|Amyloid-beta fibrils as active contributors to synaptic dysfunction in Alzheimer's disease. (2026)]] (major topic)
+- [[PMID41740736|High-Fat Diet and a High Amyloid Load Interact to Induce PKC-α Dependent Synaptic Insulin Resista... (2026)]] (major topic)
+- [[PMID42681024|Presynaptic accumulation of APP-CTFβ may contribute to synaptic dysfunction in Alzheimer's disease. (2026)]] (major topic)
+- [[PMID41965896|Pyrazole-derived TRPC3 antagonist ameliorates synaptic dysfunctions and memory deficits in Alzhei... (2026)]]
+- [[PMID40442822|Acute targeting of N-terminal tau protein has long-lasting beneficial effects in Tg2576 APP/Aβ mo... (2025)]] (major topic)
+- [[PMID39934896|AMPA receptor diffusional trapping machinery as an early therapeutic target in neurodegenerative... (2025)]]
+- [[PMID40790741|Amyloid-Beta Pathology Increases Synaptic Engulfment by Glia in Feline Cognitive Dysfunction Synd... (2025)]] (major topic)
+- [[PMID39214953|Apolipoprotein E in Alzheimer's Disease: Focus on Synaptic Function and Therapeutic Strategy. (2025)]] (major topic)
+- [[PMID40329311|Assessment of the relationship between synaptic density and metabotropic glutamate receptors in e... (2025)]] (major topic)
+- [[PMID40812500|Low-intensity pulsed ultrasound enhances microglial-mediated Aβ clearance and synaptic preservati... (2025)]] (major topic)
+- [[PMID39885298|Synaptic vulnerability to amyloid-β and tau pathologies differentially disrupts emotional and mem... (2025)]]
+- [[PMID38634334|Presynaptic density determined by SV2A PET is closely associated with postsynaptic metabotropic g... (2024)]]
+- [[PMID39175009|Selective disruption of synaptic NMDA receptors of the hippocampal trisynaptic circuit in Aβ path... (2024)]] (major topic)
+- [[PMID36710681|A Function of Amyloid-β in Mediating Activity-Dependent Axon/Synapse Competition May Unify Its Ro... (2023)]]
+- [[PMID37079191|Ferulic Acid Improves Synaptic Plasticity and Cognitive Impairments by Alleviating the PP2B/DARPP... (2023)]]
+- [[PMID37968719|Neuronal transcriptome, tau and synapse loss in Alzheimer's knock-in mice require prion protein. (2023)]]
+- [[PMID35257837|Amyloid-β oligomers interact with NMDA receptors containing GluN2B subunits and metabotropic glut... (2022)]]
+- [[PMID35216328|An Essential Role for Alzheimer's-Linked Amyloid Beta Oligomers in Neurodevelopment: Transient Ex... (2022)]]
+- [[PMID35379353|Differential vulnerability of hippocampal CA3-CA1 synapses to Aβ. (2022)]] (major topic)
+- [[PMID35648810|Reversal of synapse loss in Alzheimer mouse models by targeting mGluR5 to prevent synaptic taggin... (2022)]]
+- [[PMID35444256|The synapse as a treatment avenue for Alzheimer's Disease. (2022)]]
+- [[PMID34206089|An Unbalanced Synaptic Transmission: Cause or Consequence of the Amyloid Oligomers Neurotoxicity? (2021)]] (major topic)
+- [[PMID33573114|Impairment of Spike-Timing-Dependent Plasticity at Schaffer Collateral-CA1 Synapses in Adult APP/... (2021)]] (major topic)
+- [[PMID34789478|Precision Mapping of Amyloid-β Binding Reveals Perisynaptic Localization and Spatially Restricted... (2021)]]
+- [[PMID33345400|RAPGEF2 mediates oligomeric Aβ-induced synaptic loss and cognitive dysfunction in the 3xTg-AD mou... (2021)]]
+- [[PMID34725519|Super-resolution microscopy: a closer look at synaptic dysfunction in Alzheimer disease. (2021)]] (major topic)
+- [[PMID34471085|The Role of Amyloid-Beta and Tau in the Early Pathogenesis of Alzheimer's Disease. (2021)]] (major topic)
+- [[PMID32444385|Effect of Aβ Oligomers on Neuronal APP Triggers a Vicious Cycle Leading to the Propagation of Syn... (2020)]] (major topic)
+- [[PMID32966331|Familial Alzheimer's disease mutations at position 22 of the amyloid β-peptide sequence different... (2020)]]
+- [[PMID32122400|The clinical promise of biomarkers of synapse damage or loss in Alzheimer's disease. (2020)]] (major topic)
+- [[PMID31108099|Apolipoprotein E/Amyloid-β Complex Accumulates in Alzheimer Disease Cortical Synapses via Apolipo... (2019)]] (major topic)
+- [[PMID31165579|Brains of rhesus monkeys display Aβ deposits and glial pathology while lacking Aβ dimers and othe... (2019)]]
+- [[PMID30887246|Circular HDAC9/microRNA-138/Sirtuin-1 Pathway Mediates Synaptic and Amyloid Precursor Protein Pro... (2019)]] (major topic)
+- [[PMID30708052|Poly(propylene imine) dendrimers with histidine-maltose shell as novel type of nanoparticles for... (2019)]]
+- [[PMID31087543|Stage-dependent involvement of ADAM10 and its significance in epileptic seizures. (2019)]]
+- [[PMID27671476|A novel mechanism of memory loss in Alzheimer's disease mice via the degeneration of entorhinal-C... (2018)]]
+- [[PMID29378302|Amyloid-β oligomers synaptotoxicity: The emerging role of EphA4/c-Abl signaling in Alzheimer's di... (2018)]]
+- [[PMID29066369|Astrocytic glutamatergic transporters are involved in Aβ-induced synaptic dysfunction. (2018)]] (major topic)
+- [[PMID30409172|Decoding the synaptic dysfunction of bioactive human AD brain soluble Aβ to inspire novel therape... (2018)]] (major topic)
+- [[PMID30352630|NMDA receptors mediate synaptic depression, but not spine loss in the dentate gyrus of adult amyl... (2018)]] (major topic)
+- [[PMID29413525|Synaptotoxic Signaling by Amyloid Beta Oligomers in Alzheimer's Disease Through Prion Protein and... (2018)]] (major topic)
+- [[PMID29137651|Abnormal dendritic calcium activity and synaptic depotentiation occur early in a mouse model of A... (2017)]] (major topic)
+- [[PMID28356893|Alzheimer's Toxic Amyloid Beta Oligomers: Unwelcome Visitors to the Na/K ATPase alpha3 Docking St... (2017)]]
+- [[PMID27567878|Amyloid-Beta and Phosphorylated Tau Accumulations Cause Abnormalities at Synapses of Alzheimer's... (2017)]] (major topic)
+- [[PMID28057414|ApoE, ApoE Receptors, and the Synapse in Alzheimer's Disease. (2017)]] (major topic)
+- [[PMID28607171|Astrocyte Transforming Growth Factor Beta 1 Protects Synapses against Aβ Oligomers in Alzheimer's... (2017)]] (major topic)
+- [[PMID28842420|Conditional Deletion of Prnp Rescues Behavioral and Synaptic Deficits after Disease Onset in Tran... (2017)]] (major topic)
+- [[PMID28665013|Epigenetic regulation by G9a/GLP complex ameliorates amyloid-beta 1-42 induced deficits in long-t... (2017)]]
+- [[PMID28934977|ERβ and ApoE isoforms interact to regulate BDNF-5-HT2A signaling and synaptic function in the fem... (2017)]] (major topic)
+- [[PMID29101243|Human Brain-Derived Aβ Oligomers Bind to Synapses and Disrupt Synaptic Activity in a Manner That... (2017)]] (major topic)
+- [[PMID28283575|Interaction of amyloid-β (Aβ) oligomers with neurexin 2α and neuroligin 1 mediates synapse damage... (2017)]] (major topic)
+- [[PMID28963439|Neuroprotective astrocyte-derived insulin/insulin-like growth factor 1 stimulates endocytic proce... (2017)]]
+- [[PMID28520784|Presynaptic Aβ40 prevents synapse addition in the adult Drosophila neuromuscular junction. (2017)]] (major topic)
+- [[PMID28877993|Stabilization of dynamic microtubules by mDia1 drives Tau-dependent Aβ1-42 synaptotoxicity. (2017)]] (major topic)
+- [[PMID27751869|Toll-like receptor 4-dependent glial cell activation mediates the impairment in memory establishm... (2017)]]
+- [[PMID27708157|Amyloid-β effects on synapses and memory require AMPA receptor subunit GluA3. (2016)]] (major topic)
+- [[PMID27723722|Caspase-2 cleavage of tau reversibly impairs memory. (2016)]]
+- [[PMID26733416|RPS23RG1 reduces Aβ oligomer-induced synaptic and cognitive deficits. (2016)]] (major topic)
+- [[PMID27798139|Selective Degeneration of Entorhinal-CA1 Synapses in Alzheimer's Disease via Activation of DAPK1. (2016)]] (major topic)
+- [[PMID27246855|The CaMKII/GluN2B Protein Interaction Maintains Synaptic Strength. (2016)]] (major topic)
+- [[PMID25772787|Hippocampal plasticity during the progression of Alzheimer's disease. (2015)]]
+- [[PMID25492702|Tau aggregation and its interplay with amyloid-β. (2015)]]
+- [[PMID25747037|The effect of focal brain injury on beta-amyloid plaque deposition, inflammation and synapses in... (2015)]]
+- [[PMID25661995|Tripchlorolide improves cognitive deficits by reducing amyloid β and upregulating synapse-related... (2015)]] (major topic)
+- [[PMID24465766|A lifespan observation of a novel mouse model: in vivo evidence supports aβ oligomer hypothesis. (2014)]]
+- [[PMID24021662|Active and passive immunization strategies based on the SDPM1 peptide demonstrate pre-clinical ef... (2014)]]
+- [[PMID24760868|Activity-dependent tau protein translocation to excitatory synapse is disrupted by exposure to am... (2014)]] (major topic)
+- [[PMID25390368|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers I: Abeta 42 oligomer binding to sp... (2014)]] (major topic)
+- [[PMID25390692|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers II: Sigma-2/PGRMC1 receptors media... (2014)]] (major topic)
+- [[PMID24457963|c-Jun N-terminal kinase has a key role in Alzheimer disease synaptic dysfunction in vivo. (2014)]] (major topic)
+- [[PMID23948943|Cellular prion protein as a therapeutic target in Alzheimer's disease. (2014)]]
+- [[PMID24899710|Genetic modulation of soluble Aβ rescues cognitive and synaptic impairment in a mouse model of Al... (2014)]] (major topic)
+- [[PMID25281869|Immunotherapy alleviates amyloid-associated synaptic pathology in an Alzheimer's disease mouse mo... (2014)]] (major topic)
+- [[PMID25393479|Neuritin can normalize neural deficits of Alzheimer's disease. (2014)]]
+- [[PMID24462903|Pathogenesis of synaptic degeneration in Alzheimer's disease and Lewy body disease. (2014)]] (major topic)
+- [[PMID24840308|Secreted amyloid β-proteins in a cell culture model include N-terminally extended peptides that i... (2014)]] (major topic)
+- [[PMID24454724|Specific disruption of hippocampal mossy fiber synapses in a mouse model of familial Alzheimer's... (2014)]] (major topic)
+- [[PMID24440055|Synergistic effects of amyloid-beta and wild-type human tau on dendritic spine loss in a floxed d... (2014)]]
+- [[PMID24712999|Tau acts as a mediator for Alzheimer's disease-related synaptic deficits. (2014)]] (major topic)
+- [[PMID24853936|The intersection of amyloid beta and tau at synapses in Alzheimer's disease. (2014)]] (major topic)
+- [[PMID23372648|Accumulation of intraneuronal β-amyloid 42 peptides is associated with early changes in microtubu... (2013)]] (major topic)
+- [[PMID23554921|Age-dependent neuroplasticity mechanisms in Alzheimer Tg2576 mice following modulation of brain a... (2013)]]
+- [[PMID22987042|Amyloid-β induced signaling by cellular prion protein and Fyn kinase in Alzheimer disease. (2013)]]
+- [[PMID23843949|Amyloid-β protofibrils: size, morphology and synaptotoxicity of an engineered mimic. (2013)]]
+- [[PMID23668663|Deregulation of excitatory neurotransmission underlying synapse failure in Alzheimer's disease. (2013)]] (major topic)
+- [[PMID24052308|Human LilrB2 is a β-amyloid receptor and its murine homolog PirB regulates synaptic plasticity in... (2013)]] (major topic)
+- [[PMID22785404|Synaptotoxic amyloid-β oligomers: a molecular basis for the cause, diagnosis, and treatment of Al... (2013)]]
+- [[PMID22640423|Absence of amyloid β oligomers at the postsynapse and regulated synaptic Zn2+ in cognitively inta... (2012)]] (major topic)
+- [[PMID21741125|AD synapses contain abundant Aβ monomer and multiple soluble oligomers, including a 56-kDa assembly. (2012)]] (major topic)
+- [[PMID22820466|Alzheimer amyloid-β oligomer bound to postsynaptic prion protein activates Fyn to impair neurons. (2012)]] (major topic)
+- [[PMID22805374|Alzheimer's disease Aβ assemblies mediating rapid disruption of synaptic plasticity and memory. (2012)]] (major topic)
+- [[PMID22122128|Amyloid β: linking synaptic plasticity failure to memory disruption in Alzheimer's disease. (2012)]] (major topic)
+- [[PMID22427674|Apolipoprotein E3 (ApoE3) but not ApoE4 protects against synaptic loss through increased expressi... (2012)]] (major topic)
+- [[PMID22305478|Dispersible amyloid β-protein oligomers, protofibrils, and fibrils represent diffusible but not s... (2012)]] (major topic)
+- [[PMID22762015|Neurotoxicity of amyloid β-protein: synaptic and network dysfunction. (2012)]] (major topic)
+- [[PMID22203915|Spines, plasticity, and cognition in Alzheimer's model mice. (2012)]]
+- [[PMID23173076|Synapse-binding subpopulations of Aβ oligomers sensitive to peptide assembly blockers and scFv an... (2012)]] (major topic)
+- [[PMID22491782|Synapses and Alzheimer's disease. (2012)]] (major topic)
+- [[PMID21781116|A monoclonal antibody against synthetic Aβ dimer assemblies neutralizes brain-derived synaptic pl... (2011)]] (major topic)
+- [[PMID21835156|Ablation of TNF-RI/RII expression in Alzheimer's disease mice leads to an unexpected enhancement... (2011)]]
+- [[PMID21232050|Alzheimer's disease & metals: therapeutic opportunities. (2011)]]
+- [[PMID21228179|Amyloid-β/Fyn-induced synaptic, network, and cognitive impairments depend on tau levels in multip... (2011)]] (major topic)
+- [[PMID21538118|Aβ oligomer-induced synapse degeneration in Alzheimer's disease. (2011)]] (major topic)
+- [[PMID20097446|Aβ oligomers inhibit synapse remodelling necessary for memory consolidation. (2011)]] (major topic)
+- [[PMID21654636|Interaction between prion protein and toxic amyloid β assemblies can be therapeutically targeted... (2011)]] (major topic)
+- [[PMID21228172|PKC ε activation prevents synaptic loss, Aβ elevation, and cognitive deficits in Alzheimer's dise... (2011)]] (major topic)
+- [[PMID21695208|Protective effects of positive lysosomal modulation in Alzheimer's disease transgenic mouse models. (2011)]]
+- [[PMID21113149|Reversing EphB2 depletion rescues cognitive functions in Alzheimer model. (2011)]]
+- [[PMID21914486|The Aβ oligomer hypothesis for synapse failure and memory loss in Alzheimer's disease. (2011)]] (major topic)
+- [[PMID20371804|A mouse model of amyloid beta oligomers: their contribution to synaptic alteration, abnormal tau... (2010)]] (major topic)
+- [[PMID20554859|A pathologic cascade leading to synaptic dysfunction in alpha-synuclein-induced neurodegeneration. (2010)]] (major topic)
+- [[PMID19757208|Alzheimer's disease amyloid beta-protein and synaptic function. (2010)]] (major topic)
+- [[PMID20980598|Amyloid beta-protein dimers rapidly form stable synaptotoxic protofibrils. (2010)]] (major topic)
+- [[PMID20581818|Amyloid-beta-induced neuronal dysfunction in Alzheimer's disease: from synapses toward neural net... (2010)]] (major topic)
+- [[PMID20847424|Amyloid-β as a modulator of synaptic plasticity. (2010)]] (major topic)
+- [[PMID20946660|Anti-PrPC monoclonal antibody infusion as a novel treatment for cognitive deficits in an Alzheime... (2010)]]
+- [[PMID19538474|Cognitive impairment in the Tg6590 transgenic rat model of Alzheimer's disease. (2010)]]
+- [[PMID21159979|CX3CR1 in microglia regulates brain amyloid deposition through selective protofibrillar amyloid-β... (2010)]]
+- [[PMID20547131|Deleterious effects of amyloid beta oligomers acting as an extracellular scaffold for mGluR5. (2010)]]
+- [[PMID20655099|Dendritic function of tau mediates amyloid-beta toxicity in Alzheimer's disease mouse models. (2010)]]
+- [[PMID20032460|Inhibition of calcineurin-mediated endocytosis and alpha-amino-3-hydroxy-5-methyl-4-isoxazoleprop... (2010)]] (major topic)
+- [[PMID20233208|Inhibition of calpain prevents NMDA-induced cell death and beta-amyloid-induced synaptic dysfunct... (2010)]] (major topic)
+- [[PMID19929945|Intracellular calcium signalling in Alzheimer's disease. (2010)]]
+- [[PMID20354705|Intraneuronal beta-amyloid accumulation and synapse pathology in Alzheimer's disease. (2010)]] (major topic)
+- [[PMID20634586|Neurotrophins enhance CaMKII activity and rescue amyloid-β-induced deficits in hippocampal synapt... (2010)]]
+- [[PMID20665634|Prion protein and Abeta-related synaptic toxicity impairment. (2010)]] (major topic)
+- [[PMID20573181|Progressive accumulation of amyloid-beta oligomers in Alzheimer's disease and in amyloid precurso... (2010)]] (major topic)
+- [[PMID20534649|SNARE protein redistribution and synaptic failure in a transgenic mouse model of Parkinson's dise... (2010)]] (major topic)
+- [[PMID21172610|Tau mislocalization to dendritic spines mediates synaptic dysfunction independently of neurodegen... (2010)]] (major topic)
+- [[PMID20703260|The prion protein as a receptor for amyloid-beta. (2010)]] (major topic)
+- [[PMID19339596|A role for synaptic zinc in activity-dependent Abeta oligomer formation and accumulation at excit... (2009)]] (major topic)
+- [[PMID19631677|Alzheimer's-associated Abeta oligomers show altered structure, immunoreactivity and synaptotoxici... (2009)]] (major topic)
+- [[PMID19660551|Biochemical and immunohistochemical analysis of an Alzheimer's disease mouse model reveals the pr... (2009)]]
+- [[PMID19242475|Cellular prion protein mediates impairment of synaptic plasticity by amyloid-beta oligomers. (2009)]] (major topic)
+- [[PMID19406747|Insulin receptor dysfunction impairs cellular clearance of neurotoxic oligomeric a{beta}. (2009)]]
+- [[PMID19228947|Oligomeric amyloid beta associates with postsynaptic densities and correlates with excitatory syn... (2009)]] (major topic)
+- [[PMID19188609|Protection of synapses against Alzheimer's-linked toxins: insulin signaling prevents the pathogen... (2009)]] (major topic)
+- [[PMID19357271|Synaptic NMDA receptor activation stimulates alpha-secretase amyloid precursor protein processing... (2009)]] (major topic)
+- [[PMID19295912|Transcriptome analysis of synaptoneurosomes identifies neuroplasticity genes overexpressed in inc... (2009)]]
+- [[PMID19240035|{beta}-Amyloid impairs AMPA receptor trafficking and function by reducing Ca2+/calmodulin-depende... (2009)]] (major topic)
+- [[PMID18448646|Activation of the amyloid cascade in apolipoprotein E4 transgenic mice induces lysosomal activati... (2008)]]
+- [[PMID18417702|Amyloid beta protein dimer-containing human CSF disrupts synaptic plasticity: prevention by syste... (2008)]] (major topic)
+- [[PMID18568035|Amyloid-beta protein dimers isolated directly from Alzheimer's brains impair synaptic plasticity... (2008)]] (major topic)
+- [[PMID18292081|Cyclooxygenase-2 inhibition improves amyloid-beta-mediated suppression of memory and synaptic pla... (2008)]]
+- [[PMID18438727|Dendritic spine loss and synaptic alterations in Alzheimer's disease. (2008)]] (major topic)
+- [[PMID18367618|Receptor for advanced glycation end product-dependent activation of p38 mitogen-activated protein... (2008)]] (major topic)
+- [[PMID18359102|Soluble oligomers of the amyloid beta-protein impair synaptic plasticity and behavior. (2008)]] (major topic)
+- [[PMID19096161|Use of copper and insulin-resistance to accelerate cognitive deficits and synaptic protein loss i... (2008)]] (major topic)
+- [[PMID18165846|Why Alzheimer's is a disease of memory: the attack on synapses by A beta oligomers (ADDLs). (2008)]] (major topic)
+- [[PMID17251419|Abeta oligomer-induced aberrations in synapse composition, shape, and density provide a molecular... (2007)]] (major topic)
+- [[PMID17470798|Involvement of beta-site APP cleaving enzyme 1 (BACE1) in amyloid precursor protein-mediated enha... (2007)]] (major topic)
+- [[PMID16738244|Different conformations of amyloid beta induce neurotoxicity by distinct mechanisms in human cort... (2006)]]
+%% pubmed-stream:end %%
+
+## Notes
+
