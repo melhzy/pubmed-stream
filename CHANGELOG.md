@@ -2,7 +2,7 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
-## Unreleased
+## 0.3.2 - 2026-10-19
 
 ### Added
 
@@ -12,6 +12,7 @@ Notable changes to pubmed-stream. Versions follow [semantic versioning](https://
 ### Changed
 
 - `pubmed-stream review` no longer shows the question to the model while it summarizes each abstract. Given the question, small models opened summaries with it restated as a finding ("The gut microbiota is linked to frailty.") even for papers that did not test it. Summaries now start with the kind of study and what it studied. The question is still used for `--answer`.
+- Tutorial 7 reports how the local model did with the new summaries, with a new screenshot, and that its summaries can change after Ollama reloads the model.
 
 ### Fixed
 
