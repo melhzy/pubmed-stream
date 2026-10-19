@@ -25,6 +25,7 @@ import requests
 from . import __version__
 from .abstracts import count_pubmed, fetch_abstracts
 from .corpus import list_articles, most_cited, select, short_id
+from .export import export_citations
 from .downloader import search_and_download, search_pmc
 
 logger = logging.getLogger(__name__)
@@ -135,6 +136,22 @@ TOOLS: List[Dict[str, Any]] = [
         "annotations": {"readOnlyHint": False, "destructiveHint": False, "idempotentHint": True, "openWorldHint": True},
     },
     {
+        "name": "export_citations",
+        "title": "Export citations",
+        "description": "Write the downloaded articles, or chosen ones, as a BibTeX or RIS file that Zotero, "
+                       "EndNote or Mendeley imports. Give the researcher the file's path.",
+        "inputSchema": {"type": "object", "properties": {
+            "path": PATH_PARAM,
+            "format": {"type": "string", "enum": ["bibtex", "ris"], "default": "bibtex"},
+            "ids": {"type": "array", "items": {"type": "string"},
+                    "description": "PubMed or PMC IDs; all articles when omitted"},
+            "file": {"type": "string", "description": "File to write, relative to the project",
+                     "default": "citations.bib"},
+        }},
+        "annotations": {"readOnlyHint": False, "destructiveHint": True, "idempotentHint": True,
+                        "openWorldHint": False},
+    },
+    {
         "name": "build_knowledge_graph",
         "title": "Build or refresh a knowledge graph",
         "description": "Link a study's searches and key papers into an Obsidian vault, kg_<topic>, with notes for "
@@ -178,6 +195,7 @@ class Server:
             "most_cited": self.most_cited,
             "read_article": self.read_article,
             "neighborhood": self.neighborhood,
+            "export_citations": self.export_citations,
             "build_knowledge_graph": self.build_knowledge_graph,
         }
 
@@ -296,6 +314,18 @@ class Server:
                 lines.append(f"  PMID {a.pmid} ({a.year or 'n.d.'}) {a.title or ''}{kind}")
         lines.append(f"Saved: {saved}")
         return "\n".join(lines)
+
+    def export_citations(self, args: Dict[str, Any]) -> str:
+        fmt = args.get("format", "bibtex")
+        path = self.path(args.get("path"))
+        self.records(path)   # reports a missing or empty folder
+        text, count, missing = export_citations(path, fmt, args.get("ids"))
+        if not count:
+            raise ToolError(f"None of {', '.join(missing)} is among the downloaded articles")
+        target = self.path(args.get("file") or ("citations.bib" if fmt == "bibtex" else "citations.ris"))
+        target.write_text(text, encoding="utf-8")
+        note = f" Not downloaded: {', '.join(missing)}." if missing else ""
+        return f"Wrote {count} citations ({fmt}) to {target.resolve()}.{note}"
 
     def build_knowledge_graph(self, args: Dict[str, Any]) -> str:
         from .kg import create_kg

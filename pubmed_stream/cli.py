@@ -24,6 +24,7 @@ from .downloader import (
 )
 from .abstracts import count_pubmed, fetch_abstracts
 from .corpus import list_articles, most_cited, select, short_id
+from .export import FORMATS, export_citations
 from .neighborhood import (
     Neighborhood,
     download_neighborhood,
@@ -256,6 +257,27 @@ An article's full text is in the "text" field of its file.""",
              "foundations, and good key papers for 'neighborhood' or 'kg --seed'",
     )
     listing.add_argument("--json", action="store_true", help="Print one JSON object per line")
+
+    export = subparsers.add_parser(
+        "export",
+        help="Export downloaded articles as BibTeX or RIS citations, for Zotero, EndNote or Mendeley",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""examples:
+  pubmed-stream export publications -o review.bib
+  pubmed-stream export publications --format ris -o review.ris
+  pubmed-stream export publications --id 38686220 41113141 -o chosen.bib
+
+Every reference manager imports BibTeX and RIS: in Zotero, File > Import.
+Entries have the title, authors, journal, year, DOI, PubMed and PMC IDs, a
+link and the abstract, for full texts and saved abstracts alike. The first
+word of each author name is taken as the surname, so check multi-word
+surnames such as "van der Berg" after importing.""",
+    )
+    export.add_argument("path", nargs="?", default="publications",
+                        help="A download folder, a folder of them, or one article file (default: ./publications)")
+    export.add_argument("--format", choices=FORMATS, default="bibtex", help="Citation format (default: bibtex)")
+    export.add_argument("--id", nargs="+", metavar="ID", help="Export only these articles, by PubMed ID or PMC ID")
+    export.add_argument("--output", "-o", metavar="FILE", help="Write to FILE instead of printing")
 
     review_p = subparsers.add_parser(
         "review",
@@ -624,6 +646,25 @@ def _run_list(args: argparse.Namespace) -> int:
     return 0
 
 
+def _run_export(args: argparse.Namespace) -> int:
+    path = Path(args.path)
+    if not path.exists():
+        print(f"Error: {path} does not exist", file=sys.stderr)
+        return 1
+    text, count, missing = export_citations(path, args.format, args.id)
+    if missing:
+        print(f"Not downloaded under {path}: {', '.join(missing)}", file=sys.stderr)
+    if not count:
+        print(f"No articles to export in {path}", file=sys.stderr)
+        return 1
+    if args.output:
+        Path(args.output).write_text(text, encoding="utf-8")
+        print(f"Wrote {count} citations to {args.output}")
+    else:
+        sys.stdout.write(text)
+    return 0
+
+
 def _run_open(kg_dir) -> int:
     from .obsidian import open_vault
 
@@ -792,6 +833,9 @@ def main() -> int:
 
     if args.command == "list":
         return _run_list(args)
+
+    if args.command == "export":
+        return _run_export(args)
 
     if args.command == "download":
         with _progress(args):
