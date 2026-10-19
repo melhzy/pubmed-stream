@@ -11,13 +11,12 @@ tags:
 
 MeSH descriptor D015195 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D015195)
 
-## Papers (13)
+## Papers (12)
 
 - [[PMID41752374|Design and Synthesis of Tacrine-Coumarin Hybrids via Click Chemistry as Multifunctional Cholinest... (2026)]] (major topic)
 - [[PMID29713966|Inhibiting and Remodeling Toxic Amyloid-Beta Oligomer Formation Using a Computationally Designed... (2019)]] (major topic)
 - [[PMID30297750|Inhibiting amyloid-β cytotoxicity through its interaction with the cell surface receptor LilrB2 b... (2018)]] (major topic)
 - [[PMID27328687|Apolipoprotein E as a Therapeutic Target in Alzheimer's Disease: A Review of Basic Research and C... (2016)]]
-- [[PMID25586103|Receptor for advanced glycation endproduct modulators: a new therapeutic target in Alzheimer's di... (2015)]] (major topic)
 - [[PMID25390368|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers I: Abeta 42 oligomer binding to sp... (2014)]]
 - [[PMID24397771|Rational design of a structural framework with potential use to develop chemical reagents that ta... (2014)]] (major topic)
 - [[PMID25142005|Specific aromatic foldamers potently inhibit spontaneous and seeded Aβ42 and Aβ43 fibril assembly. (2014)]]

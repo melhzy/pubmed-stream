@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D058227 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D058227)
 
-## Papers (21)
+## Papers (19)
 
-- [[PMID41820797|In vitro, cellular and in vivo studies of amyloid oligomers structure and toxicity: Challenges an... (2026)]] (major topic)
 - [[PMID39950286|Recent Advances in Co-Condensation and Co-Aggregation of Amyloid Proteins Linked to Neurodegenera... (2025)]] (major topic)
 - [[PMID34896392|Aptamers targeting amyloidogenic proteins and their emerging role in neurodegenerative diseases. (2022)]] (major topic)
 - [[PMID36442093|Early diagnosis and treatment of Alzheimer's disease by targeting toxic soluble Aβ oligomers. (2022)]]
@@ -27,7 +26,6 @@ MeSH descriptor D058227 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28482635|The Anti-Amyloid-β and Neuroprotective Properties of a Novel Tricyclic Pyrone Molecule. (2017)]] (major topic)
 - [[PMID28937655|Why are Functional Amyloids Non-Toxic in Humans? (2017)]] (major topic)
 - [[PMID27395454|(Multifunctional Roles of APOE in Alzheimer's Disease Pathogenesis). (2016)]]
-- [[PMID26509334|The contribution of neuroinflammation to amyloid toxicity in Alzheimer's disease. (2016)]] (major topic)
 - [[PMID24643138|Improvement of memory deficits and amyloid-β clearance in aged APP23 mice treated with a combinat... (2014)]]
 - [[PMID23746423|ATR-FTIR: a "rejuvenated" tool to investigate amyloid proteins. (2013)]] (major topic)
 - [[PMID23529761|The role of amyloidogenic protein oligomerization in neurodegenerative disease. (2013)]] (major topic)

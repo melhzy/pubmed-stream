@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D014150 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D014150)
 
-## Papers (4)
+## Papers (3)
 
 - [[PMID29154277|Potential of Low Dose Leuco-Methylthioninium Bis(Hydromethanesulphonate) (LMTM) Monotherapy for T... (2018)]] (major topic)
-- [[PMID24685636|Tissue transglutaminase in Alzheimer's disease: involvement in pathogenesis and its potential as... (2014)]]
 - [[PMID23560952|Multi-target action of the novel anti-Alzheimer compound CHF5074: in vivo study of long term trea... (2013)]] (major topic)
 - [[PMID20420492|Current therapeutic targets for the treatment of Alzheimer's disease. (2010)]] (major topic)
 %% pubmed-stream:end %%

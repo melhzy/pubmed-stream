@@ -156,7 +156,8 @@ def kinds_by_period(periods: Sequence[str], counts: Dict[str, Dict[str, int]], u
                 ax.text(left + share / 2, row, f"{share:.0%}", ha="center", va="center", fontsize=9.5,
                         color="white" if kind != kinds[-1] else tu.INK)
             elif share > 0:
-                ax.annotate(f"{share:.0%}", (left + share, row), xytext=(2, 9), textcoords="offset points",
+                ax.annotate("<1%" if share < 0.005 else f"{share:.0%}", (left + share, row), xytext=(2, 9),
+                            textcoords="offset points",
                             fontsize=8.5, color=tu.INK)
             left += share
         ax.text(1.02, row, f"{n} of {n + unread.get(period, 0)} read", va="center", fontsize=9, color=tu.INK_2,
@@ -344,3 +345,36 @@ def radial_map(kg: dict, seed: str, kinds: Dict[str, str], kind_order: Sequence[
                 Line2D([], [], marker="o", ls="", ms=9, mfc="white", mec=tu.INK, mew=1.8, label="Retracted")]
     ax.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, 0.02), ncol=3, fontsize=9, frameon=False)
     plt.show()
+
+
+def paper_table(rows: Sequence[dict], colours: Dict[str, str], marker: str = "⟦CITE⟧"):
+    """A table of citing papers for reading: linked title and journal, kind, and the citing sentence.
+
+    Each row is a dict with ``year``, ``pmid``, ``title``, ``journal``, ``kind``, ``sentence`` and,
+    optionally, ``shared_authors`` and ``source``, where the sentence was read.  *marker* in a sentence is shown as **[this paper]**.
+    """
+    from html import escape
+
+    from IPython.display import HTML
+
+    cells = []
+    cell = "padding:6px 12px 6px 0;border-bottom:1px solid rgba(128,128,128,.25);"
+    for r in rows:
+        chip = (f'<span style="background:{colours.get(r["kind"], tu.GREY)};color:white;border-radius:9px;'
+                f'padding:1px 8px;font-size:85%;white-space:nowrap">{escape(r["kind"])}</span>')
+        sentence = escape(tu.short(r.get("sentence") or "", 420)).replace(escape(marker), "<b>[this paper]</b>")
+        if sentence and r.get("source") and r["source"] != "full text":
+            sentence += f'<div style="opacity:.7;font-size:85%">from {escape(r["source"])}</div>'
+        shared = r.get("shared_authors")
+        who = f'<div style="opacity:.7;font-size:85%">Shares an author: {escape(shared)}</div>' if shared else ""
+        cells.append(
+            f'<tr><td style="{cell}vertical-align:top">{r["year"]}</td>'
+            f'<td style="{cell}vertical-align:top;min-width:16em"><a href="https://pubmed.ncbi.nlm.nih.gov/{r["pmid"]}/" '
+            f'target="_blank">{escape(r["title"] or "")}</a><div style="opacity:.7;font-size:85%">'
+            f'{escape(r["journal"] or "")} · PMID {r["pmid"]}</div>{who}</td>'
+            f'<td style="{cell}vertical-align:top">{chip}</td>'
+            f'<td style="{cell}vertical-align:top;font-size:90%">{sentence or "<i>not read</i>"}</td></tr>')
+    head = "".join(f'<th style="{cell}text-align:left">{h}</th>' for h in
+                   ["Year", "Paper", "How it cites it", "The sentence that cites it"])
+    return HTML(f'<table style="border-collapse:collapse;width:100%"><thead><tr>{head}</tr></thead>'
+                f'<tbody>{"".join(cells)}</tbody></table>')

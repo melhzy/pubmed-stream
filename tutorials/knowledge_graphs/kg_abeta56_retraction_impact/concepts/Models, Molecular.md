@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D008958 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008958)
 
-## Papers (73)
+## Papers (70)
 
 - [[PMID33543942|Amyloid Oligomers: A Joint Experimental/Computational Perspective on Alzheimer's Disease, Parkins... (2021)]]
 - [[PMID33724783|Probing the Structure of Toxic Amyloid-β Oligomers with Electron Spin Resonance and Molecular Mod... (2021)]]
@@ -24,9 +24,7 @@ MeSH descriptor D008958 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID29028351|A Hexamer of a Peptide Derived from Aβ16-36. (2017)]]
 - [[PMID28559586|Aβ42 pentamers/hexamers are the smallest detectable oligomers in solution. (2017)]]
 - [[PMID28922400|Protein folding, misfolding and aggregation: The importance of two-electron stabilizing interacti... (2017)]] (major topic)
-- [[PMID28294556|Unmodified and pyroglutamylated amyloid β peptides form hypertoxic hetero-oligomers of unique sec... (2017)]] (major topic)
 - [[PMID28683555|X-ray Crystallographic Structure of a Compact Dodecamer from a Peptide Derived from Aβ16-36. (2017)]]
-- [[PMID27852777|Amyloid-β Peptide Nitrotyrosination Stabilizes Oligomers and Enhances NMDAR-Mediated Toxicity. (2016)]]
 - [[PMID27013020|Conformational Dynamics of Specific Aβ Oligomers Govern Their Ability To Replicate and Induce Neu... (2016)]]
 - [[PMID26868929|Structure of ring-shaped Aβ₄₂ oligomers determined by conformational selection. (2016)]] (major topic)
 - [[PMID25950632|Amyloid polymorphism: structural basis and neurobiological relevance. (2015)]]
@@ -37,7 +35,6 @@ MeSH descriptor D008958 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26068174|Successive Stages of Amyloid-β Self-Assembly Characterized by Solid-State Nuclear Magnetic Resona... (2015)]]
 - [[PMID25915729|X-ray Crystallographic Structures of Oligomers of Peptides Derived from β2-Microglobulin. (2015)]]
 - [[PMID25118290|Antiparallel triple-strand architecture for prefibrillar Aβ42 oligomers. (2014)]] (major topic)
-- [[PMID24857861|Factors influencing compact-extended structure equilibrium in oligomers of aβ1-40 peptide--an ion... (2014)]]
 - [[PMID24671215|Molecular topology as novel strategy for discovery of drugs with aβ lowering and anti-aggregation... (2014)]]
 - [[PMID24669785|Polymorphism of oligomers of a peptide from β-amyloid. (2014)]]
 - [[PMID25333939|Small bifunctional chelators that do not disaggregate amyloid β fibrils exhibit reduced cellular... (2014)]]

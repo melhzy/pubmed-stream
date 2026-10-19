@@ -21,9 +21,7 @@ MeSH descriptor D009447 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26710111|Exosomal cellular prion protein drives fibrillization of amyloid beta and counteracts amyloid bet... (2016)]]
 - [[PMID27240424|Increase of Positive Net Charge and Conformational Rigidity Enhances the Efficacy of d-Enantiomer... (2016)]]
 - [[PMID26898910|Phosphorylation of the amyloid β-peptide at Ser26 stabilizes oligomeric assembly and increases ne... (2016)]]
-- [[PMID26448453|Antibody against Small Aggregated Peptide Specifically Recognizes Toxic Aβ-42 Oligomers in Alzhei... (2015)]]
 - [[PMID26123100|Melatonin regulates the transcription of βAPP-cleaving secretases mediated through melatonin rece... (2015)]] (major topic)
-- [[PMID25134727|Amyloid-β oligomers as a template for secondary amyloidosis in Alzheimer's disease. (2014)]]
 - [[PMID24903973|Cilostazol suppresses β-amyloid production by activating a disintegrin and metalloproteinase 10 v... (2014)]]
 - [[PMID24725347|Oligomer-targeting with a conformational antibody fragment promotes toxicity in Aβ-expressing flies. (2014)]]
 - [[PMID22678883|DENN/MADD/IG20 alternative splicing changes and cell death in Alzheimer's disease. (2012)]]
@@ -31,9 +29,11 @@ MeSH descriptor D009447 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID22610977|Synergistic effects of amyloid peptides and lead on human neuroblastoma cells. (2012)]]
 - [[PMID21403388|Stimulation of non-amyloidogenic processing of amyloid-β protein precursor by cryptotanshinone in... (2011)]]
 - [[PMID21085580|APP processing induced by herpes simplex virus type 1 (HSV-1) yields several APP fragments in hum... (2010)]]
+- [[PMID19914335|Chronic oxidative stress causes increased tau phosphorylation in M17 neuroblastoma cells. (2010)]]
 - [[PMID20554868|L-3-n-butylphthalide improves cognitive impairment and reduces amyloid-beta in a transgenic model... (2010)]]
 - [[PMID19450490|Abeta oligomers and fibrillar aggregates induce different apoptotic pathways in LAN5 neuroblastom... (2009)]] (major topic)
 - [[PMID19221430|nELAV proteins alteration in Alzheimer's disease brain: a novel putative target for amyloid-beta... (2009)]]
+- [[PMID17442826|A calcium- and calmodulin-dependent kinase Ialpha/microtubule affinity regulating kinase 2 signal... (2007)]]
 - [[PMID17183149|An antibody to the beta-secretase cleavage site on amyloid-beta-protein precursor inhibits amyloi... (2006)]]
 - [[PMID16385556|Antibodies against beta-amyloid reduce Abeta oligomers, glycogen synthase kinase-3beta activation... (2006)]]
 - [[PMID12058030|Oligomeric and fibrillar species of amyloid-beta peptides differentially affect neuronal viability. (2002)]]

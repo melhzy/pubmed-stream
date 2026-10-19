@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D017785 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D017785)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID20858443|Measurement of the attachment and assembly of small amyloid-β oligomers on live cell membranes at... (2010)]]
+- [[PMID15190253|Structural basis of long-term potentiation in single dendritic spines. (2004)]]
 %% pubmed-stream:end %%
 
 ## Notes

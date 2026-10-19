@@ -11,11 +11,10 @@ tags:
 
 MeSH descriptor D015032 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D015032)
 
-## Papers (16)
+## Papers (15)
 
 - [[PMID37047843|Imbalance of Essential Metals in Traumatic Brain Injury and Its Possible Link with Disorders of C... (2023)]]
 - [[PMID31865526|Preferential Neurodegeneration in the Dentate Gyrus by Amyloid β1-42-Induced Intracellular Zn2+Dy... (2020)]] (major topic)
-- [[PMID29555950|Zinc ion rapidly induces toxic, off-pathway amyloid-β oligomers distinct from amyloid-β derived d... (2018)]] (major topic)
 - [[PMID25354461|Biometals and their therapeutic implications in Alzheimer's disease. (2015)]] (major topic)
 - [[PMID25536033|Amyloid β-mediated Zn2+ influx into dentate granule cells transiently induces a short-term cognit... (2014)]] (major topic)
 - [[PMID24397771|Rational design of a structural framework with potential use to develop chemical reagents that ta... (2014)]]

@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D014481 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D014481)
 
-## Papers (2)
+## Papers (1)
 
-- [[PMID25984581|2015 Alzheimer's disease facts and figures. (2015)]]
 - [[PMID25468905|A Food and Drug Administration-approved asthma therapeutic agent impacts amyloid β in the brain i... (2015)]]
 %% pubmed-stream:end %%
 

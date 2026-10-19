@@ -11,12 +11,12 @@ tags:
 
 MeSH descriptor D016874 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D016874)
 
-## Papers (49)
+## Papers (50)
 
+- [[PMID41956094|Tau seeds induce neurofibrillary tangle formation across brain regions via individual-specific co... (2026)]] (major topic)
 - [[PMID36935511|Exercise suppresses neuroinflammation for alleviating Alzheimer's disease. (2023)]]
 - [[PMID35332316|Lesions without symptoms: understanding resilience to Alzheimer disease neuropathological changes. (2022)]]
 - [[PMID35974399|Pathological changes induced by Alzheimer's brain inoculation in amyloid-beta plaque-bearing mice. (2022)]]
-- [[PMID34864675|Prions and Neurodegenerative Diseases: A Focus on Alzheimer's Disease. (2022)]]
 - [[PMID35444256|The synapse as a treatment avenue for Alzheimer's Disease. (2022)]]
 - [[PMID34103079|CSF1R inhibition rescues tau pathology and neurodegeneration in an A/T/N model with combined AD p... (2021)]]
 - [[PMID30382187|δ-Secretase-cleaved Tau stimulates Aβ production via upregulating STAT1-BACE1 signaling in Alzhei... (2021)]]
@@ -32,7 +32,6 @@ MeSH descriptor D016874 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27400224|A Study of Aβ Oligomers in the Temporal Cortex and Cerebellum of Patients with Neuropathologicall... (2016)]]
 - [[PMID27629715|Soluble Conformers of Aβ and Tau Alter Selective Proteins Governing Axonal Transport. (2016)]]
 - [[PMID27770234|Soluble pre-fibrillar tau and β-amyloid species emerge in early human Alzheimer's disease and tra... (2016)]]
-- [[PMID25399729|Invited review: Prion-like transmission and spreading of tau pathology. (2015)]]
 - [[PMID25756590|Neuroinflammatory signals in Alzheimer disease and APP/PS1 transgenic mice: correlations with pla... (2015)]] (major topic)
 - [[PMID24465766|A lifespan observation of a novel mouse model: in vivo evidence supports aβ oligomer hypothesis. (2014)]]
 - [[PMID24077890|Pathology of clinical and preclinical Alzheimer's disease. (2013)]]
@@ -61,7 +60,9 @@ MeSH descriptor D016874 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID16020737|Tau suppression in a neurodegenerative mouse model improves memory function. (2005)]] (major topic)
 - [[PMID15709472|Transgenic mouse models for APP processing and Alzheimer's disease: early and late defects. (2005)]]
 - [[PMID15036877|More than just two peas in a pod: common amyloidogenic properties of tau and alpha-synuclein in n... (2004)]]
-- [[PMID12702875|Common structure of soluble amyloid oligomers implies common mechanism of pathogenesis. (2003)]]
+- [[PMID12704221|Protofibrils, pores, fibrils, and neurodegeneration: separating the responsible protein aggregate... (2003)]] (major topic)
+- [[PMID12540054|Tau neurofibrillary pathology and microtubule stability. (2002)]] (major topic)
+- [[PMID12130773|The amyloid hypothesis of Alzheimer's disease: progress and problems on the road to therapeutics. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

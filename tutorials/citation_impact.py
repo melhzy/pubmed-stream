@@ -27,6 +27,8 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Pattern, Tuple
 
+import requests
+
 from pubmed_stream.downloader import _eutils_request, _prepare_client
 
 CITE = "⟦CITE⟧"   # marks the citation inside a sentence
@@ -43,9 +45,18 @@ DOUBT = re.compile(r"(?<!spine )(?<!spines )(?<!neurite )(?<!axon )(?<!axonal )(
                    r"concerns? (?:about|over|regarding|have been raised)|(?:research|scientific|data) integrity|whistleblow|Piller|"
                    r"could not (?:be )?(?:detect|reproduc|replicat|confirm)|"
                    r"(?:fail|unable)(?:ed|ure)? to (?:detect|reproduc|replicat|confirm)|"
-                   r"not (?:been )?(?:reproduc|replicat)|irreproduc", re.I)
+                   r"not (?:been )?(?:reproduc|replicat)|irreproduc|(?:serious|major) errors?|sleuth|"
+                   r"post-publication (?:peer )?review|self-correct|alleg(?:ed|ations?)\b|scrutini[sz]ed|"
+                   r"(?:image|images|data|figure|figures) (?:alteration|irregularit|anomal)", re.I)
+# Softer words that may, or may not, question the paper: citations sorted as general or naming the
+# finding whose sentence has one of them are worth a second look by a person
+REVIEW = re.compile(r"controvers|debat|disput|questionab|questioned|in question|unclear|uncertain|conflicting|"
+                    r"inconsisten|discrepan|challeng|caution|skeptic|sceptic|reproducib|"
+                    r"not (?:been )?(?:confirmed|observed|detected)", re.I)
+# Publishers set the asterisk of Aβ*56 in several characters: ∗ (U+2217), ＊, ⁎ and ✱ all become *
+ASTERISKS = str.maketrans({"∗": "*", "＊": "*", "⁎": "*", "✱": "*"})
 # Aβ*56, the oligomer the retracted paper reported, as authors write it: Aβ*56, Abeta*56, Aβ56, 56-kDa
-SPECIFIC = re.compile(r"A\s?(?:β|beta|-beta|ß|b)\s?\*\s?56|A(?:β|beta|ß)\s?56\b|\b56[ -]?kDa", re.I)
+SPECIFIC = re.compile(r"A\s?(?:β|beta|-beta|ß|b)\s?\*\s?56|A(?:β|beta|ß)[\s-]?56\b|\b56[ -]?kDa", re.I)
 KINDS = ["Discusses the retraction or doubts", "Names Aβ*56", "Cites it in general", "No full text, or citation not found"]
 
 
@@ -56,17 +67,30 @@ def _client():
 
 def citers_of(pmids: Iterable[str]) -> Dict[str, List[str]]:
     """The PubMed IDs of the articles citing each paper in *pmids*."""
-    pmids, (key, session, limiter) = list(pmids), _client()
+    pmids, client = list(pmids), _client()
     citers: Dict[str, List[str]] = {p: [] for p in pmids}
     for start in range(0, len(pmids), BATCH):
-        resp = _eutils_request("elink.fcgi", {"dbfrom": "pubmed", "db": "pubmed", "retmode": "json",
-                                              "linkname": "pubmed_pubmed_citedin",
-                                              "id": pmids[start:start + BATCH]},
-                               key, session, limiter, post=True)
-        for linkset in resp.json().get("linksets", []):
-            citers[str(linkset["ids"][0])] = [str(i) for db in linkset.get("linksetdbs", [])
-                                               for i in db.get("links", [])]
+        _citers_batch(pmids[start:start + BATCH], citers, client)
     return citers
+
+
+def _citers_batch(batch: List[str], citers: Dict[str, List[str]], client) -> None:
+    """One ELink request; when NCBI keeps failing on it, wait and try each half separately."""
+    try:
+        resp = _eutils_request("elink.fcgi", {"dbfrom": "pubmed", "db": "pubmed", "retmode": "json",
+                                              "linkname": "pubmed_pubmed_citedin", "id": batch},
+                               *client, post=True)
+    except requests.RequestException:
+        if len(batch) == 1:
+            raise
+        time.sleep(5)
+        half = len(batch) // 2
+        _citers_batch(batch[:half], citers, client)
+        _citers_batch(batch[half:], citers, client)
+        return
+    for linkset in resp.json().get("linksets", []):
+        citers[str(linkset["ids"][0])] = [str(i) for db in linkset.get("linksetdbs", [])
+                                           for i in db.get("links", [])]
 
 
 def corrections(pmid: str) -> List[Dict[str, str]]:
@@ -169,7 +193,7 @@ def _ranges(body: ET.Element, order: List[str], targets: set) -> set:
 
 
 def _sentences(paragraph: str) -> List[str]:
-    paragraph = " ".join(paragraph.split())
+    paragraph = " ".join(paragraph.translate(ASTERISKS).split())
     # A sentence ends at . ! or ?, after any citation numbers set as superscripts ("memory.12,13 The")
     end = re.compile(r"[.!?](?:(?:\d+|" + CITE + r")(?:\s?[,–\-]\s?(?:\d+|" + CITE + r"))*)?\s+(?=[A-Z\[(])")
     parts = end.sub(lambda m: m.group(0).rstrip() + "\0", paragraph).split("\0")
@@ -218,7 +242,7 @@ def citation_contexts(folder, pmid: str, doi: Optional[str] = None, title_words:
                 out: List[str] = []
                 _text(p, targets, ranges, out)
                 sentences += _sentences("".join(out))
-        full = " ".join(body.itertext()) if body is not None else ""
+        full = " ".join(body.itertext()).translate(ASTERISKS) if body is not None else ""
         results[data.get("pmcid") or path.stem] = {
             "pmid": meta.get("pmid"), "year": meta.get("year"), "title": meta.get("title"),
             "found": bool(targets), "sentences": sentences, "mentions": len(finding.findall(full)),
@@ -233,11 +257,17 @@ def classify(sentences: List[str], finding: Pattern = SPECIFIC) -> str:
     """
     if not sentences:
         return KINDS[3]
+    sentences = [s.translate(ASTERISKS) for s in sentences]
     if any(DOUBT.search(s) for s in sentences):
         return KINDS[0]
     if any(finding.search(s) for s in sentences):
         return KINDS[1]
     return KINDS[2]
+
+
+def worth_a_look(sentences: List[str], kind: str) -> bool:
+    """True for a citation sorted as general or naming the finding whose sentence has a softer doubt word."""
+    return kind in (KINDS[1], KINDS[2]) and any(REVIEW.search(s) for s in sentences)
 
 
 def annotate(kg_dir, properties: Dict[str, Dict[str, object]]) -> int:
@@ -304,49 +334,42 @@ def pubmed_count(search: str) -> int:
     return int(resp.json()["esearchresult"]["count"])
 
 
-def draw_impact(kg: dict, seed: str, kinds: Dict[str, str], hop1: set, ax, colours: Dict[str, str]):
-    """The citation network of a knowledge graph around *seed*.
 
-    Papers citing the seed are coloured by *kinds* (PubMed ID to kind, with
-    *colours* per kind); papers two steps away are small and pale; retracted
-    papers are ringed.  Returns the networkx graph.
+S2_CITATIONS = "https://api.semanticscholar.org/graph/v1/paper/PMID:{pmid}/citations"
+
+
+def semantic_scholar_contexts(pmid: str, api_key: Optional[str] = None) -> Dict[str, List[str]]:
+    """The citing sentences Semantic Scholar has for the paper *pmid*, by the citing paper's PubMed ID.
+
+    Semantic Scholar (https://www.semanticscholar.org) extracts citing
+    sentences from many papers whose full text PubMed Central cannot give,
+    so it fills in the papers ``citation_contexts`` cannot read.  Without an
+    API key (``api_key`` or the ``S2_API_KEY`` environment variable) it
+    answers slowly, so this waits and retries; an empty result means it could
+    not be reached.
     """
-    import networkx as nx
-    from matplotlib.lines import Line2D
+    import os
 
-    from tutorial_utils import EDGE, INK, INK_2, SURFACE
-
-    papers = kg["papers"]
-    key = f"PMID{seed}"
-    g = nx.Graph()
-    g.add_nodes_from(papers)
-    g.add_edges_from((k, t) for k, p in papers.items() for t in p["cites"] if t in papers and t != k)
-    g.remove_nodes_from([n for n in list(g) if g.degree(n) == 0 and n != key])
-    pos = nx.spring_layout(g, k=0.6 / max(len(g), 1) ** 0.5, iterations=150, seed=7)
-
-    nx.draw_networkx_edges(g, pos, ax=ax, edge_color=EDGE, width=0.3, alpha=0.35)
-    first = [n for n in g if papers[n]["pmid"] in hop1]
-    rest = [n for n in g if n not in first and n != key]
-    nx.draw_networkx_nodes(g, pos, nodelist=rest, ax=ax, node_color=EDGE, node_size=6, linewidths=0)
-    for kind, colour in colours.items():
-        nodes = [n for n in first if kinds.get(papers[n]["pmid"], KINDS[3]) == kind]
-        nx.draw_networkx_nodes(g, pos, nodelist=nodes, ax=ax, node_color=colour, node_size=18,
-                               edgecolors=SURFACE, linewidths=0.4)
-    retracted = [n for n in g if papers[n]["retracted"] and n != key]
-    nx.draw_networkx_nodes(g, pos, nodelist=retracted, ax=ax, node_color="none", node_size=120,
-                           edgecolors=INK, linewidths=1.4)
-    nx.draw_networkx_nodes(g, pos, nodelist=[key], ax=ax, node_color=INK, node_size=260,
-                           edgecolors=SURFACE, linewidths=1.5)
-    ax.annotate(f"PMID {seed}\n(retracted)", pos[key], xytext=(40, 40), textcoords="offset points",
-                fontsize=9, color=INK, arrowprops=dict(arrowstyle="-", color=INK_2, lw=0.8),
-                bbox=dict(boxstyle="round,pad=0.25", fc=SURFACE, ec=EDGE))
-    counts = {kind: sum(kinds.get(papers[n]["pmid"], KINDS[3]) == kind for n in first) for kind in colours}
-    handles = [Line2D([], [], marker="o", ls="", ms=7, mfc=c, mec=SURFACE,
-                      label=f"Cites it: {k[0].lower() + k[1:]} ({counts[k]})")
-               for k, c in colours.items()]
-    handles += [Line2D([], [], marker="o", ls="", ms=5, mfc=EDGE, mec=EDGE, label=f"Second step and other papers ({len(rest)})"),
-                Line2D([], [], marker="o", ls="", ms=10, mfc="none", mec=INK, label=f"Retracted ({len(retracted)})")]
-    ax.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, -0.01), ncol=2, fontsize=9,
-              labelcolor=INK_2)
-    ax.set_axis_off()
-    return g
+    headers = {"x-api-key": api_key or os.environ.get("S2_API_KEY", "")}
+    headers = {k: v for k, v in headers.items() if v}
+    contexts: Dict[str, List[str]] = {}
+    offset = 0
+    while offset is not None:
+        for attempt in range(8):
+            try:
+                resp = requests.get(S2_CITATIONS.format(pmid=pmid), headers=headers, timeout=60,
+                                    params={"fields": "contexts,externalIds", "limit": 1000, "offset": offset})
+            except requests.RequestException:
+                resp = None
+            if resp is not None and resp.status_code == 200:
+                break
+            time.sleep(min(5 * 2 ** attempt, 60))   # Semantic Scholar's shared rate limit
+        else:
+            return contexts
+        page = resp.json()
+        for row in page.get("data", []):
+            citing = (row.get("citingPaper") or {}).get("externalIds") or {}
+            if citing.get("PubMed") and row.get("contexts"):
+                contexts[str(citing["PubMed"])] = [c.translate(ASTERISKS) for c in row["contexts"]]
+        offset = page.get("next")
+    return contexts

@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D053763 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D053763)
 
-## Papers (15)
+## Papers (16)
 
 - [[PMID39996369|Presenilin, γ-Secretase, and the Search for Pathogenic Triggers of Alzheimer's Disease. (2025)]] (major topic)
 - [[PMID34810230|Presenilin/γ-Secretase Activity Is Located in Acidic Compartments of Live Neurons. (2022)]] (major topic)
@@ -27,6 +27,7 @@ MeSH descriptor D053763 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID20101721|Transgenic mouse models of Alzheimer's disease. (2010)]]
 - [[PMID18504134|A transgenic rat that develops Alzheimer's disease-like amyloid pathology, deficits in synaptic p... (2008)]]
 - [[PMID18802446|Thirty years of Alzheimer's disease genetics: the implications of systematic meta-analyses. (2008)]]
+- [[PMID17328689|Calcium and neurodegeneration. (2007)]]
 - [[PMID17268505|Loss-of-function presenilin mutations in Alzheimer disease. Talking Point on the role of presenil... (2007)]] (major topic)
 %% pubmed-stream:end %%
 

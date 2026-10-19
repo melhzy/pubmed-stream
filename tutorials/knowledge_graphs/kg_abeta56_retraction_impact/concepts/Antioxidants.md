@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D000975 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000975)
 
-## Papers (16)
+## Papers (17)
 
 - [[PMID41009358|Impaired Oxidative Stress Markers and Activities of Matrix Metalloproteinases in Plasma of Patien... (2025)]]
 - [[PMID40407867|Resveratrol, a calorie restriction mimetic, protects AlCl3-induced neurotoxicity and cognitive de... (2025)]] (major topic)
@@ -29,6 +29,7 @@ MeSH descriptor D000975 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21706234|Protective effects of walnut extract against amyloid beta peptide-induced cell death and oxidativ... (2011)]] (major topic)
 - [[PMID20473637|Comparable attenuation of Abeta(25-35)-induced neurotoxicity by quercitrin and 17beta-estradiol i... (2010)]]
 - [[PMID18784309|Complete rescue of cerebrovascular function in aged Alzheimer's disease transgenic mice by antiox... (2008)]] (major topic)
+- [[PMID11755008|Phenolic anti-inflammatory antioxidant reversal of Abeta-induced cognitive deficits and neuropath... (2001)]] (major topic)
 %% pubmed-stream:end %%
 
 ## Notes

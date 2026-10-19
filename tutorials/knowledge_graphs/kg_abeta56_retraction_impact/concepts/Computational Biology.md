@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D019295 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D019295)
 
-## Papers (11)
+## Papers (10)
 
-- [[PMID42752992|Bioinformatics-Driven Discovery of Aβ-Targeted Therapeutics and Diagnostic Biomarkers for Alzheim... (2026)]] (major topic)
 - [[PMID40892789|Computational prediction of high-risk non-synonymous SNPs in human ApoE and their structural impa... (2025)]]
 - [[PMID39523385|Identification of novel risk genes for Alzheimer's disease by integrating genetics from hippocampus. (2024)]]
 - [[PMID36778155|Bioinformatic prediction of the molecular links between Alzheimer's disease and diabetes mellitus. (2023)]]

@@ -11,11 +11,10 @@ tags:
 
 MeSH descriptor D016657 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D016657)
 
-## Papers (16)
+## Papers (15)
 
 - [[PMID31084613|ApoA-I deficiency increases cortical amyloid deposition, cerebral amyloid angiopathy, cortical an... (2019)]] (major topic)
 - [[PMID29273078|Practical considerations for choosing a mouse model of Alzheimer's disease. (2017)]]
-- [[PMID25134727|Amyloid-β oligomers as a template for secondary amyloidosis in Alzheimer's disease. (2014)]] (major topic)
 - [[PMID23409038|Ferulic acid is a nutraceutical β-secretase modulator that improves behavioral impairment and alz... (2013)]]
 - [[PMID24077890|Pathology of clinical and preclinical Alzheimer's disease. (2013)]]
 - [[PMID23149447|Early accumulation of intracellular fibrillar oligomers and late congophilic amyloid angiopathy i... (2012)]]

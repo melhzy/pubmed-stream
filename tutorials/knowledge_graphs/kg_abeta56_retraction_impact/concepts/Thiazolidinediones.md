@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D045162 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D045162)
 
-## Papers (5)
+## Papers (6)
 
+- [[PMID24150104|Rosiglitazone prevents amyloid-β oligomer-induced impairment of synapse formation and plasticity... (2014)]] (major topic)
 - [[PMID22910909|Hyperphosphorylation of Tau induced by naturally secreted amyloid-β at nanomolar concentrations i... (2012)]]
 - [[PMID20336061|Rosiglitazone rescues memory impairment in Alzheimer's transgenic mice: mechanisms involving a re... (2010)]] (major topic)
 - [[PMID19188609|Protection of synapses against Alzheimer's-linked toxins: insulin signaling prevents the pathogen... (2009)]]

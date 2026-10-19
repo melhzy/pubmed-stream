@@ -11,11 +11,12 @@ tags:
 
 MeSH descriptor D019061 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D019061)
 
-## Papers (3)
+## Papers (4)
 
 - [[PMID22673542|Inhibition of Src kinase activity attenuates amyloid associated microgliosis in a murine model of... (2012)]] (major topic)
 - [[PMID20609109|Tyrosine phosphorylation of tau accompanies disease progression in transgenic mouse models of tau... (2010)]]
 - [[PMID18842893|The Reelin signaling pathway promotes dendritic spine development in hippocampal neurons. (2008)]]
+- [[PMID11756483|Rapid tyrosine phosphorylation of neuronal proteins including tau and focal adhesion kinase in re... (2002)]] (major topic)
 %% pubmed-stream:end %%
 
 ## Notes

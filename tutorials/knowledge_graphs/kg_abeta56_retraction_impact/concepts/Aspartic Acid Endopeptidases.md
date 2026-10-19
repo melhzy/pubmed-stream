@@ -21,7 +21,6 @@ MeSH descriptor D016282 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID36230925|HIV-Associated Insults Modulate ADAM10 and Its Regulator Sirtuin1 in an NMDA Receptor-Dependent M... (2022)]]
 - [[PMID36296969|Moringa Oleifera Alleviates Aβ Burden and Improves Synaptic Plasticity and Cognitive Impairments... (2022)]]
 - [[PMID30382187|δ-Secretase-cleaved Tau stimulates Aβ production via upregulating STAT1-BACE1 signaling in Alzhei... (2021)]]
-- [[PMID30702009|Are antibodies directed against amyloid-β (Aβ) oligomers the last call for the Aβ hypothesis of A... (2019)]]
 - [[PMID31073968|Palmitic Acid-Induced NAD+ Depletion is Associated with the Reduced Function of SIRT1 and Increas... (2019)]] (major topic)
 - [[PMID31303501|Paricalcitol accelerates BACE1 lysosomal degradation and inhibits calpain-1 dependent neuronal lo... (2019)]] (major topic)
 - [[PMID31830091|Synapsin 1 promotes Aβ generation via BACE1 modulation. (2019)]] (major topic)
@@ -69,6 +68,7 @@ MeSH descriptor D016282 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15709475|The non-amyloidogenic pathway: structure and function of alpha-secretases. (2005)]]
 - [[PMID15734686|Twenty years of the Alzheimer's disease amyloid hypothesis: a genetic perspective. (2005)]]
 - [[PMID11932745|Naturally secreted oligomers of amyloid beta protein potently inhibit hippocampal long-term poten... (2002)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

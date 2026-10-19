@@ -11,15 +11,14 @@ tags:
 
 MeSH descriptor D015415 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D015415)
 
-## Papers (60)
+## Papers (58)
 
-- [[PMID41478826|A review of evidence supporting amyloid beta reduction as a surrogate endpoint in Alzheimer's dis... (2026)]] (major topic)
-- [[PMID42752992|Bioinformatics-Driven Discovery of Aβ-Targeted Therapeutics and Diagnostic Biomarkers for Alzheim... (2026)]] (major topic)
-- [[PMID42737853|Circulating Amyloid and Misfolded Biomarkers in Early Myocardial Injury: A Systematic Review and... (2026)]] (major topic)
-- [[PMID42017417|Dual-threshold plasma Aβ oligomerization for postoperative delirium risk stratification. (2026)]]
-- [[PMID41363055|Amyloid Beta in Alzheimer's Disease: Mechanisms, Biomarker Potential, and Therapeutic Targets. (2025)]]
+- [[PMID42450018|Vitronectin Modulates Plasma Aβ Oligomerization Propensity Within Altered Albumin Interactome Net... (2026)]]
 - [[PMID39863324|Distinct CSF α-synuclein aggregation profiles associated with Alzheimer's disease phenotypes and... (2025)]]
+- [[PMID40870510|From Better Diagnostics to Earlier Treatment: The Rapidly Evolving Alzheimer's Disease Landscape. (2025)]]
 - [[PMID41009358|Impaired Oxidative Stress Markers and Activities of Matrix Metalloproteinases in Plasma of Patien... (2025)]]
+- [[PMID41465242|Molecular Crossroads: Shared and Divergent Molecular Signatures in Alzheimer's Disease and Dement... (2025)]]
+- [[PMID40563464|The Role and Pathogenesis of Tau Protein in Alzheimer's Disease. (2025)]]
 - [[PMID38217040|Metabotropic glutamate receptor 5 (mGluR5) is associated with neurodegeneration and amyloid depos... (2024)]]
 - [[PMID36269624|The Mediating Role of Inflammation in the Relationship Between α-Synuclein and Cognitive Function... (2023)]]
 - [[PMID36587215|Alpha-synuclein: a pathological factor with Aβ and tau and biomarker in Alzheimer's disease. (2022)]]
@@ -52,7 +51,6 @@ MeSH descriptor D015415 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID25768013|Early onset of hypersynchronous network activity and expression of a marker of chronic seizures i... (2015)]] (major topic)
 - [[PMID25531084|Towards non-invasive diagnostic imaging of early-stage Alzheimer's disease. (2015)]]
 - [[PMID24553930|A sensitive aβ oligomer assay discriminates Alzheimer's and aged control cerebrospinal fluid. (2014)]]
-- [[PMID24635842|Plasma amyloid-β oligomers and soluble tumor necrosis factor receptors as potential biomarkers of... (2014)]]
 - [[PMID23799095|Evaluating amyloid-β oligomers in cerebrospinal fluid as a biomarker for Alzheimer's disease. (2013)]]
 - [[PMID24086745|Modifications of hippocampal circuits and early disruption of adult neurogenesis in the tg2576 mo... (2013)]]
 - [[PMID23375565|New ELISAs with high specificity for soluble oligomers of amyloid β-protein detect natural Aβ oli... (2013)]]

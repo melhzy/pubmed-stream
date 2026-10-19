@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D008137 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008137)
 
-## Papers (12)
+## Papers (13)
 
+- [[PMID41997924|Dysfunction of the episodic memory network in the Alzheimer's disease cascade. (2026)]]
 - [[PMID41494991|Independent, but not synergistic, associations of APOEε4 and systemic inflammation on cognitive d... (2026)]]
 - [[PMID32641719|Longitudinal profiling of oligomeric Aβ in human nasal discharge reflecting cognitive decline in... (2020)]]
 - [[PMID29370870|Diffusion kurtosis imaging allows the early detection and longitudinal follow-up of amyloid-β-ind... (2018)]]

@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D016877 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D016877)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID19685013|Copper enhances amyloid-beta peptide neurotoxicity and non beta-aggregation: a series of experime... (2010)]]
+- [[PMID19828813|Activated actin-depolymerizing factor/cofilin sequesters phosphorylated microtubule-associated pr... (2009)]]
 %% pubmed-stream:end %%
 
 ## Notes

@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D019869 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D019869)
 
-## Papers (9)
+## Papers (10)
 
-- [[PMID41935181|Baicalein alleviates Alzheimer's disease pathology in AD models by activating the PI3K/AKT/GSK3β... (2026)]] (major topic)
 - [[PMID42410183|Chronic Lithium Exposure Reshapes PI3K-mTOR-linked Proteostatic Networks in the Hippocampus of an... (2026)]] (major topic)
 - [[PMID28520784|Presynaptic Aβ40 prevents synapse addition in the adult Drosophila neuromuscular junction. (2017)]]
 - [[PMID25661995|Tripchlorolide improves cognitive deficits by reducing amyloid β and upregulating synapse-related... (2015)]]
@@ -22,6 +21,8 @@ MeSH descriptor D019869 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21460223|Age-dependent accumulation of soluble amyloid beta (Abeta) oligomers reverses the neuroprotective... (2011)]] (major topic)
 - [[PMID20351282|PI3 kinase signaling is involved in Abeta-induced memory loss in Drosophila. (2010)]] (major topic)
 - [[PMID19614678|Amyloid beta-derived neuroplasticity in bone marrow-derived mesenchymal stem cells is mediated by... (2009)]]
+- [[PMID17855343|Soluble Abeta inhibits specific signal transduction cascades common to the insulin receptor pathway. (2007)]]
+- [[PMID11756483|Rapid tyrosine phosphorylation of neuronal proteins including tau and focal adhesion kinase in re... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

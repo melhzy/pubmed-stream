@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D000107 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000107)
 
-## Papers (6)
+## Papers (7)
 
+- [[PMID40635200|Decoding tau acetylation in Alzheimer's disease and tauopathies: from site-specific mechanisms to... (2025)]]
 - [[PMID31834770|Acetylation of Aβ40 Alters Aggregation in the Presence and Absence of Lipid Membranes. (2020)]]
 - [[PMID31073968|Palmitic Acid-Induced NAD+ Depletion is Associated with the Reduced Function of SIRT1 and Increas... (2019)]]
 - [[PMID26192747|Tau post-translational modifications in wild-type and human amyloid precursor protein transgenic... (2015)]]

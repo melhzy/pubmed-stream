@@ -11,11 +11,10 @@ tags:
 
 MeSH descriptor D006860 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D006860)
 
-## Papers (9)
+## Papers (8)
 
 - [[PMID42334185|Temperature-Dependent Dynamics of Aβ42 and α-Synuclein Monomers and Early Oligomerization of Aβ42... (2026)]]
 - [[PMID38315214|Investigation of encapsulated water wire within self-assembled hydrophilic nanochannels, in a mod... (2024)]]
-- [[PMID28294556|Unmodified and pyroglutamylated amyloid β peptides form hypertoxic hetero-oligomers of unique sec... (2017)]]
 - [[PMID24494584|The conformational stability of nonfibrillar amyloid-β peptide oligomers critically depends on th... (2014)]]
 - [[PMID23811057|Aβ monomers transiently sample oligomer and fibril-like configurations: ensemble characterization... (2013)]]
 - [[PMID23154165|C-terminal turn stability determines assembly differences between Aβ40 and Aβ42. (2013)]]

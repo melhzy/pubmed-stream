@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D059305 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D059305)
 
-## Papers (6)
+## Papers (5)
 
-- [[PMID41740736|High-Fat Diet and a High Amyloid Load Interact to Induce PKC-α Dependent Synaptic Insulin Resista... (2026)]] (major topic)
 - [[PMID34864680|High Fat Diet Mediates Amyloid-β Cleaving Enzyme 1 Phosphorylation and SUMOylation, Enhancing Cog... (2022)]] (major topic)
 - [[PMID35457171|Microglial FABP4-UCP2 Axis Modulates Neuroinflammation and Cognitive Decline in Obese Mice. (2022)]]
 - [[PMID27761760|Thymol improves high-fat diet-induced cognitive deficits in mice via ameliorating brain insulin r... (2017)]] (major topic)

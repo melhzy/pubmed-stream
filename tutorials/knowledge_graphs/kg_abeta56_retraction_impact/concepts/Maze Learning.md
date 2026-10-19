@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D018782 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018782)
 
-## Papers (143)
+## Papers (142)
 
 - [[PMID40935215|Bazi Bushen improves cognitive dysfunction in 5×FAD mice by targeting amyloid pathology, neuroinf... (2026)]]
 - [[PMID40566818|Kenpaullone attenuates amyloid-beta deposition and neuroinflammation, improving memory in a 5XFAD... (2026)]]
@@ -61,7 +61,6 @@ MeSH descriptor D018782 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27258424|Sideritis spp. Extracts Enhance Memory and Learning in Alzheimer's β-Amyloidosis Mouse Models and... (2016)]]
 - [[PMID27459671|Tau Protein Mediates APP Intracellular Domain (AICD)-Induced Alzheimer's-Like Pathological Featur... (2016)]]
 - [[PMID26227349|AAV2/1 CD74 Gene Transfer Reduces β-amyloidosis and Improves Learning and Memory in a Mouse Model... (2015)]]
-- [[PMID26215784|Anti-Aβ antibodies incapable of reducing cerebral Aβ oligomers fail to attenuate spatial referenc... (2015)]]
 - [[PMID26305888|Cognitive and Disease-Modifying Effects of 11β-Hydroxysteroid Dehydrogenase Type 1 Inhibition in... (2015)]]
 - [[PMID26079110|Icariin decreases both APP and Aβ levels and increases neurogenesis in the brain of Tg2576 mice. (2015)]]
 - [[PMID26468204|Reducing Ribosomal Protein S6 Kinase 1 Expression Improves Spatial Memory and Synaptic Plasticity... (2015)]]
@@ -88,7 +87,6 @@ MeSH descriptor D018782 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23447589|Reversible pathologic and cognitive phenotypes in an inducible model of Alzheimer-amyloidosis. (2013)]]
 - [[PMID24117120|Serum β-amyloid peptide levels spike in the early stage of Alzheimer-like plaque pathology in an... (2013)]]
 - [[PMID23669069|Somatostatin receptor subtype-4 agonist NNC 26-9100 mitigates the effect of soluble Aβ(42) oligom... (2013)]]
-- [[PMID23672786|Systemic vaccination with anti-oligomeric monoclonal antibodies improves cognitive function by re... (2013)]]
 - [[PMID23762322|Unintended effects of cardiovascular drugs on the pathogenesis of Alzheimer's disease. (2013)]]
 - [[PMID22476196|An anti-diabetes agent protects the mouse brain from defective insulin signaling caused by Alzhei... (2012)]]
 - [[PMID22459600|Berberine ameliorates β-amyloid pathology, gliosis, and cognitive impairment in an Alzheimer's di... (2012)]]
@@ -154,6 +152,7 @@ MeSH descriptor D018782 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID16020737|Tau suppression in a neurodegenerative mouse model improves memory function. (2005)]]
 - [[PMID14637120|Prevention of age-related spatial memory deficits in a transgenic mouse model of Alzheimer's dise... (2003)]]
 - [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]]
+- [[PMID11755008|Phenolic anti-inflammatory antioxidant reversal of Abeta-induced cognitive deficits and neuropath... (2001)]]
 - [[PMID11724968|Specific spatial learning deficits become severe with age in beta -amyloid precursor protein tran... (2001)]]
 - [[PMID8810256|Correlative memory deficits, Abeta elevation, and amyloid plaques in transgenic mice. (1996)]]
 %% pubmed-stream:end %%

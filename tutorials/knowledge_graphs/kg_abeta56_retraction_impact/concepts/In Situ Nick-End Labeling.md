@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D020287 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D020287)
 
-## Papers (4)
+## Papers (3)
 
 - [[PMID28806762|A Becn1 mutation mediates hyperactive autophagic sequestration of amyloid oligomers and improved... (2017)]]
-- [[PMID26311039|An N-terminal antibody promotes the transformation of amyloid fibrils into oligomers and enhances... (2015)]]
 - [[PMID21421841|Soluble amyloid beta-protein dimers isolated from Alzheimer cortex directly induce Tau hyperphosp... (2011)]]
 - [[PMID20110613|Insulin-resistant brain state after intracerebroventricular streptozotocin injection exacerbates... (2010)]]
 %% pubmed-stream:end %%

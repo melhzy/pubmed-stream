@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D000072197 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000072197)
 
-## Papers (39)
+## Papers (38)
 
-- [[PMID42423830|Inhibition of miR-25-3p Alleviates Neuroinflammation in Alzheimer's Disease By Targeting ADAM10. (2026)]] (major topic)
 - [[PMID39030577|Alpha-lipoic acid alleviates cognitive deficits in transgenic APP23/PS45 mice through a mitophagy... (2024)]] (major topic)
 - [[PMID36230925|HIV-Associated Insults Modulate ADAM10 and Its Regulator Sirtuin1 in an NMDA Receptor-Dependent M... (2022)]]
 - [[PMID35089425|Revisiting APP secretases: an overview on the holistic effects of retinoic acid receptor stimulat... (2022)]]

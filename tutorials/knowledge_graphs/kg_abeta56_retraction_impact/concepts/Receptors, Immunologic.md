@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D011971 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D011971)
 
-## Papers (15)
+## Papers (13)
 
 - [[PMID42446869|Single-cell analysis of Powassan virus-infected brains reveals age-dependent neuroinflammatory cr... (2026)]]
 - [[PMID37118355|Alzheimer's disease modification mediated by bone marrow-derived macrophages via a TREM2-independ... (2022)]]
@@ -20,8 +20,6 @@ MeSH descriptor D011971 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID30787106|Systematic and standardized comparison of reported amyloid-β receptors for sufficiency, affinity,... (2019)]] (major topic)
 - [[PMID30297750|Inhibiting amyloid-β cytotoxicity through its interaction with the cell surface receptor LilrB2 b... (2018)]] (major topic)
 - [[PMID30587772|The Role of APOE and TREM2 in Alzheimer's Disease-Current Understanding and Perspectives. (2018)]] (major topic)
-- [[PMID25014735|Inflammatory risk factors and pathologies promoting Alzheimer's disease progression: is RAGE the... (2015)]] (major topic)
-- [[PMID25586103|Receptor for advanced glycation endproduct modulators: a new therapeutic target in Alzheimer's di... (2015)]] (major topic)
 - [[PMID24567379|Oral glycotoxins are a modifiable cause of dementia and the metabolic syndrome in mice and humans. (2014)]]
 - [[PMID24052308|Human LilrB2 is a β-amyloid receptor and its murine homolog PirB regulates synaptic plasticity in... (2013)]] (major topic)
 - [[PMID19275634|Clearance of amyloid-beta peptide across the blood-brain barrier: implication for therapies in Al... (2009)]]

@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D007276 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D007276)
 
-## Papers (23)
+## Papers (22)
 
 - [[PMID32926328|5-N-ethyl Carboxamidoadenosine Stimulates Adenosine-2b Receptor-Mediated Mitogen-Activated Protei... (2020)]]
 - [[PMID31865526|Preferential Neurodegeneration in the Dentate Gyrus by Amyloid β1-42-Induced Intracellular Zn2+Dy... (2020)]]
@@ -21,7 +21,6 @@ MeSH descriptor D007276 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27023127|Intracerebroventricular Injection of Amyloid-β Peptides in Normal Mice to Acutely Induce Alzheime... (2016)]]
 - [[PMID25637092|MRZ-99030 - A novel modulator of Aβ aggregation: II - Reversal of Aβ oligomer-induced deficits in... (2015)]]
 - [[PMID25187954|Brain intraventricular injection of amyloid-β in zebrafish embryo impairs cognition and increases... (2014)]]
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]]
 - [[PMID23859553|In vivo application of beta amyloid oligomers: a simple tool to evaluate mechanisms of action and... (2014)]]
 - [[PMID23685882|N-truncated amyloid β (Aβ) 4-42 forms stable aggregates and induces acute and long-lasting behavi... (2013)]]
 - [[PMID22188568|Autoreactive-Aβ antibodies promote APP β-secretase processing. (2012)]]

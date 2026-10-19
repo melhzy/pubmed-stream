@@ -11,11 +11,12 @@ tags:
 
 MeSH descriptor D002795 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002795)
 
-## Papers (3)
+## Papers (4)
 
 - [[PMID24178831|Maternal choline supplementation differentially alters the basal forebrain cholinergic system of... (2014)]]
 - [[PMID22505713|Inhibition of choline acetyltransferase as a mechanism for cholinergic dysfunction induced by amy... (2012)]] (major topic)
 - [[PMID20164328|Loss of alpha7 nicotinic receptors enhances beta-amyloid oligomer accumulation, exacerbating earl... (2010)]]
+- [[PMID12401334|Amyloid beta peptide induces tau phosphorylation and loss of cholinergic neurons in rat primary s... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

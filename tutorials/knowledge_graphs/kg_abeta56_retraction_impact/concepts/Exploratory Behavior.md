@@ -11,12 +11,11 @@ tags:
 
 MeSH descriptor D005106 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D005106)
 
-## Papers (15)
+## Papers (14)
 
 - [[PMID32867800|Benzo(a)pyrene exposure induced neuronal loss, plaque deposition, and cognitive decline in APP/PS... (2020)]]
 - [[PMID28887197|Reduction in open field activity in the absence of memory deficits in the AppNL-G-F knock-in mous... (2018)]]
 - [[PMID27511018|APP Regulates Microglial Phenotype in a Mouse Model of Alzheimer's Disease. (2016)]]
-- [[PMID25933020|Passive immunization with phospho-tau antibodies reduces tau pathology and functional deficits in... (2015)]]
 - [[PMID24899710|Genetic modulation of soluble Aβ rescues cognitive and synaptic impairment in a mouse model of Al... (2014)]]
 - [[PMID23560952|Multi-target action of the novel anti-Alzheimer compound CHF5074: in vivo study of long term trea... (2013)]]
 - [[PMID22045495|Corticotrophin releasing factor accelerates neuropathology and cognitive decline in a mouse model... (2012)]]

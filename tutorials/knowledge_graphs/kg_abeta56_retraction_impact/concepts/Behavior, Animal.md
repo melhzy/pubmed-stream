@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D001522 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D001522)
 
-## Papers (65)
+## Papers (68)
 
 - [[PMID35173711|Multifocal Cerebral Microinfarcts Modulate Early Alzheimer's Disease Pathology in a Sex-Dependent... (2021)]]
 - [[PMID32867800|Benzo(a)pyrene exposure induced neuronal loss, plaque deposition, and cognitive decline in APP/PS... (2020)]]
@@ -64,6 +64,7 @@ MeSH descriptor D001522 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19477243|Synaptic transmission is impaired prior to plaque formation in amyloid precursor protein-overexpr... (2009)]] (major topic)
 - [[PMID19744962|X11beta rescues memory and long-term potentiation deficits in Alzheimer's disease APPswe Tg2576 m... (2009)]]
 - [[PMID18385314|A two-year study with fibrillar beta-amyloid (Abeta) immunization in aged canines: effects on cog... (2008)]]
+- [[PMID18568014|Animal models of Alzheimer's disease and frontotemporal dementia. (2008)]]
 - [[PMID18549781|ApoE promotes the proteolytic degradation of Abeta. (2008)]]
 - [[PMID17346857|Brain and behavior changes in 12-month-old Tg2576 and nontransgenic mice exposed to anesthetics. (2008)]] (major topic)
 - [[PMID18784309|Complete rescue of cerebrovascular function in aged Alzheimer's disease transgenic mice by antiox... (2008)]]
@@ -77,6 +78,8 @@ MeSH descriptor D001522 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17167099|Amyloid-beta-induced pathological behaviors are suppressed by Ginkgo biloba extract EGb 761 and g... (2006)]] (major topic)
 - [[PMID15778881|Acetylcholinesterase inhibitors ameliorate behavioral deficits in the Tg2576 mouse model of Alzhe... (2005)]]
 - [[PMID12393227|Behavioural and histopathological analyses of ibuprofen treatment on the effect of aggregated Abe... (2002)]] (major topic)
+- [[PMID11941374|Immunization reverses memory deficits without reducing brain Abeta burden in Alzheimer's disease... (2002)]]
+- [[PMID12151510|Reversible memory loss in a mouse transgenic model of Alzheimer's disease. (2002)]]
 - [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]]
 %% pubmed-stream:end %%
 

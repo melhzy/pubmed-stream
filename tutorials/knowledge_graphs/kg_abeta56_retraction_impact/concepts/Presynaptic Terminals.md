@@ -13,7 +13,6 @@ MeSH descriptor D017729 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (10)
 
-- [[PMID42681024|Presynaptic accumulation of APP-CTFβ may contribute to synaptic dysfunction in Alzheimer's disease. (2026)]] (major topic)
 - [[PMID27671476|A novel mechanism of memory loss in Alzheimer's disease mice via the degeneration of entorhinal-C... (2018)]]
 - [[PMID28211900|Amyloid-β Oligomers Interact with Neurexin and Diminish Neurexin-mediated Excitatory Presynaptic... (2017)]] (major topic)
 - [[PMID28287086|Pre-plaque conformational changes in Alzheimer's disease-linked Aβ and APP. (2017)]]
@@ -23,6 +22,7 @@ MeSH descriptor D017729 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21914482|Preferential accumulation of amyloid-beta in presynaptic glutamatergic terminals (VGluT1 and VGlu... (2012)]] (major topic)
 - [[PMID21978994|Submicromolar Aβ42 reduces hippocampal glutamate receptors and presynaptic markers in an aggregat... (2011)]] (major topic)
 - [[PMID19935655|Amyloid-beta as a positive endogenous regulator of release probability at hippocampal synapses. (2009)]] (major topic)
+- [[PMID19526730|Is Alzheimer's disease a result of presynaptic failure? Synaptic dysfunctions induced by oligomer... (2009)]]
 %% pubmed-stream:end %%
 
 ## Notes

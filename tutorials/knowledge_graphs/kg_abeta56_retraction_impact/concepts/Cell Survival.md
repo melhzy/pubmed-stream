@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D002470 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002470)
 
-## Papers (75)
+## Papers (74)
 
 - [[PMID41991786|Aristotelia chilensis Fruit Extracts Exhibit Neuroprotective Properties Against Alzheimer's Disea... (2026)]]
 - [[PMID42413147|Exposure to oligomeric and fibrillar species of amyloid-β induces toxicity and impairs extravillo... (2026)]]
@@ -26,9 +26,8 @@ MeSH descriptor D002470 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID29079292|P2X receptor overexpression induced by soluble oligomers of amyloid beta peptide potentiates syna... (2018)]]
 - [[PMID28502066|Ebselen ameliorates β-amyloid pathology, tau pathology, and cognitive impairment in triple-transg... (2017)]]
 - [[PMID28910862|Effects of Newly Synthesized Recombinant Human Amyloid-β Complexes and Poly-Amyloid-β Fibers on C... (2017)]]
-- [[PMID28294556|Unmodified and pyroglutamylated amyloid β peptides form hypertoxic hetero-oligomers of unique sec... (2017)]]
-- [[PMID27852777|Amyloid-β Peptide Nitrotyrosination Stabilizes Oligomers and Enhances NMDAR-Mediated Toxicity. (2016)]]
 - [[PMID24833600|Amyloid-beta disrupts calcium and redox homeostasis in brain endothelial cells. (2015)]]
+- [[PMID25589714|Amyloid-β Modulates Both AβPP and Tau Phosphorylation. (2015)]]
 - [[PMID26221415|Calcium Channel Blockers, Progression to Dementia, and Effects on Amyloid Beta Peptide Production. (2015)]]
 - [[PMID26637371|The participation of insulin-like growth factor-binding protein 3 released by astrocytes in the p... (2015)]]
 - [[PMID26402097|Tomoregulin (TMEFF2) Binds Alzheimer's Disease Amyloid-β (Aβ) Oligomer and AβPP and Protects Neur... (2015)]]
@@ -38,7 +37,6 @@ MeSH descriptor D002470 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23154165|C-terminal turn stability determines assembly differences between Aβ40 and Aβ42. (2013)]]
 - [[PMID23590250|Glyconanoparticle aided detection of β-amyloid by magnetic resonance imaging and attenuation of β... (2013)]]
 - [[PMID24252153|N-truncated Abeta starting with position four: early intraneuronal accumulation and rescue of tox... (2013)]]
-- [[PMID23747423|Non-toxic conformer of amyloid β may suppress amyloid β-induced toxicity in rat primary neurons:... (2013)]]
 - [[PMID23955714|PDK1 decreases TACE-mediated α-secretase activity and promotes disease progression in prion and A... (2013)]]
 - [[PMID23687299|Structural insights into Aβ42 oligomers using site-directed spin labeling. (2013)]]
 - [[PMID23421685|sym-Triazines for directed multitarget modulation of cholinesterases and amyloid-β in Alzheimer's... (2013)]]
@@ -74,6 +72,7 @@ MeSH descriptor D002470 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19123954|Beta amyloid oligomers and fibrils stimulate differential activation of primary microglia. (2009)]]
 - [[PMID19808677|Fibril fragmentation enhances amyloid cytotoxicity. (2009)]]
 - [[PMID19393615|Membrane interactions of a self-assembling model peptide that mimics the self-association, struct... (2009)]]
+- [[PMID19520166|Pin1 affects Tau phosphorylation in response to Abeta oligomers. (2009)]]
 - [[PMID20041162|Real-time imaging and quantification of amyloid-beta peptide aggregates by novel quantum-dot nano... (2009)]]
 - [[PMID19706468|Structure-neurotoxicity relationships of amyloid beta-protein oligomers. (2009)]]
 - [[PMID18258852|Amyloid activates GSK-3beta to aggravate neuronal tauopathy in bigenic mice. (2008)]]
@@ -85,7 +84,7 @@ MeSH descriptor D002470 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15649697|ApoE isoform-specific effects on LTP: blockade by oligomeric amyloid-beta1-42. (2005)]]
 - [[PMID15893363|Toward a unified theory of caloric restriction and longevity regulation. (2005)]]
 - [[PMID15310905|Increased nuclear NAD biosynthesis and SIRT1 activation prevent axonal degeneration. (2004)]]
-- [[PMID12702875|Common structure of soluble amyloid oligomers implies common mechanism of pathogenesis. (2003)]]
+- [[PMID12401334|Amyloid beta peptide induces tau phosphorylation and loss of cholinergic neurons in rat primary s... (2002)]]
 - [[PMID12058030|Oligomeric and fibrillar species of amyloid-beta peptides differentially affect neuronal viability. (2002)]] (major topic)
 - [[PMID8094963|Evidence for excitoprotective and intraneuronal calcium-regulating roles for secreted forms of th... (1993)]]
 %% pubmed-stream:end %%

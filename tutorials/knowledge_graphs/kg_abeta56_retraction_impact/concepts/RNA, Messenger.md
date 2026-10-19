@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D012333 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D012333)
 
-## Papers (30)
+## Papers (31)
 
+- [[PMID42595893|Dendritic translation and neuroproteasome-mediated degradation of endogenous tau revealed by STAR... (2026)]]
 - [[PMID34376696|NEK1-mediated retromer trafficking promotes blood-brain barrier integrity by regulating glucose m... (2021)]]
 - [[PMID30189875|Human Alzheimer's disease gene expression signatures and immune profile in APP mouse models: a di... (2018)]]
 - [[PMID29396107|Oligomeric amyloid β preferentially targets neuronal and not glial mitochondrial-encoded mRNAs. (2018)]] (major topic)

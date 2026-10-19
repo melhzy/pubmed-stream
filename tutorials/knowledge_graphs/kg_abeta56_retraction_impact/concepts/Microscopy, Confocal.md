@@ -15,6 +15,7 @@ MeSH descriptor D018613 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 - [[PMID25558816|Pseudophosphorylation of Tau at distinct epitopes or the presence of the P301L mutation targets t... (2015)]]
 - [[PMID26402097|Tomoregulin (TMEFF2) Binds Alzheimer's Disease Amyloid-β (Aβ) Oligomer and AβPP and Protects Neur... (2015)]]
+- [[PMID25312309|Altered synaptic structure in the hippocampus in a mouse model of Alzheimer's disease with solubl... (2014)]]
 - [[PMID22427674|Apolipoprotein E3 (ApoE3) but not ApoE4 protects against synaptic loss through increased expressi... (2012)]]
 - [[PMID22579764|Sortilin is required for toxic action of Aβ oligomers (AβOs): extracellular AβOs trigger apoptosi... (2012)]]
 - [[PMID21352228|Amyloid-beta oligomers increase the localization of prion protein at the cell surface. (2011)]]
@@ -29,7 +30,6 @@ MeSH descriptor D018613 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19631677|Alzheimer's-associated Abeta oligomers show altered structure, immunoreactivity and synaptotoxici... (2009)]]
 - [[PMID19547699|Disassembly of shank and homer synaptic clusters is driven by soluble beta-amyloid(1-40) through... (2009)]]
 - [[PMID18307032|Differentiation increases the resistance of neuronal cells to amyloid toxicity. (2008)]]
-- [[PMID12702875|Common structure of soluble amyloid oligomers implies common mechanism of pathogenesis. (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

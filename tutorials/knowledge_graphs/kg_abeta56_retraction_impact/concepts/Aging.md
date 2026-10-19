@@ -11,10 +11,11 @@ tags:
 
 MeSH descriptor D000375 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000375)
 
-## Papers (104)
+## Papers (106)
 
 - [[PMID42067950|Aging alters the vulnerability pattern to amyloid-beta oligomers in wild-type mice: a behavioral... (2026)]] (major topic)
 - [[PMID41803335|Astrocyte States in Brain Aging and Neurodegeneration: At the Crossroads of Senescence and Reacti... (2026)]] (major topic)
+- [[PMID41912984|Extracellular Protein Quality Control in Tau Pathology. (2026)]]
 - [[PMID42446869|Single-cell analysis of Powassan virus-infected brains reveals age-dependent neuroinflammatory cr... (2026)]]
 - [[PMID38894518|Skeletal phenotypes and molecular mechanisms in aging mice. (2024)]] (major topic)
 - [[PMID37364580|Nicotinamide Adenine Dinucleotide in Aging Biology: Potential Applications and Many Unknowns. (2023)]]
@@ -42,7 +43,6 @@ MeSH descriptor D000375 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27258424|Sideritis spp. Extracts Enhance Memory and Learning in Alzheimer's β-Amyloidosis Mouse Models and... (2016)]] (major topic)
 - [[PMID25351914|Age Progression of Neuropathological Markers in the Brain of the Chilean Rodent Octodon degus, a... (2015)]] (major topic)
 - [[PMID26410307|Brain-derived neurotrophic factor and TrkB expression in the "oldest-old," the 90+ Study: correla... (2015)]]
-- [[PMID25085784|Combined treatment of amyloid-β₁₋₄₂-stimulated bone marrow-derived dendritic cells plus splenocyt... (2015)]] (major topic)
 - [[PMID25810517|Tau immunotherapy modulates both pathological tau and upstream amyloid pathology in an Alzheimer'... (2015)]]
 - [[PMID25917310|Treadmill exercise enhances synaptic plasticity, but does not alter β-amyloid deposition in hippo... (2015)]] (major topic)
 - [[PMID24553930|A sensitive aβ oligomer assay discriminates Alzheimer's and aged control cerebrospinal fluid. (2014)]] (major topic)
@@ -104,6 +104,7 @@ MeSH descriptor D000375 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18762245|Oxidative damage in brain from human mutant APP/PS-1 double knock-in mice as a function of age. (2008)]] (major topic)
 - [[PMID18778858|Polyglutamine neurodegeneration: protein misfolding revisited. (2008)]]
 - [[PMID18157656|Studies on the role of amino acid stereospecificity in amyloid beta aggregation. (2008)]]
+- [[PMID17429044|Physiology and pathophysiology of purinergic neurotransmission. (2007)]]
 - [[PMID17001693|Retinoid receptors, transporters, and metabolizers as therapeutic targets in late onset Alzheimer... (2006)]]
 - [[PMID17039298|The significance of the cholinergic system in the brain during aging and in Alzheimer's disease. (2006)]] (major topic)
 - [[PMID16291936|Age-dependent neurofibrillary tangle formation, neuron loss, and memory impairment in a mouse mod... (2005)]] (major topic)
@@ -111,6 +112,7 @@ MeSH descriptor D000375 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID16020737|Tau suppression in a neurodegenerative mouse model improves memory function. (2005)]]
 - [[PMID15893363|Toward a unified theory of caloric restriction and longevity regulation. (2005)]]
 - [[PMID14637120|Prevention of age-related spatial memory deficits in a transgenic mouse model of Alzheimer's dise... (2003)]] (major topic)
+- [[PMID12151510|Reversible memory loss in a mouse transgenic model of Alzheimer's disease. (2002)]]
 - [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]]
 - [[PMID11160418|Age-dependent changes in brain, CSF, and plasma amyloid (beta) protein in the Tg2576 transgenic m... (2001)]] (major topic)
 - [[PMID11724968|Specific spatial learning deficits become severe with age in beta -amyloid precursor protein tran... (2001)]] (major topic)

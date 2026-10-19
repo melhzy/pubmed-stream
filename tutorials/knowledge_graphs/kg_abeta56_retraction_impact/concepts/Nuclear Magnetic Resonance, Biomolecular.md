@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D019906 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D019906)
 
-## Papers (21)
+## Papers (19)
 
-- [[PMID42678205|Hydration water dynamics in amyloid-β aggregates using deuterium and oxygen-17 solid-state NMR sp... (2026)]]
 - [[PMID32300761|High-resolution probing of early events in amyloid-β aggregation related to Alzheimer's disease. (2020)]]
 - [[PMID31771980|NMR-based site-resolved profiling of β-amyloid misfolding reveals structural transitions from pat... (2020)]]
 - [[PMID29319162|A long-lived Aβ oligomer resistant to fibrillization. (2018)]] (major topic)
@@ -22,7 +21,6 @@ MeSH descriptor D019906 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID25938164|Structural Insight into an Alzheimer's Brain-Derived Spherical Assembly of Amyloid β by Solid-Sta... (2015)]] (major topic)
 - [[PMID26068174|Successive Stages of Amyloid-β Self-Assembly Characterized by Solid-State Nuclear Magnetic Resona... (2015)]]
 - [[PMID23811057|Aβ monomers transiently sample oligomer and fibril-like configurations: ensemble characterization... (2013)]]
-- [[PMID23335053|The cellular prion protein traps Alzheimer's Aβ in an oligomeric form and disassembles amyloid fi... (2013)]]
 - [[PMID23679559|Tranilast binds to aβ monomers and promotes aβ fibrillation. (2013)]]
 - [[PMID22814377|Molecular basis of β-amyloid oligomer recognition with a conformational antibody fragment. (2012)]]
 - [[PMID21949245|Molecular basis for amyloid-beta polymorphism. (2011)]]

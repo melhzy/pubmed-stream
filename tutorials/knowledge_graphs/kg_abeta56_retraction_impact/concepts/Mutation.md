@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D009154 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D009154)
 
-## Papers (128)
+## Papers (133)
 
-- [[PMID41832348|A molecular perspective of gelsolin amyloidosis: An old foe with new faces. (2026)]]
 - [[PMID41872054|K16F/E22F Mutation Promotes Oligomerization and Alters β-Sheet Topology of Aβ16-22 Peptides: Insi... (2026)]] (major topic)
 - [[PMID41703264|Protective mutations associated with APOE in Alzheimer's disease. (2026)]]
 - [[PMID39996369|Presenilin, γ-Secretase, and the Search for Pathogenic Triggers of Alzheimer's Disease. (2025)]]
@@ -51,14 +50,13 @@ MeSH descriptor D009154 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26260791|ATP-binding cassette transporter A7 (ABCA7) loss of function alters Alzheimer amyloid processing. (2015)]]
 - [[PMID26699276|Ganglioside-Dependent Neural Stem Cell Proliferation in Alzheimer's Disease Model Mice. (2015)]]
 - [[PMID25182735|High order W02-reactive stable oligomers of amyloid-β are produced in vivo and in vitro via dialy... (2015)]]
+- [[PMID26293809|Intracellular amyloid β oligomers impair organelle transport and induce dendritic spine loss in p... (2015)]]
 - [[PMID25917310|Treadmill exercise enhances synaptic plasticity, but does not alter β-amyloid deposition in hippo... (2015)]]
 - [[PMID24849345|1α,25-Dihydroxyvitamin D3 reduces cerebral amyloid-β accumulation and improves cognition in mouse... (2014)]]
 - [[PMID24849360|Anti-ApoE antibody given after plaque onset decreases Aβ accumulation and improves brain function... (2014)]]
-- [[PMID24857861|Factors influencing compact-extended structure equilibrium in oligomers of aβ1-40 peptide--an ion... (2014)]]
 - [[PMID24899710|Genetic modulation of soluble Aβ rescues cognitive and synaptic impairment in a mouse model of Al... (2014)]]
 - [[PMID24903713|Intracellular Aβ pathology and early cognitive impairments in a transgenic rat overexpressing hum... (2014)]]
 - [[PMID24655894|IVIg protects the 3xTg-AD mouse model of Alzheimer's disease from memory deficit and Aβ pathology. (2014)]]
-- [[PMID24756858|Significant structural differences between transient amyloid-β oligomers and less-toxic fibrils i... (2014)]]
 - [[PMID24685176|Soluble Aβ oligomers are rapidly sequestered from brain ISF in vivo and bind GM1 ganglioside on c... (2014)]]
 - [[PMID24454724|Specific disruption of hippocampal mossy fiber synapses in a mouse model of familial Alzheimer's... (2014)]]
 - [[PMID24713000|Tau phosphorylation and tau mislocalization mediate soluble Aβ oligomer-induced AMPA glutamate re... (2014)]]
@@ -74,6 +72,7 @@ MeSH descriptor D009154 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID24252272|The Arctic AβPP mutation leads to Alzheimer's disease pathology with highly variable topographic... (2013)]] (major topic)
 - [[PMID23583109|The CAMKK2-AMPK kinase pathway mediates the synaptotoxic effects of Aβ oligomers through Tau phos... (2013)]]
 - [[PMID23951225|The polyphenol oleuropein aglycone protects TgCRND8 mice against Aß plaque pathology. (2013)]]
+- [[PMID22156579|A critical role for the PAR-1/MARK-tau axis in mediating the toxic effects of Aβ on synapses and... (2012)]]
 - [[PMID22188425|Amyloid generation and dysfunctional immunoproteasome activation with disease progression in anim... (2012)]]
 - [[PMID22558227|Amyloid-beta (Aβ) D7H mutation increases oligomeric Aβ42 and alters properties of Aβ-zinc/copper... (2012)]]
 - [[PMID22459600|Berberine ameliorates β-amyloid pathology, gliosis, and cognitive impairment in an Alzheimer's di... (2012)]]
@@ -85,6 +84,7 @@ MeSH descriptor D009154 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23173071|Familial Alzheimer's disease mutations differentially alter amyloid β-protein oligomerization. (2012)]] (major topic)
 - [[PMID22339868|Investigating how peptide length and a pathogenic mutation modify the structural ensemble of amyl... (2012)]] (major topic)
 - [[PMID22472085|Minocycline corrects early, pre-plaque neuroinflammation and inhibits BACE-1 in a transgenic mode... (2012)]]
+- [[PMID22357853|Neutralization of soluble, synaptotoxic amyloid β species by antibodies is epitope specific. (2012)]]
 - [[PMID22915123|Ryanodine receptor blockade reduces amyloid-β load and memory impairments in Tg2576 mouse model o... (2012)]]
 - [[PMID22315227|α-Synuclein in central nervous system and from erythrocytes, mammalian cells, and Escherichia col... (2012)]]
 - [[PMID21219931|Amyloid-β42 alters apolipoprotein E solubility in brains of mice with five familial AD mutations. (2011)]]
@@ -95,6 +95,7 @@ MeSH descriptor D009154 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21403388|Stimulation of non-amyloidogenic processing of amyloid-β protein precursor by cryptotanshinone in... (2011)]]
 - [[PMID21291268|The Japanese mutant Aβ (ΔE22-Aβ(1-39)) forms fibrils instantaneously, with low-thioflavin T fluor... (2011)]] (major topic)
 - [[PMID21827663|TLR4 mutation reduces microglial activation, increases Aβ deposits and exacerbates cognitive defi... (2011)]]
+- [[PMID20164348|Amyloid beta induces the morphological neurodegenerative triad of spine loss, dendritic simplific... (2010)]]
 - [[PMID20610750|Amyloid-beta peptide oligomers disrupt axonal transport through an NMDA receptor-dependent mechan... (2010)]]
 - [[PMID21085580|APP processing induced by herpes simplex virus type 1 (HSV-1) yields several APP fragments in hum... (2010)]]
 - [[PMID20091183|APP transgenic modeling of Alzheimer's disease: mechanisms of neurodegeneration and aberrant neur... (2010)]]
@@ -121,6 +122,7 @@ MeSH descriptor D009154 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18945886|Abeta oligomers induce neuronal cell cycle events in Alzheimer's disease. (2008)]]
 - [[PMID18669616|Amyloid plaque and neurofibrillary tangle pathology in a regulatable mouse model of Alzheimer's d... (2008)]]
 - [[PMID19020010|Blocking Abeta42 accumulation delays the onset and progression of tau pathology via the C terminu... (2008)]]
+- [[PMID18326489|Calmodulin binding and Cdk5 phosphorylation of p35 regulate its effect on microtubules. (2008)]]
 - [[PMID18784309|Complete rescue of cerebrovascular function in aged Alzheimer's disease transgenic mice by antiox... (2008)]]
 - [[PMID18987201|Inflammatory response in the hippocampus of PS1M146L/APP751SL mouse model of Alzheimer's disease:... (2008)]] (major topic)
 - [[PMID18258258|Mutations enhance the aggregation propensity of the Alzheimer's A beta peptide. (2008)]]
@@ -133,12 +135,15 @@ MeSH descriptor D009154 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17268505|Loss-of-function presenilin mutations in Alzheimer disease. Talking Point on the role of presenil... (2007)]] (major topic)
 - [[PMID17495929|Prion recognition elements govern nucleation, strain specificity and species barriers. (2007)]]
 - [[PMID17581637|SIRT1 deacetylase protects against neurodegeneration in models for Alzheimer's disease and amyotr... (2007)]]
+- [[PMID17145504|AMPAR removal underlies Abeta-induced synaptic depression and dendritic spine loss. (2006)]]
 - [[PMID17038501|Generic hydrophobic residues are sufficient to promote aggregation of the Alzheimer's Abeta42 pep... (2006)]]
 - [[PMID17021169|Intraneuronal beta-amyloid aggregates, neurodegeneration, and neuron loss in transgenic mice with... (2006)]] (major topic)
 - [[PMID15984012|Amyloid-beta oligomers are inefficiently measured by enzyme-linked immunosorbent assay. (2005)]]
 - [[PMID15917835|Notch signaling in the mammalian central nervous system: insights from mouse mutants. (2005)]]
 - [[PMID15734686|Twenty years of the Alzheimer's disease amyloid hypothesis: a genetic perspective. (2005)]]
 - [[PMID15310905|Increased nuclear NAD biosynthesis and SIRT1 activation prevent axonal degeneration. (2004)]]
+- [[PMID12124613|Neurodegenerative disease: amyloid pores from pathogenic mutations. (2002)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
 - [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]]
 - [[PMID11403971|Intraneuronal Abeta accumulation precedes plaque formation in beta-amyloid precursor protein and... (2001)]]
 %% pubmed-stream:end %%

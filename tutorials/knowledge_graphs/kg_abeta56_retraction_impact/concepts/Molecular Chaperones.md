@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D018832 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018832)
 
-## Papers (9)
+## Papers (10)
 
 - [[PMID39422790|Proteostasis and Its Role in Disease Development. (2025)]]
 - [[PMID28240851|Ion Mobility-Mass Spectrometry Reveals a Dipeptide That Acts as a Molecular Chaperone for Amyloid β. (2017)]] (major topic)
@@ -22,6 +22,7 @@ MeSH descriptor D018832 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID20130674|Applying Hsp104 to protein-misfolding disorders. (2010)]]
 - [[PMID20211007|Reduction of beta-amyloid pathology by celastrol in a transgenic mouse model of Alzheimer's disease. (2010)]]
 - [[PMID19411847|Amyloid deposits: protection against toxic protein species? (2009)]]
+- [[PMID11755008|Phenolic anti-inflammatory antioxidant reversal of Abeta-induced cognitive deficits and neuropath... (2001)]]
 %% pubmed-stream:end %%
 
 ## Notes

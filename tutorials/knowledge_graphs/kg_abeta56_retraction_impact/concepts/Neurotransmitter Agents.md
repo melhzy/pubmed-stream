@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D018377 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018377)
 
-## Papers (8)
+## Papers (7)
 
-- [[PMID42162143|Potential glutamatergic and GABAergic false neurotransmitters in models of excitation-inhibition... (2026)]] (major topic)
 - [[PMID29079292|P2X receptor overexpression induced by soluble oligomers of amyloid beta peptide potentiates syna... (2018)]]
 - [[PMID27796749|Quercetin Exerts Differential Neuroprotective Effects Against H2O2 and Aβ Aggregates in Hippocamp... (2017)]]
 - [[PMID25475876|Neuromodulatory signaling in hippocampus-dependent memory retrieval. (2015)]]

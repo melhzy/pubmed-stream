@@ -11,8 +11,10 @@ tags:
 
 MeSH descriptor D008279 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008279)
 
-## Papers (20)
+## Papers (22)
 
+- [[PMID41997924|Dysfunction of the episodic memory network in the Alzheimer's disease cascade. (2026)]]
+- [[PMID41956094|Tau seeds induce neurofibrillary tangle formation across brain regions via individual-specific co... (2026)]]
 - [[PMID38217040|Metabotropic glutamate receptor 5 (mGluR5) is associated with neurodegeneration and amyloid depos... (2024)]]
 - [[PMID38634334|Presynaptic density determined by SV2A PET is closely associated with postsynaptic metabotropic g... (2024)]]
 - [[PMID34884573|Magnetic Resonance Imaging in Animal Models of Alzheimer's Disease Amyloidosis. (2021)]] (major topic)

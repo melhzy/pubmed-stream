@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D054648 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D054648)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID20395454|Binding of amyloid beta peptide to beta2 adrenergic receptor induces PKA-dependent AMPA receptor... (2010)]]
+- [[PMID19914335|Chronic oxidative stress causes increased tau phosphorylation in M17 neuroblastoma cells. (2010)]]
 %% pubmed-stream:end %%
 
 ## Notes

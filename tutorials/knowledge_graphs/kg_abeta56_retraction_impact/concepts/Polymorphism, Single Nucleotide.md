@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D020641 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D020641)
 
-## Papers (6)
+## Papers (5)
 
-- [[PMID41540021|Genetic insights and mechanistic parallels in gestational diabetes mellitus and type 2 diabetes. (2026)]]
 - [[PMID40892789|Computational prediction of high-risk non-synonymous SNPs in human ApoE and their structural impa... (2025)]] (major topic)
 - [[PMID22622366|A novel ARC gene polymorphism is associated with reduced risk of Alzheimer's disease. (2012)]] (major topic)
 - [[PMID22393530|Apolipoprotein E and apolipoprotein E receptors: normal biology and roles in Alzheimer disease. (2012)]]

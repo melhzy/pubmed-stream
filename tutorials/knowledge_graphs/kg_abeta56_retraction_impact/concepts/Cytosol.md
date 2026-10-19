@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D003600 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D003600)
 
-## Papers (8)
+## Papers (7)
 
 - [[PMID28750656|Oligomeric amyloid-beta induces MAPK-mediated activation of brain cytosolic and calcium-independe... (2017)]] (major topic)
-- [[PMID24614900|Plasma membrane injury depends on bilayer lipid composition in Alzheimer's disease. (2014)]]
 - [[PMID22899993|Nuclear import and dimerization of tomato ASR1, a water stress-inducible protein exclusive to pla... (2012)]]
 - [[PMID22915123|Ryanodine receptor blockade reduces amyloid-β load and memory impairments in Tg2576 mouse model o... (2012)]]
 - [[PMID20573181|Progressive accumulation of amyloid-beta oligomers in Alzheimer's disease and in amyloid precurso... (2010)]]

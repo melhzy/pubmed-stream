@@ -11,15 +11,16 @@ tags:
 
 MeSH descriptor D019208 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D019208)
 
-## Papers (18)
+## Papers (19)
 
-- [[PMID42720842|Brain-derived neurotrophic factor via TRPM2 inhibition reduces amyloid-beta-mediated increases of... (2026)]] (major topic)
+- [[PMID41831005|Long non-coding SINEUP RNA enhancing BDNF translation prevents dendritic atrophy following an Aβ-... (2026)]] (major topic)
 - [[PMID30403004|Amyloid beta soluble forms and plasminogen activation system in Alzheimer's disease: Consequences... (2019)]] (major topic)
 - [[PMID29094448|Amyloid Beta monomers regulate cyclic adenosine monophosphate response element binding protein fu... (2018)]]
 - [[PMID28665013|Epigenetic regulation by G9a/GLP complex ameliorates amyloid-beta 1-42 induced deficits in long-t... (2017)]]
 - [[PMID28934977|ERβ and ApoE isoforms interact to regulate BDNF-5-HT2A signaling and synaptic function in the fem... (2017)]] (major topic)
 - [[PMID29073110|M344 promotes nonamyloidogenic amyloid precursor protein processing while normalizing Alzheimer's... (2017)]]
 - [[PMID26410307|Brain-derived neurotrophic factor and TrkB expression in the "oldest-old," the 90+ Study: correla... (2015)]] (major topic)
+- [[PMID26293809|Intracellular amyloid β oligomers impair organelle transport and induce dendritic spine loss in p... (2015)]]
 - [[PMID25942043|TrkB reduction exacerbates Alzheimer's disease-like signaling aberrations and memory deficits wit... (2015)]]
 - [[PMID24621497|Involvement of peroxisome proliferator-activated receptor β/δ (PPAR β/δ) in BDNF signaling during... (2014)]] (major topic)
 - [[PMID25044076|Lamotrigine attenuates deficits in synaptic plasticity and accumulation of amyloid plaques in APP... (2014)]]

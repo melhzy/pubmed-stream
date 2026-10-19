@@ -11,15 +11,13 @@ tags:
 
 MeSH descriptor D002784 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002784)
 
-## Papers (21)
+## Papers (19)
 
 - [[PMID42513102|Cholesterol at the Center of Alzheimer's Disease: A Unifying Hypothesis on the Pathogenic Mechanism. (2026)]] (major topic)
 - [[PMID41324750|Proprotein Convertase Subtilisin/Kexin Type 9 (PCSK9) in Alzheimer's Disease: Recent Advances and... (2025)]]
 - [[PMID33215389|The Interplay of ABC Transporters in Aβ Translocation and Cholesterol Metabolism: Implicating The... (2021)]] (major topic)
 - [[PMID26164502|Lipid insertion domain unfolding regulates protein orientational transition behavior in a lipid b... (2015)]] (major topic)
 - [[PMID24849360|Anti-ApoE antibody given after plaque onset decreases Aβ accumulation and improves brain function... (2014)]]
-- [[PMID24604742|Apolipoprotein E receptor pathways in Alzheimer disease. (2014)]]
-- [[PMID24614900|Plasma membrane injury depends on bilayer lipid composition in Alzheimer's disease. (2014)]] (major topic)
 - [[PMID23620083|AβP1-42 incorporation and channel formation in planar lipid membranes: the role of cholesterol an... (2013)]] (major topic)
 - [[PMID22427674|Apolipoprotein E3 (ApoE3) but not ApoE4 protects against synaptic loss through increased expressi... (2012)]]
 - [[PMID22441766|Aβ oligomers-induced toxicity is attenuated in cells cultured with NbActiv4™ medium. (2012)]]

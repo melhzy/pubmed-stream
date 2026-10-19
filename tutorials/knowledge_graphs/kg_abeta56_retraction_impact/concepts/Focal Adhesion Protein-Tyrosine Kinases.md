@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D051416 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D051416)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID27498392|An early dysregulation of FAK and MEK/ERK signaling pathways precedes the β-amyloid deposition in... (2016)]] (major topic)
+- [[PMID11756483|Rapid tyrosine phosphorylation of neuronal proteins including tau and focal adhesion kinase in re... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

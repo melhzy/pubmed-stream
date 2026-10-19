@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D014157 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D014157)
 
-## Papers (7)
+## Papers (6)
 
-- [[PMID41540021|Genetic insights and mechanistic parallels in gestational diabetes mellitus and type 2 diabetes. (2026)]]
 - [[PMID32559200|Brd2 haploinsufficiency extends lifespan and healthspan in C57B6/J mice. (2020)]] (major topic)
 - [[PMID30032422|The Role of Methylated Circulating Nucleic Acids as a Potential Biomarker in Alzheimer's Disease. (2019)]]
 - [[PMID27320125|Amyloid-β induces sleep fragmentation that is rescued by fatty acid binding proteins in Drosophila. (2017)]]

@@ -11,12 +11,11 @@ tags:
 
 MeSH descriptor D002850 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002850)
 
-## Papers (22)
+## Papers (23)
 
 - [[PMID28053038|Large Soluble Oligomers of Amyloid β-Protein from Alzheimer Brain Are Far Less Neuroactive Than t... (2017)]]
 - [[PMID25988806|A native interactor scaffolds and stabilizes toxic ATAXIN-1 oligomers in SCA1. (2015)]]
 - [[PMID25698727|Stabilization of nontoxic Aβ-oligomers: insights into the mechanism of action of hydroxyquinoline... (2015)]]
-- [[PMID25887395|Tau Trimers Are the Minimal Propagation Unit Spontaneously Internalized to Seed Intracellular Agg... (2015)]]
 - [[PMID25343357|Elucidating molecular mass and shape of a neurotoxic Aβ oligomer. (2014)]]
 - [[PMID22547072|Conformational differences between two amyloid β oligomers of similar size and dissimilar toxicity. (2012)]]
 - [[PMID23060439|Erythrocytic stage-dependent regulation of oligomerization of Plasmodium ribosomal protein P2. (2012)]]
@@ -34,7 +33,9 @@ MeSH descriptor D002850 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17279615|The oxidative stress metabolite 4-hydroxynonenal promotes Alzheimer protofibril formation. (2007)]]
 - [[PMID16469784|Effects of secreted oligomers of amyloid beta-protein on hippocampal synaptic plasticity: a poten... (2006)]]
 - [[PMID17176037|Solution state characterization of amyloid beta-derived diffusible ligands. (2006)]]
+- [[PMID15834427|Amyloid beta protein immunotherapy neutralizes Abeta oligomers that disrupt synaptic plasticity i... (2005)]]
 - [[PMID16011984|Neurotoxic protein oligomers--what you see is not always what you get. (2005)]]
+- [[PMID12124613|Neurodegenerative disease: amyloid pores from pathogenic mutations. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

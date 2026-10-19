@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D003131 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D003131)
 
-## Papers (2)
+## Papers (1)
 
-- [[PMID26388203|Combination therapies: The next logical Step for the treatment of synucleinopathies? (2016)]] (major topic)
 - [[PMID24643138|Improvement of memory deficits and amyloid-β clearance in aged APP23 mice treated with a combinat... (2014)]]
 %% pubmed-stream:end %%
 

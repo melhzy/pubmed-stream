@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D011180 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D011180)
 
-## Papers (4)
+## Papers (5)
 
 - [[PMID22560502|α-Synuclein mRNA and soluble α-synuclein protein levels in post-mortem brain from patients with P... (2012)]]
+- [[PMID20164348|Amyloid beta induces the morphological neurodegenerative triad of spine loss, dendritic simplific... (2010)]]
 - [[PMID19605645|Beta-amyloid oligomers induce phosphorylation of tau and inactivation of insulin receptor substra... (2009)]]
 - [[PMID19221430|nELAV proteins alteration in Alzheimer's disease brain: a novel putative target for amyloid-beta... (2009)]]
 - [[PMID18090922|Clinicopathologic correlations in a large Alzheimer disease center autopsy cohort: neuritic plaqu... (2007)]]

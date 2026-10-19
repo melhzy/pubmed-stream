@@ -11,10 +11,9 @@ tags:
 
 MeSH descriptor D011485 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D011485)
 
-## Papers (94)
+## Papers (97)
 
-- [[PMID42752992|Bioinformatics-Driven Discovery of Aβ-Targeted Therapeutics and Diagnostic Biomarkers for Alzheim... (2026)]]
-- [[PMID42212154|The inhibition of the Aβ-ASC interaction site suppresses β-amyloid aggregation and cytotoxicity. (2026)]]
+- [[PMID42450018|Vitronectin Modulates Plasma Aβ Oligomerization Propensity Within Altered Albumin Interactome Net... (2026)]]
 - [[PMID40892789|Computational prediction of high-risk non-synonymous SNPs in human ApoE and their structural impa... (2025)]]
 - [[PMID39955064|Identifying the copper coordination environment between interacting neurodegenerative proteins: A... (2025)]]
 - [[PMID37413816|Sugar distributions on gangliosides guide the formation and stability of amyloid-β oligomers. (2023)]]
@@ -37,20 +36,17 @@ MeSH descriptor D011485 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28691099|Selective targeting of primary and secondary nucleation pathways in Aβ42 aggregation using a rati... (2017)]]
 - [[PMID28683325|Silent Allosteric Modulation of mGluR5 Maintains Glutamate Signaling while Rescuing Alzheimer's M... (2017)]]
 - [[PMID28650319|Somatostatin binds to the human amyloid β peptide and favors the formation of distinct oligomers. (2017)]]
-- [[PMID27852777|Amyloid-β Peptide Nitrotyrosination Stabilizes Oligomers and Enhances NMDAR-Mediated Toxicity. (2016)]]
 - [[PMID27881781|Blocking the Interaction between EphB2 and ADDLs by a Small Peptide Rescues Impaired Synaptic Pla... (2016)]]
 - [[PMID27240424|Increase of Positive Net Charge and Conformational Rigidity Enhances the Efficacy of d-Enantiomer... (2016)]]
 - [[PMID26667279|Metabotropic glutamate receptor 5 couples cellular prion protein to intracellular signalling in A... (2016)]]
 - [[PMID26733416|RPS23RG1 reduces Aβ oligomer-induced synaptic and cognitive deficits. (2016)]]
 - [[PMID27246855|The CaMKII/GluN2B Protein Interaction Maintains Synaptic Strength. (2016)]]
 - [[PMID25713928|A Cyclic Peptide Mimic of the β-Amyloid Binding Domain on Transthyretin. (2015)]]
-- [[PMID26448453|Antibody against Small Aggregated Peptide Specifically Recognizes Toxic Aβ-42 Oligomers in Alzhei... (2015)]]
 - [[PMID25613018|Brazilin inhibits amyloid β-protein fibrillogenesis, remodels amyloid fibrils and reduces amyloid... (2015)]]
 - [[PMID26224839|Na, K-ATPase α3 is a death target of Alzheimer patient amyloid-β assembly. (2015)]]
 - [[PMID25928376|Nanoscale Synaptic Membrane Mimetic Allows Unbiased High Throughput Screen That Targets Binding S... (2015)]]
 - [[PMID25558816|Pseudophosphorylation of Tau at distinct epitopes or the presence of the P301L mutation targets t... (2015)]]
 - [[PMID25698727|Stabilization of nontoxic Aβ-oligomers: insights into the mechanism of action of hydroxyquinoline... (2015)]]
-- [[PMID25096615|The murine version of BAN2401 (mAb158) selectively reduces amyloid-β protofibrils in brain and ce... (2015)]]
 - [[PMID25390368|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers I: Abeta 42 oligomer binding to sp... (2014)]]
 - [[PMID25390692|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers II: Sigma-2/PGRMC1 receptors media... (2014)]]
 - [[PMID25151011|Amyloid beta receptors responsible for neurotoxicity and cellular defects in Alzheimer's disease. (2014)]]
@@ -67,9 +63,11 @@ MeSH descriptor D011485 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID22926141|Abnormal interaction of VDAC1 with amyloid beta and phosphorylated tau causes mitochondrial dysfu... (2012)]]
 - [[PMID22820466|Alzheimer amyloid-β oligomer bound to postsynaptic prion protein activates Fyn to impair neurons. (2012)]]
 - [[PMID22441766|Aβ oligomers-induced toxicity is attenuated in cells cultured with NbActiv4™ medium. (2012)]]
+- [[PMID22357853|Neutralization of soluble, synaptotoxic amyloid β species by antibodies is epitope specific. (2012)]]
 - [[PMID21069870|A differential association of Apolipoprotein E isoforms with the amyloid-β oligomer in solution. (2011)]]
 - [[PMID21781116|A monoclonal antibody against synthetic Aβ dimer assemblies neutralizes brain-derived synaptic pl... (2011)]]
 - [[PMID21232050|Alzheimer's disease & metals: therapeutic opportunities. (2011)]]
+- [[PMID21204788|AMP-activated protein kinase (AMPK) is a tau kinase, activated in response to amyloid β-peptide e... (2011)]]
 - [[PMID21393248|Amyloid-beta42 interacts mainly with insoluble prion protein in the Alzheimer brain. (2011)]]
 - [[PMID21804535|Amyloid-β forms fibrils by nucleated conformational conversion of oligomers. (2011)]]
 - [[PMID21368138|C-terminal-truncated apolipoprotein (apo) E4 inefficiently clears amyloid-beta (Abeta) and acts i... (2011)]]
@@ -97,7 +95,9 @@ MeSH descriptor D011485 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19084066|In vivo suppression of polyglutamine neurotoxicity by C-terminus of Hsp70-interacting protein (CH... (2009)]]
 - [[PMID19188609|Protection of synapses against Alzheimer's-linked toxins: insulin signaling prevents the pathogen... (2009)]]
 - [[PMID19775170|Surface plasmon resonance binding kinetics of Alzheimer's disease amyloid beta peptide-capturing... (2009)]]
+- [[PMID19377471|Tubulin tyrosination navigates the kinesin-1 motor domain to axons. (2009)]]
 - [[PMID19005060|Amyloid-beta peptide (Abeta) neurotoxicity is modulated by the rate of peptide aggregation: Abeta... (2008)]]
+- [[PMID18326489|Calmodulin binding and Cdk5 phosphorylation of p35 regulate its effect on microtubules. (2008)]]
 - [[PMID18765820|Interaction of membrane-bound islet amyloid polypeptide with soluble and crystalline insulin. (2008)]]
 - [[PMID18407659|Interaction with amyloid beta peptide compromises the lipid binding function of apolipoprotein E. (2008)]]
 - [[PMID18374273|Visualizing interaction of proteins relevant to Alzheimer's disease in intact cells. (2008)]]
@@ -107,6 +107,9 @@ MeSH descriptor D011485 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17176037|Solution state characterization of amyloid beta-derived diffusible ligands. (2006)]]
 - [[PMID15591046|beta-Synuclein reduces proteasomal inhibition by alpha-synuclein but not gamma-synuclein. (2005)]]
 - [[PMID15590663|Curcumin inhibits formation of amyloid beta oligomers and fibrils, binds plaques, and reduces amy... (2005)]]
+- [[PMID15537891|Synaptic targeting by Alzheimer's-related amyloid beta oligomers. (2004)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
+- [[PMID11756483|Rapid tyrosine phosphorylation of neuronal proteins including tau and focal adhesion kinase in re... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D057809 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D057809)
 
-## Papers (38)
+## Papers (37)
 
 - [[PMID40702546|New insights into the 17β-hydroxysteroid dehydrogenase type 10 and amyloid-β 42 derived cytotoxic... (2025)]]
 - [[PMID34376696|NEK1-mediated retromer trafficking promotes blood-brain barrier integrity by regulating glucose m... (2021)]]
@@ -32,8 +32,6 @@ MeSH descriptor D057809 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26202697|MT5-MMP is a new pro-amyloidogenic proteinase that promotes amyloid pathology and cognitive decli... (2016)]]
 - [[PMID26260791|ATP-binding cassette transporter A7 (ABCA7) loss of function alters Alzheimer amyloid processing. (2015)]]
 - [[PMID26224839|Na, K-ATPase α3 is a death target of Alzheimer patient amyloid-β assembly. (2015)]]
-- [[PMID25887395|Tau Trimers Are the Minimal Propagation Unit Spontaneously Internalized to Seed Intracellular Agg... (2015)]]
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]]
 - [[PMID25148681|Therapeutic molecules and endogenous ligands regulate the interaction between brain cellular prio... (2014)]]
 - [[PMID24232259|Amyloid-β oligomers regulate the properties of human neural stem cells through GSK-3β signaling. (2013)]]
 - [[PMID22940630|Constitutive α- and β-secretase cleavages of the amyloid precursor protein are partially coupled... (2013)]]
@@ -45,6 +43,7 @@ MeSH descriptor D057809 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID22102410|Binding with nucleic acids or glycosaminoglycans converts soluble protein oligomers to amyloid. (2012)]]
 - [[PMID22910909|Hyperphosphorylation of Tau induced by naturally secreted amyloid-β at nanomolar concentrations i... (2012)]]
 - [[PMID22378890|Inhibition of the NFAT pathway alleviates amyloid β neurotoxicity in a mouse model of Alzheimer's... (2012)]]
+- [[PMID22419736|Neuropathogenic role of adenylate kinase-1 in Aβ-mediated tau phosphorylation via AMPK and GSK3β. (2012)]]
 - [[PMID23043097|Retention in endoplasmic reticulum 1 (RER1) modulates amyloid-β (Aβ) production by altering traff... (2012)]]
 - [[PMID22851182|Second generation γ-secretase modulators exhibit different modulation of Notch β and Aβ production. (2012)]]
 - [[PMID22315227|α-Synuclein in central nervous system and from erythrocytes, mammalian cells, and Escherichia col... (2012)]]

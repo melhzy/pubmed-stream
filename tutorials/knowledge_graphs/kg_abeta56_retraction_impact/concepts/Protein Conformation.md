@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D011487 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D011487)
 
-## Papers (86)
+## Papers (82)
 
+- [[PMID41611904|A structural overview of G-protein-coupled receptors in neurological disorders. (2026)]]
 - [[PMID37216514|Probing differences among Aβ oligomers with two triangular trimers derived from Aβ. (2023)]]
 - [[PMID35041853|α-synuclein-assisted oligomerization of β-amyloid (1-42). (2022)]]
 - [[PMID34643743|Amyloid β structural polymorphism, associated toxicity and therapeutic strategies. (2021)]]
@@ -40,11 +41,9 @@ MeSH descriptor D011487 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26551456|Solvent exposure of Tyr10 as a probe of structural differences between monomeric and aggregated f... (2015)]]
 - [[PMID26084577|Structural differences of amyloid-β fibrils revealed by antibodies from phage display. (2015)]]
 - [[PMID25915729|X-ray Crystallographic Structures of Oligomers of Peptides Derived from β2-Microglobulin. (2015)]]
-- [[PMID24735871|Gly25-Ser26 amyloid β-protein structural isomorphs produce distinct Aβ42 conformational dynamics... (2014)]]
 - [[PMID24725347|Oligomer-targeting with a conformational antibody fragment promotes toxicity in Aβ-expressing flies. (2014)]]
 - [[PMID24240640|Structural diversity of Alzheimer's disease amyloid-β dimers and their role in oligomerization an... (2014)]]
 - [[PMID24854788|The amyloid state and its association with protein misfolding diseases. (2014)]]
-- [[PMID24527756|The role of stable α-synuclein oligomers in the molecular events underlying amyloid formation. (2014)]]
 - [[PMID24669800|X-ray crystallographic structures of trimers and higher-order oligomeric assemblies of a peptide... (2014)]]
 - [[PMID23746423|ATR-FTIR: a "rejuvenated" tool to investigate amyloid proteins. (2013)]]
 - [[PMID23811057|Aβ monomers transiently sample oligomer and fibril-like configurations: ensemble characterization... (2013)]]
@@ -55,7 +54,6 @@ MeSH descriptor D011487 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23959898|Pulsed hydrogen-deuterium exchange mass spectrometry probes conformational changes in amyloid bet... (2013)]] (major topic)
 - [[PMID24145167|Soluble oligomers are sufficient for transmission of a yeast prion but do not confer phenotype. (2013)]]
 - [[PMID23583777|The Alzheimer's amyloid-β(1-42) peptide forms off-pathway oligomers and fibrils that are distingu... (2013)]]
-- [[PMID23335053|The cellular prion protein traps Alzheimer's Aβ in an oligomeric form and disassembles amyloid fi... (2013)]]
 - [[PMID23529761|The role of amyloidogenic protein oligomerization in neurodegenerative disease. (2013)]]
 - [[PMID22587454|Dynamics of metastable β-hairpin structures in the folding nucleus of amyloid β-protein. (2012)]]
 - [[PMID23173071|Familial Alzheimer's disease mutations differentially alter amyloid β-protein oligomerization. (2012)]]
@@ -97,8 +95,6 @@ MeSH descriptor D011487 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID16738244|Different conformations of amyloid beta induce neurotoxicity by distinct mechanisms in human cort... (2006)]]
 - [[PMID16920832|Stability and structure of oligomers of the Alzheimer peptide Abeta16-22: from the dimer to the 3... (2006)]]
 - [[PMID15649697|ApoE isoform-specific effects on LTP: blockade by oligomeric amyloid-beta1-42. (2005)]]
-- [[PMID16354549|Physicochemical characteristics of soluble oligomeric Abeta and their pathologic role in Alzheime... (2005)]]
-- [[PMID12702875|Common structure of soluble amyloid oligomers implies common mechanism of pathogenesis. (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D016207 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D016207)
 
-## Papers (28)
+## Papers (25)
 
-- [[PMID32338218|Active Immunotherapy with 12-mer Aβ1-42-like Assembly Vaccine Shows Efficacy in Aged 3×Tg-AD Mice. (2021)]]
 - [[PMID34376696|NEK1-mediated retromer trafficking promotes blood-brain barrier integrity by regulating glucose m... (2021)]]
 - [[PMID34033080|Slice Culture Modeling of CNS Viral Infection. (2021)]]
 - [[PMID31363064|p110δ PI3-Kinase Inhibition Perturbs APP and TNFα Trafficking, Reduces Plaque Burden, Dampens Neu... (2019)]]
@@ -23,8 +22,6 @@ MeSH descriptor D016207 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26567742|Effects of CX3CR1 and Fractalkine Chemokines in Amyloid Beta Clearance and p-Tau Accumulation in... (2016)]]
 - [[PMID27240424|Increase of Positive Net Charge and Conformational Rigidity Enhances the Efficacy of d-Enantiomer... (2016)]]
 - [[PMID27658617|Microglia contributes to plaque growth by cell death due to uptake of amyloid β in the brain of A... (2016)]]
-- [[PMID26907803|Naturally occurring autoantibodies against Aβ oligomers exhibited more beneficial effects in the... (2016)]]
-- [[PMID26509334|The contribution of neuroinflammation to amyloid toxicity in Alzheimer's disease. (2016)]] (major topic)
 - [[PMID24655894|IVIg protects the 3xTg-AD mouse model of Alzheimer's disease from memory deficit and Aβ pathology. (2014)]]
 - [[PMID24567379|Oral glycotoxins are a modifiable cause of dementia and the metabolic syndrome in mice and humans. (2014)]]
 - [[PMID23486963|Immunogenicity, efficacy, safety, and mechanism of action of epitope vaccine (Lu AF20513) for Alz... (2013)]]

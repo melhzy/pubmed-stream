@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D007249 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D007249)
 
-## Papers (28)
+## Papers (27)
 
 - [[PMID41494991|Independent, but not synergistic, associations of APOEε4 and systemic inflammation on cognitive d... (2026)]] (major topic)
 - [[PMID42019491|Somatic cancer variants enriched in Alzheimer's disease microglia-like cells drive inflammatory a... (2026)]] (major topic)
@@ -29,7 +29,6 @@ MeSH descriptor D007249 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID29293211|Microglia-derived ASC specks cross-seed amyloid-β in Alzheimer's disease. (2017)]]
 - [[PMID27194408|Inflammatory insult during pregnancy accelerates age-related behavioral and neurobiochemical chan... (2016)]] (major topic)
 - [[PMID26081152|The Chemistry of Neurodegeneration: Kinetic Data and Their Implications. (2016)]]
-- [[PMID25014735|Inflammatory risk factors and pathologies promoting Alzheimer's disease progression: is RAGE the... (2015)]] (major topic)
 - [[PMID25761889|Scanning ultrasound removes amyloid-β and restores memory in an Alzheimer's disease mouse model. (2015)]]
 - [[PMID24760848|Suppression of Alzheimer-associated inflammation by microglial prostaglandin-E2 EP4 receptor sign... (2014)]] (major topic)
 - [[PMID23409038|Ferulic acid is a nutraceutical β-secretase modulator that improves behavioral impairment and alz... (2013)]]

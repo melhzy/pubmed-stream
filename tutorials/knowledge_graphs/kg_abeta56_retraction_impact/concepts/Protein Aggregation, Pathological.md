@@ -11,18 +11,13 @@ tags:
 
 MeSH descriptor D066263 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D066263)
 
-## Papers (64)
+## Papers (56)
 
-- [[PMID41532445|Differentiating Alzheimer's Aβ Isoforms Coaggregated in Cerebrospinal Fluid via Single-Particle I... (2026)]] (major topic)
-- [[PMID42585336|Long-term amyloid aggregation kinetic assay and rapid amyloid clustering enabled by programmable... (2026)]] (major topic)
-- [[PMID42115163|α/Sulfonyl-γ-AApeptide foldamers mitigate Alzheimer's disease pathology by stabilizing transient... (2026)]]
 - [[PMID39950286|Recent Advances in Co-Condensation and Co-Aggregation of Amyloid Proteins Linked to Neurodegenera... (2025)]] (major topic)
-- [[PMID34864675|Prions and Neurodegenerative Diseases: A Focus on Alzheimer's Disease. (2022)]]
 - [[PMID33543942|Amyloid Oligomers: A Joint Experimental/Computational Perspective on Alzheimer's Disease, Parkins... (2021)]]
 - [[PMID34643743|Amyloid β structural polymorphism, associated toxicity and therapeutic strategies. (2021)]]
 - [[PMID32943652|A rationally designed bicyclic peptide remodels Aβ42 aggregation in vitro and reduces its toxicit... (2020)]] (major topic)
 - [[PMID31834770|Acetylation of Aβ40 Alters Aggregation in the Presence and Absence of Lipid Membranes. (2020)]] (major topic)
-- [[PMID32320074|Amyloid-β oligomers in cellular models of Alzheimer's disease. (2020)]]
 - [[PMID32966331|Familial Alzheimer's disease mutations at position 22 of the amyloid β-peptide sequence different... (2020)]]
 - [[PMID32814048|Fyn Kinase Controls Tau Aggregation In Vivo. (2020)]]
 - [[PMID32300761|High-resolution probing of early events in amyloid-β aggregation related to Alzheimer's disease. (2020)]] (major topic)
@@ -52,7 +47,6 @@ MeSH descriptor D066263 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28818091|Non-canonical soluble amyloid-beta aggregates and plaque buffering: controversies and future dire... (2017)]] (major topic)
 - [[PMID28691099|Selective targeting of primary and secondary nucleation pathways in Aβ42 aggregation using a rati... (2017)]] (major topic)
 - [[PMID28391388|Transglutaminases Derived from Astrocytes Accelerate Amyloid β Aggregation. (2017)]] (major topic)
-- [[PMID28294556|Unmodified and pyroglutamylated amyloid β peptides form hypertoxic hetero-oligomers of unique sec... (2017)]] (major topic)
 - [[PMID27532054|A protein homeostasis signature in healthy brains recapitulates tissue vulnerability to Alzheimer... (2016)]]
 - [[PMID26719327|Amyloid-β Receptors: The Good, the Bad, and the Prion Protein. (2016)]]
 - [[PMID26099310|Anti-amyloid Aggregation Activity of Natural Compounds: Implications for Alzheimer's Drug Discovery. (2016)]] (major topic)
@@ -70,10 +64,8 @@ MeSH descriptor D066263 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26051935|Quaternary Structure Defines a Large Class of Amyloid-β Oligomers Neutralized by Sequestration. (2015)]] (major topic)
 - [[PMID26084577|Structural differences of amyloid-β fibrils revealed by antibodies from phage display. (2015)]]
 - [[PMID26350232|Ultraviolet light triggers the conversion of Cu2+-bound Aβ42 aggregates into cytotoxic species in... (2015)]] (major topic)
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]] (major topic)
 - [[PMID24870034|Genome-wide analysis of Saccharomyces cerevisiae identifies cellular processes affecting intracel... (2014)]] (major topic)
 - [[PMID24725347|Oligomer-targeting with a conformational antibody fragment promotes toxicity in Aβ-expressing flies. (2014)]]
-- [[PMID24973120|Resting microglia react to Aβ42 fibrils but do not detect oligomers or oligomer-induced neuronal... (2014)]] (major topic)
 - [[PMID25333939|Small bifunctional chelators that do not disaggregate amyloid β fibrils exhibit reduced cellular... (2014)]]
 - [[PMID23765219|Protein folding and aggregation into amyloid: the interference by natural phenolic compounds. (2013)]] (major topic)
 - [[PMID22489141|Unraveling the early events of amyloid-β protein (Aβ) aggregation: techniques for the determinati... (2012)]] (major topic)

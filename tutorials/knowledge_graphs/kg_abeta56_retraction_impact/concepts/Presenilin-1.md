@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D053764 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D053764)
 
-## Papers (102)
+## Papers (101)
 
 - [[PMID41736084|APOE-ε4 genotype and western diet synergistically aggravate synaptic dysfunction in Alzheimer's d... (2026)]]
 - [[PMID40285940|Multi-Target Inhibitor of ZJQ- 3 F Against AChE/BACE1/GSK3β Targets Improves the Cognitive Impair... (2025)]] (major topic)
@@ -49,19 +49,17 @@ MeSH descriptor D053764 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27421117|Long-Term Treatment with Liraglutide, a Glucagon-Like Peptide-1 (GLP-1) Receptor Agonist, Has No... (2016)]] (major topic)
 - [[PMID27658617|Microglia contributes to plaque growth by cell death due to uptake of amyloid β in the brain of A... (2016)]]
 - [[PMID27258424|Sideritis spp. Extracts Enhance Memory and Learning in Alzheimer's β-Amyloidosis Mouse Models and... (2016)]]
-- [[PMID26448453|Antibody against Small Aggregated Peptide Specifically Recognizes Toxic Aβ-42 Oligomers in Alzhei... (2015)]]
+- [[PMID27233830|The flavonoid baicalein rescues synaptic plasticity and memory deficits in a mouse model of Alzhe... (2016)]]
 - [[PMID26699276|Ganglioside-Dependent Neural Stem Cell Proliferation in Alzheimer's Disease Model Mice. (2015)]]
 - [[PMID25182735|High order W02-reactive stable oligomers of amyloid-β are produced in vivo and in vitro via dialy... (2015)]]
 - [[PMID25756590|Neuroinflammatory signals in Alzheimer disease and APP/PS1 transgenic mice: correlations with pla... (2015)]]
 - [[PMID26018073|Prion-Protein-interacting Amyloid-β Oligomers of High Molecular Weight Are Tightly Correlated wit... (2015)]]
 - [[PMID26468204|Reducing Ribosomal Protein S6 Kinase 1 Expression Improves Spatial Memory and Synaptic Plasticity... (2015)]]
 - [[PMID25747037|The effect of focal brain injury on beta-amyloid plaque deposition, inflammation and synapses in... (2015)]]
-- [[PMID25096615|The murine version of BAN2401 (mAb158) selectively reduces amyloid-β protofibrils in brain and ce... (2015)]]
 - [[PMID25917310|Treadmill exercise enhances synaptic plasticity, but does not alter β-amyloid deposition in hippo... (2015)]]
 - [[PMID24356899|(-)-Epigallocatechin-3-gallate ameliorates learning and memory deficits by adjusting the balance... (2014)]] (major topic)
 - [[PMID24849360|Anti-ApoE antibody given after plaque onset decreases Aβ accumulation and improves brain function... (2014)]]
 - [[PMID24655894|IVIg protects the 3xTg-AD mouse model of Alzheimer's disease from memory deficit and Aβ pathology. (2014)]]
-- [[PMID24614900|Plasma membrane injury depends on bilayer lipid composition in Alzheimer's disease. (2014)]]
 - [[PMID23596795|(Effects of huannao yicong recipe extract on the learning and memory and related factors of Abeta... (2013)]]
 - [[PMID23186988|A novel drug candidate for Alzheimer's disease treatment: gx-50 derived from Zanthoxylum bungeanum. (2013)]]
 - [[PMID23640054|Brain interstitial oligomeric amyloid β increases with age and is resistant to clearance from bra... (2013)]]
@@ -72,7 +70,6 @@ MeSH descriptor D053764 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID23138650|Presenilin-1 adopts pathogenic conformation in normal aging and in sporadic Alzheimer's disease. (2013)]] (major topic)
 - [[PMID23799536|Scara1 deficiency impairs clearance of soluble amyloid-β by mononuclear phagocytes and accelerate... (2013)]]
 - [[PMID24117120|Serum β-amyloid peptide levels spike in the early stage of Alzheimer-like plaque pathology in an... (2013)]]
-- [[PMID23672786|Systemic vaccination with anti-oligomeric monoclonal antibodies improves cognitive function by re... (2013)]]
 - [[PMID22188425|Amyloid generation and dysfunctional immunoproteasome activation with disease progression in anim... (2012)]]
 - [[PMID23155407|Chronic temporal lobe epilepsy is associated with enhanced Alzheimer-like neuropathology in 3×Tg-... (2012)]]
 - [[PMID23172351|Expression of the plant viral protease NIa in the brain of a mouse model of Alzheimer's disease m... (2012)]]
@@ -113,6 +110,8 @@ MeSH descriptor D053764 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17233641|Impaired spatial learning in the APPSwe + PSEN1DeltaE9 bigenic mouse model of Alzheimer's disease. (2007)]] (major topic)
 - [[PMID15748777|Caloric restriction attenuates Abeta-deposition in Alzheimer transgenic models. (2005)]]
 - [[PMID15755686|Episodic-like memory deficits in the APPswe/PS1dE9 mouse model of Alzheimer's disease: relationsh... (2005)]]
+- [[PMID12399581|Alzheimer's disease is a synaptic failure. (2002)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
 - [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]]
 - [[PMID11403971|Intraneuronal Abeta accumulation precedes plaque formation in beta-amyloid precursor protein and... (2001)]]
 %% pubmed-stream:end %%

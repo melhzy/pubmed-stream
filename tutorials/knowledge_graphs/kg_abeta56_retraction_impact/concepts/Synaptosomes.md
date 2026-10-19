@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D013574 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D013574)
 
-## Papers (10)
+## Papers (9)
 
-- [[PMID41740736|High-Fat Diet and a High Amyloid Load Interact to Induce PKC-α Dependent Synaptic Insulin Resista... (2026)]]
 - [[PMID31108099|Apolipoprotein E/Amyloid-β Complex Accumulates in Alzheimer Disease Cortical Synapses via Apolipo... (2019)]]
 - [[PMID29246925|Aβ mediates F-actin disassembly in dendritic spines leading to cognitive deficits in Alzheimer's... (2018)]]
 - [[PMID28053038|Large Soluble Oligomers of Amyloid β-Protein from Alzheimer Brain Are Far Less Neuroactive Than t... (2017)]]

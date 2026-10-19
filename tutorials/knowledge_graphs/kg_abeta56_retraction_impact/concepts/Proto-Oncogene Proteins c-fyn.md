@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D051076 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D051076)
 
-## Papers (23)
+## Papers (25)
 
+- [[PMID42816892|Fyn kinase: a key mechanistic regulator and therapeutic target in tauopathy and neurodegenerative... (2026)]] (major topic)
 - [[PMID38890236|Fyn Kinase in Alzheimer's Disease: Unraveling Molecular Mechanisms and Therapeutic Implications. (2025)]] (major topic)
 - [[PMID40366450|Fyn-dependent Tau microcluster formation seeds and boosts extensive Tau pathology. (2025)]] (major topic)
 - [[PMID32665013|Fyn depletion ameliorates tauP301L-induced neuropathology. (2020)]] (major topic)
@@ -36,6 +37,7 @@ MeSH descriptor D051076 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID20655099|Dendritic function of tau mediates amyloid-beta toxicity in Alzheimer's disease mouse models. (2010)]]
 - [[PMID20609109|Tyrosine phosphorylation of tau accompanies disease progression in transgenic mouse models of tau... (2010)]]
 - [[PMID17978019|Beta-amyloid modulation of synaptic transmission and plasticity. (2007)]]
+- [[PMID11756483|Rapid tyrosine phosphorylation of neuronal proteins including tau and focal adhesion kinase in re... (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

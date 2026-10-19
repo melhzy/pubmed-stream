@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D009434 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D009434)
 
-## Papers (9)
+## Papers (10)
 
+- [[PMID41956094|Tau seeds induce neurofibrillary tangle formation across brain regions via individual-specific co... (2026)]]
 - [[PMID28211008|Injected Amyloid Beta in the Olfactory Bulb Transfers to Other Brain Regions via Neural Connectio... (2018)]]
 - [[PMID29986165|What Happens with the Circuit in Alzheimer's Disease in Mice and Humans? (2018)]] (major topic)
 - [[PMID27829687|Network abnormalities and interneuron dysfunction in Alzheimer disease. (2016)]]

@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D018160 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018160)
 
-## Papers (5)
+## Papers (4)
 
-- [[PMID41540021|Genetic insights and mechanistic parallels in gestational diabetes mellitus and type 2 diabetes. (2026)]]
 - [[PMID19144697|Up-regulation of the alpha-secretase ADAM10 by retinoic acid receptors and acitretin. (2009)]]
 - [[PMID18549781|ApoE promotes the proteolytic degradation of Abeta. (2008)]]
 - [[PMID17573819|Oxysterols, cholesterol homeostasis, and Alzheimer disease. (2007)]] (major topic)

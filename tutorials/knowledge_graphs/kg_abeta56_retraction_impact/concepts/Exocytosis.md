@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D005089 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D005089)
 
-## Papers (6)
+## Papers (7)
 
+- [[PMID40911269|Identification of TMED10 as A Regulator for Neuronal Exocytosis of Amyloid Beta 42. (2026)]] (major topic)
 - [[PMID22905234|Amyloid-β acts as a regulator of neurotransmitter release disrupting the interaction between syna... (2012)]]
 - [[PMID21504780|Purified high molecular weight synthetic Aβ(1-42) and biological Aβ oligomers are equipotent in r... (2011)]] (major topic)
 - [[PMID20152114|Increased expression of alpha-synuclein reduces neurotransmitter release by inhibiting synaptic v... (2010)]]

@@ -11,14 +11,12 @@ tags:
 
 MeSH descriptor D000090862 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000090862)
 
-## Papers (13)
+## Papers (11)
 
 - [[PMID40935215|Bazi Bushen improves cognitive dysfunction in 5×FAD mice by targeting amyloid pathology, neuroinf... (2026)]] (major topic)
-- [[PMID42423830|Inhibition of miR-25-3p Alleviates Neuroinflammation in Alzheimer's Disease By Targeting ADAM10. (2026)]] (major topic)
 - [[PMID40566818|Kenpaullone attenuates amyloid-beta deposition and neuroinflammation, improving memory in a 5XFAD... (2026)]] (major topic)
-- [[PMID42292389|Neuroinflammation in Alzheimer's disease: glial crosstalk, pathological modulation, and therapeut... (2026)]] (major topic)
+- [[PMID41832772|Regulation of Lipid Dysmetabolism and Neuroinflammation Progression Linked With Alzheimer's Disea... (2026)]] (major topic)
 - [[PMID42446869|Single-cell analysis of Powassan virus-infected brains reveals age-dependent neuroinflammatory cr... (2026)]] (major topic)
-- [[PMID41593034|Unmasking the hidden catalyst: How infections trigger Alzheimer's disease. (2026)]]
 - [[PMID41306975|Genetic knockdown of DYRK1A attenuates cognitive impairment, Aβ pathology, tauopathy and neuroinf... (2025)]] (major topic)
 - [[PMID37408220|Aβ Oligomer Toxicity-Reducing Therapy for the Prevention of Alzheimer's Disease: Importance of th... (2023)]]
 - [[PMID36935511|Exercise suppresses neuroinflammation for alleviating Alzheimer's disease. (2023)]]

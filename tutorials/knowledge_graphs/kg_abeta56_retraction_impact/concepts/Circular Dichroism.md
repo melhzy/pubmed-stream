@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D002942 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002942)
 
-## Papers (18)
+## Papers (19)
 
 - [[PMID30258312|The Role of α-sheet in Amyloid Oligomer Aggregation and Toxicity. (2018)]]
 - [[PMID28671211|Glucose directs amyloid-beta into membrane-active oligomers. (2017)]]
@@ -31,6 +31,7 @@ MeSH descriptor D002942 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19706468|Structure-neurotoxicity relationships of amyloid beta-protein oligomers. (2009)]]
 - [[PMID17636121|The curli nucleator protein, CsgB, contains an amyloidogenic domain that directs CsgA polymerizat... (2007)]]
 - [[PMID12499373|In vitro characterization of conditions for amyloid-beta peptide oligomerization and fibrillogene... (2003)]]
+- [[PMID12124613|Neurodegenerative disease: amyloid pores from pathogenic mutations. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

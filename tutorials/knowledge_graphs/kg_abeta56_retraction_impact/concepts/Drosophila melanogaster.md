@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D004331 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D004331)
 
-## Papers (12)
+## Papers (13)
 
+- [[PMID41398046|Amyloid-beta induces distinct forms of cell death in different neuronal populations. (2026)]]
 - [[PMID34674371|Drosophila p38 MAPK interacts with BAG-3/starvin to regulate age-dependent protein homeostasis. (2021)]] (major topic)
 - [[PMID31823504|Mapping pathogenic processes contributing to neurodegeneration in Drosophila models of Alzheimer'... (2020)]]
 - [[PMID29887525|Prion protein stabilizes amyloid-β (Aβ) oligomers and enhances Aβ neurotoxicity in a Drosophila m... (2018)]] (major topic)

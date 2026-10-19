@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D015995 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D015995)
 
-## Papers (2)
+## Papers (1)
 
-- [[PMID25984581|2015 Alzheimer's disease facts and figures. (2015)]]
 - [[PMID19481107|Alzheimer's disease and blood-brain barrier function-Why have anti-beta-amyloid therapies failed... (2009)]]
 %% pubmed-stream:end %%
 

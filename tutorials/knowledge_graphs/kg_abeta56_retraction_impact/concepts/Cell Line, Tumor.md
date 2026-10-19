@@ -11,10 +11,8 @@ tags:
 
 MeSH descriptor D045744 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D045744)
 
-## Papers (77)
+## Papers (73)
 
-- [[PMID42720842|Brain-derived neurotrophic factor via TRPM2 inhibition reduces amyloid-beta-mediated increases of... (2026)]]
-- [[PMID42423830|Inhibition of miR-25-3p Alleviates Neuroinflammation in Alzheimer's Disease By Targeting ADAM10. (2026)]]
 - [[PMID42496665|Limitations and Strengths of the SH-SY5Y Neuroblastoma Cell Line as a Model of β-Amyloid Neurotox... (2026)]]
 - [[PMID41160462|Brain region-specific dopamine receptor changes and astrocyte activation influence tau pathology... (2025)]]
 - [[PMID34330900|Endo-lysosomal Aβ concentration and pH trigger formation of Aβ oligomers that potently induce Tau... (2021)]]
@@ -34,17 +32,13 @@ MeSH descriptor D045744 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26787453|Improved proteostasis in the secretory pathway rescues Alzheimer's disease in the mouse. (2016)]]
 - [[PMID27240424|Increase of Positive Net Charge and Conformational Rigidity Enhances the Efficacy of d-Enantiomer... (2016)]]
 - [[PMID27520374|miR-106b inhibits tau phosphorylation at Tyr18 by targeting Fyn in a model of Alzheimer's disease. (2016)]]
-- [[PMID26907803|Naturally occurring autoantibodies against Aβ oligomers exhibited more beneficial effects in the... (2016)]]
 - [[PMID26260791|ATP-binding cassette transporter A7 (ABCA7) loss of function alters Alzheimer amyloid processing. (2015)]]
 - [[PMID26123100|Melatonin regulates the transcription of βAPP-cleaving secretases mediated through melatonin rece... (2015)]]
 - [[PMID26637371|The participation of insulin-like growth factor-binding protein 3 released by astrocytes in the p... (2015)]]
 - [[PMID26402097|Tomoregulin (TMEFF2) Binds Alzheimer's Disease Amyloid-β (Aβ) Oligomer and AβPP and Protects Neur... (2015)]]
 - [[PMID26350232|Ultraviolet light triggers the conversion of Cu2+-bound Aβ42 aggregates into cytotoxic species in... (2015)]]
-- [[PMID25134727|Amyloid-β oligomers as a template for secondary amyloidosis in Alzheimer's disease. (2014)]]
 - [[PMID24903973|Cilostazol suppresses β-amyloid production by activating a disintegrin and metalloproteinase 10 v... (2014)]]
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]]
 - [[PMID24725347|Oligomer-targeting with a conformational antibody fragment promotes toxicity in Aβ-expressing flies. (2014)]]
-- [[PMID24614900|Plasma membrane injury depends on bilayer lipid composition in Alzheimer's disease. (2014)]]
 - [[PMID25333939|Small bifunctional chelators that do not disaggregate amyloid β fibrils exhibit reduced cellular... (2014)]]
 - [[PMID25142005|Specific aromatic foldamers potently inhibit spontaneous and seeded Aβ42 and Aβ43 fibril assembly. (2014)]]
 - [[PMID25378395|β2-microglobulin amyloid fibrils are nanoparticles that disrupt lysosomal membrane protein traffi... (2014)]]
@@ -60,6 +54,7 @@ MeSH descriptor D045744 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID22459600|Berberine ameliorates β-amyloid pathology, gliosis, and cognitive impairment in an Alzheimer's di... (2012)]]
 - [[PMID22678883|DENN/MADD/IG20 alternative splicing changes and cell death in Alzheimer's disease. (2012)]]
 - [[PMID22910909|Hyperphosphorylation of Tau induced by naturally secreted amyloid-β at nanomolar concentrations i... (2012)]]
+- [[PMID22419736|Neuropathogenic role of adenylate kinase-1 in Aβ-mediated tau phosphorylation via AMPK and GSK3β. (2012)]]
 - [[PMID22898493|Pro-inflammatory interleukin-18 increases Alzheimer's disease-associated amyloid-β production in... (2012)]]
 - [[PMID22610977|Synergistic effects of amyloid peptides and lead on human neuroblastoma cells. (2012)]]
 - [[PMID22558151|The influence of spin-labeled fluorene compounds on the assembly and toxicity of the aβ peptide. (2012)]]
@@ -70,6 +65,7 @@ MeSH descriptor D045744 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21085663|Amyloid-β oligomer specificity mediated by the IgM isotype--implications for a specific protectiv... (2010)]]
 - [[PMID20452375|An improved method for generating consistent soluble amyloid-beta oligomer preparations for in vi... (2010)]]
 - [[PMID21085580|APP processing induced by herpes simplex virus type 1 (HSV-1) yields several APP fragments in hum... (2010)]]
+- [[PMID19914335|Chronic oxidative stress causes increased tau phosphorylation in M17 neuroblastoma cells. (2010)]]
 - [[PMID20971852|Identification of low molecular weight pyroglutamate A{beta} oligomers in Alzheimer disease: a no... (2010)]]
 - [[PMID21085664|Inhibiting α-synuclein oligomerization by stable cell-penetrating β-synuclein fragments recovers... (2010)]]
 - [[PMID20554868|L-3-n-butylphthalide improves cognitive impairment and reduces amyloid-beta in a transgenic model... (2010)]]

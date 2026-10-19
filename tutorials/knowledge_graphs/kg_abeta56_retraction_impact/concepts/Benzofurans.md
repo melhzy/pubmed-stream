@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D001572 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D001572)
 
-## Papers (2)
+## Papers (1)
 
-- [[PMID24760018|Aminostyrylbenzofuran directly reduces oligomeric amyloid-β and reverses cognitive deficits in Al... (2014)]] (major topic)
 - [[PMID20554868|L-3-n-butylphthalide improves cognitive impairment and reduces amyloid-beta in a transgenic model... (2010)]] (major topic)
 %% pubmed-stream:end %%
 

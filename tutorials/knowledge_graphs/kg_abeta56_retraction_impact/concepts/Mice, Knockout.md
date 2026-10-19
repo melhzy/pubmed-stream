@@ -11,10 +11,11 @@ tags:
 
 MeSH descriptor D018345 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018345)
 
-## Papers (58)
+## Papers (62)
 
-- [[PMID42162143|Potential glutamatergic and GABAergic false neurotransmitters in models of excitation-inhibition... (2026)]]
+- [[PMID40407976|Amyloid neuropathy, tauopathy, decreased cholinergic and dopaminergic neurons, long-term memory a... (2026)]]
 - [[PMID41851960|Synthesis, Radiochemistry, and Preclinical Assessment of the First GPR39 PET Imaging Agent. (2026)]]
+- [[PMID41441981|Cholestanol promotes tau pathology in a mouse model of tauopathy. (2025)]]
 - [[PMID41053017|LRRK2 deficiency mitigates amyloid β deposition-mediated pathology in a murine Alzheimer's diseas... (2025)]]
 - [[PMID39212313|Cellular prion protein acts as mediator of amyloid beta uptake by caveolin-1 causing cellular dys... (2024)]]
 - [[PMID35002518|Death-associated protein kinase 1 mediates Aβ42 aggregation-induced neuronal apoptosis and tau dy... (2022)]]
@@ -29,6 +30,8 @@ MeSH descriptor D018345 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID30787106|Systematic and standardized comparison of reported amyloid-β receptors for sufficiency, affinity,... (2019)]]
 - [[PMID30926423|Toxic amyloid-β oligomers induced self-replication in astrocytes triggering neuronal injury. (2019)]]
 - [[PMID29995210|Bidirectional modulation of Alzheimer phenotype by alpha-synuclein in mice and primary neurons. (2018)]]
+- [[PMID30145931|Pathological missorting of endogenous MAPT/Tau in neurons caused by failure of protein degradatio... (2018)]]
+- [[PMID28536263|Axodendritic sorting and pathological missorting of Tau are isoform-specific and determined by ax... (2017)]]
 - [[PMID28842420|Conditional Deletion of Prnp Rescues Behavioral and Synaptic Deficits after Disease Onset in Tran... (2017)]]
 - [[PMID29101243|Human Brain-Derived Aβ Oligomers Bind to Synapses and Disrupt Synaptic Activity in a Manner That... (2017)]]
 - [[PMID29293211|Microglia-derived ASC specks cross-seed amyloid-β in Alzheimer's disease. (2017)]]
@@ -46,6 +49,7 @@ MeSH descriptor D018345 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26558786|The Transient Receptor Potential Melastatin 2 (TRPM2) Channel Contributes to β-Amyloid Oligomer-R... (2015)]]
 - [[PMID25942043|TrkB reduction exacerbates Alzheimer's disease-like signaling aberrations and memory deficits wit... (2015)]]
 - [[PMID24595198|Brain pyroglutamate amyloid-β is produced by cathepsin B and is reduced by the cysteine protease... (2014)]]
+- [[PMID24065130|Amyloid-β oligomers induce synaptic damage via Tau-dependent microtubule severing by TTLL6 and sp... (2013)]]
 - [[PMID22940630|Constitutive α- and β-secretase cleavages of the amyloid precursor protein are partially coupled... (2013)]]
 - [[PMID23618906|NMDA receptor subunit composition determines beta-amyloid-induced neurodegeneration and synaptic... (2013)]]
 - [[PMID22820466|Alzheimer amyloid-β oligomer bound to postsynaptic prion protein activates Fyn to impair neurons. (2012)]]

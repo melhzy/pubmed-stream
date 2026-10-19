@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D004797 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D004797)
 
-## Papers (79)
+## Papers (77)
 
 - [[PMID41677387|Morpho-Functional Characterization and miRNA Profiling of the Retina in the 5xFAD Murine Model of... (2026)]]
 - [[PMID29686315|Structural and kinetic basis for the selectivity of aducanumab for aggregated forms of amyloid-β. (2018)]]
@@ -19,16 +19,10 @@ MeSH descriptor D004797 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID29246249|Oligomeric forms of amyloid-β protein in plasma as a potential blood-based biomarker for Alzheime... (2017)]]
 - [[PMID26649780|Effect of Zhuang Jing Decoction on Learning and Memory Ability in Aging Rats. (2016)]]
 - [[PMID25988806|A native interactor scaffolds and stabilizes toxic ATAXIN-1 oligomers in SCA1. (2015)]]
-- [[PMID26215784|Anti-Aβ antibodies incapable of reducing cerebral Aβ oligomers fail to attenuate spatial referenc... (2015)]]
 - [[PMID26221415|Calcium Channel Blockers, Progression to Dementia, and Effects on Amyloid Beta Peptide Production. (2015)]]
-- [[PMID25534024|Differential induction and spread of tau pathology in young PS19 tau transgenic mice following in... (2015)]]
-- [[PMID25676491|Pathological interface between oligomeric alpha-synuclein and tau in synucleinopathies. (2015)]]
 - [[PMID25698727|Stabilization of nontoxic Aβ-oligomers: insights into the mechanism of action of hydroxyquinoline... (2015)]]
-- [[PMID25846299|The aqueous phase of Alzheimer's disease brain contains assemblies built from ∼4 and ∼7 kDa Aβ sp... (2015)]]
-- [[PMID25096615|The murine version of BAN2401 (mAb158) selectively reduces amyloid-β protofibrils in brain and ce... (2015)]]
 - [[PMID24553930|A sensitive aβ oligomer assay discriminates Alzheimer's and aged control cerebrospinal fluid. (2014)]]
 - [[PMID25390368|Alzheimer's therapeutics targeting amyloid beta 1-42 oligomers I: Abeta 42 oligomer binding to sp... (2014)]]
-- [[PMID24635842|Plasma amyloid-β oligomers and soluble tumor necrosis factor receptors as potential biomarkers of... (2014)]]
 - [[PMID24023774|Continuation of exercise is necessary to inhibit high fat diet-induced β-amyloid deposition and m... (2013)]]
 - [[PMID23799095|Evaluating amyloid-β oligomers in cerebrospinal fluid as a biomarker for Alzheimer's disease. (2013)]]
 - [[PMID23486963|Immunogenicity, efficacy, safety, and mechanism of action of epitope vaccine (Lu AF20513) for Alz... (2013)]]
@@ -63,6 +57,7 @@ MeSH descriptor D004797 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21186265|Reversal of autophagy dysfunction in the TgCRND8 mouse model of Alzheimer's disease ameliorates a... (2011)]]
 - [[PMID21403388|Stimulation of non-amyloidogenic processing of amyloid-β protein precursor by cryptotanshinone in... (2011)]]
 - [[PMID19654569|Adeno-associated virus gene therapy with cholesterol 24-hydroxylase reduces the amyloid pathology... (2010)]]
+- [[PMID20164348|Amyloid beta induces the morphological neurodegenerative triad of spine loss, dendritic simplific... (2010)]]
 - [[PMID21085663|Amyloid-β oligomer specificity mediated by the IgM isotype--implications for a specific protectiv... (2010)]]
 - [[PMID20452375|An improved method for generating consistent soluble amyloid-beta oligomer preparations for in vi... (2010)]]
 - [[PMID20946660|Anti-PrPC monoclonal antibody infusion as a novel treatment for cognitive deficits in an Alzheime... (2010)]]
@@ -88,10 +83,13 @@ MeSH descriptor D004797 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19020010|Blocking Abeta42 accumulation delays the onset and progression of tau pathology via the C terminu... (2008)]]
 - [[PMID18367618|Receptor for advanced glycation end product-dependent activation of p38 mitogen-activated protein... (2008)]]
 - [[PMID17920016|Amyloid precursor protein regulates brain apolipoprotein E and cholesterol metabolism through lip... (2007)]]
+- [[PMID17145504|AMPAR removal underlies Abeta-induced synaptic depression and dendritic spine loss. (2006)]]
 - [[PMID17183149|An antibody to the beta-secretase cleavage site on amyloid-beta-protein precursor inhibits amyloi... (2006)]]
 - [[PMID16385556|Antibodies against beta-amyloid reduce Abeta oligomers, glycogen synthase kinase-3beta activation... (2006)]]
+- [[PMID15834427|Amyloid beta protein immunotherapy neutralizes Abeta oligomers that disrupt synaptic plasticity i... (2005)]]
 - [[PMID15984012|Amyloid-beta oligomers are inefficiently measured by enzyme-linked immunosorbent assay. (2005)]] (major topic)
 - [[PMID11160418|Age-dependent changes in brain, CSF, and plasma amyloid (beta) protein in the Tg2576 transgenic m... (2001)]]
+- [[PMID11755008|Phenolic anti-inflammatory antioxidant reversal of Abeta-induced cognitive deficits and neuropath... (2001)]]
 %% pubmed-stream:end %%
 
 ## Notes

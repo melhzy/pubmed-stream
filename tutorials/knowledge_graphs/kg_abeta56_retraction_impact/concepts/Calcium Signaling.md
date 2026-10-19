@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D020013 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D020013)
 
-## Papers (8)
+## Papers (10)
 
 - [[PMID32722509|ORAI2 Down-Regulation Potentiates SOCE and Decreases Aβ42 Accumulation in Human Neuroglioma Cells. (2020)]] (major topic)
 - [[PMID24833600|Amyloid-beta disrupts calcium and redox homeostasis in brain endothelial cells. (2015)]] (major topic)
@@ -20,6 +20,8 @@ MeSH descriptor D020013 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID22820466|Alzheimer amyloid-β oligomer bound to postsynaptic prion protein activates Fyn to impair neurons. (2012)]]
 - [[PMID19795132|Calcium hypothesis of Alzheimer's disease. (2010)]] (major topic)
 - [[PMID19929945|Intracellular calcium signalling in Alzheimer's disease. (2010)]] (major topic)
+- [[PMID19526730|Is Alzheimer's disease a result of presynaptic failure? Synaptic dysfunctions induced by oligomer... (2009)]]
+- [[PMID17328689|Calcium and neurodegeneration. (2007)]] (major topic)
 - [[PMID11447826|Apolipoprotein E and Alzheimer's disease: signal transduction mechanisms. (2001)]]
 %% pubmed-stream:end %%
 

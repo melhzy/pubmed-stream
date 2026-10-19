@@ -13,7 +13,7 @@ MeSH descriptor D013601 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (4)
 
-- [[PMID32338218|Active Immunotherapy with 12-mer Aβ1-42-like Assembly Vaccine Shows Efficacy in Aged 3×Tg-AD Mice. (2021)]] (major topic)
+- [[PMID41977473|Microglia-Astrocyte Cooperation and Peripheral T Cells in Alzheimer's Disease: State-of-the-Art a... (2026)]] (major topic)
 - [[PMID23486963|Immunogenicity, efficacy, safety, and mechanism of action of epitope vaccine (Lu AF20513) for Alz... (2013)]]
 - [[PMID23595760|MER5101, a novel Aβ1-15:DT conjugate vaccine, generates a robust anti-Aβ antibody response and at... (2013)]]
 - [[PMID17545160|Anti-A beta 1-11 antibody binds to different beta-amyloid species, inhibits fibril formation, and... (2007)]]

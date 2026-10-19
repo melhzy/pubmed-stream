@@ -13,11 +13,10 @@ MeSH descriptor D018384 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (48)
 
-- [[PMID42720842|Brain-derived neurotrophic factor via TRPM2 inhibition reduces amyloid-beta-mediated increases of... (2026)]] (major topic)
-- [[PMID41766859|Carnosine protects human microglia against Aβ oligomers through a multimodal mechanism of action:... (2026)]] (major topic)
-- [[PMID41863579|The metabolic roots of memory loss: interlinking the Diabetes-Alzheimer's hypothesis. (2026)]]
-- [[PMID42115163|α/Sulfonyl-γ-AApeptide foldamers mitigate Alzheimer's disease pathology by stabilizing transient... (2026)]]
+- [[PMID42396669|Exercise and fluoxetine in Alzheimer's disease: Molecular mechanisms of synergistic and antagonis... (2026)]]
+- [[PMID40847318|Cell-specific copper dyshomeostasis mechanism in Alzheimer's disease. (2025)]]
 - [[PMID41009358|Impaired Oxidative Stress Markers and Activities of Matrix Metalloproteinases in Plasma of Patien... (2025)]] (major topic)
+- [[PMID41465242|Molecular Crossroads: Shared and Divergent Molecular Signatures in Alzheimer's Disease and Dement... (2025)]]
 - [[PMID40407867|Resveratrol, a calorie restriction mimetic, protects AlCl3-induced neurotoxicity and cognitive de... (2025)]] (major topic)
 - [[PMID36907887|Alleviating the unwanted effects of oxidative stress on Aβ clearance: a review of related concept... (2023)]]
 - [[PMID35767571|Curcumin improves D-galactose and normal-aging associated memory impairment in mice: In vivo and... (2022)]]
@@ -41,7 +40,6 @@ MeSH descriptor D018384 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26590557|Is L-methionine a trigger factor for Alzheimer's-like neurodegeneration?: Changes in Aβ oligomers... (2015)]]
 - [[PMID26543520|The Role of Oxidative Stress-Induced Epigenetic Alterations in Amyloid-β Production in Alzheimer'... (2015)]] (major topic)
 - [[PMID24567379|Oral glycotoxins are a modifiable cause of dementia and the metabolic syndrome in mice and humans. (2014)]]
-- [[PMID25088942|Type 3 diabetes is sporadic Alzheimer׳s disease: mini-review. (2014)]]
 - [[PMID23409038|Ferulic acid is a nutraceutical β-secretase modulator that improves behavioral impairment and alz... (2013)]]
 - [[PMID23382994|Neurotrophic and neuroprotective actions of (-)- and (+)-phenserine, candidate drugs for Alzheime... (2013)]]
 - [[PMID23138650|Presenilin-1 adopts pathogenic conformation in normal aging and in sporadic Alzheimer's disease. (2013)]]
@@ -55,11 +53,13 @@ MeSH descriptor D018384 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21232050|Alzheimer's disease & metals: therapeutic opportunities. (2011)]]
 - [[PMID21706234|Protective effects of walnut extract against amyloid beta peptide-induced cell death and oxidativ... (2011)]] (major topic)
 - [[PMID20083199|Age-related loss of phospholipid asymmetry in APP(NLh)/APP(NLh) x PS-1(P264L)/PS-1(P264L) human d... (2010)]]
+- [[PMID19914335|Chronic oxidative stress causes increased tau phosphorylation in M17 neuroblastoma cells. (2010)]] (major topic)
 - [[PMID20927385|eIF4A inhibition allows translational regulation of mRNAs encoding proteins involved in Alzheimer... (2010)]]
 - [[PMID20554868|L-3-n-butylphthalide improves cognitive impairment and reduces amyloid-beta in a transgenic model... (2010)]]
 - [[PMID19188609|Protection of synapses against Alzheimer's-linked toxins: insulin signaling prevents the pathogen... (2009)]]
 - [[PMID18520771|Alzheimer disease pathology as a host response. (2008)]]
 - [[PMID18762245|Oxidative damage in brain from human mutant APP/PS-1 double knock-in mice as a function of age. (2008)]] (major topic)
+- [[PMID17328689|Calcium and neurodegeneration. (2007)]]
 - [[PMID17279615|The oxidative stress metabolite 4-hydroxynonenal promotes Alzheimer protofibril formation. (2007)]] (major topic)
 %% pubmed-stream:end %%
 

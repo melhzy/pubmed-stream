@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D001057 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D001057)
 
-## Papers (68)
+## Papers (66)
 
 - [[PMID41703264|Protective mutations associated with APOE in Alzheimer's disease. (2026)]] (major topic)
 - [[PMID40307424|APOE deficiency inhibits amyloid-facilitated (A) tau pathology (T) and neurodegeneration (N), hal... (2025)]] (major topic)
@@ -46,9 +46,7 @@ MeSH descriptor D001057 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27647307|The Complex Role of Apolipoprotein E in Alzheimer's Disease: an Overview and Update. (2016)]] (major topic)
 - [[PMID24849360|Anti-ApoE antibody given after plaque onset decreases Aβ accumulation and improves brain function... (2014)]] (major topic)
 - [[PMID24821312|Apolipoprotein E in Alzheimer's disease: an update. (2014)]] (major topic)
-- [[PMID24604742|Apolipoprotein E receptor pathways in Alzheimer disease. (2014)]]
 - [[PMID24643138|Improvement of memory deficits and amyloid-β clearance in aged APP23 mice treated with a combinat... (2014)]]
-- [[PMID24635842|Plasma amyloid-β oligomers and soluble tumor necrosis factor receptors as potential biomarkers of... (2014)]]
 - [[PMID23843949|Amyloid-β protofibrils: size, morphology and synaptotoxicity of an engineered mimic. (2013)]] (major topic)
 - [[PMID23884018|Early intervention in the 3xTg-AD mice with an amyloid β-antibody fragment ameliorates first hall... (2013)]]
 - [[PMID22393530|Apolipoprotein E and apolipoprotein E receptors: normal biology and roles in Alzheimer disease. (2012)]] (major topic)

@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D046529 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D046529)
 
-## Papers (38)
+## Papers (39)
 
 - [[PMID30385800|Copper Redox Cycling Inhibits Aβ Fibre Formation and Promotes Fibre Fragmentation, while Generati... (2018)]]
 - [[PMID29396107|Oligomeric amyloid β preferentially targets neuronal and not glial mitochondrial-encoded mRNAs. (2018)]]
@@ -20,17 +20,17 @@ MeSH descriptor D046529 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28337747|Structure-dependent effects of amyloid-β on long-term memory in Lymnaea stagnalis. (2017)]]
 - [[PMID25468905|A Food and Drug Administration-approved asthma therapeutic agent impacts amyloid β in the brain i... (2015)]]
 - [[PMID26244608|Amyloid β-Protein Assembly: Differential Effects of the Protective A2T Mutation and Recessive A2V... (2015)]]
-- [[PMID26311039|An N-terminal antibody promotes the transformation of amyloid fibrils into oligomers and enhances... (2015)]]
 - [[PMID25182735|High order W02-reactive stable oligomers of amyloid-β are produced in vivo and in vitro via dialy... (2015)]]
 - [[PMID26308214|Self-Assembly of Aβ40, Aβ42 and Aβ43 Peptides in Aqueous Mixtures of Fluorinated Alcohols. (2015)]]
+- [[PMID25312309|Altered synaptic structure in the hippocampus in a mouse model of Alzheimer's disease with solubl... (2014)]]
 - [[PMID23685882|N-truncated amyloid β (Aβ) 4-42 forms stable aggregates and induces acute and long-lasting behavi... (2013)]]
 - [[PMID23959898|Pulsed hydrogen-deuterium exchange mass spectrometry probes conformational changes in amyloid bet... (2013)]]
 - [[PMID23687299|Structural insights into Aβ42 oligomers using site-directed spin labeling. (2013)]]
 - [[PMID23421685|sym-Triazines for directed multitarget modulation of cholinesterases and amyloid-β in Alzheimer's... (2013)]]
-- [[PMID23335053|The cellular prion protein traps Alzheimer's Aβ in an oligomeric form and disassembles amyloid fi... (2013)]]
 - [[PMID22188425|Amyloid generation and dysfunctional immunoproteasome activation with disease progression in anim... (2012)]]
 - [[PMID22272608|Granular non-fibrillar aggregates and toxicity in Alzheimer's disease. (2012)]]
 - [[PMID23259691|Keampferol-3-O-rhamnoside abrogates amyloid beta toxicity by modulating monomers and remodeling o... (2012)]]
+- [[PMID22156588|Linking amyloid-β and tau: amyloid-β induced synaptic dysfunction via local wreckage of the neuro... (2012)]]
 - [[PMID22674261|Neurotoxicity and memory deficits induced by soluble low-molecular-weight amyloid-β1-42 oligomers... (2012)]]
 - [[PMID21949245|Molecular basis for amyloid-beta polymorphism. (2011)]]
 - [[PMID21219138|Solid-state NMR studies of amyloid fibril structure. (2011)]]
@@ -51,6 +51,7 @@ MeSH descriptor D046529 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17545160|Anti-A beta 1-11 antibody binds to different beta-amyloid species, inhibits fibril formation, and... (2007)]]
 - [[PMID17679138|Conversion of non-fibrillar beta-sheet oligomers into amyloid fibrils in Alzheimer's disease amyl... (2007)]]
 - [[PMID17636121|The curli nucleator protein, CsgB, contains an amyloidogenic domain that directs CsgA polymerizat... (2007)]]
+- [[PMID15787694|Effects of Abeta1-42 fibrils and of the tetrapeptide Pr-IIGL on the phosphorylation state of the... (2005)]]
 %% pubmed-stream:end %%
 
 ## Notes

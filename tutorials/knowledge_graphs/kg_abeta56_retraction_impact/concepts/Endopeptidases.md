@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D010450 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D010450)
 
-## Papers (9)
+## Papers (10)
 
 - [[PMID24915567|Intracellular cleavage of amyloid β by a viral protease NIa prevents amyloid β-mediated cytotoxic... (2014)]] (major topic)
 - [[PMID23172351|Expression of the plant viral protease NIa in the brain of a mouse model of Alzheimer's disease m... (2012)]] (major topic)
@@ -22,6 +22,7 @@ MeSH descriptor D010450 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15709475|The non-amyloidogenic pathway: structure and function of alpha-secretases. (2005)]] (major topic)
 - [[PMID15734686|Twenty years of the Alzheimer's disease amyloid hypothesis: a genetic perspective. (2005)]]
 - [[PMID11932745|Naturally secreted oligomers of amyloid beta protein potently inhibit hippocampal long-term poten... (2002)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]] (major topic)
 %% pubmed-stream:end %%
 
 ## Notes

@@ -11,11 +11,9 @@ tags:
 
 MeSH descriptor D000367 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000367)
 
-## Papers (61)
+## Papers (58)
 
-- [[PMID42017417|Dual-threshold plasma Aβ oligomerization for postoperative delirium risk stratification. (2026)]]
 - [[PMID42446869|Single-cell analysis of Powassan virus-infected brains reveals age-dependent neuroinflammatory cr... (2026)]]
-- [[PMID32597800|Age-Specific Retinal and Cerebral Immunodetection of Amyloid-β Plaques and Oligomers in a Rodent... (2020)]] (major topic)
 - [[PMID32246090|In situ structural characterization of early amyloid aggregates in Alzheimer's disease transgenic... (2020)]]
 - [[PMID31472195|Age-related changes in hippocampal AD pathology, actin remodeling proteins and spatial memory beh... (2019)]]
 - [[PMID29672680|Cognitive correlates of α4β2 nicotinic acetylcholine receptors in mild Alzheimer's dementia. (2018)]]
@@ -28,7 +26,6 @@ MeSH descriptor D000367 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27658617|Microglia contributes to plaque growth by cell death due to uptake of amyloid β in the brain of A... (2016)]]
 - [[PMID26898910|Phosphorylation of the amyloid β-peptide at Ser26 stabilizes oligomeric assembly and increases ne... (2016)]]
 - [[PMID27629715|Soluble Conformers of Aβ and Tau Alter Selective Proteins Governing Axonal Transport. (2016)]]
-- [[PMID26448453|Antibody against Small Aggregated Peptide Specifically Recognizes Toxic Aβ-42 Oligomers in Alzhei... (2015)]]
 - [[PMID25768013|Early onset of hypersynchronous network activity and expression of a marker of chronic seizures i... (2015)]]
 - [[PMID25747037|The effect of focal brain injury on beta-amyloid plaque deposition, inflammation and synapses in... (2015)]]
 - [[PMID25540024|Longitudinal testing of hippocampal plasticity reveals the onset and maintenance of endogenous hu... (2014)]]

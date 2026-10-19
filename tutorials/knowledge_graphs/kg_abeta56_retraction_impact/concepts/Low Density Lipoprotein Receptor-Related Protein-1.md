@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D026503 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D026503)
 
-## Papers (23)
+## Papers (22)
 
 - [[PMID30741718|APOE4-mediated amyloid-β pathology depends on its neuronal receptor LRP1. (2019)]] (major topic)
 - [[PMID31108099|Apolipoprotein E/Amyloid-β Complex Accumulates in Alzheimer Disease Cortical Synapses via Apolipo... (2019)]] (major topic)
@@ -22,7 +22,6 @@ MeSH descriptor D026503 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28381441|Role of LRP1 in the pathogenesis of Alzheimer's disease: evidence from clinical and preclinical s... (2017)]] (major topic)
 - [[PMID26719327|Amyloid-β Receptors: The Good, the Bad, and the Prion Protein. (2016)]]
 - [[PMID27503326|Inhibition of ADAM10 promotes the clearance of Aβ across the BBB by reducing LRP1 ectodomain shed... (2016)]] (major topic)
-- [[PMID24604742|Apolipoprotein E receptor pathways in Alzheimer disease. (2014)]] (major topic)
 - [[PMID23386614|Prion protein-mediated toxicity of amyloid-β oligomers requires lipid rafts and the transmembrane... (2013)]] (major topic)
 - [[PMID22393530|Apolipoprotein E and apolipoprotein E receptors: normal biology and roles in Alzheimer disease. (2012)]] (major topic)
 - [[PMID21676498|Association of ApoE and LRP mRNA levels with dementia and AD neuropathology. (2012)]] (major topic)

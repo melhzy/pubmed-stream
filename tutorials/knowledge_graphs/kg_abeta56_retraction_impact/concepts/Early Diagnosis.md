@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D042241 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D042241)
 
-## Papers (4)
+## Papers (5)
 
+- [[PMID40870510|From Better Diagnostics to Earlier Treatment: The Rapidly Evolving Alzheimer's Disease Landscape. (2025)]]
 - [[PMID36442093|Early diagnosis and treatment of Alzheimer's disease by targeting toxic soluble Aβ oligomers. (2022)]]
 - [[PMID33406804|The Evolving Landscape of Exosomes in Neurodegenerative Diseases: Exosomes Characteristics and a... (2021)]]
 - [[PMID29370870|Diffusion kurtosis imaging allows the early detection and longitudinal follow-up of amyloid-β-ind... (2018)]]

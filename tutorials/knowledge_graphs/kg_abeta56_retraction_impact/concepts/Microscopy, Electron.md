@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D008854 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008854)
 
-## Papers (17)
+## Papers (16)
 
 - [[PMID29615128|Prion-like propagation of β-amyloid aggregates in the absence of APP overexpression. (2018)]]
 - [[PMID26421877|Role of Species-Specific Primary Structure Differences in Aβ42 Assembly and Neurotoxicity. (2015)]]
@@ -28,7 +28,6 @@ MeSH descriptor D008854 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18815129|Effects of grape seed-derived polyphenols on amyloid beta-protein self-assembly and cytotoxicity. (2008)]]
 - [[PMID18258258|Mutations enhance the aggregation propensity of the Alzheimer's A beta peptide. (2008)]]
 - [[PMID17038501|Generic hydrophobic residues are sufficient to promote aggregation of the Alzheimer's Abeta42 pep... (2006)]]
-- [[PMID12702875|Common structure of soluble amyloid oligomers implies common mechanism of pathogenesis. (2003)]]
 - [[PMID12393239|Presence of hydroxysteroid dehydrogenase type 10 in amyloid plaques (APs) of Hsiao's APP-Sw trans... (2002)]]
 %% pubmed-stream:end %%
 

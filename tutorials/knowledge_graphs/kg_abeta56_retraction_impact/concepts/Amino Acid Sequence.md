@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D000595 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D000595)
 
-## Papers (62)
+## Papers (64)
 
 - [[PMID42041135|Identification of Secondary Nucleation Inhibitors of Amyloid-β Aggregation by Cellular Selection... (2026)]]
 - [[PMID36996958|Aβ-oligomers: A potential therapeutic target for Alzheimer's disease. (2023)]]
@@ -27,9 +27,7 @@ MeSH descriptor D000595 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID25558816|Pseudophosphorylation of Tau at distinct epitopes or the presence of the P301L mutation targets t... (2015)]]
 - [[PMID26551456|Solvent exposure of Tyr10 as a probe of structural differences between monomeric and aggregated f... (2015)]]
 - [[PMID26084577|Structural differences of amyloid-β fibrils revealed by antibodies from phage display. (2015)]]
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]]
 - [[PMID24725347|Oligomer-targeting with a conformational antibody fragment promotes toxicity in Aβ-expressing flies. (2014)]]
-- [[PMID24756858|Significant structural differences between transient amyloid-β oligomers and less-toxic fibrils i... (2014)]]
 - [[PMID23612608|Amyloid-β-neuropeptide interactions assessed by ion mobility-mass spectrometry. (2013)]]
 - [[PMID23811057|Aβ monomers transiently sample oligomer and fibril-like configurations: ensemble characterization... (2013)]]
 - [[PMID23620083|AβP1-42 incorporation and channel formation in planar lipid membranes: the role of cholesterol an... (2013)]]
@@ -62,7 +60,9 @@ MeSH descriptor D000595 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19726682|Metalloprotease ADAM10 is required for Notch1 site 2 cleavage. (2009)]]
 - [[PMID19491937|Unraveling infectious structures, strain variants and species barriers for the yeast prion (PSI+). (2009)]]
 - [[PMID18650430|Amyloid precursor protein trafficking, processing, and function. (2008)]]
+- [[PMID18568014|Animal models of Alzheimer's disease and frontotemporal dementia. (2008)]]
 - [[PMID18505725|Antibodies to potato virus Y bind the amyloid beta peptide: immunohistochemical and NMR studies. (2008)]]
+- [[PMID18326489|Calmodulin binding and Cdk5 phosphorylation of p35 regulate its effect on microtubules. (2008)]]
 - [[PMID18765820|Interaction of membrane-bound islet amyloid polypeptide with soluble and crystalline insulin. (2008)]]
 - [[PMID18407659|Interaction with amyloid beta peptide compromises the lipid binding function of apolipoprotein E. (2008)]]
 - [[PMID18258258|Mutations enhance the aggregation propensity of the Alzheimer's A beta peptide. (2008)]]
@@ -75,6 +75,8 @@ MeSH descriptor D000595 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17183681|Physiological mouse brain Abeta levels are not related to the phosphorylation state of threonine-... (2006)]]
 - [[PMID15748782|Human-like rodent amyloid-beta-peptide determines Alzheimer pathology in aged wild-type Octodon d... (2005)]]
 - [[PMID15709475|The non-amyloidogenic pathway: structure and function of alpha-secretases. (2005)]]
+- [[PMID12119298|Presenilin 1 mutations activate gamma 42-secretase but reciprocally inhibit epsilon-secretase cle... (2002)]]
+- [[PMID12130773|The amyloid hypothesis of Alzheimer's disease: progress and problems on the road to therapeutics. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

@@ -11,12 +11,10 @@ tags:
 
 MeSH descriptor D066329 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D066329)
 
-## Papers (50)
+## Papers (45)
 
 - [[PMID41752374|Design and Synthesis of Tacrine-Coumarin Hybrids via Click Chemistry as Multifunctional Cholinest... (2026)]]
-- [[PMID42678205|Hydration water dynamics in amyloid-β aggregates using deuterium and oxygen-17 solid-state NMR sp... (2026)]]
 - [[PMID42041135|Identification of Secondary Nucleation Inhibitors of Amyloid-β Aggregation by Cellular Selection... (2026)]]
-- [[PMID42585336|Long-term amyloid aggregation kinetic assay and rapid amyloid clustering enabled by programmable... (2026)]] (major topic)
 - [[PMID42048649|α,β-Dehydroamino-Acid-Containing Peptides Resist Proteolysis and Inhibit Aggregation of a Tau-Der... (2026)]] (major topic)
 - [[PMID39950286|Recent Advances in Co-Condensation and Co-Aggregation of Amyloid Proteins Linked to Neurodegenera... (2025)]]
 - [[PMID33598831|Aggregation of gelsolin wild-type and G167K/R, N184K, and D187N/Y mutant peptides and inhibition. (2021)]] (major topic)
@@ -55,13 +53,10 @@ MeSH descriptor D066329 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26350232|Ultraviolet light triggers the conversion of Cu2+-bound Aβ42 aggregates into cytotoxic species in... (2015)]] (major topic)
 - [[PMID24729203|Capillary electrophoresis for the analysis of the effect of sample preparation on early stages of... (2014)]]
 - [[PMID25422864|Capping of aβ42 oligomers by small molecule inhibitors. (2014)]] (major topic)
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]]
 - [[PMID24870034|Genome-wide analysis of Saccharomyces cerevisiae identifies cellular processes affecting intracel... (2014)]]
 - [[PMID24671215|Molecular topology as novel strategy for discovery of drugs with aβ lowering and anti-aggregation... (2014)]] (major topic)
-- [[PMID24973120|Resting microglia react to Aβ42 fibrils but do not detect oligomers or oligomer-induced neuronal... (2014)]] (major topic)
 - [[PMID24661180|Reversal of aggregation using β-breaker dipeptide containing peptides: Application to Aβ(1-40) se... (2014)]] (major topic)
 - [[PMID25333939|Small bifunctional chelators that do not disaggregate amyloid β fibrils exhibit reduced cellular... (2014)]] (major topic)
-- [[PMID24527756|The role of stable α-synuclein oligomers in the molecular events underlying amyloid formation. (2014)]]
 - [[PMID22489141|Unraveling the early events of amyloid-β protein (Aβ) aggregation: techniques for the determinati... (2012)]]
 %% pubmed-stream:end %%
 

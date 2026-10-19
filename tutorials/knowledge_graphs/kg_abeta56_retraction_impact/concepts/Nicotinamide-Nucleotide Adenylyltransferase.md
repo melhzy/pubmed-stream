@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D009612 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D009612)
 
-## Papers (2)
+## Papers (3)
 
 - [[PMID34644262|Nmnat2 attenuates amyloidogenesis and up-regulates ADAM10 in AMPK activity-dependent manner. (2021)]] (major topic)
+- [[PMID20117162|Axon degeneration: Mechanisms and implications of a distinct program from cell death. (2010)]]
 - [[PMID15310905|Increased nuclear NAD biosynthesis and SIRT1 activation prevent axonal degeneration. (2004)]] (major topic)
 %% pubmed-stream:end %%
 

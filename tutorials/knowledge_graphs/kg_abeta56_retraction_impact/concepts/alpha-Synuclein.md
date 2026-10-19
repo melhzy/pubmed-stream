@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D051844 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D051844)
 
-## Papers (67)
+## Papers (61)
 
 - [[PMID42274838|APOE4-Expressing Astrocytes Exhibit Parkinson's Disease-Related Pathology. (2026)]]
 - [[PMID42334185|Temperature-Dependent Dynamics of Aβ42 and α-Synuclein Monomers and Early Oligomerization of Aβ42... (2026)]] (major topic)
@@ -19,12 +19,12 @@ MeSH descriptor D051844 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID39863324|Distinct CSF α-synuclein aggregation profiles associated with Alzheimer's disease phenotypes and... (2025)]] (major topic)
 - [[PMID40679367|Dynein-Dependent Endo-Lysosomal Degradation Drives Lewy Body Disorders Accompanied by Aβ Pathology. (2025)]]
 - [[PMID40389720|Exploring α-Syn's Functions Through Ablation Models: Physiological and Pathological Implications. (2025)]] (major topic)
+- [[PMID41465242|Molecular Crossroads: Shared and Divergent Molecular Signatures in Alzheimer's Disease and Dement... (2025)]]
 - [[PMID39950286|Recent Advances in Co-Condensation and Co-Aggregation of Amyloid Proteins Linked to Neurodegenera... (2025)]]
 - [[PMID39409126|Potential Mechanisms of Tunneling Nanotube Formation and Their Role in Pathology Spread in Alzhei... (2024)]]
 - [[PMID36702318|Overexpression of alpha synuclein disrupts APP and Endolysosomal axonal trafficking in a mouse mo... (2023)]]
 - [[PMID36269624|The Mediating Role of Inflammation in the Relationship Between α-Synuclein and Cognitive Function... (2023)]]
 - [[PMID36587215|Alpha-synuclein: a pathological factor with Aβ and tau and biomarker in Alzheimer's disease. (2022)]]
-- [[PMID34864675|Prions and Neurodegenerative Diseases: A Focus on Alzheimer's Disease. (2022)]]
 - [[PMID36517890|SNCA genetic lowering reveals differential cognitive function of alpha-synuclein dependent on sex. (2022)]] (major topic)
 - [[PMID35041853|α-synuclein-assisted oligomerization of β-amyloid (1-42). (2022)]] (major topic)
 - [[PMID33543942|Amyloid Oligomers: A Joint Experimental/Computational Perspective on Alzheimer's Disease, Parkins... (2021)]]
@@ -41,14 +41,7 @@ MeSH descriptor D051844 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID30477568|The relevance of cerebrospinal fluid α-synuclein levels to sporadic and familial Alzheimer's dise... (2018)]] (major topic)
 - [[PMID28922400|Protein folding, misfolding and aggregation: The importance of two-electron stabilizing interacti... (2017)]]
 - [[PMID28533388|Selective lowering of synapsins induced by oligomeric α-synuclein exacerbates memory deficits. (2017)]] (major topic)
-- [[PMID26388203|Combination therapies: The next logical Step for the treatment of synucleinopathies? (2016)]] (major topic)
-- [[PMID26494242|Immunotherapeutic Approaches Targeting Amyloid-β, α-Synuclein, and Tau for the Treatment of Neuro... (2016)]] (major topic)
 - [[PMID27466341|Reducing Endogenous α-Synuclein Mitigates the Degeneration of Selective Neuronal Populations in a... (2016)]] (major topic)
-- [[PMID25676491|Pathological interface between oligomeric alpha-synuclein and tau in synucleinopathies. (2015)]] (major topic)
-- [[PMID25134727|Amyloid-β oligomers as a template for secondary amyloidosis in Alzheimer's disease. (2014)]]
-- [[PMID24878508|Intracellular processing of disease-associated α-synuclein in the human brain suggests prion-like... (2014)]] (major topic)
-- [[PMID24527756|The role of stable α-synuclein oligomers in the molecular events underlying amyloid formation. (2014)]] (major topic)
-- [[PMID24931606|Α-synuclein immunotherapy blocks uptake and templated propagation of misfolded α-synuclein and ne... (2014)]] (major topic)
 - [[PMID23389658|Effect of α-synuclein on amyloid β-induced toxicity: relevance to Lewy body variant of Alzheimer... (2013)]] (major topic)
 - [[PMID22188425|Amyloid generation and dysfunctional immunoproteasome activation with disease progression in anim... (2012)]]
 - [[PMID22356593|Cognitive deficits in a mouse model of pre-manifest Parkinson's disease. (2012)]] (major topic)
@@ -80,6 +73,7 @@ MeSH descriptor D051844 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15976091|Intravesicular localization and exocytosis of alpha-synuclein and its aggregates. (2005)]] (major topic)
 - [[PMID15765523|Lysosomal pathology associated with alpha-synuclein accumulation in transgenic models using an eG... (2005)]]
 - [[PMID15036877|More than just two peas in a pod: common amyloidogenic properties of tau and alpha-synuclein in n... (2004)]]
+- [[PMID12124613|Neurodegenerative disease: amyloid pores from pathogenic mutations. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

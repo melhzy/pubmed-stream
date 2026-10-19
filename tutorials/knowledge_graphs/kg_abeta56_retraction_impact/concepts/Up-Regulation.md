@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D015854 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D015854)
 
-## Papers (18)
+## Papers (17)
 
-- [[PMID42423830|Inhibition of miR-25-3p Alleviates Neuroinflammation in Alzheimer's Disease By Targeting ADAM10. (2026)]]
 - [[PMID40905109|ApoE4 Upregulates GSK-3β to Aggravate Alzheimer-Like Pathologies and Cognitive Impairment in Type... (2025)]]
 - [[PMID34644262|Nmnat2 attenuates amyloidogenesis and up-regulates ADAM10 in AMPK activity-dependent manner. (2021)]]
 - [[PMID31073968|Palmitic Acid-Induced NAD+ Depletion is Associated with the Reduced Function of SIRT1 and Increas... (2019)]]

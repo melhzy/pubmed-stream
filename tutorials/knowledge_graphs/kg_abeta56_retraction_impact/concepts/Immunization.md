@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D007114 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D007114)
 
-## Papers (10)
+## Papers (11)
 
 - [[PMID31177217|Oral Immunization with Soybean Storage Protein Containing Amyloid-β 4-10 Prevents Spatial Learnin... (2019)]] (major topic)
 - [[PMID28129111|Comparison of Efficacy of Preventive and Therapeutic Vaccines Targeting the N Terminus of β-Amylo... (2017)]]
@@ -23,6 +23,7 @@ MeSH descriptor D007114 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19581601|Neuroprotective natural antibodies to assemblies of amyloidogenic peptides decrease with normal a... (2009)]]
 - [[PMID18385314|A two-year study with fibrillar beta-amyloid (Abeta) immunization in aged canines: effects on cog... (2008)]] (major topic)
 - [[PMID17344403|Active beta-amyloid immunization restores spatial learning in PDAPP mice displaying very low leve... (2007)]] (major topic)
+- [[PMID15834427|Amyloid beta protein immunotherapy neutralizes Abeta oligomers that disrupt synaptic plasticity i... (2005)]] (major topic)
 %% pubmed-stream:end %%
 
 ## Notes

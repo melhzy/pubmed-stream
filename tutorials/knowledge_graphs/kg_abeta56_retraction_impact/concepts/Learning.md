@@ -11,11 +11,12 @@ tags:
 
 MeSH descriptor D007858 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D007858)
 
-## Papers (23)
+## Papers (25)
 
 - [[PMID34064687|Berberine Improves Cognitive Impairment by Simultaneously Impacting Cerebral Blood Flow and β-Amy... (2021)]]
 - [[PMID31211919|Infection-induced endothelial amyloids impair memory. (2019)]]
 - [[PMID27966067|Cathepsin B Improves ß-Amyloidosis and Learning and Memory in Models of Alzheimer's Disease. (2017)]] (major topic)
+- [[PMID27233830|The flavonoid baicalein rescues synaptic plasticity and memory deficits in a mouse model of Alzhe... (2016)]]
 - [[PMID25888276|Tong Luo Jiu Nao ameliorates Aβ1-40-induced cognitive impairment on adaptive behavior learning by... (2015)]] (major topic)
 - [[PMID25237037|Insulin resistance in Alzheimer's disease. (2014)]]
 - [[PMID25044076|Lamotrigine attenuates deficits in synaptic plasticity and accumulation of amyloid plaques in APP... (2014)]]
@@ -35,6 +36,7 @@ MeSH descriptor D007858 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17251414|Learning decreases A beta*56 and tau pathology and ameliorates behavioral decline in 3xTg-AD mice. (2007)]] (major topic)
 - [[PMID17192927|Orally available compound prevents deficits in memory caused by the Alzheimer amyloid-beta oligom... (2006)]]
 - [[PMID15778881|Acetylcholinesterase inhibitors ameliorate behavioral deficits in the Tg2576 mouse model of Alzhe... (2005)]]
+- [[PMID11941374|Immunization reverses memory deficits without reducing brain Abeta burden in Alzheimer's disease... (2002)]]
 - [[PMID11724968|Specific spatial learning deficits become severe with age in beta -amyloid precursor protein tran... (2001)]] (major topic)
 %% pubmed-stream:end %%
 

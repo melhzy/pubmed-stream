@@ -11,9 +11,10 @@ tags:
 
 MeSH descriptor D017711 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D017711)
 
-## Papers (1)
+## Papers (2)
 
 - [[PMID20643929|Single-cell mechanics provides a sensitive and quantitative means for probing amyloid-beta peptid... (2010)]]
+- [[PMID19377501|Microtubule assembly, organization and dynamics in axons and dendrites. (2009)]]
 %% pubmed-stream:end %%
 
 ## Notes

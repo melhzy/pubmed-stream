@@ -11,8 +11,9 @@ tags:
 
 MeSH descriptor D005786 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D005786)
 
-## Papers (80)
+## Papers (82)
 
+- [[PMID41784271|lncRNAs: key player in Aβ deposition. (2026)]]
 - [[PMID41677387|Morpho-Functional Characterization and miRNA Profiling of the Retina in the 5xFAD Murine Model of... (2026)]] (major topic)
 - [[PMID41516176|Interplay Between 3D Chromatin Architecture and Gene Regulation at the APOE Locus Contributes to... (2025)]] (major topic)
 - [[PMID31804556|A dual inhibitor of the proteasome catalytic subunits LMP2 and Y attenuates disease progression i... (2019)]]
@@ -42,7 +43,6 @@ MeSH descriptor D005786 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26898910|Phosphorylation of the amyloid β-peptide at Ser26 stabilizes oligomeric assembly and increases ne... (2016)]]
 - [[PMID26733416|RPS23RG1 reduces Aβ oligomer-induced synaptic and cognitive deficits. (2016)]]
 - [[PMID26260791|ATP-binding cassette transporter A7 (ABCA7) loss of function alters Alzheimer amyloid processing. (2015)]]
-- [[PMID25933020|Passive immunization with phospho-tau antibodies reduces tau pathology and functional deficits in... (2015)]]
 - [[PMID26468204|Reducing Ribosomal Protein S6 Kinase 1 Expression Improves Spatial Memory and Synaptic Plasticity... (2015)]] (major topic)
 - [[PMID25747037|The effect of focal brain injury on beta-amyloid plaque deposition, inflammation and synapses in... (2015)]]
 - [[PMID24849345|1α,25-Dihydroxyvitamin D3 reduces cerebral amyloid-β accumulation and improves cognition in mouse... (2014)]]
@@ -61,6 +61,7 @@ MeSH descriptor D005786 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID22337825|Deletion of the cathepsin B gene improves memory deficits in a transgenic ALZHeimer's disease mou... (2012)]]
 - [[PMID23060439|Erythrocytic stage-dependent regulation of oligomerization of Plasmodium ribosomal protein P2. (2012)]] (major topic)
 - [[PMID21741124|Fyn knock-down increases Aβ, decreases phospho-tau, and worsens spatial learning in 3×Tg-AD mice. (2012)]]
+- [[PMID22357853|Neutralization of soluble, synaptotoxic amyloid β species by antibodies is epitope specific. (2012)]]
 - [[PMID22915123|Ryanodine receptor blockade reduces amyloid-β load and memory impairments in Tg2576 mouse model o... (2012)]]
 - [[PMID22560502|α-Synuclein mRNA and soluble α-synuclein protein levels in post-mortem brain from patients with P... (2012)]]
 - [[PMID21219931|Amyloid-β42 alters apolipoprotein E solubility in brains of mice with five familial AD mutations. (2011)]]
@@ -91,6 +92,7 @@ MeSH descriptor D005786 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17634359|Abeta oligomer-mediated long-term potentiation impairment involves protein phosphatase 1-dependen... (2007)]]
 - [[PMID18077669|Moderate reduction of gamma-secretase: is there a therapeutic sweet spot? (2007)]]
 - [[PMID17581637|SIRT1 deacetylase protects against neurodegeneration in models for Alzheimer's disease and amyotr... (2007)]]
+- [[PMID15787694|Effects of Abeta1-42 fibrils and of the tetrapeptide Pr-IIGL on the phosphorylation state of the... (2005)]]
 - [[PMID15748782|Human-like rodent amyloid-beta-peptide determines Alzheimer pathology in aged wild-type Octodon d... (2005)]]
 - [[PMID15893363|Toward a unified theory of caloric restriction and longevity regulation. (2005)]]
 %% pubmed-stream:end %%

@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D009419 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D009419)
 
-## Papers (44)
+## Papers (49)
 
-- [[PMID34494298|Distinct types of amyloid-β oligomers displaying diverse neurotoxicity mechanisms in Alzheimer's... (2021)]]
 - [[PMID33345400|RAPGEF2 mediates oligomeric Aβ-induced synaptic loss and cognitive dysfunction in the 3xTg-AD mou... (2021)]] (major topic)
 - [[PMID31915254|Neuronal Protein Tyrosine Phosphatase 1B Hastens Amyloid β-Associated Alzheimer's Disease in Mice. (2020)]] (major topic)
 - [[PMID32019603|Tau-tubulin kinase 1 and amyloid-β peptide induce phosphorylation of collapsin response mediator... (2020)]] (major topic)
@@ -23,7 +22,6 @@ MeSH descriptor D009419 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID28934977|ERβ and ApoE isoforms interact to regulate BDNF-5-HT2A signaling and synaptic function in the fem... (2017)]]
 - [[PMID28283575|Interaction of amyloid-β (Aβ) oligomers with neurexin 2α and neuroligin 1 mediates synapse damage... (2017)]] (major topic)
 - [[PMID29191219|Neurons derived from sporadic Alzheimer's disease iPSCs reveal elevated TAU hyperphosphorylation,... (2017)]]
-- [[PMID28294556|Unmodified and pyroglutamylated amyloid β peptides form hypertoxic hetero-oligomers of unique sec... (2017)]] (major topic)
 - [[PMID26719327|Amyloid-β Receptors: The Good, the Bad, and the Prion Protein. (2016)]] (major topic)
 - [[PMID27658617|Microglia contributes to plaque growth by cell death due to uptake of amyloid β in the brain of A... (2016)]]
 - [[PMID25747037|The effect of focal brain injury on beta-amyloid plaque deposition, inflammation and synapses in... (2015)]]
@@ -31,9 +29,11 @@ MeSH descriptor D009419 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID22622366|A novel ARC gene polymorphism is associated with reduced risk of Alzheimer's disease. (2012)]] (major topic)
 - [[PMID22235132|Amyloid-β oligomers induce differential gene expression in adult human brain slices. (2012)]] (major topic)
 - [[PMID22722772|Characterization of the role of metallothionein-3 in an animal model of Alzheimer's disease. (2012)]] (major topic)
+- [[PMID22357853|Neutralization of soluble, synaptotoxic amyloid β species by antibodies is epitope specific. (2012)]]
 - [[PMID22915123|Ryanodine receptor blockade reduces amyloid-β load and memory impairments in Tg2576 mouse model o... (2012)]]
 - [[PMID22449380|Somatostatin receptor subtype-4 agonist NNC 26-9100 decreases extracellular and intracellular Aβ₁... (2012)]]
 - [[PMID21262831|Bioluminescence imaging of Abeta deposition in bigenic mouse models of Alzheimer's disease. (2011)]]
+- [[PMID20117162|Axon degeneration: Mechanisms and implications of a distinct program from cell death. (2010)]]
 - [[PMID20378958|Expression of the neuronal adaptor protein X11alpha protects against memory dysfunction in a tran... (2010)]] (major topic)
 - [[PMID20152114|Increased expression of alpha-synuclein reduces neurotransmitter release by inhibiting synaptic v... (2010)]]
 - [[PMID20554868|L-3-n-butylphthalide improves cognitive impairment and reduces amyloid-beta in a transgenic model... (2010)]]
@@ -41,6 +41,7 @@ MeSH descriptor D009419 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID20573181|Progressive accumulation of amyloid-beta oligomers in Alzheimer's disease and in amyloid precurso... (2010)]] (major topic)
 - [[PMID19547699|Disassembly of shank and homer synaptic clusters is driven by soluble beta-amyloid(1-40) through... (2009)]]
 - [[PMID19084066|In vivo suppression of polyglutamine neurotoxicity by C-terminus of Hsp70-interacting protein (CH... (2009)]] (major topic)
+- [[PMID19135897|The mechanism of Ca2+ -dependent regulation of kinesin-mediated mitochondrial motility. (2009)]]
 - [[PMID19744962|X11beta rescues memory and long-term potentiation deficits in Alzheimer's disease APPswe Tg2576 m... (2009)]] (major topic)
 - [[PMID18352830|Active and passive immunotherapy for neurodegenerative disorders. (2008)]]
 - [[PMID18363842|Biomarkers for early diagnosis of Alzheimer disease: 'ALZheimer ASsociated gene'--a new blood bio... (2008)]] (major topic)
@@ -55,7 +56,11 @@ MeSH descriptor D009419 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID15765523|Lysosomal pathology associated with alpha-synuclein accumulation in transgenic models using an eG... (2005)]] (major topic)
 - [[PMID15310905|Increased nuclear NAD biosynthesis and SIRT1 activation prevent axonal degeneration. (2004)]] (major topic)
 - [[PMID15036877|More than just two peas in a pod: common amyloidogenic properties of tau and alpha-synuclein in n... (2004)]] (major topic)
+- [[PMID15537891|Synaptic targeting by Alzheimer's-related amyloid beta oligomers. (2004)]]
 - [[PMID14637120|Prevention of age-related spatial memory deficits in a transgenic mouse model of Alzheimer's dise... (2003)]]
+- [[PMID12704221|Protofibrils, pores, fibrils, and neurodegeneration: separating the responsible protein aggregate... (2003)]]
+- [[PMID12558997|Stabilization of the cyclin-dependent kinase 5 activator, p35, by paclitaxel decreases beta-amylo... (2003)]] (major topic)
+- [[PMID12124613|Neurodegenerative disease: amyloid pores from pathogenic mutations. (2002)]] (major topic)
 - [[PMID11447826|Apolipoprotein E and Alzheimer's disease: signal transduction mechanisms. (2001)]]
 %% pubmed-stream:end %%
 

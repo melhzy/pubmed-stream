@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D002540 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D002540)
 
-## Papers (81)
+## Papers (86)
 
 - [[PMID42067950|Aging alters the vulnerability pattern to amyloid-beta oligomers in wild-type mice: a behavioral... (2026)]]
 - [[PMID38561558|Oligomeric Amyloid-β and Tau Alter Cell Adhesion Properties and Induce Inflammatory Responses in... (2024)]]
@@ -23,25 +23,24 @@ MeSH descriptor D002540 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID31165579|Brains of rhesus monkeys display Aβ deposits and glial pathology while lacking Aβ dimers and othe... (2019)]] (major topic)
 - [[PMID30189875|Human Alzheimer's disease gene expression signatures and immune profile in APP mouse models: a di... (2018)]] (major topic)
 - [[PMID29079292|P2X receptor overexpression induced by soluble oligomers of amyloid beta peptide potentiates syna... (2018)]]
+- [[PMID28536263|Axodendritic sorting and pathological missorting of Tau are isoform-specific and determined by ax... (2017)]] (major topic)
 - [[PMID28145081|Chronic Sleep Restriction Induces Cognitive Deficits and Cortical Beta-Amyloid Deposition in Mice... (2017)]] (major topic)
 - [[PMID27365298|Early Activation of Experience-Independent Dendritic Spine Turnover in a Mouse Model of Alzheimer... (2017)]] (major topic)
 - [[PMID28917978|SEN1500, a novel oral amyloid-β aggregation inhibitor, attenuates brain pathology in a mouse mode... (2017)]]
 - [[PMID26021747|Endogenous Docosahexaenoic Acid (DHA) Prevents Aβ1-42 Oligomer-Induced Neuronal Injury. (2016)]]
 - [[PMID27046221|Geniposide Protects Primary Cortical Neurons against Oligomeric Aβ1-42-Induced Neurotoxicity thro... (2016)]] (major topic)
+- [[PMID25589714|Amyloid-β Modulates Both AβPP and Tau Phosphorylation. (2015)]]
 - [[PMID25946042|Characterization of a Novel Mouse Model of Alzheimer's Disease--Amyloid Pathology and Unique β-Am... (2015)]]
 - [[PMID26305888|Cognitive and Disease-Modifying Effects of 11β-Hydroxysteroid Dehydrogenase Type 1 Inhibition in... (2015)]] (major topic)
 - [[PMID25925093|Herpes simplex virus type 1 infection in neurons leads to production and nuclear localization of... (2015)]]
 - [[PMID25756590|Neuroinflammatory signals in Alzheimer disease and APP/PS1 transgenic mice: correlations with pla... (2015)]]
 - [[PMID25173807|Novel therapeutic strategy for neurodegeneration by blocking Aβ seeding mediated aggregation in m... (2015)]]
-- [[PMID25933020|Passive immunization with phospho-tau antibodies reduces tau pathology and functional deficits in... (2015)]]
 - [[PMID25698727|Stabilization of nontoxic Aβ-oligomers: insights into the mechanism of action of hydroxyquinoline... (2015)]]
 - [[PMID24849345|1α,25-Dihydroxyvitamin D3 reduces cerebral amyloid-β accumulation and improves cognition in mouse... (2014)]] (major topic)
 - [[PMID24021662|Active and passive immunization strategies based on the SDPM1 peptide demonstrate pre-clinical ef... (2014)]]
 - [[PMID24760868|Activity-dependent tau protein translocation to excitatory synapse is disrupted by exposure to am... (2014)]] (major topic)
 - [[PMID25111034|ERP abnormalities elicited by word repetition in fragile X-associated tremor/ataxia syndrome (FXT... (2014)]] (major topic)
-- [[PMID25215604|Full-length TDP-43 forms toxic amyloid oligomers that are present in frontotemporal lobar dementi... (2014)]] (major topic)
 - [[PMID25157105|Methylene blue modulates β-secretase, reverses cerebral amyloidosis, and improves cognition in tr... (2014)]]
-- [[PMID24614900|Plasma membrane injury depends on bilayer lipid composition in Alzheimer's disease. (2014)]]
 - [[PMID25180067|The effects of sesquiterpenes-rich extract of Alpinia oxyphylla Miq. on amyloid-β-induced cogniti... (2014)]] (major topic)
 - [[PMID23225543|Amyloid-β oligomerization in Alzheimer dementia versus high-pathology controls. (2013)]] (major topic)
 - [[PMID23154165|C-terminal turn stability determines assembly differences between Aβ40 and Aβ42. (2013)]]
@@ -56,9 +55,11 @@ MeSH descriptor D002540 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID21993310|S14G-humanin improves cognitive deficits and reduces amyloid pathology in the middle-aged APPswe/... (2012)]] (major topic)
 - [[PMID22449380|Somatostatin receptor subtype-4 agonist NNC 26-9100 decreases extracellular and intracellular Aβ₁... (2012)]]
 - [[PMID21593310|Alzheimer's disease brain-derived amyloid-β-mediated inhibition of LTP in vivo is prevented by im... (2011)]]
+- [[PMID21204788|AMP-activated protein kinase (AMPK) is a tau kinase, activated in response to amyloid β-peptide e... (2011)]]
 - [[PMID21273420|CD45 deficiency drives amyloid-β peptide oligomers and neuronal loss in Alzheimer's disease mice. (2011)]]
 - [[PMID21382638|High levels of synaptosomal Na(+)-Ca(2+) exchangers (NCX1, NCX2, NCX3) co-localized with amyloid-... (2011)]] (major topic)
 - [[PMID21513747|Soluble Aβ levels correlate with cognitive deficits in the 12-month-old APPswe/PS1dE9 mouse model... (2011)]]
+- [[PMID20164348|Amyloid beta induces the morphological neurodegenerative triad of spine loss, dendritic simplific... (2010)]]
 - [[PMID20452375|An improved method for generating consistent soluble amyloid-beta oligomer preparations for in vi... (2010)]]
 - [[PMID20946660|Anti-PrPC monoclonal antibody infusion as a novel treatment for cognitive deficits in an Alzheime... (2010)]]
 - [[PMID19538474|Cognitive impairment in the Tg6590 transgenic rat model of Alzheimer's disease. (2010)]]
@@ -90,6 +91,10 @@ MeSH descriptor D002540 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID16385556|Antibodies against beta-amyloid reduce Abeta oligomers, glycogen synthase kinase-3beta activation... (2006)]]
 - [[PMID16738244|Different conformations of amyloid beta induce neurotoxicity by distinct mechanisms in human cort... (2006)]] (major topic)
 - [[PMID15976091|Intravesicular localization and exocytosis of alpha-synuclein and its aggregates. (2005)]] (major topic)
+- [[PMID16025111|Regulation of NMDA receptor trafficking by amyloid-beta. (2005)]]
+- [[PMID15537891|Synaptic targeting by Alzheimer's-related amyloid beta oligomers. (2004)]]
+- [[PMID12925731|Alzheimer's disease-affected brain: presence of oligomeric A beta ligands (ADDLs) suggests a mole... (2003)]]
+- [[PMID12558997|Stabilization of the cyclin-dependent kinase 5 activator, p35, by paclitaxel decreases beta-amylo... (2003)]]
 - [[PMID11403971|Intraneuronal Abeta accumulation precedes plaque formation in beta-amyloid precursor protein and... (2001)]]
 - [[PMID10978169|The oligomerization of amyloid beta-protein begins intracellularly in cells derived from human br... (2000)]] (major topic)
 - [[PMID9916941|Appearance of sodium dodecyl sulfate-stable amyloid beta-protein (Abeta) dimer in the cortex duri... (1999)]] (major topic)

@@ -13,7 +13,7 @@ MeSH descriptor D044950 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 
 ## Papers (1)
 
-- [[PMID41935181|Baicalein alleviates Alzheimer's disease pathology in AD models by activating the PI3K/AKT/GSK3β... (2026)]] (major topic)
+- [[PMID27233830|The flavonoid baicalein rescues synaptic plasticity and memory deficits in a mouse model of Alzhe... (2016)]] (major topic)
 %% pubmed-stream:end %%
 
 ## Notes

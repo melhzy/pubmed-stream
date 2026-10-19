@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D018408 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D018408)
 
-## Papers (19)
+## Papers (21)
 
 - [[PMID33573114|Impairment of Spike-Timing-Dependent Plasticity at Schaffer Collateral-CA1 Synapses in Adult APP/... (2021)]]
 - [[PMID32444385|Effect of Aβ Oligomers on Neuronal APP Triggers a Vicious Cycle Leading to the Propagation of Syn... (2020)]]
@@ -31,7 +31,9 @@ MeSH descriptor D018408 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID20818335|Neurotoxicity of Alzheimer's disease Aβ peptides is induced by small changes in the Aβ42 to Aβ40... (2010)]]
 - [[PMID18721884|Significant structural but not physiological changes in cortical neurons of 12-month-old Tg2576 m... (2008)]]
 - [[PMID17634359|Abeta oligomer-mediated long-term potentiation impairment involves protein phosphatase 1-dependen... (2007)]]
+- [[PMID17145504|AMPAR removal underlies Abeta-induced synaptic depression and dendritic spine loss. (2006)]]
 - [[PMID16765515|Amyloid-beta1-42 reduces neuronal excitability in mouse dentate gyrus. (2006)]]
+- [[PMID14627649|Calcium/calmodulin-dependent protein kinase II contributes to activity-dependent filopodia growth... (2003)]]
 %% pubmed-stream:end %%
 
 ## Notes

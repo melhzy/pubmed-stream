@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D013997 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D013997)
 
-## Papers (62)
+## Papers (65)
 
-- [[PMID42017417|Dual-threshold plasma Aβ oligomerization for postoperative delirium risk stratification. (2026)]]
 - [[PMID28502044|Hippocampal Proteomic Analysis Reveals Distinct Pathway Deregulation Profiles at Early and Late S... (2018)]]
 - [[PMID27365298|Early Activation of Experience-Independent Dendritic Spine Turnover in a Mouse Model of Alzheimer... (2017)]]
 - [[PMID28910862|Effects of Newly Synthesized Recombinant Human Amyloid-β Complexes and Poly-Amyloid-β Fibers on C... (2017)]]
@@ -22,11 +21,13 @@ MeSH descriptor D013997 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26649780|Effect of Zhuang Jing Decoction on Learning and Memory Ability in Aging Rats. (2016)]]
 - [[PMID26054481|Pathophysiological Links Among Hypertension and Alzheimer's Disease. (2016)]]
 - [[PMID26898910|Phosphorylation of the amyloid β-peptide at Ser26 stabilizes oligomeric assembly and increases ne... (2016)]]
+- [[PMID25589714|Amyloid-β Modulates Both AβPP and Tau Phosphorylation. (2015)]]
 - [[PMID26024049|Effects of Aβ exposure on long-term associative memory and its neuronal mechanisms in a defined n... (2015)]]
 - [[PMID25747037|The effect of focal brain injury on beta-amyloid plaque deposition, inflammation and synapses in... (2015)]]
 - [[PMID24903973|Cilostazol suppresses β-amyloid production by activating a disintegrin and metalloproteinase 10 v... (2014)]]
 - [[PMID24567379|Oral glycotoxins are a modifiable cause of dementia and the metabolic syndrome in mice and humans. (2014)]]
 - [[PMID24661180|Reversal of aggregation using β-breaker dipeptide containing peptides: Application to Aβ(1-40) se... (2014)]]
+- [[PMID24150104|Rosiglitazone prevents amyloid-β oligomer-induced impairment of synapse formation and plasticity... (2014)]]
 - [[PMID24494584|The conformational stability of nonfibrillar amyloid-β peptide oligomers critically depends on th... (2014)]]
 - [[PMID23186988|A novel drug candidate for Alzheimer's disease treatment: gx-50 derived from Zanthoxylum bungeanum. (2013)]]
 - [[PMID23372648|Accumulation of intraneuronal β-amyloid 42 peptides is associated with early changes in microtubu... (2013)]]
@@ -59,6 +60,7 @@ MeSH descriptor D013997 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID19339596|A role for synaptic zinc in activity-dependent Abeta oligomer formation and accumulation at excit... (2009)]]
 - [[PMID19450490|Abeta oligomers and fibrillar aggregates induce different apoptotic pathways in LAN5 neuroblastom... (2009)]]
 - [[PMID19162087|Intermediate- and long-term recognition memory deficits in Tg2576 mice are reversed with acute ca... (2009)]]
+- [[PMID19520166|Pin1 affects Tau phosphorylation in response to Abeta oligomers. (2009)]]
 - [[PMID20041162|Real-time imaging and quantification of amyloid-beta peptide aggregates by novel quantum-dot nano... (2009)]]
 - [[PMID19589380|Vascular endothelial growth factor (VEGF) affects processing of amyloid precursor protein and bet... (2009)]]
 - [[PMID18549781|ApoE promotes the proteolytic degradation of Abeta. (2008)]]
@@ -74,6 +76,7 @@ MeSH descriptor D013997 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17192927|Orally available compound prevents deficits in memory caused by the Alzheimer amyloid-beta oligom... (2006)]]
 - [[PMID15591046|beta-Synuclein reduces proteasomal inhibition by alpha-synuclein but not gamma-synuclein. (2005)]]
 - [[PMID16027115|High beta-secretase activity elicits neurodegeneration in transgenic mice despite reductions in a... (2005)]]
+- [[PMID15980591|Preparation of aggregate-free, low molecular weight amyloid-beta for assembly and toxicity assays. (2005)]]
 - [[PMID11880515|The relationship between Abeta and memory in the Tg2576 mouse model of Alzheimer's disease. (2002)]]
 %% pubmed-stream:end %%
 

@@ -11,7 +11,7 @@ tags:
 
 MeSH descriptor D008568 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008568)
 
-## Papers (93)
+## Papers (97)
 
 - [[PMID40566818|Kenpaullone attenuates amyloid-beta deposition and neuroinflammation, improving memory in a 5XFAD... (2026)]] (major topic)
 - [[PMID42450355|Neuronal Microtubules and Radiofrequency Waves: The Quantum Core of Human Consciousness, Memory,... (2026)]] (major topic)
@@ -39,8 +39,8 @@ MeSH descriptor D008568 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID27723722|Caspase-2 cleavage of tau reversibly impairs memory. (2016)]] (major topic)
 - [[PMID26649780|Effect of Zhuang Jing Decoction on Learning and Memory Ability in Aging Rats. (2016)]] (major topic)
 - [[PMID27194408|Inflammatory insult during pregnancy accelerates age-related behavioral and neurobiochemical chan... (2016)]]
-- [[PMID26907803|Naturally occurring autoantibodies against Aβ oligomers exhibited more beneficial effects in the... (2016)]]
 - [[PMID27798139|Selective Degeneration of Entorhinal-CA1 Synapses in Alzheimer's Disease via Activation of DAPK1. (2016)]]
+- [[PMID27233830|The flavonoid baicalein rescues synaptic plasticity and memory deficits in a mouse model of Alzhe... (2016)]] (major topic)
 - [[PMID26227349|AAV2/1 CD74 Gene Transfer Reduces β-amyloidosis and Improves Learning and Memory in a Mouse Model... (2015)]]
 - [[PMID26305888|Cognitive and Disease-Modifying Effects of 11β-Hydroxysteroid Dehydrogenase Type 1 Inhibition in... (2015)]] (major topic)
 - [[PMID25761889|Scanning ultrasound removes amyloid-β and restores memory in an Alzheimer's disease mouse model. (2015)]] (major topic)
@@ -103,9 +103,13 @@ MeSH descriptor D008568 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID17336088|The LXR agonist TO901317 selectively lowers hippocampal Abeta42 and improves memory in the Tg2576... (2007)]] (major topic)
 - [[PMID17965777|Valsartan lowers brain beta-amyloid protein levels and improves spatial learning in a mouse model... (2007)]] (major topic)
 - [[PMID16541076|A specific amyloid-beta protein assembly in the brain impairs memory. (2006)]] (major topic)
+- [[PMID16767098|Cyclohexanehexol inhibitors of Abeta aggregation prevent and reverse Alzheimer phenotype in a mou... (2006)]]
 - [[PMID15778881|Acetylcholinesterase inhibitors ameliorate behavioral deficits in the Tg2576 mouse model of Alzhe... (2005)]]
 - [[PMID15922461|Notch to remember. (2005)]] (major topic)
 - [[PMID16020737|Tau suppression in a neurodegenerative mouse model improves memory function. (2005)]] (major topic)
+- [[PMID15190253|Structural basis of long-term potentiation in single dendritic spines. (2004)]]
+- [[PMID12399581|Alzheimer's disease is a synaptic failure. (2002)]]
+- [[PMID12151510|Reversible memory loss in a mouse transgenic model of Alzheimer's disease. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes

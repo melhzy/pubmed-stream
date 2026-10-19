@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D010750 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D010750)
 
-## Papers (3)
+## Papers (2)
 
-- [[PMID25933020|Passive immunization with phospho-tau antibodies reduces tau pathology and functional deficits in... (2015)]] (major topic)
 - [[PMID23060439|Erythrocytic stage-dependent regulation of oligomerization of Plasmodium ribosomal protein P2. (2012)]] (major topic)
 - [[PMID18702666|Soluble aggregates of the amyloid-beta protein selectively stimulate permeability in human brain... (2008)]]
 %% pubmed-stream:end %%

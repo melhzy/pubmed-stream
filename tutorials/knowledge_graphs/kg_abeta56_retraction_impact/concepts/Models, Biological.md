@@ -11,9 +11,8 @@ tags:
 
 MeSH descriptor D008954 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui=D008954)
 
-## Papers (65)
+## Papers (67)
 
-- [[PMID42653368|Human Stem Cell-Derived Models of the Alzheimer's Disease Neuroimmune System. (2026)]]
 - [[PMID42377771|Investigating a relation between amyloid beta plaque burden and accumulated neurotoxicity caused... (2026)]]
 - [[PMID34572474|Looking at Alzheimer's Disease Pathogenesis from the Nuclear Side. (2021)]]
 - [[PMID33215389|The Interplay of ABC Transporters in Aβ Translocation and Cholesterol Metabolism: Implicating The... (2021)]]
@@ -24,7 +23,6 @@ MeSH descriptor D008954 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID26719327|Amyloid-β Receptors: The Good, the Bad, and the Prion Protein. (2016)]] (major topic)
 - [[PMID27289378|Metabolic control of the proteotoxic stress response: implications in diabetes mellitus and neuro... (2016)]]
 - [[PMID27520374|miR-106b inhibits tau phosphorylation at Tyr18 by targeting Fyn in a model of Alzheimer's disease. (2016)]]
-- [[PMID25833098|The Essential Role of Soluble Aβ Oligomers in Alzheimer's Disease. (2016)]]
 - [[PMID25888324|Glutamate receptors function as scaffolds for the regulation of β-amyloid and cellular prion prot... (2015)]]
 - [[PMID26224839|Na, K-ATPase α3 is a death target of Alzheimer patient amyloid-β assembly. (2015)]]
 - [[PMID26637371|The participation of insulin-like growth factor-binding protein 3 released by astrocytes in the p... (2015)]]
@@ -70,14 +68,18 @@ MeSH descriptor D008954 · [MeSH Browser](https://meshb.nlm.nih.gov/record/ui?ui
 - [[PMID18216876|The two faces of protein misfolding: gain- and loss-of-function in neurodegenerative diseases. (2008)]]
 - [[PMID18266959|The ubiquitin-proteasome system in Alzheimer's disease. (2008)]]
 - [[PMID18625454|Therapeutics for Alzheimer's disease based on the metal hypothesis. (2008)]]
+- [[PMID17328689|Calcium and neurodegeneration. (2007)]]
 - [[PMID17268505|Loss-of-function presenilin mutations in Alzheimer disease. Talking Point on the role of presenil... (2007)]] (major topic)
 - [[PMID18220524|Nogo receptor interacts with brain APP and Abeta to reduce pathologic changes in Alzheimer's tran... (2007)]]
 - [[PMID19164892|Self assembly of short aromatic peptides into amyloid fibrils and related nanostructures. (2007)]] (major topic)
+- [[PMID17855343|Soluble Abeta inhibits specific signal transduction cascades common to the insulin receptor pathway. (2007)]]
+- [[PMID17684513|Tau-mediated neurodegeneration in Alzheimer's disease and related disorders. (2007)]]
 - [[PMID17002801|Modulation of Abeta42 low-n oligomerization using a novel yeast reporter system. (2006)]]
 - [[PMID17015224|Sorting through the cell biology of Alzheimer's disease: intracellular pathways to pathogenesis. (2006)]]
 - [[PMID15591046|beta-Synuclein reduces proteasomal inhibition by alpha-synuclein but not gamma-synuclein. (2005)]]
 - [[PMID15709475|The non-amyloidogenic pathway: structure and function of alpha-secretases. (2005)]]
 - [[PMID15893363|Toward a unified theory of caloric restriction and longevity regulation. (2005)]]
+- [[PMID12124613|Neurodegenerative disease: amyloid pores from pathogenic mutations. (2002)]]
 %% pubmed-stream:end %%
 
 ## Notes
