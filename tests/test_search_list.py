@@ -105,17 +105,21 @@ def test_cli_search(monkeypatch, capsys):
     article = {"pmcid": "PMC1", "pmid": "31319564", "doi": None, "year": "2019",
                "journal": "Nutrients", "title": "Gut microbiota in frailty.", "first_author": None}
     monkeypatch.setattr(cli, "search_pmc", lambda query, **kwargs: SearchResult(query, 80, [article]))
+    monkeypatch.setattr(cli, "count_pubmed", lambda query, **kwargs: 1200)
 
     assert run_cli(monkeypatch, "search", "frailty") == 0
     out = capsys.readouterr().out
     assert "80 articles in PMC for: frailty" in out and "PMID 31319564" in out
+    assert "1,200 articles in PubMed: 'pubmed-stream abstracts'" in out
 
     assert run_cli(monkeypatch, "search", "frailty", "--json") == 0
-    assert json.loads(capsys.readouterr().out)["articles"] == [article]
+    result = json.loads(capsys.readouterr().out)
+    assert result["articles"] == [article] and result["pubmed_total"] == 1200
 
 
 def test_cli_search_that_finds_nothing_exits_1(monkeypatch, capsys):
     monkeypatch.setattr(cli, "search_pmc", lambda query, **kwargs: SearchResult(query, 0, []))
+    monkeypatch.setattr(cli, "count_pubmed", lambda query, **kwargs: 0)
 
     assert run_cli(monkeypatch, "search", "xyzzy") == 1
 

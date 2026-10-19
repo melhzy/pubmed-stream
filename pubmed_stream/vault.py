@@ -211,6 +211,7 @@ class Paper:
     is_retracted: bool = False
     nih_funded: bool = False
     downloaded: bool = False  # full text was downloaded from PMC
+    abstract_only: bool = False  # only the abstract was saved, from PubMed
     full_text: Optional[str] = None
     # Raw reference-list entries ({"pmid", "doi", "title", "year"}), resolved later
     raw_references: List[Dict[str, str]] = field(default_factory=list)
@@ -247,6 +248,7 @@ class VaultStats:
     sources: List[Path]
     papers: int = 0
     full_text: int = 0
+    abstracts: int = 0  # papers whose abstract, but not full text, was saved
     stubs: int = 0
     concepts: int = 0
     collections: int = 0
@@ -264,7 +266,8 @@ class VaultStats:
             "=" * 60,
             f"Vault:             {self.vault_dir}",
             f"Sources:           {len(self.sources)}",
-            f"Papers:            {self.papers} ({self.full_text} full text, {self.stubs} stubs)",
+            f"Papers:            {self.papers} ({self.full_text} full text, {self.abstracts} abstract only, "
+            f"{self.stubs} stubs)",
             f"MeSH concepts:     {self.concepts}",
             f"Collections:       {self.collections}",
             (
@@ -416,20 +419,24 @@ def _load_article(graph: _Graph, path: Path, fulltext: bool) -> None:
     text = None
     if fulltext:
         text = data.get("text") or (extract_text_from_pmc_xml(xml) if xml else None)
+    # An abstract saved from PubMed carries PubMed's own record: MeSH terms, publication types, flags
+    pubmed = _related_fields(meta) if data.get("source") == "pubmed" else {}
     try:
-        paper = graph.upsert(
-            pmid=meta.get("pmid"),
-            pmcid=meta.get("pmcid") or data.get("pmcid"),
-            doi=meta.get("doi"),
-            title=_clean(meta.get("title")),
-            journal=meta.get("journal"),
-            year=meta.get("year"),
-            authors=meta.get("authors") or [],
-            abstract=_clean(meta.get("abstract")),
-            keywords=meta.get("keywords") or [],
-            downloaded=True,
-            full_text=text,
-        )
+        paper = graph.upsert(**{
+            **pubmed,
+            "pmid": meta.get("pmid"),
+            "pmcid": meta.get("pmcid") or data.get("pmcid"),
+            "doi": meta.get("doi"),
+            "title": _clean(meta.get("title")),
+            "journal": meta.get("journal"),
+            "year": meta.get("year"),
+            "authors": meta.get("authors") or [],
+            "abstract": _clean(meta.get("abstract")),
+            "keywords": meta.get("keywords") or [],
+            "downloaded": not pubmed,
+            "abstract_only": bool(pubmed),
+            "full_text": text,
+        })
     except ValueError:
         logger.warning("Skipping %s: no PMID or PMC ID", path)
         return
@@ -450,6 +457,7 @@ def _related_fields(article: Dict[str, Any]) -> Dict[str, Any]:
         "authors": article.get("authors") or [],
         "pub_types": article.get("pub_types") or [],
         "mesh_terms": article.get("mesh_terms") or [],
+        "abstract": _clean(article.get("abstract")),
         "is_review": article.get("is_review", False),
         "is_retracted": article.get("is_retracted", False),
         "nih_funded": article.get("nih_funded", False),
@@ -486,7 +494,8 @@ def _load_sources(graph: _Graph, sources: List[Path], fulltext: bool) -> None:
         if source.is_file():
             (neighborhoods if source.name == "neighborhood.json" else articles).append(source)
         else:
-            articles.extend(sorted(source.rglob("PMC*.json")))
+            # Full texts before abstracts, so a paper saved both ways takes the full text's details
+            articles.extend(sorted(source.rglob("PMC*.json")) + sorted(source.rglob("PMID*.json")))
             neighborhoods.extend(sorted(source.rglob("neighborhood.json")))
     # Articles first: their PMC metadata (titles in original case, abstracts)
     # wins over the PubMed summaries in neighborhoods
@@ -747,7 +756,9 @@ def _render_paper(graph: _Graph, paper: Paper, cited_by: List[str]) -> Tuple[Dic
         tags.append(_tag("retracted"))
     if paper.nih_funded:
         tags.append(_tag("nih-funded"))
-    if not paper.downloaded:
+    if paper.abstract_only and not paper.downloaded:
+        tags.append(_tag("abstract-only"))
+    elif not paper.downloaded:
         tags.append(_tag("stub"))
     pubmed_url = f"https://pubmed.ncbi.nlm.nih.gov/{paper.pmid}/" if paper.pmid else None
 
@@ -764,7 +775,7 @@ def _render_paper(graph: _Graph, paper: Paper, cited_by: List[str]) -> Tuple[Dic
         "publication_types": paper.pub_types,
         "mesh": [t["name"] for t in paper.mesh_terms],
         "keywords": paper.keywords,
-        "status": "full-text" if paper.downloaded else "stub",
+        "status": "full-text" if paper.downloaded else "abstract" if paper.abstract_only else "stub",
         "retracted": paper.is_retracted,
         "url": pubmed_url,
         "tags": tags,
@@ -777,7 +788,13 @@ def _render_paper(graph: _Graph, paper: Paper, cited_by: List[str]) -> Tuple[Dic
             "> PubMed marks this article as retracted or links a retraction notice. Check it before citing.",
             "",
         ]
-    if not paper.downloaded:
+    if paper.abstract_only and not paper.downloaded:
+        lines += [
+            "> [!note] Abstract only",
+            "> Saved from PubMed. Its full text is not free in PMC, or has not been downloaded.",
+            "",
+        ]
+    elif not paper.downloaded:
         lines += [
             "> [!note] Stub",
             "> Known from an evidence neighborhood; its full text has not been downloaded.",
@@ -910,7 +927,8 @@ def _render_home(graph: _Graph, concept_papers: Dict[str, List[Tuple[str, bool]]
         "| Notes | Count |",
         "|---|---|",
         f"| Papers with full text | {sum(p.downloaded for p in noted)} |",
-        f"| Stub papers | {sum(not p.downloaded for p in noted)} |",
+        f"| Papers with abstract only | {sum(p.abstract_only and not p.downloaded for p in noted)} |",
+        f"| Stub papers | {sum(not p.downloaded and not p.abstract_only for p in noted)} |",
         f"| MeSH concepts | {len(concept_papers)} |",
         f"| Collections | {len(graph.collections)} |",
         "",
@@ -1068,7 +1086,8 @@ def build_vault(
         outcomes[_write_note(vault / PAPERS_DIR / f"{paper.key}.md", frontmatter, body, _PAPER_KEYS)] += 1
         stats.papers += 1
         stats.full_text += paper.downloaded
-        stats.stubs += not paper.downloaded
+        stats.abstracts += paper.abstract_only and not paper.downloaded
+        stats.stubs += not paper.downloaded and not paper.abstract_only
         for term in _concept_terms(paper):
             name = _concept_name(term)
             concept_terms.setdefault(name, term)

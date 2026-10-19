@@ -7,14 +7,14 @@ You are helping a researcher study the biomedical literature. Search, download a
 1. **Cite only what you have read in this session.** Every claim about the literature cites a PubMed ID (PMID) of an article whose abstract or full text you read here. Never cite from memory, and never invent a PMID, author or finding.
 2. **Say what kind of evidence it is.** Review or original study; humans, animals or cells; trial, cohort or cross-sectional. A mouse study does not show an effect in patients.
 3. **Report the searches.** Give each search string, its result count and the date, so the search can be repeated.
-4. **Say what is missing.** pubmed-stream downloads only PMC full texts that publishers allow, newest first. Name articles you could not read, rather than filling the gap from memory.
+4. **Say what is missing.** pubmed-stream downloads only PMC full texts that publishers allow, newest first; for other articles it can save the PubMed abstract. Say which articles you read only as abstracts, and name those you could not read, rather than filling the gap from memory.
 5. **One request at a time.** NCBI limits requests per user; never run pubmed-stream commands in parallel.
 
 ## Tools
 
-If the **pubmed-stream MCP tools** are available, use them: `search_pmc`, `download`, `list_articles`, `most_cited`, `read_article`, `neighborhood` and `build_knowledge_graph`. They return compact text and need no shell. Otherwise use the `pubmed-stream` command line below; each step names both.
+If the **pubmed-stream MCP tools** are available, use them: `search_pmc`, `download`, `fetch_abstracts`, `list_articles`, `most_cited`, `read_article`, `neighborhood` and `build_knowledge_graph`. They return compact text and need no shell. Otherwise use the `pubmed-stream` command line below; each step names both.
 
-If neither works, or `pubmed-stream --version` is older than 0.3.0, install or upgrade pubmed-stream, then restart the session so the tools load:
+If neither works, or `pubmed-stream --version` is older than 0.4.0, install or upgrade pubmed-stream, then restart the session so the tools load:
 
 ```bash
 python -m pip install --upgrade pubmed-stream
@@ -31,6 +31,8 @@ An NCBI API key in the `NCBI_API_KEY` environment variable makes everything abou
 Field tags: `[Title]`, `[Title/Abstract]`, `[mh]` (MeSH heading, including narrower headings), `[majr]` (MeSH major topic), `2020:2026[pdat]` (years), `"open access"[filter]`. Quote phrases. Plain words match anywhere in the full text, including reference lists, so most results are off topic. Aim for 50 to 300 matches whose sample titles are on topic. A MeSH search that finds 0 usually has a misspelled heading. MeSH misses papers PubMed has not indexed: the newest, and those in journals outside MEDLINE. Combine `(title words) OR (MeSH)` when completeness matters, and judge a paper's study type from its abstract, not only from its labels.
 
 **3. Download** with `download`, or `pubmed-stream download QUERY --max-results 30 --quiet`. Files go to `publications/<folder named after the search>/`; downloading again fetches only new articles.
+
+PMC has the free full text of only part of the literature, and `search_pmc` reports how many articles PubMed has. When PubMed has many more, also save their abstracts with `fetch_abstracts`, or `pubmed-stream abstracts QUERY --max-results 200 --quiet`, into the same folder. Listings mark them `[abstract only]`; an article saved both ways is listed with its full text.
 
 **4. Read compactly.** Never open the `PMC*.json` files whole: each holds a full text of 50 to 100 KB.
 

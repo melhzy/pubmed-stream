@@ -10,6 +10,8 @@
         <Title>Journal of Seeds</Title>
       </Journal>
       <ArticleTitle>The seed article on <i>gut</i> microbiome.</ArticleTitle>
+      <Abstract><AbstractText Label="BACKGROUND">Gut <i>microbes</i>
+        matter.</AbstractText><AbstractText Label="RESULTS">It worked.</AbstractText></Abstract>
       <AuthorList CompleteYN="Y">
         <Author ValidYN="Y"><LastName>Smith</LastName><ForeName>John A</ForeName><Initials>JA</Initials></Author>
       </AuthorList>

@@ -28,6 +28,7 @@ from typing import Any, Dict, Iterable, List, Optional, Union
 
 import requests
 
+from .abstracts import AbstractStats, fetch_abstracts
 from .downloader import MAX_WORKERS, DownloadStats, search_and_download
 from .neighborhood import (
     Neighborhood,
@@ -50,6 +51,7 @@ class KGResult:
     queries: List[str] = field(default_factory=list)  # every search of the study
     seeds: List[str] = field(default_factory=list)  # every neighborhood seed of the study
     downloads: List[DownloadStats] = field(default_factory=list)  # searches run this time
+    abstracts: List[AbstractStats] = field(default_factory=list)  # PubMed abstracts saved this time
     neighborhoods: List[Neighborhood] = field(default_factory=list)  # fetched this time
     vault: Optional[VaultStats] = None
     errors: List[str] = field(default_factory=list)
@@ -68,6 +70,8 @@ class KGResult:
             ),
             f"Study seeds:       {len(self.seeds)} ({len(self.neighborhoods)} fetched now)",
         ]
+        if self.abstracts:
+            lines.append(f"PubMed abstracts:  {sum(s.saved for s in self.abstracts)} new")
         lines += [f"[ERROR] {e}" for e in self.errors]
         lines.append("=" * 60)
         text = "\n".join(lines)
@@ -125,6 +129,7 @@ def create_kg(
     max_results: int = 100,
     max_per_relation: int = 100,
     download_neighbors: bool = False,
+    abstracts: bool = False,
     kg_dir: Optional[PathLike] = None,
     output_dir: Optional[PathLike] = None,
     fmt: str = "text",
@@ -153,6 +158,9 @@ def create_kg(
         max_per_relation: Similar, citing and cited articles per seed (default 100).
         download_neighbors: Download PMC full text of neighborhood articles too;
             otherwise they appear as stub notes.
+        abstracts: Also save the PubMed abstracts of each search's newest
+            *max_results* articles, so articles whose full text is not free
+            in PMC join the graph too (see :func:`fetch_abstracts`).
         kg_dir: Graph folder, instead of ``./kg_<topic>``.
         output_dir: Base folder for downloads (default ``./publications``).
         fmt, include_text, use_concurrent, max_workers: Download options, as in
@@ -206,8 +214,19 @@ def create_kg(
         result.downloads.append(stats)
         if stats.requested:
             new_sources.append(stats.output_dir)
-        else:
+        elif not abstracts:
             result.errors.append(f"Search {query!r}: no PMC articles found, or the search failed")
+        if abstracts:
+            try:
+                saved = fetch_abstracts(query, max_results=max_results, output_dir=base, **client)
+            except requests.RequestException as e:
+                result.errors.append(f"PubMed abstracts for {query!r}: {e}")
+                continue
+            result.abstracts.append(saved)
+            if not saved.requested:
+                result.errors.append(f"Search {query!r}: no PubMed articles found")
+            elif saved.output_dir not in new_sources:
+                new_sources.append(saved.output_dir)
 
     for seed in run_seeds:
         try:

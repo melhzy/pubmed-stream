@@ -81,6 +81,7 @@ class RelatedArticle:
     score: Optional[int] = None  # PubMed similarity score (similar articles only)
     # MeSH descriptors indexed for the article: {"ui", "name", "major"}
     mesh_terms: List[Dict[str, Any]] = field(default_factory=list)
+    abstract: Optional[str] = None
 
 
 @dataclass
@@ -128,6 +129,17 @@ def _pubmed_year(article: ET.Element) -> Optional[str]:
         return match.group(0)
     year = article.findtext("ArticleDate/Year")
     return year.strip() if year else None
+
+
+def _pubmed_abstract(article: ET.Element) -> Optional[str]:
+    """The abstract as one paragraph, each labelled section starting with its label."""
+    parts = []
+    for section in article.findall("Abstract/AbstractText"):
+        text = " ".join("".join(section.itertext()).split())
+        label = (section.get("Label") or "").strip()
+        if text:
+            parts.append(f"{label}: {text}" if label else text)
+    return " ".join(parts) or None
 
 
 def _parse_pubmed_article(record: ET.Element) -> Optional[RelatedArticle]:
@@ -185,6 +197,7 @@ def _parse_pubmed_article(record: ET.Element) -> Optional[RelatedArticle]:
         pmcid=ids.get("pmc") or None,
         doi=ids.get("doi") or None,
         mesh_terms=mesh_terms,
+        abstract=_pubmed_abstract(article),
     )
 
 

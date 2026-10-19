@@ -82,6 +82,7 @@ def test_mcp_keeps_library_output_off_the_protocol(tmp_path, monkeypatch):
         print("Progress: 1/1 processed")
         return "done"
     monkeypatch.setattr("pubmed_stream.mcp_server.search_pmc", noisy)
+    monkeypatch.setattr("pubmed_stream.mcp_server.count_pubmed", lambda query: 12)
     messages = [
         {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-06-18"}},
         {"jsonrpc": "2.0", "method": "notifications/initialized"},
@@ -95,7 +96,7 @@ def test_mcp_keeps_library_output_off_the_protocol(tmp_path, monkeypatch):
 
     replies = [json.loads(line) for line in stdout.getvalue().decode().splitlines()]
     assert [r.get("id") for r in replies] == [1, 2, None]
-    assert replies[1]["result"]["content"][0]["text"] == "done"
+    assert replies[1]["result"]["content"][0]["text"].startswith("done\n12 articles in PubMed")
     assert replies[2]["error"]["code"] == -32700
 
 

@@ -22,7 +22,8 @@ from .downloader import (
     search_and_download,
     search_pmc,
 )
-from .corpus import list_articles, most_cited
+from .abstracts import count_pubmed, fetch_abstracts
+from .corpus import list_articles, most_cited, select, short_id
 from .neighborhood import (
     Neighborhood,
     download_neighborhood,
@@ -195,6 +196,27 @@ files that already exist.""",
         default=100,
         help="Maximum number of articles to download (default: 100)",
     )
+
+    abstracts = subparsers.add_parser(
+        "abstracts",
+        parents=[common, study, vault],
+        help="Search PubMed and save abstracts, including articles whose full text is not free in PMC",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""examples:
+  pubmed-stream abstracts '"gut microbiota"[Title] AND frailty[Title/Abstract]' --max-results 200
+  pubmed-stream abstracts 'frailty cytokines' --topic 'frailty cytokines'
+
+PMC has the free full text of only part of the literature; PubMed has an
+abstract for most of the rest. Abstracts are saved as
+<output-dir>/<query>/PMID*.json, next to any full texts 'download' saved for
+the same query, and 'list', 'review' and the knowledge graph read both. An
+article saved both ways is shown with its full text. The newest matches
+come first; re-running skips abstracts already saved.""",
+    )
+    abstracts.add_argument("query", help="PubMed search query, with field tags such as [Title]")
+    abstracts.add_argument("--max-results", type=int, default=100,
+                           help="Maximum number of abstracts, newest first (default: 100; at most 9,999)")
+    abstracts.add_argument("--output-dir", "-o", help="Base output directory (default: ./publications)")
 
     listing = subparsers.add_parser(
         "list",
@@ -412,6 +434,11 @@ written outside the generated %% pubmed-stream %% block.""",
         help="Download PMC full text of neighborhood articles too (default: stub notes)",
     )
     kg.add_argument(
+        "--abstracts",
+        action="store_true",
+        help="Also save PubMed abstracts for each search, so articles without free full text join the graph",
+    )
+    kg.add_argument(
         "--kg-dir",
         metavar="DIR",
         help="Graph folder, instead of ./kg_<topic>",
@@ -468,6 +495,7 @@ def _run_kg(args: argparse.Namespace) -> int:
                 max_results=args.max_results,
                 max_per_relation=args.max_per_relation,
                 download_neighbors=args.download_neighbors,
+                abstracts=args.abstracts,
                 kg_dir=args.kg_dir,
                 output_dir=args.output_dir,
                 fmt=args.format,
@@ -513,12 +541,42 @@ def _run_search(args: argparse.Namespace) -> int:
     except requests.RequestException as e:
         print(f"Error: could not reach NCBI: {e}", file=sys.stderr)
         return 2
+    try:
+        in_pubmed = count_pubmed(args.query, api_key=args.api_key, rate_limit=args.rate_limit)
+    except (requests.RequestException, KeyError, ValueError):
+        in_pubmed = None
     if args.json:
-        print(json.dumps({"query": result.query, "total_found": result.total_found,
+        print(json.dumps({"query": result.query, "total_found": result.total_found, "pubmed_total": in_pubmed,
                           "articles": result.articles}, ensure_ascii=False, indent=1))
     else:
         print(result)
-    return 0 if result.total_found else 1
+        if in_pubmed is not None and in_pubmed > result.total_found:
+            print(f"\n{in_pubmed:,} articles in PubMed: 'pubmed-stream abstracts' saves the abstracts of "
+                  "those without free full text")
+    return 0 if result.total_found or in_pubmed else 1
+
+
+def _run_abstracts(args: argparse.Namespace) -> int:
+    try:
+        stats = fetch_abstracts(
+            args.query,
+            max_results=args.max_results,
+            output_dir=Path(args.output_dir) if args.output_dir else None,
+            api_key=args.api_key,
+            user_agent=args.user_agent,
+            email=args.email,
+            rate_limit=args.rate_limit,
+        )
+    except requests.RequestException as e:
+        print(f"Error: could not reach NCBI: {e}", file=sys.stderr)
+        return 2
+    print(stats)
+    if not stats.requested:
+        return 1
+    vault_dir = _vault_dir(args, stats.output_dir.name)
+    if vault_dir is not None:
+        return _update_vault(args, vault_dir, [stats.output_dir])
+    return 0
 
 
 def _run_list(args: argparse.Namespace) -> int:
@@ -542,11 +600,9 @@ def _run_list(args: argparse.Namespace) -> int:
             print(f"  cited by {w['cited_by']:<3} {ref:<14} {w['year'] or 'n.d.'}  {w['title'] or ''}")
         return 0
     if args.id:
-        wanted = {i.strip().upper() for i in args.id}
-        records = [r for r in records if str(r["pmid"]) in wanted or r["pmcid"].upper() in wanted]
-        missing = wanted - {str(r["pmid"]) for r in records} - {r["pmcid"].upper() for r in records}
+        records, missing = select(records, args.id)
         if missing:
-            print(f"Not downloaded under {path}: {', '.join(sorted(missing))}", file=sys.stderr)
+            print(f"Not downloaded under {path}: {', '.join(missing)}", file=sys.stderr)
         if not records:
             return 1
     shown = records[:args.limit] if args.limit is not None else records
@@ -561,7 +617,8 @@ def _run_list(args: argparse.Namespace) -> int:
     for r in shown:
         pmid = f"PMID {r['pmid']}" if r["pmid"] else "no PMID"
         journal = f" ({r['journal']})" if r["journal"] else ""
-        print(f"{r['year'] or 'n.d.'}  {r['pmcid']:<12} {pmid:<14} {r['title'] or ''}{journal} [{r['words']:,} words]")
+        size = f"{r['words']:,} words" if r["full_text"] else "abstract only"
+        print(f"{r['year'] or 'n.d.'}  {short_id(r):<12} {pmid:<14} {r['title'] or ''}{journal} [{size}]")
         if args.abstracts and r["abstract"]:
             print(textwrap.fill(r["abstract"], width=100, initial_indent="      ", subsequent_indent="      "))
     return 0
@@ -762,6 +819,9 @@ def main() -> int:
         if stats.requested == 0:
             return 1
         return 2
+
+    if args.command == "abstracts":
+        return _run_abstracts(args)
 
     if args.command == "neighborhood":
         return _run_neighborhood(args)
