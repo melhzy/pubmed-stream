@@ -243,11 +243,13 @@ An article's full text is in the "text" field of its file.""",
   pubmed-stream review "Does FMT help Parkinson's disease?" --id 38686220 41826284 38057970
   pubmed-stream review "What is known about X?" --limit 10 --answer --vault kg_x
 
-Needs Ollama (https://ollama.com) with the model downloaded:
+Needs Ollama (https://ollama.com) with the model downloaded, the default or
+any other that your computer can run (larger ones make fewer mistakes):
   ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
-The model reads one abstract at a time; pubmed-stream attaches each PubMed
-ID itself and flags numbers a summary adds. Exits with 1 when the answer
-cites an article that was not read, 2 when Ollama fails.""",
+  ollama pull qwen3.5:9b        then add --model qwen3.5:9b
+The model reads one abstract at a time, without the question; pubmed-stream
+attaches each PubMed ID itself and flags numbers a summary adds. Exits with 1
+when the answer cites an article that was not read, 2 when Ollama fails.""",
     )
     review_p.add_argument("question", help="The research question, in plain language")
     review_p.add_argument("--path", default="publications", help="Downloaded articles (default: ./publications)")

@@ -57,9 +57,10 @@ pubmed-stream kg "gut microbiome frailty" -q '"gut microbiota"[Title] AND frailt
 pubmed-stream open kg_gut_microbiome_frailty
 
 # Have a model running on your own computer, in Ollama (https://ollama.com), summarize the 10 newest
-# abstracts, and save the summaries in the knowledge graph
-ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
-pubmed-stream review "Is the gut microbiota linked to frailty?" --limit 10 --vault kg_gut_microbiome_frailty
+# abstracts, and save the summaries in the knowledge graph. Any Ollama model works: section 5 helps you
+# choose one your computer can run
+ollama pull qwen3.5:4b
+pubmed-stream review "Is the gut microbiota linked to frailty?" --limit 10 --model qwen3.5:4b --vault kg_gut_microbiome_frailty
 
 # Let Claude Code, Codex or Gemini CLI do all of this: set up a folder, then start the assistant there
 pubmed-stream init
@@ -425,12 +426,28 @@ claude        # or: codex, gemini
 
 The instructions make the assistant size searches before downloading, cite only papers it downloaded and read in the session, say what kind of evidence each is, report its searches with their counts, and name what it could not read. Every tool returns compact text, so the assistant can scan 64 papers in about 3,000 tokens instead of reading 4.3 MB of full text. `init --claude-model opus` and `init --review-model <ollama model>` also choose the models for the folder. To give an assistant the tools in every folder, register the server once instead: `claude mcp add pubmed-stream -- pubmed-stream mcp`, or the same with `codex mcp add`.
 
-**Local models.** `pubmed-stream review` has a model running in [Ollama](https://ollama.com) on your own computer summarize the abstracts you chose, one at a time, at temperature 0. pubmed-stream attaches each PubMed ID itself and flags numbers and citations the abstracts do not support:
+**Local models.** For questions you would rather not send to a company, `pubmed-stream review` has a model running in [Ollama](https://ollama.com) on your own computer summarize the abstracts you chose; only the PubMed searches leave your computer. The model reads one abstract at a time, at temperature 0, and never sees your question, so it cannot present the question as a finding. pubmed-stream attaches each PubMed ID itself and flags numbers and citations the abstracts do not support.
+
+**1. Install Ollama** from [ollama.com/download](https://ollama.com/download), or on Windows with `winget install Ollama.Ollama`. It runs in the background; `ollama list` checks that it works.
+
+**2. Choose a model your computer can run.** Any model in [Ollama's library](https://ollama.com/library) works, open-weight models such as Qwen, Gemma or Llama included; pubmed-stream turns off the "thinking" step of models that have one, so it does not use up the summary's length. Larger models make fewer mistakes but need more memory: the model's download size should be at most about two-thirds of your computer's memory, and a model that fits in a graphics card's memory runs much faster.
+
+| Your computer | Model size | For example (download size) |
+|---|---|---|
+| Any laptop, 8 GB of memory | 1 to 4 billion parameters | `llama3.2:3b` (2.0 GB), `qwen3.5:4b` (4.0 GB) |
+| 16 GB of memory, or a graphics card with 8 GB | 8 to 12 billion | `qwen3.5:9b` (7.6 GB), `gemma4:12b` (7.7 GB) |
+| 32 GB of memory, or a graphics card with 16 to 24 GB | 26 to 35 billion | `gemma4:26b` (16 GB), `qwen3.5:27b` (20 GB) |
+
+Without `--model`, `review` uses Llama 3.2 1B (807 MB), which runs on almost any computer but makes more mistakes: on seven Parkinson's papers it called a review of eleven studies a randomized controlled trial, which Qwen3.5 2B did not.
+
+**3. Download the model and ask:**
 
 ```bash
-ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
-pubmed-stream review "Does FMT help people with Parkinson's disease?" --id 38686220 41826284 41113141 --vault kg_fmt_parkinson
+ollama pull qwen3.5:9b
+pubmed-stream review "Does FMT help people with Parkinson's disease?" --id 38686220 41826284 41113141 --model qwen3.5:9b --vault kg_fmt_parkinson
 ```
+
+`--vault` also saves the summaries as a note in the knowledge graph. `pubmed-stream init --review-model qwen3.5:9b` makes the model the folder's default, so `--model` can be left out. `--answer` adds one answer drawn from all the summaries; check it against them, as smaller models credit findings to the wrong paper. If Ollama runs on another computer, such as a lab server, point to it with `--ollama-host http://<server>:11434`.
 
 **Obsidian.** Every knowledge graph has property types for Obsidian and `Papers.base`, a Bases table of all papers with views for full texts, reviews, retracted papers and your `#to-read` list. `pubmed-stream open kg_<topic>` opens it, and with Obsidian's [command line](https://obsidian.md/help/cli) switched on, an assistant can query it: `obsidian vault=kg_<topic> base:query path=Papers.base view="Reading list"`.
 

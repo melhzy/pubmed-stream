@@ -7,11 +7,18 @@ Notable changes to pubmed-stream. Versions follow [semantic versioning](https://
 ### Added
 
 - A GitHub Actions workflow that runs the tests on Python 3.8 to 3.13, on Linux and Windows, and the linter on every push and pull request. The linter's rules are now set in `pyproject.toml`, so `ruff check .` checks the same rules everywhere.
+- The README explains how to use any Ollama model with `pubmed-stream review`, with suggested models for each size of computer, and its quick start includes a local review.
+
+### Changed
+
+- `pubmed-stream review` no longer shows the question to the model while it summarizes each abstract. Given the question, small models opened summaries with it restated as a finding ("The gut microbiota is linked to frailty.") even for papers that did not test it. Summaries now start with the kind of study and what it studied. The question is still used for `--answer`.
 
 ### Fixed
 
 - On Windows with Python 3.8 or 3.9, `pubmed-stream kg` and `pubmed-stream vault` given a folder that did not exist yet kept a relative path for it.
 - Tutorial 8's helpers failed on Python 3.8 and 3.9 when writing notes and the table of citing papers.
+- `pubmed-stream review` with a model that thinks before answering, such as Qwen3, spent the summary's length limit on thinking and cut the summary short. Thinking is now turned off.
+- A summary cut at its length limit was flagged for the number in its own "[cut at 300 tokens]" note.
 - Removed unused imports from tutorials 3 and 6.
 
 ## 0.3.1 - 2026-10-19
