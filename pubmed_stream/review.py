@@ -12,7 +12,8 @@ With ``answer=True`` the model also writes one answer from all the
 summaries.  Small models often mix up or invent claims across papers, so the
 answer is checked too: every PubMed ID it cites must be among the articles
 read.  Generation uses temperature 0, so the same input gives the same
-output.
+output while the model stays loaded; after Ollama reloads it, the output
+can differ.
 """
 
 import datetime

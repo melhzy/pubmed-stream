@@ -376,9 +376,9 @@ It summarizes each paper separately and prints the summaries. pubmed-stream, not
 
 The model sees only one abstract at a time, never your question: given the question, small models tend to open with it restated as a finding ("The gut microbiota is linked to frailty.") even when the paper did not test it.
 
-**How well did it do?** On the seven papers above, six of seven summaries were accurate, with the details copied correctly. The seventh called a review of eleven studies a randomized controlled trial, although it reported the review's results correctly. With `--answer`, the model also writes one answer from all the summaries, but at this size that answer is unreliable: it invented contradictions and credited findings to the wrong papers. Use the summaries as a fast first reading, check them against the abstracts, and draw conclusions yourself.
+**How well did it do?** On the seven papers above, six of seven summaries were usually accurate, with the details copied correctly. The one at the top of the picture is the exception: it calls a review of eleven studies a randomized controlled trial and muddles its result. Run again straight away, the model gives the same summaries, but after Ollama reloads the model they can change, and with a model this small so can their accuracy: in one run three of the seven were wrong, one saying the treatments improved cognitive function when the paper found they did not. With `--answer`, the model also writes one answer from all the summaries, but at this size that answer is unreliable: it invented contradictions and credited findings to the wrong papers. Use the summaries as a fast first reading, check them against the abstracts, and draw conclusions yourself.
 
-The model gives the same summaries every time for the same papers. On a laptop with a graphics card, seven papers took about 5 seconds; without one, allow a few seconds to a minute per paper. [Section 4](#4-choose-a-model) shows how to use a larger model.
+On a laptop with a graphics card, seven papers took 5 to 12 seconds; without one, allow a few seconds to a minute per paper. [Section 4](#4-choose-a-model) shows how to use a larger model.
 
 ---
 
