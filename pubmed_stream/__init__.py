@@ -20,7 +20,7 @@ from .downloader import (
 from .corpus import list_articles, most_cited
 from .abstracts import AbstractStats, count_pubmed, fetch_abstracts
 from .export import export_citations, to_bibtex, to_ris
-from .review import OllamaError, Review, review
+from .review import AssistantError, ModelError, OllamaError, Review, ask_assistant, review
 from .assistants import init_folder
 from .obsidian import open_vault
 from .neighborhood import (
@@ -35,8 +35,10 @@ from .vault import VaultStats, build_vault, topic_vault_dir
 
 __all__ = [
     "AbstractStats",
+    "AssistantError",
     "DownloadStats",
     "KGResult",
+    "ModelError",
     "Neighborhood",
     "OllamaError",
     "RateLimiter",
@@ -44,6 +46,7 @@ __all__ = [
     "Review",
     "SearchResult",
     "VaultStats",
+    "ask_assistant",
     "build_vault",
     "count_pubmed",
     "create_kg",

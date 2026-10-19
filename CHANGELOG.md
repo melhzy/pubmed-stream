@@ -2,6 +2,17 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
+## Unreleased
+
+### Added
+
+- `pubmed-stream review --model claude`, `codex` or `gemini` has Claude Code, Codex or Gemini CLI summarize instead of a model in Ollama, optionally with its own model, as in `claude:opus`. The assistant runs in an empty folder with its tools turned off, up to four abstracts at once; everything else is as with Ollama, and the note records which assistant wrote it and which company received the abstracts. `init --review-model` accepts them too.
+
+### Changed
+
+- Review notes in a knowledge graph are named after the question, the date and the model, so reviews of one question by several models no longer replace each other. Notes by an assistant are tagged `pubmed/assistant-review`; the graph's home note lists all of them under "Reviews".
+- `review` exits with 2 when any model fails, not only Ollama; `ModelError` is the common base of `OllamaError` and the new `AssistantError`.
+
 ## 0.4.0 - 2026-10-19
 
 ### Added

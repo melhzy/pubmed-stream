@@ -61,11 +61,12 @@ pubmed-stream neighborhood 31319564
 pubmed-stream kg "gut microbiome frailty" -q '"gut microbiota"[Title] AND frailty[Title/Abstract]' --seed 31319564
 pubmed-stream open kg_gut_microbiome_frailty
 
-# Have a model running on your own computer, in Ollama (https://ollama.com), summarize the 10 newest
-# abstracts, and save the summaries in the knowledge graph. Any Ollama model works: section 5 helps you
-# choose one your computer can run
+# Summarize the 10 newest abstracts and save the summaries in the knowledge graph. --model picks who
+# summarizes: a model on your own computer, in Ollama (https://ollama.com), so nothing leaves it, or the
+# model of an AI assistant installed below: claude, codex or gemini. Section 5 helps you choose
 ollama pull qwen3.5:4b
 pubmed-stream review "Is the gut microbiota linked to frailty?" --limit 10 --model qwen3.5:4b --vault kg_gut_microbiome_frailty
+pubmed-stream review "Is the gut microbiota linked to frailty?" --limit 10 --model claude --vault kg_gut_microbiome_frailty
 
 # Or ask in plain English and let Claude Code, Codex or Gemini CLI run all of this: see below
 ```
@@ -495,7 +496,20 @@ ollama pull qwen3.5:9b
 pubmed-stream review "Does FMT help people with Parkinson's disease?" --id 38686220 41826284 41113141 --model qwen3.5:9b --vault kg_fmt_parkinson
 ```
 
-`--vault` also saves the summaries as a note in the knowledge graph. `pubmed-stream init --review-model qwen3.5:9b` makes the model the folder's default, so `--model` can be left out. `--answer` adds one answer drawn from all the summaries; check it against them, as smaller models credit findings to the wrong paper. If Ollama runs on another computer, such as a lab server, point to it with `--ollama-host http://<server>:11434`.
+`--vault` also saves the summaries as a note in the knowledge graph's `reviews` folder, named after the question, the date and the model, so reviews by several models sit side by side. `pubmed-stream init --review-model qwen3.5:9b` makes the model the folder's default, so `--model` can be left out. `--answer` adds one answer drawn from all the summaries; check it against them, as smaller models credit findings to the wrong paper. If Ollama runs on another computer, such as a lab server, point to it with `--ollama-host http://<server>:11434`.
+
+**Or an AI assistant's model.** `--model claude`, `--model codex` or `--model gemini` has Claude Code, Codex or Gemini CLI summarize instead, if it is installed and signed in on your computer (see the [quick start](#with-an-ai-assistant-claude-code-codex-or-gemini-cli)). Their models are much larger than a laptop can run, so they make fewer mistakes: on the seven Parkinson's papers above, Claude Code's summaries were all accurate, including the review of eleven studies that Llama 3.2 1B called a trial. In exchange, the abstracts go to Anthropic, OpenAI or Google, and each run uses some of your plan. pubmed-stream runs the assistant in an empty folder with its tools turned off, so it only answers; everything else works as with Ollama: one abstract at a time, without the question, the same checks, `--answer` and `--vault`. Add the assistant's own model after a colon, as in `--model claude:opus`.
+
+```bash
+pubmed-stream review "Does FMT help people with Parkinson's disease?" --id 38686220 41826284 41113141 --model codex --vault kg_fmt_parkinson
+```
+
+| `--model` | Who summarizes | Where the abstracts go |
+|---|---|---|
+| an Ollama model, such as `qwen3.5:9b` | a model on your computer | nowhere |
+| `claude`, `claude:opus` | Claude Code | Anthropic |
+| `codex`, `codex:<model>` | Codex | OpenAI |
+| `gemini`, `gemini:<model>` | Gemini CLI | Google |
 
 **Obsidian.** Every knowledge graph has property types for Obsidian and `Papers.base`, a Bases table of all papers with views for full texts, reviews, retracted papers and your `#to-read` list. `pubmed-stream open kg_<topic>` opens it, and with Obsidian's [command line](https://obsidian.md/help/cli) switched on, an assistant can query it: `obsidian vault=kg_<topic> base:query path=Papers.base view="Reading list"`.
 
@@ -521,7 +535,7 @@ Everything the commands do is available from `pubmed_stream`:
 | `list_articles(path)` | Compact records of downloaded articles and abstracts, newest first, each once | list of dicts |
 | `export_citations(path, fmt="bibtex", ids=None)`, `to_bibtex(records)`, `to_ris(records)` | Citations for Zotero, EndNote or Mendeley | `(text, count, missing)`, str |
 | `most_cited(path, n=10)` | The works the downloaded articles cite most | list of dicts |
-| `review(question, path, ids, model, answer=False, ...)` | Summaries by a local model through Ollama, with checks | `Review` |
+| `review(question, path, ids, model, answer=False, ...)` | Summaries by a local model through Ollama, or by `claude`, `codex` or `gemini`, with checks | `Review` |
 | `init_folder(folder)` | Instructions and MCP settings for Claude Code, Codex and Gemini CLI | list of actions |
 | `open_vault(kg_dir)` | Open a knowledge graph in Obsidian | `(opened, message)` |
 | `esearch_pmc(term, max_results, api_key, session, rate_limiter)` | One PMC search: IDs and total count | `(ids, total)` |
@@ -577,7 +591,7 @@ pubmed-stream is a stack of five small modules. Each one uses only those below i
 | `export.py` | BibTeX and RIS citations |
 | `abstracts.py` | PubMed search and abstracts, for articles without free full text |
 | `mcp_server.py` | The MCP server that gives AI assistants pubmed-stream's tools |
-| `review.py` | Summaries by a local model through Ollama, with number and citation checks |
+| `review.py` | Summaries by a local model through Ollama or an AI assistant, with number and citation checks |
 | `obsidian.py`, `assistants.py` | Opening graphs in Obsidian; setting up folders for AI assistants |
 | `kg.py` | Studies: run searches and seeds, record them, refresh them |
 | `vault.py` | Knowledge-graph notes: merge every source, render notes, rebuild safely |
@@ -589,7 +603,7 @@ The [architecture guide](https://github.com/melhzy/pubmed-stream/blob/main/docs/
 ```
 pubmed-stream/
 ├── pubmed_stream/      the package
-├── tests/              133 offline tests; NCBI is faked with canned responses
+├── tests/              140 offline tests; NCBI is faked with canned responses
 ├── tutorials/          seven notebooks, the AI assistant tutorial and instructions, guides, kg_study.py, keyword lists, tools
 ├── docs/               the architecture guide and its figures
 ├── pyproject.toml      package metadata and dependencies

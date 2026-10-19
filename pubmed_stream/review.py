@@ -1,28 +1,38 @@
-"""Summarize downloaded articles with a local model, through Ollama.
+"""Summarize downloaded articles with a model: a local one, or an AI assistant's.
 
-A small local model cannot run pubmed-stream itself, so the work is split:
-pubmed-stream collects the articles, the model summarizes one abstract at a
-time through Ollama's local server (https://ollama.com), and ``review``
-attaches each article's PubMed ID itself, so a summary is never credited to
-the wrong paper.  The model does not see the question while it summarizes,
-so it cannot present the question as a finding.  Every number in a summary must appear in its abstract;
+The work is split: pubmed-stream collects the articles, the model summarizes
+one abstract at a time, and ``review`` attaches each article's PubMed ID
+itself, so a summary is never credited to the wrong paper.  The model does
+not see the question while it summarizes, so it cannot present the question
+as a finding.  Every number in a summary must appear in its abstract;
 others are flagged.
 
+The model is either local, running in Ollama (https://ollama.com), so
+nothing leaves the computer, or the model of an AI assistant installed on
+it: ``claude`` (Claude Code), ``codex`` (Codex) or ``gemini`` (Gemini CLI),
+optionally with the assistant's own model, as in ``claude:opus``.  An
+assistant runs in an empty folder with its tools turned off, so it only
+answers; the abstracts go to its company.
+
 With ``answer=True`` the model also writes one answer from all the
-summaries.  Small models often mix up or invent claims across papers, so the
-answer is checked too: every PubMed ID it cites must be among the articles
-read.  Generation uses temperature 0, so the same input gives the same
-output while the model stays loaded; after Ollama reloads it, the output
-can differ.
+summaries.  Models, small ones especially, can mix up or invent claims
+across papers, so the answer is checked too: every PubMed ID it cites must
+be among the articles read.  Ollama generates at temperature 0, so the same
+input gives the same output while the model stays loaded; after Ollama
+reloads it, the output can differ.  Assistants vary from run to run.
 """
 
 import datetime
 import logging
 import os
 import re
+import shutil
+import subprocess
+import tempfile
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Union
+from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 
 import requests
 
@@ -53,13 +63,36 @@ Answer the question in one paragraph of at most 150 words, using only these summ
 statement, cite the articles that support it by their PubMed IDs in square brackets, exactly as given, \
 for example [{example}]. Do not cite anything else. Say where the articles disagree."""
 
-ANSWER_WARNING = ("Small models often credit a finding to the wrong paper or invent a disagreement, which no "
-                  "automatic check catches. Use this answer only as a draft, and check every statement "
+ANSWER_WARNING = ("Models, small ones especially, can credit a finding to the wrong paper or invent a disagreement, "
+                  "which no automatic check catches. Use this answer only as a draft, and check every statement "
                   "against the summaries above.")
 
 
-class OllamaError(RuntimeError):
+# AI assistants that can summarize instead of a local model: command -> (name, the company that receives the text)
+ASSISTANTS = {"claude": ("Claude Code", "Anthropic"), "codex": ("Codex", "OpenAI"), "gemini": ("Gemini CLI", "Google")}
+ASSISTANT_TIMEOUT = 300  # seconds for one answer
+ASSISTANT_WORKERS = 4    # abstracts summarized at once; each answer takes several seconds
+
+
+class ModelError(RuntimeError):
+    """The model could not answer: Ollama or the assistant is missing, not set up, or failed."""
+
+
+class OllamaError(ModelError):
     """Ollama is not running, or does not have the model."""
+
+
+class AssistantError(ModelError):
+    """The AI assistant is not installed, not signed in, or failed."""
+
+
+def assistant(model: str) -> Optional[Tuple[str, Optional[str]]]:
+    """``(command, its own model)`` when *model* names an AI assistant, as in ``claude`` or ``codex:gpt-5``.
+
+    Any other name is an Ollama model.
+    """
+    command, _, chosen = model.partition(":")
+    return (command, chosen or None) if command in ASSISTANTS else None
 
 
 @dataclass
@@ -83,11 +116,16 @@ class Review:
 
     def markdown(self, wikilinks: bool = False) -> str:
         """The review as Markdown; with *wikilinks*, papers link to their notes in a knowledge graph."""
+        cloud = assistant(self.model)
+        if cloud:
+            name, company = ASSISTANTS[cloud[0]]
+            by, caution = f"{name} (`{self.model}`)", f"The abstracts were sent to {company}. Models make mistakes"
+        else:
+            by, caution = f"the local model `{self.model}`", "A small model makes mistakes"
         lines = [
-            f"Summaries by the local model `{self.model}`, {self.date:%d %B %Y}, of the abstracts of "
-            f"{len(self.summaries)} articles downloaded with pubmed-stream. Each article's PubMed ID was "
-            "attached by pubmed-stream, not by the model. A small model makes mistakes: check each summary "
-            "against its abstract.",
+            f"Summaries by {by}, {self.date:%d %B %Y}, of the abstracts of {len(self.summaries)} articles "
+            "downloaded with pubmed-stream. Each article's PubMed ID was attached by pubmed-stream, not by the "
+            f"model. {caution}: check each summary against its abstract.",
             "",
         ]
         for s in self.summaries:
@@ -145,19 +183,71 @@ def _host(host: Optional[str]) -> str:
     return host.replace("://0.0.0.0", "://127.0.0.1")
 
 
+def _assistant_command(command: str, chosen: Optional[str], reply_file: Path) -> List[str]:
+    """The command line that has an assistant answer the prompt on stdin once, with no tools."""
+    if command == "claude":
+        line = ["claude", "-p", "--tools", "", "--strict-mcp-config", "--no-session-persistence",
+                "--output-format", "text"]
+        return line + (["--model", chosen] if chosen else [])
+    if command == "codex":
+        # Without the user's config and rules, Codex starts in seconds and loads no MCP servers or hooks
+        line = ["codex", "exec", "--skip-git-repo-check", "--ephemeral", "--ignore-user-config", "--ignore-rules",
+                "-s", "read-only", "--color", "never", "-o", str(reply_file)]
+        return line + (["-m", chosen] if chosen else []) + ["-"]
+    # Gemini CLI appends -p to the prompt on stdin, answers once and exits
+    return ["gemini", "-p", "Follow the instructions above.", "--approval-mode", "plan"] + \
+        (["-m", chosen] if chosen else [])
+
+
+def ask_assistant(prompt: str, model: str) -> str:
+    """One answer from an AI assistant installed on this computer, such as ``claude`` or ``codex:gpt-5``.
+
+    The assistant runs in a new, empty folder with its tools turned off, so
+    it reads nothing but the prompt and changes nothing.
+
+    Raises:
+        AssistantError: it is not installed, not signed in, timed out or failed.
+    """
+    command, chosen = assistant(model) or (model, None)
+    name = ASSISTANTS[command][0]
+    executable = shutil.which(command)
+    if executable is None:
+        raise AssistantError(f"{name} is not installed, or not on PATH. Install it as the README's quick start "
+                             f"shows, then run '{command}' once to sign in.")
+    with tempfile.TemporaryDirectory(prefix="pubmed-stream-") as work:
+        reply_file = Path(work) / "reply.txt"
+        line = _assistant_command(command, chosen, reply_file)
+        try:
+            done = subprocess.run([executable] + line[1:], input=prompt, capture_output=True, text=True,
+                                  encoding="utf-8", errors="replace", cwd=work, timeout=ASSISTANT_TIMEOUT)
+        except subprocess.TimeoutExpired:
+            raise AssistantError(f"{name} did not answer within {ASSISTANT_TIMEOUT} seconds") from None
+        if done.returncode != 0:
+            detail = " ".join((done.stderr or done.stdout or "").strip().splitlines()[-3:])[:300]
+            raise AssistantError(f"{name} failed (exit {done.returncode}): {detail}. Run '{command}' once to "
+                                 "check that it works and you are signed in.")
+        reply = reply_file.read_text(encoding="utf-8") if reply_file.is_file() else done.stdout
+    return reply.strip()
+
+
 def generate(prompt: str, model: str = DEFAULT_MODEL, host: Optional[str] = None,
              num_ctx: int = DEFAULT_CONTEXT, session: Optional[requests.Session] = None,
              max_tokens: int = 300) -> str:
-    """One answer from a local model, at temperature 0, at most *max_tokens* long.
+    """One answer from a model: a local one at temperature 0, at most *max_tokens* long, or an assistant's.
 
     At temperature 0 a small model can repeat itself without end, so the
     answer is capped, and repetition is discouraged; a capped answer ends
     with a note saying so.  Models that think before answering, such as
-    Qwen3, are asked not to, so the cap is not spent on thinking.
+    Qwen3, are asked not to, so the cap is not spent on thinking.  An AI
+    assistant (see :func:`assistant`) answers through :func:`ask_assistant`;
+    *host*, *num_ctx*, *session* and *max_tokens* apply only to Ollama.
 
     Raises:
         OllamaError: Ollama is not running at *host*, or does not have *model*.
+        AssistantError: the assistant is not installed, not signed in, or failed.
     """
+    if assistant(model):
+        return ask_assistant(prompt, model)
     url = f"{_host(host)}/api/generate"
     payload = {"model": model, "prompt": prompt, "stream": False, "think": False,
                "options": {"temperature": 0, "num_ctx": num_ctx, "num_predict": max_tokens,
@@ -191,14 +281,16 @@ def review(
     num_ctx: int = DEFAULT_CONTEXT,
     session: Optional[requests.Session] = None,
 ) -> Review:
-    """Summarize downloaded articles with a local model, one abstract at a time.
+    """Summarize downloaded articles with a model, one abstract at a time.
 
-    *ids* selects articles by PubMed ID or PMC ID; without it, the newest
-    *limit* articles under *path* are used.  Articles without an abstract or
-    a PubMed ID are skipped.
+    *model* is an Ollama model, or an AI assistant such as ``claude``,
+    ``codex`` or ``gemini`` (see :func:`assistant`), which summarizes up to
+    four abstracts at once.  *ids* selects articles by PubMed ID or PMC ID;
+    without it, the newest *limit* articles under *path* are used.  Articles
+    without an abstract or a PubMed ID are skipped.
 
     Raises:
-        OllamaError: Ollama is not running, or does not have *model*.
+        ModelError: Ollama or the assistant is missing, not set up, or failed.
         ValueError: no downloaded article qualifies.
     """
     records = list_articles(path)
@@ -210,13 +302,20 @@ def review(
     if not records:
         raise ValueError(f"No downloaded articles with an abstract and a PubMed ID in {path}")
 
-    summaries = []
-    for i, r in enumerate(records, 1):
+    def summarize(numbered: Tuple[int, Dict[str, Any]]) -> Summary:
+        i, r = numbered
         logger.info("Summarizing %d of %d: PMID %s", i, len(records), r["pmid"])
         text = tidy(generate(PAPER_PROMPT.format(**r), model, host, num_ctx, session))
         summary = re.sub(r" \[cut at \d+ tokens\]$", "", text)   # without the note on a cut reply
         unsupported = sorted(numbers(summary) - numbers(f"{r['abstract']} {r['title']}") - {str(r["year"])})
-        summaries.append(Summary(r, text, unsupported))
+        return Summary(r, text, unsupported)
+
+    numbered = list(enumerate(records, 1))
+    if assistant(model):
+        with ThreadPoolExecutor(ASSISTANT_WORKERS) as pool:
+            summaries = list(pool.map(summarize, numbered))   # in the articles' order
+    else:
+        summaries = [summarize(item) for item in numbered]
 
     result = Review(question, model, summaries)
     if answer:
@@ -236,14 +335,16 @@ def save_to_vault(result: Review, vault_dir: PathLike) -> Path:
 
     folder = Path(vault_dir) / "reviews"
     folder.mkdir(parents=True, exist_ok=True)
-    path = folder / f"{_safe_name(result.question)} ({result.date:%Y-%m-%d}).md"
+    # The model is in the name, so reviews of one question by several models sit side by side
+    model = _safe_name(result.model.rstrip("/").split("/")[-1].replace(":", " "), 40)
+    path = folder / f"{_safe_name(result.question)} ({result.date:%Y-%m-%d}, {model}).md"
     properties = [
         _yaml_entry("type", "review"),
         _yaml_entry("question", result.question),
         _yaml_entry("model", result.model),
         _yaml_entry("date", f"{result.date:%Y-%m-%d}"),
         _yaml_entry("papers", [f"[[PMID{s.article['pmid']}]]" for s in result.summaries]),
-        _yaml_entry("tags", ["pubmed/local-review"]),
+        _yaml_entry("tags", ["pubmed/assistant-review" if assistant(result.model) else "pubmed/local-review"]),
     ]
     path.write_text("---\n" + "\n".join(properties) + "\n---\n"
                     + f"# {result.question}\n\n" + result.markdown(wikilinks=True), encoding="utf-8")
