@@ -1,7 +1,7 @@
 # pubmed-stream
 
 [![PyPI version](https://img.shields.io/pypi/v/pubmed-stream.svg)](https://pypi.org/project/pubmed-stream/)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Documentation](https://img.shields.io/badge/docs-melhzy.github.io-2a78d6.svg)](https://melhzy.github.io/pubmed-stream/)
 
@@ -42,12 +42,17 @@ flowchart LR
 ```bash
 pip install pubmed-stream
 
-# Size a search and preview its newest titles, without downloading
+# Size a search and preview its newest titles, without downloading: it counts PMC and all of PubMed
 pubmed-stream search '"gut microbiota"[Title] AND frailty[Title/Abstract]'
 
-# Download the full text of up to 50 articles, then read them compactly
+# Download the full text of up to 50 articles, add the abstracts of those whose full text is not
+# free, then read them compactly
 pubmed-stream download '"gut microbiota"[Title] AND frailty[Title/Abstract]' --max-results 50
+pubmed-stream abstracts '"gut microbiota"[Title] AND frailty[Title/Abstract]' --max-results 200
 pubmed-stream list publications --abstracts
+
+# Export them as citations for Zotero, EndNote or Mendeley
+pubmed-stream export publications -o frailty.bib
 
 # Map the evidence around one paper: similar, citing and cited papers, with retractions flagged
 pubmed-stream neighborhood 31319564
@@ -129,7 +134,7 @@ pip install pubmed-stream                  # the library and the pubmed-stream c
 pip install "pubmed-stream[tutorials]"     # plus jupyter, matplotlib, networkx and pandas for the tutorials
 ```
 
-The AI-assistant, local-model and Obsidian features of [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.8 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
+The AI-assistant, local-model and Obsidian features of [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later, and PubMed abstracts and citation export 0.4.0: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.9 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
 
 **Set an NCBI API key.** NCBI allows 3 requests per second without a key and 10 with one, so a key makes everything about three times faster. Keys are free: create one in the settings of an [NCBI account](https://www.ncbi.nlm.nih.gov/account/). pubmed-stream reads it, and an optional contact email, from the environment:
 
@@ -167,12 +172,34 @@ pubmed-stream list publications --cited               # the works the downloads 
 pubmed-stream list publications --json --abstracts > corpus.jsonl
 ```
 
+**Articles without free full text.** PMC holds the free full text of only part of the literature: `search` counts both, and for the frailty search of the quick start PubMed has 95 articles where PMC has 66. `abstracts` saves the PubMed record of each match, with its abstract, MeSH terms and publication types, in the same folder as the full texts. `list`, `review` and the knowledge graph read both; `list` marks the abstracts `[abstract only]`, and an article saved both ways is shown with its full text.
+
+```bash
+pubmed-stream abstracts '"gut microbiota"[Title] AND frailty[Title/Abstract]' --max-results 200
+pubmed-stream kg "gut microbiome frailty" -q '"gut microbiota"[Title] AND frailty[Title/Abstract]' --abstracts
+```
+
+```python
+from pubmed_stream import fetch_abstracts
+
+stats = fetch_abstracts('"gut microbiota"[Title] AND frailty[Title/Abstract]', max_results=200)
+print(f"{stats.saved} abstracts saved of {stats.total_found} in PubMed; {stats.in_pmc} are also free in PMC")
+```
+
+**Citations.** `export` writes the articles, full texts and abstracts alike, as BibTeX or RIS, which Zotero (**File > Import**), EndNote, Mendeley and LaTeX read. Entries have the title, authors, journal, year, DOI, PubMed and PMC IDs, a link and the abstract. The first word of each author name is taken as the surname, so check multi-word surnames such as "van der Berg" after importing.
+
+```bash
+pubmed-stream export publications -o review.bib
+pubmed-stream export publications --format ris --id 38686220 41113141 -o chosen.ris
+```
+
 ```
 publications/
 └── gut_microbiome/
     ├── query.json          the original search, recorded for later tools
-    ├── PMC12345678.json
-    └── PMC12345679.json
+    ├── PMC12345678.json    a full text from PMC
+    ├── PMC12345679.json
+    └── PMID41361501.json   an abstract from PubMed, saved by 'abstracts'
 ```
 
 Every article file has the same shape. `metadata.references` lists the cited works that have a PubMed ID or DOI; those become citation links in a knowledge graph.
@@ -484,7 +511,10 @@ Everything the commands do is available from `pubmed_stream`:
 | `build_vault(sources, vault_dir, ...)` | Build graph notes from download folders only | `VaultStats` |
 | `topic_vault_dir(topic)` | The `kg_<topic>` folder of a topic | path |
 | `search_pmc(query, max_results=10, ...)` | Count a search and list its newest matches, without downloading | `SearchResult` |
-| `list_articles(path)` | Compact records of downloaded articles, newest first, each once | list of dicts |
+| `count_pubmed(query)` | The number of PubMed articles matching a search | int |
+| `fetch_abstracts(query, max_results=100, ...)` | Save PubMed abstracts, including articles without free full text | `AbstractStats` |
+| `list_articles(path)` | Compact records of downloaded articles and abstracts, newest first, each once | list of dicts |
+| `export_citations(path, fmt="bibtex", ids=None)`, `to_bibtex(records)`, `to_ris(records)` | Citations for Zotero, EndNote or Mendeley | `(text, count, missing)`, str |
 | `most_cited(path, n=10)` | The works the downloaded articles cite most | list of dicts |
 | `review(question, path, ids, model, answer=False, ...)` | Summaries by a local model through Ollama, with checks | `Review` |
 | `init_folder(folder)` | Instructions and MCP settings for Claude Code, Codex and Gemini CLI | list of actions |
@@ -537,8 +567,10 @@ pubmed-stream is a stack of five small modules. Each one uses only those below i
 
 | Module | Role |
 |--------|------|
-| `cli.py` | The `pubmed-stream` command: `init`, `search`, `download`, `list`, `neighborhood`, `kg`, `review`, `open` and `mcp` |
-| `corpus.py` | Reads downloaded articles back as compact records, and finds the works they cite most |
+| `cli.py` | The `pubmed-stream` command: `init`, `search`, `download`, `abstracts`, `list`, `export`, `neighborhood`, `kg`, `review`, `open` and `mcp` |
+| `corpus.py` | Reads downloaded articles and abstracts back as compact records, and finds the works they cite most |
+| `export.py` | BibTeX and RIS citations |
+| `abstracts.py` | PubMed search and abstracts, for articles without free full text |
 | `mcp_server.py` | The MCP server that gives AI assistants pubmed-stream's tools |
 | `review.py` | Summaries by a local model through Ollama, with number and citation checks |
 | `obsidian.py`, `assistants.py` | Opening graphs in Obsidian; setting up folders for AI assistants |
@@ -552,7 +584,7 @@ The [architecture guide](https://github.com/melhzy/pubmed-stream/blob/main/docs/
 ```
 pubmed-stream/
 ├── pubmed_stream/      the package
-├── tests/              117 offline tests; NCBI is faked with canned responses
+├── tests/              133 offline tests; NCBI is faked with canned responses
 ├── tutorials/          seven notebooks, the AI assistant tutorial and instructions, guides, kg_study.py, keyword lists, tools
 ├── docs/               the architecture guide and its figures
 ├── pyproject.toml      package metadata and dependencies
@@ -615,7 +647,7 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 
 ## FAQ
 
-**What is the difference between PubMed and PMC?** PubMed indexes the citations and abstracts of over 35 million articles. PubMed Central (PMC) is NCBI's archive of full-text articles, a subset of them. pubmed-stream downloads full text from PMC and uses PubMed for neighborhoods and MeSH terms.
+**What is the difference between PubMed and PMC?** PubMed indexes the citations and abstracts of over 35 million articles. PubMed Central (PMC) is NCBI's archive of full-text articles, a subset of them. pubmed-stream downloads full text from PMC, and uses PubMed for neighborhoods, MeSH terms and the abstracts of articles whose full text is not free.
 
 **Does it comply with NCBI's terms?** Yes. It uses the official E-utilities, keeps within NCBI's rate limits, identifies itself with a User-Agent, and sends your contact email when you set one.
 
@@ -625,7 +657,7 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 
 **Can I use it for a systematic review?** For the first steps: scoping the field, testing and recording searches, and finding key papers. A systematic review also needs other databases, screening by two reviewers and risk-of-bias assessment; see [what pubmed-stream can and cannot do](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/limitations.md).
 
-**Why are some important papers missing?** Full text comes only from PMC, and searches return the newest matches first. Older and subscription-only papers enter a knowledge graph through key papers' neighborhoods, as stubs, or as links from the papers that cite them.
+**Why are some important papers missing?** Full text comes only from PMC, and searches return the newest matches first. `abstracts` saves the PubMed abstracts of the rest, and older and subscription-only papers also enter a knowledge graph through key papers' neighborhoods, as stubs, or as links from the papers that cite them.
 
 **Do I need Obsidian?** Only to explore a knowledge graph visually. The notes are plain Markdown, and [tutorial 5](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) analyses one in Python.
 
