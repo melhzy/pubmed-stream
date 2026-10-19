@@ -23,7 +23,9 @@ from typing import Any, Callable, Dict, List, Optional
 import requests
 
 from . import __version__
-from .corpus import list_articles, most_cited
+from .abstracts import count_pubmed, fetch_abstracts
+from .corpus import list_articles, most_cited, select, short_id
+from .export import export_citations
 from .downloader import search_and_download, search_pmc
 
 logger = logging.getLogger(__name__)
@@ -32,9 +34,10 @@ SUPPORTED_VERSIONS = ("2025-11-25", "2025-06-18", "2025-03-26", "2024-11-05")
 
 INSTRUCTIONS = """pubmed-stream searches PubMed Central, downloads open full texts and reads them back compactly.
 Work in this order: search_pmc to size and refine a search (aim for 50-300 on-topic matches), download,
-list_articles to scan titles, list_articles with ids and abstracts=true to read chosen abstracts,
-read_article to search inside one full text. Cite only articles whose abstract or text you read here,
-by PubMed ID; never cite from memory. Say what kind of evidence each is, and what could not be downloaded."""
+fetch_abstracts when PubMed has many more matches than PMC, list_articles to scan titles, list_articles
+with ids and abstracts=true to read chosen abstracts, read_article to search inside one full text.
+Cite only articles whose abstract or text you read here, by PubMed ID; never cite from memory. Say what
+kind of evidence each is, which you read only as abstracts, and what could not be read."""
 
 PATH_PARAM = {"type": "string", "description": "Folder of downloads, relative to the project",
               "default": "publications"}
@@ -63,6 +66,20 @@ TOOLS: List[Dict[str, Any]] = [
         "inputSchema": {"type": "object", "properties": {
             "query": {"type": "string", "description": "PMC search, checked first with search_pmc"},
             "max_results": {"type": "integer", "default": 30, "minimum": 1, "maximum": 500},
+            "output_dir": PATH_PARAM,
+        }, "required": ["query"]},
+        "annotations": {"readOnlyHint": False, "destructiveHint": False, "idempotentHint": True, "openWorldHint": True},
+    },
+    {
+        "name": "fetch_abstracts",
+        "title": "Save PubMed abstracts",
+        "description": "Save the abstracts of a PubMed search's newest matches, including articles whose full "
+                       "text is not free in PMC, into the same folder download uses. list_articles then shows "
+                       "them marked [abstract only]. Use it when search_pmc reports many more articles in "
+                       "PubMed than in PMC.",
+        "inputSchema": {"type": "object", "properties": {
+            "query": {"type": "string", "description": "The same search as for search_pmc and download"},
+            "max_results": {"type": "integer", "default": 100, "minimum": 1, "maximum": 2000},
             "output_dir": PATH_PARAM,
         }, "required": ["query"]},
         "annotations": {"readOnlyHint": False, "destructiveHint": False, "idempotentHint": True, "openWorldHint": True},
@@ -119,6 +136,22 @@ TOOLS: List[Dict[str, Any]] = [
         "annotations": {"readOnlyHint": False, "destructiveHint": False, "idempotentHint": True, "openWorldHint": True},
     },
     {
+        "name": "export_citations",
+        "title": "Export citations",
+        "description": "Write the downloaded articles, or chosen ones, as a BibTeX or RIS file that Zotero, "
+                       "EndNote or Mendeley imports. Give the researcher the file's path.",
+        "inputSchema": {"type": "object", "properties": {
+            "path": PATH_PARAM,
+            "format": {"type": "string", "enum": ["bibtex", "ris"], "default": "bibtex"},
+            "ids": {"type": "array", "items": {"type": "string"},
+                    "description": "PubMed or PMC IDs; all articles when omitted"},
+            "file": {"type": "string", "description": "File to write, relative to the project",
+                     "default": "citations.bib"},
+        }},
+        "annotations": {"readOnlyHint": False, "destructiveHint": True, "idempotentHint": True,
+                        "openWorldHint": False},
+    },
+    {
         "name": "build_knowledge_graph",
         "title": "Build or refresh a knowledge graph",
         "description": "Link a study's searches and key papers into an Obsidian vault, kg_<topic>, with notes for "
@@ -131,6 +164,8 @@ TOOLS: List[Dict[str, Any]] = [
             "max_results": {"type": "integer", "default": 30, "minimum": 1, "maximum": 500},
             "max_per_relation": {"type": "integer", "default": 30, "minimum": 1, "maximum": 500},
             "refresh": {"type": "boolean", "default": False},
+            "abstracts": {"type": "boolean", "default": False,
+                          "description": "Also save PubMed abstracts, so articles without free full text join"},
         }, "required": ["topic"]},
         "annotations": {"readOnlyHint": False, "destructiveHint": False, "idempotentHint": True, "openWorldHint": True},
     },
@@ -144,7 +179,7 @@ class ToolError(Exception):
 def _line(r: Dict[str, Any]) -> str:
     pmid = f"PMID {r['pmid']}" if r.get("pmid") else "no PMID"
     journal = f" ({r['journal']})" if r.get("journal") else ""
-    return f"{r.get('year') or 'n.d.'}  {r['pmcid']}  {pmid}  {r.get('title') or ''}{journal}"
+    return f"{r.get('year') or 'n.d.'}  {short_id(r)}  {pmid}  {r.get('title') or ''}{journal}"
 
 
 class Server:
@@ -155,10 +190,12 @@ class Server:
         self.handlers: Dict[str, Callable[[Dict[str, Any]], str]] = {
             "search_pmc": self.search_pmc,
             "download": self.download,
+            "fetch_abstracts": self.fetch_abstracts,
             "list_articles": self.list_articles,
             "most_cited": self.most_cited,
             "read_article": self.read_article,
             "neighborhood": self.neighborhood,
+            "export_citations": self.export_citations,
             "build_knowledge_graph": self.build_knowledge_graph,
         }
 
@@ -169,7 +206,20 @@ class Server:
     # -- tools ---------------------------------------------------------------
 
     def search_pmc(self, args: Dict[str, Any]) -> str:
-        return str(search_pmc(args["query"], max_results=int(args.get("show", 10))))
+        result = search_pmc(args["query"], max_results=int(args.get("show", 10)))
+        try:
+            in_pubmed = count_pubmed(args["query"])
+        except (requests.RequestException, KeyError, ValueError):
+            return str(result)
+        return f"{result}\n{in_pubmed:,} articles in PubMed; fetch_abstracts saves the abstracts of the rest."
+
+    def fetch_abstracts(self, args: Dict[str, Any]) -> str:
+        stats = fetch_abstracts(args["query"], max_results=int(args.get("max_results", 100)),
+                                output_dir=self.path(args.get("output_dir")))
+        return (f"{stats.total_found:,} articles in PubMed; {stats.requested} requested: {stats.saved} saved "
+                f"({stats.without_abstract} without an abstract), {stats.skipped} already there. "
+                f"{stats.in_pmc} of those saved are also free in PMC, so download gets their full text."
+                f"\nFolder: {stats.output_dir.resolve()}")
 
     def download(self, args: Dict[str, Any]) -> str:
         stats = search_and_download(args["query"], max_results=int(args.get("max_results", 30)),
@@ -192,17 +242,15 @@ class Server:
         records = self.records(path)
         lines = []
         if args.get("ids"):
-            wanted = {str(i).strip().upper() for i in args["ids"]}
-            records = [r for r in records if str(r["pmid"]) in wanted or r["pmcid"].upper() in wanted]
-            missing = wanted - {str(r["pmid"]) for r in records} - {r["pmcid"].upper() for r in records}
+            records, missing = select(records, args["ids"])
             if missing:
-                lines.append(f"Not downloaded: {', '.join(sorted(missing))}")
+                lines.append(f"Not downloaded: {', '.join(missing)}")
         total = len(records)
         if args.get("limit"):
             records = records[:int(args["limit"])]
         lines.insert(0, f"{len(records)} of {total} articles in {path.name}")
         for r in records:
-            lines.append(_line(r) + f" [{r['words']:,} words]")
+            lines.append(_line(r) + (f" [{r['words']:,} words]" if r["full_text"] else " [abstract only]"))
             if args.get("abstracts"):
                 lines.append(f"    {r['abstract'] or '(no abstract)'}")
         return "\n".join(lines)
@@ -217,11 +265,12 @@ class Server:
         return "\n".join(lines)
 
     def read_article(self, args: Dict[str, Any]) -> str:
-        wanted = str(args["id"]).strip().upper()
-        record = next((r for r in self.records(self.path(args.get("path")))
-                       if str(r["pmid"]) == wanted or r["pmcid"].upper() == wanted), None)
-        if record is None:
+        chosen, _ = select(self.records(self.path(args.get("path"))), [args["id"]])
+        if not chosen:
             raise ToolError(f"{args['id']} is not among the downloaded articles")
+        record = chosen[0]
+        if not record["full_text"]:
+            raise ToolError(f"Only the abstract of {args['id']} was saved; list_articles with abstracts=true shows it")
         data = json.loads(Path(record["file"]).read_text(encoding="utf-8"))
         text = data.get("text") or ""
         if not text:
@@ -266,6 +315,18 @@ class Server:
         lines.append(f"Saved: {saved}")
         return "\n".join(lines)
 
+    def export_citations(self, args: Dict[str, Any]) -> str:
+        fmt = args.get("format", "bibtex")
+        path = self.path(args.get("path"))
+        self.records(path)   # reports a missing or empty folder
+        text, count, missing = export_citations(path, fmt, args.get("ids"))
+        if not count:
+            raise ToolError(f"None of {', '.join(missing)} is among the downloaded articles")
+        target = self.path(args.get("file") or ("citations.bib" if fmt == "bibtex" else "citations.ris"))
+        target.write_text(text, encoding="utf-8")
+        note = f" Not downloaded: {', '.join(missing)}." if missing else ""
+        return f"Wrote {count} citations ({fmt}) to {target.resolve()}.{note}"
+
     def build_knowledge_graph(self, args: Dict[str, Any]) -> str:
         from .kg import create_kg
         from .vault import topic_vault_dir
@@ -274,7 +335,7 @@ class Server:
             result = create_kg(
                 args["topic"], queries=args.get("queries") or (), seeds=args.get("seeds") or (),
                 refresh=bool(args.get("refresh")), max_results=int(args.get("max_results", 30)),
-                max_per_relation=int(args.get("max_per_relation", 30)),
+                max_per_relation=int(args.get("max_per_relation", 30)), abstracts=bool(args.get("abstracts")),
                 kg_dir=topic_vault_dir(args["topic"], parent=self.root), output_dir=self.root / "publications",
             )
         except (FileNotFoundError, ValueError) as e:

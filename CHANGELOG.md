@@ -2,6 +2,20 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
+## 0.4.0 - 2026-10-19
+
+### Added
+
+- PubMed abstracts for articles whose full text is not free in PMC: `pubmed-stream abstracts`, `fetch_abstracts()` and the MCP tool `fetch_abstracts` save each match's PubMed record as `PMID*.json`, next to the full texts of the same search. `list`, `review`, the MCP tools and the knowledge graph read both, and an article saved both ways is shown with its full text. `list` marks abstracts `[abstract only]`; in a knowledge graph their notes have the status `abstract`, with PubMed's MeSH terms and publication types. `kg --abstracts` saves them for each search of a study.
+- `pubmed-stream search` and the MCP tool `search_pmc` also report how many articles PubMed has, so you can see how much the PMC full texts leave out (`count_pubmed()`).
+- Citation export: `pubmed-stream export`, `export_citations()` and the MCP tool `export_citations` write the downloaded articles and abstracts as BibTeX or RIS, for Zotero, EndNote, Mendeley or LaTeX.
+- Stub notes in a knowledge graph show the paper's abstract, from PubMed.
+
+### Changed
+
+- pubmed-stream needs Python 3.9 or later. Python 3.8 no longer receives security updates, and pubmed-stream could not be installed from source on it.
+- The instructions `pubmed-stream init` writes tell assistants to save abstracts when PubMed has many more articles than PMC, and to say which articles they read only as abstracts.
+
 ## 0.3.3 - 2026-10-19
 
 ### Added

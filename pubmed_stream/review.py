@@ -26,7 +26,7 @@ from typing import Any, Dict, List, Optional, Sequence, Union
 
 import requests
 
-from .corpus import list_articles
+from .corpus import list_articles, select
 
 logger = logging.getLogger(__name__)
 
@@ -203,8 +203,7 @@ def review(
     """
     records = list_articles(path)
     if ids:
-        wanted = {str(i).strip().upper() for i in ids}
-        records = [r for r in records if str(r["pmid"]) in wanted or r["pmcid"].upper() in wanted]
+        records, _ = select(records, ids)
     else:
         records = records[:limit]
     records = [r for r in records if r["abstract"] and r["pmid"]]

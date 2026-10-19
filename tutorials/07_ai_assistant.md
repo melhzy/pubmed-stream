@@ -433,9 +433,11 @@ For readers who want to know what happens behind the scenes, or to use pubmed-st
 |---|---|---|
 | `pubmed-stream search QUERY --show 10` | `search_pmc` | Counts a search and lists its newest matches, without downloading |
 | `pubmed-stream download QUERY --max-results N --quiet` | `download` | Downloads the full texts into `publications/<search>/` |
+| `pubmed-stream abstracts QUERY --max-results N --quiet` | `fetch_abstracts` | Saves the PubMed abstracts of papers whose full text is not free, in the same folder |
 | `pubmed-stream list publications` | `list_articles` | One line per downloaded paper, newest first |
 | `pubmed-stream list publications --id PMID ... --abstracts` | `list_articles` | The abstracts of chosen papers |
 | `pubmed-stream list publications --cited` | `most_cited` | The works the downloaded papers cite most |
+| `pubmed-stream export publications -o review.bib` | `export_citations` | Citations for Zotero, EndNote or Mendeley, as BibTeX or RIS |
 | | `read_article` | Searches inside one paper's full text |
 | `pubmed-stream neighborhood PMID --quiet` | `neighborhood` | Similar, citing and cited papers of one paper, with retraction flags |
 | `pubmed-stream kg TOPIC -q QUERY --seed PMID --quiet` | `build_knowledge_graph` | Builds or updates a knowledge graph; `--refresh` adds new papers |
