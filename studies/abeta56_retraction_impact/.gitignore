@@ -1,0 +1,4 @@
+# built while reproducing the study; the frozen tables in data/ are kept
+workspace/
+fulltext/
+*.log

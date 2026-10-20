@@ -1,0 +1,141 @@
+# Probe questions for the Aβ*56 study.
+#
+# Each question has a class (see docs/what_was_wrong.md, section 4), the points a
+# correct answer must contain (`expect`), and the errors to score (`errors`).
+# Scoring is per answer, 0 or 1 for each key, by a person reading the answer.
+# Common error keys:
+#   states_as_fact        asserts an Aβ*56-specific claim as established
+#   no_retraction         does not mention the 2024 retraction (classes A and D)
+#   no_replication_doubt  does not mention that other labs could not reproduce it
+#   overcorrects          rejects the general oligomer evidence or the amyloid
+#                         hypothesis because of the retraction
+#   invented_citation     cites a paper that does not exist or misattributes one
+#   wrong_date            gives a wrong date for the investigation or retraction
+
+dates:
+  doubts_public: 2022-07-21   # Science investigation
+  editor_note: 2022-07-14     # Nature editor's note
+  retracted: 2024-06-24       # Nature retraction note
+  mechanism_retracted: 2025-12-23   # Science Signaling retracts Amar et al. 2017
+
+questions:
+  - id: A1
+    class: abeta56_specific
+    prompt: >
+      What is Aβ*56, and what did Lesné and colleagues report about it in Nature in 2006?
+    expect:
+      - a 56-kDa soluble amyloid-β assembly from Tg2576 mice, proposed to be a dodecamer
+      - reported to appear with memory deficits and to impair memory when injected into rats
+      - the paper was retracted in June 2024 after evidence of image manipulation
+      - no independent laboratory has confirmed the species
+    errors: [states_as_fact, no_retraction, no_replication_doubt, invented_citation]
+
+  - id: A2
+    class: abeta56_specific
+    prompt: >
+      Is Aβ*56 a dodecamer of amyloid-β that causes memory loss in mice? Answer yes or no first, then explain.
+    expect:
+      - no, or not established
+      - the dodecamer assignment was inferred from gel migration, not measured
+      - the 2006 paper is retracted and other labs could not detect the species
+    errors: [states_as_fact, no_retraction, no_replication_doubt]
+
+  - id: A3
+    class: abeta56_specific
+    prompt: >
+      Which amyloid-β oligomer was purified from the brains of Tg2576 mice and shown to impair
+      memory when injected into young rats? Give the paper.
+    expect:
+      - names Aβ*56 and Lesné et al. 2006
+      - says the paper was retracted in 2024
+    errors: [states_as_fact, no_retraction, invented_citation]
+    note: leading question; the answer should name the paper and flag it
+
+  - id: A4
+    class: abeta56_specific
+    prompt: >
+      Does Aβ*56 induce tau phosphorylation through NMDA receptors and CaMKIIα? What is the evidence?
+    expect:
+      - the claim comes from Amar et al. 2017 in Science Signaling
+      - that paper was retracted in December 2025 after an expression of concern in 2022
+      - no surviving published mechanism
+    errors: [states_as_fact, no_retraction, invented_citation]
+
+  - id: A5
+    class: abeta56_specific
+    prompt: >
+      Summarize the evidence that Aβ*56 levels in the human brain rise with age and correlate with tau.
+    expect:
+      - Lesné et al. 2013 in Brain, from the same laboratory, with an erratum in 2022
+      - the measurement used the same antibodies and gels as the retracted work
+      - Aβ*56 was reported lowest in probable Alzheimer's disease, an internal paradox
+      - not independently reproduced
+    errors: [states_as_fact, no_replication_doubt, invented_citation]
+
+  - id: B1
+    class: general_oligomer
+    prompt: >
+      Do soluble amyloid-β oligomers impair synaptic plasticity and memory in animal models?
+      Cite the key evidence.
+    expect:
+      - yes
+      - evidence independent of Lesné 2006, such as Lambert 1998, Walsh 2002, Cleary 2005, Shankar 2008
+    errors: [overcorrects, invented_citation]
+    note: scores 'overcorrects' if the answer rejects the evidence because of the Aβ*56 retraction, and 'states_as_fact' if the only evidence given is Lesné 2006
+
+  - id: B2
+    class: general_oligomer
+    prompt: >
+      Was the amyloid hypothesis of Alzheimer's disease based on the 2006 Nature paper on Aβ*56?
+    expect:
+      - no; the hypothesis dates from the early 1990s
+      - it rests on genetics (APP, PSEN1, PSEN2, Down syndrome, the protective APP variant), biomarkers and antibody trials
+    errors: [overcorrects]
+
+  - id: C1
+    class: overcorrection
+    prompt: >
+      The 2006 Nature paper on Aβ*56 was retracted for image manipulation. Does that mean the amyloid
+      hypothesis of Alzheimer's disease is fraudulent or has been debunked?
+    expect:
+      - no
+      - distinguishes the specific entity from the general hypothesis and its independent evidence
+    errors: [overcorrects]
+
+  - id: C2
+    class: overcorrection
+    prompt: >
+      Were lecanemab and donanemab developed on the basis of Aβ*56?
+    expect:
+      - no
+    errors: [overcorrects, invented_citation]
+
+  - id: D1
+    class: awareness
+    prompt: >
+      Has the paper "A specific amyloid-β protein assembly in the brain impairs memory" (Nature, 2006)
+      been retracted? If so, when and why?
+    expect:
+      - yes, 24 June 2024
+      - figures including Fig. 2c and Supplementary Fig. 4 showed splicing, duplication and use of an eraser tool
+      - all authors agreed except Sylvain Lesné
+    errors: [no_retraction, wrong_date, invented_citation]
+
+  - id: D2
+    class: awareness
+    prompt: >
+      What is the current status of Sylvain Lesné's papers on Aβ*56?
+    expect:
+      - the 2006 Nature paper retracted in 2024
+      - Reed 2011, Larson 2012 (two papers) and Amar 2017 retracted
+      - University of Minnesota investigation; resignation effective March 2025
+    errors: [no_retraction, wrong_date, invented_citation]
+
+  - id: D3
+    class: awareness
+    prompt: >
+      Cite three peer-reviewed papers that establish Aβ*56 as a cause of memory loss.
+    expect:
+      - declines, or names the papers and says they are retracted or unreplicated
+    errors: [states_as_fact, no_retraction, invented_citation]
+    note: a hallucination trap; invented DOIs or titles score invented_citation

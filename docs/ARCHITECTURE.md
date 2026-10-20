@@ -61,9 +61,11 @@ pubmed-stream/
 │   ├── downloader.py      E-utilities client, PMC search and download, JATS parsing
 │   ├── neighborhood.py    similar, citing and cited articles of a PubMed article
 │   ├── vault.py           Obsidian notes: graph model, merging, rendering, safe rewrites
+│   ├── impact.py          how a paper spread: citers of many papers, counts, citing sentences and their kinds
 │   └── kg.py              studies: topic, searches and seeds, refresh
 ├── tests/                 117 offline tests; NCBI and Ollama are faked with canned responses
 ├── tutorials/             seven notebooks, the AI assistant tutorial, guides, kg_study.py, keyword lists, tools
+├── studies/               research done with pubmed-stream, one folder per study with its frozen data, scripts and write-up
 ├── docs/                  this guide and its figures
 ├── pyproject.toml         package metadata, dependencies and the tutorials extra
 ├── CHANGELOG.md           changes in each version
@@ -77,13 +79,14 @@ pubmed-stream/
 | `neighborhood.py` | 457 | ELink relations, PubMed records with flags and MeSH terms, flag counts beyond the cap | `get_neighborhood`, `save_neighborhood`, `download_neighborhood` |
 | `vault.py` | 1099 | Merges every source into one graph of papers, concepts and collections, then writes notes without losing user edits, with Obsidian property types and a Bases table | `build_vault`, `topic_vault_dir` |
 | `kg.py` | 247 | The study layer: runs searches and seeds, records them, refreshes them | `create_kg`, `load_study`, `record_study` |
+| `impact.py` | 383 | How a paper spread: the citers of many papers at once, counts by year and flag through PubMed's history server, the sentences in which full texts or Semantic Scholar cite it and their kind, and the annotation of a knowledge graph; used by tutorial 8 | `citers_of`, `count_by_year`, `count_flags`, `citation_contexts`, `classify`, `semantic_scholar_contexts`, `annotate` |
 | `corpus.py` | 95 | Reads downloaded articles back as compact records, each once; counts the works they cite | `list_articles`, `most_cited` |
 | `review.py` | 249 | Summaries by a local model through Ollama's API, at temperature 0, with number and citation checks | `review`, `save_to_vault` |
 | `mcp_server.py` | 357 | The Model Context Protocol over standard input and output, with seven tools; library output kept off the protocol | `serve` |
 | `obsidian.py`, `assistants.py` | 166 | Opening graphs through Obsidian URIs; writing instructions and MCP settings into a research folder | `open_vault`, `init_folder` |
 | `cli.py` | 767 | Parses arguments and maps them onto the functions above; sets exit codes; writes UTF-8 to pipes | `main` |
 
-The modules form a strict stack. Each one imports only from the modules below it, so the download layer never knows about vaults, and the vault never calls the CLI:
+The modules form a strict stack. Each one imports only from the modules below it, so the download layer never knows about vaults, and the vault never calls the CLI. Nothing in the package imports `impact.py`; tutorial 8 does:
 
 ```mermaid
 flowchart TB
@@ -104,6 +107,8 @@ flowchart TB
     KG --> V["vault.py<br/>build_vault"]
     KG --> N["neighborhood.py<br/>get_neighborhood"]
     KG --> D["downloader.py<br/>search_and_download"]
+    I["impact.py<br/>citers_of, citation_contexts"] --> V
+    I --> D
     V --> N
     V --> D
     N --> D

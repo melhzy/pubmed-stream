@@ -1,12 +1,8 @@
-"""Offline tests of tutorial 8's helpers, tutorials/citation_impact.py."""
+"""Offline tests of pubmed_stream.impact."""
 
 import json
-import sys
-from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tutorials"))
-
-import citation_impact as ci  # noqa: E402
+from pubmed_stream import impact as ci
 
 ARTICLE = """<article><front><article-meta><article-id pub-id-type="pmcid">PMC1</article-id></article-meta></front>
 <body>

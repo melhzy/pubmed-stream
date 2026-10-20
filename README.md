@@ -121,6 +121,8 @@ The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/mai
 | 7 | [Your literature search with an AI assistant](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) | For medical students and biologists: install Claude Code or Codex, choose a model, ask in plain English, check the evidence, keep it in Obsidian, or use a local model through Ollama |
 | 8 | [Measuring the impact of a retracted paper](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/08_retraction_impact.ipynb) | Follow the retracted 2006 *Nature* paper on Aβ\*56 through the papers citing it and the papers citing those: when and how they cite it, who still cites it after the retraction, and a knowledge graph of its impact |
 
+**Studies.** Research done with pubmed-stream lives in [`studies/`](https://github.com/melhzy/pubmed-stream/tree/main/studies), one folder per study with its frozen data, scripts and write-up. The first, [`studies/abeta56_retraction_impact`](https://github.com/melhzy/pubmed-stream/tree/main/studies/abeta56_retraction_impact), continues tutorial 8: the citing papers of the retracted Aβ\*56 paper and the 44,957 papers citing those, frozen as tables; a sourced account of what the paper claimed and exactly what was wrong; counts of the claim and its correction in two open language-model training corpora; and a set of probe questions for models, with the first answers.
+
 Five short guides support them:
 
 | Guide | For |
@@ -556,6 +558,8 @@ for pmc_id in ids:
     ok, status = efetch_pmc(pmc_id, Path("downloads"), "both", None, session, limiter)   # success, unavailable, exists or error
 ```
 
+How a paper spread through the literature is measured by a module of its own, `from pubmed_stream import impact`. `impact.citers_of(pmids)` asks PubMed for the articles citing each of many papers at once, `impact.count_by_year(pmids, first, last)` and `impact.count_flags(pmids)` count them by year, or as reviews, retracted or NIH-funded, without downloading their records, and `impact.corrections(pmid)` lists a paper's retraction notice, errata and comments. `impact.citation_contexts(folder, pmid, doi)` finds the sentence in which each downloaded full text cites the paper, `impact.semantic_scholar_contexts(pmid)` adds the sentences Semantic Scholar has for papers whose full text is not free, and `impact.classify(sentences)` sorts them: discussing the retraction or doubts about the paper, naming its finding, or citing it in general. `impact.annotate(kg_dir, properties)` writes the results into the notes of a knowledge graph. [Tutorial 8](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/08_retraction_impact.ipynb) follows a retracted paper through two hops of citing papers with them.
+
 ## Troubleshooting
 
 | Symptom | Cause and fix |
@@ -607,6 +611,7 @@ pubmed-stream/
 ├── tutorials/          seven notebooks, the AI assistant tutorial and instructions, guides, kg_study.py, keyword lists, tools
 ├── docs/               the architecture guide and its figures
 ├── pyproject.toml      package metadata and dependencies
+├── studies/            research done with pubmed-stream, with its frozen data; see studies/README.md
 ├── CHANGELOG.md        changes in each version
 ├── CITATION.cff        how to cite pubmed-stream
 └── LICENSE             MIT
