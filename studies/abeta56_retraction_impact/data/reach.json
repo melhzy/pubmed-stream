@@ -1,0 +1,11 @@
+{
+  "seed": "16541076",
+  "fetched": "2026-10-20",
+  "first_step": 1240,
+  "second_step": 44957,
+  "field": "Alzheimer Disease",
+  "field_papers_since_first_year": 107315,
+  "field_papers_within_two_steps": 15050,
+  "share_of_field": 0.1402,
+  "note": "PubMed citation links only; the second step is an upper bound on influence, not a measure of harm."
+}

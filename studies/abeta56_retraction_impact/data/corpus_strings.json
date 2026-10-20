@@ -1,0 +1,109 @@
+{
+  "measured": "2026-10-20",
+  "indexes": {
+    "dolma_v1_7": "v4_dolma-v1_7_llama",
+    "pile_train": "v4_piletrain_llama"
+  },
+  "counts": {
+    "dolma_v1_7": {
+      "Aβ*56": {
+        "kind": "claim",
+        "count": 1960
+      },
+      "Abeta*56": {
+        "kind": "claim",
+        "count": 80
+      },
+      "Aβ star 56": {
+        "kind": "claim",
+        "count": 4
+      },
+      "Aβ*56 impairs memory": {
+        "kind": "claim",
+        "count": 7
+      },
+      "56-kDa soluble": {
+        "kind": "claim",
+        "count": 26
+      },
+      "Lesné": {
+        "kind": "claim",
+        "count": 2477
+      },
+      "Lesné retracted": {
+        "kind": "correction",
+        "count": 0
+      },
+      "Aβ*56 retracted": {
+        "kind": "correction",
+        "count": 0
+      },
+      "Aβ*56 artifact": {
+        "kind": "correction",
+        "count": 0
+      },
+      "Lesné image manipulation": {
+        "kind": "correction",
+        "count": 0
+      },
+      "Blots on a field": {
+        "kind": "correction",
+        "count": 12
+      },
+      "Aβ*56 could not be replicated": {
+        "kind": "correction",
+        "count": 0
+      }
+    },
+    "pile_train": {
+      "Aβ*56": {
+        "kind": "claim",
+        "count": 85
+      },
+      "Abeta*56": {
+        "kind": "claim",
+        "count": 15
+      },
+      "Aβ star 56": {
+        "kind": "claim",
+        "count": 0
+      },
+      "Aβ*56 impairs memory": {
+        "kind": "claim",
+        "count": 0
+      },
+      "56-kDa soluble": {
+        "kind": "claim",
+        "count": 10
+      },
+      "Lesné": {
+        "kind": "claim",
+        "count": 272
+      },
+      "Lesné retracted": {
+        "kind": "correction",
+        "count": 0
+      },
+      "Aβ*56 retracted": {
+        "kind": "correction",
+        "count": 0
+      },
+      "Aβ*56 artifact": {
+        "kind": "correction",
+        "count": 0
+      },
+      "Lesné image manipulation": {
+        "kind": "correction",
+        "count": 0
+      },
+      "Blots on a field": {
+        "kind": "correction",
+        "count": 0
+      },
+      "Aβ*56 could not be replicated": {
+        "kind": "correction",
+        "count": 0
+      }
+    }
+  }
+}

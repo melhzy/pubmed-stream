@@ -2,6 +2,16 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
+## Unreleased
+
+### Added
+
+- A `studies/` folder for research done with pubmed-stream, kept with its frozen data so its numbers can be checked and the study rerun. The first, `studies/abeta56_retraction_impact`, continues tutorial 8: the 1,240 papers citing the retracted 2006 *Nature* paper on Aβ\*56 and the 44,957 papers citing those, frozen as tables with the kind of citation and the citing sentence; a sourced account of what the paper claimed, exactly what was wrong and what the retraction does not overturn; infini-gram counts of the claim and its correction in Dolma and The Pile; twelve probe questions for language models with a runner for Ollama models and the installed assistants; and a web page (`index.html`, a React application with its stylesheet and a data file built from the study's files) with the citing papers searchable by the sentence in which they cite the paper.
+
+### Changed
+
+- Tutorial 8's helpers are now part of pubmed-stream, as `pubmed_stream.impact`: `from pubmed_stream import impact` gives the citing papers of many papers at once, counts by year and flag, the sentences in which full texts or Semantic Scholar cite a paper, their classification, and the annotation of a knowledge graph, without the tutorials folder on the path. The notebook and the tests import the module from the package; `tutorials/citation_impact.py` remains as a shim that imports everything from it, so older copies of the notebook still run.
+
 ## 0.4.1 - 2026-10-19
 
 ### Added

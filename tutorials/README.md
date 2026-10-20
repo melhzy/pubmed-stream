@@ -24,7 +24,7 @@ Click **Open in Colab** to run it in your browser, with nothing to install. To r
 
 ## Learn each step in depth
 
-Tutorial 0 uses every part of pubmed-stream once. Tutorials 1 to 6 take one step each, with more detail and more charts, tutorial 7 hands the whole search to an AI assistant, and tutorial 8 puts the steps together to measure one paper's impact. They are saved with their results, so you can also just read them on GitHub.
+Tutorial 0 uses every part of pubmed-stream once. Tutorials 1 to 6 take one step each, with more detail and more charts, tutorial 7 hands the whole search to an AI assistant, and tutorial 8 puts the steps together to measure one paper's impact. Tutorial 8's question continues as a study, with frozen data and probes of what language models say, in [`studies/abeta56_retraction_impact`](../studies/abeta56_retraction_impact/). They are saved with their results, so you can also just read them on GitHub.
 
 | # | Tutorial | You will learn to | Run |
 |---|----------|-------------------|-----|
@@ -56,7 +56,7 @@ Setting the `NCBI_API_KEY` environment variable makes every notebook about three
 | [`tutorial_utils.py`](tutorial_utils.py) | Helpers the notebooks share: chart style and colours, `read_kg`, which reads a knowledge graph's notes into Python, and Colab support |
 | [`keywords/`](keywords/) | Keyword lists from real projects, with categories, priorities and rationales; tutorial 3 uses one |
 | [`knowledge_graphs/`](knowledge_graphs/README.md) | Knowledge graphs saved from the tutorials' runs, to open in Obsidian without running anything; tutorial 8's graph of the retracted Aβ\*56 paper is there |
-| [`citation_impact.py`](citation_impact.py) | Tutorial 8's helpers: the citing papers of many papers at once, counts by year and flag, the sentences that cite a paper in full text, and their classification |
+| [`pubmed_stream.impact`](../pubmed_stream/impact.py) | Tutorial 8's helpers, now part of pubmed-stream: the citing papers of many papers at once, counts by year and flag, the sentences that cite a paper in full text or from Semantic Scholar, their classification, and annotating a knowledge graph; `citation_impact.py` is kept only so older copies of the notebook still run |
 | [`impact_charts.py`](impact_charts.py) | Tutorial 8's charts: each states its finding in the title and says how to read it, so a chart can be pasted into a report as it is |
 | [`tools/session_figures.py`](tools/session_figures.py) | Charts a research folder's session: searches, papers by year, most cited works, kinds of evidence, the key paper's neighborhood; tutorial 7 shows them |
 | [`tools/manage_text_field.py`](tools/manage_text_field.py) | Add, remove or check the `text` field of downloaded files, to save space or restore it from the XML |

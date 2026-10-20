@@ -1,7 +1,7 @@
 """Build the documentation site from the repository's own files.
 
 MkDocs reads pages from one folder, but pubmed-stream's documentation lives
-where GitHub shows it: the README, tutorials/, docs/ and the changelog.  These
+where GitHub shows it: the README, tutorials/, studies/, docs/ and the changelog.  These
 hooks add those files to the site in place, so nothing is copied or kept twice,
 and fix the links that only work on GitHub:
 
@@ -26,8 +26,13 @@ BLOB, TREE = f"{REPO}/blob/main/", f"{REPO}/tree/main/"
 
 # Repository files that become the site, by glob; the README is the home page
 SOURCES = ["CHANGELOG.md", "docs/ARCHITECTURE.md", "docs/figures/*.png", "tutorials/*.md",
-           "tutorials/*.ipynb", "tutorials/guides/*.md", "tutorials/guides/images/*.png"]
+           "tutorials/*.ipynb", "tutorials/guides/*.md", "tutorials/guides/images/*.png",
+           "studies/README.md", "studies/*/README.md", "studies/*/docs/*.md", "studies/*/data/README.md",
+           "studies/*/index.html", "studies/*/app.js", "studies/*/styles.css", "studies/*/data.js"]
 HOME = "index.md"
+# A study's web page, index.html, is served at the study's own address, so its README becomes about.md
+STUDY_README = re.compile(r"^(studies/[^/]+)/README\.md$")
+STUDY_ABOUT = re.compile(r"^(studies/[^/]+)/about\.md$")
 
 LINK = re.compile(r"(\]\()([^)\s]+)(\))")
 ALERT = re.compile(r"^> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\n((?:>.*\n?)*)", re.MULTILINE)
@@ -37,16 +42,25 @@ ALERT_KIND = {"NOTE": "note", "TIP": "tip", "IMPORTANT": "important", "WARNING":
 
 def _site_path(repo_path):
     """Where a repository file is on the site, or None when it is not part of it."""
+    repo_path = repo_path.rstrip("/")
     if repo_path == "README.md":
         return HOME
-    if repo_path == "tutorials" or repo_path == "tutorials/":
-        return "tutorials/README.md"
+    if repo_path in ("tutorials", "studies"):
+        return repo_path + "/README.md"
+    study = STUDY_README.match(repo_path)
+    if study:
+        return study.group(1) + "/about.md"
+    if repo_path.startswith("studies/") and (ROOT / repo_path / "index.html").is_file():
+        return repo_path + "/index.html"   # a link to a study's folder opens its page
     return repo_path if (ROOT / repo_path).is_file() and any(
         Path(repo_path).match(g) for g in SOURCES) else None
 
 
 def _repo_path(src_uri):
-    return "README.md" if src_uri == HOME else src_uri
+    if src_uri == HOME:
+        return "README.md"
+    about = STUDY_ABOUT.match(src_uri)
+    return about.group(1) + "/README.md" if about else src_uri
 
 
 @event_priority(100)   # before mkdocs-jupyter, which turns the notebooks into pages
@@ -56,8 +70,13 @@ def on_files(files, config):
     files.append(readme)
     for pattern in SOURCES:
         for path in sorted(ROOT.glob(pattern)):
-            files.append(File(path.relative_to(ROOT).as_posix(), str(ROOT), config.site_dir,
-                              config.use_directory_urls))
+            repo_path = path.relative_to(ROOT).as_posix()
+            if STUDY_README.match(repo_path):
+                about = File.generated(config, _site_path(repo_path), abs_src_path=str(path))
+                about.edit_uri = repo_path
+                files.append(about)
+            else:
+                files.append(File(repo_path, str(ROOT), config.site_dir, config.use_directory_urls))
     return files
 
 
