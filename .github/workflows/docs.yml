@@ -11,6 +11,7 @@ on:
       - mkdocs.yml
       - docs/**
       - tutorials/**
+      - studies/**
       - .github/workflows/docs.yml
   pull_request:
     paths:
