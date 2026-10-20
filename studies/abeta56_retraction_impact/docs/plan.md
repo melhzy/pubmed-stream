@@ -70,6 +70,6 @@ Counts are of exact token sequences under the Llama-2 tokenizer, so paraphrases 
 | Freeze the citing papers from tutorial 8's saved graph | `scripts/freeze_from_kg.py` | Done, snapshot of 19 October 2026 |
 | Fetch the second step and size the field | `scripts/fetch_hop2.py` | See `data/reach.json` |
 | String counts in Dolma and The Pile | `scripts/corpus_membership.py --strings` | Done, 20 October 2026 |
-| PMC Open Access membership of the citing papers | `scripts/corpus_membership.py --membership` | See `data/corpus_membership_summary.json` |
+| PMC Open Access membership of the citing papers | `scripts/corpus_membership.py --membership` | Done, 20 October 2026: 535 of 1,240 and 29,875 of 44,957 in the Open Access subset |
 | Model probes | `scripts/probe_models.py`, `probes/questions.yaml` | Runner tested on gpt-oss:20b (two questions: both answered with confident fabrications and no retraction); full run not started |
 | Analysis notebooks and figures | `notebooks/` | Not started |

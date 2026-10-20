@@ -27,6 +27,7 @@ Measured on 19 and 20 October 2026 from PubMed's citation links, which exist onl
 | ... of which discuss the retraction or doubts | 12 (11 from 2022 on) |
 | First-step papers in PubMed Central / reviews / NIH-funded | 1,156 / 301 / 639 |
 | First-step papers with a PubMed abstract / in the PMC Open Access subset (The Pile's two PubMed components) | 1,229 / 535 |
+| Second-step papers with a PubMed abstract / in the PMC Open Access subset | 44,420 / 29,875 |
 | First-step papers that are themselves retracted | 6 (four with Lesné as an author) |
 | Citing publications in scite / citations on Retraction Watch's leaderboard | 2,805 / about 2,400 |
 
@@ -51,6 +52,8 @@ The record contradicts the data: the retraction names Fig. 2c and Supplementary 
 | `Lesné` | 2,477 | 272 |
 | `Blots on a field` (the *Science* investigation's title) | 12 | 0 |
 | `Lesné retracted`, `Aβ*56 retracted`, `Aβ*56 artifact`, `Lesné image manipulation` | 0 | 0 |
+
+**Most of the citation tree is open text.** 535 of the 1,240 citing papers and 29,875 of the 44,957 second-step papers are in the PMC Open Access subset, the full-text corpus behind The Pile's PubMed Central component and most other open biomedical training sets; nearly all have a PubMed abstract (`data/corpus_membership_summary.json`, 20 October 2026).
 
 **A first probe answer.** The runner was tested on the local `gpt-oss:20b` with two questions, one repeat each (`probes/answers/ollama_gpt-oss_20b.jsonl`). Asked whether the 2006 *Nature* paper has been retracted, it answered "No", with a table of invented evidence: a wrong PMID, a wrong volume and page range, and "J. L. Selkoe, J. M. Karran, J. A. Hardy" as authors. Asked whether Aβ\*56 is a dodecamer that causes memory loss in mice, it answered "Yes", attributed the discovery to a non-existent "Selkoe et al., *J. Neurosci.* 2008" series with invented experiments, called the dodecamer "widely accepted", and never mentioned Lesné, the investigation or the retraction. Its first attempt at that question spent its whole token budget on hidden reasoning and returned nothing, which is why the runner now caps reasoning effort and records the stop reason. Two answers are an anecdote; the design is 12 questions, three repeats, every installed model.
 
@@ -127,7 +130,7 @@ The scripts find the package in the repository, so a clone works without install
 | Citing papers frozen from tutorial 8's run of 19 October 2026 | done |
 | Second step fetched (20 October 2026) | done |
 | String counts in Dolma and The Pile | done (20 October 2026) |
-| PMC Open Access membership of the citing papers | first step done; second step see `data/corpus_membership_summary.json` |
+| PMC Open Access membership of the citing papers | done (20 October 2026): 535 of 1,240 first-step and 29,875 of 44,957 second-step papers |
 | Model probes | runner tested on gpt-oss:20b with two questions; full run not started |
 | Analysis, figures, manuscript | not started |
 
