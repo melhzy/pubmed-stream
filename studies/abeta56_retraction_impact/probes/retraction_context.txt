@@ -1,0 +1,10 @@
+Evidence note for this comparison:
+
+Lesné et al., "A specific amyloid-beta protein assembly in the brain impairs memory", Nature 440, 352-357 (2006), DOI 10.1038/nature04533, was retracted on 24 June 2024. The notice reports manipulated images and data that could not be verified from the records. The retracted experiments should not be presented as reliable evidence establishing Aβ*56's proposed structure or causal role. This does not prove that every possible 56-kDa assembly is nonexistent.
+Source: https://doi.org/10.1038/s41586-024-07691-8
+
+The retraction concerns this particular paper. It does not, by itself, invalidate independent research on other soluble amyloid-beta oligomers or the entire amyloid hypothesis. For example, Walsh et al. (2002) studied inhibition of hippocampal long-term potentiation by naturally secreted oligomers; Shankar et al. (2008) studied amyloid-beta dimers isolated from human brains. These are distinct lines of evidence, not confirmations of Aβ*56's proposed dodecameric structure.
+Sources: https://doi.org/10.1038/416535a ; https://doi.org/10.1038/nm1782
+
+Liu et al., "Aβ*56 is a stable oligomer that impairs memory function in mice", iScience 27, 109239 (2024), reports further experiments and includes Karen Ashe, a coauthor of the 2006 paper. It must be assessed on its own evidence and editorial status. A retraction of the 2006 paper does not automatically retract this later paper, and an overlapping research group is not an independent replication. The later paper does not repair the unverifiable records of the retracted experiments.
+Source: https://doi.org/10.1016/j.isci.2024.109239

@@ -1,0 +1,51 @@
+{
+  "started_at": "2026-10-20T21:41:43.724609+00:00",
+  "study": "abeta56_retraction_impact",
+  "experiment": "context_control_only",
+  "weight_updates": false,
+  "model": {
+    "name": "gpt-oss:20b",
+    "model": "gpt-oss:20b",
+    "modified_at": "2026-05-28T13:59:05.129-04:00",
+    "size": 13793441244,
+    "digest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "gptoss",
+      "families": [
+        "gptoss"
+      ],
+      "parameter_size": "20.9B",
+      "quantization_level": "MXFP4"
+    }
+  },
+  "ollama": {
+    "version": "0.24.0"
+  },
+  "seed": 17,
+  "temperature": 0.0,
+  "think": "low",
+  "num_predict": 4096,
+  "timeout_seconds": 300,
+  "questions_sha256": "c3c8e183e6e0a5876f2a72e577782e17945cdc69ed31856b3c7803e60078ce67",
+  "context_sha256": "e00856f789c2dd0988732d8a29598d3227245e744f49a1654e4e705c684e034b",
+  "as_of": "2026-10-20",
+  "question_ids": [
+    "P1",
+    "P2",
+    "P3",
+    "P4",
+    "P5",
+    "P6",
+    "P7",
+    "P8"
+  ],
+  "conditions": [
+    "baseline",
+    "evidence_context"
+  ],
+  "note": "Exploratory development probes; no statistical independence claimed.",
+  "completed_at": "2026-10-20T21:43:18.418932+00:00",
+  "invalid_answers": 0
+}

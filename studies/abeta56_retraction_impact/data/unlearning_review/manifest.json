@@ -1,0 +1,26 @@
+{
+  "purpose": "triage_only_not_training_data",
+  "seed_pmid": "16541076",
+  "input_sha256": {
+    "citing_papers.csv": "1a62874886d3d31bcc31364afc46d894aa9e7d355fb7e9f95c808cabd07d06a1",
+    "kg_snapshot_papers.csv": "e21984669a17803311be716d4bbe0687160f814d182f7c4f1d9fcb58114df15f"
+  },
+  "rows": 1241,
+  "queues": {
+    "correction_or_criticism_review": 12,
+    "general_citation_review": 630,
+    "missing_context_review": 361,
+    "seed_paper_review": 1,
+    "specific_claim_review": 237
+  },
+  "additional_specific_candidates_from_general": 57,
+  "excerpts_may_be_shortened": 322,
+  "approved_forget_examples": 0,
+  "warnings": [
+    "Citation reach is not claim endorsement or causal influence on a model.",
+    "Original excerpts were shortened to 400 characters and may join separate sentences.",
+    "Retrieve full context and verify editorial status before adjudication.",
+    "An unretracted supporting paper is not invalid just because it cites a retracted paper.",
+    "No second-hop paper is assigned a forget label by graph distance."
+  ]
+}

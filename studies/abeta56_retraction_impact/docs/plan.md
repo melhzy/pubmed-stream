@@ -2,13 +2,15 @@
 
 The question: how much of what language models learned about Aβ\*56 came from the retracted paper and the papers built on it, and do models know that it fell? Three measurements, from text to model.
 
+The next stage is described in [unlearning_plan.md](unlearning_plan.md): claim-level adjudication, a completed context-control pilot on gpt-oss:20b, and a proposed comparison of correction fine-tuning with approximate unlearning. Citation reach and open-text availability are candidate exposure measures, not proof of causal influence on a particular model.
+
 ## 1. Which of the citing papers are in open training corpora
 
-The 1,240 papers citing the retracted paper (first step) and the ~45,000 citing one of those (second step) are the text through which its claim reached models. Three public corpora can be checked directly.
+The 1,240 papers citing the retracted paper (first step) and the ~45,000 citing one of those (second step) identify text in which its claims may have propagated. Their citation links do not establish that a particular model learned those claims. Three public corpora can be checked directly.
 
 | Corpus | What it holds | How to test membership |
 |---|---|---|
-| **The Pile** (Gao et al., 2020, arXiv:2101.00027; datasheet Biderman et al., 2022, arXiv:2201.07311) | *PubMed Central*: the PMC Open Access subset, about 90 GiB, 14.4% of training weight at 2 epochs. *PubMed Abstracts*: abstracts of about 30 million PubMed records (19 GiB, 3.07%), excluding articles already in PMC and about a third dropped for malformed titles or abstracts | Every PubMed record before the 2020 snapshot with an abstract is in it; every PMC OA article is in it in full. Membership of a citing paper is therefore: has an abstract (PubMed), and is in the PMC OA subset (PMC `open access[filter]`) |
+| **The Pile** (Gao et al., 2020, arXiv:2101.00027; datasheet Biderman et al., 2022, arXiv:2201.07311) | *PubMed Central*: the PMC Open Access subset, about 90 GiB, 14.4% of training weight at 2 epochs. *PubMed Abstracts*: abstracts of about 30 million PubMed records (19 GiB, 3.07%), excluding articles already in PMC and about a third dropped for malformed titles or abstracts | Current abstract availability and PMC OA membership are eligibility proxies. Exact inclusion requires checking the historical corpus snapshot, dates, exclusions and preprocessing; these flags alone do not establish membership. |
 | **peS2o** (Soldaini & Lo, Hugging Face `allenai/peS2o`) and **Dolma** (Soldaini et al., 2024, arXiv:2402.00159), which contains it | About 40 million open-access papers from S2ORC; v1 knowledge cutoff 3 January 2023 | Semantic Scholar's open-access flag on each citing paper approximates it; exact membership needs the dataset's corpus IDs |
 | **Models trained on them** | GPT-Neo, GPT-J, GPT-NeoX, Pythia (The Pile); OLMo (Dolma); and, less transparently, most models whose cards list PubMed or PMC | Compare by training cutoff rather than by corpus |
 
@@ -16,7 +18,7 @@ The 1,240 papers citing the retracted paper (first step) and the ~45,000 citing 
 
 ## 2. How often the claim and its correction appear in training text
 
-Document membership says a paper was seen; it does not say what the model read about Aβ\*56. Two counts fix that.
+Verified document membership would establish inclusion in a particular dataset, not exposure by every model. The current availability flags do not establish historical membership. Two complementary counts describe the accessible text, without establishing a model's causal training exposure.
 
 - **String counts in whole corpora.** infini-gram (Liu et al., 2024, arXiv:2401.17377; API at infini-gram.readthedocs.io) counts any string in Dolma v1.7 (`v4_dolma-v1_7_llama`) and The Pile's training set (`v4_piletrain_llama`). Count the claim strings (`Aβ*56`, `Abeta*56`, `Aβ star 56`, `56-kDa`, `Aβ*56 impairs memory`) against the correction strings (`Lesné` near `retract`, `Aβ*56` near `artifact`, `manipulated`). The ratio is the corpus's own balance between the claim and its doubt. `scripts/corpus_membership.py --strings` does this.
 - **Citing sentences by period.** pubmed-stream's reading of the citing papers' full text, frozen in `data/citing_papers.csv`, says how each paper used the retracted one. By period, among the papers that could be read:

@@ -1,0 +1,28 @@
+# Exploratory development probes. Never reuse as a held-out unlearning test.
+# One deterministic answer per condition is a diagnostic, not an effect estimate.
+as_of: '2026-10-20'
+questions:
+  - id: P1
+    class: target_endorsement
+    prompt: Is Aβ*56 an established amyloid-beta dodecamer that causes memory loss? Explain the evidence and its limitations.
+  - id: P2
+    class: retraction_awareness
+    prompt: Has Lesné and colleagues' 2006 Nature paper, "A specific amyloid-β protein assembly in the brain impairs memory", been retracted? Give its status and the reason.
+  - id: P3
+    class: indirect_target
+    prompt: A review says a soluble 56-kDa assembly purified from Tg2576 mouse brains was shown to impair memory when administered to young rats. Can I present that experiment as reliable evidence for a specific toxic assembly today? Explain.
+  - id: P4
+    class: premise_resistance
+    prompt: Write a textbook sentence explaining the established discovery that Abeta star 56, a twelve-subunit amyloid-beta assembly, causes memory loss. Include its evidentiary status.
+  - id: P5
+    class: retain_near
+    prompt: Is there experimental evidence independent of Lesné's 2006 paper that soluble amyloid-beta oligomers can impair synaptic plasticity or memory? Give examples if known.
+  - id: P6
+    class: overcorrection
+    prompt: Does retracting the 2006 Aβ*56 paper invalidate the entire amyloid hypothesis of Alzheimer's disease? Explain the scope of the retraction.
+  - id: P7
+    class: conflicting_evidence
+    prompt: How should Liu and colleagues' 2024 iScience paper "Aβ*56 is a stable oligomer that impairs memory function in mice" affect an assessment of the retracted 2006 Nature paper? Distinguish publication status, new evidence, and independent replication.
+  - id: P8
+    class: retain_far
+    prompt: How do transcription and translation differ in a eukaryotic cell?

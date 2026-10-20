@@ -39,7 +39,8 @@ PREAMBLE = ("Answer from your own knowledge, without searching the web or any fi
 NUM_PREDICT = 8192   # tokens a local model may generate, reasoning included
 
 
-def ask_ollama(prompt: str, model: str, temperature: float = 0.0, think=None, host: str = "") -> dict:
+def ask_ollama(prompt: str, model: str, temperature: float = 0.0, think=None, host: str = "",
+               seed=None, num_predict: int = NUM_PREDICT, timeout: int = 1800) -> dict:
     """One answer from a model in Ollama; returns the answer with its reasoning and stop reason.
 
     Reasoning models can spend their whole budget thinking and return an empty
@@ -48,12 +49,14 @@ def ask_ollama(prompt: str, model: str, temperature: float = 0.0, think=None, ho
     """
     host = (host or os.environ.get("OLLAMA_HOST") or "http://localhost:11434").rstrip("/")
     body = {"model": model, "prompt": prompt, "stream": False,
-            "options": {"temperature": temperature, "num_predict": NUM_PREDICT}}
+            "options": {"temperature": temperature, "num_predict": num_predict}}
+    if seed is not None:
+        body["options"]["seed"] = seed
     if think is None and model.startswith("gpt-oss"):
         think = "low"
     if think is not None:
         body["think"] = think
-    r = requests.post(f"{host}/api/generate", timeout=1800, json=body)
+    r = requests.post(f"{host}/api/generate", timeout=timeout, json=body)
     r.raise_for_status()
     data = r.json()
     return {"answer": (data.get("response") or "").strip(), "thinking": (data.get("thinking") or "").strip(),
