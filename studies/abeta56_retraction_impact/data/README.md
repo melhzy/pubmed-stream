@@ -11,7 +11,7 @@ All tables derive from PubMed and PubMed Central records through NCBI's E-utilit
 | `hop2_by_year.csv` | same | 20 Oct 2026 | Second-step papers by publication year; the current year is incomplete |
 | `hop2_flags.json` | same | 20 Oct 2026 | Second-step counts: reviews, retracted, NIH-funded, in PubMed Central |
 | `reach.json` | same | 20 Oct 2026 | The headline counts and the share of Alzheimer's disease papers (MeSH) since 2006 within two steps |
-| `corpus_membership.csv`, `corpus_membership_summary.json` | `scripts/corpus_membership.py` | when run | Per paper: in PubMed Central, in the PMC Open Access subset; per hop: with abstract |
-| `corpus_strings.json` | same | when run | infini-gram counts of claim and correction strings in Dolma v1.7 and The Pile |
+| `corpus_membership.csv`, `corpus_membership_summary.json` | `scripts/corpus_membership.py` | 20 Oct 2026 | Per paper: in PubMed Central, in the PMC Open Access subset; per hop: with abstract |
+| `corpus_strings.json` | same | 20 Oct 2026 | infini-gram counts of claim and correction strings in Dolma v1.7 and The Pile |
 
 The `has_full_text` column of the two CSVs is always false: the saved graph holds stub notes (metadata only), not full texts. `pmcid` says whether PubMed Central has the article.

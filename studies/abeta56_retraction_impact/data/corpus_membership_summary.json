@@ -1,0 +1,15 @@
+{
+  "measured": "2026-10-20",
+  "hop1": {
+    "papers": 1240,
+    "with_abstract": 1229,
+    "in_pmc": 1156,
+    "in_pmc_open_access": 535
+  },
+  "hop2": {
+    "papers": 44957,
+    "with_abstract": 44420,
+    "in_pmc": 41778,
+    "in_pmc_open_access": 29875
+  }
+}
