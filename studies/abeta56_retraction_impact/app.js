@@ -7,6 +7,9 @@
   const { useState, useEffect, useLayoutEffect, useMemo, useRef } = React;
   const h = React.createElement;
   const DATA = window.STUDY_DATA;
+  // Where the page is published, for the links back to the documentation site; the page itself also opens from disk
+  const SITE = "https://melhzy.github.io/pubmed-stream/";
+  const STUDY_URL = SITE + "studies/abeta56_retraction_impact/";
 
   /* ---------- shared helpers ---------- */
   const VIEWS = [
@@ -402,8 +405,15 @@
     const body = { overview: Overview, reach: Reach, citations: Citations, wrong: Wrong, footprint: Footprint, probes: Probes, data: DataView }[view];
     return h(React.Fragment, null,
       h("header", { className: "top" },
+        h("div", { className: "top-bar" },
+          h("nav", { className: "crumbs", "aria-label": "Breadcrumb" },
+            h("a", { href: SITE }, "pubmed-stream"), h("span", { className: "sep", "aria-hidden": "true" }, "›"),
+            h("a", { href: SITE + "studies/index.html" }, "Studies")),
+          h("div", { className: "top-links" },
+            h("a", { href: STUDY_URL + "about.html" }, "About this study"),
+            h("a", { href: DATA.github_base, target: "_blank", rel: "noopener" }, "GitHub"))),
         h("div", { className: "top-inner" }, h("h1", null, "Aβ*56 retraction impact"),
-          h("p", { className: "sub" }, "Lesné et al., ", h("em", null, "Nature"), " 440:352 (2006), PMID 16541076, retracted 24 June 2024. A study in pubmed-stream.")),
+          h("p", { className: "sub" }, "Lesné et al., ", h("em", null, "Nature"), " 440:352 (2006), PMID 16541076, retracted 24 June 2024. A study in ", h("a", { href: SITE }, "pubmed-stream"), ".")),
         h("nav", { className: "tabs", "aria-label": "Views" }, VIEWS.map(([k, label]) => h("a", {
           key: k, href: "#" + k, "aria-current": view === k ? "page" : undefined,
           onClick: e => { e.preventDefault(); select(k); },

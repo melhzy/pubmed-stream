@@ -10,6 +10,7 @@ Notable changes to pubmed-stream. Versions follow [semantic versioning](https://
 
 ### Changed
 
+- The Aβ\*56 study page is easier to find. The README, the studies index and the study's own README link to it at the top, the study README with a screenshot; the documentation site names it in the navigation and opens the study's About page with a button to it; the page's header links back to the site, the About page and the folder on GitHub; and the page carries a description, a preview image and an icon for links shared elsewhere.
 - Tutorial 8's helpers are now part of pubmed-stream, as `pubmed_stream.impact`: `from pubmed_stream import impact` gives the citing papers of many papers at once, counts by year and flag, the sentences in which full texts or Semantic Scholar cite a paper, their classification, and the annotation of a knowledge graph, without the tutorials folder on the path. The notebook and the tests import the module from the package; `tutorials/citation_impact.py` remains as a shim that imports everything from it, so older copies of the notebook still run.
 
 ## 0.4.1 - 2026-10-19

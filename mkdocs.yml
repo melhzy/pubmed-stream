@@ -36,7 +36,7 @@ nav:
   - Studies:
       - Research done with pubmed-stream: studies/README.md
       - Aβ*56 retraction impact:
-          - Open the study's page: https://melhzy.github.io/pubmed-stream/studies/abeta56_retraction_impact/index.html
+          - The study page, interactive: https://melhzy.github.io/pubmed-stream/studies/abeta56_retraction_impact/
           - About the study: studies/abeta56_retraction_impact/about.md
           - What was wrong: studies/abeta56_retraction_impact/docs/what_was_wrong.md
           - The measurement plan: studies/abeta56_retraction_impact/docs/plan.md

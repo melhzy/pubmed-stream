@@ -2,6 +2,12 @@
 
 How a retracted Alzheimer's paper spread through the literature, and how much of it language models learned.
 
+**[Open the study page](https://melhzy.github.io/pubmed-stream/studies/abeta56_retraction_impact/)**
+
+[![The study page: the headline numbers, with the citation tree, every citing sentence, what was wrong, the training-corpus counts and the model probes behind its tabs](figures/study_page.png)](https://melhzy.github.io/pubmed-stream/studies/abeta56_retraction_impact/)
+
+Everything on the page comes from the files in this folder: the headline numbers, the two citation steps by year, every citing sentence searchable, the account of what was wrong, the corpus counts and the probe answers so far. It opens from disk too; [The page](#the-page) says how it is built.
+
 The paper is Lesné et al., "A specific amyloid-β protein assembly in the brain impairs memory", *Nature* 440:352–357 (16 March 2006), [PMID 16541076](https://pubmed.ncbi.nlm.nih.gov/16541076/), [10.1038/nature04533](https://doi.org/10.1038/nature04533). It reported Aβ\*56, a 56-kDa soluble amyloid-β assembly that appeared in Tg2576 mice when their memory failed and impaired memory when injected into rats. *Nature* retracted it on 24 June 2024 for "excessive manipulation, including splicing, duplication and the use of an eraser tool" in its figures. It has about 2,400 citations and is the fifth most cited retracted paper on record. **[docs/what_was_wrong.md](docs/what_was_wrong.md)** says what it claimed, exactly what was wrong, and what the retraction does not overturn, with every statement sourced.
 
 The study asks four questions:
@@ -58,11 +64,11 @@ The record contradicts the data: the retraction names Fig. 2c and Supplementary 
 
 **A first probe answer.** The runner was tested on the local `gpt-oss:20b` with two questions, one repeat each (`probes/answers/ollama_gpt-oss_20b.jsonl`). Asked whether the 2006 *Nature* paper has been retracted, it answered "No", with a table of invented evidence: a wrong PMID, a wrong volume and page range, and "J. L. Selkoe, J. M. Karran, J. A. Hardy" as authors. Asked whether Aβ\*56 is a dodecamer that causes memory loss in mice, it answered "Yes", attributed the discovery to a non-existent "Selkoe et al., *J. Neurosci.* 2008" series with invented experiments, called the dodecamer "widely accepted", and never mentioned Lesné, the investigation or the retraction. Its first attempt at that question spent its whole token budget on hidden reasoning and returned nothing, which is why the runner now caps reasoning effort and records the stop reason. Two answers are an anecdote; the design is 12 questions, three repeats, every installed model.
 
-## View it
+## The page
+
+The study page is published at [melhzy.github.io/pubmed-stream/studies/abeta56_retraction_impact](https://melhzy.github.io/pubmed-stream/studies/abeta56_retraction_impact/) and needs no server: open [`index.html`](index.html) in a browser and the same page opens from disk. It shows the headline numbers, the two citation steps by year, how the citing papers use the paper with every citing sentence searchable, the account of what was wrong, the corpus counts, and the probe questions with the answers so far; its header links back to the documentation site and to this folder. The page is a React application, [`app.js`](app.js), with its stylesheet [`styles.css`](styles.css); React and the Markdown renderer load from a CDN, so there is no build step. Its data is [`data.js`](data.js), built from the study's files by `python scripts/build_viewer.py`; rebuild it after the data changes. `figures/study_page.png` is a screenshot of the page, for this README and for the preview shown when a link to the page is shared.
 
 The new [unlearning feasibility record](docs/unlearning_plan.md) reports 16 completed answers across eight paired pilot questions. Providing a sourced correction improved retraction status and qualification, but left factual errors; this was a context intervention, not weight-based unlearning. The [review manifest](data/unlearning_review/manifest.json) identifies 237 specific-claim candidates for adjudication. These new artifacts are linked here and are not yet incorporated into the viewer's probe panel.
-
-Open [`index.html`](index.html) in a browser: the headline numbers, the two citation steps by year, how the citing papers use the paper with every citing sentence searchable, the account of what was wrong, the corpus counts, and the probe questions with the answers so far. The page is a React application, [`app.js`](app.js), with its stylesheet [`styles.css`](styles.css); React and the Markdown renderer load from a CDN, so there is no build step and the page opens from disk. Its data is [`data.js`](data.js), built from the study's files by `python scripts/build_viewer.py`; rebuild it after the data changes.
 
 ## Layout
 
@@ -73,6 +79,8 @@ studies/abeta56_retraction_impact/
 ├── app.js                       the page's React application (no build step)
 ├── styles.css                   its stylesheet
 ├── data.js                      its data, built from the files below by scripts/build_viewer.py
+├── figures/
+│   └── study_page.png           a screenshot of the page, for the README and link previews
 ├── requirements.txt             pyyaml; the rest comes with pip install -e ".[tutorials]"
 ├── docs/
 │   ├── what_was_wrong.md        the claim, what was wrong, what still stands, timeline, sources
@@ -98,7 +106,6 @@ studies/abeta56_retraction_impact/
 │   ├── questions.yaml           12 questions in four classes, with expected points and error keys
 │   └── answers/                 one JSON-lines file per model
 ├── notebooks/                   analysis (to come)
-├── figures/
 └── manuscript/
 ```
 
