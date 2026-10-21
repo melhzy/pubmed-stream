@@ -9,6 +9,8 @@
 
 **Documentation: [melhzy.github.io/pubmed-stream](https://melhzy.github.io/pubmed-stream/)**, the tutorials, guides and reference in one searchable website, with every notebook shown with its results.
 
+**A study made with it: [the Aβ\*56 retraction impact page](https://melhzy.github.io/pubmed-stream/studies/abeta56_retraction_impact/)**, how a retracted Alzheimer's paper spread through the literature and how much of it language models learned, as an interactive page where every number comes from the study's files; see [Studies](#studies).
+
 > **New to programming?** Start with [tutorial 0](https://melhzy.github.io/pubmed-stream/tutorials/00_new_topic.html), which takes a research question to a map of its literature in an afternoon. Click [Open in Colab](https://colab.research.google.com/github/melhzy/pubmed-stream/blob/main/tutorials/00_new_topic.ipynb) to run it in your web browser, with nothing to install; you only type your question into one settings cell.
 
 ```mermaid
@@ -24,6 +26,7 @@ flowchart LR
 
 - [Quick start](#quick-start)
 - [Tutorials](#tutorials)
+- [Studies](#studies)
 - [Installation and configuration](#installation-and-configuration)
 - [1. Download full-text articles](#1-download-full-text-articles)
 - [2. Write searches that find the right papers](#2-write-searches-that-find-the-right-papers)
@@ -121,8 +124,6 @@ The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/mai
 | 7 | [Your literature search with an AI assistant](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) | For medical students and biologists: install Claude Code or Codex, choose a model, ask in plain English, check the evidence, keep it in Obsidian, or use a local model through Ollama |
 | 8 | [Measuring the impact of a retracted paper](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/08_retraction_impact.ipynb) | Follow the retracted 2006 *Nature* paper on Aβ\*56 through the papers citing it and the papers citing those: when and how they cite it, who still cites it after the retraction, and a knowledge graph of its impact |
 
-**Studies.** Research done with pubmed-stream lives in [`studies/`](https://github.com/melhzy/pubmed-stream/tree/main/studies), one folder per study with its frozen data, scripts and write-up. The first, [`studies/abeta56_retraction_impact`](https://github.com/melhzy/pubmed-stream/tree/main/studies/abeta56_retraction_impact), continues tutorial 8: the citing papers of the retracted Aβ\*56 paper and the 44,957 papers citing those, frozen as tables; a sourced account of what the paper claimed and exactly what was wrong; counts of the claim and its correction in two open language-model training corpora; and a set of probe questions for models, with the first answers.
-
 Five short guides support them:
 
 | Guide | For |
@@ -134,6 +135,16 @@ Five short guides support them:
 | [Troubleshooting for beginners](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/guides/troubleshooting.md) | Setup, notebook, Colab and Obsidian problems |
 
 The [tutorials README](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/README.md) lists everything, including how programmers can run the notebooks locally.
+
+## Studies
+
+Research done with pubmed-stream lives in [`studies/`](https://github.com/melhzy/pubmed-stream/tree/main/studies), one folder per study with its frozen data, scripts and write-up, and a web page where the study has one, published with the documentation site.
+
+| Study | Page | Question |
+|---|---|---|
+| [Aβ\*56 retraction impact](https://github.com/melhzy/pubmed-stream/blob/main/studies/abeta56_retraction_impact/README.md) | [Open the page](https://melhzy.github.io/pubmed-stream/studies/abeta56_retraction_impact/) | Continues tutorial 8. How far the retracted 2006 *Nature* paper on Aβ\*56 spread through the literature: the 1,240 papers citing it and the 44,957 papers citing those, frozen as tables; a sourced account of what the paper claimed and exactly what was wrong; counts of the claim and its correction in two open language-model training corpora; and probe questions for language models, with the first answers |
+
+The [studies README](https://github.com/melhzy/pubmed-stream/blob/main/studies/README.md) explains the layout of a study and how to start one.
 
 ## Installation and configuration
 

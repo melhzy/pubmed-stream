@@ -43,6 +43,11 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; b
 .top-inner { max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; }
 .top h1 { font-size: 1.1rem; font-weight: 600; }
 .top .sub { color: var(--ink-2); font-size: .85rem; }
+.top-bar { max-width: 1120px; margin: 0 auto 4px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; font-size: .8rem; color: var(--ink-2); }
+.top-bar a { color: var(--ink-2); text-decoration: none; }
+.top-bar a:hover { color: var(--accent-ink); text-decoration: underline; }
+.crumbs .sep { margin: 0 6px; color: var(--muted); }
+.top-links { display: flex; gap: 14px; }
 nav.tabs { max-width: 1120px; margin: 6px auto 0; display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
 nav.tabs::-webkit-scrollbar { display: none; }
 nav.tabs a { flex: 0 0 auto; padding: 8px 12px; text-decoration: none; color: var(--ink-2); border-bottom: 2px solid transparent; font-size: .9rem; white-space: nowrap; }

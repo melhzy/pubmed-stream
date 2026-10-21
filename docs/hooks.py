@@ -9,6 +9,8 @@ and fix the links that only work on GitHub:
   links are, so they work on PyPI too), becomes a link within the site;
 - a link to a file that is not a page, such as a script, goes to GitHub;
 - a GitHub alert (``> [!IMPORTANT]``) becomes an admonition;
+- on a study's About page, a paragraph that is only a bold link (the study README's
+  **Open the study page**) becomes a button;
 - a list right after a line of text, which GitHub allows, gets the blank line
   before it that MkDocs needs.
 """
@@ -27,7 +29,7 @@ BLOB, TREE = f"{REPO}/blob/main/", f"{REPO}/tree/main/"
 # Repository files that become the site, by glob; the README is the home page
 SOURCES = ["CHANGELOG.md", "docs/ARCHITECTURE.md", "docs/figures/*.png", "tutorials/*.md",
            "tutorials/*.ipynb", "tutorials/guides/*.md", "tutorials/guides/images/*.png",
-           "studies/README.md", "studies/*/README.md", "studies/*/docs/*.md", "studies/*/data/README.md",
+           "studies/README.md", "studies/*/README.md", "studies/*/docs/*.md", "studies/*/data/README.md", "studies/*/figures/*.png",
            "studies/*/index.html", "studies/*/app.js", "studies/*/styles.css", "studies/*/data.js"]
 HOME = "index.md"
 # A study's web page, index.html, is served at the study's own address, so its README becomes about.md
@@ -35,6 +37,7 @@ STUDY_README = re.compile(r"^(studies/[^/]+)/README\.md$")
 STUDY_ABOUT = re.compile(r"^(studies/[^/]+)/about\.md$")
 
 LINK = re.compile(r"(\]\()([^)\s]+)(\))")
+BUTTON = re.compile(r"^\*\*\[([^\]]+)\]\(([^)\s]+)\)\*\*[ \t]*$", re.MULTILINE)   # a paragraph that is one bold link
 ALERT = re.compile(r"^> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\n((?:>.*\n?)*)", re.MULTILINE)
 ALERT_KIND = {"NOTE": "note", "TIP": "tip", "IMPORTANT": "important", "WARNING": "warning",
               "CAUTION": "danger"}
@@ -123,6 +126,8 @@ def _loosen_lists(markdown):
 
 def on_page_markdown(markdown, page, config, files):
     markdown = ALERT.sub(_alert, _loosen_lists(markdown))
+    if STUDY_ABOUT.match(page.file.src_uri):
+        markdown = BUTTON.sub(r"[\1](\2){ .md-button .md-button--primary }", markdown)
     return LINK.sub(lambda m: m.group(1) + _link(m.group(2), page.file.src_uri) + m.group(3), markdown)
 
 
