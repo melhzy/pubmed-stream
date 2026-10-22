@@ -120,7 +120,7 @@ NCBI, which runs PubMed, allows 3 requests per second without a key and 10 with 
 
 The key is personal. Clear it from the settings cell before you share a notebook with others.
 
-To use the key from the command line too, save it as an environment variable named `NCBI_API_KEY`. On Windows, search the Start menu for *Edit environment variables for your account*, add it there, and open a new terminal. On a Mac, run `echo 'export NCBI_API_KEY="your-key"' >> ~/.zshrc` once and open a new terminal.
+To use the key from the command line and with AI assistants too, save it once: `pubmed-stream init --ncbi-api-key YOUR-KEY`, run in your research folder, keeps it in a settings file in your home folder, and `pubmed-stream init` asks for it while none is saved. An environment variable named `NCBI_API_KEY` works as well, and takes precedence.
 
 ## Without notebooks: the command line
 

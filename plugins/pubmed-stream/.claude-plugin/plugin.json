@@ -1,0 +1,44 @@
+{
+  "name": "pubmed-stream",
+  "version": "0.4.1",
+  "description": "Search PubMed and PubMed Central, download open full texts, map the evidence around a paper and build an Obsidian knowledge graph, citing only what was read.",
+  "author": {
+    "name": "melhzy",
+    "url": "https://github.com/melhzy"
+  },
+  "homepage": "https://melhzy.github.io/pubmed-stream/",
+  "repository": "https://github.com/melhzy/pubmed-stream",
+  "license": "MIT",
+  "keywords": [
+    "pubmed",
+    "pmc",
+    "literature",
+    "biomedical",
+    "knowledge-graph",
+    "obsidian",
+    "mcp"
+  ],
+  "mcpServers": {
+    "pubmed-stream": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "pubmed-stream==0.4.1",
+        "pubmed-stream",
+        "mcp"
+      ],
+      "env": {
+        "PUBMED_STREAM_NCBI_API_KEY": "${user_config.ncbi_api_key}"
+      }
+    }
+  },
+  "userConfig": {
+    "ncbi_api_key": {
+      "type": "string",
+      "title": "NCBI API key",
+      "description": "Optional. A free key makes searches and downloads about three times faster: create it under API Key Management in the settings of your NCBI account (account.ncbi.nlm.nih.gov/settings). Leave it empty to add it later with /plugin configure.",
+      "sensitive": true
+    }
+  }
+}

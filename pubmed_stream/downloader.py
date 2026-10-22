@@ -14,7 +14,8 @@ Or from the CLI::
 Configuration is read from environment variables when explicit arguments are
 not provided:
 
-- ``NCBI_API_KEY`` – increases NCBI rate limit from 3 to 10 req/s.
+- ``NCBI_API_KEY`` – increases NCBI rate limit from 3 to 10 req/s.  When it is
+  unset, the key that ``pubmed-stream init --ncbi-api-key`` saved for the user is used.
 - ``NCBI_EMAIL``   – included in the User-Agent header per NCBI guidelines.
 """
 
@@ -28,6 +29,8 @@ import time
 import threading
 from pathlib import Path
 from typing import List, Dict, Any, Optional, Tuple
+
+from .settings import saved_api_key, user_settings_file
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime
@@ -44,6 +47,9 @@ DEFAULT_OUTPUT_DIR = Path("publications")
 
 # Environment variables for configuration
 NCBI_API_KEY_ENV = "NCBI_API_KEY"
+# The Claude Code plugin passes the key the user gave it under its own name, so that it never
+# overrides the user's variable; it is empty when the user gave none
+PLUGIN_API_KEY_ENV = "PUBMED_STREAM_NCBI_API_KEY"
 # Longest download folder name; longer search strings are shortened with a hash
 MAX_SLUG_LENGTH = 100
 NCBI_EMAIL_ENV = "NCBI_EMAIL"
@@ -78,6 +84,11 @@ class RateLimiter:
         self._lock = threading.Lock()
         self._last_request = 0.0
 
+    def touch(self) -> None:
+        """Count a request made outside ``wait``, so the next one keeps its distance."""
+        with self._lock:
+            self._last_request = time.monotonic()
+
     def wait(self) -> None:
         if self._min_interval <= 0:
             return
@@ -109,6 +120,78 @@ def linked_discoveries_url(pmid: str) -> str:
     return f"{LINKED_DISCOVERIES_BASE}/{pmid}/"
 
 
+def configured_api_key() -> Optional[str]:
+    """The NCBI API key from the environment, else the one saved for the user; None when there is none."""
+    return os.getenv(NCBI_API_KEY_ENV) or os.getenv(PLUGIN_API_KEY_ENV) or saved_api_key()
+
+
+def api_key_status() -> str:
+    """One line on the NCBI API key in use: its last characters and where it comes from, or that there is none."""
+    sources = (("NCBI_API_KEY", os.getenv(NCBI_API_KEY_ENV)), ("the plugin", os.getenv(PLUGIN_API_KEY_ENV)),
+               (str(user_settings_file()), saved_api_key()))
+    for source, key in sources:
+        if key:
+            return f"on (…{key[-4:]}, from {source})"
+    return ("off; a free key makes downloads about three times faster: create one in the settings of your NCBI "
+            "account and run pubmed-stream init --ncbi-api-key YOUR-KEY")
+
+
+# NCBI's verdict on each key this process has checked, and when, so that a key is checked once
+_checked_keys: Dict[str, Tuple[str, float]] = {}
+_warned_keys: set = set()
+CHECK_TIMEOUT = 15      # seconds: the check is optional, so it must not hold a command up for long
+RECHECK_AFTER = 300.0   # seconds after which an "unknown" verdict (NCBI unreachable) is asked again
+
+
+def api_key_verdict(api_key: str) -> Optional[str]:
+    """NCBI's cached verdict on *api_key* in this process: ok, invalid, unknown, or None when not yet asked."""
+    entry = _checked_keys.get(api_key)
+    return entry[0] if entry else None
+
+
+def check_api_key(api_key: str, session: Optional[requests.Session] = None) -> str:
+    """Ask NCBI once whether *api_key* is valid: ``ok``, ``invalid``, or ``unknown`` when NCBI could not be reached.
+
+    NCBI answers every request made with an invalid key with ``400 API key invalid``,
+    so a mistyped key would otherwise fail every search and download.  An
+    ``unknown`` verdict is asked again after ``RECHECK_AFTER`` seconds.
+    """
+    entry = _checked_keys.get(api_key)
+    if entry and (entry[0] != "unknown" or time.monotonic() - entry[1] < RECHECK_AFTER):
+        return entry[0]
+    owned = session is None
+    session = session or create_session(build_user_agent(None, None))
+    try:
+        resp = session.get(f"{EUTILS_BASE}/esearch.fcgi", timeout=CHECK_TIMEOUT,
+                           params={"db": "pubmed", "term": "pubmed-stream", "retmax": 0, "retmode": "json",
+                                   "api_key": api_key})
+        verdict = "invalid" if resp.status_code == 400 and "API key invalid" in resp.text else \
+            "ok" if resp.ok else "unknown"
+    except requests.RequestException:
+        verdict = "unknown"
+    finally:
+        if owned:
+            session.close()
+    _checked_keys[api_key] = (verdict, time.monotonic())
+    return verdict
+
+
+def api_key_hint(requests_made: int, seconds: float) -> Optional[str]:
+    """What a free NCBI API key would have saved on a run of *requests_made* requests, when that is 10 s or more.
+
+    None when a key is configured or the saving is small.
+    """
+    if configured_api_key() or requests_made <= 0:
+        return None
+    saved = requests_made * (RATE_LIMIT_NO_API_KEY - RATE_LIMIT_WITH_API_KEY)
+    if saved < 10:
+        return None
+    with_key = max(seconds - saved, requests_made * RATE_LIMIT_WITH_API_KEY, 1.0)
+    return (f"Without an NCBI API key this took {seconds:.0f} s; with a free one it would take about {with_key:.0f} s. "
+            "Create a key in the settings of your NCBI account (https://account.ncbi.nlm.nih.gov/settings/) and save "
+            "it with: pubmed-stream init --ncbi-api-key YOUR-KEY")
+
+
 def _prepare_client(
     api_key: Optional[str],
     rate_limit: Optional[float],
@@ -121,7 +204,22 @@ def _prepare_client(
     Returns ``(api_key, rate_limiter, session, owned_session)``; the caller
     closes the session when *owned_session* is true.
     """
-    api_key = api_key or os.getenv(NCBI_API_KEY_ENV)
+    api_key = api_key or configured_api_key()
+    owned_session = session is None
+    session = session or create_session(build_user_agent(user_agent, email))
+
+    # A key NCBI rejects would fail every request: continue without it, and say so once
+    probed = False
+    if api_key:
+        probed = api_key_verdict(api_key) is None
+        if check_api_key(api_key, session) == "invalid":
+            if api_key not in _warned_keys:
+                _warned_keys.add(api_key)
+                logger.warning("NCBI rejected the API key (API key invalid), so pubmed-stream continues without it, "
+                               "at 3 requests a second. Check the key in the settings of your NCBI account and save "
+                               "it again with 'pubmed-stream init --ncbi-api-key', or remove it from %s",
+                               user_settings_file())
+            api_key = None
 
     # Auto-detect rate limit based on API key presence if not explicitly specified
     if rate_limit is None:
@@ -129,9 +227,10 @@ def _prepare_client(
         logger.debug("Auto-detected rate limit: %.2fs (%s API key)",
                      rate_limit, "with" if api_key else "without")
 
-    owned_session = session is None
-    session = session or create_session(build_user_agent(user_agent, email))
-    return api_key, RateLimiter(rate_limit), session, owned_session
+    rate_limiter = RateLimiter(rate_limit)
+    if probed:
+        rate_limiter.touch()        # the check was a request too
+    return api_key, rate_limiter, session, owned_session
 
 
 @dataclass

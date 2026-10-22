@@ -9,6 +9,16 @@ from requests.adapters import BaseAdapter
 FIXTURES = Path(__file__).parent / "fixtures"
 
 
+@pytest.fixture(autouse=True)
+def home(tmp_path_factory, monkeypatch):
+    """Every test sees an empty home folder, never the developer's own assistant settings."""
+    folder = tmp_path_factory.mktemp("home")
+    monkeypatch.setattr(Path, "home", classmethod(lambda cls: folder))
+    monkeypatch.delenv("NCBI_API_KEY", raising=False)             # nor the developer's own key
+    monkeypatch.delenv("PUBMED_STREAM_NCBI_API_KEY", raising=False)
+    return folder
+
+
 @pytest.fixture
 def full_xml() -> str:
     """Open-access article in JATS 1.0 style (pub-type dates)."""

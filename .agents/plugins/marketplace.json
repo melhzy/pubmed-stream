@@ -1,0 +1,12 @@
+{
+  "name": "pubmed-stream",
+  "interface": {"displayName": "pubmed-stream"},
+  "plugins": [
+    {
+      "name": "pubmed-stream",
+      "source": {"source": "local", "path": "./plugins/pubmed-stream"},
+      "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+      "category": "Productivity"
+    }
+  ]
+}

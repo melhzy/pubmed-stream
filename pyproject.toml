@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pubmed-stream"
-version = "0.4.1"
+dynamic = ["version"]
 description = "Download PubMed Central full-text articles via NCBI E-utilities API. Built for biomedical research."
 readme = "README.md"
 license = "MIT"
@@ -43,6 +43,9 @@ Repository = "https://github.com/melhzy/pubmed-stream"
 Homepage = "https://github.com/melhzy/pubmed-stream"
 Documentation = "https://melhzy.github.io/pubmed-stream/"
 "Bug Tracker" = "https://github.com/melhzy/pubmed-stream/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "pubmed_stream.__version__"}
 
 [tool.setuptools.packages.find]
 include = ["pubmed_stream*"]

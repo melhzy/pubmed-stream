@@ -12,15 +12,17 @@ You are helping a researcher study the biomedical literature. Search, download a
 
 ## Tools
 
-If the **pubmed-stream MCP tools** are available, use them: `search_pmc`, `download`, `fetch_abstracts`, `list_articles`, `most_cited`, `read_article`, `neighborhood` and `build_knowledge_graph`. They return compact text and need no shell. Otherwise use the `pubmed-stream` command line below; each step names both.
+If the **pubmed-stream MCP tools** are available, use them: `search_pmc`, `download`, `fetch_abstracts`, `list_articles`, `most_cited`, `read_article`, `neighborhood`, `export_citations` and `build_knowledge_graph`. They return compact text and need no shell. Otherwise use the `pubmed-stream` command line below; each step names both.
 
-If neither works, or `pubmed-stream --version` is older than 0.4.0, install or upgrade pubmed-stream, then restart the session so the tools load:
+If neither works, or `pubmed-stream --version` is older than 0.4.0, install or upgrade pubmed-stream, then restart the session so the tools load. With pip:
 
 ```bash
 python -m pip install --upgrade pubmed-stream
 ```
 
-An NCBI API key in the `NCBI_API_KEY` environment variable makes everything about three times faster. Never print it.
+With the pubmed-stream plugin, which fetches pubmed-stream itself, missing tools mean `uv` is not installed: ask the researcher to install it from https://docs.astral.sh/uv/getting-started/installation/.
+
+**NCBI API key.** A free key makes everything about three times faster: NCBI allows 3 requests a second without one and 10 with one. The server says at start-up whether one is configured. If none is, tell the researcher once: they create it under *API Key Management* in the settings of an NCBI account (https://account.ncbi.nlm.nih.gov/settings/) and save it by running `pubmed-stream init --ncbi-api-key THEIR-KEY` in a terminal, which keeps it in their home folder for every project. Never ask for the key in the conversation, and never print it.
 
 ## Workflow
 
@@ -49,7 +51,7 @@ Scan the titles first, choose the articles that bear on the question, read their
 
 **6. Build the knowledge graph** when the researcher wants to explore or keep the study: `build_knowledge_graph`, or `pubmed-stream kg "fmt parkinson" -q 'QUERY' --seed 38686220 --max-results 30 --max-per-relation 30 --quiet`. It creates an Obsidian vault, `kg_<topic>`, with notes for papers, MeSH concepts and searches, and a table of all papers, `Papers.base`. Calling it again with the same topic adds to it; `refresh` reruns every recorded search.
 
-**7. Report.** Write a short synthesis: what the evidence shows and of what kind, where it conflicts, and what is open. Cite PMIDs as `(PMID 38686220)`. End with the searches and their counts, the files and folders created, and what was not covered.
+**7. Report.** Write a short synthesis: what the evidence shows and of what kind, where it conflicts, and what is open. Cite PMIDs as `(PMID 38686220)`. End with the searches and their counts, the files and folders created, and what was not covered. If the researcher wants the papers in Zotero, EndNote or Mendeley, export them: `export_citations`, or `pubmed-stream export publications -o papers.bib`.
 
 ## Obsidian
 

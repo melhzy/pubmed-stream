@@ -1,0 +1,25 @@
+{
+  "name": "pubmed-stream",
+  "version": "0.4.1",
+  "description": "Search PubMed and PubMed Central, download open full texts, map the evidence around a paper and build an Obsidian knowledge graph, citing only what was read.",
+  "author": {"name": "melhzy", "url": "https://github.com/melhzy"},
+  "homepage": "https://melhzy.github.io/pubmed-stream/",
+  "repository": "https://github.com/melhzy/pubmed-stream",
+  "license": "MIT",
+  "keywords": ["pubmed", "pmc", "literature", "biomedical", "knowledge-graph", "obsidian", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "pubmed-stream",
+        "shortDescription": "Literature searches in PubMed and PMC, cited by PMID",
+        "developerName": "melhzy",
+        "category": "Productivity",
+        "capabilities": ["Read", "Write"],
+        "websiteURL": "https://melhzy.github.io/pubmed-stream/",
+        "defaultPrompt": ["Is the gut microbiota linked to frailty? Size the search first, download the clinical studies, and summarize the evidence with PMIDs."]
+      }
+    }
+  }
+}
