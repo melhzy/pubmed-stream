@@ -2,7 +2,7 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
-## Unreleased
+## 0.4.2 - 2026-10-22
 
 ### Added
 

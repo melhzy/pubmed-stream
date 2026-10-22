@@ -3,7 +3,7 @@
     "pubmed-stream": {
       "type": "stdio",
       "command": "uvx",
-      "args": ["--from", "pubmed-stream==0.4.1", "pubmed-stream", "mcp"]
+      "args": ["--from", "pubmed-stream==0.4.2", "pubmed-stream", "mcp"]
     }
   }
 }
