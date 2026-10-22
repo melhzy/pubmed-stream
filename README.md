@@ -155,7 +155,7 @@ pip install pubmed-stream                  # the library and the pubmed-stream c
 pip install "pubmed-stream[tutorials]"     # plus jupyter, matplotlib, networkx and pandas for the tutorials
 ```
 
-The AI-assistant, local-model and Obsidian features of [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later, PubMed abstracts and citation export 0.4.0, and reviews by Claude Code, Codex or Gemini CLI (`review --model claude`) 0.4.1: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.9 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
+The AI-assistant, local-model and Obsidian features of [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later, PubMed abstracts and citation export 0.4.0, reviews by Claude Code, Codex or Gemini CLI (`review --model claude`) 0.4.1, and `pubmed_stream.impact`, which tutorial 8 imports, and saving your NCBI API key with `init` 0.4.2: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.9 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
 
 **Set an NCBI API key.** NCBI allows 3 requests per second without a key and 10 with one, so a key makes everything about three times faster. Keys are free: create one under *API Key Management* in the settings of an [NCBI account](https://account.ncbi.nlm.nih.gov/settings/). Save it once, for every folder:
 
@@ -676,7 +676,7 @@ Ideas on the roadmap: PubMed abstracts for articles outside PMC, a search query 
 
 Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 
-1. **Bump the version** in `pyproject.toml` (`version = "X.Y.Z"`), `pubmed_stream/__init__.py` (`__version__ = "X.Y.Z"`) and `CITATION.cff` (`version` and `date-released`), keeping them identical, and turn the changelog's *Unreleased* heading into `X.Y.Z - YYYY-MM-DD`.
+1. **Bump the version** in `pubmed_stream/__init__.py` (`__version__ = "X.Y.Z"`), which `pyproject.toml` reads, and `CITATION.cff` (`version` and `date-released`). In the plugin, `plugins/pubmed-stream`, bump it in both `plugin.json` files (`version`), in the release its server runs (`pubmed-stream==X.Y.Z`, in `.mcp.json` and in `.claude-plugin/plugin.json`) and in the skill's note, twice. Turn the changelog's *Unreleased* heading into `X.Y.Z - YYYY-MM-DD`. The tests name any copy left behind.
 2. **Run the tests**: `pytest`.
 3. **Build and check the distributions**; `dist/` is git-ignored:
 
@@ -690,8 +690,10 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 4. **Upload to PyPI** with an API token from <https://pypi.org/manage/account/token/>, scoped to the `pubmed-stream` project. The username is literally `__token__`; a PyPI password will not work. A `403 Forbidden` means the token is wrong, expired or not scoped to this project. PyPI never accepts the same version twice, so fix a broken release with a new patch version. `InvalidDistribution: Metadata is missing required fields: Name, Version` means twine is too old to read the package's metadata (version 2.4): use twine 6.1 or later. In a shared environment such as Anaconda's, upgrading twine also upgrades packages that other tools there depend on, so run it from a separate virtual environment.
 
    ```bash
-   python -m twine upload -u __token__ -p pypi-... dist/*
+   python -m twine upload -u __token__ dist/*
    ```
+
+   Paste the token when twine asks for it; typed there, it stays out of your shell's history. Upload before you push the release: the plugin on GitHub runs the release its `pubmed-stream==X.Y.Z` names, so until PyPI has that release, the plugin's server cannot start.
 
 5. **Commit, tag and push** the release:
 

@@ -82,7 +82,7 @@ python -m pip install --upgrade pubmed-stream
 
 On a Mac, type `python3` instead of `python`, here and below. The command prints many lines and ends with `Successfully installed`.
 
-> **Check:** `pubmed-stream --version` prints 0.3.0 or later.
+> **Check:** `pubmed-stream --version` prints 0.4.2 or later.
 
 ### 2.3 Install your assistant
 

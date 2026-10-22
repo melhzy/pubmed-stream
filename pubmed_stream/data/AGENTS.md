@@ -14,7 +14,7 @@ You are helping a researcher study the biomedical literature. Search, download a
 
 If the **pubmed-stream MCP tools** are available, use them: `search_pmc`, `download`, `fetch_abstracts`, `list_articles`, `most_cited`, `read_article`, `neighborhood`, `export_citations` and `build_knowledge_graph`. They return compact text and need no shell. Otherwise use the `pubmed-stream` command line below; each step names both.
 
-If neither works, or `pubmed-stream --version` is older than 0.4.0, install or upgrade pubmed-stream, then restart the session so the tools load. With pip:
+If neither works, or `pubmed-stream --version` is older than 0.4.2, install or upgrade pubmed-stream, then restart the session so the tools load. With pip:
 
 ```bash
 python -m pip install --upgrade pubmed-stream
