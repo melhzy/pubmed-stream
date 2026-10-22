@@ -16,6 +16,7 @@ import contextlib
 import io
 import json
 import logging
+import os
 import sys
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
@@ -26,7 +27,9 @@ from . import __version__
 from .abstracts import count_pubmed, fetch_abstracts
 from .corpus import list_articles, most_cited, select, short_id
 from .export import export_citations
-from .downloader import search_and_download, search_pmc
+from .downloader import (NCBI_API_KEY_ENV, PLUGIN_API_KEY_ENV, api_key_hint, api_key_status, api_key_verdict,
+                         configured_api_key, search_and_download, search_pmc)
+from .settings import NCBI_API_KEY_SETTING, saved_api_key, set_setting, user_settings_file
 
 logger = logging.getLogger(__name__)
 
@@ -38,6 +41,21 @@ fetch_abstracts when PubMed has many more matches than PMC, list_articles to sca
 with ids and abstracts=true to read chosen abstracts, read_article to search inside one full text.
 Cite only articles whose abstract or text you read here, by PubMed ID; never cite from memory. Say what
 kind of evidence each is, which you read only as abstracts, and what could not be read."""
+
+NO_KEY_NOTE = """
+No NCBI API key is configured, so NCBI allows 3 requests a second instead of 10. Tell the researcher once
+that a free key makes searches and downloads about three times faster: created under API Key Management in
+the settings of an NCBI account (https://account.ncbi.nlm.nih.gov/settings/), then saved by running
+`pubmed-stream init --ncbi-api-key THE-KEY` in a terminal, or set with `/plugin configure
+pubmed-stream@pubmed-stream` in Claude Code when pubmed-stream is a plugin. Never ask for the key in the
+conversation."""
+
+REJECTED_KEY_NOTE = """
+
+Note: NCBI rejected the configured NCBI API key (API key invalid), so requests run at 3 a second without it.
+Tell the researcher once: create a key in the settings of their NCBI account
+(https://account.ncbi.nlm.nih.gov/settings/) and save it again by running `pubmed-stream init --ncbi-api-key
+THE-KEY` in a terminal."""
 
 PATH_PARAM = {"type": "string", "description": "Folder of downloads, relative to the project",
               "default": "publications"}
@@ -187,6 +205,8 @@ class Server:
 
     def __init__(self, root: Path) -> None:
         self.root = root
+        self.adopted_plugin_key = False     # saved the plugin's key for the command line, or given up
+        self.reported_rejection = False     # told the assistant once that NCBI rejected the key
         self.handlers: Dict[str, Callable[[Dict[str, Any]], str]] = {
             "search_pmc": self.search_pmc,
             "download": self.download,
@@ -225,9 +245,10 @@ class Server:
         stats = search_and_download(args["query"], max_results=int(args.get("max_results", 30)),
                                     output_dir=self.path(args.get("output_dir")))
         folder = stats.output_dir.resolve()
+        hint = api_key_hint(stats.successful + stats.failed, stats.duration_seconds)   # failed includes unavailable
         return (f"{stats.total_found:,} articles found; {stats.requested} requested: {stats.successful} downloaded, "
                 f"{stats.skipped} already there, {stats.unavailable} unavailable (publisher does not allow "
-                f"downloading), {stats.errors} errors.\nFolder: {folder}")
+                f"downloading), {stats.errors} errors.\nFolder: {folder}" + (f"\n{hint}" if hint else ""))
 
     def records(self, path: Path) -> List[Dict[str, Any]]:
         if not path.exists():
@@ -352,13 +373,31 @@ class Server:
             # The library prints download progress; stdout belongs to the protocol
             with contextlib.redirect_stdout(io.StringIO()):
                 text = handler(args)
-            return {"content": [{"type": "text", "text": text}], "isError": False}
+            return {"content": [{"type": "text", "text": text + self.key_notes()}], "isError": False}
         except ToolError as e:
             return {"content": [{"type": "text", "text": f"Error: {e}"}], "isError": True}
         except requests.RequestException as e:
             return {"content": [{"type": "text", "text": f"Error: could not reach NCBI: {e}"}], "isError": True}
         except (KeyError, TypeError, ValueError, OSError) as e:
             return {"content": [{"type": "text", "text": f"Error: {type(e).__name__}: {e}"}], "isError": True}
+
+    def key_notes(self) -> str:
+        """After a tool call, when NCBI's verdict on the key is known: save the Claude Code plugin's key for the
+        command line and ``init`` (once, when none is saved), and report a rejected key to the assistant once."""
+        plugin_key = os.getenv(PLUGIN_API_KEY_ENV)
+        if plugin_key and not self.adopted_plugin_key and api_key_verdict(plugin_key) == "ok":
+            self.adopted_plugin_key = True
+            if not os.getenv(NCBI_API_KEY_ENV) and not saved_api_key():
+                try:
+                    set_setting(user_settings_file(), NCBI_API_KEY_SETTING, plugin_key)
+                    logger.warning("saved the plugin's NCBI API key in %s for the command line", user_settings_file())
+                except (OSError, ValueError) as e:
+                    logger.warning("could not save the plugin's NCBI API key for the command line: %s", e)
+        key = configured_api_key()
+        if key and not self.reported_rejection and api_key_verdict(key) == "invalid":
+            self.reported_rejection = True
+            return REJECTED_KEY_NOTE
+        return ""
 
     def handle(self, message: Dict[str, Any]) -> Optional[Dict[str, Any]]:
         """The response to one JSON-RPC message, or None for a notification."""
@@ -373,7 +412,7 @@ class Server:
                     "protocolVersion": requested if requested in SUPPORTED_VERSIONS else SUPPORTED_VERSIONS[0],
                     "capabilities": {"tools": {"listChanged": False}},
                     "serverInfo": {"name": "pubmed-stream", "title": "pubmed-stream", "version": __version__},
-                    "instructions": INSTRUCTIONS,
+                    "instructions": INSTRUCTIONS + ("" if configured_api_key() else NO_KEY_NOTE),
                 }
             elif method == "ping":
                 result = {}
@@ -399,7 +438,8 @@ def _error(msg_id: Any, code: int, message: str) -> Dict[str, Any]:
 def serve(root: Optional[Path] = None, stdin=None, stdout=None) -> None:
     """Answer MCP messages, one JSON object per line, until standard input closes."""
     server = Server(Path(root or Path.cwd()).resolve())
-    logger.warning("pubmed-stream MCP server %s: files are read and saved under %s", __version__, server.root)
+    logger.warning("pubmed-stream MCP server %s: files are read and saved under %s; NCBI API key %s", __version__,
+                   server.root, api_key_status())
     stdin = stdin or sys.stdin.buffer
     stdout = stdout or sys.stdout.buffer
     for raw in stdin:

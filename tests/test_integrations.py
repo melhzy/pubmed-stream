@@ -7,7 +7,8 @@ import json
 import pytest
 import requests
 
-from pubmed_stream import build_vault, cli
+from pubmed_stream import build_vault, cli, downloader
+from pubmed_stream.downloader import DownloadStats
 from pubmed_stream.assistants import init_folder, instructions
 from pubmed_stream.mcp_server import TOOLS, Server, serve
 from pubmed_stream.obsidian import known_vaults, open_uri, open_vault
@@ -222,10 +223,149 @@ def test_init_folder_writes_and_merges(tmp_path):
     assert (tmp_path / "CLAUDE.md").read_text(encoding="utf-8") == "# My notes\n\n@AGENTS.md\n"
     servers = json.loads((tmp_path / ".mcp.json").read_text())["mcpServers"]
     assert set(servers) == {"other", "pubmed-stream"} and servers["pubmed-stream"]["args"][-1] == "mcp"
-    assert '[mcp_servers.pubmed-stream]\ncommand = "' in (tmp_path / ".codex" / "config.toml").read_text()
+    codex = (tmp_path / ".codex" / "config.toml").read_text()
+    assert '[mcp_servers.pubmed-stream]\ncommand = "' in codex and 'env_vars = ["NCBI_API_KEY", "NCBI_EMAIL"]' in codex
     gemini = json.loads((tmp_path / ".gemini" / "settings.json").read_text())["mcpServers"]["pubmed-stream"]
     assert gemini["args"][-1] == "mcp" and gemini["timeout"] == 600000
     assert set(dict(init_folder(tmp_path)).values()) == {"kept"}
+
+
+def test_init_leaves_the_server_to_the_plugin(tmp_path, home):
+    folder = tmp_path / "study"
+    assert dict(init_folder(folder))[".mcp.json"] == "created"      # set up before the plugin was installed
+    mcp, codex = folder / ".mcp.json", folder / ".codex" / "config.toml"
+    data = json.loads(mcp.read_text(encoding="utf-8"))
+    data["mcpServers"]["other"] = {"command": "x"}
+    mcp.write_text(json.dumps(data), encoding="utf-8")
+    codex.write_text(codex.read_text(encoding="utf-8") + "\n[other]\nx = 1\n", encoding="utf-8")
+
+    (home / ".claude").mkdir()
+    (home / ".claude" / "settings.json").write_text(json.dumps({"enabledPlugins": {"pubmed-stream@pubmed-stream": True}}))
+    (home / ".codex").mkdir()
+    (home / ".codex" / "config.toml").write_text('model = "o3"\n\n[plugins."pubmed-stream@pubmed-stream"]\nenabled = true\n')
+
+    actions = dict(init_folder(folder))
+    assert actions[".mcp.json"] == "plugin" and actions[".codex/config.toml"] == "plugin"
+    assert actions[".gemini/settings.json"] == "kept"                # Gemini CLI has no plugin
+    assert set(json.loads(mcp.read_text(encoding="utf-8"))["mcpServers"]) == {"other"}
+    assert codex.read_text(encoding="utf-8") == "[other]\nx = 1\n"
+    assert dict(init_folder(folder))[".mcp.json"] == "plugin"       # and stays that way
+
+    # a folder that switches the plugin off overrides the user's settings
+    (folder / ".claude").mkdir(exist_ok=True)
+    (folder / ".claude" / "settings.local.json").write_text(json.dumps({"enabledPlugins": {"pubmed-stream@pubmed-stream": False}}))
+    assert dict(init_folder(folder))[".mcp.json"] == "updated"
+    (folder / ".claude" / "settings.local.json").unlink()
+    assert dict(init_folder(folder))[".mcp.json"] == "plugin"
+
+    # a sub-table of the server goes with it, or Codex would see a server without a command
+    codex.write_text('[mcp_servers.pubmed-stream]\ncommand = "x"\n\n[mcp_servers.pubmed-stream.env]\nA = "1"\n\n[other]\nx = 1\n', encoding="utf-8")
+    assert dict(init_folder(folder))[".codex/config.toml"] == "plugin"
+    assert codex.read_text(encoding="utf-8") == "[other]\nx = 1\n"
+
+    # a disabled plugin does not count
+    (home / ".claude" / "settings.json").write_text(json.dumps({"enabledPlugins": {"pubmed-stream@pubmed-stream": False}}))
+    (home / ".codex" / "config.toml").write_text('[plugins."pubmed-stream@pubmed-stream"]\nenabled = false\n')
+    actions = dict(init_folder(folder))
+    assert actions[".mcp.json"] == "updated" and actions[".codex/config.toml"] == "updated"
+    assert "pubmed-stream" in json.loads(mcp.read_text(encoding="utf-8"))["mcpServers"]
+
+
+def test_init_saves_the_api_key_for_the_user(tmp_path, home, monkeypatch, capsys):
+    verdicts = {"typed-key": "ok", "bad-key": "invalid", "unchecked": "unknown"}
+    monkeypatch.setattr("pubmed_stream.downloader.check_api_key", lambda key, session=None: verdicts[key])
+    file = home / ".pubmed-stream.json"
+    assert (str(file), "created") in init_folder(tmp_path, ncbi_api_key="abc")
+    assert json.loads(file.read_text(encoding="utf-8")) == {"ncbi_api_key": "abc"}
+
+    # in a terminal, init asks for the key only while none is configured and the question is new
+    monkeypatch.setattr("sys.argv", ["pubmed-stream", "init", str(tmp_path)])
+    monkeypatch.setattr(cli, "_interactive", lambda: True)
+    monkeypatch.setattr("builtins.input", lambda prompt="": pytest.fail("asked although a key is saved"))
+    assert cli.main() == 0
+    assert f"NCBI API key: on (…abc, from {file})" in capsys.readouterr().out
+    file.unlink()
+    monkeypatch.setattr("builtins.input", lambda prompt="": "  typed-key ")
+    assert cli.main() == 0
+    out = capsys.readouterr().out
+    assert "three times faster" in out and "NCBI accepted the key." in out and f"created  {file}" in out
+    assert json.loads(file.read_text(encoding="utf-8"))["ncbi_api_key"] == "typed-key"
+    file.unlink()
+    monkeypatch.setattr("builtins.input", lambda prompt="": "")          # Enter skips, and the answer is remembered
+    assert cli.main() == 0
+    assert json.loads(file.read_text(encoding="utf-8")) == {"ncbi_api_key": ""}
+    assert "NCBI API key: off;" in capsys.readouterr().out
+    monkeypatch.setattr("builtins.input", lambda prompt="": pytest.fail("asked again after a skip"))
+    assert cli.main() == 0
+    file.unlink()
+    monkeypatch.setattr(cli, "_interactive", lambda: False)             # as when an assistant runs init
+    monkeypatch.setattr("builtins.input", lambda prompt="": pytest.fail("asked outside a terminal"))
+    assert cli.main() == 0 and not file.exists()
+
+    # a key is checked with NCBI before it is saved
+    monkeypatch.setattr("sys.argv", ["pubmed-stream", "init", str(tmp_path), "--ncbi-api-key", "bad-key"])
+    assert cli.main() == 1 and not file.exists()
+    assert "NCBI rejected this key" in capsys.readouterr().err
+    monkeypatch.setattr("sys.argv", ["pubmed-stream", "init", str(tmp_path), "--ncbi-api-key", "unchecked"])
+    assert cli.main() == 0 and json.loads(file.read_text(encoding="utf-8"))["ncbi_api_key"] == "unchecked"
+    assert "could not be reached" in capsys.readouterr().out
+
+    # a corrupt settings file is reported, never replaced
+    file.write_text("{", encoding="utf-8")
+    assert cli.main() == 1 and file.read_text(encoding="utf-8") == "{"
+    assert f"{file} is not valid JSON" in capsys.readouterr().err
+
+
+def test_server_saves_the_plugin_key_after_ncbi_accepted_it(tmp_path, home, monkeypatch):
+    """The plugin's key reaches ~/.pubmed-stream.json after a tool call checked it, never before, and a rejected
+    key is reported to the assistant once."""
+    monkeypatch.setattr("pubmed_stream.mcp_server.search_pmc", lambda *a, **k: "found")
+    monkeypatch.setattr("pubmed_stream.mcp_server.count_pubmed", lambda query: 1)
+    verdicts = {}
+    monkeypatch.setattr(downloader, "_checked_keys", verdicts)
+    file = home / ".pubmed-stream.json"
+    server = Server(tmp_path)
+
+    plain = "found\n1 articles in PubMed; fetch_abstracts saves the abstracts of the rest."
+
+    def call():
+        return rpc(server, "tools/call", {"name": "search_pmc", "arguments": {"query": "x"}})["result"]["content"][0]["text"]
+
+    monkeypatch.setenv("PUBMED_STREAM_NCBI_API_KEY", "plug-key")
+    assert call() == plain and not file.exists()                               # NCBI has not been asked yet
+    verdicts["plug-key"] = ("ok", 0.0)
+    assert call() == plain
+    assert json.loads(file.read_text(encoding="utf-8")) == {"ncbi_api_key": "plug-key"}
+
+    file.write_text(json.dumps({"ncbi_api_key": "mine"}), encoding="utf-8")
+    Server(tmp_path).call_tool("search_pmc", {"query": "x"})                   # a saved key is kept
+    assert json.loads(file.read_text(encoding="utf-8")) == {"ncbi_api_key": "mine"}
+
+    file.unlink()
+    monkeypatch.setenv("PUBMED_STREAM_NCBI_API_KEY", "bad-key")
+    verdicts["bad-key"] = ("invalid", 0.0)
+    server = Server(tmp_path)
+    text = call()
+    assert text.startswith(plain) and text.endswith("THE-KEY` in a terminal.") and not file.exists()   # reported, not spread
+    assert call() == plain                                                     # once
+
+
+def test_download_tool_says_what_a_key_would_save(tmp_path, monkeypatch):
+    stats = DownloadStats(keyword="x", total_found=50, requested=50, successful=10, failed=40, skipped=0,
+                          unavailable=40, errors=0, duration_seconds=30.0, output_dir=tmp_path / "publications" / "x")
+    monkeypatch.setattr("pubmed_stream.mcp_server.search_and_download", lambda *a, **k: stats)
+    text = Server(tmp_path).call_tool("download", {"query": "x"})["content"][0]["text"]
+    # 50 requests, not 90: failed already counts the unavailable articles
+    assert "10 downloaded" in text and "took 30 s" in text and "about 18 s" in text
+
+
+def test_mcp_tells_the_assistant_when_no_api_key_is_configured(tmp_path, monkeypatch):
+    monkeypatch.delenv("NCBI_API_KEY", raising=False)
+    monkeypatch.delenv("PUBMED_STREAM_NCBI_API_KEY", raising=False)
+    server = Server(tmp_path)
+    assert "No NCBI API key" in rpc(server, "initialize", {"protocolVersion": "2025-06-18"})["result"]["instructions"]
+    monkeypatch.setenv("NCBI_API_KEY", "k")
+    assert "No NCBI API key" not in rpc(server, "initialize", {"protocolVersion": "2025-06-18"})["result"]["instructions"]
 
 
 def test_cli_init_and_open(tmp_path, monkeypatch, capsys):

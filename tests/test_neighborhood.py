@@ -207,7 +207,7 @@ def test_ncbi_failure_raises_without_api_key(make_session, caplog):
     with caplog.at_level(logging.WARNING), pytest.raises(requests.RequestException) as excinfo:
         get_neighborhood("100", api_key=API_KEY, session=session, rate_limit=0)
 
-    assert len(sent(session)) == 3
+    assert len(sent(session)) == 4          # the key is checked once, then three attempts
     assert API_KEY not in str(excinfo.value)
     assert excinfo.value.__cause__ is None and excinfo.value.__context__ is None
     assert API_KEY not in caplog.text

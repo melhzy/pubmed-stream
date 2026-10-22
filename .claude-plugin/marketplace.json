@@ -1,0 +1,13 @@
+{
+  "name": "pubmed-stream",
+  "owner": {"name": "melhzy", "url": "https://github.com/melhzy"},
+  "metadata": {"description": "pubmed-stream for Claude Code: PubMed and PMC literature searches as MCP tools and a skill"},
+  "plugins": [
+    {
+      "name": "pubmed-stream",
+      "source": "./plugins/pubmed-stream",
+      "description": "Search PubMed and PubMed Central, download open full texts, map the evidence around a paper and build an Obsidian knowledge graph, citing only what was read.",
+      "category": "research"
+    }
+  ]
+}

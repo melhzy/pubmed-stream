@@ -58,12 +58,14 @@ pubmed-stream/
 │   ├── obsidian.py        opening knowledge graphs in Obsidian
 │   ├── assistants.py      init: instructions and MCP settings for Claude Code, Codex, Gemini CLI
 │   ├── data/AGENTS.md     the instructions for AI assistants
+│   ├── settings.py        the user's settings file, with the NCBI API key, and a folder's own
 │   ├── downloader.py      E-utilities client, PMC search and download, JATS parsing
 │   ├── neighborhood.py    similar, citing and cited articles of a PubMed article
 │   ├── vault.py           Obsidian notes: graph model, merging, rendering, safe rewrites
 │   ├── impact.py          how a paper spread: citers of many papers, counts, citing sentences and their kinds
 │   └── kg.py              studies: topic, searches and seeds, refresh
-├── tests/                 117 offline tests; NCBI and Ollama are faked with canned responses
+├── plugins/             the Claude Code and Codex plugin: manifests, the MCP server through uvx, AGENTS.md as a skill
+├── tests/                 155 offline tests; NCBI and Ollama are faked with canned responses
 ├── tutorials/             seven notebooks, the AI assistant tutorial, guides, kg_study.py, keyword lists, tools
 ├── studies/               research done with pubmed-stream, one folder per study with its frozen data, scripts and write-up
 ├── docs/                  this guide and its figures
@@ -75,18 +77,19 @@ pubmed-stream/
 
 | Module | Lines | Responsibility | Main public functions |
 |--------|------:|----------------|-----------------------|
-| `downloader.py` | 1109 | HTTP client with rate limiting and retries; PMC search and summaries; full-text download; metadata, reference and text extraction from JATS XML | `search_and_download`, `search_pmc`, `esearch_pmc`, `esummary_pmc`, `efetch_pmc`, `extract_metadata_from_pmc_xml` |
-| `neighborhood.py` | 457 | ELink relations, PubMed records with flags and MeSH terms, flag counts beyond the cap | `get_neighborhood`, `save_neighborhood`, `download_neighborhood` |
-| `vault.py` | 1099 | Merges every source into one graph of papers, concepts and collections, then writes notes without losing user edits, with Obsidian property types and a Bases table | `build_vault`, `topic_vault_dir` |
-| `kg.py` | 247 | The study layer: runs searches and seeds, records them, refreshes them | `create_kg`, `load_study`, `record_study` |
+| `downloader.py` | 1208 | HTTP client with rate limiting and retries; PMC search and summaries; full-text download; metadata, reference and text extraction from JATS XML | `search_and_download`, `search_pmc`, `esearch_pmc`, `esummary_pmc`, `efetch_pmc`, `extract_metadata_from_pmc_xml` |
+| `neighborhood.py` | 470 | ELink relations, PubMed records with flags and MeSH terms, flag counts beyond the cap | `get_neighborhood`, `save_neighborhood`, `download_neighborhood` |
+| `vault.py` | 1118 | Merges every source into one graph of papers, concepts and collections, then writes notes without losing user edits, with Obsidian property types and a Bases table | `build_vault`, `topic_vault_dir` |
+| `kg.py` | 266 | The study layer: runs searches and seeds, records them, refreshes them | `create_kg`, `load_study`, `record_study` |
 | `impact.py` | 383 | How a paper spread: the citers of many papers at once, counts by year and flag through PubMed's history server, the sentences in which full texts or Semantic Scholar cite it and their kind, and the annotation of a knowledge graph; used by tutorial 8 | `citers_of`, `count_by_year`, `count_flags`, `citation_contexts`, `classify`, `semantic_scholar_contexts`, `annotate` |
-| `corpus.py` | 95 | Reads downloaded articles back as compact records, each once; counts the works they cite | `list_articles`, `most_cited` |
-| `review.py` | 249 | Summaries by a local model through Ollama's API, at temperature 0, with number and citation checks | `review`, `save_to_vault` |
-| `mcp_server.py` | 357 | The Model Context Protocol over standard input and output, with seven tools; library output kept off the protocol | `serve` |
-| `obsidian.py`, `assistants.py` | 166 | Opening graphs through Obsidian URIs; writing instructions and MCP settings into a research folder | `open_vault`, `init_folder` |
-| `cli.py` | 767 | Parses arguments and maps them onto the functions above; sets exit codes; writes UTF-8 to pipes | `main` |
+| `corpus.py` | 128 | Reads downloaded articles back as compact records, each once; counts the works they cite | `list_articles`, `most_cited` |
+| `review.py` | 351 | Summaries by a local model through Ollama's API, at temperature 0, with number and citation checks | `review`, `save_to_vault` |
+| `mcp_server.py` | 458 | The Model Context Protocol over standard input and output, with nine tools; library output kept off the protocol | `serve` |
+| `obsidian.py`, `assistants.py` | 256 | Opening graphs through Obsidian URIs; writing instructions and MCP settings into a research folder | `open_vault`, `init_folder` |
+| `settings.py` | 62 | The user's settings file in the home folder, where `init` saves the NCBI API key, and a folder's own | `saved_api_key`, `set_setting` |
+| `cli.py` | 951 | Parses arguments and maps them onto the functions above; sets exit codes; writes UTF-8 to pipes | `main` |
 
-The modules form a strict stack. Each one imports only from the modules below it, so the download layer never knows about vaults, and the vault never calls the CLI. Nothing in the package imports `impact.py`; tutorial 8 does:
+The modules form a strict stack. Each one imports only from the modules below it, so the download layer never knows about vaults, and the vault never calls the CLI; `settings.py`, which imports nothing, sits under them all. Nothing in the package imports `impact.py`; tutorial 8 does:
 
 ```mermaid
 flowchart TB
@@ -381,7 +384,7 @@ sequenceDiagram
     A->>M: initialize
     M-->>A: tools capability and instructions
     A->>M: tools/list
-    M-->>A: seven tools with JSON schemas
+    M-->>A: nine tools with JSON schemas
     A->>M: tools/call search_pmc
     M->>L: search_pmc(query)
     L->>N: ESearch, ESummary
@@ -410,13 +413,16 @@ Each tool is marked read-only or not, so clients can run read-only tools without
 | File | Read by | Contents |
 |------|---------|----------|
 | `AGENTS.md` | Codex, and through imports the others | The instructions, shipped in the package as `pubmed_stream/data/AGENTS.md` |
-| `CLAUDE.md`, `GEMINI.md` | Claude Code, Gemini CLI | `@AGENTS.md`, which imports the instructions |
+| `CLAUDE.md`, `GEMINI.md` | Claude Code, Gemini CLI | `@AGENTS.md`, which imports the instructions. Claude Code 2.1.277 and later reads `AGENTS.md` by itself, and never twice, so `CLAUDE.md` serves older versions |
 | `.mcp.json` | Claude Code | The MCP server, started with the Python that has pubmed-stream installed |
 | `.codex/config.toml` | Codex | The same server, with start-up and call timeouts |
 | `.claude/settings.json` | Claude Code | The folder's model, with `--claude-model` |
 | `.pubmed-stream.json` | `pubmed-stream review` | The folder's local model, with `--review-model` |
+| `~/.pubmed-stream.json` | The command line and the MCP server, in every folder | The user's NCBI API key, with `--ncbi-api-key`, or typed when `init` asks for it in a terminal while none is configured; a skipped question is recorded as an empty key, so `init` asks once. The MCP server saves the Claude Code plugin's key here too, when none is saved, after the first tool call in which NCBI accepted it. `NCBI_API_KEY` in the environment takes precedence |
 
 Files that exist are kept: the import line and the server entries are added to them if missing, and `AGENTS.md` is rewritten only with `--force`. There is no Codex model option: Codex 0.163 reads a folder's MCP servers but ignores its `model`, as tested, so Codex's model is chosen with `codex -m` or `/model`.
+
+**The plugin** in `plugins/pubmed-stream` is the other way in, for Claude Code and Codex in every folder: a manifest for each (`.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`); `.mcp.json`, which starts the server as `uvx --from "pubmed-stream==<version>" pubmed-stream mcp`, so the plugin runs the PyPI release of its own version whatever is installed; and the skill `skills/literature-search/SKILL.md`, which is `AGENTS.md` under a note about the plugin. The Claude Code manifest also asks for the NCBI API key at install (`userConfig`) and passes it to the server as `PUBMED_STREAM_NCBI_API_KEY`, a name of its own so that it never overrides the user's `NCBI_API_KEY`; Codex reads `.mcp.json`, which has no such entry, and its server uses the key saved with `init --ncbi-api-key`. NCBI answers every request made with an invalid key with `400 API key invalid`, so a key is checked once per process (`check_api_key`): `init` refuses to save one NCBI rejects, and a configured key NCBI rejects is dropped with a warning, so requests continue without it at 3 a second; the server also tells the assistant so, once, at the end of the next tool result. After a download that a key would have shortened by 10 s or more, the command line and the `download` tool say by how much (`api_key_hint`), and `init` ends with the key's status (`api_key_status`). The marketplaces at the repository root, `.claude-plugin/marketplace.json` and `.agents/plugins/marketplace.json`, let the assistants install it from GitHub. The two ways meet in `plugin_installed`: `init` reads the assistants' settings (`~/.claude/settings.json` lists enabled plugins; Codex enables one with a `[plugins."pubmed-stream@<marketplace>"]` table in `config.toml`), and where the plugin is enabled it writes no server for that assistant, and removes one it wrote earlier, with the action `plugin`; otherwise the assistant would list every tool twice. Gemini CLI has no plugin, so its settings always get the server.
 
 ### 7.3 Local reviews
 
@@ -607,3 +613,5 @@ pytest
 | A new note type, such as authors | A renderer and its owned keys in `vault.py` | Add its keys to an owned-keys tuple, or rebuilds will treat them as the user's |
 | A Logseq or other output format | A second renderer over the same `_Graph` | The graph model is format-independent; only rendering is Obsidian-specific |
 | A new study option | `create_kg` in `kg.py`, then the `kg` parser in `cli.py` | Record anything a refresh must repeat in `study.json` |
+| A release | `__version__` in `__init__.py` (`pyproject.toml` reads it), `CITATION.cff`, and in `plugins/pubmed-stream` the two `plugin.json`, `.mcp.json`, its copy in `.claude-plugin/plugin.json`, and the skill's note; `tests/test_plugin.py` names any left behind | Publish to PyPI before pushing the bump: the plugin fetches the release of its own version through `uvx`, so until it exists on PyPI, plugin users' server fails to start |
+| A new MCP tool | `TOOLS` and a handler in `mcp_server.py`, and its name beside the matching command in `data/AGENTS.md`, copied into the plugin's `SKILL.md` | The tests check that `AGENTS.md` names every tool and that the skill is `AGENTS.md` under its note |

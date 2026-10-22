@@ -30,6 +30,8 @@ Find the message or symptom you see. Most problems happen during setup and are f
 
 | You see | What it means and what to do |
 |---|---|
+| Searches and downloads are slow, or `429 Too Many Requests` | Without an NCBI API key, NCBI allows 3 requests a second instead of 10. [Get a free key](setup.md#getting-a-free-ncbi-api-key) and save it with `pubmed-stream init --ncbi-api-key YOUR-KEY`; `init` also asks for it while none is saved. |
+| `NCBI rejected the API key` | The saved key has a typo or was revoked, and pubmed-stream continues without it. Create a key in your NCBI account settings and save it again with `pubmed-stream init --ncbi-api-key YOUR-KEY`. |
 | A search finds 0 articles | Check the spelling, quotes and brackets. Paste the search into [PMC's website](https://pmc.ncbi.nlm.nih.gov/) to test it; its *Advanced* search builds field tags for you. A MeSH heading must be spelled exactly as in the [MeSH browser](https://www.ncbi.nlm.nih.gov/mesh). |
 | A search finds tens of thousands of articles | It is too broad. Put the main concept in the title with `[Title]`, add `AND` terms, or use MeSH headings. Tutorial 2 shows how, step by step. |
 | Many articles are *unavailable* | Their publishers do not allow full-text download. Add `AND "open access"[filter]` to the search, or accept that they will be missing. |
@@ -61,7 +63,8 @@ Find the message or symptom you see. Most problems happen during setup and are f
 
 | You see | What it means and what to do |
 |---|---|
-| The assistant says it has no pubmed-stream tools | The MCP server did not start. Run `pubmed-stream init` in the folder and start the assistant there again. In Claude Code, `/mcp` shows the server and any error; approve it if asked. In Codex, `/mcp` lists the tools. |
+| The assistant says it has no pubmed-stream tools | The MCP server did not start. Run `pubmed-stream init` in the folder and start the assistant there again. In Claude Code, `/mcp` shows the server and any error; approve it if asked. In Codex, `/mcp` lists the tools. If you use the plugin instead, [uv](https://docs.astral.sh/uv/getting-started/installation/) is probably not installed; the plugin needs it to fetch pubmed-stream. |
+| The assistant lists every pubmed-stream tool twice | The folder was set up with `pubmed-stream init` before you installed the plugin, so the plugin and the folder each start a server. Run `pubmed-stream init` in the folder again: with the plugin installed, it removes the folder's own server. |
 | `init` works, but the server fails to start later | The settings point to the Python that ran `init`. If you moved or removed that Python environment, run `pubmed-stream init` again from the one you use now. |
 | Codex ignores the model I set in the research folder | Codex 0.163 does not read a folder's model setting. Choose it with `/model` during the session, start with `codex -m <model>`, or set `model` in the `config.toml` of the `.codex` folder in your home folder. |
 | Codex stops at `download` or `build_knowledge_graph` | Tools that save files need your approval. Approve them when asked; in `codex exec`, add `--approve-for-me`. |

@@ -326,7 +326,10 @@ when the answer cites an article that was not read, 2 when the model fails.""",
         epilog="""Writes AGENTS.md (the instructions; CLAUDE.md and GEMINI.md import it),
 .mcp.json (Claude Code), .codex/config.toml (Codex) and .gemini/settings.json
 (Gemini CLI), which start pubmed-stream's MCP server. Existing files are kept, and settings are added
-to them. Then start your assistant in the folder: claude, codex or gemini.""",
+to them. Where the pubmed-stream plugin is installed, Claude Code's or Codex's settings get no server,
+because the plugin provides it in every folder. While no NCBI API key is configured, init asks for one, which
+makes everything about three times faster, and saves it for every folder in ~/.pubmed-stream.json.
+Then start your assistant in the folder: claude, codex or gemini.""",
     )
     init.add_argument("folder", nargs="?", default=".", help="The research folder (default: the current folder)")
     init.add_argument("--force", action="store_true", help="Rewrite AGENTS.md with the current instructions")
@@ -335,6 +338,8 @@ to them. Then start your assistant in the folder: claude, codex or gemini.""",
     init.add_argument("--review-model", metavar="MODEL",
                       help="The model 'pubmed-stream review' uses in this folder: an Ollama model, or claude, "
                            "codex or gemini (.pubmed-stream.json)")
+    init.add_argument("--ncbi-api-key", metavar="KEY",
+                      help="Your NCBI API key, saved for every folder in ~/.pubmed-stream.json")
 
     open_p = subparsers.add_parser(
         "open",
@@ -797,6 +802,11 @@ def _utf8_output() -> None:
             stream.reconfigure(encoding="utf-8")
 
 
+def _interactive() -> bool:
+    """Whether a person is at the terminal, so a command may ask a question."""
+    return sys.stdin.isatty() and sys.stdout.isatty()
+
+
 def main() -> int:
     _utf8_output()
     parser = build_parser()
@@ -830,12 +840,56 @@ def main() -> int:
 
     if args.command == "init":
         from .assistants import init_folder
+        from .downloader import api_key_status, check_api_key, configured_api_key
+        from .settings import NCBI_API_KEY_SETTING, read_settings, set_setting, user_settings_file
 
-        for name, action in init_folder(args.folder, force=args.force, claude_model=args.claude_model,
-                                        review_model=args.review_model):
+        key = args.ncbi_api_key
+        asked_before = NCBI_API_KEY_SETTING in read_settings(user_settings_file())
+        if key is None and not configured_api_key() and not asked_before and _interactive():
+            print("A free NCBI API key makes searches and downloads about three times faster. Create one under\n"
+                  "API Key Management in the settings of your NCBI account, https://account.ncbi.nlm.nih.gov/settings/,\n"
+                  "and paste it here; it is saved for every folder. Or press Enter to skip, and add it later with\n"
+                  "pubmed-stream init --ncbi-api-key YOUR-KEY.")
+            try:
+                key = input("NCBI API key: ").strip() or None
+            except EOFError:
+                key = None
+            if key is None:
+                # remember the answer, so that init does not ask again in the next folder
+                try:
+                    set_setting(user_settings_file(), NCBI_API_KEY_SETTING, "")
+                except ValueError as e:
+                    print(f"Warning: {e}", file=sys.stderr)
+            print()
+        if key:
+            verdict = check_api_key(key)
+            if verdict == "invalid":
+                print("NCBI rejected this key (API key invalid), so it was not saved. Check it for missing characters "
+                      "in the settings of your NCBI account, and try again.", file=sys.stderr)
+                if args.ncbi_api_key:
+                    return 1
+                key = None
+            elif verdict == "ok":
+                print("NCBI accepted the key.")
+            else:
+                print("NCBI could not be reached to check the key; it is saved anyway.")
+        try:
+            actions = init_folder(args.folder, force=args.force, claude_model=args.claude_model,
+                                  review_model=args.review_model, ncbi_api_key=key)
+        except ValueError as e:         # a settings file that is not valid JSON
+            print(f"Error: {e}. Fix or delete the file, then run init again.", file=sys.stderr)
+            return 1
+        for name, action in actions:
             print(f"{action:>8}  {Path(args.folder) / name}")
-        print("\nStart your assistant in this folder: claude, codex or gemini. Claude Code asks once to "
-              "approve the pubmed-stream server; in Codex and Gemini CLI, /mcp lists its tools.")
+        if any(action == "plugin" for _, action in actions):
+            print("\n  plugin: the pubmed-stream plugin gives that assistant the tools in every folder, so this "
+                  "file has no pubmed-stream server of its own.")
+        notes = [] if dict(actions).get(".mcp.json") == "plugin" else [
+            "Claude Code asks once to approve the pubmed-stream server"]
+        notes.append("in Codex and Gemini CLI, /mcp lists its tools")
+        sentence = "; ".join(notes)
+        print(f"\nNCBI API key: {api_key_status()}")
+        print(f"\nStart your assistant in this folder: claude, codex or gemini. {sentence[0].upper()}{sentence[1:]}.")
         return 0
 
     if args.command == "review":
@@ -864,6 +918,13 @@ def main() -> int:
             )
         if args.quiet:
             print(stats)
+        else:
+            from .downloader import api_key_hint
+
+            # failed includes unavailable; with a chosen rate, the hint's arithmetic would not apply
+            hint = api_key_hint(stats.successful + stats.failed, stats.duration_seconds)
+            if hint and args.rate_limit is None:
+                print(f"\n{hint}")
 
         if stats.successful > 0 or (stats.skipped > 0 and stats.errors == 0):
             vault_dir = _vault_dir(args, stats.output_dir.name)

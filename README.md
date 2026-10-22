@@ -94,6 +94,8 @@ The first time, the assistant asks you to sign in. Claude Code then asks to appr
 
 > *Is the gut microbiota linked to frailty? Size the search first, download the clinical studies, and summarize the evidence with PMIDs.*
 
+Claude Code and Codex can also carry pubmed-stream's tools into every folder as a plugin; [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) compares the two ways.
+
 ### In Python
 
 The first steps of the quick start, in Python:
@@ -155,7 +157,15 @@ pip install "pubmed-stream[tutorials]"     # plus jupyter, matplotlib, networkx 
 
 The AI-assistant, local-model and Obsidian features of [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later, PubMed abstracts and citation export 0.4.0, and reviews by Claude Code, Codex or Gemini CLI (`review --model claude`) 0.4.1: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.9 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
 
-**Set an NCBI API key.** NCBI allows 3 requests per second without a key and 10 with one, so a key makes everything about three times faster. Keys are free: create one in the settings of an [NCBI account](https://www.ncbi.nlm.nih.gov/account/). pubmed-stream reads it, and an optional contact email, from the environment:
+**Set an NCBI API key.** NCBI allows 3 requests per second without a key and 10 with one, so a key makes everything about three times faster. Keys are free: create one under *API Key Management* in the settings of an [NCBI account](https://account.ncbi.nlm.nih.gov/settings/). Save it once, for every folder:
+
+```bash
+pubmed-stream init --ncbi-api-key "your-key"   # kept in ~/.pubmed-stream.json; init also asks for it while none is saved
+```
+
+`init` checks the key with NCBI before saving it, and if NCBI ever rejects a saved key, pubmed-stream says so and continues without it rather than failing every request. Without a key, a download that a key would have shortened by ten seconds or more ends by saying how much time it would have saved.
+
+Claude Code asks for it when the pubmed-stream plugin is installed. For scripts and servers, the environment works too, with an optional contact email, and takes precedence:
 
 ```bash
 export NCBI_API_KEY="your-key"        # PowerShell: $env:NCBI_API_KEY = "your-key"
@@ -477,16 +487,30 @@ flowchart LR
     A -->|"obsidian CLI"| K
 ```
 
-**AI assistants.** In a research folder, `pubmed-stream init` writes the instructions and settings for Claude Code, Codex and Gemini CLI. The assistant then calls pubmed-stream directly through its **MCP server**, as the tools `search_pmc`, `download`, `list_articles`, `most_cited`, `read_article`, `neighborhood` and `build_knowledge_graph`. Ask it a research question in plain language:
+**AI assistants.** Claude Code, Codex and Gemini CLI call pubmed-stream directly through its **MCP server**: nine tools, from sizing a search to building the knowledge graph, each returning compact text, so the assistant can scan 64 papers in about 3,000 tokens instead of reading 4.3 MB of full text. The instructions that come with the tools make it size searches before downloading, cite only papers it downloaded and read in the session, say what kind of evidence each is, report its searches with their counts, and name what it could not read. Set it up in one of two ways:
+
+| | The plugin | `pubmed-stream init` |
+|---|---|---|
+| Gives the tools to | Claude Code or Codex, in every folder | any of the three assistants, in one research folder |
+| Needs | [uv](https://docs.astral.sh/uv/getting-started/installation/); the plugin fetches pubmed-stream itself | `pip install pubmed-stream` |
+| Carries the instructions as | the skill `literature-search` | `AGENTS.md` in the folder, which `CLAUDE.md` and `GEMINI.md` import |
+| Asks for your NCBI API key | at install (Claude Code); the server then saves it for the command line too | in the terminal, once |
+| Also | | chooses the folder's models: `init --claude-model opus`, `init --review-model <ollama model>` |
 
 ```bash
+# The plugin, once
+claude plugin install pubmed-stream --marketplace melhzy/pubmed-stream   # Claude Code
+codex plugin marketplace add melhzy/pubmed-stream                         # Codex: then /plugins, Install plugin
+
+# Or one folder
 pubmed-stream init
-claude        # or: codex, gemini
 ```
+
+Then start the assistant in your research folder, `claude`, `codex` or `gemini`, and ask a research question in plain language:
 
 > *Does fecal microbiota transplantation help people with Parkinson's disease? Find the clinical evidence and summarize it, with PMIDs.*
 
-The instructions make the assistant size searches before downloading, cite only papers it downloaded and read in the session, say what kind of evidence each is, report its searches with their counts, and name what it could not read. Every tool returns compact text, so the assistant can scan 64 papers in about 3,000 tokens instead of reading 4.3 MB of full text. `init --claude-model opus` and `init --review-model <ollama model>` also choose the models for the folder. To give an assistant the tools in every folder, register the server once instead: `claude mcp add pubmed-stream -- pubmed-stream mcp`, or the same with `codex mcp add`.
+The two ways do not conflict: where the plugin is installed, `init` leaves its server out of the folder, so the tools are not listed twice, and running it again in a folder set up earlier removes the extra one. The plugin, in [`plugins/pubmed-stream`](https://github.com/melhzy/pubmed-stream/tree/main/plugins/pubmed-stream), runs the pubmed-stream release of its own version through `uvx` and saves files in the folder you start the assistant in. Without uv, register the server you installed with pip: `claude mcp add pubmed-stream -- pubmed-stream mcp`, or the same with `codex mcp add`.
 
 **Local models.** For questions you would rather not send to a company, `pubmed-stream review` has a model running in [Ollama](https://ollama.com) on your own computer summarize the abstracts you chose; only the PubMed searches leave your computer. The model reads one abstract at a time, at temperature 0, and never sees your question, so it cannot present the question as a finding. pubmed-stream attaches each PubMed ID itself and flags numbers and citations the abstracts do not support.
 
@@ -578,8 +602,10 @@ How a paper spread through the literature is measured by a module of its own, `f
 | A quoted phrase is ignored on Windows | Windows PowerShell 5.1 drops inner double quotes, and Command Prompt does not understand single quotes. In PowerShell write `'\"gut microbiota\"[Title] AND frailty[Title/Abstract]'`; in Command Prompt, `"\"gut microbiota\"[Title] AND frailty[Title/Abstract]"`. PowerShell 7.3 and later, macOS and Linux take the examples as written |
 | `0` saved but many matches | The files already exist and were skipped, which counts as success; `stats.skipped` shows them |
 | Many *unavailable* articles | Their publishers do not allow XML download. Add `AND "open access"[filter]` to the search |
-| HTTP 429, *Too Many Requests* | Requests are retried automatically. Set `NCBI_API_KEY`, or slow down with `--rate-limit 0.5` |
+| HTTP 429, *Too Many Requests* | Requests are retried automatically. Add your NCBI API key (`pubmed-stream init --ncbi-api-key`), or slow down with `--rate-limit 0.5` |
+| *NCBI rejected the API key* | The saved key has a typo or was revoked; pubmed-stream continues without it. Create a key in your NCBI account settings and save it again with `pubmed-stream init --ncbi-api-key` |
 | Timeouts or a flaky network | Use `--sequential`, or fewer `--workers` |
+| The assistant lists every pubmed-stream tool twice | The folder was set up with `init` before the plugin was installed. Run `pubmed-stream init` again in it: with the plugin installed, it removes the folder's own server |
 | Results unrelated to the question | The search matched text anywhere in the article; see [section 2](#2-write-searches-that-find-the-right-papers) |
 | `'PMC…' is a PMC ID` | `neighborhood` and `--seed` need the PubMed ID, which downloaded files have in `metadata.pmid` |
 | Few references or citations in a neighborhood | NCBI has citation links only where reference lists were deposited, mostly for PMC articles |

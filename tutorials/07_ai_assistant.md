@@ -16,7 +16,7 @@ You type questions in plain English. You never write code.
 
 1. [Before you start: the tools in plain words](#1-before-you-start-the-tools-in-plain-words)
 2. [Install everything](#2-install-everything)
-3. [Set up a folder for your question](#3-set-up-a-folder-for-your-question)
+3. [Connect your assistant to pubmed-stream](#3-connect-your-assistant-to-pubmed-stream)
 4. [Choose a model](#4-choose-a-model)
 5. [Ask your first question](#5-ask-your-first-question)
 6. [Check the work like a scientist](#6-check-the-work-like-a-scientist)
@@ -134,13 +134,15 @@ ollama pull hf.co/unsloth/Llama-3.2-1B-Instruct-GGUF:Q4_K_M
 
 ### 2.6 Optional: a free NCBI API key
 
-It makes searches and downloads about three times faster. [Get one in five minutes](guides/setup.md#getting-a-free-ncbi-api-key).
+It makes searches and downloads about three times faster. [Get one in five minutes](guides/setup.md#getting-a-free-ncbi-api-key) and keep it at hand: `pubmed-stream init` asks for it in section 3, checks it with NCBI and saves it for every folder. To add it later, run `pubmed-stream init --ncbi-api-key YOUR-KEY` in your research folder.
 
 ---
 
-## 3. Set up a folder for your question
+## 3. Connect your assistant to pubmed-stream
 
-Use one folder per question. Everything the assistant downloads and writes stays in it.
+There are two ways. **Option A** prepares one folder, which is all most people need: use one folder per question, so that everything the assistant downloads and writes for it stays together. **Option B** installs pubmed-stream as a plugin of Claude Code or Codex once, so that the assistant has it in every folder you open. You can also do both: `init` notices the plugin and does not connect a folder twice.
+
+### Option A: one folder per question
 
 1. **Create an empty folder** where you keep your work, for example `Documents/fmt-parkinson`.
 2. **Open a terminal in that folder.** In the terminal, type `cd` and a space, then drag the folder from your file explorer onto the terminal window, which fills in its location, and press Enter.
@@ -150,7 +152,7 @@ Use one folder per question. Everything the assistant downloads and writes stays
    pubmed-stream init
    ```
 
-   You should see:
+   The first time, it asks for your NCBI API key ([section 2.6](#26-optional-a-free-ncbi-api-key)): paste it, or press Enter to skip; it asks only once. Then you should see:
 
    ```
     created  AGENTS.md
@@ -158,6 +160,7 @@ Use one folder per question. Everything the assistant downloads and writes stays
     created  GEMINI.md
     created  .mcp.json
     created  .codex\config.toml
+    created  .gemini\settings.json
    ```
 
    `AGENTS.md` holds the rules the assistant follows: search before downloading, cite only papers it read, say what it could not read. The other files connect the assistant to pubmed-stream. You do not need to open any of them.
@@ -167,6 +170,27 @@ Use one folder per question. Everything the assistant downloads and writes stays
 > **Check:** Type `/mcp`. You should see *pubmed-stream* with its tools, such as `search_pmc` and `download`.
 
 Next time, open a terminal in the same folder and type `claude` or `codex` again; everything is still there.
+
+### Option B: the plugin, once for every folder
+
+The plugin gives Claude Code or Codex pubmed-stream's tools and rules wherever you start it. It fetches pubmed-stream by itself through a small program called **uv**, so install uv first:
+
+```bash
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Mac or Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Open a new terminal, then install the plugin for your assistant:
+
+- **Claude Code:** run `claude plugin install pubmed-stream --marketplace melhzy/pubmed-stream`. It asks for your NCBI API key ([section 2.6](#26-optional-a-free-ncbi-api-key)): paste it, or leave it empty and add it later by typing `/plugin configure pubmed-stream@pubmed-stream` inside Claude Code. The first time the plugin runs, it also saves the key for the command line, so `init` will not ask for it.
+- **Codex:** run `codex plugin marketplace add melhzy/pubmed-stream`, start `codex`, type `/plugins`, open *pubmed-stream* and choose *Install plugin*; then quit Codex and start it again. Codex has no place to type the key, so save it once by running `pubmed-stream init --ncbi-api-key YOUR-KEY` in your research folder.
+
+Then create a folder for your question, open a terminal in it as in option A, and start `claude` or `codex`.
+
+> **Check:** Type `/mcp`. You should see *pubmed-stream* with its tools. In Claude Code, the rules come as the skill `pubmed-stream:literature-search`.
 
 ---
 
@@ -412,7 +436,7 @@ Tips:
 | Problem | What to do |
 |---|---|
 | `pubmed-stream`, `claude` or `codex` is "not recognized" or "not found" | Close the terminal and open a new one. If it persists, repeat the install step for that tool. |
-| The assistant says it has no pubmed-stream tools | Make sure you started it in the folder where you ran `pubmed-stream init`. In Claude Code, `/mcp` shows the server; approve it if asked. |
+| The assistant says it has no pubmed-stream tools | Make sure you started it in the folder where you ran `pubmed-stream init`. In Claude Code, `/mcp` shows the server; approve it if asked. With the plugin, uv is probably missing: repeat the first step of [option B](#option-b-the-plugin-once-for-every-folder) and open a new terminal. |
 | The assistant asks permission to run something | Read what it wants to do. Downloads and knowledge graphs are expected; approve them. |
 | A search finds thousands of papers | Ask the assistant to put the main topic in the title, or to use MeSH headings. |
 | A paper the assistant mentions can't be found | Ask which search it came from. If its PMID is not among the downloads, do not rely on the claim. |
@@ -456,8 +480,9 @@ For readers who want to know what happens behind the scenes, or to use pubmed-st
 | `.codex/config.toml` | Codex | The same, for Codex |
 | `.claude/settings.json` | Claude Code | The folder's model, with `--claude-model` |
 | `.pubmed-stream.json` | `pubmed-stream review` | The folder's local model, with `--review-model` |
+| `~/.pubmed-stream.json`, in your home folder | pubmed-stream, in every folder | Your NCBI API key, with `--ncbi-api-key`, or typed when `init` asks for it |
 
-Running `init` again never overwrites your changes. To give an assistant pubmed-stream's tools in every folder instead, run once: `claude mcp add pubmed-stream -- pubmed-stream mcp`, or the same with `codex mcp add`.
+Running `init` again never overwrites your changes. [Option B](#option-b-the-plugin-once-for-every-folder) of section 3 installs pubmed-stream as a plugin instead; with the plugin installed, `init` leaves the server out of the folder, so the tools are not listed twice.
 
 ### Obsidian's command line
 
