@@ -5,6 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Documentation](https://img.shields.io/badge/docs-melhzy.github.io-2a78d6.svg)](https://melhzy.github.io/pubmed-stream/)
 
+<!-- mcp-name: io.github.melhzy/pubmed-stream -->
+
 **From a PubMed search to a knowledge graph of the literature.** pubmed-stream downloads full-text articles from PubMed Central, maps the evidence around key papers, and links everything a study collects into an [Obsidian](https://obsidian.md) knowledge graph, where papers connect through citations, similarity and MeSH topics. It is built on NCBI's official E-utilities, works from the command line or Python, and needs nothing beyond `requests`. AI assistants use it too: it is a plugin for **Claude Code** and **Codex**, and an **MCP server** for them and Gemini CLI, so you can ask a research question in plain English and get an answer that cites only papers the assistant downloaded and read.
 
 **Documentation: [melhzy.github.io/pubmed-stream](https://melhzy.github.io/pubmed-stream/)**, the tutorials, guides and reference in one searchable website, with every notebook shown with its results.
@@ -163,7 +165,7 @@ pip install pubmed-stream                  # the library and the pubmed-stream c
 pip install "pubmed-stream[tutorials]"     # plus jupyter, matplotlib, networkx and pandas for the tutorials
 ```
 
-The AI-assistant, local-model and Obsidian features of [section 5](#5-use-it-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later, PubMed abstracts and citation export 0.4.0, reviews by Claude Code, Codex or Gemini CLI (`review --model claude`) 0.4.1, and the Claude Code and Codex plugin, `pubmed_stream.impact`, which tutorial 8 imports, and saving your NCBI API key with `init` 0.4.2: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.9 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
+The AI-assistant, local-model and Obsidian features of [section 5](#5-use-it-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later, PubMed abstracts and citation export 0.4.0, reviews by Claude Code, Codex or Gemini CLI (`review --model claude`) 0.4.1, and the Claude Code and Codex plugin, `pubmed_stream.impact`, which tutorial 8 imports, and saving your NCBI API key with `init` 0.4.2, and the MCP server's progress reports and its hidden console window on Windows 0.4.3: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.9 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
 
 **Set an NCBI API key.** NCBI allows 3 requests per second without a key and 10 with one, so a key makes everything about three times faster. Keys are free: create one under *API Key Management* in the settings of an [NCBI account](https://account.ncbi.nlm.nih.gov/settings/). Save it once, for every folder:
 
@@ -706,13 +708,14 @@ The [architecture guide](https://github.com/melhzy/pubmed-stream/blob/main/docs/
 ```
 pubmed-stream/
 ├── pubmed_stream/      the package
-├── tests/              155 offline tests; NCBI is faked with canned responses
+├── tests/              163 offline tests; NCBI is faked with canned responses
 ├── tutorials/          eight notebooks, the AI assistant tutorial and instructions, guides, kg_study.py, keyword lists, tools
 ├── plugins/            the Claude Code and Codex plugin: MCP server settings and the literature-search skill
 ├── .claude-plugin/     the Claude Code marketplace that lists the plugin
 ├── .agents/plugins/    the Codex marketplace that lists the plugin
 ├── docs/               the architecture guide and its figures
 ├── pyproject.toml      package metadata and dependencies
+├── server.json         the MCP server's entry in the official MCP Registry
 ├── studies/            research done with pubmed-stream, with its frozen data; see studies/README.md
 ├── CHANGELOG.md        changes in each version
 ├── CITATION.cff        how to cite pubmed-stream
@@ -741,7 +744,7 @@ Ideas on the roadmap: a search query builder and progress bars.
 
 Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 
-1. **Bump the version** in `pubmed_stream/__init__.py` (`__version__ = "X.Y.Z"`), which `pyproject.toml` reads, and `CITATION.cff` (`version` and `date-released`). In the plugin, `plugins/pubmed-stream`, bump it in both `plugin.json` files (`version`), in the release its server runs (`pubmed-stream==X.Y.Z`, in `.codex-plugin/mcp.json` and in `.claude-plugin/plugin.json`) and in the skill's note, twice. Turn the changelog's *Unreleased* heading into `X.Y.Z - YYYY-MM-DD`. The tests name any copy left behind.
+1. **Bump the version** in `pubmed_stream/__init__.py` (`__version__ = "X.Y.Z"`), which `pyproject.toml` reads, and `CITATION.cff` (`version` and `date-released`). In the plugin, `plugins/pubmed-stream`, bump it in both `plugin.json` files (`version`), in the release its server runs (`pubmed-stream==X.Y.Z`, in `.codex-plugin/mcp.json` and in `.claude-plugin/plugin.json`) and in the skill's note, twice; and in `server.json`, twice (`version`, and the package's `version`). Turn the changelog's *Unreleased* heading into `X.Y.Z - YYYY-MM-DD`. The tests name any copy left behind.
 2. **Run the tests**: `pytest`.
 3. **Build and check the distributions**; `dist/` is git-ignored:
 
@@ -771,7 +774,14 @@ Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
    If the tag already exists on the wrong commit, move it and force-push only that tag, never `main`: `git tag -f X.Y.Z <commit>`, then `git push --force origin refs/tags/X.Y.Z`.
 
 6. **Create the GitHub release.** In the web interface, open `https://github.com/melhzy/pubmed-stream/releases/new?tag=X.Y.Z`, set the title to `X.Y.Z`, paste the version's section of `CHANGELOG.md` as the description, attach the two files from `dist/`, and publish. With the [GitHub CLI](https://cli.github.com/), after a one-time `gh auth login`: `gh release create X.Y.Z --title "X.Y.Z" --notes "<the changelog section>" dist/*`.
-7. **Verify**: `pip install --upgrade pubmed-stream`, then `pubmed-stream --version`.
+7. **Update the listing in the [official MCP Registry](https://registry.modelcontextprotocol.io/)**, which other MCP directories copy. It holds only `server.json`, so run this after PyPI has the release: the registry checks that the version exists there and that the README PyPI shows contains the line `mcp-name: io.github.melhzy/pubmed-stream`, which the README carries as a hidden comment. With [`mcp-publisher`](https://modelcontextprotocol.io/registry/quickstart) installed, from the repository root:
+
+   ```bash
+   mcp-publisher login github   # once; it signs in as the GitHub account that owns melhzy/pubmed-stream
+   mcp-publisher publish
+   ```
+
+8. **Verify**: `pip install --upgrade pubmed-stream`, then `pubmed-stream --version`.
 
 ## FAQ
 

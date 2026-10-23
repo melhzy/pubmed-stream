@@ -3,7 +3,7 @@ name: literature-search
 description: Search, download and read the biomedical literature with pubmed-stream (PubMed and PubMed Central), map the evidence around a paper and build an Obsidian knowledge graph. Use for any question about what published studies show, finding or reading papers, PMIDs, MeSH searches, retractions or literature reviews.
 ---
 
-> **Installed as a plugin.** The plugin runs pubmed-stream 0.4.2 through `uvx`, which downloads it, so nothing else needs installing. For the `pubmed-stream` commands below that have no tool, such as `open`, `refresh` and `review`, run `uvx --from "pubmed-stream==0.4.2" pubmed-stream …`, the same copy the tools use. Claude Code asked for an NCBI API key when the plugin was installed; `/plugin configure pubmed-stream@pubmed-stream` sets or changes it, and a key saved with `init --ncbi-api-key` works as well. Files are saved in the folder the session started in.
+> **Installed as a plugin.** The plugin runs pubmed-stream 0.4.3 through `uvx`, which downloads it, so nothing else needs installing. For the `pubmed-stream` commands below that have no tool, such as `open`, `refresh` and `review`, run `uvx --from "pubmed-stream==0.4.3" pubmed-stream …`, the same copy the tools use. Claude Code asked for an NCBI API key when the plugin was installed; `/plugin configure pubmed-stream@pubmed-stream` sets or changes it, and a key saved with `init --ncbi-api-key` works as well. Files are saved in the folder the session started in.
 
 # Literature search with pubmed-stream
 
