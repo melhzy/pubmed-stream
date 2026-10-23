@@ -48,7 +48,10 @@ def test_plugin_runs_the_release_of_its_own_version():
     timeouts = {"startup_timeout_sec", "tool_timeout_sec"}
     assert {k: v for k, v in inline.items() if k != "env"} == {k: v for k, v in server.items() if k not in timeouts}
     assert inline["env"] == {"PUBMED_STREAM_NCBI_API_KEY": "${user_config.ncbi_api_key}"}
-    assert claude["userConfig"]["ncbi_api_key"]["sensitive"] is True
+    option = claude["userConfig"]["ncbi_api_key"]
+    assert option["sensitive"] is True
+    # Cowork ignores an MCP server that references an option without a default; an empty key means none
+    assert option["default"] == "" and not option.get("required")
 
 
 def test_skill_is_the_folder_instructions_under_a_plugin_note():

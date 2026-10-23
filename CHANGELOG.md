@@ -8,6 +8,10 @@ Notable changes to pubmed-stream. Versions follow [semantic versioning](https://
 
 - The MCP server reports progress. When the assistant asks for it, `download`, `fetch_abstracts` and `build_knowledge_graph` send MCP progress notifications while they run: the articles downloaded so far, the abstracts fetched, and the search, key paper or build the knowledge graph is at. `search_and_download`, `fetch_abstracts` and `create_kg` take a `progress` callback, called with `(done, total, message)`, for the same.
 
+### Fixed
+
+- Cowork can start the plugin's server. The Claude Code manifest gives the NCBI API key option an empty default: Cowork ignores an MCP server that references an option without one, and never asks for values, where Claude Code asks at install. The README, the plugin's README and tutorial 7 say how the Claude desktop app reaches pubmed-stream: its Code tab has the plugin installed from the terminal; Cowork needs the plugin on the claude.ai account, added from **Customize > Plugins** with `melhzy/pubmed-stream` as a marketplace; chat cannot start a program on the computer. `init` counts a plugin synced from the account, which Claude Code loads with no settings entry, so it writes no second server for the folder. The Codex CLI calls the skill as `$pubmed-stream:literature-search`, as the docs now say.
+
 ### Changed
 
 - The MCP server's instructions, which every assistant receives on connecting, cover all nine tools and the order to use them in, ask for each search to be reported with its count, and say to prefer pubmed-stream's tools to other PubMed tools the assistant may have, since pubmed-stream saves every article it reads; `AGENTS.md` and the plugin's skill say the same.

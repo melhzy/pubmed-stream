@@ -300,6 +300,19 @@ def test_init_leaves_the_server_to_the_plugin(tmp_path, home):
     assert "pubmed-stream" in json.loads(mcp.read_text(encoding="utf-8"))["mcpServers"]
 
 
+def test_init_counts_a_plugin_synced_from_claude_ai(tmp_path, home):
+    # Claude Code syncs a plugin added on the claude.ai account into its plugins folder, with no settings entry
+    synced = home / ".claude" / "plugins" / "synced" / "account-id" / "pubmed-stream" / ".claude-plugin"
+    synced.mkdir(parents=True)
+    (synced / "plugin.json").write_text('{"name": "pubmed-stream"}', encoding="utf-8")
+
+    assert dict(init_folder(tmp_path))[".mcp.json"] == "plugin"
+
+    # turned off in Claude Code, it does not count
+    (home / ".claude" / "settings.json").write_text(json.dumps({"enabledPlugins": {"pubmed-stream@synced": False}}))
+    assert dict(init_folder(tmp_path))[".mcp.json"] == "created"
+
+
 def test_init_saves_the_api_key_for_the_user(tmp_path, home, monkeypatch, capsys):
     verdicts = {"typed-key": "ok", "bad-key": "invalid", "unchecked": "unknown"}
     monkeypatch.setattr("pubmed_stream.downloader.check_api_key", lambda key, session=None: verdicts[key])

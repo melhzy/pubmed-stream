@@ -46,8 +46,10 @@ def server_command() -> Tuple[str, List[str]]:
 def plugin_installed(assistant: str, folder: PathLike = ".") -> bool:
     """Whether the pubmed-stream plugin is enabled in Claude Code or Codex (*assistant*), for the user or *folder*.
 
-    Claude Code lists enabled plugins in its settings files; Codex enables one
-    with a ``[plugins."pubmed-stream@<marketplace>"]`` table in ``config.toml``.
+    Claude Code lists enabled plugins in its settings files, except a plugin
+    added on the claude.ai account, which it syncs into its plugins folder and
+    loads with no settings entry unless the user turns it off; Codex enables
+    one with a ``[plugins."pubmed-stream@<marketplace>"]`` table in ``config.toml``.
     """
     home, folder = Path.home(), Path(folder)
     if assistant == "claude":
@@ -58,7 +60,8 @@ def plugin_installed(assistant: str, folder: PathLike = ".") -> bool:
             ours = [bool(on) for name, on in enabled.items() if name.startswith(PLUGIN)] if isinstance(enabled, dict) else []
             if ours:
                 return any(ours)
-        return False
+        synced = home / ".claude" / "plugins" / "synced"
+        return any(p.is_dir() for pattern in ("*/pubmed-stream", "*/pubmed-stream~*") for p in synced.glob(pattern))
     for path in (home / ".codex" / "config.toml", folder / ".codex" / "config.toml"):
         try:
             text = path.read_text(encoding="utf-8")

@@ -221,9 +221,11 @@ Usually you just ask your question, and the assistant reaches for pubmed-stream 
 |---|---|
 | Claude Code | `/pubmed-stream`: the menu narrows to `/pubmed-stream:literature-search`; choose it and add your question |
 | Codex app | `/` or `@`, then *pubmed-stream* |
-| Codex CLI | `/skills`, or `$` and the skill's name |
+| Codex CLI | `$pubmed-stream:literature-search`, or `/skills` and choose it |
 
 A download of hundreds of papers or a knowledge graph takes minutes. Claude Code shows the progress; in Codex, wait for the call to finish rather than asking again.
+
+**The Claude desktop app.** Its *Code* tab is Claude Code, so it has the plugin you installed in option B; if the app was open during the install, start it again. Its chat cannot use pubmed-stream: chat cannot start a program on your computer. Cowork can, once the plugin is on your claude.ai account: open **Customize > Plugins**, choose **Add > Add marketplace**, enter `melhzy/pubmed-stream`, and add *pubmed-stream*. A plugin on your account also reaches Claude Code; where you installed option B, Claude Code keeps using that copy, so nothing is listed twice.
 
 ### For programmers: connecting by hand
 
