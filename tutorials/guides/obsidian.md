@@ -200,4 +200,4 @@ Obsidian has its own [command line interface](https://obsidian.md/help/cli), whi
 | `obsidian vault=kg_fmt_parkinson base:query path=Papers.base view="Reading list" format=paths` | The papers you tagged `#to-read` |
 | `obsidian vault=kg_fmt_parkinson unresolved total` | How many cited papers have no note |
 
-The instructions that `pubmed-stream init` gives AI assistants include these commands, so an assistant can read your reading list or check which papers cite a trial.
+The instructions that `pubmed-stream init` and the pubmed-stream plugin give AI assistants include these commands, so an assistant can read your reading list or check which papers cite a trial.

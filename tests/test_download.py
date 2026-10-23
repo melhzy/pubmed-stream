@@ -116,6 +116,21 @@ def test_search_and_download_records_the_query(make_session, tmp_path, full_xml)
     assert query["query"] == '"gut microbiome"[Title]'
 
 
+def test_search_and_download_reports_progress(make_session, tmp_path, full_xml, no_body_xml):
+    search = json.dumps({"esearchresult": {"count": "3", "idlist": ["1", "2", "3"]}})
+    session = make_session(routes={"esearch.fcgi": search, "db=pmc&id=1&": full_xml, "db=pmc&id=2&": no_body_xml,
+                                   "db=pmc&id=3&": full_xml})
+    (tmp_path / "gut_microbiome").mkdir()
+    (tmp_path / "gut_microbiome" / "PMC3.json").write_text("{}", encoding="utf-8")
+    reported = []
+
+    search_and_download("gut microbiome", 3, output_dir=tmp_path, session=session, rate_limit=0,
+                        progress=lambda done, total, message: reported.append((done, total, message)))
+
+    assert reported == [(0, 3, "3 articles to download"),
+                        (3, 3, "3 of 3 articles: 1 downloaded, 1 already there, 1 unavailable, 0 errors")]
+
+
 def test_slugify_keeps_short_names():
     assert (slugify('"gut microbiota"[Title] AND frailty[Title/Abstract]')
             == "gut_microbiota_Title_AND_frailty_Title_Abstract")

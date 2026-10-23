@@ -15,7 +15,7 @@ import time
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import requests
 
@@ -114,13 +114,15 @@ def fetch_abstracts(
     email: Optional[str] = None,
     rate_limit: Optional[float] = None,
     session: Optional[requests.Session] = None,
+    progress: Optional[Callable[[float, int, str], None]] = None,
 ) -> AbstractStats:
     """Search PubMed for *query* and save the newest *max_results* articles' abstracts.
 
     Articles are saved as ``<output_dir>/<query_slug>/PMID<id>.json``, next
     to any full texts ``search_and_download`` saved for the same query.
     Articles saved before are skipped.  The query uses PubMed's syntax,
-    which PMC shares, so the same query works for both.
+    which PMC shares, so the same query works for both.  *progress* is
+    called after each batch with ``(done, total, message)``.
 
     Raises:
         requests.RequestException: NCBI did not answer.
@@ -131,7 +133,7 @@ def fetch_abstracts(
     try:
         pmids, total = esearch_pubmed(query, max_results, api_key, session, rate_limiter)
         wanted = [p for p in pmids if not (out_dir / f"PMID{p}.json").exists()]
-        articles = _efetch_pubmed(wanted, api_key, session, rate_limiter) if wanted else {}
+        articles = _efetch_pubmed(wanted, api_key, session, rate_limiter, progress=progress) if wanted else {}
     finally:
         if owned:
             session.close()

@@ -31,14 +31,22 @@ def test_every_copy_of_the_version_matches_the_package():
 
 
 def test_plugin_runs_the_release_of_its_own_version():
-    server = load(PLUGIN / ".mcp.json")["mcpServers"]["pubmed-stream"]        # read by Codex
+    codex = load(PLUGIN / ".codex-plugin" / "plugin.json")
+    assert codex["mcpServers"] == "./.codex-plugin/mcp.json"
+    server = load(PLUGIN / ".codex-plugin" / "mcp.json")["mcpServers"]["pubmed-stream"]   # read by Codex
     assert server["command"] == "uvx"
     assert server["args"] == ["--from", RELEASE, "pubmed-stream", "mcp"]
-    # Claude Code: the same entry inline, with the key; it replaces .mcp.json's, so one server starts (verified
-    # on Claude Code 2.1.308: the inline command ran, and the tools were listed once)
+    # Codex allows a server 10 s to start and 60 s per call unless told otherwise: the first start downloads
+    # pubmed-stream, and a large download or a knowledge graph takes minutes (Codex 0.163 reads both fields from
+    # a plugin's file, verified)
+    assert (server["startup_timeout_sec"], server["tool_timeout_sec"]) == (60, 600)
+    # Claude Code: the same command inline, with the key; its own tool timeout is long enough. The plugin has no
+    # root .mcp.json, so one server starts, and Anthropic's directory has no file to check against its schema
+    assert not (PLUGIN / ".mcp.json").exists()
     claude = load(PLUGIN / ".claude-plugin" / "plugin.json")
     inline = claude["mcpServers"]["pubmed-stream"]
-    assert {k: v for k, v in inline.items() if k != "env"} == server
+    timeouts = {"startup_timeout_sec", "tool_timeout_sec"}
+    assert {k: v for k, v in inline.items() if k != "env"} == {k: v for k, v in server.items() if k not in timeouts}
     assert inline["env"] == {"PUBMED_STREAM_NCBI_API_KEY": "${user_config.ncbi_api_key}"}
     assert claude["userConfig"]["ncbi_api_key"]["sensitive"] is True
 
