@@ -473,8 +473,72 @@ def _error(msg_id: Any, code: int, message: str) -> Dict[str, Any]:
     return {"jsonrpc": "2.0", "id": msg_id, "error": {"code": code, "message": message}}
 
 
+# The programs that may be attached to a console Windows opened for the server alone: uv, the launchers, Python
+OWN_CONSOLE_IMAGES = {"uv.exe", "uvx.exe", "python.exe", "pythonw.exe", "pubmed-stream.exe"}
+
+
+def console_processes() -> List[str]:
+    """On Windows, the image names of the processes attached to this process's console; elsewhere, or when
+    there is no console, an empty list. A process that cannot be inspected is listed as ``?``."""
+    if sys.platform != "win32":
+        return []
+    import ctypes
+    from ctypes import wintypes
+
+    kernel32 = ctypes.windll.kernel32
+    pids = (wintypes.DWORD * 64)()
+    count = kernel32.GetConsoleProcessList(pids, 64)
+    if count > 64:
+        pids = (wintypes.DWORD * count)()
+        count = kernel32.GetConsoleProcessList(pids, count)
+    names = []
+    for pid in pids[:count]:
+        handle = kernel32.OpenProcess(0x1000, False, pid)   # PROCESS_QUERY_LIMITED_INFORMATION
+        if not handle:
+            names.append("?")
+            continue
+        try:
+            buffer = ctypes.create_unicode_buffer(32768)
+            size = wintypes.DWORD(len(buffer))
+            ok = kernel32.QueryFullProcessImageNameW(handle, 0, buffer, ctypes.byref(size))
+            names.append(Path(buffer.value).name if ok else "?")
+        finally:
+            kernel32.CloseHandle(handle)
+    return names
+
+
+def console_is_own(names: List[str]) -> bool:
+    """Whether a console holding the processes *names* can only be one Windows opened for the server."""
+    return bool(names) and all(name.lower() in OWN_CONSOLE_IMAGES for name in names)
+
+
+def hide_own_console() -> bool:
+    """Hide the console window that Windows opens when a desktop app starts the server, and only that one.
+
+    A desktop app such as Claude's or ChatGPT's has no console, so Windows gives
+    the server a new one, whose window stays on screen for the whole session.
+    In a terminal the server shares the terminal's console with the shell and
+    the assistant and must leave it alone, so the window is hidden only when
+    every process attached to the console is uv, a launcher or Python.
+    """
+    if not console_is_own(console_processes()):
+        return False
+    import ctypes
+
+    hwnd = ctypes.windll.kernel32.GetConsoleWindow()
+    if not hwnd:
+        return False
+    ctypes.windll.user32.ShowWindow(hwnd, 0)   # SW_HIDE
+    return True
+
+
 def serve(root: Optional[Path] = None, stdin=None, stdout=None) -> None:
     """Answer MCP messages, one JSON object per line, until standard input closes."""
+    try:
+        if hide_own_console():
+            logger.info("hid the console window Windows opened for the server")
+    except Exception as e:   # a missing API or an odd console: the window stays, the server runs
+        logger.debug("could not hide the console window: %s", e)
     stdin = stdin or sys.stdin.buffer
     stdout = stdout or sys.stdout.buffer
     server = Server(Path(root or Path.cwd()).resolve(), stdout)

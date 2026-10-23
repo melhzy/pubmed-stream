@@ -410,6 +410,8 @@ Each tool is marked read-only or not, so clients can run read-only tools without
 
 The `instructions` the server returns from `initialize` are the assistant's only guidance where neither `AGENTS.md` nor the plugin's skill is loaded, as with a server registered by hand, so they name every tool and the order to use them in, and say to prefer pubmed-stream's tools to other PubMed tools the assistant may have; a test keeps them naming every tool. When a `tools/call` carries a progress token in `_meta`, `download`, `fetch_abstracts` and `build_knowledge_graph` send `notifications/progress` while they run, written to the protocol stream between the request and its response: the library's `search_and_download`, `fetch_abstracts` and `create_kg` take a `progress` callback, called with `(done, total, message)`, and the server turns it into notifications, dropping any that would not increase `progress`, as the protocol requires. `create_kg` counts one step per search and seed and one for the build, and reports a download's own progress as a fraction of its step.
 
+On Windows, a desktop app that starts the server has no console, so Windows opens one and its window stays on screen for the session. `serve` therefore calls `hide_own_console` first, which hides the window only when every process attached to the console (`GetConsoleProcessList`) is uv, a launcher or Python: in a terminal, the console also holds the shell and the assistant, and hiding it would hide the terminal.
+
 ### 7.2 Setting up a folder
 
 `pubmed-stream init` writes what each assistant reads when it starts in a folder:
