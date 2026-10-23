@@ -41,6 +41,7 @@ You type questions in plain English. You never write code.
 | **Terminal** | A window where you type commands instead of clicking. *Terminal* or *PowerShell* on Windows, *Terminal* on a Mac. | Everything below starts from it. You will type a handful of commands, always copied from this tutorial. |
 | **pubmed-stream** | A free program that searches PubMed Central, downloads full-text papers and builds a knowledge graph of them. | It gives the assistant real papers to read, so it does not cite from memory. |
 | **An AI assistant** | **Claude Code** (by Anthropic) or **Codex** (by OpenAI): an AI that works in your terminal and can use programs such as pubmed-stream. | It designs the searches, reads the abstracts and writes the summary. You only need one of the two. |
+| **MCP** | The Model Context Protocol, the standard way an AI assistant uses another program's tools. pubmed-stream comes with its own MCP server. | It lets the assistant search, download and read through pubmed-stream's tools. [Section 3](#3-connect-your-assistant-to-pubmed-stream) connects them, with a plugin or with `pubmed-stream init`. |
 | **A model** | The AI "brain" the assistant runs on. Each assistant offers several, faster or more capable. | [Section 4](#4-choose-a-model) explains how to choose. |
 | **Obsidian** | A free note-taking app that shows linked notes as a map. | You browse, tag and write notes on the papers there. |
 | **Ollama** | A free program that runs a small AI model on your own computer. | Optional, for questions that must stay private. |
@@ -52,7 +53,7 @@ How they fit together:
 ```mermaid
 flowchart LR
     Y(["You<br/>ask in plain English"]) --> A["AI assistant<br/>Claude Code or Codex"]
-    A -->|"uses"| P["pubmed-stream<br/>searches and downloads"]
+    A -->|"uses its tools<br/>through MCP"| P["pubmed-stream<br/>searches and downloads"]
     P <--> N[("PubMed Central")]
     P --> K["Knowledge graph<br/>in Obsidian"]
     A -->|"cited summary"| Y
@@ -81,6 +82,8 @@ python -m pip install --upgrade pubmed-stream
 ```
 
 On a Mac, type `python3` instead of `python`, here and below. The command prints many lines and ends with `Successfully installed`.
+
+Install it even if you will use the plugin of [section 3](#option-b-the-plugin-once-for-every-folder), which brings its own copy for the assistant: this copy is the one you type commands to, such as `pubmed-stream init` and `pubmed-stream open`.
 
 > **Check:** `pubmed-stream --version` prints 0.4.2 or later.
 
@@ -140,7 +143,9 @@ It makes searches and downloads about three times faster. [Get one in five minut
 
 ## 3. Connect your assistant to pubmed-stream
 
-There are two ways. **Option A** prepares one folder, which is all most people need: use one folder per question, so that everything the assistant downloads and writes for it stays together. **Option B** installs pubmed-stream as a plugin of Claude Code or Codex once, so that the assistant has it in every folder you open. You can also do both: `init` notices the plugin and does not connect a folder twice.
+**How the connection works.** The assistant uses pubmed-stream through **MCP** (the Model Context Protocol), a standard way for AI assistants to use other programs. pubmed-stream, the program you installed in section 2.2, contains its own MCP server: the command `pubmed-stream mcp`. You never run it yourself. The assistant starts it in the background and calls pubmed-stream's tools through it, such as `search_pmc` to size a search and `download` to fetch papers. Connecting only tells the assistant how to start that command.
+
+There are two ways. **Option A** prepares one folder, which is all most people need: use one folder per question, so that everything the assistant downloads and writes for it stays together. **Option B** installs pubmed-stream as a plugin of Claude Code or Codex once, so that the assistant has it in every folder you open. The plugin is only a few settings files: it starts its own copy of pubmed-stream, which uv downloads. You can also do both: `init` notices the plugin and does not connect a folder twice.
 
 ### Option A: one folder per question
 
@@ -186,11 +191,31 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Open a new terminal, then install the plugin for your assistant:
 
 - **Claude Code:** run `claude plugin install pubmed-stream --marketplace melhzy/pubmed-stream`. It asks for your NCBI API key ([section 2.6](#26-optional-a-free-ncbi-api-key)): paste it, or leave it empty and add it later by typing `/plugin configure pubmed-stream@pubmed-stream` inside Claude Code. The first time the plugin runs, it also saves the key for the command line, so `init` will not ask for it.
-- **Codex:** run `codex plugin marketplace add melhzy/pubmed-stream`, start `codex`, type `/plugins`, open *pubmed-stream* and choose *Install plugin*; then quit Codex and start it again. Codex has no place to type the key, so save it once by running `pubmed-stream init --ncbi-api-key YOUR-KEY` in your research folder.
+- **Codex:** run these two commands, one after the other:
+
+  ```bash
+  codex plugin marketplace add melhzy/pubmed-stream
+  codex plugin add pubmed-stream@pubmed-stream
+  ```
+
+  You can also install it inside Codex instead of the second command: type `/plugins`, open *pubmed-stream* and choose *Install plugin*, then quit Codex and start it again. Codex has no place to type the key, so save it once by running `pubmed-stream init --ncbi-api-key YOUR-KEY` in your research folder.
 
 Then create a folder for your question, open a terminal in it as in option A, and start `claude` or `codex`.
 
 > **Check:** Type `/mcp`. You should see *pubmed-stream* with its tools. In Claude Code, the rules come as the skill `pubmed-stream:literature-search`.
+
+**Keeping the plugin up to date.** Each version of the plugin runs the pubmed-stream release of the same number. To get a newer one:
+
+| | Update | Remove |
+|---|---|---|
+| **Claude Code** | `claude plugin marketplace update pubmed-stream`, then `claude plugin update pubmed-stream@pubmed-stream` | `claude plugin uninstall pubmed-stream@pubmed-stream` |
+| **Codex** | `codex plugin marketplace upgrade pubmed-stream`, then `codex plugin add pubmed-stream@pubmed-stream` again | `codex plugin remove pubmed-stream@pubmed-stream` |
+
+Restart the assistant afterwards. `claude plugin list` and `codex plugin list` show what is installed.
+
+### For programmers: connecting by hand
+
+To give the assistant the tools in every folder without the plugin, register the command you installed with pip once: `claude mcp add pubmed-stream -- pubmed-stream mcp`, or `codex mcp add pubmed-stream -- pubmed-stream mcp`. The assistant then has the tools but not the rules of `AGENTS.md`, so options A and B are better for most people.
 
 ---
 
@@ -229,7 +254,7 @@ Codex 0.163 ignores a model setting inside a research folder, so pubmed-stream d
 | Make it this folder's default | `pubmed-stream init --review-model llama3.2:3b` |
 | See and get models | `ollama list` shows what you have; `ollama pull llama3.2:3b` downloads one |
 
-Larger local models summarize better but need more memory: a 1-billion-parameter model runs on almost any laptop, while models of 7 billion or more want a recent computer with plenty of memory or a graphics card. The [README](../README.md#5-work-with-ai-assistants-local-models-and-obsidian) suggests models for each size of computer.
+Larger local models summarize better but need more memory: a 1-billion-parameter model runs on almost any laptop, while models of 7 billion or more want a recent computer with plenty of memory or a graphics card. The [README](../README.md#5-use-it-with-ai-assistants-local-models-and-obsidian) suggests models for each size of computer.
 
 ---
 
@@ -436,7 +461,8 @@ Tips:
 | Problem | What to do |
 |---|---|
 | `pubmed-stream`, `claude` or `codex` is "not recognized" or "not found" | Close the terminal and open a new one. If it persists, repeat the install step for that tool. |
-| The assistant says it has no pubmed-stream tools | Make sure you started it in the folder where you ran `pubmed-stream init`. In Claude Code, `/mcp` shows the server; approve it if asked. With the plugin, uv is probably missing: repeat the first step of [option B](#option-b-the-plugin-once-for-every-folder) and open a new terminal. |
+| The assistant says it has no pubmed-stream tools | Type `/mcp` to see whether the *pubmed-stream* server is listed and whether it shows an error. **With option A**, make sure you started the assistant in the folder where you ran `pubmed-stream init`, and in Claude Code approve the server if asked. **With option B**, `claude plugin list` or `codex plugin list` should show *pubmed-stream*; if it does, uv is probably missing: repeat the first step of [option B](#option-b-the-plugin-once-for-every-folder) and open a new terminal. Then restart the assistant. |
+| The assistant lists every pubmed-stream tool twice | The folder was set up with `pubmed-stream init` before you installed the plugin. Run `pubmed-stream init` in the folder again: it notices the plugin and removes the folder's own connection. |
 | The assistant asks permission to run something | Read what it wants to do. Downloads and knowledge graphs are expected; approve them. |
 | A search finds thousands of papers | Ask the assistant to put the main topic in the title, or to use MeSH headings. |
 | A paper the assistant mentions can't be found | Ask which search it came from. If its PMID is not among the downloads, do not rely on the claim. |
@@ -452,7 +478,7 @@ For readers who want to know what happens behind the scenes, or to use pubmed-st
 
 ### What the assistant uses
 
-`pubmed-stream init` connects the assistant to pubmed-stream through **MCP**, the Model Context Protocol, an open standard by which assistants call tools directly. These are the tools, with the matching commands you can type yourself:
+The assistant uses pubmed-stream through **MCP**, the Model Context Protocol, an open standard by which assistants call tools directly. pubmed-stream's MCP server is part of the program: the assistant starts it with the command `pubmed-stream mcp`, as the plugin or the settings written by `pubmed-stream init` tell it to. These are its tools, with the matching commands you can type yourself:
 
 | Command | MCP tool | What it does |
 |---|---|---|
@@ -469,6 +495,7 @@ For readers who want to know what happens behind the scenes, or to use pubmed-st
 | `pubmed-stream review QUESTION --id PMID ...` | | Summaries by a local model through Ollama, with checks |
 | `pubmed-stream open kg_TOPIC` | | Opens a knowledge graph in Obsidian |
 | `pubmed-stream init` | | Prepares a folder for Claude Code, Codex and Gemini CLI |
+| `pubmed-stream mcp` | | The MCP server itself; the assistant starts it, not you |
 
 ### The files `init` writes
 
@@ -483,6 +510,18 @@ For readers who want to know what happens behind the scenes, or to use pubmed-st
 | `~/.pubmed-stream.json`, in your home folder | pubmed-stream, in every folder | Your NCBI API key, with `--ncbi-api-key`, or typed when `init` asks for it |
 
 Running `init` again never overwrites your changes. [Option B](#option-b-the-plugin-once-for-every-folder) of section 3 installs pubmed-stream as a plugin instead; with the plugin installed, `init` leaves the server out of the folder, so the tools are not listed twice.
+
+### What the plugin contains
+
+The plugin, in [`plugins/pubmed-stream`](https://github.com/melhzy/pubmed-stream/tree/main/plugins/pubmed-stream) on GitHub, holds settings and text, no program:
+
+| File | Read by | Contains |
+|---|---|---|
+| `.claude-plugin/plugin.json` | Claude Code | How to start the server, `uvx --from pubmed-stream==<version> pubmed-stream mcp`, and the question for your NCBI API key |
+| `.codex-plugin/plugin.json`, `.mcp.json` | Codex | The same server, and how Codex shows the plugin |
+| `skills/literature-search/SKILL.md` | both | The rules of `AGENTS.md`, as a skill the assistant loads when you ask about the literature |
+
+The marketplaces that list it, `.claude-plugin/marketplace.json` and `.agents/plugins/marketplace.json` at the top of the repository, are what `--marketplace melhzy/pubmed-stream` and `codex plugin marketplace add melhzy/pubmed-stream` read. uv keeps the downloaded copy of pubmed-stream in its own cache, apart from the one you installed with pip.
 
 ### Obsidian's command line
 

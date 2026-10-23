@@ -353,14 +353,20 @@ Then start your assistant in the folder: claude, codex or gemini.""",
         "mcp",
         help="Run as an MCP server, so Claude Code, Codex and other AI assistants can call pubmed-stream's tools",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""Started by the AI assistant, not by you. Register it once:
-  claude mcp add pubmed-stream -- pubmed-stream mcp
-  codex mcp add pubmed-stream -- pubmed-stream mcp
-or run 'pubmed-stream init' in a research folder.
+        epilog="""Started by the AI assistant, not by you. Connect it in one of three ways:
+  the plugin, for Claude Code or Codex in every folder (needs uv):
+    claude plugin install pubmed-stream --marketplace melhzy/pubmed-stream
+    codex plugin marketplace add melhzy/pubmed-stream
+    codex plugin add pubmed-stream@pubmed-stream
+  'pubmed-stream init', for Claude Code, Codex or Gemini CLI in one research folder
+  by hand, for every folder:
+    claude mcp add pubmed-stream -- pubmed-stream mcp
+    codex mcp add pubmed-stream -- pubmed-stream mcp
 
-Tools: search_pmc, download, list_articles, most_cited, read_article,
-neighborhood, build_knowledge_graph. Messages are JSON-RPC on standard
-input and output; logs go to standard error.""",
+Tools: search_pmc, download, fetch_abstracts, list_articles, most_cited,
+read_article, neighborhood, export_citations, build_knowledge_graph.
+Messages are JSON-RPC on standard input and output; logs go to standard
+error.""",
     )
     mcp.add_argument("--root", help="Folder that relative paths refer to (default: the current folder)")
 

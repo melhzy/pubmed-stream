@@ -2,6 +2,12 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
+## Unreleased
+
+### Changed
+
+- The README, tutorial 7 and the assistant's instructions explain how pubmed-stream connects to Claude Code and Codex: the MCP server is part of the Python library, started as `pubmed-stream mcp`, and the plugin, `init` and `claude mcp add` or `codex mcp add` only tell the assistant how to start it. The README has a new title, a section on the three ways to connect with the nine tools listed, and installs the Codex plugin from the terminal with `codex plugin add pubmed-stream@pubmed-stream`. When the tools are missing, `AGENTS.md` and the plugin's skill tell the assistant what to ask the researcher to run, and `pubmed-stream mcp --help` lists all nine tools and the three ways. Tutorial 7 adds MCP to its list of tools, explains the connection in section 3, shows how to update, list and remove the plugin, describes what the plugin contains, and troubleshoots either way of connecting; the glossary has entries for plugin, skill and uv, and its MCP entry links to the renamed section; the setup, troubleshooting and Obsidian guides and the tutorials index name the plugin beside `init`.
+
 ## 0.4.2 - 2026-10-22
 
 ### Added

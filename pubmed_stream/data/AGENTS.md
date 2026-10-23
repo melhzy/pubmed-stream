@@ -14,13 +14,23 @@ You are helping a researcher study the biomedical literature. Search, download a
 
 If the **pubmed-stream MCP tools** are available, use them: `search_pmc`, `download`, `fetch_abstracts`, `list_articles`, `most_cited`, `read_article`, `neighborhood`, `export_citations` and `build_knowledge_graph`. They return compact text and need no shell. Otherwise use the `pubmed-stream` command line below; each step names both.
 
-If neither works, or `pubmed-stream --version` is older than 0.4.2, install or upgrade pubmed-stream, then restart the session so the tools load. With pip:
+The MCP server is part of the pubmed-stream Python library: the assistant starts it with `pubmed-stream mcp`. If the tools are missing, it is not connected. Ask the researcher to connect it in a terminal in one of these ways, then to restart the session so the tools load:
+
+- **The plugin**, for Claude Code or Codex in every folder. It needs `uv` (https://docs.astral.sh/uv/getting-started/installation/), which fetches pubmed-stream itself; with the plugin installed, missing tools mean `uv` is missing.
+
+  ```bash
+  claude plugin install pubmed-stream --marketplace melhzy/pubmed-stream
+  codex plugin marketplace add melhzy/pubmed-stream
+  codex plugin add pubmed-stream@pubmed-stream
+  ```
+
+- **`pubmed-stream init`**, run in the research folder, for Claude Code, Codex or Gemini CLI in that folder.
+
+If `pubmed-stream` is not found, or `pubmed-stream --version` is older than 0.4.2, install or upgrade it first:
 
 ```bash
 python -m pip install --upgrade pubmed-stream
 ```
-
-With the pubmed-stream plugin, which fetches pubmed-stream itself, missing tools mean `uv` is not installed: ask the researcher to install it from https://docs.astral.sh/uv/getting-started/installation/.
 
 **NCBI API key.** A free key makes everything about three times faster: NCBI allows 3 requests a second without one and 10 with one. The server says at start-up whether one is configured. If none is, tell the researcher once: they create it under *API Key Management* in the settings of an NCBI account (https://account.ncbi.nlm.nih.gov/settings/) and save it by running `pubmed-stream init --ncbi-api-key THEIR-KEY` in a terminal, which keeps it in their home folder for every project. Never ask for the key in the conversation, and never print it.
 

@@ -40,7 +40,7 @@ The words used in pubmed-stream's tutorials and output, in plain language.
 
 **Graph view.** Obsidian's map of a vault: every note a dot, every link a line. See the [Obsidian guide](obsidian.md#the-graph-view).
 
-**Instructions file.** A text file, such as `AGENTS.md` or `CLAUDE.md`, that an AI assistant reads when it starts in a folder. pubmed-stream's tells it how to search and to cite only papers it has read.
+**Instructions file.** A text file, such as `AGENTS.md` or `CLAUDE.md`, that an AI assistant reads when it starts in a folder. pubmed-stream's tells it how to search and to cite only papers it has read. The plugin brings the same rules as a **skill**, `literature-search`.
 
 **JATS XML.** The standard format in which PMC stores papers, with every section, figure caption and reference marked up. pubmed-stream can keep it for text mining (`fmt="both"`).
 
@@ -54,7 +54,7 @@ The words used in pubmed-stream's tutorials and output, in plain language.
 
 **Major topic.** A MeSH heading that NLM's indexers mark as a main point of a paper, as opposed to one that is only discussed. Search for it with `[majr]`.
 
-**MCP.** The Model Context Protocol, an open standard by which AI assistants such as Claude Code and Codex call tools directly. `pubmed-stream mcp` is pubmed-stream's MCP server; `pubmed-stream init` sets it up. See [tutorial 7](../07_ai_assistant.md#3-set-up-a-folder-for-your-question).
+**MCP.** The Model Context Protocol, an open standard by which AI assistants such as Claude Code, Codex and Gemini CLI call tools directly. pubmed-stream's MCP server is part of pubmed-stream: the assistant starts it with the command `pubmed-stream mcp`, as the **plugin** or `pubmed-stream init` tells it to. See [tutorial 7](../07_ai_assistant.md#3-connect-your-assistant-to-pubmed-stream).
 
 **MeSH.** Medical Subject Headings, NLM's controlled vocabulary of about 30,000 biomedical concepts. Indexers tag each paper in **MEDLINE**, PubMed's curated core of journals, with MeSH **headings**, so a MeSH search finds papers about a concept whatever words the authors used. Look up headings in the [MeSH browser](https://www.ncbi.nlm.nih.gov/mesh); search with `[mh]`. New papers take weeks to months to be indexed, and papers in journals outside MEDLINE never are.
 
@@ -75,6 +75,8 @@ The words used in pubmed-stream's tutorials and output, in plain language.
 **PMC.** PubMed Central, NCBI's free archive of full-text papers. pubmed-stream searches PMC and downloads full text from it.
 
 **PMCID.** A paper's ID in PMC, such as `PMC6683074`.
+
+**Plugin.** An add-on that gives Claude Code or Codex new tools and instructions in every folder. pubmed-stream's plugin connects the assistant to pubmed-stream's MCP server and brings its rules as a skill; it uses **uv** to fetch pubmed-stream. See [tutorial 7](../07_ai_assistant.md#option-b-the-plugin-once-for-every-folder).
 
 **PMID.** A paper's ID in PubMed, such as `31319564`. Knowledge-graph notes are named after it: `PMID31319564`.
 
@@ -98,11 +100,15 @@ The words used in pubmed-stream's tutorials and output, in plain language.
 
 **Retraction.** The withdrawal of a published paper, for error or misconduct. PubMed marks retracted papers; pubmed-stream flags them, and Obsidian's graph view colours them red.
 
+**Skill.** A set of instructions that Claude Code or Codex loads when a task calls for it. pubmed-stream's plugin has one, `literature-search`, with the same rules as `AGENTS.md`.
+
 **Similar articles.** PubMed's list of papers with similar words and MeSH headings, scored by its own algorithm. Scores compare within one paper's list, not across lists.
 
 **Stub.** A paper note without full text, for a paper in a key paper's evidence neighborhood that was not downloaded. It has PubMed's details and links, but no abstract.
 
 **Terminal.** A window for typing commands: *Terminal* or *Command Prompt* on Windows, *Terminal* on a Mac.
+
+**uv.** A small, free program that downloads and runs Python programs. pubmed-stream's plugin uses it to fetch and start pubmed-stream, so the assistant needs no `pip install`. Install it from [docs.astral.sh/uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 **Vault.** Obsidian's name for a folder of notes. A pubmed-stream knowledge graph is a vault.
 

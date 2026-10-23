@@ -1,11 +1,11 @@
-# pubmed-stream
+# pubmed-stream: literature searches in PubMed, for researchers and their AI assistants
 
 [![PyPI version](https://img.shields.io/pypi/v/pubmed-stream.svg)](https://pypi.org/project/pubmed-stream/)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Documentation](https://img.shields.io/badge/docs-melhzy.github.io-2a78d6.svg)](https://melhzy.github.io/pubmed-stream/)
 
-**From a PubMed search to a knowledge graph of the literature.** pubmed-stream downloads full-text articles from PubMed Central, maps the evidence around key papers, and links everything a study collects into an [Obsidian](https://obsidian.md) knowledge graph, where papers connect through citations, similarity and MeSH topics. It is built on NCBI's official E-utilities, works from the command line or Python, and needs nothing beyond `requests`.
+**From a PubMed search to a knowledge graph of the literature.** pubmed-stream downloads full-text articles from PubMed Central, maps the evidence around key papers, and links everything a study collects into an [Obsidian](https://obsidian.md) knowledge graph, where papers connect through citations, similarity and MeSH topics. It is built on NCBI's official E-utilities, works from the command line or Python, and needs nothing beyond `requests`. AI assistants use it too: it is a plugin for **Claude Code** and **Codex**, and an **MCP server** for them and Gemini CLI, so you can ask a research question in plain English and get an answer that cites only papers the assistant downloaded and read.
 
 **Documentation: [melhzy.github.io/pubmed-stream](https://melhzy.github.io/pubmed-stream/)**, the tutorials, guides and reference in one searchable website, with every notebook shown with its results.
 
@@ -32,7 +32,7 @@ flowchart LR
 - [2. Write searches that find the right papers](#2-write-searches-that-find-the-right-papers)
 - [3. Map the evidence around a paper](#3-map-the-evidence-around-a-paper)
 - [4. Build the knowledge graph of a study](#4-build-the-knowledge-graph-of-a-study)
-- [5. Work with AI assistants, local models and Obsidian](#5-work-with-ai-assistants-local-models-and-obsidian)
+- [5. Use it with AI assistants (MCP and plugin), local models and Obsidian](#5-use-it-with-ai-assistants-local-models-and-obsidian)
 - [Python API](#python-api)
 - [Troubleshooting](#troubleshooting)
 - [How it works](#how-it-works)
@@ -82,19 +82,27 @@ An AI assistant can do all of the above for you. Install one: Claude Code needs 
 npm install -g @anthropic-ai/claude-code   # Claude Code
 npm install -g @openai/codex               # Codex
 npm install -g @google/gemini-cli          # Gemini CLI
+```
 
-# Set up a research folder for all three, then start your assistant in it
+Then give your assistant pubmed-stream's tools, in one of two ways:
+
+```bash
+# Claude Code or Codex: install the plugin once, for every folder. It needs uv (https://docs.astral.sh/uv/)
+claude plugin install pubmed-stream --marketplace melhzy/pubmed-stream
+codex plugin marketplace add melhzy/pubmed-stream
+codex plugin add pubmed-stream@pubmed-stream
+
+# Any of the three: set up one research folder with the MCP server and instructions
 mkdir gut_frailty
 cd gut_frailty
 pubmed-stream init
-claude        # or: codex, or: gemini
 ```
 
-The first time, the assistant asks you to sign in. Claude Code then asks to approve the pubmed-stream server, and Gemini CLI asks whether you trust the folder: say yes to both, or the assistant will not have pubmed-stream's tools. Then ask in plain language:
+Start your assistant in your research folder with `claude`, `codex` or `gemini`. The first time, it asks you to sign in. With `init`, Claude Code also asks to approve the pubmed-stream server, and Gemini CLI asks whether you trust the folder: say yes to both, or the assistant will not have pubmed-stream's tools. `/mcp` lists them. Then ask in plain language:
 
 > *Is the gut microbiota linked to frailty? Size the search first, download the clinical studies, and summarize the evidence with PMIDs.*
 
-Claude Code and Codex can also carry pubmed-stream's tools into every folder as a plugin; [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) compares the two ways.
+[Section 5](#5-use-it-with-ai-assistants-local-models-and-obsidian) compares the plugin and `init`.
 
 ### In Python
 
@@ -123,7 +131,7 @@ The notebooks in [`tutorials/`](https://github.com/melhzy/pubmed-stream/tree/mai
 | 4 | [The evidence around one paper](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/04_evidence_neighborhood.ipynb) | Map a paper's neighborhood and screen it for retractions |
 | 5 | [The knowledge graph of a study](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/05_knowledge_graph.ipynb) | Build a graph and explain it with twelve charts and tables |
 | 6 | [Text mining and RAG preparation](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/06_text_mining.ipynb) | Split articles into sections and chunk them for embeddings |
-| 7 | [Your literature search with an AI assistant](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) | For medical students and biologists: install Claude Code or Codex, choose a model, ask in plain English, check the evidence, keep it in Obsidian, or use a local model through Ollama |
+| 7 | [Your literature search with an AI assistant](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) | For medical students and biologists: install Claude Code or Codex, connect it to pubmed-stream's MCP tools with the plugin or `pubmed-stream init`, choose a model, ask in plain English, check the evidence, keep it in Obsidian, or use a local model through Ollama |
 | 8 | [Measuring the impact of a retracted paper](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/08_retraction_impact.ipynb) | Follow the retracted 2006 *Nature* paper on Aβ\*56 through the papers citing it and the papers citing those: when and how they cite it, who still cites it after the retraction, and a knowledge graph of its impact |
 
 Five short guides support them:
@@ -155,7 +163,7 @@ pip install pubmed-stream                  # the library and the pubmed-stream c
 pip install "pubmed-stream[tutorials]"     # plus jupyter, matplotlib, networkx and pandas for the tutorials
 ```
 
-The AI-assistant, local-model and Obsidian features of [section 5](#5-work-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later, PubMed abstracts and citation export 0.4.0, reviews by Claude Code, Codex or Gemini CLI (`review --model claude`) 0.4.1, and `pubmed_stream.impact`, which tutorial 8 imports, and saving your NCBI API key with `init` 0.4.2: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.9 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
+The AI-assistant, local-model and Obsidian features of [section 5](#5-use-it-with-ai-assistants-local-models-and-obsidian) need version 0.3.0 or later, PubMed abstracts and citation export 0.4.0, reviews by Claude Code, Codex or Gemini CLI (`review --model claude`) 0.4.1, and the Claude Code and Codex plugin, `pubmed_stream.impact`, which tutorial 8 imports, and saving your NCBI API key with `init` 0.4.2: `pubmed-stream --version` shows yours, and `pip install --upgrade pubmed-stream` updates it. From a clone, `pip install -e ".[dev]"` installs it in editable mode with pytest and ruff. pubmed-stream needs Python 3.9 or later; its only runtime dependency is [requests](https://pypi.org/project/requests/).
 
 **Set an NCBI API key.** NCBI allows 3 requests per second without a key and 10 with one, so a key makes everything about three times faster. Keys are free: create one under *API Key Management* in the settings of an [NCBI account](https://account.ncbi.nlm.nih.gov/settings/). Save it once, for every folder:
 
@@ -474,43 +482,79 @@ Limitations to know about:
 - **Many references have no PMID.** Conference papers, preprints and books appear under *Other references*, not in the graph.
 - **Notes are never deleted.** Removing a source leaves its notes in the graph.
 
-## 5. Work with AI assistants, local models and Obsidian
+## 5. Use it with AI assistants, local models and Obsidian
 
 pubmed-stream connects to the tools researchers now work with: AI assistants that run in a terminal, local models that keep everything on your computer, and Obsidian, where the knowledge graph lives.
 
 ```mermaid
 flowchart LR
-    A["Claude Code, Codex,<br/>Gemini CLI"] -->|"MCP tools"| P["pubmed-stream"]
+    A["Claude Code, Codex,<br/>Gemini CLI"] -->|"MCP tools, from the plugin<br/>or pubmed-stream init"| P["pubmed-stream"]
     P --> K["kg_topic<br/>Obsidian vault"]
     P -->|"pubmed-stream review"| O["Ollama<br/>local model"]
     O -->|"review notes"| K
     A -->|"obsidian CLI"| K
 ```
 
-**AI assistants.** Claude Code, Codex and Gemini CLI call pubmed-stream directly through its **MCP server**: nine tools, from sizing a search to building the knowledge graph, each returning compact text, so the assistant can scan 64 papers in about 3,000 tokens instead of reading 4.3 MB of full text. The instructions that come with the tools make it size searches before downloading, cite only papers it downloaded and read in the session, say what kind of evidence each is, report its searches with their counts, and name what it could not read. Set it up in one of two ways:
+### Use pubmed-stream in Claude Code, Codex and Gemini CLI (MCP)
 
-| | The plugin | `pubmed-stream init` |
-|---|---|---|
-| Gives the tools to | Claude Code or Codex, in every folder | any of the three assistants, in one research folder |
-| Needs | [uv](https://docs.astral.sh/uv/getting-started/installation/); the plugin fetches pubmed-stream itself | `pip install pubmed-stream` |
-| Carries the instructions as | the skill `literature-search` | `AGENTS.md` in the folder, which `CLAUDE.md` and `GEMINI.md` import |
-| Asks for your NCBI API key | at install (Claude Code); the server then saves it for the command line too | in the terminal, once |
-| Also | | chooses the folder's models: `init --claude-model opus`, `init --review-model <ollama model>` |
+**How it works.** The MCP server is part of the Python library: the command `pubmed-stream mcp` starts it. There is nothing else to install. An AI assistant starts that command in the background, and from then on it can call pubmed-stream's tools itself, the way you would type its commands. The setup only tells the assistant how to start the server. There are three ways to do that, and they differ only in where the library comes from and which folders have the tools:
+
+```mermaid
+flowchart LR
+    L["The pubmed-stream library<br/>(PyPI)"]
+    L -->|"uv fetches it"| P["The plugin<br/>Claude Code, Codex<br/>every folder"]
+    L -->|"pip install"| I["pubmed-stream init<br/>all three assistants<br/>one folder"]
+    L -->|"pip install"| M["claude / codex mcp add<br/>every folder"]
+    P --> S["pubmed-stream mcp<br/>the MCP server"]
+    I --> S
+    M --> S
+    S -->|"9 tools"| A["The assistant"]
+```
+
+**1. The plugin, for Claude Code or Codex in every folder.** The plugin, in [`plugins/pubmed-stream`](https://github.com/melhzy/pubmed-stream/tree/main/plugins/pubmed-stream), holds no code. It is a few settings files that tell the assistant to start the server with `uvx --from pubmed-stream==<version> pubmed-stream mcp`. [uv](https://docs.astral.sh/uv/getting-started/installation/) downloads that release of the library from PyPI and runs it, so you do not need `pip install`; the plugin's version always names the library release it runs. It also brings the instructions, as the skill `literature-search`. Install uv, then:
 
 ```bash
-# The plugin, once
-claude plugin install pubmed-stream --marketplace melhzy/pubmed-stream   # Claude Code
-codex plugin marketplace add melhzy/pubmed-stream                         # Codex: then /plugins, Install plugin
+claude plugin install pubmed-stream --marketplace melhzy/pubmed-stream   # Claude Code; asks for your NCBI API key
 
-# Or one folder
+codex plugin marketplace add melhzy/pubmed-stream                         # Codex
+codex plugin add pubmed-stream@pubmed-stream
+```
+
+**2. `pubmed-stream init`, for any of the three assistants in one research folder.** After `pip install pubmed-stream`, run it in the folder. It writes settings files that start the server with the Python that has the library, `python -m pubmed_stream mcp`: `.mcp.json` for Claude Code, `.codex/config.toml` for Codex and `.gemini/settings.json` for Gemini CLI. It also writes the instructions as `AGENTS.md`, which `CLAUDE.md` and `GEMINI.md` import, and asks once for your NCBI API key. `init --claude-model opus` and `init --review-model <ollama model>` choose the folder's models.
+
+```bash
+cd my_research_folder
 pubmed-stream init
 ```
 
-Then start the assistant in your research folder, `claude`, `codex` or `gemini`, and ask a research question in plain language:
+**3. By hand, for every folder, without the plugin.** After `pip install pubmed-stream`, register the command once. The assistant gets the tools but not the instructions file, so prefer one of the first two.
+
+```bash
+claude mcp add pubmed-stream -- pubmed-stream mcp
+codex mcp add pubmed-stream -- pubmed-stream mcp
+```
+
+**Then use it.** Start the assistant in your research folder, `claude`, `codex` or `gemini`; files it downloads are saved there. Type `/mcp` to check that *pubmed-stream* is listed with its tools, and ask a research question in plain language:
 
 > *Does fecal microbiota transplantation help people with Parkinson's disease? Find the clinical evidence and summarize it, with PMIDs.*
 
-The two ways do not conflict: where the plugin is installed, `init` leaves its server out of the folder, so the tools are not listed twice, and running it again in a folder set up earlier removes the extra one. The plugin, in [`plugins/pubmed-stream`](https://github.com/melhzy/pubmed-stream/tree/main/plugins/pubmed-stream), runs the pubmed-stream release of its own version through `uvx` and saves files in the folder you start the assistant in. Without uv, register the server you installed with pip: `claude mcp add pubmed-stream -- pubmed-stream mcp`, or the same with `codex mcp add`.
+The assistant picks among the nine tools by itself. Each returns compact text, so it can scan 64 papers in about 3,000 tokens instead of reading 4.3 MB of full text. The instructions make it size searches before downloading, cite only papers it downloaded and read in the session, say what kind of evidence each is, report its searches with their counts, and name what it could not read.
+
+| Tool | What the assistant does with it |
+|---|---|
+| `search_pmc` | Counts a PMC search and lists its newest matches, without downloading |
+| `download` | Downloads a search's full texts, one JSON file per article |
+| `fetch_abstracts` | Saves PubMed abstracts, including articles without free full text |
+| `list_articles` | Lists the downloaded articles compactly, with abstracts if asked |
+| `most_cited` | Finds the works the downloads cite most |
+| `read_article` | Reads one article, or only the paragraphs containing a term |
+| `neighborhood` | Maps the similar, citing and cited papers of one PMID, with retractions flagged |
+| `export_citations` | Writes BibTeX or RIS for Zotero, EndNote or Mendeley |
+| `build_knowledge_graph` | Links a study's searches and key papers into an Obsidian vault |
+
+The ways do not conflict: where the plugin is installed, `init` leaves its server out of the folder, so the tools are not listed twice, and running it again in a folder set up earlier removes the extra one.
+
+### Local models and Obsidian
 
 **Local models.** For questions you would rather not send to a company, `pubmed-stream review` has a model running in [Ollama](https://ollama.com) on your own computer summarize the abstracts you chose; only the PubMed searches leave your computer. The model reads one abstract at a time, at temperature 0, and never sees your question, so it cannot present the question as a finding. pubmed-stream attaches each PubMed ID itself and flags numbers and citations the abstracts do not support.
 
@@ -634,6 +678,8 @@ pubmed-stream is a stack of five small modules. Each one uses only those below i
 | `mcp_server.py` | The MCP server that gives AI assistants pubmed-stream's tools |
 | `review.py` | Summaries by a local model through Ollama or an AI assistant, with number and citation checks |
 | `obsidian.py`, `assistants.py` | Opening graphs in Obsidian; setting up folders for AI assistants |
+| `settings.py` | The NCBI API key saved in `~/.pubmed-stream.json`, and each folder's settings |
+| `impact.py` | How a paper spread through the literature: citing papers by year, citation sentences, annotations |
 | `kg.py` | Studies: run searches and seeds, record them, refresh them |
 | `vault.py` | Knowledge-graph notes: merge every source, render notes, rebuild safely |
 | `neighborhood.py` | Similar, citing and cited papers, with flags and MeSH terms |
@@ -644,8 +690,11 @@ The [architecture guide](https://github.com/melhzy/pubmed-stream/blob/main/docs/
 ```
 pubmed-stream/
 ├── pubmed_stream/      the package
-├── tests/              140 offline tests; NCBI is faked with canned responses
-├── tutorials/          seven notebooks, the AI assistant tutorial and instructions, guides, kg_study.py, keyword lists, tools
+├── tests/              155 offline tests; NCBI is faked with canned responses
+├── tutorials/          eight notebooks, the AI assistant tutorial and instructions, guides, kg_study.py, keyword lists, tools
+├── plugins/            the Claude Code and Codex plugin: MCP server settings and the literature-search skill
+├── .claude-plugin/     the Claude Code marketplace that lists the plugin
+├── .agents/plugins/    the Codex marketplace that lists the plugin
 ├── docs/               the architecture guide and its figures
 ├── pyproject.toml      package metadata and dependencies
 ├── studies/            research done with pubmed-stream, with its frozen data; see studies/README.md
@@ -670,7 +719,7 @@ pip install -r docs/requirements.txt
 mkdocs serve
 ```
 
-Ideas on the roadmap: PubMed abstracts for articles outside PMC, a search query builder, progress bars, and export to BibTeX or RIS from the command line.
+Ideas on the roadmap: a search query builder and progress bars.
 
 ### Releasing to PyPI
 

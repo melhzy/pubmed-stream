@@ -2,7 +2,11 @@
 
 The Model Context Protocol (https://modelcontextprotocol.io) lets an AI
 assistant call tools directly instead of typing shell commands.  This server
-speaks it over standard input and output with no extra dependencies:
+speaks it over standard input and output with no extra dependencies.  The
+assistant starts it as ``pubmed-stream mcp``: through the plugin in
+plugins/pubmed-stream, which runs a release with ``uvx``; through the
+settings ``pubmed-stream init`` writes in a research folder; or after
+registering it by hand:
 
     claude mcp add pubmed-stream -- pubmed-stream mcp
     codex mcp add pubmed-stream -- pubmed-stream mcp
