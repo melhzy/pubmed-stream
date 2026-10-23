@@ -1,4 +1,5 @@
-"""The Claude Code and Codex plugin in plugins/pubmed-stream, its marketplaces, and the texts that must agree."""
+"""The Claude Code and Codex plugin in plugins/pubmed-stream, its marketplaces, the MCP Registry listing in
+server.json, and the texts that must agree."""
 
 import json
 import re
@@ -69,6 +70,23 @@ def test_instructions_name_every_tool():
         assert f"`{tool['name']}`" in instructions(), f"AGENTS.md does not name {tool['name']}"
     count = f"{NUMBERS[len(TOOLS)]} tools"
     assert count in read("README.md") and count in read("docs/ARCHITECTURE.md")
+
+
+def test_registry_listing_matches_the_package():
+    # server.json is the listing in the official MCP Registry; the registry checks that the PyPI release exists
+    # and that the README PyPI shows names the server
+    listing = load(ROOT / "server.json")
+    name = re.search(r"^<!-- mcp-name: (\S+) -->$", read("README.md"), re.M).group(1)
+    assert listing["name"] == name == "io.github.melhzy/pubmed-stream"
+    assert listing["version"] == __version__
+    assert len(listing["description"]) <= 100            # the registry's limit
+    package = listing["packages"][0]
+    assert (package["registryType"], package["identifier"], package["version"]) == ("pypi", "pubmed-stream",
+                                                                                   __version__)
+    assert package["runtimeHint"] == "uvx" and package["transport"] == {"type": "stdio"}
+    assert [a["value"] for a in package["packageArguments"]] == ["mcp"]
+    secret = next(v for v in package["environmentVariables"] if v["name"] == "NCBI_API_KEY")
+    assert secret["isSecret"] is True and secret["isRequired"] is False
 
 
 def test_marketplaces_point_at_the_plugin():

@@ -1,6 +1,6 @@
 {
   "name": "pubmed-stream",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Search PubMed and PubMed Central, download open full texts, map the evidence around a paper and build an Obsidian knowledge graph, citing only what was read.",
   "author": {
     "name": "melhzy",
@@ -24,7 +24,7 @@
       "command": "uvx",
       "args": [
         "--from",
-        "pubmed-stream==0.4.2",
+        "pubmed-stream==0.4.3",
         "pubmed-stream",
         "mcp"
       ],

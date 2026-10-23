@@ -2,9 +2,11 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
-## Unreleased
+## 0.4.3 - 2026-10-23
 
 ### Added
+
+- A listing in the official [MCP Registry](https://registry.modelcontextprotocol.io/), which other MCP directories copy: `server.json` describes the server as the PyPI package run with `uvx` and the argument `mcp`, with the optional `NCBI_API_KEY` and `NCBI_EMAIL`, and the README carries the hidden line `mcp-name: io.github.melhzy/pubmed-stream` by which the registry checks that the PyPI package belongs to it. The release steps in the README end with `mcp-publisher publish`, and the tests keep `server.json`'s versions and name in step with the package.
 
 - The MCP server reports progress. When the assistant asks for it, `download`, `fetch_abstracts` and `build_knowledge_graph` send MCP progress notifications while they run: the articles downloaded so far, the abstracts fetched, and the search, key paper or build the knowledge graph is at. `search_and_download`, `fetch_abstracts` and `create_kg` take a `progress` callback, called with `(done, total, message)`, for the same.
 
@@ -15,6 +17,7 @@ Notable changes to pubmed-stream. Versions follow [semantic versioning](https://
 
 ### Changed
 
+- PyPI describes pubmed-stream as what it now is, literature searches in PubMed and PubMed Central for researchers and their AI assistants, with an MCP server and a plugin for Claude Code and Codex, and its keywords and classifiers add MCP, the assistants, Ollama and artificial intelligence, so searches for them find it.
 - The MCP server's instructions, which every assistant receives on connecting, cover all nine tools and the order to use them in, ask for each search to be reported with its count, and say to prefer pubmed-stream's tools to other PubMed tools the assistant may have, since pubmed-stream saves every article it reads; `AGENTS.md` and the plugin's skill say the same.
 - The plugin has a README of its own, as Anthropic's plugin directory requires, saying what it runs, sends and saves. The README and tutorial 7 say what to type to call pubmed-stream in Claude Code, the Codex app and the Codex CLI, that Claude's chat cannot use it, what to do when the plugin's first start takes too long, and what to do when Claude Code reaches for Anthropic's own PubMed connector instead.
 - The plugin's Codex settings moved from `.mcp.json` to `.codex-plugin/mcp.json` and give the server 60 seconds to start and 600 per call, instead of Codex's 10 and 60: the first start downloads pubmed-stream, and a large download or a knowledge graph takes minutes. Claude Code reads the server from `.claude-plugin/plugin.json`, as before.

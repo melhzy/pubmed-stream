@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "pubmed-stream"
 dynamic = ["version"]
-description = "Download PubMed Central full-text articles via NCBI E-utilities API. Built for biomedical research."
+description = "Literature searches in PubMed and PubMed Central for researchers and their AI assistants: full texts, the evidence around a paper and an Obsidian knowledge graph, with an MCP server and a plugin for Claude Code and Codex."
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
@@ -16,16 +16,21 @@ authors = [
 maintainers = [
     { name = "University of Massachusetts" }
 ]
-keywords = ["pubmed", "pmc", "ncbi", "e-utilities", "literature", "download", "biomedical", "research", "knowledge-graph", "obsidian", "mesh", "citation-network"]
+keywords = ["pubmed", "pmc", "ncbi", "e-utilities", "literature", "literature-review", "biomedical", "research",
+            "knowledge-graph", "obsidian", "mesh", "citation-network", "retraction", "mcp", "mcp-server",
+            "model-context-protocol", "claude-code", "codex", "gemini-cli", "ai-assistant", "llm", "ollama"]
 classifiers = [
     "Development Status :: 4 - Beta",
+    "Environment :: Console",
     "Intended Audience :: Science/Research",
+    "Intended Audience :: Healthcare Industry",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
     "Topic :: Scientific/Engineering :: Medical Science Apps.",
 ]
