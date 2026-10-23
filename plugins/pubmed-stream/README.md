@@ -15,7 +15,7 @@ Inside Claude Code, or in a terminal with `claude` in front:
 ## What the plugin contains
 
 - **Nine MCP tools**: `search_pmc`, `download`, `fetch_abstracts`, `list_articles`, `most_cited`, `read_article`, `neighborhood`, `export_citations` and `build_knowledge_graph`. Each returns compact text, so the assistant scans dozens of papers in a few thousand tokens.
-- **One skill**, `literature-search`, with the rules above. Type `/pubmed-stream` and choose it, or simply ask about the literature.
+- **One skill**, `literature-search`, with the rules above. In Claude Code type `/pubmed-stream` and choose it; in Cowork type `/` and choose *literature-search*; or simply ask about the literature.
 
 ## What it runs, sends and saves
 

@@ -10,7 +10,7 @@ import requests
 from pubmed_stream import build_vault, cli, downloader
 from pubmed_stream.downloader import DownloadStats
 from pubmed_stream.assistants import init_folder, instructions
-from pubmed_stream.mcp_server import INSTRUCTIONS, TOOLS, Server, serve
+from pubmed_stream.mcp_server import INSTRUCTIONS, TOOLS, Server, console_is_own, serve
 from pubmed_stream.obsidian import known_vaults, open_uri, open_vault
 from pubmed_stream.review import OllamaError, numbers, review, save_to_vault, tidy
 from pubmed_stream.vault import PAPERS_BASE
@@ -99,6 +99,16 @@ def test_mcp_keeps_library_output_off_the_protocol(tmp_path, monkeypatch):
     assert [r.get("id") for r in replies] == [1, 2, None]
     assert replies[1]["result"]["content"][0]["text"].startswith("done\n12 articles in PubMed")
     assert replies[2]["error"]["code"] == -32700
+
+
+def test_mcp_hides_only_a_console_of_its_own():
+    # a desktop app's server gets a console of its own: uv, the launcher and Python
+    assert console_is_own(["uvx.exe", "pubmed-stream.exe", "python.exe"])
+    assert console_is_own(["Python.exe"])
+    # a terminal's console also holds the shell and the assistant, and must stay
+    assert not console_is_own(["powershell.exe", "node.exe", "uvx.exe", "python.exe"])
+    assert not console_is_own(["python.exe", "?"])     # a process that could not be inspected
+    assert not console_is_own([])                      # no console at all
 
 
 def test_mcp_instructions_name_every_tool():

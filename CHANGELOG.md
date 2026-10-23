@@ -10,6 +10,7 @@ Notable changes to pubmed-stream. Versions follow [semantic versioning](https://
 
 ### Fixed
 
+- On Windows, the console window that a desktop app's start opens for the MCP server no longer stays on screen: the server hides it as soon as it runs, so it only flashes. A desktop app such as Claude's or ChatGPT's has no console, so Windows gives the server a new one, where a terminal's server shares the terminal's console; the window is hidden only when every process attached to the console is uv, a launcher or Python, so a terminal is never touched (`hide_own_console`).
 - Cowork can start the plugin's server. The Claude Code manifest gives the NCBI API key option an empty default: Cowork ignores an MCP server that references an option without one, and never asks for values, where Claude Code asks at install. The README, the plugin's README and tutorial 7 say how the Claude desktop app reaches pubmed-stream: its Code tab has the plugin installed from the terminal; Cowork needs the plugin on the claude.ai account, added from **Customize > Plugins** with `melhzy/pubmed-stream` as a marketplace; chat cannot start a program on the computer. `init` counts a plugin synced from the account, which Claude Code loads with no settings entry, so it writes no second server for the folder. The Codex CLI calls the skill as `$pubmed-stream:literature-search`, as the docs now say.
 
 ### Changed

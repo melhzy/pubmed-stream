@@ -225,7 +225,7 @@ Usually you just ask your question, and the assistant reaches for pubmed-stream 
 
 A download of hundreds of papers or a knowledge graph takes minutes. Claude Code shows the progress; in Codex, wait for the call to finish rather than asking again.
 
-**The Claude desktop app.** Its *Code* tab is Claude Code, so it has the plugin you installed in option B; if the app was open during the install, start it again. Its chat cannot use pubmed-stream: chat cannot start a program on your computer. Cowork can, once the plugin is on your claude.ai account: open **Customize > Plugins**, choose **Add > Add marketplace**, enter `melhzy/pubmed-stream`, and add *pubmed-stream*. A plugin on your account also reaches Claude Code; where you installed option B, Claude Code keeps using that copy, so nothing is listed twice.
+**The Claude desktop app.** Its *Code* tab is Claude Code, so it has the plugin you installed in option B; if the app was open during the install, start it again. Its chat cannot use pubmed-stream: chat cannot start a program on your computer. Cowork can, once the plugin is on your claude.ai account: open **Customize > Plugins**, choose **Add > Add marketplace**, enter `melhzy/pubmed-stream`, and add *pubmed-stream*. In a Cowork task, type `/` and choose *literature-search*, or just ask. A plugin on your account also reaches Claude Code; where you installed option B, Claude Code keeps using that copy, so nothing is listed twice.
 
 ### For programmers: connecting by hand
 
@@ -479,6 +479,7 @@ Tips:
 | The assistant lists every pubmed-stream tool twice | The folder was set up with `pubmed-stream init` before you installed the plugin. Run `pubmed-stream init` in the folder again: it notices the plugin and removes the folder's own connection. |
 | The plugin's server did not start, the first time | uv was downloading pubmed-stream, which can take longer than the assistant waits. Start the assistant again. |
 | The assistant used other PubMed tools | Claude Code may also have Anthropic's own PubMed connector. Say *"use pubmed-stream"*, or turn the connector off in your claude.ai settings. |
+| A black window opens when Cowork or another desktop app starts pubmed-stream (Windows) | Windows opens a console for the server because the app has none. With pubmed-stream 0.4.3 or later the window hides itself right after it opens; until then, leave it open and minimize it. Closing it stops the server. |
 | The assistant asks permission to run something | Read what it wants to do. Downloads and knowledge graphs are expected; approve them. |
 | A search finds thousands of papers | Ask the assistant to put the main topic in the title, or to use MeSH headings. |
 | A paper the assistant mentions can't be found | Ask which search it came from. If its PMID is not among the downloads, do not rely on the claim. |

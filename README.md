@@ -550,7 +550,7 @@ To call pubmed-stream on purpose rather than let the assistant choose it:
 | Codex app | `/` or `@`, then *pubmed-stream* |
 | Codex CLI | `$pubmed-stream:literature-search`, or `/skills` and choose it |
 | Gemini CLI | Ask in a folder set up with `init`; it has no skills menu |
-| Cowork, in the Claude desktop app | First add the plugin to your claude.ai account: **Customize > Plugins > Add > Add marketplace**, enter `melhzy/pubmed-stream`, then add *pubmed-stream*. Cowork starts the server on your computer, so uv must be installed. The plugin then reaches Claude Code from your account too; where the terminal copy is installed, Claude Code keeps using that one |
+| Cowork, in the Claude desktop app | First add the plugin to your claude.ai account: **Customize > Plugins > Add > Add marketplace**, enter `melhzy/pubmed-stream`, then add *pubmed-stream*. Cowork starts the server on your computer, so uv must be installed. Then type `/` and choose *literature-search*, listed under pubmed-stream, or just ask. The plugin reaches Claude Code from your account too; where the terminal copy is installed, Claude Code keeps using that one |
 | Claude's chat, on the web, in the desktop app and on the phone | Not available: chat cannot start a program on your computer. With the plugin on your account, `/` lists the skill there, but it has no tools to call |
 
 | Tool | What the assistant does with it |
@@ -665,6 +665,7 @@ How a paper spread through the literature is measured by a module of its own, `f
 | The assistant lists every pubmed-stream tool twice | The folder was set up with `init` before the plugin was installed. Run `pubmed-stream init` again in it: with the plugin installed, it removes the folder's own server |
 | The plugin's server did not start | The first start downloads pubmed-stream through uv, which can take longer than the assistant waits: start the assistant again. If it keeps failing, uv is probably not installed |
 | The assistant used other PubMed tools | Claude Code may also have Anthropic's PubMed connector. The instructions say to prefer pubmed-stream's tools; if it still strays, say "use pubmed-stream", or turn the connector off in your claude.ai settings |
+| A console window opens when a desktop app starts pubmed-stream (Windows) | A desktop app has no console, so Windows opens one for the server, and the app leaves its window on screen. pubmed-stream 0.4.3 and later hides the window as soon as the server starts, so it only flashes; it touches only a console that holds nothing but its own processes, never a terminal's |
 | Results unrelated to the question | The search matched text anywhere in the article; see [section 2](#2-write-searches-that-find-the-right-papers) |
 | `'PMC…' is a PMC ID` | `neighborhood` and `--seed` need the PubMed ID, which downloaded files have in `metadata.pmid` |
 | Few references or citations in a neighborhood | NCBI has citation links only where reference lists were deposited, mostly for PMC articles |
