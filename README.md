@@ -520,6 +520,8 @@ codex plugin marketplace add melhzy/pubmed-stream                         # Code
 codex plugin add pubmed-stream@pubmed-stream
 ```
 
+The first start takes longer, while uv downloads pubmed-stream; if the assistant reports that the server did not start, start the assistant again. If Claude Code did not ask for your NCBI API key, type `/plugin configure pubmed-stream@pubmed-stream` inside it.
+
 **2. `pubmed-stream init`, for any of the three assistants in one research folder.** After `pip install pubmed-stream`, run it in the folder. It writes settings files that start the server with the Python that has the library, `python -m pubmed_stream mcp`: `.mcp.json` for Claude Code, `.codex/config.toml` for Codex and `.gemini/settings.json` for Gemini CLI. It also writes the instructions as `AGENTS.md`, which `CLAUDE.md` and `GEMINI.md` import, and asks once for your NCBI API key. `init --claude-model opus` and `init --review-model <ollama model>` choose the folder's models.
 
 ```bash
@@ -538,7 +540,17 @@ codex mcp add pubmed-stream -- pubmed-stream mcp
 
 > *Does fecal microbiota transplantation help people with Parkinson's disease? Find the clinical evidence and summarize it, with PMIDs.*
 
-The assistant picks among the nine tools by itself. Each returns compact text, so it can scan 64 papers in about 3,000 tokens instead of reading 4.3 MB of full text. The instructions make it size searches before downloading, cite only papers it downloaded and read in the session, say what kind of evidence each is, report its searches with their counts, and name what it could not read.
+The assistant picks among the nine tools by itself. Each returns compact text, so it can scan 64 papers in about 3,000 tokens instead of reading 4.3 MB of full text. The instructions make it size searches before downloading, cite only papers it downloaded and read in the session, say what kind of evidence each is, report its searches with their counts, and name what it could not read. A download of hundreds of articles or a knowledge graph takes minutes; the server reports its progress while it runs, and Claude Code shows it.
+
+To call pubmed-stream on purpose rather than let the assistant choose it:
+
+| Where | What to type |
+|---|---|
+| Claude Code: terminal, VS Code, JetBrains, and the Code tab of the Claude desktop app | `/pubmed-stream` narrows the menu to `/pubmed-stream:literature-search`; choose it and add your question |
+| Codex app | `/` or `@`, then *pubmed-stream* |
+| Codex CLI | `/skills`, or `$` and the skill's name |
+| Gemini CLI | Ask in a folder set up with `init`; it has no skills menu |
+| Claude's chat and Cowork | Not yet: chat cannot start a server on your computer, and Cowork runs plugins from Anthropic's directory, where pubmed-stream is not listed yet |
 
 | Tool | What the assistant does with it |
 |---|---|
@@ -650,6 +662,8 @@ How a paper spread through the literature is measured by a module of its own, `f
 | *NCBI rejected the API key* | The saved key has a typo or was revoked; pubmed-stream continues without it. Create a key in your NCBI account settings and save it again with `pubmed-stream init --ncbi-api-key` |
 | Timeouts or a flaky network | Use `--sequential`, or fewer `--workers` |
 | The assistant lists every pubmed-stream tool twice | The folder was set up with `init` before the plugin was installed. Run `pubmed-stream init` again in it: with the plugin installed, it removes the folder's own server |
+| The plugin's server did not start | The first start downloads pubmed-stream through uv, which can take longer than the assistant waits: start the assistant again. If it keeps failing, uv is probably not installed |
+| The assistant used other PubMed tools | Claude Code may also have Anthropic's PubMed connector. The instructions say to prefer pubmed-stream's tools; if it still strays, say "use pubmed-stream", or turn the connector off in your claude.ai settings |
 | Results unrelated to the question | The search matched text anywhere in the article; see [section 2](#2-write-searches-that-find-the-right-papers) |
 | `'PMC…' is a PMC ID` | `neighborhood` and `--seed` need the PubMed ID, which downloaded files have in `metadata.pmid` |
 | Few references or citations in a neighborhood | NCBI has citation links only where reference lists were deposited, mostly for PMC articles |

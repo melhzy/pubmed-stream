@@ -46,7 +46,7 @@ You type questions in plain English. You never write code.
 | **Obsidian** | A free note-taking app that shows linked notes as a map. | You browse, tag and write notes on the papers there. |
 | **Ollama** | A free program that runs a small AI model on your own computer. | Optional, for questions that must stay private. |
 
-**Which assistant?** Both work the same way with pubmed-stream. Pick the one whose paid plan you already have, or that your school provides: Claude Code with a Claude plan, Codex with a ChatGPT plan.
+**Which assistant?** Both work the same way with pubmed-stream. Pick the one whose paid plan you already have, or that your school provides: Claude Code with a Claude plan, Codex with a ChatGPT plan. In the Claude desktop app, use its *Code* tab: the chat cannot start a program on your computer, so it cannot use pubmed-stream.
 
 How they fit together:
 
@@ -212,6 +212,18 @@ Then create a folder for your question, open a terminal in it as in option A, an
 | **Codex** | `codex plugin marketplace upgrade pubmed-stream`, then `codex plugin add pubmed-stream@pubmed-stream` again | `codex plugin remove pubmed-stream@pubmed-stream` |
 
 Restart the assistant afterwards. `claude plugin list` and `codex plugin list` show what is installed.
+
+### How to call it
+
+Usually you just ask your question, and the assistant reaches for pubmed-stream by itself. To call it on purpose:
+
+| Where | What to type |
+|---|---|
+| Claude Code | `/pubmed-stream`: the menu narrows to `/pubmed-stream:literature-search`; choose it and add your question |
+| Codex app | `/` or `@`, then *pubmed-stream* |
+| Codex CLI | `/skills`, or `$` and the skill's name |
+
+A download of hundreds of papers or a knowledge graph takes minutes. Claude Code shows the progress; in Codex, wait for the call to finish rather than asking again.
 
 ### For programmers: connecting by hand
 
@@ -463,6 +475,8 @@ Tips:
 | `pubmed-stream`, `claude` or `codex` is "not recognized" or "not found" | Close the terminal and open a new one. If it persists, repeat the install step for that tool. |
 | The assistant says it has no pubmed-stream tools | Type `/mcp` to see whether the *pubmed-stream* server is listed and whether it shows an error. **With option A**, make sure you started the assistant in the folder where you ran `pubmed-stream init`, and in Claude Code approve the server if asked. **With option B**, `claude plugin list` or `codex plugin list` should show *pubmed-stream*; if it does, uv is probably missing: repeat the first step of [option B](#option-b-the-plugin-once-for-every-folder) and open a new terminal. Then restart the assistant. |
 | The assistant lists every pubmed-stream tool twice | The folder was set up with `pubmed-stream init` before you installed the plugin. Run `pubmed-stream init` in the folder again: it notices the plugin and removes the folder's own connection. |
+| The plugin's server did not start, the first time | uv was downloading pubmed-stream, which can take longer than the assistant waits. Start the assistant again. |
+| The assistant used other PubMed tools | Claude Code may also have Anthropic's own PubMed connector. Say *"use pubmed-stream"*, or turn the connector off in your claude.ai settings. |
 | The assistant asks permission to run something | Read what it wants to do. Downloads and knowledge graphs are expected; approve them. |
 | A search finds thousands of papers | Ask the assistant to put the main topic in the title, or to use MeSH headings. |
 | A paper the assistant mentions can't be found | Ask which search it came from. If its PMID is not among the downloads, do not rely on the claim. |
