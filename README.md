@@ -725,7 +725,7 @@ Ideas on the roadmap: a search query builder and progress bars.
 
 Maintainers publish new versions by hand. Replace `X.Y.Z` with the new version.
 
-1. **Bump the version** in `pubmed_stream/__init__.py` (`__version__ = "X.Y.Z"`), which `pyproject.toml` reads, and `CITATION.cff` (`version` and `date-released`). In the plugin, `plugins/pubmed-stream`, bump it in both `plugin.json` files (`version`), in the release its server runs (`pubmed-stream==X.Y.Z`, in `.mcp.json` and in `.claude-plugin/plugin.json`) and in the skill's note, twice. Turn the changelog's *Unreleased* heading into `X.Y.Z - YYYY-MM-DD`. The tests name any copy left behind.
+1. **Bump the version** in `pubmed_stream/__init__.py` (`__version__ = "X.Y.Z"`), which `pyproject.toml` reads, and `CITATION.cff` (`version` and `date-released`). In the plugin, `plugins/pubmed-stream`, bump it in both `plugin.json` files (`version`), in the release its server runs (`pubmed-stream==X.Y.Z`, in `.codex-plugin/mcp.json` and in `.claude-plugin/plugin.json`) and in the skill's note, twice. Turn the changelog's *Unreleased* heading into `X.Y.Z - YYYY-MM-DD`. The tests name any copy left behind.
 2. **Run the tests**: `pytest`.
 3. **Build and check the distributions**; `dist/` is git-ignored:
 

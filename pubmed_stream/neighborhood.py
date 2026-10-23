@@ -27,7 +27,7 @@ import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field, replace
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import requests
 
@@ -251,6 +251,7 @@ def _efetch_pubmed(
     api_key: Optional[str],
     session: requests.Session,
     rate_limiter: RateLimiter,
+    progress: Optional[Callable[[float, int, str], None]] = None,
 ) -> Dict[str, RelatedArticle]:
     details: Dict[str, RelatedArticle] = {}
     for start in range(0, len(pmids), EFETCH_BATCH_SIZE):
@@ -263,6 +264,9 @@ def _efetch_pubmed(
             rate_limiter,
         )
         details.update(_parse_pubmed_articles(resp.text))
+        if progress:
+            done = start + len(batch)
+            progress(done, len(pmids), f"{done} of {len(pmids)} abstracts fetched")
     return details
 
 

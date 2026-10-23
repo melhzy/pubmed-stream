@@ -24,7 +24,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Union
+from typing import Any, Callable, Dict, Iterable, List, Optional, Union
 
 import requests
 
@@ -143,6 +143,7 @@ def create_kg(
     email: Optional[str] = None,
     rate_limit: Optional[float] = None,
     session: Optional[requests.Session] = None,
+    progress: Optional[Callable[[float, int, str], None]] = None,
 ) -> KGResult:
     """Collect a study's literature and build its knowledge graph.
 
@@ -168,6 +169,8 @@ def create_kg(
         fulltext: Put each article's full text into its note.
         offline: Do not fetch MeSH terms from PubMed for the graph.
         api_key, user_agent, email, rate_limit, session: NCBI client settings.
+        progress: Called now and then with ``(done, total, message)``: one
+            step per search and seed, and one for the build.
 
     Returns:
         A :class:`KGResult`.  Searches or neighborhoods that failed are listed
@@ -199,8 +202,20 @@ def create_kg(
               "rate_limit": rate_limit, "session": session}
     base = Path(output_dir) if output_dir else None
     new_sources: List[Path] = [Path(s) for s in sources or []]
+    steps = len(run_queries) + len(run_seeds) + 1   # each search and seed, then the build
 
-    for query in run_queries:
+    def report(step: int, message: str, fraction: float = 0.0) -> None:
+        if progress:
+            progress(step + fraction, steps, message)
+
+    for n, query in enumerate(run_queries, 1):
+        stage = f"Search {n} of {len(run_queries)}"
+        report(n - 1, f"{stage}: downloading {query}")
+
+        def downloading(done: float, total: int, message: str, step: int = n - 1, stage: str = stage) -> None:
+            # A finished download stays below the next step, so that step's first report still counts as progress
+            report(step, f"{stage}: {message}", min(done / total, 0.99) if total else 0)
+
         stats = search_and_download(
             query,
             max_results=max_results,
@@ -209,6 +224,7 @@ def create_kg(
             max_workers=max_workers,
             include_text=include_text,
             output_dir=base,
+            progress=downloading,
             **client,
         )
         result.downloads.append(stats)
@@ -228,7 +244,8 @@ def create_kg(
             elif saved.output_dir not in new_sources:
                 new_sources.append(saved.output_dir)
 
-    for seed in run_seeds:
+    for k, seed in enumerate(run_seeds, 1):
+        report(len(run_queries) + k - 1, f"Key paper {k} of {len(run_seeds)}: the neighborhood of PMID {seed}")
         try:
             hood = get_neighborhood(seed, max_per_relation=max_per_relation, **client)
         except (ValueError, requests.RequestException) as e:
@@ -253,6 +270,7 @@ def create_kg(
 
     # Remember the study before building, so a failed build can be retried
     _save_study(directory, topic, all_queries, all_seeds)
+    report(steps - 1, "Building the knowledge graph")
     try:
         result.vault = build_vault(
             new_sources or None, directory, fulltext=fulltext, offline=offline, **client

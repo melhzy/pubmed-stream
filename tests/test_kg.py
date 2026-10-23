@@ -60,6 +60,22 @@ def test_searches_and_seeds_build_one_graph(ncbi, study, tmp_path):
     assert "Knowledge graph: gut microbiome study" in str(result)
 
 
+def test_create_kg_reports_each_step(ncbi, study):
+    reported = []
+
+    study(ncbi(), queries=["gut microbiome"], seeds=["100"],
+          progress=lambda done, total, message: reported.append((done, total, message)))
+
+    assert [(round(done, 2), total) for done, total, _ in reported] == [(0, 3), (0, 3), (0.99, 3), (1, 3), (2, 3)]
+    assert [message for _, _, message in reported] == [
+        "Search 1 of 1: downloading gut microbiome",
+        "Search 1 of 1: 1 articles to download",
+        "Search 1 of 1: 1 of 1 articles: 1 downloaded, 0 already there, 0 unavailable, 0 errors",
+        "Key paper 1 of 1: the neighborhood of PMID 100",
+        "Building the knowledge graph",
+    ]
+
+
 def test_later_runs_add_to_the_study(ncbi, study, tmp_path):
     study(ncbi(), queries=["gut microbiome"])
     result = study(ncbi(), seeds=[100])

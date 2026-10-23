@@ -10,7 +10,7 @@ import requests
 from pubmed_stream import build_vault, cli, downloader
 from pubmed_stream.downloader import DownloadStats
 from pubmed_stream.assistants import init_folder, instructions
-from pubmed_stream.mcp_server import TOOLS, Server, serve
+from pubmed_stream.mcp_server import INSTRUCTIONS, TOOLS, Server, serve
 from pubmed_stream.obsidian import known_vaults, open_uri, open_vault
 from pubmed_stream.review import OllamaError, numbers, review, save_to_vault, tidy
 from pubmed_stream.vault import PAPERS_BASE
@@ -99,6 +99,35 @@ def test_mcp_keeps_library_output_off_the_protocol(tmp_path, monkeypatch):
     assert [r.get("id") for r in replies] == [1, 2, None]
     assert replies[1]["result"]["content"][0]["text"].startswith("done\n12 articles in PubMed")
     assert replies[2]["error"]["code"] == -32700
+
+
+def test_mcp_instructions_name_every_tool():
+    for tool in TOOLS:
+        assert tool["name"] in INSTRUCTIONS, f"the server's instructions do not name {tool['name']}"
+
+
+def test_mcp_reports_progress_when_the_client_asks(tmp_path, monkeypatch):
+    def fake_download(query, max_results, output_dir, progress=None):
+        for done in (5, 10):
+            if progress:
+                progress(done, 10, f"{done} of 10 articles")
+        return DownloadStats(keyword=query, total_found=10, requested=10, successful=10, failed=0, skipped=0,
+                             unavailable=0, errors=0, duration_seconds=1.0, output_dir=output_dir / "q")
+    monkeypatch.setattr("pubmed_stream.mcp_server.search_and_download", fake_download)
+    call = {"name": "download", "arguments": {"query": "q"}}
+    messages = [
+        {"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {**call, "_meta": {"progressToken": "t1"}}},
+        {"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": call},   # no token: no notifications
+    ]
+    stdin = io.BytesIO(("\n".join(json.dumps(m) for m in messages) + "\n").encode())
+    stdout = io.BytesIO()
+
+    serve(tmp_path, stdin=stdin, stdout=stdout)
+
+    replies = [json.loads(line) for line in stdout.getvalue().decode().splitlines()]
+    assert [r.get("method") or r["id"] for r in replies] == ["notifications/progress", "notifications/progress", 1, 2]
+    assert replies[0]["params"] == {"progressToken": "t1", "progress": 5, "total": 10, "message": "5 of 10 articles"}
+    assert "10 downloaded" in replies[2]["result"]["content"][0]["text"]
 
 
 # -- Ollama review --------------------------------------------------------------

@@ -518,7 +518,7 @@ The plugin, in [`plugins/pubmed-stream`](https://github.com/melhzy/pubmed-stream
 | File | Read by | Contains |
 |---|---|---|
 | `.claude-plugin/plugin.json` | Claude Code | How to start the server, `uvx --from pubmed-stream==<version> pubmed-stream mcp`, and the question for your NCBI API key |
-| `.codex-plugin/plugin.json`, `.mcp.json` | Codex | The same server, and how Codex shows the plugin |
+| `.codex-plugin/plugin.json`, `.codex-plugin/mcp.json` | Codex | The same server, the time Codex allows it to start and to answer, and how Codex shows the plugin |
 | `skills/literature-search/SKILL.md` | both | The rules of `AGENTS.md`, as a skill the assistant loads when you ask about the literature |
 
 The marketplaces that list it, `.claude-plugin/marketplace.json` and `.agents/plugins/marketplace.json` at the top of the repository, are what `--marketplace melhzy/pubmed-stream` and `codex plugin marketplace add melhzy/pubmed-stream` read. uv keeps the downloaded copy of pubmed-stream in its own cache, apart from the one you installed with pip.

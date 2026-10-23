@@ -38,6 +38,15 @@ def test_fetch_abstracts_saves_records_and_skips_them_next_time(make_session, pu
     assert sum("efetch" in r.url for r in session.get_adapter("https://").requests) == 1
 
 
+def test_fetch_abstracts_reports_progress(make_session, pubmed_xml, tmp_path):
+    reported = []
+
+    fetch_abstracts("gut frailty", max_results=2, output_dir=tmp_path, session=pubmed(make_session, pubmed_xml),
+                    progress=lambda done, total, message: reported.append((done, total, message)))
+
+    assert reported == [(2, 2, "2 of 2 abstracts fetched")]
+
+
 def write_full_text(folder, pmcid, pmid, title):
     folder.mkdir(parents=True, exist_ok=True)
     data = {"pmcid": pmcid, "metadata": {"pmid": pmid, "pmcid": pmcid, "year": "2020", "title": title,

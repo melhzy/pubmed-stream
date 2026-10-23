@@ -4,7 +4,14 @@ Notable changes to pubmed-stream. Versions follow [semantic versioning](https://
 
 ## Unreleased
 
+### Added
+
+- The MCP server reports progress. When the assistant asks for it, `download`, `fetch_abstracts` and `build_knowledge_graph` send MCP progress notifications while they run: the articles downloaded so far, the abstracts fetched, and the search, key paper or build the knowledge graph is at. `search_and_download`, `fetch_abstracts` and `create_kg` take a `progress` callback, called with `(done, total, message)`, for the same.
+
 ### Changed
+
+- The MCP server's instructions, which every assistant receives on connecting, cover all nine tools and the order to use them in, ask for each search to be reported with its count, and say to prefer pubmed-stream's tools to other PubMed tools the assistant may have, since pubmed-stream saves every article it reads; `AGENTS.md` and the plugin's skill say the same.
+- The plugin's Codex settings moved from `.mcp.json` to `.codex-plugin/mcp.json` and give the server 60 seconds to start and 600 per call, instead of Codex's 10 and 60: the first start downloads pubmed-stream, and a large download or a knowledge graph takes minutes. Claude Code reads the server from `.claude-plugin/plugin.json`, as before.
 
 - The README, tutorial 7 and the assistant's instructions explain how pubmed-stream connects to Claude Code and Codex: the MCP server is part of the Python library, started as `pubmed-stream mcp`, and the plugin, `init` and `claude mcp add` or `codex mcp add` only tell the assistant how to start it. The README has a new title, a section on the three ways to connect with the nine tools listed, and installs the Codex plugin from the terminal with `codex plugin add pubmed-stream@pubmed-stream`. When the tools are missing, `AGENTS.md` and the plugin's skill tell the assistant what to ask the researcher to run, and `pubmed-stream mcp --help` lists all nine tools and the three ways. Tutorial 7 adds MCP to its list of tools, explains the connection in section 3, shows how to update, list and remove the plugin, describes what the plugin contains, and troubleshoots either way of connecting; the glossary has entries for plugin, skill and uv, and its MCP entry links to the renamed section; the setup, troubleshooting and Obsidian guides and the tutorials index name the plugin beside `init`.
 

@@ -28,7 +28,7 @@ import re
 import time
 import threading
 from pathlib import Path
-from typing import List, Dict, Any, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
 from .settings import saved_api_key, user_settings_file
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -889,6 +889,16 @@ def efetch_pmc(
     return False, "error"
 
 
+# Called now and then during long work with (done, total, message), so an MCP server or a progress bar can
+# show it; done may be fractional when a step has steps of its own
+ProgressFn = Callable[[float, int, str], None]
+
+
+def _progress_message(done: int, total: int, successful: int, skipped: int, unavailable: int, errors: int) -> str:
+    return (f"{done} of {total} articles: {successful} downloaded, {skipped} already there, "
+            f"{unavailable} unavailable, {errors} errors")
+
+
 def _download_pmcids(
     pmcids: List[str],
     out_dir: Path,
@@ -899,6 +909,7 @@ def _download_pmcids(
     use_concurrent: bool,
     max_workers: int,
     include_text: bool,
+    progress: Optional[ProgressFn] = None,
 ) -> Tuple[int, int, int, int]:
     """Download *pmcids* into *out_dir*.
 
@@ -954,6 +965,8 @@ def _download_pmcids(
                     pmcid = futures[future]
                     logger.error("Unexpected error downloading %s: %s", pmcid, e)
                     errors += 1
+                if progress and (i % 5 == 0 or i == len(pmcids)):
+                    progress(i, len(pmcids), _progress_message(i, len(pmcids), successful, skipped, unavailable, errors))
         
         print()  # New line after progress
     else:
@@ -988,6 +1001,8 @@ def _download_pmcids(
             except Exception as e:
                 logger.error("Unexpected error downloading %s: %s", pmcid, e)
                 errors += 1
+            if progress and (i % 5 == 0 or i == len(pmcids)):
+                progress(i, len(pmcids), _progress_message(i, len(pmcids), successful, skipped, unavailable, errors))
         
         print()  # New line after progress
 
@@ -1034,6 +1049,7 @@ def search_and_download(
     email: Optional[str] = None,
     rate_limit: Optional[float] = None,
     session: Optional[requests.Session] = None,
+    progress: Optional[ProgressFn] = None,
 ) -> DownloadStats:
     """Search PMC for *keyword* and download up to *max_results* articles.
 
@@ -1055,6 +1071,8 @@ def search_and_download(
         rate_limit: Minimum seconds between HTTP requests. Auto-detected based on
                    API key presence: 0.1s with key (10 req/s), 0.34s without (3 req/s).
         session: Optional ``requests.Session`` to reuse across calls.
+        progress: Called now and then with ``(done, total, message)`` while
+                  the articles download.
 
     Returns:
         A :class:`DownloadStats` instance with counts and timing.
@@ -1121,6 +1139,8 @@ def search_and_download(
         f"(total PubMed results: {total_found})\n"
         f"Output directory: {out_dir}\n"
     )
+    if progress:
+        progress(0, len(pmcids), f"{len(pmcids)} articles to download")
 
     successful, unavailable, errors, skipped = _download_pmcids(
         pmcids,
@@ -1132,6 +1152,7 @@ def search_and_download(
         use_concurrent=use_concurrent,
         max_workers=max_workers,
         include_text=include_text,
+        progress=progress,
     )
 
     duration = time.time() - start_time
