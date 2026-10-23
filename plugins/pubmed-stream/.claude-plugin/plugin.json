@@ -38,6 +38,7 @@
       "type": "string",
       "title": "NCBI API key",
       "description": "Optional. A free key makes searches and downloads about three times faster: create it under API Key Management in the settings of your NCBI account (account.ncbi.nlm.nih.gov/settings). Leave it empty to add it later with /plugin configure.",
+      "default": "",
       "sensitive": true
     }
   }

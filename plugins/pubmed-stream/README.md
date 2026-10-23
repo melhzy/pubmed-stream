@@ -27,6 +27,6 @@ Files are saved in the folder the session starts in: downloaded articles and abs
 
 ## Where it works
 
-In Claude Code (terminal, VS Code, JetBrains and the desktop app's Code tab) and in Cowork. The server runs on your computer, so it is not available in Claude's chat. Codex users install it from the same repository: `codex plugin marketplace add melhzy/pubmed-stream`, then `codex plugin add pubmed-stream@pubmed-stream`.
+In Claude Code (terminal, VS Code, JetBrains and the desktop app's Code tab) and in Cowork, which starts the server on your computer when the plugin is on your claude.ai account (**Customize > Plugins > Add > Add marketplace**, then `melhzy/pubmed-stream`). The server runs on your computer, so Claude's chat cannot use it. Codex users install it from the same repository: `codex plugin marketplace add melhzy/pubmed-stream`, then `codex plugin add pubmed-stream@pubmed-stream`.
 
 [Documentation](https://melhzy.github.io/pubmed-stream/) · [Tutorial for medical students and biologists](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) · [Source](https://github.com/melhzy/pubmed-stream) · MIT license

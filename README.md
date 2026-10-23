@@ -548,9 +548,10 @@ To call pubmed-stream on purpose rather than let the assistant choose it:
 |---|---|
 | Claude Code: terminal, VS Code, JetBrains, and the Code tab of the Claude desktop app | `/pubmed-stream` narrows the menu to `/pubmed-stream:literature-search`; choose it and add your question |
 | Codex app | `/` or `@`, then *pubmed-stream* |
-| Codex CLI | `/skills`, or `$` and the skill's name |
+| Codex CLI | `$pubmed-stream:literature-search`, or `/skills` and choose it |
 | Gemini CLI | Ask in a folder set up with `init`; it has no skills menu |
-| Claude's chat and Cowork | Not yet: chat cannot start a server on your computer, and Cowork runs plugins from Anthropic's directory, where pubmed-stream is not listed yet |
+| Cowork, in the Claude desktop app | First add the plugin to your claude.ai account: **Customize > Plugins > Add > Add marketplace**, enter `melhzy/pubmed-stream`, then add *pubmed-stream*. Cowork starts the server on your computer, so uv must be installed. The plugin then reaches Claude Code from your account too; where the terminal copy is installed, Claude Code keeps using that one |
+| Claude's chat, on the web, in the desktop app and on the phone | Not available: chat cannot start a program on your computer. With the plugin on your account, `/` lists the skill there, but it has no tools to call |
 
 | Tool | What the assistant does with it |
 |---|---|
