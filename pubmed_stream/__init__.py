@@ -1,6 +1,6 @@
 """pubmed-stream: literature searches in PubMed and PubMed Central, for researchers and their AI assistants."""
 
-__version__ = "0.4.3"
+__version__ = "0.4.4"
 
 from .downloader import (
     DownloadStats,
