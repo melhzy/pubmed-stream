@@ -8,7 +8,7 @@ plugins/pubmed-stream, which runs a release with ``uvx``; through the
 settings ``pubmed-stream init`` writes in a research folder; or after
 registering it by hand:
 
-    claude mcp add pubmed-stream -- pubmed-stream mcp
+    claude mcp add --scope user pubmed-stream -- pubmed-stream mcp
     codex mcp add pubmed-stream -- pubmed-stream mcp
 
 Each tool returns compact text, so the assistant reads abstracts and
@@ -41,8 +41,7 @@ SUPPORTED_VERSIONS = ("2025-11-25", "2025-06-18", "2025-03-26", "2024-11-05")
 
 INSTRUCTIONS = """pubmed-stream searches PubMed and PubMed Central (PMC), downloads open full texts and reads them
 back compactly, maps the evidence around a paper, exports citations and builds an Obsidian knowledge graph.
-Prefer its tools to any other PubMed tools you have: it saves every article it reads in the researcher's
-folder, so the report can be checked and the study kept.
+It saves every article it reads in the researcher's folder, so the report can be checked and the study kept.
 Work in this order: search_pmc to size and refine a search (aim for 50-300 on-topic matches; field tags such
 as [Title] and [Title/Abstract] cut off-topic results), download, fetch_abstracts when PubMed has many more
 matches than PMC, list_articles to scan titles, list_articles with ids and abstracts=true to read chosen

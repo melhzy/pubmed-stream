@@ -6,10 +6,16 @@ Ask a research question in plain language, such as *Does fecal microbiota transp
 
 ## Install
 
-Inside Claude Code, or in a terminal with `claude` in front:
+Inside Claude Code:
 
 ```
 /plugin install pubmed-stream --marketplace melhzy/pubmed-stream
+```
+
+Or in a terminal:
+
+```
+claude plugin install pubmed-stream --marketplace melhzy/pubmed-stream
 ```
 
 ## What the plugin contains
@@ -27,6 +33,6 @@ Files are saved in the folder the session starts in: downloaded articles and abs
 
 ## Where it works
 
-In Claude Code (terminal, VS Code, JetBrains and the desktop app's Code tab) and in Cowork, which starts the server on your computer when the plugin is on your claude.ai account (**Customize > Plugins > Add > Add marketplace**, then `melhzy/pubmed-stream`). The server runs on your computer, so Claude's chat cannot use it. Codex users install it from the same repository: `codex plugin marketplace add melhzy/pubmed-stream`, then `codex plugin add pubmed-stream@pubmed-stream`.
+In Claude Code (terminal, VS Code, JetBrains and the desktop app's Code tab) and in Cowork, which starts the server on your computer when the plugin is on your claude.ai account (**Customize > Plugins > Add > Add marketplace**, then `melhzy/pubmed-stream`). Claude's chat on the web and on the phone cannot start it; the desktop app's chat can, once you add the server to the app's configuration ([how](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md#option-c-the-chat-of-the-claude-desktop-app)). Codex users install it from the same repository: `codex plugin marketplace add melhzy/pubmed-stream`, then `codex plugin add pubmed-stream@pubmed-stream`.
 
 [Documentation](https://melhzy.github.io/pubmed-stream/) · [Tutorial for medical students and biologists](https://github.com/melhzy/pubmed-stream/blob/main/tutorials/07_ai_assistant.md) · [Source](https://github.com/melhzy/pubmed-stream) · MIT license

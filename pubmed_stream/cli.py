@@ -360,7 +360,7 @@ Then start your assistant in the folder: claude, codex or gemini.""",
     codex plugin add pubmed-stream@pubmed-stream
   'pubmed-stream init', for Claude Code, Codex or Gemini CLI in one research folder
   by hand, for every folder:
-    claude mcp add pubmed-stream -- pubmed-stream mcp
+    claude mcp add --scope user pubmed-stream -- pubmed-stream mcp
     codex mcp add pubmed-stream -- pubmed-stream mcp
 
 Tools: search_pmc, download, fetch_abstracts, list_articles, most_cited,

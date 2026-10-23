@@ -46,7 +46,7 @@ You type questions in plain English. You never write code.
 | **Obsidian** | A free note-taking app that shows linked notes as a map. | You browse, tag and write notes on the papers there. |
 | **Ollama** | A free program that runs a small AI model on your own computer. | Optional, for questions that must stay private. |
 
-**Which assistant?** Both work the same way with pubmed-stream. Pick the one whose paid plan you already have, or that your school provides: Claude Code with a Claude plan, Codex with a ChatGPT plan. In the Claude desktop app, use its *Code* tab: the chat cannot start a program on your computer, so it cannot use pubmed-stream.
+**Which assistant?** Both work the same way with pubmed-stream. Pick the one whose paid plan you already have, or that your school provides: Claude Code with a Claude plan, Codex with a ChatGPT plan. In the Claude desktop app, use its *Code* tab, which is Claude Code; the app's chat can use pubmed-stream too, once you connect it as in [option C](#option-c-the-chat-of-the-claude-desktop-app).
 
 How they fit together:
 
@@ -145,7 +145,7 @@ It makes searches and downloads about three times faster. [Get one in five minut
 
 **How the connection works.** The assistant uses pubmed-stream through **MCP** (the Model Context Protocol), a standard way for AI assistants to use other programs. pubmed-stream, the program you installed in section 2.2, contains its own MCP server: the command `pubmed-stream mcp`. You never run it yourself. The assistant starts it in the background and calls pubmed-stream's tools through it, such as `search_pmc` to size a search and `download` to fetch papers. Connecting only tells the assistant how to start that command.
 
-There are two ways. **Option A** prepares one folder, which is all most people need: use one folder per question, so that everything the assistant downloads and writes for it stays together. **Option B** installs pubmed-stream as a plugin of Claude Code or Codex once, so that the assistant has it in every folder you open. The plugin is only a few settings files: it starts its own copy of pubmed-stream, which uv downloads. You can also do both: `init` notices the plugin and does not connect a folder twice.
+There are two main ways, and a third for the chat of the Claude desktop app. **Option A** prepares one folder, which is all most people need: use one folder per question, so that everything the assistant downloads and writes for it stays together. **Option B** installs pubmed-stream as a plugin of Claude Code or Codex once, so that the assistant has it in every folder you open. The plugin is only a few settings files: it starts its own copy of pubmed-stream, which uv downloads. You can also do both: `init` notices the plugin and does not connect a folder twice.
 
 ### Option A: one folder per question
 
@@ -211,7 +211,7 @@ Then create a folder for your question, open a terminal in it as in option A, an
 | **Claude Code** | `claude plugin marketplace update pubmed-stream`, then `claude plugin update pubmed-stream@pubmed-stream` | `claude plugin uninstall pubmed-stream@pubmed-stream` |
 | **Codex** | `codex plugin marketplace upgrade pubmed-stream`, then `codex plugin add pubmed-stream@pubmed-stream` again | `codex plugin remove pubmed-stream@pubmed-stream` |
 
-Restart the assistant afterwards. `claude plugin list` and `codex plugin list` show what is installed.
+Restart the assistant afterwards. `claude plugin list` and `codex plugin list` show each plugin with its status: pubmed-stream should be installed and enabled.
 
 ### How to call it
 
@@ -225,11 +225,39 @@ Usually you just ask your question, and the assistant reaches for pubmed-stream 
 
 A download of hundreds of papers or a knowledge graph takes minutes. Claude Code shows the progress; in Codex, wait for the call to finish rather than asking again.
 
-**The Claude desktop app.** Its *Code* tab is Claude Code, so it has the plugin you installed in option B; if the app was open during the install, start it again. Its chat cannot use pubmed-stream: chat cannot start a program on your computer. Cowork can, once the plugin is on your claude.ai account: open **Customize > Plugins**, choose **Add > Add marketplace**, enter `melhzy/pubmed-stream`, and add *pubmed-stream*. In a Cowork task, type `/` and choose *literature-search*, or just ask. A plugin on your account also reaches Claude Code; where you installed option B, Claude Code keeps using that copy, so nothing is listed twice.
+**The Claude desktop app.** Its *Code* tab is Claude Code, so it has the plugin you installed in option B; if the app was open during the install, start it again. Its chat does not start the plugin's server; [option C](#option-c-the-chat-of-the-claude-desktop-app) connects it by hand. Cowork can, once the plugin is on your claude.ai account: open **Customize > Plugins**, choose **Add > Add marketplace**, enter `melhzy/pubmed-stream`, and add *pubmed-stream*. In a Cowork task, type `/` and choose *literature-search*, or just ask. A plugin on your account also reaches Claude Code; where you installed option B, Claude Code keeps using that copy, so nothing is listed twice.
+
+### Option C: the chat of the Claude desktop app
+
+The plugin works in the desktop app's *Code* tab and in Cowork. The app's chat does not start the plugin's server, but you can give the chat pubmed-stream's tools yourself:
+
+1. **Install uv**, as in the first step of [option B](#option-b-the-plugin-once-for-every-folder).
+2. **Create a folder** where pubmed-stream should save what it downloads, for example `Documents/pubmed-stream`.
+3. **Open the app's configuration.** In the Claude menu (on a Mac, in the menu bar at the top of the screen), choose **Settings…**, then **Developer**, then **Edit Config**. This opens the file `claude_desktop_config.json`.
+4. **Add pubmed-stream** and save the file. If the file is empty, paste this, with the full path of your folder; on Windows, write it as `C:\\Users\\you\\Documents\\pubmed-stream`:
+
+   ```json
+   {
+     "mcpServers": {
+       "pubmed-stream": {
+         "command": "uvx",
+         "args": ["pubmed-stream@latest", "mcp", "--root", "/Users/you/Documents/pubmed-stream"],
+         "env": {"NCBI_API_KEY": ""}
+       }
+     }
+   }
+   ```
+
+   If the file already lists other servers under `mcpServers`, add the `"pubmed-stream"` part beside them. Put your NCBI API key ([section 2.6](#26-optional-a-free-ncbi-api-key)) between the quotes after `NCBI_API_KEY`, or leave them empty.
+5. **Quit the app completely, and start it again.**
+
+> **Check:** In a chat, click **+** below the message box, then **Connectors**: *pubmed-stream* should be listed. If it is not, write the full path of `uvx` as the `command`; to see it, type `which uvx` (Mac) or `where uvx` (Windows) in a terminal.
+
+The chat has no `AGENTS.md` and no skill, so its only rules are the short instructions pubmed-stream's server gives it. Say what you expect in your question: *size the search first, and cite every claim by PMID*.
 
 ### For programmers: connecting by hand
 
-To give the assistant the tools in every folder without the plugin, register the command you installed with pip once: `claude mcp add pubmed-stream -- pubmed-stream mcp`, or `codex mcp add pubmed-stream -- pubmed-stream mcp`. The assistant then has the tools but not the rules of `AGENTS.md`, so options A and B are better for most people.
+To give the assistant the tools in every folder without the plugin, register the command you installed with pip once: `claude mcp add --scope user pubmed-stream -- pubmed-stream mcp`, or `codex mcp add pubmed-stream -- pubmed-stream mcp`. The assistant then has the tools but not the rules of `AGENTS.md`, so options A and B are better for most people.
 
 ---
 
@@ -475,7 +503,7 @@ Tips:
 | Problem | What to do |
 |---|---|
 | `pubmed-stream`, `claude` or `codex` is "not recognized" or "not found" | Close the terminal and open a new one. If it persists, repeat the install step for that tool. |
-| The assistant says it has no pubmed-stream tools | Type `/mcp` to see whether the *pubmed-stream* server is listed and whether it shows an error. **With option A**, make sure you started the assistant in the folder where you ran `pubmed-stream init`, and in Claude Code approve the server if asked. **With option B**, `claude plugin list` or `codex plugin list` should show *pubmed-stream*; if it does, uv is probably missing: repeat the first step of [option B](#option-b-the-plugin-once-for-every-folder) and open a new terminal. Then restart the assistant. |
+| The assistant says it has no pubmed-stream tools | Type `/mcp` to see whether the *pubmed-stream* server is listed and whether it shows an error. **With option A**, make sure you started the assistant in the folder where you ran `pubmed-stream init`, and in Claude Code approve the server if asked. **With option B**, `claude plugin list` or `codex plugin list` should show *pubmed-stream* as installed and enabled; if it is missing or disabled, install or enable it as in [option B](#option-b-the-plugin-once-for-every-folder). If it is installed and enabled, uv is probably missing: repeat the first step of option B and open a new terminal. Then restart the assistant. |
 | The assistant lists every pubmed-stream tool twice | The folder was set up with `pubmed-stream init` before you installed the plugin. Run `pubmed-stream init` in the folder again: it notices the plugin and removes the folder's own connection. |
 | The plugin's server did not start, the first time | uv was downloading pubmed-stream, which can take longer than the assistant waits. Start the assistant again. |
 | The assistant used other PubMed tools | Claude Code may also have Anthropic's own PubMed connector. Say *"use pubmed-stream"*, or turn the connector off in your claude.ai settings. |

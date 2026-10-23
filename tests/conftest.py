@@ -16,6 +16,9 @@ def home(tmp_path_factory, monkeypatch):
     monkeypatch.setattr(Path, "home", classmethod(lambda cls: folder))
     monkeypatch.delenv("NCBI_API_KEY", raising=False)             # nor the developer's own key
     monkeypatch.delenv("PUBMED_STREAM_NCBI_API_KEY", raising=False)
+    for name in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN", "CLAUDE_CODE_OAUTH_TOKEN", "CLAUDE_CODE_USE_BEDROCK",
+                 "CLAUDE_CODE_USE_VERTEX", "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC"):
+        monkeypatch.delenv(name, raising=False)              # nor how the developer signs in to Claude Code
     return folder
 
 

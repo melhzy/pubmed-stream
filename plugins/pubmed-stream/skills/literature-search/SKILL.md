@@ -19,7 +19,7 @@ You are helping a researcher study the biomedical literature. Search, download a
 
 ## Tools
 
-If the **pubmed-stream MCP tools** are available, use them: `search_pmc`, `download`, `fetch_abstracts`, `list_articles`, `most_cited`, `read_article`, `neighborhood`, `export_citations` and `build_knowledge_graph`. They return compact text and need no shell. Prefer them to any other PubMed tools you have, such as a PubMed connector: pubmed-stream saves every article it reads in the researcher's folder, so the report can be checked and the study kept. Otherwise use the `pubmed-stream` command line below; each step names both.
+If the **pubmed-stream MCP tools** are available, use them: `search_pmc`, `download`, `fetch_abstracts`, `list_articles`, `most_cited`, `read_article`, `neighborhood`, `export_citations` and `build_knowledge_graph`. They return compact text, need no shell, and save every article they read in the researcher's folder, so the report can be checked and the study kept. Otherwise use the `pubmed-stream` command line below; each step names both.
 
 The MCP server is part of the pubmed-stream Python library: the assistant starts it with `pubmed-stream mcp`. If the tools are missing, it is not connected. Ask the researcher to connect it in a terminal in one of these ways, then to restart the session so the tools load:
 

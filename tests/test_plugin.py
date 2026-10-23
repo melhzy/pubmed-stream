@@ -7,7 +7,7 @@ from pathlib import Path
 
 from pubmed_stream import __version__
 from pubmed_stream.assistants import instructions
-from pubmed_stream.mcp_server import TOOLS
+from pubmed_stream.mcp_server import INSTRUCTIONS, TOOLS
 
 ROOT = Path(__file__).resolve().parent.parent
 PLUGIN = ROOT / "plugins" / "pubmed-stream"
@@ -94,3 +94,17 @@ def test_marketplaces_point_at_the_plugin():
     codex = load(ROOT / ".agents" / "plugins" / "marketplace.json")["plugins"]
     assert [(p["name"], p["source"]) for p in claude] == [("pubmed-stream", "./plugins/pubmed-stream")]
     assert [(p["name"], p["source"]["path"]) for p in codex] == [("pubmed-stream", "./plugins/pubmed-stream")]
+
+
+def test_claude_mcp_add_is_for_every_folder():
+    # without --scope user, Claude Code loads the server only in the folder where it was added
+    for path in ("README.md", "tutorials/07_ai_assistant.md", "pubmed_stream/cli.py", "pubmed_stream/mcp_server.py"):
+        for line in read(path).splitlines():
+            if "claude mcp add" in line:
+                assert "claude mcp add --scope user" in line, f"{path}: {line.strip()}"
+
+
+def test_instructions_leave_other_tools_alone():
+    # Anthropic's directory policy, 2.E: no steering Claude away from other software's tools unless the user asks
+    for text in (INSTRUCTIONS, instructions()):
+        assert "other PubMed tools" not in text and "PubMed connector" not in text
