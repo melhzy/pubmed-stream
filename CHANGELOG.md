@@ -2,6 +2,16 @@
 
 Notable changes to pubmed-stream. Versions follow [semantic versioning](https://semver.org/).
 
+## Unreleased
+
+### Fixed
+
+- The docs and `pubmed-stream mcp --help` register the server by hand with `claude mcp add --scope user`; without `--scope user`, Claude Code loads it only in the folder where you ran the command.
+- `init` decides whether the Claude Code plugin is on as Claude Code does, one plugin id at a time across the user, project and local settings: a disabled copy of your own no longer hides a copy synced from claude.ai, and a synced copy counts only where Claude Code would load it, so `init` no longer removes a folder's server in a session that signs in with an API key, a token, Bedrock or Vertex.
+- The server's instructions and `AGENTS.md` no longer tell the assistant to prefer pubmed-stream over other PubMed tools, as Anthropic's directory policy asks; they say what it does differently, and the researcher chooses.
+- The chat of the Claude desktop app can use pubmed-stream once the server is added to the app's configuration: tutorial 7's new option C shows how, and the docs no longer say that the chat cannot.
+- Troubleshooting checks that the plugin is installed and enabled, not only listed, before blaming uv, and the plugin's README gives the install command for a terminal too.
+
 ## 0.4.3 - 2026-10-23
 
 ### Added

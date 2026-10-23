@@ -319,8 +319,39 @@ def test_init_counts_a_plugin_synced_from_claude_ai(tmp_path, home):
     assert dict(init_folder(tmp_path))[".mcp.json"] == "plugin"
 
     # turned off in Claude Code, it does not count
-    (home / ".claude" / "settings.json").write_text(json.dumps({"enabledPlugins": {"pubmed-stream@synced": False}}))
+    settings = home / ".claude" / "settings.json"
+    settings.write_text(json.dumps({"enabledPlugins": {"pubmed-stream@synced": False}}))
     assert dict(init_folder(tmp_path))[".mcp.json"] == "created"
+
+    # a disabled copy of one's own does not hide the synced one, which Claude Code then loads
+    settings.write_text(json.dumps({"enabledPlugins": {"pubmed-stream@pubmed-stream": False}}))
+    assert dict(init_folder(tmp_path))[".mcp.json"] == "plugin"
+
+
+def test_init_keeps_the_server_where_claude_code_would_not_load_the_synced_plugin(tmp_path, home, monkeypatch):
+    (home / ".claude" / "plugins" / "synced" / "account-id" / "pubmed-stream").mkdir(parents=True)
+    settings = home / ".claude" / "settings.json"
+
+    monkeypatch.setenv("ANTHROPIC_AUTH_TOKEN", "token")                # another credential signs in
+    assert dict(init_folder(tmp_path))[".mcp.json"] == "created"
+    monkeypatch.delenv("ANTHROPIC_AUTH_TOKEN")
+    assert dict(init_folder(tmp_path))[".mcp.json"] == "plugin"
+    for data in ({"apiKeyHelper": "~/bin/key.sh"}, {"syncClaudeAiPlugins": False},
+                 {"env": {"CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"}}):
+        settings.write_text("{}")
+        assert dict(init_folder(tmp_path))[".mcp.json"] == "plugin"           # the synced copy counts
+        settings.write_text(json.dumps(data))
+        assert dict(init_folder(tmp_path))[".mcp.json"] == "updated", data    # Claude Code would not load it
+    settings.write_text("{}")
+    assert dict(init_folder(tmp_path))[".mcp.json"] == "plugin"
+
+    # the settings merge one id at a time: the folder's off overrides the user's on, and the synced copy counts
+    settings.write_text(json.dumps({"enabledPlugins": {"pubmed-stream@pubmed-stream": True}}))
+    (tmp_path / ".claude").mkdir(exist_ok=True)
+    (tmp_path / ".claude" / "settings.local.json").write_text(json.dumps({"enabledPlugins": {"pubmed-stream@pubmed-stream": False}}))
+    assert dict(init_folder(tmp_path))[".mcp.json"] == "plugin"
+    (home / ".claude" / "plugins" / "synced" / "account-id" / "pubmed-stream").rmdir()
+    assert dict(init_folder(tmp_path))[".mcp.json"] == "updated"                # no copy left: the server returns
 
 
 def test_init_saves_the_api_key_for_the_user(tmp_path, home, monkeypatch, capsys):

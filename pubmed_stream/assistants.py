@@ -18,10 +18,11 @@ so its model is chosen with ``codex -m`` or ``/model`` instead.
 """
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
-from typing import Any, List, Optional, Tuple, Union
+from typing import Any, Dict, List, Optional, Tuple, Union
 
 from .settings import NCBI_API_KEY_SETTING, SETTINGS_FILE, read_settings, set_setting, user_settings_file
 
@@ -30,6 +31,11 @@ PathLike = Union[str, Path]
 INSTRUCTIONS_FILE = Path(__file__).parent / "data" / "AGENTS.md"
 SERVER_NAME = "pubmed-stream"
 PLUGIN = "pubmed-stream@"               # the plugin's id, followed by the marketplace it came from
+SYNCED = PLUGIN + "synced"              # the copy Claude Code syncs from the claude.ai account
+# Claude Code loads synced plugins only in sessions signed in with the claude.ai account that fetch feature
+# flags; these variables sign in another way, or stop the fetch
+NO_SYNC_ENV = ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN", "CLAUDE_CODE_OAUTH_TOKEN", "CLAUDE_CODE_USE_BEDROCK",
+               "CLAUDE_CODE_USE_VERTEX", "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC")
 CODEX_TABLE = f"[mcp_servers.{SERVER_NAME}]"
 
 
@@ -43,25 +49,45 @@ def server_command() -> Tuple[str, List[str]]:
     return sys.executable, ["-m", "pubmed_stream", "mcp"]
 
 
+def _claude_syncs_plugins(settings: List[Dict[str, Any]]) -> bool:
+    """Whether Claude Code would load plugins synced from the claude.ai account, judged from the environment
+    and its *settings* files: not where another credential signs in, or where ``syncClaudeAiPlugins`` is off."""
+    env = dict(os.environ)
+    for data in settings:
+        if isinstance(data.get("env"), dict):
+            env.update({name: str(value) for name, value in data["env"].items()})
+    if any(env.get(name) for name in NO_SYNC_ENV) or any(data.get("apiKeyHelper") for data in settings):
+        return False
+    return settings[0].get("syncClaudeAiPlugins", True) is not False
+
+
 def plugin_installed(assistant: str, folder: PathLike = ".") -> bool:
     """Whether the pubmed-stream plugin is enabled in Claude Code or Codex (*assistant*), for the user or *folder*.
 
-    Claude Code lists enabled plugins in its settings files, except a plugin
-    added on the claude.ai account, which it syncs into its plugins folder and
-    loads with no settings entry unless the user turns it off; Codex enables
-    one with a ``[plugins."pubmed-stream@<marketplace>"]`` table in ``config.toml``.
+    Claude Code merges ``enabledPlugins`` across its user, project and local
+    settings one plugin id at a time, the most specific file that names an id
+    deciding it.  An enabled marketplace copy counts, and wins over a copy
+    synced from the claude.ai account, which counts unless ``pubmed-stream@synced``
+    is off or the session would not load synced plugins.  When that cannot be
+    told, the folder keeps its server: tools listed twice beat no tools.
+    Codex enables a plugin with a ``[plugins."pubmed-stream@<marketplace>"]``
+    table in ``config.toml``.
     """
     home, folder = Path.home(), Path(folder)
     if assistant == "claude":
-        # the most specific settings file that mentions the plugin decides, as in Claude Code
-        for path in (folder / ".claude" / "settings.local.json", folder / ".claude" / "settings.json",
-                     home / ".claude" / "settings.json"):
-            enabled = read_settings(path).get("enabledPlugins")
-            ours = [bool(on) for name, on in enabled.items() if name.startswith(PLUGIN)] if isinstance(enabled, dict) else []
-            if ours:
-                return any(ours)
+        settings = [read_settings(path) for path in (home / ".claude" / "settings.json",
+                                                     folder / ".claude" / "settings.json",
+                                                     folder / ".claude" / "settings.local.json")]
+        enabled: Dict[str, Any] = {}
+        for data in settings:
+            if isinstance(data.get("enabledPlugins"), dict):
+                enabled.update(data["enabledPlugins"])
+        ours = {name: bool(on) for name, on in enabled.items() if name.startswith(PLUGIN)}
+        if any(on for name, on in ours.items() if name != SYNCED):
+            return True
         synced = home / ".claude" / "plugins" / "synced"
-        return any(p.is_dir() for pattern in ("*/pubmed-stream", "*/pubmed-stream~*") for p in synced.glob(pattern))
+        return (ours.get(SYNCED, True) and _claude_syncs_plugins(settings)
+                and any(p.is_dir() for pattern in ("*/pubmed-stream", "*/pubmed-stream~*") for p in synced.glob(pattern)))
     for path in (home / ".codex" / "config.toml", folder / ".codex" / "config.toml"):
         try:
             text = path.read_text(encoding="utf-8")
